@@ -1,17 +1,20 @@
-// locale ['en', 'ar']
+import { LocaleType } from '@/i18n/types'
+import { font } from '@/lib/utils'
+import { useLocale, useTranslations } from 'next-intl'
 
 export default function Home() {
+  const t = useTranslations('HomePage')
+  const locale = useLocale() as LocaleType
+
   return (
     <div>
-      <p className="font-sans">HEY hey Built for Every Spaces</p>
-      <br />
-      <p className="font-inter">For Homes, Offices & Commercial Spaces</p>
-      <br />
-      <p className="font-nobile">HEY nhey Built for Every Spaces</p>
-      <br />
-      <p className="font-cairo">HELLO hello</p>
-      <br />
-      <p className="font-manrope">info@zandscarpets.com +971 5270 044 20</p>
+      <h1 className={font(locale, { en: 'font-inter', ar: 'font-cairo' })}>
+        {t('title')}
+      </h1>
+      <div className="w-1/3 h-20 bg-amber-400"></div>
+      <h1 className={font(locale, { en: 'font-manrope', ar: 'font-cairo' })}>
+        {t('title')}
+      </h1>
     </div>
   )
 }

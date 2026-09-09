@@ -1,0 +1,11 @@
+{
+  "HomePage": {
+    "title": "Welcome to our websites",
+    "description": "We provide quality products."
+  },
+  "Navigation": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact"
+  }
+}
