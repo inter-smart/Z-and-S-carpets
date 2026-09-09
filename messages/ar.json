@@ -7,5 +7,156 @@
     "home": "الرئيسية",
     "about": "من نحن",
     "contact": "اتصل بنا"
+  },
+  "Footer": {
+    "footerLinks": {
+      "quickLinks": {
+        "title": "Quick Links",
+        "items": [
+          {
+            "text": "About Us",
+            "link": ""
+          },
+          {
+            "text": "Our Process",
+            "link": ""
+          },
+          {
+            "text": "Blog",
+            "link": ""
+          },
+          {
+            "text": "Careers",
+            "link": ""
+          },
+          {
+            "text": "Privacy Policy",
+            "link": ""
+          }
+        ]
+      },
+      "services": {
+        "title": "Services",
+        "items": [
+          {
+            "text": "Design Consultation",
+            "link": ""
+          },
+          {
+            "text": "Free Sampling",
+            "link": ""
+          },
+          {
+            "text": "Professional Installation",
+            "link": ""
+          },
+          {
+            "text": "Commercial Projects",
+            "link": ""
+          },
+          {
+            "text": "Maintenance",
+            "link": ""
+          }
+        ]
+      },
+      "products": {
+        "title": "Products",
+        "items": [
+          [
+            {
+              "text": "Artificial Grass",
+              "link": ""
+            },
+            {
+              "text": "Carpet Flooring",
+              "link": ""
+            },
+            {
+              "text": "Vinyl Flooring",
+              "link": ""
+            },
+            {
+              "text": "Wood Flooring",
+              "link": ""
+            },
+            {
+              "text": "Deck Flooring",
+              "link": ""
+            },
+            {
+              "text": "Gym & Sports Flooring",
+              "link": ""
+            }
+          ],
+          [
+            {
+              "text": "Spc Flooring",
+              "link": ""
+            },
+            {
+              "text": "Rubber Flooring",
+              "link": ""
+            },
+            {
+              "text": "Lvt Flooring",
+              "link": ""
+            },
+            {
+              "text": "Wall Cladding",
+              "link": ""
+            },
+            {
+              "text": "Laminate Flooring",
+              "link": ""
+            },
+            {
+              "text": "PVC Flooring",
+              "link": ""
+            }
+          ]
+        ]
+      }
+    },
+    "contacts": [
+      {
+        "id": "location-icon",
+        "text": "Warehouse No:5, Street No:2 Al Warsan -3, Dubai (UAE)"
+      },
+      {
+        "id": "mail-icon",
+        "text": "info@zandscarpets.com"
+      },
+      {
+        "id": "phone-icon",
+        "text": "+971 5270 044 20"
+      },
+      {
+        "id": "whatsapp-icon",
+        "text": "+971 XX XXX XXXX"
+      }
+    ],
+    "social": [
+      {
+        "id": "facebook-icon",
+        "link": ""
+      },
+      {
+        "id": "youtube-icon",
+        "link": ""
+      },
+      {
+        "id": "instagram-icon",
+        "link": ""
+      },
+      {
+        "id": "linkedin-icon",
+        "link": ""
+      },
+      {
+        "id": "xtwitter-icon",
+        "link": ""
+      }
+    ]
   }
 }
