@@ -1,0 +1,4 @@
+# lock files
+*.lock
+*-lock.json
+*-lock.yaml
