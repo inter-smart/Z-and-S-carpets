@@ -1,10 +1,11 @@
-import type { Metadata } from 'next'
-import { Inter, Cairo, Nobile, Manrope } from 'next/font/google'
-import '../globals.css'
+import { LocaleType } from '@/i18n/types'
 import { cn, font } from '@/lib/utils'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
-import { LocaleType } from '@/i18n/types'
+import { Cairo, Inter, Manrope, Nobile } from 'next/font/google'
+import '../globals.css'
+
+import type { Metadata } from 'next'
 
 const inter = Inter({
   variable: '--font-inter',

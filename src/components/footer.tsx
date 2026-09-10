@@ -1,20 +1,20 @@
-import Image from 'next/image'
-import { FooterImage } from '@/assets/images'
 import {
   FacebookIcon,
-  YouTubeIcon,
   InstagramIcon,
+  InterSmartIcon,
   LinkedInIcon,
-  XTwitterIcon,
   LocationBlueIcon,
   MailBlueIcon,
   PhoneBlueIcon,
   WhatsAppIcon,
-  InterSmartIcon,
+  XTwitterIcon,
+  YouTubeIcon,
 } from '@/assets/icons'
+import { FloorImg1, FloorImg2, FloorImg3 } from '@/assets/images'
 import { SiteLogo } from '@/assets/logos'
-import { useLocale, useTranslations } from 'next-intl'
-import { LocaleType } from '@/i18n/types'
+import { useTranslations } from 'next-intl'
+import Image from 'next/image'
+import FooterCarousel from './footer-carousel'
 
 interface FooterLinksItemsType {
   text: string
@@ -38,7 +38,6 @@ const socialIcons = {
 
 export default function Footer() {
   const t = useTranslations('Footer')
-  const locale = useLocale() as LocaleType
 
   const footerLinks_quickLinks_items = t.raw(
     'footerLinks.quickLinks.items',
@@ -56,15 +55,9 @@ export default function Footer() {
     <footer className="w-full text-sm bg-[#101010] text-white px-8 sm:px-22 pt-18">
       {/* top */}
       <div className="pb-10">
-        {/* image */}
-        <div className="w-auto h-64 relative">
-          <Image
-            className="rounded-md object-cover"
-            src={FooterImage}
-            alt="Next.js logo"
-            fill
-          />
-        </div>
+        {/* images carousel */}
+        <FooterCarousel images={[FloorImg1, FloorImg2, FloorImg3]} />
+
         {/* links */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 pt-18">
           <div className="space-y-7">
@@ -113,6 +106,7 @@ export default function Footer() {
               </div>
             </div>
           </div>
+
           {/* contacts */}
           <div className="space-y-7">
             <Image src={SiteLogo} alt="site-logo" />
@@ -136,10 +130,11 @@ export default function Footer() {
           </div>
         </div>
       </div>
+
       {/* bottom */}
       <hr className="border-white/10" />
       <div className="w-full flex flex-col lg:flex-row justify-between items-center py-10 text-center space-y-4 lg:space-y-0">
-        <p>Copyright © Z&S Carpets Trading L.L.C. All Rights Reserved</p>
+        <p>{t('copyright')}</p>
         <div className="flex flex-row space-x-3 sm:space-x-8 xl:space-x-10">
           {social.map((logo) => (
             <Image
