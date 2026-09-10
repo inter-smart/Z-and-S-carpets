@@ -62,6 +62,42 @@
       }
     ]
   },
+  "FAQ": {
+    "faqs": [
+      {
+        "question": "Do You Offer Free Samples Before Purchase?",
+        "answer": "Yes, we offer complimentary samples so you can confidently choose the right finish, texture, and colour for your space."
+      },
+      {
+        "question": "Do You Install Outside Of Dubai?",
+        "answer": "Absolutely. We serve all GCC countries including UAE, Saudi Arabia, Qatar, Kuwait, Bahrain and Oman. Delivery and installation can be arranged across the region."
+      },
+      {
+        "question": "How Long Does Installation Take?",
+        "answer": "Installation timelines depend on the product and project size. After our site measurement, we will provide a clear schedule before work begins."
+      },
+      {
+        "question": "Can You Help With Design And Selection?",
+        "answer": "Our flooring consultants can help you compare materials, finishes and layouts to find a solution that suits your style, space and budget."
+      },
+      {
+        "question": "Is There A Warranty On Products And Installation?",
+        "answer": "Yes. Product and installation warranties vary by collection, and our team will explain the coverage for your selected flooring before purchase."
+      },
+      {
+        "question": "Do You Work With Interior Designers And Contractors?",
+        "answer": "Yes, we regularly partner with interior designers, contractors, developers and project teams across the UAE and GCC."
+      }
+    ],
+    "pfs": {
+      "title": "Premium Flooring Solutions Across UAE & GCC",
+      "paragraphs": [
+        "Z&S Carpets & Flooring Is One Of The UAE's Most Trusted Flooring Specialists, Offering An Extensive Range Of Carpets, Artificial Grass, Vinyl Flooring, Engineered Wooden Flooring, Outdoor Decking And Decorative Rugs. With Over 15 Years Of Experience Serving Dubai, Abu Dhabi, Sharjah, And Across The GCC, We Bring Premium-Quality Flooring To Residential Villas, Corporate Offices, Hotels, Retail Outlets And Outdoor Spaces.",
+        "Our Team Of Flooring Consultants, Project Managers And Installation Technicians Are Committed To Delivering A Seamless Experience — From Product Selection And Sample Delivery To Site Measurement, Installation And Aftercare. Whether You're Refurbishing A Single Room Or Outfitting An Entire Development, Z&S Has The Expertise, Range And Resources To Deliver Exceptional Results."
+      ],
+      "buttonLabel": "See More"
+    }
+  },
   "Footer": {
     "footerLinks": {
       "quickLinks": {

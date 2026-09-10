@@ -62,7 +62,7 @@ export default function Navbar() {
             <div className="flex flex-row items-center space-x-3">
               <Button
                 size="icon"
-                className="bg-[#0066B3] hover:bg-[#0066B3]/80 rounded-full w-10 h-10 p-2 translate-y-0!"
+                className="bg-[#0066B3] hover:bg-[#0066B3]/90 rounded-full w-10 h-10 p-2 translate-y-0!"
               >
                 <Image
                   src={FilePenIcon}
