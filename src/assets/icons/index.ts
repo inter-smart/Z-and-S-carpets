@@ -9,6 +9,8 @@ import LinkedInIcon from './linkedin.svg'
 import LocationBlueIcon from './location-blue.svg'
 import MailBlueIcon from './mail-blue.svg'
 import MenuIcon from './menu.svg'
+import MoveLeftIcon from './move-left.svg'
+import MoveRightIcon from './move-right.svg'
 import PhoneBlueIcon from './phone-blue.svg'
 import SearchIcon from './search.svg'
 import WhatsAppIcon from './whatsapp.svg'
@@ -27,6 +29,8 @@ export {
   LocationBlueIcon,
   MailBlueIcon,
   MenuIcon,
+  MoveLeftIcon,
+  MoveRightIcon,
   PhoneBlueIcon,
   SearchIcon,
   WhatsAppIcon,
