@@ -20,6 +20,7 @@ export default function HomePage() {
           <div className="w-5 h-5 bg-blue-400 hidden xl:block"></div>
           <div className="w-5 h-5 bg-blue-400 hidden 2xl:block"></div>
         </div>
+        <div className="h-[50vh]"></div>
         <h1 className={font(locale, { en: 'font-inter', ar: 'font-cairo' })}>
           {t('title')}
         </h1>
