@@ -3,10 +3,64 @@
     "title": "Welcome to our websites",
     "description": "We provide quality products."
   },
-  "Navigation": {
-    "home": "Home",
-    "about": "About",
-    "contact": "Contact"
+  "Navbar": {
+    "navLinks": [
+      [
+        {
+          "text": "About Us",
+          "link": ""
+        },
+        {
+          "text": "Services",
+          "link": ""
+        },
+        {
+          "text": "Our Work",
+          "link": ""
+        },
+        {
+          "text": "Resources",
+          "link": ""
+        }
+      ],
+      [
+        {
+          "text": "Expert Insights",
+          "link": ""
+        },
+        {
+          "text": "Contact us",
+          "link": ""
+        },
+        {
+          "text": "Get a sample",
+          "link": ""
+        }
+      ]
+    ],
+    "category": [
+      {
+        "title": "Artificial Grass"
+      },
+      {
+        "title": "Vinyl Flooring"
+      },
+      {
+        "title": "Deck Flooring"
+      },
+      {
+        "title": "Spc Flooring"
+      },
+      {
+        "title": "Laminate Flooring"
+      },
+      {
+        "title": "Carpet Flooring"
+      },
+      {
+        "title": "Lvt Flooring More"
+      }
+    ]
   },
   "Footer": {
     "footerLinks": {
