@@ -3,10 +3,41 @@
     "title": "مرحباً بكم في موقعنا",
     "description": "نحن نقدم منتجات عالية الجودة."
   },
-  "Navigation": {
-    "home": "الرئيسية",
-    "about": "من نحن",
-    "contact": "اتصل بنا"
+  "Navbar": {
+    "navLinks": [
+      [
+        {
+          "text": "About Us",
+          "link": ""
+        },
+        {
+          "text": "Services",
+          "link": ""
+        },
+        {
+          "text": "Our Work",
+          "link": ""
+        },
+        {
+          "text": "Resources",
+          "link": ""
+        }
+      ],
+      [
+        {
+          "text": "Expert Insights",
+          "link": ""
+        },
+        {
+          "text": "Contact us",
+          "link": ""
+        },
+        {
+          "text": "Get a sample",
+          "link": ""
+        }
+      ]
+    ]
   },
   "Footer": {
     "footerLinks": {
