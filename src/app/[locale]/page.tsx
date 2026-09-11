@@ -3,6 +3,7 @@ import Navbar from '@/components/navbar'
 import CollectionSection from './collection.section'
 import FAQSection from './faq.section'
 import HeroSection from './hero.section'
+import ProcessSections from './process.section'
 import WorksSections from './works.section.tsx'
 
 export default function HomePage() {
@@ -16,6 +17,7 @@ export default function HomePage() {
         <HeroSection />
         <CollectionSection />
         <WorksSections />
+        <ProcessSections />
         <FAQSection />
       </main>
       <Footer />

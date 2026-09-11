@@ -83,22 +83,18 @@
     "image": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-O9BA8oAzMITHDdRTzxM4hhv0TpnQIw.png",
     "steps": [
       {
-        "number": "01",
         "title": "Design",
         "description": "We help you shape the right flooring direction for your space."
       },
       {
-        "number": "02",
         "title": "Supervision",
         "description": "Our project managers oversee every detail from selection to site preparation."
       },
       {
-        "number": "03",
         "title": "Budget Planning",
         "description": "Clear recommendations and practical planning keep your project on track."
       },
       {
-        "number": "04",
         "title": "Delivery & Install",
         "description": "Our skilled team delivers and installs your flooring with care."
       }
