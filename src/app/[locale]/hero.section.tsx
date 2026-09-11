@@ -95,19 +95,47 @@ export default function HeroSection() {
                 </div>
                 <div className="w-3/5 flex flex-col">
                   <div className="flex flex-row justify-end">
-                    <div className="p-1.5 border border-gray-200 rounded-l-sm cursor-pointer">
-                      <Image
-                        src={MoveLeftIcon}
-                        alt="move-arrow-icon"
-                        className="w-auto h-1.75"
-                      />
+                    <div
+                      className={cn(
+                        'p-1.5 border border-gray-200 cursor-pointer',
+                        locale === 'ar' ? 'rounded-r-sm' : 'rounded-l-sm',
+                      )}
+                    >
+                      {locale === 'ar' ? (
+                        <Image
+                          src={MoveRightIcon}
+                          alt="move-arrow-icon"
+                          className="w-auto h-1.75"
+                        />
+                      ) : (
+                        <Image
+                          src={MoveLeftIcon}
+                          alt="move-arrow-icon"
+                          className="w-auto h-1.75"
+                        />
+                      )}
                     </div>
-                    <div className="p-1.5 border-y border-r border-gray-200 rounded-r-sm cursor-pointer">
-                      <Image
-                        src={MoveRightIcon}
-                        alt="move-arrow-icon"
-                        className="w-auto h-1.75"
-                      />
+                    <div
+                      className={cn(
+                        'p-1.5 border-y border-gray-200 cursor-pointer',
+                        locale === 'ar'
+                          ? 'border-l rounded-l-sm'
+                          : 'border-r rounded-r-sm',
+                      )}
+                    >
+                      {locale === 'ar' ? (
+                        <Image
+                          src={MoveLeftIcon}
+                          alt="move-arrow-icon"
+                          className="w-auto h-1.75"
+                        />
+                      ) : (
+                        <Image
+                          src={MoveRightIcon}
+                          alt="move-arrow-icon"
+                          className="w-auto h-1.75"
+                        />
+                      )}
                     </div>
                   </div>
                   <div className="flex flex-col gap-2">

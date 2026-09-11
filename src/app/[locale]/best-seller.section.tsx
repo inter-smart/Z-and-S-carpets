@@ -3,8 +3,9 @@
 import { ArrowLeftIcon, ArrowRightIcon } from '@/assets/icons'
 import { FloorImg10, FloorImg8, FloorImg9 } from '@/assets/images'
 import { Button } from '@/components/ui/button'
-import { ArrowLeft, ArrowRight, ListFilter } from 'lucide-react'
-import { useTranslations } from 'next-intl'
+import type { LocaleType } from '@/i18n/types'
+import { ListFilter } from 'lucide-react'
+import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useState } from 'react'
 
@@ -13,6 +14,8 @@ const cardsPerSlide = 3
 const productsImgs = [FloorImg8, FloorImg9, FloorImg10]
 
 export default function BestSellers() {
+  const locale = useLocale() as LocaleType
+
   const t = useTranslations('bestseller')
   const [slide, setSlide] = useState(0)
 
@@ -57,7 +60,12 @@ export default function BestSellers() {
           <div className="overflow-hidden">
             <div
               className="flex transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none"
-              style={{ transform: `translateX(-${slide * 100}%)` }}
+              style={{
+                transform:
+                  locale === 'ar'
+                    ? `translateX(${slide * 100}%)`
+                    : `translateX(-${slide * 100}%)`,
+              }}
             >
               {slides.map((slideItems, slideIndex) => (
                 <div
@@ -112,8 +120,16 @@ export default function BestSellers() {
             aria-label="Previous products"
             variant="ghost"
             size="icon"
-            disabled={slide === 0}
-            onClick={() => setSlide((current) => Math.max(0, current - 1))}
+            disabled={
+              locale === 'ar' ? slide === slides.length - 1 : slide === 0
+            }
+            onClick={() =>
+              locale === 'ar'
+                ? setSlide((current) =>
+                    Math.min(slides.length - 1, current + 1),
+                  )
+                : setSlide((current) => Math.max(0, current - 1))
+            }
             className="absolute -left-10 top-1/2 hidden text-xl hover:bg-transparent disabled:opacity-30 lg:inline-flex cursor-pointer"
           >
             <Image
@@ -126,9 +142,15 @@ export default function BestSellers() {
             aria-label="Next products"
             variant="ghost"
             size="icon"
-            disabled={slide === slides.length - 1}
+            disabled={
+              locale === 'ar' ? slide === 0 : slide === slides.length - 1
+            }
             onClick={() =>
-              setSlide((current) => Math.min(slides.length - 1, current + 1))
+              locale === 'ar'
+                ? setSlide((current) => Math.max(0, current - 1))
+                : setSlide((current) =>
+                    Math.min(slides.length - 1, current + 1),
+                  )
             }
             className="absolute -right-10 top-1/2 hidden text-xl hover:bg-transparent disabled:opacity-30 lg:inline-flex cursor-pointer"
           >
@@ -143,25 +165,50 @@ export default function BestSellers() {
         <div className="mt-6 flex justify-center gap-2 lg:hidden">
           <Button
             aria-label="Previous products"
-            variant="outline"
+            variant="ghost"
             size="icon"
             disabled={slide === 0}
             onClick={() => setSlide((current) => Math.max(0, current - 1))}
-            className="border-white/50 bg-transparent text-white hover:bg-white hover:text-[#073b68]"
+            className="hover:bg-transparent cursor-pointer"
           >
-            <ArrowLeft />
+            {locale === 'ar' ? (
+              <Image
+                src={ArrowRightIcon}
+                alt="arrow-left"
+                className="w-auto h-2.5"
+              />
+            ) : (
+              <Image
+                src={ArrowLeftIcon}
+                alt="arrow-left"
+                className="w-auto h-2.5"
+              />
+            )}
+            {/* <ArrowLeft /> */}
           </Button>
           <Button
             aria-label="Next products"
-            variant="outline"
+            variant="ghost"
             size="icon"
             disabled={slide === slides.length - 1}
             onClick={() =>
               setSlide((current) => Math.min(slides.length - 1, current + 1))
             }
-            className="border-white/50 bg-transparent text-white hover:bg-white hover:text-[#073b68]"
+            className="hover:bg-transparent cursor-pointer"
           >
-            <ArrowRight />
+            {locale === 'ar' ? (
+              <Image
+                src={ArrowLeftIcon}
+                alt="arrow-left"
+                className="w-auto h-2.5"
+              />
+            ) : (
+              <Image
+                src={ArrowRightIcon}
+                alt="arrow-left"
+                className="w-auto h-2.5"
+              />
+            )}
           </Button>
         </div>
       </div>
