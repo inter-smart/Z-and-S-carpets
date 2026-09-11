@@ -25,11 +25,6 @@ export default function CollectionSection() {
     id: string
     title: string
   }[]
-  // const collections = t.raw('pfs') as {
-  //   title: string
-  //   paragraphs: string[]
-  //   buttonLabel: string
-  // }
 
   return (
     <section

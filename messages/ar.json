@@ -104,7 +104,7 @@
       }
     ]
   },
-  "projects": {
+  "works": {
     "title": "Explore Our Work",
     "categories": [
       "ALL",
@@ -118,20 +118,17 @@
         "title": "Wood Pattern Vinyl",
         "category": "RESIDENTIAL",
         "location": "United Arab Emirates",
-        "image": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZkZyUFRkT9ZQmRCUBxkwDlwoLosmpC.png",
         "featured": true
       },
       {
         "title": "Laminate Flooring",
         "category": "COMMERCIAL",
-        "location": "United Arab Emirates",
-        "image": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZkZyUFRkT9ZQmRCUBxkwDlwoLosmpC.png"
+        "location": "United Arab Emirates"
       },
       {
         "title": "Deck Flooring",
         "category": "OUTDOOR",
-        "location": "United Arab Emirates",
-        "image": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZkZyUFRkT9ZQmRCUBxkwDlwoLosmpC.png"
+        "location": "United Arab Emirates"
       }
     ]
   },

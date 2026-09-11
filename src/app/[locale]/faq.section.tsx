@@ -83,7 +83,7 @@ export default function FAQSection() {
         </div>
       </div>
 
-      <div className="flex flex-col justify-start bg-flooring-panel px-6 py-16 sm:px-10 lg:px-[5.2vw] lg:py-20 bg-[#EFF9FE]">
+      <div className="flex flex-col justify-start px-6 py-16 sm:px-10 lg:px-[5.2vw] lg:py-20 bg-[#EFF9FE]">
         <div className="">
           <h2
             className={cn(
