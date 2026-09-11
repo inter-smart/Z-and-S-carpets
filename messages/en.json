@@ -62,6 +62,79 @@
       }
     ]
   },
+  "collection": {
+    "title": "Discover Our Collection",
+    "buttonLabel": "View All Products",
+    "items": [
+      {
+        "id": "laminate-flooring",
+        "title": "Laminate Flooring"
+      },
+      {
+        "id": "carpet-flooring",
+        "title": "Carpet Flooring"
+      }
+    ],
+    "itemButtonLabel": "View Products"
+  },
+  "process": {
+    "eyebrow": "OUR PROCESS",
+    "title": "How it Works",
+    "image": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-O9BA8oAzMITHDdRTzxM4hhv0TpnQIw.png",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Design",
+        "description": "We help you shape the right flooring direction for your space."
+      },
+      {
+        "number": "02",
+        "title": "Supervision",
+        "description": "Our project managers oversee every detail from selection to site preparation."
+      },
+      {
+        "number": "03",
+        "title": "Budget Planning",
+        "description": "Clear recommendations and practical planning keep your project on track."
+      },
+      {
+        "number": "04",
+        "title": "Delivery & Install",
+        "description": "Our skilled team delivers and installs your flooring with care."
+      }
+    ]
+  },
+  "projects": {
+    "title": "Explore Our Work",
+    "categories": [
+      "ALL",
+      "RESIDENTIAL",
+      "COMMERCIAL",
+      "HOSPITALITY",
+      "OUTDOOR"
+    ],
+    "items": [
+      {
+        "title": "Wood Pattern Vinyl",
+        "category": "RESIDENTIAL",
+        "location": "United Arab Emirates",
+        "image": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZkZyUFRkT9ZQmRCUBxkwDlwoLosmpC.png",
+        "featured": true
+      },
+      {
+        "title": "Laminate Flooring",
+        "category": "COMMERCIAL",
+        "location": "United Arab Emirates",
+        "image": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZkZyUFRkT9ZQmRCUBxkwDlwoLosmpC.png"
+      },
+      {
+        "title": "Deck Flooring",
+        "category": "OUTDOOR",
+        "location": "United Arab Emirates",
+        "image": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ZkZyUFRkT9ZQmRCUBxkwDlwoLosmpC.png"
+      }
+    ]
+  },
   "FAQ": {
     "faqs": [
       {

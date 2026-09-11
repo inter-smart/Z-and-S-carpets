@@ -77,7 +77,7 @@ export default function HeroSection() {
                     en: 'font-manrope',
                     ar: 'font-cairo',
                   }),
-                  'w-fit rounded-sm px-8 py-4.5 mt-6',
+                  'w-fit rounded-sm px-8 py-4.5 mt-6 hover:bg-white/10 hover:text-white',
                 )}
               >
                 Request Quote

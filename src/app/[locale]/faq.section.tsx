@@ -1,12 +1,17 @@
 'use client'
 
-import { Minus, Plus } from 'lucide-react'
-import { useState } from 'react'
+import type { LocaleType } from '@/i18n/types'
 
 import { Button } from '@/components/ui/button'
-import { useTranslations } from 'next-intl'
+import { font } from '@/lib/utils'
+import { cn } from 'cn'
+import { Minus, Plus } from 'lucide-react'
+import { useLocale, useTranslations } from 'next-intl'
+import { useState } from 'react'
 
 export default function FAQSection() {
+  const locale = useLocale() as LocaleType
+
   const t = useTranslations('FAQ')
   const faqs = t.raw('faqs') as { question: string; answer: string }[]
   const pfs = t.raw('pfs') as {
@@ -19,15 +24,23 @@ export default function FAQSection() {
 
   return (
     <section
-      className="grid min-h-screen grid-cols-1 lg:grid-cols-2"
+      className="grid grid-cols-1 lg:grid-cols-2"
       aria-label="Frequently asked questions and company information"
     >
       <div className="flex flex-col px-6 py-16 sm:px-10 lg:px-[5.6vw] lg:py-20 xl:px-[5.7vw]">
-        <h2 className="max-w-md text-4xl font-semibold leading-[1.08] tracking-[-0.04em] text-foreground sm:text-5xl">
+        <h2
+          className={cn(
+            'max-w-md text-4xl font-medium leading-[1.08] tracking-[-0.04em] text-foreground sm:text-5xl',
+            font(locale as LocaleType, {
+              en: 'font-nobile',
+              ar: 'font-cairo',
+            }),
+          )}
+        >
           Frequently Asked Questions
         </h2>
 
-        <div className="mt-14 max-w-2xl">
+        <div className="mt-14">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index
 
@@ -71,8 +84,16 @@ export default function FAQSection() {
       </div>
 
       <div className="flex flex-col justify-start bg-flooring-panel px-6 py-16 sm:px-10 lg:px-[5.2vw] lg:py-20 bg-[#EFF9FE]">
-        <div className="max-w-2xl">
-          <h2 className="text-4xl font-semibold leading-[1.1] tracking-[-0.04em] text-foreground sm:text-5xl">
+        <div className="">
+          <h2
+            className={cn(
+              'text-4xl font-medium leading-[1.1] tracking-[-0.04em] text-foreground sm:text-5xl',
+              font(locale as LocaleType, {
+                en: 'font-nobile',
+                ar: 'font-cairo',
+              }),
+            )}
+          >
             {pfs.title}
           </h2>
           <div className="mt-12 flex flex-col gap-7 text-base leading-7 text-muted-foreground">

@@ -1,4 +1,6 @@
+import ArrowLeftPurpleIcon from './arrow-left-purple.svg'
 import ArrowLeftIcon from './arrow-left.svg'
+import ArrowRightPurpleIcon from './arrow-right-purple.svg'
 import ArrowRightIcon from './arrow-right.svg'
 import ArrowIcon from './arrow.svg'
 import FacebookIcon from './facebook.svg'
@@ -20,7 +22,9 @@ import YouTubeIcon from './youtube.svg'
 export {
   ArrowIcon,
   ArrowLeftIcon,
+  ArrowLeftPurpleIcon,
   ArrowRightIcon,
+  ArrowRightPurpleIcon,
   FacebookIcon,
   FilePenIcon,
   InstagramIcon,
