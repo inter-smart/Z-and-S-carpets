@@ -80,7 +80,7 @@ export default function ProcessSections() {
                 >
                   <span className="">0{i + 1}</span>
                   <div className="flex flex-col items-start ps-6">
-                    <span className="">{step.title}</span>
+                    <span className="text-start">{step.title}</span>
                     <span
                       id={`process-step-${i}`}
                       aria-hidden={!active}

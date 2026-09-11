@@ -201,6 +201,48 @@
       "buttonLabel": "See More"
     }
   },
+  "testimonials": {
+    "title": "Customer Experiences",
+    "rating": "5.0 Ratings",
+    "reviews": [
+      {
+        "quote": "Donec sit amet turpis tincidunt eros, euismod non nam luctus vulputate dui penatibus pulvinar quis netus penatibus pretium.",
+        "name": "Isla Grace",
+        "role": "Customer",
+        "avatar": "https://i.pravatar.cc/120?img=47"
+      },
+      {
+        "quote": "The entire flooring experience was seamless from the first consultation through installation. The finish looks incredible.",
+        "name": "Marcus Reed",
+        "role": "Customer",
+        "avatar": "https://i.pravatar.cc/120?img=12"
+      },
+      {
+        "quote": "Professional advice, thoughtful details, and a beautiful result. We are thrilled with how our home came together.",
+        "name": "Sofia Bennett",
+        "role": "Customer",
+        "avatar": "https://i.pravatar.cc/120?img=32"
+      },
+      {
+        "quote": "The team understood our brief immediately and delivered on time. Every detail was handled with real care.",
+        "name": "Noah Williams",
+        "role": "Customer",
+        "avatar": "https://i.pravatar.cc/120?img=68"
+      },
+      {
+        "quote": "From samples to the final walkthrough, the service was attentive and reliable. I would happily recommend them.",
+        "name": "Amelia Carter",
+        "role": "Customer",
+        "avatar": "https://i.pravatar.cc/120?img=49"
+      },
+      {
+        "quote": "A polished, comfortable finish that completely changed the feeling of the room. Excellent work all around.",
+        "name": "Daniel Hayes",
+        "role": "Customer",
+        "avatar": "https://i.pravatar.cc/120?img=11"
+      }
+    ]
+  },
   "Footer": {
     "footerLinks": {
       "quickLinks": {

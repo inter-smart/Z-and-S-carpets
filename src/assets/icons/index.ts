@@ -5,6 +5,7 @@ import ArrowRightIcon from './arrow-right.svg'
 import ArrowIcon from './arrow.svg'
 import FacebookIcon from './facebook.svg'
 import FilePenIcon from './file-pen.svg'
+import GoogleIcon from './google.svg'
 import InstagramIcon from './instagram.svg'
 import InterSmartIcon from './intersmart.svg'
 import LinkedInIcon from './linkedin.svg'
@@ -27,6 +28,7 @@ export {
   ArrowRightPurpleIcon,
   FacebookIcon,
   FilePenIcon,
+  GoogleIcon,
   InstagramIcon,
   InterSmartIcon,
   LinkedInIcon,
