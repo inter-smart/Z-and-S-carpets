@@ -1,8 +1,5 @@
 import { GoogleIcon } from '@/assets/icons'
-import type { LocaleType } from '@/i18n/types'
-import { font } from '@/lib/utils'
-import { cn } from 'cn'
-import { useLocale, useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 
 interface TestimonialReviewType {
@@ -42,8 +39,6 @@ function ReviewCard({ review }: { review: TestimonialReviewType }) {
 }
 
 export default function TestimonialsSection() {
-  const locale = useLocale() as LocaleType
-
   const t = useTranslations('testimonials')
 
   const reviews = t.raw('reviews') as TestimonialReviewType[]
@@ -58,13 +53,7 @@ export default function TestimonialsSection() {
       <div className="mx-auto flex max-w-7xl items-start justify-between gap-6 px-6 lg:px-8">
         <h2
           id="customer-experiences-title"
-          className={cn(
-            'text-balance text-4xl font-medium tracking-tight sm:text-5xl',
-            font(locale as LocaleType, {
-              en: 'font-nobile',
-              ar: 'font-cairo',
-            }),
-          )}
+          className="text-balance text-4xl font-medium ltr:font-nobile rtl:font-cairo tracking-tight sm:text-5xl"
         >
           {t('title')}
         </h2>
@@ -89,14 +78,7 @@ export default function TestimonialsSection() {
         tabIndex={0}
         aria-label="Customer testimonials"
       >
-        <div
-          className={cn(
-            'flex w-max gap-2.5 motion-reduce:animate-none',
-            locale === 'ar'
-              ? 'motion-safe:animate-testimonial-scroll-rtl'
-              : 'motion-safe:animate-testimonial-scroll-ltr',
-          )}
-        >
+        <div className="flex w-max gap-2.5 motion-reduce:animate-none ltr:motion-safe:animate-testimonial-scroll-ltr rtl:motion-safe:animate-testimonial-scroll-rtl">
           {loopedReviews.map((review, index) => (
             <ReviewCard key={`${review.name}-${index}`} review={review} />
           ))}

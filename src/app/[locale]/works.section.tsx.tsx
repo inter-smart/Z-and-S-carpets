@@ -2,17 +2,14 @@
 
 import { ArrowLeftIcon, ArrowRightIcon } from '@/assets/icons'
 import { FloorImg6, FloorImg7, FloorImg8 } from '@/assets/images'
-import type { LocaleType } from '@/i18n/types'
-import { font } from '@/lib/utils'
 import { cn } from 'cn'
-import { useLocale, useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useState } from 'react'
 
 const workItemsImgs = [FloorImg6, FloorImg7, FloorImg8]
 
 export default function WorksSections() {
-  const locale = useLocale() as LocaleType
   const t = useTranslations('works')
   const [category, setCategory] = useState('ALL')
 
@@ -38,13 +35,7 @@ export default function WorksSections() {
       <div className="mx-auto">
         <h2
           id="projects-title"
-          className={cn(
-            'text-center text-4xl font-medium tracking-[-0.04em] sm:text-5xl',
-            font(locale as LocaleType, {
-              en: 'font-nobile',
-              ar: 'font-cairo',
-            }),
-          )}
+          className="text-center text-4xl font-mediummotion-safe:animate-testimonial-scroll-rtl tracking-[-0.04em] sm:text-5xl"
         >
           {t('title')}
         </h2>
@@ -87,20 +78,16 @@ export default function WorksSections() {
                 <div>
                   <span className="mt-2 inline-block text-sm">
                     View Project
-                    {/* <ArrowRight className="ml-2 inline size-4" /> */}
-                    {locale === 'ar' ? (
-                      <Image
-                        src={ArrowLeftIcon}
-                        alt="arrow-left"
-                        className="w-auto h-2.5 sm:ms-3 inline-block"
-                      />
-                    ) : (
-                      <Image
-                        src={ArrowRightIcon}
-                        alt="arrow-left"
-                        className="w-auto h-2.5 sm:ms-3 inline-block"
-                      />
-                    )}
+                    <Image
+                      src={ArrowLeftIcon}
+                      alt="arrow-left"
+                      className="hidden rtl:inline-block w-auto h-2.5 sm:ms-3"
+                    />
+                    <Image
+                      src={ArrowRightIcon}
+                      alt="arrow-right"
+                      className="hidden ltr:inline-block w-auto h-2.5 sm:ms-3"
+                    />
                   </span>
                 </div>
               </div>

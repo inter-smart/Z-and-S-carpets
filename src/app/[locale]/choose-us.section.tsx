@@ -1,15 +1,10 @@
 import { BadgeCheckIcon } from '@/assets/icons'
 import { FloorCImg1, FloorCImg2 } from '@/assets/images'
 import ImgCompareSlider from '@/components/img-compare-slider'
-import type { LocaleType } from '@/i18n/types'
-import { font } from '@/lib/utils'
-import { cn } from 'cn'
-import { useLocale, useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 
 export default function ChooseUsSection() {
-  const locale = useLocale() as LocaleType
-
   const t = useTranslations('ChooseUs')
   const features = t.raw('features') as {
     title: string
@@ -21,15 +16,7 @@ export default function ChooseUsSection() {
       <div className="mx-auto">
         {/* title */}
         <div className="mx-auto">
-          <h2
-            className={cn(
-              'text-center text-balance text-4xl font-medium tracking-tight md:text-5xl',
-              font(locale as LocaleType, {
-                en: 'font-nobile',
-                ar: 'font-cairo',
-              }),
-            )}
-          >
+          <h2 className="text-center text-balance text-4xl font-medium ltr:font-nobile rtl:font-cairo tracking-tight md:text-5xl">
             {t('title')}
           </h2>
         </div>
@@ -127,15 +114,7 @@ export default function ChooseUsSection() {
           {/* CTA */}
           <div className="w-full lg:w-1/4 ltr:lg:border-l rtl:lg:border-r">
             <div className="py-7 ltr:lg:pl-7 rtl:lg:pr-7">
-              <h2
-                className={cn(
-                  'text-3xl font-medium',
-                  font(locale as LocaleType, {
-                    en: 'font-nobile',
-                    ar: 'font-cairo',
-                  }),
-                )}
-              >
+              <h2 className="text-3xl font-medium ltr:font-nobile rtl:font-cairo">
                 {t('cta.title')}
               </h2>
               <p className="mt-2 text-sm text-gray-500">

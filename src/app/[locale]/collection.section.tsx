@@ -6,10 +6,7 @@ import {
 } from '@/assets/icons'
 import { FloorImg2, FloorImg5 } from '@/assets/images'
 import { Button } from '@/components/ui/button'
-import type { LocaleType } from '@/i18n/types'
-import { font } from '@/lib/utils'
-import { cn } from 'cn'
-import { useLocale, useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 
 const collectionImgs = {
@@ -18,8 +15,6 @@ const collectionImgs = {
 }
 
 export default function CollectionSection() {
-  const locale = useLocale() as LocaleType
-
   const t = useTranslations('collection')
   const collectionItems = t.raw('items') as {
     id: string
@@ -34,13 +29,7 @@ export default function CollectionSection() {
       <div className="flex items-center justify-between gap-6">
         <h2
           id="collection-title"
-          className={cn(
-            'text-4xl font-medium tracking-[-0.04em] sm:text-5xl',
-            font(locale as LocaleType, {
-              en: 'font-nobile',
-              ar: 'font-cairo',
-            }),
-          )}
+          className="text-4xl font-medium ltr:font-nobile rtl:font-cairo tracking-[-0.04em] sm:text-5xl"
         >
           {t('title')}
         </h2>
@@ -52,25 +41,6 @@ export default function CollectionSection() {
         </Button>
       </div>
       <div className="relative mt-12 grid gap-4 lg:grid-cols-[1fr_1fr] xl:grid-cols-[1.35fr_1fr]">
-        {/* <button
-          type="button"
-          aria-label="Previous collection"
-          className="absolute -left-10 top-1/2 hidden -translate-y-1/2 text-xl text-primary lg:block"
-        >
-          <ArrowLeftIcon aria-hidden="true" />
-        </button> */}
-        <Button
-          type="button"
-          aria-label="Previous collection"
-          className="absolute -left-10 top-1/2 hidden text-xl text-primary lg:block hover:bg-transparent"
-          variant="ghost"
-        >
-          <Image
-            src={ArrowLeftPurpleIcon}
-            alt="arrow-left"
-            className="w-auto h-2.5"
-          />
-        </Button>
         {collectionItems.map((item) => (
           <article
             key={item.title}
@@ -86,30 +56,32 @@ export default function CollectionSection() {
               <h3 className="text-xl font-medium">{item.title}</h3>
               <span className="text-sm font-medium flex justify-between items-center">
                 <span className="hidden sm:block">{t('itemButtonLabel')}</span>
-                {locale === 'ar' ? (
-                  <Image
-                    src={ArrowLeftIcon}
-                    alt="arrow-left"
-                    className="w-auto h-2.5 sm:ms-3"
-                  />
-                ) : (
-                  <Image
-                    src={ArrowRightIcon}
-                    alt="arrow-left"
-                    className="w-auto h-2.5 sm:ms-3"
-                  />
-                )}
+                <Image
+                  src={ArrowLeftIcon}
+                  alt="arrow-left"
+                  className="hidden rtl:block w-auto h-2.5 sm:ms-3"
+                />
+                <Image
+                  src={ArrowRightIcon}
+                  alt="arrow-right"
+                  className="hidden ltr:block w-auto h-2.5 sm:ms-3"
+                />
               </span>
             </div>
           </article>
         ))}
-        {/* <button
+        <Button
           type="button"
-          aria-label="Next collection"
-          className="absolute -right-10 top-1/2 hidden -translate-y-1/2 text-xl text-primary lg:block"
+          aria-label="Previous collection"
+          className="absolute -left-10 top-1/2 hidden text-xl text-primary lg:block hover:bg-transparent"
+          variant="ghost"
         >
-          <ArrowRight aria-hidden="true" />
-        </button> */}
+          <Image
+            src={ArrowLeftPurpleIcon}
+            alt="arrow-left"
+            className="w-auto h-2.5"
+          />
+        </Button>
         <Button
           type="button"
           aria-label="Next collection"

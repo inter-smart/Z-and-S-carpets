@@ -1,11 +1,10 @@
 'use client'
 
+import type { LocaleType } from '@/i18n/types'
+
 import { ArrowLeftIcon, ArrowRightIcon } from '@/assets/icons'
 import { FloorImg10, FloorImg8, FloorImg9 } from '@/assets/images'
 import { Button } from '@/components/ui/button'
-import type { LocaleType } from '@/i18n/types'
-import { font } from '@/lib/utils'
-import { cn } from 'cn'
 import { ListFilter } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
@@ -41,15 +40,7 @@ export default function BestSellers() {
     <section className="bg-[#023260] px-6 py-16 sm:px-10 lg:px-[5.4vw] lg:py-24 text-white">
       <div className="mx-auto">
         <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-          <h2
-            className={cn(
-              'text-balance text-4xl font-medium tracking-tight md:text-5xl',
-              font(locale as LocaleType, {
-                en: 'font-nobile',
-                ar: 'font-cairo',
-              }),
-            )}
-          >
+          <h2 className="text-balance text-4xl font-medium ltr:font-nobile rtl:font-cairo tracking-tight md:text-5xl">
             {t('title')}
           </h2>
           <div className="flex items-center gap-3">
@@ -181,20 +172,16 @@ export default function BestSellers() {
             onClick={() => setSlide((current) => Math.max(0, current - 1))}
             className="hover:bg-transparent cursor-pointer"
           >
-            {locale === 'ar' ? (
-              <Image
-                src={ArrowRightIcon}
-                alt="arrow-left"
-                className="w-auto h-2.5"
-              />
-            ) : (
-              <Image
-                src={ArrowLeftIcon}
-                alt="arrow-left"
-                className="w-auto h-2.5"
-              />
-            )}
-            {/* <ArrowLeft /> */}
+            <Image
+              src={ArrowRightIcon}
+              alt="arrow-right"
+              className="hidden rtl:block w-auto h-2.5"
+            />
+            <Image
+              src={ArrowLeftIcon}
+              alt="arrow-left"
+              className="hidden ltr:block w-auto h-2.5"
+            />
           </Button>
           <Button
             aria-label="Next products"
@@ -206,19 +193,16 @@ export default function BestSellers() {
             }
             className="hover:bg-transparent cursor-pointer"
           >
-            {locale === 'ar' ? (
-              <Image
-                src={ArrowLeftIcon}
-                alt="arrow-left"
-                className="w-auto h-2.5"
-              />
-            ) : (
-              <Image
-                src={ArrowRightIcon}
-                alt="arrow-left"
-                className="w-auto h-2.5"
-              />
-            )}
+            <Image
+              src={ArrowLeftIcon}
+              alt="arrow-left"
+              className="hidden rtl:block w-auto h-2.5"
+            />
+            <Image
+              src={ArrowRightIcon}
+              alt="arrow-right"
+              className="hidden ltr:block w-auto h-2.5"
+            />
           </Button>
         </div>
       </div>

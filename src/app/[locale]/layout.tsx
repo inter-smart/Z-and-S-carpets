@@ -1,11 +1,10 @@
-import { LocaleType } from '@/i18n/types'
-import { cn, font } from '@/lib/utils'
+import type { Metadata } from 'next'
+
+import { cn } from '@/lib/utils'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { Cairo, Inter, Manrope, Nobile } from 'next/font/google'
 import '../globals.css'
-
-import type { Metadata } from 'next'
 
 const inter = Inter({
   variable: '--font-inter',
@@ -46,14 +45,11 @@ export default async function RootLayout({
       lang={locale}
       dir={direction}
       className={cn(
-        'h-full',
-        'antialiased',
-        'font-sans',
         inter.variable,
         nobile.variable,
         manrope.variable,
         cairo.variable,
-        font(locale as LocaleType, { en: 'font-inter', ar: 'font-cairo' }),
+        'h-full antialiased font-sans ltr:font-inter rtl:font-cairo',
       )}
     >
       <body className="min-h-full flex flex-col">

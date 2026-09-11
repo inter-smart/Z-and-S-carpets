@@ -10,9 +10,6 @@ import TestimonialsSection from './testimonials.section'
 import WorksSections from './works.section.tsx'
 
 export default function HomePage() {
-  // const t = useTranslations('HomePage')
-  // const locale = useLocale() as LocaleType
-
   return (
     <>
       <Navbar />

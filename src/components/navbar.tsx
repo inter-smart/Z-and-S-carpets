@@ -1,3 +1,5 @@
+import type { LocaleType } from '@/i18n/types'
+
 import { ArrowIcon, FilePenIcon, MenuIcon, SearchIcon } from '@/assets/icons'
 import { SiteLogo } from '@/assets/logos'
 import {
@@ -11,8 +13,6 @@ import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from './ui/button'
-
-import type { LocaleType } from '@/i18n/types'
 
 interface NavbarNavLinksType {
   text: string

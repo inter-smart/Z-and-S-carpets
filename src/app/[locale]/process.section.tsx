@@ -1,16 +1,13 @@
 'use client'
 
 import { FloorImg1 } from '@/assets/images'
-import type { LocaleType } from '@/i18n/types'
-import { font } from '@/lib/utils'
 import { cn } from 'cn'
 import { Play } from 'lucide-react'
-import { useLocale, useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useState } from 'react'
 
 export default function ProcessSections() {
-  const locale = useLocale() as LocaleType
   const [activeStep, setActiveStep] = useState(1)
 
   const t = useTranslations('process')
@@ -25,18 +22,12 @@ export default function ProcessSections() {
       aria-labelledby="process-title"
     >
       <div className="mx-auto">
-        <p className="text-center text-8xl font-semibold tracking-widest text-primary-foreground/5">
+        <p className="text-center text-5xl sm:text-6xl md:text-8xl font-semibold tracking-widest text-primary-foreground/5">
           {t('eyebrow')}
         </p>
         <h2
           id="process-title"
-          className={cn(
-            '-mt-10 text-center text-4xl font-medium tracking-[-0.04em] sm:text-5xl',
-            font(locale as LocaleType, {
-              en: 'font-nobile',
-              ar: 'font-cairo',
-            }),
-          )}
+          className="-mt-6 sm:-mt-7 md:-mt-10 text-center text-4xl font-medium ltr:font-nobile rtl:font-cairo tracking-[-0.04em] sm:text-5xl"
         >
           {t('title')}
         </h2>
