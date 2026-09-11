@@ -8,8 +8,12 @@ import FloorImg6 from './floor-6.png'
 import FloorImg7 from './floor-7.png'
 import FloorImg8 from './floor-8.jpg'
 import FloorImg9 from './floor-9.png'
+import FloorCImg1 from './floor-c-1.png'
+import FloorCImg2 from './floor-c-2.jpg'
 
 export {
+  FloorCImg1,
+  FloorCImg2,
   FloorImg1,
   FloorImg10,
   FloorImg2,

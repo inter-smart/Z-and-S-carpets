@@ -243,6 +243,40 @@
       }
     ]
   },
+  "ChooseUs": {
+    "title": "Why Clients Choose Us",
+    "features": [
+      {
+        "title": "Premium Quality Materials",
+        "description": "Sourced from world-class manufacturers with strict quality standards."
+      },
+      {
+        "title": "Wide Product Range",
+        "description": "Hundreds of options across carpets, vinyl, wood, grass and more."
+      },
+      {
+        "title": "Custom Solutions",
+        "description": "Tailored design consultations for every project, big or small."
+      },
+      {
+        "title": "Competitive Pricing",
+        "description": "Best-in-market pricing without compromise on quality."
+      },
+      {
+        "title": "GCC-Wide Delivery",
+        "description": "Reliable delivery and installation across all GCC countries."
+      },
+      {
+        "title": "Professional Installation",
+        "description": "Expert teams ensuring flawless finish on every installation."
+      }
+    ],
+    "cta": {
+      "title": "Trusted Quality. Proven Results.",
+      "description": "Delivering reliable solutions with exceptional quality and customer satisfaction.",
+      "btnLabel": "Find your Perfect Carpet"
+    }
+  },
   "Footer": {
     "footerLinks": {
       "quickLinks": {

@@ -1,6 +1,7 @@
 import Footer from '@/components/footer'
 import Navbar from '@/components/navbar'
 import BestSellers from './best-seller.section'
+import ChooseUsSection from './choose-us.section'
 import CollectionSection from './collection.section'
 import FAQSection from './faq.section'
 import HeroSection from './hero.section'
@@ -20,6 +21,7 @@ export default function HomePage() {
         <CollectionSection />
         <BestSellers />
         <WorksSections />
+        <ChooseUsSection />
         <ProcessSections />
         <TestimonialsSection />
         <FAQSection />

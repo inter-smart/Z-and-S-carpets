@@ -3,6 +3,7 @@ import ArrowLeftIcon from './arrow-left.svg'
 import ArrowRightPurpleIcon from './arrow-right-purple.svg'
 import ArrowRightIcon from './arrow-right.svg'
 import ArrowIcon from './arrow.svg'
+import BadgeCheckIcon from './badge-check.svg'
 import FacebookIcon from './facebook.svg'
 import FilePenIcon from './file-pen.svg'
 import GoogleIcon from './google.svg'
@@ -26,6 +27,7 @@ export {
   ArrowLeftPurpleIcon,
   ArrowRightIcon,
   ArrowRightPurpleIcon,
+  BadgeCheckIcon,
   FacebookIcon,
   FilePenIcon,
   GoogleIcon,
