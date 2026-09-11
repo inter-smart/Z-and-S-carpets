@@ -134,7 +134,7 @@ export default function Footer() {
       {/* bottom */}
       <hr className="border-white/10" />
       <div className="w-full flex flex-col lg:flex-row justify-between items-center py-10 text-center space-y-4 lg:space-y-0">
-        <p>{t('copyright')}</p>
+        <p className="hidden lg:block">{t('copyright')}</p>
         <div className="flex flex-row space-x-3 sm:space-x-8 xl:space-x-10">
           {social.map((logo) => (
             <Image
@@ -145,6 +145,7 @@ export default function Footer() {
             />
           ))}
         </div>
+        <p className="lg:hidden">{t('copyright')}</p>
         <div className="flex flex-col sm:flex-row space-x-1 justify-between items-center">
           <p>Designed By:</p>
           <div className="flex flex-row space-x-1">

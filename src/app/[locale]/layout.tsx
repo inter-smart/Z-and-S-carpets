@@ -1,11 +1,10 @@
-import { LocaleType } from '@/i18n/types'
-import { cn, font } from '@/lib/utils'
+import type { Metadata } from 'next'
+
+import { cn } from '@/lib/utils'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { Cairo, Inter, Manrope, Nobile } from 'next/font/google'
 import '../globals.css'
-
-import type { Metadata } from 'next'
 
 const inter = Inter({
   variable: '--font-inter',
@@ -46,17 +45,22 @@ export default async function RootLayout({
       lang={locale}
       dir={direction}
       className={cn(
-        'h-full',
-        'antialiased',
-        'font-sans',
         inter.variable,
         nobile.variable,
         manrope.variable,
         cairo.variable,
-        font(locale as LocaleType, { en: 'font-inter', ar: 'font-cairo' }),
+        'h-full antialiased font-sans ltr:font-inter rtl:font-cairo',
       )}
     >
       <body className="min-h-full flex flex-col">
+        <div className="fixed top-0 left-0 z-99 flex flex-row space-x-2">
+          <div className="w-5 h-0.5 bg-blue-400"></div>
+          <div className="w-5 h-0.5 bg-blue-400 hidden sm:block"></div>
+          <div className="w-5 h-0.5 bg-blue-400 hidden md:block"></div>
+          <div className="w-5 h-0.5 bg-blue-400 hidden lg:block"></div>
+          <div className="w-5 h-0.5 bg-blue-400 hidden xl:block"></div>
+          <div className="w-5 h-0.5 bg-blue-400 hidden 2xl:block"></div>
+        </div>
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>

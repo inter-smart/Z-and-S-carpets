@@ -4,6 +4,29 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  --animate-testimonial-scroll-ltr: testimonial-scroll-ltr 42s linear infinite;
+  --animate-testimonial-scroll-rtl: testimonial-scroll-rtl 42s linear infinite;
+
+  @keyframes testimonial-scroll-ltr {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-50% - 0.3125rem));
+    }
+  }
+
+  @keyframes testimonial-scroll-rtl {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(50% - 0.3125rem));
+    }
+  }
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
