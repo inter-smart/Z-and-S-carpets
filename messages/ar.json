@@ -128,6 +128,43 @@
       }
     ]
   },
+  "bestseller": {
+    "title": "Our Residential Bestsellers",
+    "filterLabel": "Filter",
+    "viewAllLabel": "View All Products",
+    "products": [
+      {
+        "category": "DECK FLOORING",
+        "title": "Landscaping Grass",
+        "description": "Crafted for modern exteriors, our landscaping grass brings structure, depth, and a contemporary finish to every garden."
+      },
+      {
+        "category": "CARPET FLOORING",
+        "title": "Carpet Tiles Pixel Block",
+        "description": "Crafted for modern interiors, Pixel Block Carpet Tiles bring structure, depth, and a contemporary modular look to any space."
+      },
+      {
+        "category": "DECK FLOORING",
+        "title": "Acacia Deck Tiles",
+        "description": "Bring warmth and durability outdoors with Acacia Deck Tiles designed for relaxed poolside and terrace living."
+      },
+      {
+        "category": "VINYL FLOORING",
+        "title": "Oak Grain Vinyl",
+        "description": "A practical, low-maintenance surface with the natural character of timber for busy residential spaces."
+      },
+      {
+        "category": "ARTIFICIAL GRASS",
+        "title": "Garden Luxe",
+        "description": "Soft underfoot and evergreen year-round, Garden Luxe creates a polished landscape with minimal upkeep."
+      },
+      {
+        "category": "WOOD FLOORING",
+        "title": "Natural Herringbone",
+        "description": "Refined herringbone flooring adds rhythm and warmth to welcoming residential interiors."
+      }
+    ]
+  },
   "FAQ": {
     "faqs": [
       {

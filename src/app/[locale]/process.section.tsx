@@ -85,7 +85,7 @@ export default function ProcessSections() {
                       id={`process-step-${i}`}
                       aria-hidden={!active}
                       className={cn(
-                        'grid transition-[grid-template-rows,opacity] duration-300 ease-out motion-reduce:transition-none',
+                        'grid transition-[grid-template-rows,opacity] duration-300 ease-out motion-reduce:transition-none text-start',
                         active
                           ? 'grid-rows-[1fr] opacity-100'
                           : 'grid-rows-[0fr] opacity-0',
