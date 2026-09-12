@@ -67,14 +67,14 @@ export default async function RootLayout({
       )}
     >
       <body className="min-h-full flex flex-col">
-        <div className="fixed top-0 left-0 z-99 flex flex-row space-x-2">
+        {/* <div className="fixed top-0 left-0 z-99 flex flex-row space-x-2">
           <div className="w-5 h-0.5 bg-blue-400"></div>
           <div className="w-5 h-0.5 bg-blue-400 hidden sm:block"></div>
           <div className="w-5 h-0.5 bg-blue-400 hidden md:block"></div>
           <div className="w-5 h-0.5 bg-blue-400 hidden lg:block"></div>
           <div className="w-5 h-0.5 bg-blue-400 hidden xl:block"></div>
           <div className="w-5 h-0.5 bg-blue-400 hidden 2xl:block"></div>
-        </div>
+        </div> */}
         <NextIntlClientProvider messages={messages}>
           {children}
           <BottomRightBtns />
