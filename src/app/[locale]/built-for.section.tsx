@@ -88,13 +88,14 @@ export default function BuiltForSection() {
             </div>
 
             <div className="rounded-md bg-primary/25 backdrop-blur-lg border border-white/10 p-5 sm:p-8 lg:flex lg:gap-6">
-              <div className="flex flex-col-reverse xl:flex-row">
-                <div className="flex flex-col xl:w-1/3 justify-center py-4 text-primary-foreground">
+              <div className="xl:w-5/6 flex flex-col-reverse xl:flex-row">
+                {/* details */}
+                <div className="flex flex-col justify-center py-4 text-primary-foreground">
                   <p className="hidden xl:block text-3xl font-medium ltr:font-nobile rtl:font-cairo">
                     {category.name.charAt(0) +
                       category.name.slice(1).toLowerCase()}
                   </p>
-                  <p className="mt-4 text-sm leading-6 text-primary-foreground/80">
+                  <p className="mt-4 xl:pr-5 text-sm leading-6 text-primary-foreground/80">
                     {category.description}
                   </p>
                   <Button
@@ -104,8 +105,9 @@ export default function BuiltForSection() {
                     {category.cta}
                   </Button>
                 </div>
-                {/* ********* h-100 */}
-                <div className="xl:w-2/3 relative mt-6 aspect-[1.45] overflow-hidden rounded-md lg:mt-0">
+
+                {/* main image */}
+                <div className="relative mt-6 aspect-[1.45] overflow-hidden rounded-md lg:mt-0">
                   <p className="text-white xl:hidden text-3xl font-medium ltr:font-nobile rtl:font-cairo">
                     {category.name.charAt(0) +
                       category.name.slice(1).toLowerCase()}
@@ -121,14 +123,15 @@ export default function BuiltForSection() {
                     alt={`${activeProductData.name} interior`}
                     className="max-xl:mt-4 size-full object-cover object-bottom transition-transform duration-700 ease-out h-full rounded-md"
                   />
-                  <div className="absolute inset-x-6 bottom-6 text-4xl font-light tracking-wider text-primary-foreground [text-shadow:0_2px_8px_oklch(0_0_0/60%)] sm:text-5xl">
+                  <div className="absolute inset-x-6 bottom-6 text-2xl sm:text-4xl md:text-5xl font-light tracking-wider text-primary-foreground [text-shadow:0_2px_8px_oklch(0_0_0/60%)]">
                     {/* {activeProductData?.name || category.feature} */}
                     {activeProductData.name}
                   </div>
                 </div>
               </div>
 
-              <div className="flex flex-row lg:flex-col lg:max-xl:mt-4">
+              {/* image stack */}
+              <div className="xl:w-1/6 flex flex-row lg:flex-col lg:max-xl:mt-4">
                 {/* Left and Up arrow */}
                 <button
                   type="button"
