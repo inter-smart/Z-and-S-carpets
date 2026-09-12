@@ -170,7 +170,7 @@ export default function BuiltForSection() {
                   // "
                   // className="h-80 overflow-y-auto [&::-webkit-scrollbar]:hidden"
                   className={cn(
-                    'scroll-smooth rounded [&::-webkit-scrollbar]:hidden',
+                    'scroll-smooth rounded [&::-webkit-scrollbar]:hidden mx-auto',
                     'mt-6 flex-1 flex gap-2 h-20 w-40 overflow-x-auto',
                     'lg:mt-0 lg:flex-none lg:block lg:h-80 lg:w-30 lg:overflow-x-hidden lg:overflow-y-auto',
                   )}
