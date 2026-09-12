@@ -37,13 +37,13 @@ export default function BestSellers() {
   )
 
   return (
-    <section className="bg-[#023260] px-6 py-16 sm:px-10 lg:px-[5.4vw] lg:py-24 text-white">
-      <div className="mx-auto">
-        <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+    <section className="bg-[#023260] py-16 lg:py-24 text-white">
+      <div className="container-wrapper">
+        <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-start xl:items-center md:justify-between">
           <h2 className="text-balance text-4xl font-medium ltr:font-nobile rtl:font-cairo tracking-tight md:text-5xl">
             {t('title')}
           </h2>
-          <div className="flex items-center gap-3">
+          <div className="flex flex-col sm:flex-row items-start gap-3">
             <Button className="border-2! border-black bg-black text-white hover:bg-black/80 px-10 py-4.5 rounded-md">
               <ListFilter data-icon="inline-center" />
               {t('filterLabel')}

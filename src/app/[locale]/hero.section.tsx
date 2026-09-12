@@ -37,14 +37,14 @@ export default function HeroSection() {
             </div>
           </div>
           {/* hero text */}
-          <div className="w-full h-1/2 flex flex-row px-14 sm:px-30 pb-20">
+          <div className="container-wrapper px-14! sm:px-30! w-full h-1/2 flex flex-row pb-20">
             <div className="flex flex-col justify-end gap-6 w-full lg:w-1/2">
               <h1 className="text-4xl leading-11 font-medium ltr:font-nobile rtl:font-cairo">
                 Trusted Flooring Specialists in UAE & GCC
               </h1>
-              <h3 className="text-xl">
+              <h2 className="text-xl">
                 For Homes, Offices & Commercial Spaces
-              </h3>
+              </h2>
               <Button
                 variant="outline"
                 className="w-fit rounded-sm px-8 py-4.5 mt-6 ltr:font-manrope rtl:font-cairo hover:bg-white/10 hover:text-white"

@@ -12,11 +12,14 @@ import InterSmartIcon from './intersmart.svg'
 import LinkedInIcon from './linkedin.svg'
 import LocationBlueIcon from './location-blue.svg'
 import MailBlueIcon from './mail-blue.svg'
+import MailOutlineIcon from './mail-outline.svg'
 import MenuIcon from './menu.svg'
 import MoveLeftIcon from './move-left.svg'
 import MoveRightIcon from './move-right.svg'
 import PhoneBlueIcon from './phone-blue.svg'
+import PhoneOutlineIcon from './phone-outline.svg'
 import SearchIcon from './search.svg'
+import WhatsAppOutlineIcon from './whatsapp-outline.svg'
 import WhatsAppIcon from './whatsapp.svg'
 import XTwitterIcon from './xtwitter.svg'
 import YouTubeIcon from './youtube.svg'
@@ -36,12 +39,15 @@ export {
   LinkedInIcon,
   LocationBlueIcon,
   MailBlueIcon,
+  MailOutlineIcon,
   MenuIcon,
   MoveLeftIcon,
   MoveRightIcon,
   PhoneBlueIcon,
+  PhoneOutlineIcon,
   SearchIcon,
   WhatsAppIcon,
+  WhatsAppOutlineIcon,
   XTwitterIcon,
   YouTubeIcon,
 }

@@ -50,7 +50,7 @@ export default function TestimonialsSection() {
       className="overflow-hidden bg-background py-16 sm:py-20"
       aria-labelledby="customer-experiences-title"
     >
-      <div className="mx-auto flex max-w-7xl items-start justify-between gap-6 px-6 lg:px-8">
+      <div className="container-wrapper flex items-start justify-between gap-6">
         <h2
           id="customer-experiences-title"
           className="text-balance text-4xl font-medium ltr:font-nobile rtl:font-cairo tracking-tight sm:text-5xl"

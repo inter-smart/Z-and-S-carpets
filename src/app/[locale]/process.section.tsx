@@ -18,10 +18,10 @@ export default function ProcessSections() {
 
   return (
     <section
-      className="bg-[#023260] text-primary-foreground px-6 py-16 sm:px-10 lg:px-[5.4vw] lg:py-24"
+      className="bg-[#023260] text-primary-foreground py-16 lg:py-24"
       aria-labelledby="process-title"
     >
-      <div className="mx-auto">
+      <div className="container-wrapper">
         <p className="text-center text-5xl sm:text-6xl md:text-8xl font-semibold tracking-widest text-primary-foreground/5">
           {t('eyebrow')}
         </p>

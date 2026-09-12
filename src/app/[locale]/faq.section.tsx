@@ -18,10 +18,10 @@ export default function FAQSection() {
 
   return (
     <section
-      className="grid grid-cols-1 lg:grid-cols-2"
+      className="container-wrapper grid grid-cols-1 lg:grid-cols-2"
       aria-label="Frequently asked questions and company information"
     >
-      <div className="flex flex-col px-6 py-16 sm:px-10 lg:px-[5.6vw] lg:py-20 xl:px-[5.7vw]">
+      <div className="flex flex-col pr-6 py-16 sm:pr-10 lg:pr-[5.6vw] lg:py-20 xl:pr-[5.7vw]">
         <h2 className="max-w-md text-4xl font-medium ltr:font-nobile rtl:font-cairo leading-[1.08] tracking-[-0.04em] text-foreground sm:text-5xl">
           Frequently Asked Questions
         </h2>

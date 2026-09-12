@@ -157,3 +157,10 @@
     @apply font-sans;
   }
 }
+
+@layer utilities {
+  /* container with equal padding at left and right */
+  .container-wrapper {
+    @apply container mx-auto px-5 sm:px-7.5 lg:px-22.5;
+  }
+}
