@@ -23,7 +23,7 @@ export default function CollectionSection() {
 
   return (
     <section
-      className="bg-background px-6 py-16 sm:px-10 lg:px-[5.4vw] lg:py-24"
+      className="container-wrapper bg-background py-16 lg:py-24"
       aria-labelledby="collection-title"
     >
       <div className="flex items-center justify-between gap-6">

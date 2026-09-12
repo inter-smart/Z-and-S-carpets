@@ -12,8 +12,8 @@ export default function ChooseUsSection() {
   }[]
 
   return (
-    <div className="px-6 py-16 sm:px-10 lg:px-[5.4vw] lg:py-24">
-      <div className="mx-auto">
+    <div className="py-16 lg:py-24">
+      <div className="container-wrapper">
         {/* title */}
         <div className="mx-auto">
           <h2 className="text-center text-balance text-4xl font-medium ltr:font-nobile rtl:font-cairo tracking-tight md:text-5xl">

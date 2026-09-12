@@ -52,7 +52,7 @@ export default function BuiltForSection() {
   }
 
   return (
-    <section className="bg-background px-6 py-16 sm:px-10 lg:px-[5.4vw] lg:py-24">
+    <section className="bg-background container-wrapper py-16 lg:py-24">
       <div
         className="relative mx-auto overflow-hidden rounded-md bg-cover bg-bottom px-4 pt-18 pb-12 sm:px-8 lg:px-12"
         style={{ backgroundImage: `url(${FloorImg11.src})` }}

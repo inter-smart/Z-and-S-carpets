@@ -29,7 +29,7 @@ export default function TrustedPartnerSection() {
   }[]
 
   return (
-    <section className="px-6 py-16 sm:px-10 lg:px-[5.4vw] lg:py-24">
+    <section className="container-wrapper py-16 lg:py-24">
       <div>
         <h2 className="text-balance text-4xl font-medium ltr:font-nobile rtl:font-cairo tracking-tight md:text-5xl">
           {t('title')}

@@ -28,11 +28,10 @@ export default function WorksSections() {
 
   return (
     <section
-      className="bg-[#EFF9FE] px-6 py-16 sm:px-10 lg:px-[5.4vw] lg:py-24"
+      className="bg-[#EFF9FE] py-16 lg:py-24"
       aria-labelledby="projects-title"
     >
-      {/* <div className="mx-auto max-w-6xl"> */}
-      <div className="mx-auto">
+      <div className="container-wrapper">
         <h2
           id="projects-title"
           className="text-center text-4xl font-mediummotion-safe:animate-testimonial-scroll-rtl tracking-[-0.04em] sm:text-5xl"
