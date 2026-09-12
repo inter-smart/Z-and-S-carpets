@@ -44,7 +44,7 @@ export default function Navbar() {
             {/* <Link href="/"> */}
             <Image
               src={SiteLogo}
-              alt="site-logo"
+              alt="Z&S Carpets"
               className="h-19 w-auto cursor-pointer"
             />
             {/* </Link> */}

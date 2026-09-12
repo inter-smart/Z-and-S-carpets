@@ -8,6 +8,7 @@ import FAQSection from './faq.section'
 import HeroSection from './hero.section'
 import ProcessSections from './process.section'
 import TestimonialsSection from './testimonials.section'
+import TrustedPartnerSection from './trusted-partner.section'
 import WorksSections from './works.section.tsx'
 
 export default function HomePage() {
@@ -23,6 +24,7 @@ export default function HomePage() {
         <ChooseUsSection />
         <ProcessSections />
         <TestimonialsSection />
+        <TrustedPartnerSection />
         <FAQSection />
       </main>
       <Footer />

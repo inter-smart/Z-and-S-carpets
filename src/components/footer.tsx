@@ -109,7 +109,7 @@ export default function Footer() {
 
           {/* contacts */}
           <div className="space-y-7">
-            <Image src={SiteLogo} alt="site-logo" />
+            <Image src={SiteLogo} alt="Z&S Carpets" />
             <div className="space-y-5">
               {contacts.map((contact) => (
                 <div
@@ -151,7 +151,7 @@ export default function Footer() {
           <div className="flex flex-row space-x-1">
             <Image
               src={InterSmartIcon}
-              alt="intersmart-icon"
+              alt="Intersmart"
               className="w-min h-min"
             />
             <p className="font-zalando-sans">iNTERSMART</p>

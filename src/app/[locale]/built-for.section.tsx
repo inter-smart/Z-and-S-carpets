@@ -14,6 +14,14 @@ import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useRef, useState } from 'react'
 
+const productImgs = {
+  'floor-2': FloorImg2,
+  'floor-3': FloorImg3,
+  'floor-7': FloorImg7,
+  'floor-11': FloorImg11,
+  'floor-12': FloorImg12,
+}
+
 export default function BuiltForSection() {
   const t = useTranslations('BuiltFor')
   const [activeCategory, setActiveCategory] = useState(0)
@@ -41,14 +49,6 @@ export default function BuiltForSection() {
       left: direction === 'up' ? -200 : 200,
       behavior: 'smooth',
     })
-  }
-
-  const productImgs = {
-    'floor-2': FloorImg2,
-    'floor-3': FloorImg3,
-    'floor-7': FloorImg7,
-    'floor-11': FloorImg11,
-    'floor-12': FloorImg12,
   }
 
   return (

@@ -378,6 +378,59 @@
       "btnLabel": "Find your Perfect Carpet"
     }
   },
+  "TrustedPartner": {
+    "title": "Trusted Across the UAE",
+    "partners": [
+      {
+        "name": "partner-name-1",
+        "image": "trusted-1"
+      },
+      {
+        "name": "partner-name-2",
+        "image": "trusted-2"
+      },
+      {
+        "name": "partner-name-3",
+        "image": "trusted-3"
+      },
+      {
+        "name": "partner-name-4",
+        "image": "trusted-4"
+      },
+      {
+        "name": "partner-name-5",
+        "image": "trusted-5"
+      },
+      {
+        "name": "partner-name-6",
+        "image": "trusted-3"
+      },
+      {
+        "name": "partner-name-7",
+        "image": "trusted-2"
+      },
+      {
+        "name": "partner-name-8",
+        "image": "trusted-6"
+      },
+      {
+        "name": "partner-name-9",
+        "image": "trusted-7"
+      },
+      {
+        "name": "partner-name-10",
+        "image": "trusted-1"
+      },
+      {
+        "name": "partner-name-11",
+        "image": "trusted-3"
+      },
+      {
+        "name": "partner-name-12",
+        "image": "trusted-4"
+      }
+    ]
+  },
   "Footer": {
     "footerLinks": {
       "quickLinks": {
