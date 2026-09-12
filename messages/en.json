@@ -243,6 +243,107 @@
       }
     ]
   },
+  "BuiltFor": {
+    "title": "Built for Every Space",
+    "categories": [
+      {
+        "name": "RESIDENTIAL",
+        "description": "Warm, considered flooring for homes that feel as good as they look.",
+        "cta": "Explore Residential",
+        "feature": "VINYL FLOORING",
+        "products": [
+          {
+            "name": "Carpet Tiles",
+            "image": "floor-2"
+          },
+          {
+            "name": "Wooden Flooring",
+            "image": "floor-3"
+          },
+          {
+            "name": "Vinyl Flooring",
+            "image": "floor-7"
+          },
+          {
+            "name": "Artificial Grass",
+            "image": "floor-11"
+          }
+        ]
+      },
+      {
+        "name": "COMMERCIAL",
+        "description": "High-performance flooring for offices, retail spaces, and corporate environments that demand durability alongside aesthetics.",
+        "cta": "Get Custom Solution",
+        "feature": "VINYL FLOORING",
+        "products": [
+          {
+            "name": "Vinyl Flooring",
+            "image": "floor-7"
+          },
+          {
+            "name": "Artificial Grass",
+            "image": "floor-2"
+          },
+          {
+            "name": "Deck Flooring",
+            "image": "floor-12"
+          }
+        ]
+      },
+      {
+        "name": "HOSPITALITY",
+        "description": "Inviting surfaces and refined finishes for hotels, restaurants, and guest spaces built around memorable experiences.",
+        "cta": "Explore Hospitality",
+        "feature": "CARPET FLOORING",
+        "products": [
+          {
+            "name": "Artificial Grass",
+            "image": "floor-3"
+          },
+          {
+            "name": "Deck Flooring",
+            "image": "floor-12"
+          },
+          {
+            "name": "Carpet Tiles",
+            "image": "floor-11"
+          },
+          {
+            "name": "Wooden Flooring",
+            "image": "floor-2"
+          },
+          {
+            "name": "Vinyl Flooring",
+            "image": "floor-7"
+          }
+        ]
+      },
+      {
+        "name": "OUTDOOR",
+        "description": "Durable outdoor finishes that bring comfort, character, and lasting performance to open-air spaces.",
+        "cta": "Explore Outdoor",
+        "feature": "DECK FLOORING",
+        "products": [
+          {
+            "name": "Carpet Tiles",
+            "image": "floor-12"
+          },
+          {
+            "name": "Wooden Flooring",
+            "image": "floor-7"
+          },
+          {
+            "name": "Vinyl Flooring",
+            "image": "floor-3"
+          },
+          {
+            "name": "Artificial Grass",
+            "image": "floor-11"
+          }
+        ]
+      }
+    ]
+  },
   "ChooseUs": {
     "title": "Why Clients Choose Us",
     "features": [
