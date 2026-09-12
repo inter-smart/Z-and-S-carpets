@@ -7,6 +7,7 @@ import {
   TrustedLogo6,
   TrustedLogo7,
 } from '@/assets/images'
+import LookingForwardBanner from '@/components/looking-forward-banner'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 
@@ -38,7 +39,7 @@ export default function TrustedPartnerSection() {
         {trustedPartners.map((partner) => (
           <div
             key={partner.name}
-            className="w-48 h-32 rounded-md bg-[#EFF9FE]/25 border border-[#0066B3]/25 flex justify-center items-center px-10"
+            className="w-28 h-20 sm:w-48 sm:h-32 px-4 sm:px-10 rounded-md bg-[#EFF9FE]/25 border border-[#0066B3]/25 flex justify-center items-center"
           >
             <Image
               src={
@@ -52,6 +53,7 @@ export default function TrustedPartnerSection() {
           </div>
         ))}
       </div>
+      <LookingForwardBanner />
     </section>
   )
 }

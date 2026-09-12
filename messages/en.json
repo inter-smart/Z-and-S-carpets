@@ -431,6 +431,14 @@
       }
     ]
   },
+  "LookingForwardMsg": {
+    "title": {
+      "first": "We are looking forward to",
+      "second": "meeting you"
+    },
+    "description": "Let's create beautiful spaces together. Our flooring specialists are ready to guide you from inspiration to installation.",
+    "btnLabel": "Enquire Now"
+  },
   "Footer": {
     "footerLinks": {
       "quickLinks": {
