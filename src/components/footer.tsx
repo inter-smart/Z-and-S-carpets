@@ -148,7 +148,7 @@ export default function Footer() {
           </div>
           <p className="lg:hidden">{t('copyright')}</p>
           <div className="flex flex-col sm:flex-row space-x-1 justify-between items-center">
-            <p>Designed By:</p>
+            <p>{t('designedByLabel')}:</p>
             <div className="flex flex-row space-x-1">
               <Image
                 src={InterSmartIcon}

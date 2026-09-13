@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-import BottomRightBtns from '@/components/bottom-right-btns'
+import BottomSideBtns from '@/components/bottom-side-btns'
 import { cn } from '@/lib/utils'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
@@ -77,7 +77,7 @@ export default async function RootLayout({
         </div> */}
         <NextIntlClientProvider messages={messages}>
           {children}
-          <BottomRightBtns />
+          <BottomSideBtns />
         </NextIntlClientProvider>
       </body>
     </html>

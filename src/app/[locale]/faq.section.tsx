@@ -21,9 +21,9 @@ export default function FAQSection() {
       className="container-wrapper grid grid-cols-1 lg:grid-cols-2"
       aria-label="Frequently asked questions and company information"
     >
-      <div className="flex flex-col pr-6 py-16 sm:pr-10 lg:pr-[5.6vw] lg:py-20 xl:pr-[5.7vw]">
+      <div className="flex flex-col pe-6 py-16 sm:pe-10 lg:pe-[5.6vw] lg:py-20 xl:pe-[5.7vw]">
         <h2 className="max-w-md text-4xl font-medium ltr:font-nobile rtl:font-cairo leading-[1.08] tracking-[-0.04em] text-foreground sm:text-5xl">
-          Frequently Asked Questions
+          {t('title')}
         </h2>
 
         <div className="mt-14">
@@ -31,7 +31,10 @@ export default function FAQSection() {
             const isOpen = openIndex === index
 
             return (
-              <div key={faq.question} className="border-b border-border">
+              <div
+                key={faq.question}
+                className="border-b last:border-none border-border"
+              >
                 <button
                   type="button"
                   className="flex w-full items-start justify-between gap-6 py-6 text-left text-base font-medium text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4"
@@ -58,7 +61,7 @@ export default function FAQSection() {
                   className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out motion-reduce:transition-none ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
                 >
                   <div className="min-h-0 overflow-hidden">
-                    <p className="pb-6 pr-8 text-sm leading-6 text-muted-foreground">
+                    <p className="pb-6 pe-8 text-sm leading-6 text-muted-foreground">
                       {faq.answer}
                     </p>
                   </div>

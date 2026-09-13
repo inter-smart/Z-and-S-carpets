@@ -5,9 +5,9 @@ import {
 } from '@/assets/icons'
 import Image from 'next/image'
 
-export default function BottomRightBtns() {
+export default function BottomSideBtns() {
   return (
-    <div className="fixed bottom-14 right-2 sm:right-5 flex flex-col-reverse gap-1.25 z-99">
+    <div className="fixed bottom-14 ltr:right-2 ltr:sm:right-5 rtl:left-2 rtl:sm:left-5 flex flex-col-reverse gap-1.25 z-99">
       <div className="w-9.5 h-9.5 bg-[#812990] rounded-sm p-2.5 flex justify-center items-center">
         <Image
           src={MailOutlineIcon}
