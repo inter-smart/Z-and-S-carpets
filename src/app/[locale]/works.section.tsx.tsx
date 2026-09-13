@@ -80,12 +80,12 @@ export default function WorksSections() {
                     <Image
                       src={ArrowLeftIcon}
                       alt="arrow-left"
-                      className="hidden rtl:inline-block w-auto h-2.5 sm:ms-3"
+                      className="hidden rtl:inline-block w-auto h-2.5 ms-3"
                     />
                     <Image
                       src={ArrowRightIcon}
                       alt="arrow-right"
-                      className="hidden ltr:inline-block w-auto h-2.5 sm:ms-3"
+                      className="hidden ltr:inline-block w-auto h-2.5 ms-3"
                     />
                   </span>
                 </div>

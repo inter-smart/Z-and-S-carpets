@@ -131,7 +131,10 @@ export default function ChooseUsSection() {
         </div>
 
         {/* image compare slider */}
-        <ImgCompareSlider images={[FloorCImg2, FloorCImg1]} />
+        <ImgCompareSlider
+          images={[FloorCImg2, FloorCImg1]}
+          className="h-40 sm:h-100 xl:h-150"
+        />
       </div>
     </div>
   )

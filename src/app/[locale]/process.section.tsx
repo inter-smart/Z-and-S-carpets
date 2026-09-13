@@ -8,7 +8,7 @@ import Image from 'next/image'
 import { useState } from 'react'
 
 export default function ProcessSections() {
-  const [activeStep, setActiveStep] = useState(1)
+  const [activeStep, setActiveStep] = useState(0)
 
   const t = useTranslations('process')
   const processSteps = t.raw('steps') as {

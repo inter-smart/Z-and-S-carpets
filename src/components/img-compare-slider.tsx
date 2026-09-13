@@ -9,18 +9,18 @@ import Image, { type StaticImageData } from 'next/image'
 
 export default function ImgCompareSlider({
   images,
-  height,
+  className,
 }: {
   images: StaticImageData[]
-  height?: string
+  className?: string
 }) {
   const locale = useLocale() as LocaleType
 
   return (
     <ImgComparisonSlider
       className={cn(
-        'block w-full overflow-hidden rounded-md outline-none',
-        height ?? 'h-110',
+        'block w-full h-110 overflow-hidden rounded-md outline-none',
+        className,
       )}
       style={
         {
