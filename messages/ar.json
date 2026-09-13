@@ -1,343 +1,358 @@
 {
-  "HomePage": {
-    "title": "مرحباً بكم في موقعنا",
-    "description": "نحن نقدم منتجات عالية الجودة."
-  },
   "Navbar": {
+    "menuBtnLable": "القائمة",
     "navLinks": [
       [
         {
-          "text": "About Us",
+          "text": "من نحن",
           "link": ""
         },
         {
-          "text": "Services",
+          "text": "الخدمات",
           "link": ""
         },
         {
-          "text": "Our Work",
+          "text": "أعمالنا",
           "link": ""
         },
         {
-          "text": "Resources",
+          "text": "الموارد",
           "link": ""
         }
       ],
       [
         {
-          "text": "Expert Insights",
+          "text": "رؤى الخبراء",
           "link": ""
         },
         {
-          "text": "Contact us",
+          "text": "اتصل بنا",
           "link": ""
         },
         {
-          "text": "Get a sample",
+          "text": "احصل على عينة",
           "link": ""
         }
       ]
     ],
     "category": [
       {
-        "title": "Artificial Grass"
+        "title": "العشب الصناعي"
       },
       {
-        "title": "Vinyl Flooring"
+        "title": "أرضيات الفينيل"
       },
       {
-        "title": "Deck Flooring"
+        "title": "أرضيات الديك"
       },
       {
-        "title": "Spc Flooring"
+        "title": "أرضيات SPC"
       },
       {
-        "title": "Laminate Flooring"
+        "title": "أرضيات اللامينيت"
       },
       {
-        "title": "Carpet Flooring"
+        "title": "أرضيات السجاد"
       },
       {
-        "title": "Lvt Flooring More"
+        "title": "المزيد من أرضيات LVT"
       }
-    ]
+    ],
+    "categoryMoreBtnLable": "المزيد"
+  },
+  "HeroSection": {
+    "mainTag": "خبراء موثوقون في الأرضيات في الإمارات ودول مجلس التعاون الخليجي",
+    "description": "للمنازل والمكاتب والمساحات التجارية",
+    "btnLabel": "اطلب عرض سعر",
+    "sideMenu": ["سكني", "تجاري", "ضيافة", "مساحات خارجية"],
+    "card": {
+      "itemValue": "15 ألف+",
+      "itemText": "مشروعًا تم إنجازه"
+    }
   },
   "collection": {
-    "title": "Discover Our Collection",
-    "buttonLabel": "View All Products",
+    "title": "اكتشف مجموعتنا",
+    "buttonLabel": "عرض جميع المنتجات",
     "items": [
       {
         "id": "laminate-flooring",
-        "title": "Laminate Flooring"
+        "title": "أرضيات اللامينيت"
       },
       {
         "id": "carpet-flooring",
-        "title": "Carpet Flooring"
+        "title": "أرضيات السجاد"
       }
     ],
-    "itemButtonLabel": "View Products"
+    "itemButtonLabel": "عرض المنتجات"
   },
   "process": {
-    "eyebrow": "OUR PROCESS",
-    "title": "How it Works",
+    "eyebrow": "عمليتنا",
+    "title": "كيف نعمل",
     "image": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-O9BA8oAzMITHDdRTzxM4hhv0TpnQIw.png",
     "steps": [
       {
-        "title": "Design",
-        "description": "We help you shape the right flooring direction for your space."
+        "title": "التصميم",
+        "description": "نساعدك في تحديد خيار الأرضيات المناسب لمساحتك."
       },
       {
-        "title": "Supervision",
-        "description": "Our project managers oversee every detail from selection to site preparation."
+        "title": "الإشراف",
+        "description": "يشرف مديرو مشاريعنا على كل تفصيل بدءًا من الاختيار وحتى تجهيز الموقع."
       },
       {
-        "title": "Budget Planning",
-        "description": "Clear recommendations and practical planning keep your project on track."
+        "title": "تخطيط الميزانية",
+        "description": "تساعدك التوصيات الواضحة والتخطيط العملي على إبقاء مشروعك على المسار الصحيح."
       },
       {
-        "title": "Delivery & Install",
-        "description": "Our skilled team delivers and installs your flooring with care."
+        "title": "التوصيل والتركيب",
+        "description": "يقوم فريقنا الماهر بتوصيل وتركيب أرضياتك بعناية."
       }
     ]
   },
   "works": {
-    "title": "Explore Our Work",
-    "categories": [
-      "ALL",
-      "RESIDENTIAL",
-      "COMMERCIAL",
-      "HOSPITALITY",
-      "OUTDOOR"
-    ],
+    "title": "استكشف أعمالنا",
+    "categories": ["الكل", "سكني", "تجاري", "ضيافة", "خارجي"],
     "items": [
       {
-        "title": "Wood Pattern Vinyl",
-        "category": "RESIDENTIAL",
-        "location": "United Arab Emirates",
-        "featured": true
+        "title": "فينيل بنقشة خشبية",
+        "category": "سكني",
+        "location": "الإمارات العربية المتحدة",
+        "featured": true,
+        "btnLabel": "عرض المشروع"
       },
       {
-        "title": "Laminate Flooring",
-        "category": "COMMERCIAL",
-        "location": "United Arab Emirates"
+        "title": "أرضيات اللامينيت",
+        "category": "تجاري",
+        "location": "الإمارات العربية المتحدة",
+        "btnLabel": "عرض المشروع"
       },
       {
-        "title": "Deck Flooring",
-        "category": "OUTDOOR",
-        "location": "United Arab Emirates"
+        "title": "أرضيات الديك",
+        "category": "خارجي",
+        "location": "الإمارات العربية المتحدة",
+        "btnLabel": "عرض المشروع"
       }
-    ]
+    ],
+    "viewAllProjectsBtnLabel": "عرض جميع المشاريع"
   },
   "bestseller": {
-    "title": "Our Residential Bestsellers",
-    "filterLabel": "Filter",
-    "viewAllLabel": "View All Products",
+    "title": "الأكثر مبيعًا للمنازل",
+    "filterLabel": "تصفية",
+    "viewAllLabel": "عرض جميع المنتجات",
+    "getSampleBtnLabel": "احصل على عينة",
+    "viewMoreBtnLabel": "عرض المزيد",
     "products": [
       {
-        "category": "DECK FLOORING",
-        "title": "Landscaping Grass",
-        "description": "Crafted for modern exteriors, our landscaping grass brings structure, depth, and a contemporary finish to every garden."
+        "category": "أرضيات الديك",
+        "title": "عشب تنسيق الحدائق",
+        "description": "صُمم عشب تنسيق الحدائق لدينا للمساحات الخارجية العصرية، ليضيف تنسيقًا وعمقًا ولمسة نهائية معاصرة إلى كل حديقة.",
+        "tagLabel": "الأكثر مبيعًا"
       },
       {
-        "category": "CARPET FLOORING",
-        "title": "Carpet Tiles Pixel Block",
-        "description": "Crafted for modern interiors, Pixel Block Carpet Tiles bring structure, depth, and a contemporary modular look to any space."
+        "category": "أرضيات السجاد",
+        "title": "بلاطات سجاد بيكسل بلوك",
+        "description": "صُممت بلاطات سجاد بيكسل بلوك للتصاميم الداخلية العصرية، لتضيف تنسيقًا وعمقًا ومظهرًا عصريًا بتصميم وحدات إلى أي مساحة.",
+        "tagLabel": "الأكثر مبيعًا"
       },
       {
-        "category": "DECK FLOORING",
-        "title": "Acacia Deck Tiles",
-        "description": "Bring warmth and durability outdoors with Acacia Deck Tiles designed for relaxed poolside and terrace living."
+        "category": "أرضيات الديك",
+        "title": "بلاطات ديك الأكاسيا",
+        "description": "أضف الدفء والمتانة إلى المساحات الخارجية مع بلاطات ديك الأكاسيا المصممة للاستمتاع المريح بجانب المسبح وعلى الشرفات.",
+        "tagLabel": "الأكثر مبيعًا"
       },
       {
-        "category": "VINYL FLOORING",
-        "title": "Oak Grain Vinyl",
-        "description": "A practical, low-maintenance surface with the natural character of timber for busy residential spaces."
+        "category": "أرضيات الفينيل",
+        "title": "فينيل بنقشة خشب البلوط",
+        "description": "سطح عملي وسهل الصيانة يتميز بالطابع الطبيعي للخشب، ومناسب للمساحات السكنية كثيرة الاستخدام.",
+        "tagLabel": "الأكثر مبيعًا"
       },
       {
-        "category": "ARTIFICIAL GRASS",
-        "title": "Garden Luxe",
-        "description": "Soft underfoot and evergreen year-round, Garden Luxe creates a polished landscape with minimal upkeep."
+        "category": "العشب الصناعي",
+        "title": "جاردن لوكس",
+        "description": "ناعمة تحت القدم وخضراء طوال العام، تضفي جاردن لوكس مظهرًا أنيقًا على المناظر الطبيعية مع الحد الأدنى من الصيانة.",
+        "tagLabel": "الأكثر مبيعًا"
       },
       {
-        "category": "WOOD FLOORING",
-        "title": "Natural Herringbone",
-        "description": "Refined herringbone flooring adds rhythm and warmth to welcoming residential interiors."
+        "category": "الأرضيات الخشبية",
+        "title": "نمط متعرج طبيعي",
+        "description": "تضيف أرضيات النمط المتعرج الراقية إيقاعًا ودفئًا إلى التصاميم الداخلية السكنية الترحيبية.",
+        "tagLabel": "الأكثر مبيعًا"
       }
     ]
   },
   "FAQ": {
+    "title": "الأسئلة الشائعة",
     "faqs": [
       {
-        "question": "Do You Offer Free Samples Before Purchase?",
-        "answer": "Yes, we offer complimentary samples so you can confidently choose the right finish, texture, and colour for your space."
+        "question": "هل تقدمون عينات مجانية قبل الشراء؟",
+        "answer": "نعم، نقدم عينات مجانية لتتمكن من اختيار التشطيب والملمس واللون المناسب لمساحتك بثقة."
       },
       {
-        "question": "Do You Install Outside Of Dubai?",
-        "answer": "Absolutely. We serve all GCC countries including UAE, Saudi Arabia, Qatar, Kuwait, Bahrain and Oman. Delivery and installation can be arranged across the region."
+        "question": "هل تقومون بالتركيب خارج دبي؟",
+        "answer": "بالتأكيد. نخدم جميع دول مجلس التعاون الخليجي، بما في ذلك الإمارات والسعودية وقطر والكويت والبحرين وعُمان. ويمكن ترتيب التوصيل والتركيب في جميع أنحاء المنطقة."
       },
       {
-        "question": "How Long Does Installation Take?",
-        "answer": "Installation timelines depend on the product and project size. After our site measurement, we will provide a clear schedule before work begins."
+        "question": "كم يستغرق التركيب؟",
+        "answer": "تعتمد مدة التركيب على المنتج وحجم المشروع. بعد إجراء قياس الموقع، سنقدم لك جدولًا زمنيًا واضحًا قبل بدء العمل."
       },
       {
-        "question": "Can You Help With Design And Selection?",
-        "answer": "Our flooring consultants can help you compare materials, finishes and layouts to find a solution that suits your style, space and budget."
+        "question": "هل يمكنكم المساعدة في التصميم والاختيار؟",
+        "answer": "يمكن لمستشاري الأرضيات لدينا مساعدتك في مقارنة المواد والتشطيبات والتصاميم للعثور على حل يناسب أسلوبك ومساحتك وميزانيتك."
       },
       {
-        "question": "Is There A Warranty On Products And Installation?",
-        "answer": "Yes. Product and installation warranties vary by collection, and our team will explain the coverage for your selected flooring before purchase."
+        "question": "هل توجد ضمانة على المنتجات والتركيب؟",
+        "answer": "نعم. تختلف ضمانات المنتجات والتركيب حسب المجموعة، وسيشرح لك فريقنا نطاق التغطية لأرضياتك المختارة قبل الشراء."
       },
       {
-        "question": "Do You Work With Interior Designers And Contractors?",
-        "answer": "Yes, we regularly partner with interior designers, contractors, developers and project teams across the UAE and GCC."
+        "question": "هل تعملون مع مصممي الديكور الداخلي والمقاولين؟",
+        "answer": "نعم، نتعاون بانتظام مع مصممي الديكور الداخلي والمقاولين والمطورين وفرق المشاريع في جميع أنحاء الإمارات ودول مجلس التعاون الخليجي."
       }
     ],
     "pfs": {
-      "title": "Premium Flooring Solutions Across UAE & GCC",
+      "title": "حلول أرضيات فاخرة في جميع أنحاء الإمارات ودول مجلس التعاون الخليجي",
       "paragraphs": [
-        "Z&S Carpets & Flooring Is One Of The UAE's Most Trusted Flooring Specialists, Offering An Extensive Range Of Carpets, Artificial Grass, Vinyl Flooring, Engineered Wooden Flooring, Outdoor Decking And Decorative Rugs. With Over 15 Years Of Experience Serving Dubai, Abu Dhabi, Sharjah, And Across The GCC, We Bring Premium-Quality Flooring To Residential Villas, Corporate Offices, Hotels, Retail Outlets And Outdoor Spaces.",
-        "Our Team Of Flooring Consultants, Project Managers And Installation Technicians Are Committed To Delivering A Seamless Experience — From Product Selection And Sample Delivery To Site Measurement, Installation And Aftercare. Whether You're Refurbishing A Single Room Or Outfitting An Entire Development, Z&S Has The Expertise, Range And Resources To Deliver Exceptional Results."
+        "تُعد Z&S Carpets & Flooring واحدة من أكثر شركات الأرضيات موثوقية في الإمارات، حيث تقدم مجموعة واسعة من السجاد والعشب الصناعي وأرضيات الفينيل والأرضيات الخشبية الهندسية والأرضيات الخارجية والسجاد الزخرفي. وبخبرة تزيد على 15 عامًا في خدمة دبي وأبوظبي والشارقة وجميع أنحاء دول مجلس التعاون الخليجي، نوفر أرضيات عالية الجودة للفلل السكنية والمكاتب والشركات والفنادق ومنافذ البيع بالتجزئة والمساحات الخارجية.",
+        "يلتزم فريقنا من مستشاري الأرضيات ومديري المشاريع وفنيي التركيب بتقديم تجربة سلسة — بدءًا من اختيار المنتج وتوصيل العينات وحتى قياس الموقع والتركيب وخدمات ما بعد البيع. سواء كنت تجدد غرفة واحدة أو تجهز مشروعًا متكاملًا، تمتلك Z&S الخبرة والتنوع والموارد اللازمة لتحقيق نتائج استثنائية."
       ],
-      "buttonLabel": "See More"
+      "buttonLabel": "عرض المزيد"
     }
   },
   "testimonials": {
-    "title": "Customer Experiences",
-    "rating": "5.0 Ratings",
+    "title": "تجارب العملاء",
+    "rating": "تقييمات 5.0",
     "reviews": [
       {
-        "quote": "Donec sit amet turpis tincidunt eros, euismod non nam luctus vulputate dui penatibus pulvinar quis netus penatibus pretium.",
-        "name": "Isla Grace",
-        "role": "Customer",
+        "quote": "لقد كان من دواعي سرورنا التعامل معكم، ونشكركم على جودة الخدمة والاهتمام بالتفاصيل.",
+        "name": "إيلا غريس",
+        "role": "عميل",
         "avatar": "https://i.pravatar.cc/120?img=47"
       },
       {
-        "quote": "The entire flooring experience was seamless from the first consultation through installation. The finish looks incredible.",
-        "name": "Marcus Reed",
-        "role": "Customer",
+        "quote": "كانت تجربة الأرضيات بأكملها سلسة بدءًا من الاستشارة الأولى وحتى التركيب. والنتيجة النهائية تبدو رائعة.",
+        "name": "ماركوس ريد",
+        "role": "عميل",
         "avatar": "https://i.pravatar.cc/120?img=12"
       },
       {
-        "quote": "Professional advice, thoughtful details, and a beautiful result. We are thrilled with how our home came together.",
-        "name": "Sofia Bennett",
-        "role": "Customer",
+        "quote": "نصائح احترافية، واهتمام بالتفاصيل، ونتيجة جميلة. نحن سعداء جدًا بالشكل الذي أصبح عليه منزلنا.",
+        "name": "صوفيا بينيت",
+        "role": "عميل",
         "avatar": "https://i.pravatar.cc/120?img=32"
       },
       {
-        "quote": "The team understood our brief immediately and delivered on time. Every detail was handled with real care.",
-        "name": "Noah Williams",
-        "role": "Customer",
+        "quote": "فهم الفريق متطلباتنا فورًا وأنجز العمل في الوقت المحدد. تم التعامل مع كل التفاصيل بعناية فائقة.",
+        "name": "نواه ويليامز",
+        "role": "عميل",
         "avatar": "https://i.pravatar.cc/120?img=68"
       },
       {
-        "quote": "From samples to the final walkthrough, the service was attentive and reliable. I would happily recommend them.",
-        "name": "Amelia Carter",
-        "role": "Customer",
+        "quote": "من العينات وحتى الجولة النهائية، كانت الخدمة متميزة وموثوقة. أوصي بهم بكل سرور.",
+        "name": "أميليا كارتر",
+        "role": "عميل",
         "avatar": "https://i.pravatar.cc/120?img=49"
       },
       {
-        "quote": "A polished, comfortable finish that completely changed the feeling of the room. Excellent work all around.",
-        "name": "Daniel Hayes",
-        "role": "Customer",
+        "quote": "تشطيب أنيق ومريح غيّر أجواء الغرفة بالكامل. عمل ممتاز من جميع النواحي.",
+        "name": "دانيال هايز",
+        "role": "عميل",
         "avatar": "https://i.pravatar.cc/120?img=11"
       }
     ]
   },
   "BuiltFor": {
-    "title": "Built for Every Space",
+    "title": "مصمم لكل مساحة",
     "categories": [
       {
-        "name": "RESIDENTIAL",
-        "description": "Warm, considered flooring for homes that feel as good as they look.",
-        "cta": "Explore Residential",
-        "feature": "VINYL FLOORING",
+        "name": "سكني",
+        "description": "أرضيات دافئة ومدروسة للمنازل التي تبدو رائعة وتشعرك بالراحة.",
+        "cta": "استكشف الحلول السكنية",
+        "feature": "أرضيات الفينيل",
         "products": [
           {
-            "name": "Carpet Tiles",
+            "name": "بلاطات السجاد",
             "image": "floor-2"
           },
           {
-            "name": "Wooden Flooring",
+            "name": "الأرضيات الخشبية",
             "image": "floor-3"
           },
           {
-            "name": "Vinyl Flooring",
+            "name": "أرضيات الفينيل",
             "image": "floor-7"
           },
           {
-            "name": "Artificial Grass",
+            "name": "العشب الصناعي",
             "image": "floor-11"
           }
         ]
       },
       {
-        "name": "COMMERCIAL",
-        "description": "High-performance flooring for offices, retail spaces, and corporate environments that demand durability alongside aesthetics.",
-        "cta": "Get Custom Solution",
-        "feature": "VINYL FLOORING",
+        "name": "تجاري",
+        "description": "أرضيات عالية الأداء للمكاتب ومساحات البيع بالتجزئة والبيئات المؤسسية التي تتطلب المتانة إلى جانب الجماليات.",
+        "cta": "احصل على حل مخصص",
+        "feature": "أرضيات الفينيل",
         "products": [
           {
-            "name": "Vinyl Flooring",
+            "name": "أرضيات الفينيل",
             "image": "floor-7"
           },
           {
-            "name": "Artificial Grass",
+            "name": "العشب الصناعي",
             "image": "floor-2"
           },
           {
-            "name": "Deck Flooring",
+            "name": "أرضيات الديك",
             "image": "floor-12"
           }
         ]
       },
       {
-        "name": "HOSPITALITY",
-        "description": "Inviting surfaces and refined finishes for hotels, restaurants, and guest spaces built around memorable experiences.",
-        "cta": "Explore Hospitality",
-        "feature": "CARPET FLOORING",
+        "name": "ضيافة",
+        "description": "أسطح جذابة وتشطيبات راقية للفنادق والمطاعم ومساحات الضيوف المصممة لتقديم تجارب لا تُنسى.",
+        "cta": "استكشف حلول الضيافة",
+        "feature": "أرضيات السجاد",
         "products": [
           {
-            "name": "Artificial Grass",
+            "name": "العشب الصناعي",
             "image": "floor-3"
           },
           {
-            "name": "Deck Flooring",
+            "name": "أرضيات الديك",
             "image": "floor-12"
           },
           {
-            "name": "Carpet Tiles",
+            "name": "بلاطات السجاد",
             "image": "floor-11"
           },
           {
-            "name": "Wooden Flooring",
+            "name": "الأرضيات الخشبية",
             "image": "floor-2"
           },
           {
-            "name": "Vinyl Flooring",
+            "name": "أرضيات الفينيل",
             "image": "floor-7"
           }
         ]
       },
       {
-        "name": "OUTDOOR",
-        "description": "Durable outdoor finishes that bring comfort, character, and lasting performance to open-air spaces.",
-        "cta": "Explore Outdoor",
-        "feature": "DECK FLOORING",
+        "name": "خارجي",
+        "description": "تشطيبات خارجية متينة تضفي الراحة والطابع والأداء المستدام على المساحات المفتوحة.",
+        "cta": "استكشف الحلول الخارجية",
+        "feature": "أرضيات الديك",
         "products": [
           {
-            "name": "Carpet Tiles",
+            "name": "بلاطات السجاد",
             "image": "floor-12"
           },
           {
-            "name": "Wooden Flooring",
+            "name": "الأرضيات الخشبية",
             "image": "floor-7"
           },
           {
-            "name": "Vinyl Flooring",
+            "name": "أرضيات الفينيل",
             "image": "floor-3"
           },
           {
-            "name": "Artificial Grass",
+            "name": "العشب الصناعي",
             "image": "floor-11"
           }
         ]
@@ -345,41 +360,41 @@
     ]
   },
   "ChooseUs": {
-    "title": "Why Clients Choose Us",
+    "title": "لماذا يختارنا العملاء",
     "features": [
       {
-        "title": "Premium Quality Materials",
-        "description": "Sourced from world-class manufacturers with strict quality standards."
+        "title": "مواد عالية الجودة",
+        "description": "مصادرها من شركات تصنيع عالمية المستوى تلتزم بمعايير جودة صارمة."
       },
       {
-        "title": "Wide Product Range",
-        "description": "Hundreds of options across carpets, vinyl, wood, grass and more."
+        "title": "مجموعة واسعة من المنتجات",
+        "description": "مئات الخيارات من السجاد والفينيل والخشب والعشب والمزيد."
       },
       {
-        "title": "Custom Solutions",
-        "description": "Tailored design consultations for every project, big or small."
+        "title": "حلول مخصصة",
+        "description": "استشارات تصميم مخصصة لكل مشروع، كبيرًا كان أم صغيرًا."
       },
       {
-        "title": "Competitive Pricing",
-        "description": "Best-in-market pricing without compromise on quality."
+        "title": "أسعار تنافسية",
+        "description": "أفضل الأسعار في السوق دون المساومة على الجودة."
       },
       {
-        "title": "GCC-Wide Delivery",
-        "description": "Reliable delivery and installation across all GCC countries."
+        "title": "التوصيل في جميع دول مجلس التعاون الخليجي",
+        "description": "توصيل وتركيب موثوقان في جميع دول مجلس التعاون الخليجي."
       },
       {
-        "title": "Professional Installation",
-        "description": "Expert teams ensuring flawless finish on every installation."
+        "title": "تركيب احترافي",
+        "description": "فرق متخصصة تضمن تشطيبًا مثاليًا في كل عملية تركيب."
       }
     ],
     "cta": {
-      "title": "Trusted Quality. Proven Results.",
-      "description": "Delivering reliable solutions with exceptional quality and customer satisfaction.",
-      "btnLabel": "Find your Perfect Carpet"
+      "title": "جودة موثوقة. نتائج مثبتة.",
+      "description": "نقدم حلولًا موثوقة بجودة استثنائية ورضا عالٍ للعملاء.",
+      "btnLabel": "اعثر على سجادتك المثالية"
     }
   },
   "TrustedPartner": {
-    "title": "Trusted Across the UAE",
+    "title": "موثوق بنا في جميع أنحاء الإمارات",
     "partners": [
       {
         "name": "partner-name-1",
@@ -433,116 +448,116 @@
   },
   "LookingForwardMsg": {
     "title": {
-      "first": "We are looking forward to",
-      "second": "meeting you"
+      "first": "نتطلع إلى",
+      "second": "لقائك"
     },
-    "description": "Let's create beautiful spaces together. Our flooring specialists are ready to guide you from inspiration to installation.",
-    "btnLabel": "Enquire Now"
+    "description": "لنصنع مساحات جميلة معًا. متخصصو الأرضيات لدينا مستعدون لإرشادك من مرحلة الإلهام وحتى التركيب.",
+    "btnLabel": "استفسر الآن"
   },
   "Footer": {
     "footerLinks": {
       "quickLinks": {
-        "title": "Quick Links",
+        "title": "روابط سريعة",
         "items": [
           {
-            "text": "About Us",
+            "text": "من نحن",
             "link": ""
           },
           {
-            "text": "Our Process",
+            "text": "عمليتنا",
             "link": ""
           },
           {
-            "text": "Blog",
+            "text": "المدونة",
             "link": ""
           },
           {
-            "text": "Careers",
+            "text": "الوظائف",
             "link": ""
           },
           {
-            "text": "Privacy Policy",
+            "text": "سياسة الخصوصية",
             "link": ""
           }
         ]
       },
       "services": {
-        "title": "Services",
+        "title": "الخدمات",
         "items": [
           {
-            "text": "Design Consultation",
+            "text": "استشارة تصميم",
             "link": ""
           },
           {
-            "text": "Free Sampling",
+            "text": "عينات مجانية",
             "link": ""
           },
           {
-            "text": "Professional Installation",
+            "text": "تركيب احترافي",
             "link": ""
           },
           {
-            "text": "Commercial Projects",
+            "text": "المشاريع التجارية",
             "link": ""
           },
           {
-            "text": "Maintenance",
+            "text": "الصيانة",
             "link": ""
           }
         ]
       },
       "products": {
-        "title": "Products",
+        "title": "المنتجات",
         "items": [
           [
             {
-              "text": "Artificial Grass",
+              "text": "العشب الصناعي",
               "link": ""
             },
             {
-              "text": "Carpet Flooring",
+              "text": "أرضيات السجاد",
               "link": ""
             },
             {
-              "text": "Vinyl Flooring",
+              "text": "أرضيات الفينيل",
               "link": ""
             },
             {
-              "text": "Wood Flooring",
+              "text": "الأرضيات الخشبية",
               "link": ""
             },
             {
-              "text": "Deck Flooring",
+              "text": "أرضيات الديك",
               "link": ""
             },
             {
-              "text": "Gym & Sports Flooring",
+              "text": "أرضيات الصالات الرياضية والملاعب",
               "link": ""
             }
           ],
           [
             {
-              "text": "Spc Flooring",
+              "text": "أرضيات SPC",
               "link": ""
             },
             {
-              "text": "Rubber Flooring",
+              "text": "الأرضيات المطاطية",
               "link": ""
             },
             {
-              "text": "Lvt Flooring",
+              "text": "أرضيات LVT",
               "link": ""
             },
             {
-              "text": "Wall Cladding",
+              "text": "كسوة الجدران",
               "link": ""
             },
             {
-              "text": "Laminate Flooring",
+              "text": "أرضيات اللامينيت",
               "link": ""
             },
             {
-              "text": "PVC Flooring",
+              "text": "أرضيات PVC",
               "link": ""
             }
           ]
@@ -552,7 +567,7 @@
     "contacts": [
       {
         "id": "location-icon",
-        "text": "Warehouse No:5, Street No:2 Al Warsan -3, Dubai (UAE)"
+        "text": "المستودع رقم 5، الشارع رقم 2، الورسان -3، دبي (الإمارات العربية المتحدة)"
       },
       {
         "id": "mail-icon",
@@ -589,6 +604,7 @@
         "link": ""
       }
     ],
-    "copyright": "Copyright © Z&S Carpets Trading L.L.C. All Rights Reserved"
+    "copyright": "Copyright © Z&S Carpets Trading L.L.C. All Rights Reserved",
+    "designedByLabel": "تصميم بواسطة"
   }
 }

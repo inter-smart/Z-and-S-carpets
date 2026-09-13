@@ -24,7 +24,7 @@ export default function BestSellers() {
     category: string
     title: string
     description: string
-    image: string
+    tagLabel: string
   }[]
 
   const slides = Array.from(
@@ -84,8 +84,8 @@ export default function BestSellers() {
                           alt={product.title}
                           className="size-full object-cover"
                         />
-                        <span className="absolute right-3 top-3 rounded bg-background px-3 py-1 text-xs font-medium text-foreground">
-                          BEST SELLER
+                        <span className="absolute right-3 top-3 rounded bg-background px-3 py-1 text-xs font-medium uppercase text-foreground">
+                          {product.tagLabel}
                         </span>
                       </div>
                       <div className="flex min-h-60 flex-col p-4">
@@ -103,10 +103,10 @@ export default function BestSellers() {
                             variant="outline"
                             className="rounded-sm py-4.5 min-w-0 flex-1 border-white bg-transparent text-white hover:bg-white hover:text-[#073b68]"
                           >
-                            Get a sample
+                            {t('getSampleBtnLabel')}
                           </Button>
                           <Button className="rounded-sm py-4.5 min-w-0 flex-1 bg-[#812990] text-white hover:bg-[#812990]/85">
-                            View More
+                            {t('viewMoreBtnLabel')}
                           </Button>
                         </div>
                       </div>

@@ -1,12 +1,14 @@
 import { MoveLeftIcon, MoveRightIcon } from '@/assets/icons'
 import { FloorImg4 } from '@/assets/images'
 import { Button } from '@/components/ui/button'
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { Fragment } from 'react/jsx-runtime'
 
-const items = ['Residential', 'Commercial', 'Hospitality', 'Outdoor']
-
 export default function HeroSection() {
+  const t = useTranslations('HeroSection')
+  const sideMenuItems = t.raw('sideMenu') as string[]
+
   return (
     <section>
       <div className="relative">
@@ -24,12 +26,12 @@ export default function HeroSection() {
           {/* side options */}
           <div className="absolute top-0 h-full w-10 sm:w-20 flex flex-col justify-center items-center pt-40">
             <div className="flex flex-row items-center gap-5 ltr:-rotate-90 rtl:rotate-90">
-              {items.map((label, i) => (
+              {sideMenuItems.map((label, i) => (
                 <Fragment key={label}>
-                  <p className="text-md font-light underline decoration-0 underline-offset-5 cursor-default">
+                  <p className="text-md font-light whitespace-nowrap underline decoration-0 underline-offset-5 cursor-default">
                     {label}
                   </p>
-                  {i < items.length - 1 && (
+                  {i < sideMenuItems.length - 1 && (
                     <div className="w-[0.1px] h-4.5 bg-white/20"></div>
                   )}
                 </Fragment>
@@ -37,19 +39,17 @@ export default function HeroSection() {
             </div>
           </div>
           {/* hero text */}
-          <div className="container-wrapper px-14! sm:px-30! w-full h-1/2 flex flex-row pb-20">
+          <div className="container-wrapper px-14! sm:px-30! w-full h-1/2 flex flex-row pb-10 md:pb-20">
             <div className="flex flex-col justify-end gap-6 w-full lg:w-1/2">
               <h1 className="text-4xl leading-11 font-medium ltr:font-nobile rtl:font-cairo">
-                Trusted Flooring Specialists in UAE & GCC
+                {t('mainTag')}
               </h1>
-              <h2 className="text-xl">
-                For Homes, Offices & Commercial Spaces
-              </h2>
+              <h2 className="text-xl">{t('description')}</h2>
               <Button
                 variant="outline"
                 className="w-fit rounded-sm px-8 py-4.5 mt-6 ltr:font-manrope rtl:font-cairo hover:bg-white/10 hover:text-white"
               >
-                Request Quote
+                {t('btnLabel')}
               </Button>
             </div>
             <div className="w-1/2 hidden lg:flex justify-end items-end">
@@ -90,8 +90,10 @@ export default function HeroSection() {
                     </div>
                   </div>
                   <div className="flex flex-col gap-2">
-                    <p className="font-bold text-4xl">15k+</p>
-                    <p className="font-semibold text-sm">Projects Completed</p>
+                    <p className="font-bold text-4xl">{t('card.itemValue')}</p>
+                    <p className="font-semibold text-sm">
+                      {t('card.itemText')}
+                    </p>
                   </div>
                 </div>
               </div>

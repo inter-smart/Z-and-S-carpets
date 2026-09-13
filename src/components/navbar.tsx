@@ -74,7 +74,7 @@ export default function Navbar() {
                 variant="outline"
                 className="text-sm px-3 py-4.5 flex flex-row justify-center items-center space-x-2 rounded-sm border-[#0066B3] translate-y-0!"
               >
-                <p className="hidden sm:block">Menu</p>
+                <p className="hidden sm:block">{t('menuBtnLable')}</p>
                 <Image src={MenuIcon} alt="menu-icon" className="w-auto h-6" />
               </Button>
             </div>
@@ -108,7 +108,7 @@ export default function Navbar() {
             <div className="flex flex-row justify-between items-center w-full sm:w-2/6 md:w-1/6">
               {/* more category */}
               <div className="flex flex-row flex-1 sm:flex-none justify-start items-baseline space-x-1.5 cursor-pointer">
-                <p className="">More</p>
+                <p className="">{t('categoryMoreBtnLable')}</p>
                 <Image
                   src={ArrowIcon}
                   alt="arrow-down-icon"
@@ -135,7 +135,7 @@ export default function Navbar() {
                     <DropdownMenuItem>English</DropdownMenuItem>
                   </Link>
                   <Link href="/ar">
-                    <DropdownMenuItem>Arabic</DropdownMenuItem>
+                    <DropdownMenuItem>العربية</DropdownMenuItem>
                   </Link>
                 </DropdownMenuContent>
               </DropdownMenu>

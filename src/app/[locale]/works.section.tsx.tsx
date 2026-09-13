@@ -20,6 +20,7 @@ export default function WorksSections() {
     location: string
     image: string
     featured: boolean
+    btnLabel: string
   }[]
 
   const visibleProjects = workItems.filter(
@@ -76,7 +77,7 @@ export default function WorksSections() {
                 </div>
                 <div>
                   <span className="mt-2 inline-block text-sm">
-                    View Project
+                    {item.btnLabel}
                     <Image
                       src={ArrowLeftIcon}
                       alt="arrow-left"
@@ -97,7 +98,7 @@ export default function WorksSections() {
           type="button"
           className="mx-auto mt-10 block rounded-sm bg-[#0066B3] px-5 py-2.5 text-sm text-white"
         >
-          View All Projects
+          {t('viewAllProjectsBtnLabel')}
         </button>
       </div>
     </section>

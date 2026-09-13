@@ -23,7 +23,7 @@ export default function FAQSection() {
     >
       <div className="flex flex-col pe-6 py-16 sm:pe-10 lg:pe-[5.6vw] lg:py-20 xl:pe-[5.7vw]">
         <h2 className="max-w-md text-4xl font-medium ltr:font-nobile rtl:font-cairo leading-[1.08] tracking-[-0.04em] text-foreground sm:text-5xl">
-          Frequently Asked Questions
+          {t('title')}
         </h2>
 
         <div className="mt-14">

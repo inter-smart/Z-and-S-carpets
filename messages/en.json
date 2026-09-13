@@ -1,9 +1,6 @@
 {
-  "HomePage": {
-    "title": "Welcome to our websites",
-    "description": "We provide quality products."
-  },
   "Navbar": {
+    "menuBtnLable": "Menu",
     "navLinks": [
       [
         {
@@ -60,7 +57,18 @@
       {
         "title": "Lvt Flooring More"
       }
-    ]
+    ],
+    "categoryMoreBtnLable": "More"
+  },
+  "HeroSection": {
+    "mainTag": "Trusted Flooring Specialists in UAE & GCC",
+    "description": "For Homes, Offices & Commercial Spaces",
+    "btnLabel": "Request Quote",
+    "sideMenu": ["Residential", "Commercial", "Hospitality", "Outdoor"],
+    "card": {
+      "itemValue": "15k+",
+      "itemText": "Projects Completed"
+    }
   },
   "collection": {
     "title": "Discover Our Collection",
@@ -114,58 +122,71 @@
         "title": "Wood Pattern Vinyl",
         "category": "RESIDENTIAL",
         "location": "United Arab Emirates",
-        "featured": true
+        "featured": true,
+        "btnLabel": "View Project"
       },
       {
         "title": "Laminate Flooring",
         "category": "COMMERCIAL",
-        "location": "United Arab Emirates"
+        "location": "United Arab Emirates",
+        "btnLabel": "View Project"
       },
       {
         "title": "Deck Flooring",
         "category": "OUTDOOR",
-        "location": "United Arab Emirates"
+        "location": "United Arab Emirates",
+        "btnLabel": "View Project"
       }
-    ]
+    ],
+    "viewAllProjectsBtnLabel": "View All Projects"
   },
   "bestseller": {
     "title": "Our Residential Bestsellers",
     "filterLabel": "Filter",
     "viewAllLabel": "View All Products",
+    "getSampleBtnLabel": "Get a sample",
+    "viewMoreBtnLabel": "View More",
     "products": [
       {
         "category": "DECK FLOORING",
         "title": "Landscaping Grass",
-        "description": "Crafted for modern exteriors, our landscaping grass brings structure, depth, and a contemporary finish to every garden."
+        "description": "Crafted for modern exteriors, our landscaping grass brings structure, depth, and a contemporary finish to every garden.",
+        "tagLabel": "Best Seller"
       },
       {
         "category": "CARPET FLOORING",
         "title": "Carpet Tiles Pixel Block",
-        "description": "Crafted for modern interiors, Pixel Block Carpet Tiles bring structure, depth, and a contemporary modular look to any space."
+        "description": "Crafted for modern interiors, Pixel Block Carpet Tiles bring structure, depth, and a contemporary modular look to any space.",
+        "tagLabel": "Best Seller"
       },
       {
         "category": "DECK FLOORING",
         "title": "Acacia Deck Tiles",
-        "description": "Bring warmth and durability outdoors with Acacia Deck Tiles designed for relaxed poolside and terrace living."
+        "description": "Bring warmth and durability outdoors with Acacia Deck Tiles designed for relaxed poolside and terrace living.",
+        "tagLabel": "Best Seller"
       },
       {
         "category": "VINYL FLOORING",
         "title": "Oak Grain Vinyl",
-        "description": "A practical, low-maintenance surface with the natural character of timber for busy residential spaces."
+        "description": "A practical, low-maintenance surface with the natural character of timber for busy residential spaces.",
+        "tagLabel": "Best Seller"
       },
       {
         "category": "ARTIFICIAL GRASS",
         "title": "Garden Luxe",
-        "description": "Soft underfoot and evergreen year-round, Garden Luxe creates a polished landscape with minimal upkeep."
+        "description": "Soft underfoot and evergreen year-round, Garden Luxe creates a polished landscape with minimal upkeep.",
+        "tagLabel": "Best Seller"
       },
       {
         "category": "WOOD FLOORING",
         "title": "Natural Herringbone",
-        "description": "Refined herringbone flooring adds rhythm and warmth to welcoming residential interiors."
+        "description": "Refined herringbone flooring adds rhythm and warmth to welcoming residential interiors.",
+        "tagLabel": "Best Seller"
       }
     ]
   },
   "FAQ": {
+    "title": "Frequently Asked Questions",
     "faqs": [
       {
         "question": "Do You Offer Free Samples Before Purchase?",
@@ -589,6 +610,7 @@
         "link": ""
       }
     ],
-    "copyright": "Copyright © Z&S Carpets Trading L.L.C. All Rights Reserved"
+    "copyright": "Copyright © Z&S Carpets Trading L.L.C. All Rights Reserved",
+    "designedByLabel": "Designed By"
   }
 }
