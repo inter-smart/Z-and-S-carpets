@@ -12,7 +12,7 @@ import { Button } from '@/components/ui/button'
 import { cn } from 'cn'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const productImgs = {
   'floor-2': FloorImg2,
@@ -51,6 +51,58 @@ export default function BuiltForSection() {
     })
   }
 
+  const [imgStackScrollIsAtStart, setImgStackScrollIsAtStart] = useState(true)
+  const [imgStackScrollIsAtEnd, setImgStackScrollIsAtEnd] = useState(false)
+  const [isImgStackScrollable, setIsImgStackScrollable] = useState(false)
+
+  const getNormalizedScrollLeft = (el: HTMLDivElement) => {
+    const { scrollLeft } = el
+    const direction = getComputedStyle(el).direction
+
+    if (direction === 'rtl') {
+      // RTL: scrollLeft is 0 at start, negative at end
+      // Convert to positive distance from start
+      return Math.abs(scrollLeft)
+    }
+    return scrollLeft
+  }
+
+  useEffect(() => {
+    const container = productsRef.current
+    if (!container) return
+
+    const canScrollX = container.scrollWidth > container.clientWidth
+    const canScrollY = container.scrollHeight > container.clientHeight
+
+    setIsImgStackScrollable(canScrollX || canScrollY)
+
+    const handleScroll = () => {
+      if (canScrollX) {
+        const scrollLeft = getNormalizedScrollLeft(container)
+        const maxScroll = container.scrollWidth - container.clientWidth
+
+        setImgStackScrollIsAtStart(scrollLeft <= 1)
+        setImgStackScrollIsAtEnd(scrollLeft >= maxScroll - 1)
+      }
+      // vertical is unaffected by RTL
+      if (canScrollY) {
+        setImgStackScrollIsAtStart(container.scrollTop <= 1)
+        setImgStackScrollIsAtEnd(
+          container.scrollTop + container.clientHeight >=
+            container.scrollHeight - 1,
+        )
+      }
+    }
+
+    // Use passive listener for better performance
+    container.addEventListener('scroll', handleScroll, { passive: true })
+
+    // Cleanup listener on unmount
+    return () => {
+      container.removeEventListener('scroll', handleScroll)
+    }
+  }, [activeCategory])
+
   return (
     <section className="bg-background container-wrapper py-16 lg:py-24">
       <div
@@ -73,7 +125,13 @@ export default function BuiltForSection() {
                     type="button"
                     onClick={() => {
                       setActiveCategory(index)
+                      setImgStackScrollIsAtStart(true)
                       setActiveProduct(0)
+                      productsRef.current?.scrollTo({
+                        top: 0,
+                        left: 0,
+                        behavior: 'smooth',
+                      })
                     }}
                     className={cn(
                       'text-white w-1/2 sm:w-1/3 md:w-1/4 lg:w-full px-4 py-5 ltr:text-left rtl:text-right text-sm font-semibold tracking-widest transition-colors lg:min-w-0',
@@ -95,12 +153,12 @@ export default function BuiltForSection() {
                     {category.name.charAt(0) +
                       category.name.slice(1).toLowerCase()}
                   </p>
-                  <p className="mt-4 xl:pr-5 text-sm leading-6 text-primary-foreground/80">
+                  <p className="mt-4 xl:pe-5 text-sm leading-6 text-primary-foreground/80">
                     {category.description}
                   </p>
                   <Button
                     variant="outline"
-                    className="mt-8 w-fit border-white/50 bg-transparent text-white hover:bg-white hover:text-[#073b68] px-10 py-4.5 rounded-md"
+                    className="mt-8 w-fit border-white/50 bg-transparent text-white hover:bg-white hover:text-[#073b68] px-5 py-4.5 rounded-md"
                   >
                     {category.cta}
                   </Button>
@@ -132,47 +190,42 @@ export default function BuiltForSection() {
                 </div>
               </div>
 
-              {/* image stack */}
-              <div className="xl:w-1/6 flex flex-row lg:flex-col gap-4">
-                {/* Left and Up arrow */}
-                <button
-                  type="button"
-                  onClick={() => scrollProducts('up')}
-                  className="my-auto lg:mx-auto cursor-pointer text-white rotate-180 lg:-rotate-90"
+              {/* image stack container */}
+              <div className="xl:w-1/6 flex flex-row lg:flex-col gap-2 mt-3">
+                {/* Left and up arrow */}
+                <Button
                   aria-label="Scroll up"
+                  variant="ghost"
+                  size="icon"
+                  disabled={!isImgStackScrollable || imgStackScrollIsAtStart}
+                  onClick={() => scrollProducts('up')}
+                  className="hidden ltr:flex my-auto lg:mx-auto hover:bg-transparent cursor-pointer"
                 >
                   <Image
                     src={ArrowRightIcon}
                     alt="arrow-left_and_up"
-                    className="w-auto h-2.5"
+                    className="w-auto h-2.5 rotate-180 lg:-rotate-90"
                   />
-                </button>
-                {/* ********* h-80 */}
+                </Button>
+                <Button
+                  aria-label="Scroll down"
+                  variant="ghost"
+                  size="icon"
+                  disabled={!isImgStackScrollable || imgStackScrollIsAtStart}
+                  onClick={() => scrollProducts('down')}
+                  className="hidden rtl:flex my-auto lg:mx-auto hover:bg-transparent cursor-pointer"
+                >
+                  <Image
+                    src={ArrowLeftIcon}
+                    alt="arrow-right_and_down"
+                    className="w-auto h-2.5 rotate-180 lg:-rotate-90"
+                  />
+                </Button>
+                {/* image stack */}
                 <div
-                  // className="
-                  //   mt-6
-                  //   flex
-                  //   gap-3
-                  //   overflow-x-auto
-                  //   scroll-smooth
-
-                  //   lg:mt-0
-                  //   lg:flex-col
-                  //   lg:justify-center
-                  //   lg:max-h-100
-                  //   lg:overflow-x-hidden
-                  //   lg:overflow-y-auto
-
-                  //   [&::-webkit-scrollbar]:hidden
-                  //   lg:[&::-webkit-scrollbar]:block
-                  //   lg:[&::-webkit-scrollbar]:w-1.5
-                  //   lg:[&::-webkit-scrollbar-track]:bg-primary/50
-                  //   lg:[&::-webkit-scrollbar-thumb]:rounded-full
-                  //   lg:[&::-webkit-scrollbar-thumb]:bg-primary-foreground/40
-                  // "
                   className={cn(
                     'scroll-smooth rounded [&::-webkit-scrollbar]:hidden mx-auto',
-                    'flex-1 flex gap-2 w-40 overflow-x-auto mt-3 lg:mt-0',
+                    'flex-1 flex gap-2 w-40 overflow-x-auto',
                     'lg:flex-none lg:block lg:h-80 lg:w-30 lg:overflow-x-hidden lg:overflow-y-auto',
                   )}
                   ref={productsRef}
@@ -195,7 +248,7 @@ export default function BuiltForSection() {
                         src={
                           productImgs[product.image as keyof typeof productImgs]
                         }
-                        alt=""
+                        alt={product.name}
                         className="size-full object-cover object-bottom"
                       />
                       <span className="absolute inset-x-1 bottom-1 truncate text-[10px] font-medium text-primary-foreground [text-shadow:0_1px_3px_oklch(0_0_0/90%)]">
@@ -205,18 +258,34 @@ export default function BuiltForSection() {
                   ))}
                 </div>
                 {/* Right and Down arrow */}
-                <button
-                  type="button"
-                  onClick={() => scrollProducts('down')}
-                  className="my-auto lg:mx-auto cursor-pointer text-white rotate-180 lg:-rotate-90"
+                <Button
                   aria-label="Scroll down"
+                  variant="ghost"
+                  size="icon"
+                  disabled={!isImgStackScrollable || imgStackScrollIsAtEnd}
+                  onClick={() => scrollProducts('down')}
+                  className="hidden ltr:flex my-auto lg:mx-auto hover:bg-transparent cursor-pointer"
                 >
                   <Image
                     src={ArrowLeftIcon}
                     alt="arrow-right_and_down"
-                    className="w-auto h-2.5"
+                    className="w-auto h-2.5 rotate-180 lg:-rotate-90"
                   />
-                </button>
+                </Button>
+                <Button
+                  aria-label="Scroll up"
+                  variant="ghost"
+                  size="icon"
+                  disabled={!isImgStackScrollable || imgStackScrollIsAtEnd}
+                  onClick={() => scrollProducts('up')}
+                  className="hidden rtl:flex my-auto lg:mx-auto hover:bg-transparent cursor-pointer"
+                >
+                  <Image
+                    src={ArrowRightIcon}
+                    alt="arrow-left_and_up"
+                    className="w-auto h-2.5 rotate-180 lg:-rotate-90"
+                  />
+                </Button>
               </div>
             </div>
           </div>
