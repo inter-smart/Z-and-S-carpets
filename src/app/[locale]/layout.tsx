@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-import BottomSideBtns from '@/components/bottom-side-btns'
+import BottomSideBtns from '@/components/common/bottom-side-btns'
 import { cn } from '@/lib/utils'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'

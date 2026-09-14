@@ -21,6 +21,7 @@ export default function FAQSection() {
       className="container-wrapper grid grid-cols-1 lg:grid-cols-2"
       aria-label="Frequently asked questions and company information"
     >
+      {/* Frequently Asked Questions */}
       <div className="flex flex-col pe-6 py-16 sm:pe-10 lg:pe-[5.6vw] lg:py-20 xl:pe-[5.7vw]">
         <h2 className="max-w-md text-4xl font-medium ltr:font-nobile rtl:font-cairo leading-[1.08] tracking-[-0.04em] text-foreground sm:text-5xl">
           {t('title')}
@@ -37,7 +38,7 @@ export default function FAQSection() {
               >
                 <button
                   type="button"
-                  className="flex w-full items-start justify-between gap-6 py-6 text-left text-base font-medium text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4"
+                  className="flex w-full items-start justify-between gap-6 py-6 ltr:text-left rtl:text-right text-base font-medium text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4"
                   aria-expanded={isOpen}
                   aria-controls={`faq-answer-${index}`}
                   onClick={() => setOpenIndex(isOpen ? -1 : index)}
@@ -72,6 +73,7 @@ export default function FAQSection() {
         </div>
       </div>
 
+      {/* Premium Flooring Solutions Across UAE & GCC */}
       <div className="flex flex-col justify-start px-6 py-16 sm:px-10 lg:px-[5.2vw] lg:py-20 bg-[#EFF9FE]">
         <div className="">
           <h2 className="text-4xl font-medium ltr:font-nobile rtl:font-cairo leading-[1.1] tracking-[-0.04em] text-foreground sm:text-5xl">

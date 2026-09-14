@@ -7,7 +7,7 @@ import {
   TrustedLogo6,
   TrustedLogo7,
 } from '@/assets/images'
-import LookingForwardBanner from '@/components/looking-forward-banner'
+import LookingForwardBanner from '@/components/common/looking-forward-banner'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 

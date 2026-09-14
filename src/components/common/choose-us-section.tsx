@@ -1,6 +1,6 @@
 import { BadgeCheckIcon } from '@/assets/icons'
 import { FloorCImg1, FloorCImg2 } from '@/assets/images'
-import ImgCompareSlider from '@/components/img-compare-slider'
+import ImgCompareSlider from '@/components/common/img-compare-slider'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 

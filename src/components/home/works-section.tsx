@@ -11,7 +11,6 @@ const workItemsImgs = [FloorImg6, FloorImg7, FloorImg8]
 
 export default function WorksSections() {
   const t = useTranslations('works')
-  const [category, setCategory] = useState('ALL')
 
   const workCategories = t.raw('categories') as string[]
   const workItems = t.raw('items') as {
@@ -23,8 +22,10 @@ export default function WorksSections() {
     btnLabel: string
   }[]
 
+  const [category, setCategory] = useState(workCategories[0])
+
   const visibleProjects = workItems.filter(
-    (item) => category === 'ALL' || item.category === category,
+    (item) => category === workCategories[0] || item.category === category,
   )
 
   return (
