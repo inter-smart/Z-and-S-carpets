@@ -26,7 +26,7 @@ export default function CollectionSection() {
       className="container-wrapper bg-background py-16 lg:py-24"
       aria-labelledby="collection-title"
     >
-      <div className="flex items-center justify-between gap-6">
+      <div className="flex flex-col sm:flex-row sm:items-centers justify-between gap-3 sm:gap-6">
         <h2
           id="collection-title"
           className="text-4xl font-medium ltr:font-nobile rtl:font-cairo tracking-[-0.04em] sm:text-5xl"
@@ -35,7 +35,7 @@ export default function CollectionSection() {
         </h2>
         <Button
           variant="outline"
-          className="hidden sm:inline-flex w-fit rounded-sm px-8 py-4.5 border-[#0066B3]"
+          className="inline-flex w-fit rounded-sm px-8 py-4.5 border-[#0066B3]"
         >
           {t('buttonLabel')}
         </Button>
