@@ -1,10 +1,10 @@
 'use client'
 
 import { ArrowLeftIcon, ArrowRightIcon } from '@/assets/icons'
+import { Button } from '@/components/ui/button'
 import { cn } from 'cn'
 import Image, { StaticImageData } from 'next/image'
 import { useEffect, useRef, useState } from 'react'
-import { Button } from './ui/button'
 
 type FooterCarouselProps = {
   images: StaticImageData[]

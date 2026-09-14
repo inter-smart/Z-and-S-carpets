@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 
-import BottomSideBtns from '@/components/bottom-side-btns'
+import BottomSideBtns from '@/components/common/bottom-side-btns'
+import Footer from '@/components/common/footer'
+import Navbar from '@/components/common/navbar'
 import { cn } from '@/lib/utils'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
@@ -67,6 +69,13 @@ export default async function RootLayout({
       )}
     >
       <body className="min-h-full flex flex-col">
+        <NextIntlClientProvider messages={messages}>
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+          <BottomSideBtns />
+        </NextIntlClientProvider>
+        {/* dev helper */}
         {/* <div className="fixed top-0 left-0 z-99 flex flex-row space-x-2">
           <div className="w-5 h-0.5 bg-blue-400"></div>
           <div className="w-5 h-0.5 bg-blue-400 hidden sm:block"></div>
@@ -75,10 +84,6 @@ export default async function RootLayout({
           <div className="w-5 h-0.5 bg-blue-400 hidden xl:block"></div>
           <div className="w-5 h-0.5 bg-blue-400 hidden 2xl:block"></div>
         </div> */}
-        <NextIntlClientProvider messages={messages}>
-          {children}
-          <BottomSideBtns />
-        </NextIntlClientProvider>
       </body>
     </html>
   )
