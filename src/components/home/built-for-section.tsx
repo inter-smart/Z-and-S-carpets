@@ -90,7 +90,7 @@ export default function BuiltForSection() {
             <div className="rounded-md bg-primary/25 backdrop-blur-lg border border-white/10 p-5 sm:p-8 lg:flex lg:gap-6">
               <div className="xl:w-5/6 flex flex-col-reverse xl:flex-row">
                 {/* details */}
-                <div className="flex flex-col justify-center py-4 text-primary-foreground">
+                <div className="xl:w-4/12 2xl:w-3/12 flex flex-col justify-center py-4 text-primary-foreground">
                   <p className="hidden xl:block text-3xl font-medium ltr:font-nobile rtl:font-cairo">
                     {category.name.charAt(0) +
                       category.name.slice(1).toLowerCase()}
@@ -107,36 +107,38 @@ export default function BuiltForSection() {
                 </div>
 
                 {/* main image */}
-                <div className="relative mt-6 aspect-[1.45] overflow-hidden rounded-md lg:mt-0">
+                <div className="xl:w-8/12 2xl:w-9/12 relative mt-6 lg:mt-0 min-[360px]:aspect-[1.45] xl:aspect-[3] 2xl:h-120 overflow-hidden rounded-md">
                   <p className="text-white xl:hidden text-3xl font-medium ltr:font-nobile rtl:font-cairo">
                     {category.name.charAt(0) +
                       category.name.slice(1).toLowerCase()}
                   </p>
                   <Image
-                    // src={activeProductData?.image || category.image}
                     src={
                       productImgs[
                         activeProductData.image as keyof typeof productImgs
                       ]
                     }
-                    // alt={`${activeProductData?.name || category.feature} interior`}
                     alt={`${activeProductData.name} interior`}
                     className="max-xl:mt-4 size-full object-cover object-bottom transition-transform duration-700 ease-out h-full rounded-md"
                   />
-                  <div className="absolute inset-x-6 bottom-6 text-2xl sm:text-4xl md:text-5xl font-light tracking-wider text-primary-foreground [text-shadow:0_2px_8px_oklch(0_0_0/60%)]">
-                    {/* {activeProductData?.name || category.feature} */}
-                    {activeProductData.name}
-                  </div>
+                  <p className="absolute inset-x-3 sm:inset-x-6 lg:inset-x-3 xl:inset-x-6 2xl:inset-x-10 bottom-3 sm:bottom-6 lg:bottom-3 xl:bottom-6 2xl:bottom-10 text-3xl sm:text-4xl md:text-5xl font-cairo font-bold uppercase tracking-wider text-transparent [-webkit-text-stroke:1px_white]">
+                    {activeProductData.name.split(' ').map((word, i) => (
+                      <span key={i}>
+                        {word}
+                        <br />
+                      </span>
+                    ))}
+                  </p>
                 </div>
               </div>
 
               {/* image stack */}
-              <div className="xl:w-1/6 flex flex-row lg:flex-col lg:max-xl:mt-4">
+              <div className="xl:w-1/6 flex flex-row lg:flex-col gap-4">
                 {/* Left and Up arrow */}
                 <button
                   type="button"
                   onClick={() => scrollProducts('up')}
-                  className="my-auto lg:mx-auto cursor-pointer p-2 text-white rotate-180 lg:-rotate-90"
+                  className="my-auto lg:mx-auto cursor-pointer text-white rotate-180 lg:-rotate-90"
                   aria-label="Scroll up"
                 >
                   <Image
@@ -168,11 +170,10 @@ export default function BuiltForSection() {
                   //   lg:[&::-webkit-scrollbar-thumb]:rounded-full
                   //   lg:[&::-webkit-scrollbar-thumb]:bg-primary-foreground/40
                   // "
-                  // className="h-80 overflow-y-auto [&::-webkit-scrollbar]:hidden"
                   className={cn(
                     'scroll-smooth rounded [&::-webkit-scrollbar]:hidden mx-auto',
-                    'mt-6 flex-1 flex gap-2 h-20 w-40 overflow-x-auto',
-                    'lg:mt-0 lg:flex-none lg:block lg:h-80 lg:w-30 lg:overflow-x-hidden lg:overflow-y-auto',
+                    'flex-1 flex gap-2 w-40 overflow-x-auto mt-3 lg:mt-0',
+                    'lg:flex-none lg:block lg:h-80 lg:w-30 lg:overflow-x-hidden lg:overflow-y-auto',
                   )}
                   ref={productsRef}
                 >
@@ -207,7 +208,7 @@ export default function BuiltForSection() {
                 <button
                   type="button"
                   onClick={() => scrollProducts('down')}
-                  className="my-auto lg:mx-auto cursor-pointer p-2 text-white rotate-180 lg:-rotate-90"
+                  className="my-auto lg:mx-auto cursor-pointer text-white rotate-180 lg:-rotate-90"
                   aria-label="Scroll down"
                 >
                   <Image

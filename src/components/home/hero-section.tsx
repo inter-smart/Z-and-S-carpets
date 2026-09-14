@@ -38,7 +38,7 @@ export default function HeroSection() {
             </div>
           </div>
           {/* hero text */}
-          <div className="container-wrapper px-14! sm:px-20! xl:px-30! w-full h-full flex flex-col md:flex-row justify-end md:justify-between gap-2 pb-10 md:pb-15">
+          <div className="container-wrapper px-14! sm:px-20! xl:px-30! w-full h-full flex flex-col md:flex-row justify-end md:justify-between gap-6 pb-10 md:pb-15">
             <div className="w-full md:w-1/2 lg:2/3 flex flex-col justify-end gap-1 md:gap-6">
               <h1 className="text-4xl leading-11 font-medium ltr:font-nobile rtl:font-cairo">
                 {t('mainTag')}

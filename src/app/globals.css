@@ -36,6 +36,7 @@
   --font-nobile: var(--font-nobile);
   --font-manrope: var(--font-manrope);
   --font-cairo: var(--font-cairo);
+  --font-dmSans: var(--font-dmSans);
 
   --font-mono: var(--font-geist-mono);
   --font-heading: var(--font-sans);
@@ -166,4 +167,9 @@
   /* .container-wrapper-none {
     @apply max-w-none! w-full! mx-0! px-0!;
   } */
+}
+
+@utility text-stroke-* {
+  -webkit-text-stroke-width: calc(--value(integer) * 1px);
+  -webkit-text-stroke-color: --value(--color-*);
 }
