@@ -510,7 +510,7 @@
       }
     ],
     "cta": {
-      "title": "Trusted Quality. Proven Results.",
+      "title": ["Trusted Quality.", "Proven Results."],
       "description": "Delivering reliable solutions with exceptional quality and customer satisfaction.",
       "btnLabel": "Find your Perfect Carpet"
     }

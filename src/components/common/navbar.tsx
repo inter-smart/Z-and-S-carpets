@@ -1,18 +1,10 @@
-import type { LocaleType } from '@/i18n/types'
-
 import { ArrowIcon, FilePenIcon, MenuIcon, SearchIcon } from '@/assets/icons'
 import { SiteLogo } from '@/assets/logos'
 import { Button } from '@/components/ui/button'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
 import { cn } from 'cn'
-import { useLocale, useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
-import Link from 'next/link'
+import LangDropdown from './lang-dropdown'
 
 interface NavbarNavLinksType {
   text: string
@@ -20,7 +12,6 @@ interface NavbarNavLinksType {
 }
 
 export default function Navbar() {
-  const locale = useLocale() as LocaleType
   const t = useTranslations('Navbar')
 
   const navLinks = t.raw('navLinks') as NavbarNavLinksType[][]
@@ -33,7 +24,7 @@ export default function Navbar() {
         <div className="container-wrapper flex flex-row justify-between items-center">
           <div className="lg:w-5/12 hidden lg:flex flex-row justify-start items-center space-x-3 2xl:space-x-10 pe-10">
             {navLinks[0].map((item) => (
-              <p key={item.text} className="cursor-pointer font-semibold">
+              <p key={item.text} className="cursor-pointer font-medium">
                 {item.text}
               </p>
             ))}
@@ -53,7 +44,7 @@ export default function Navbar() {
           <div className="w-1/2 lg:w-5/12 flex flex-row justify-end items-center space-x-4 2xl:space-x-8">
             <div className="hidden xl:flex flex-row items-center space-x-3 2xl:space-x-10">
               {navLinks[1].map((item) => (
-                <p key={item.text} className="cursor-pointer font-semibold">
+                <p key={item.text} className="cursor-pointer font-medium">
                   {item.text}
                 </p>
               ))}
@@ -72,7 +63,7 @@ export default function Navbar() {
               </Button>
               <Button
                 variant="outline"
-                className="text-sm px-3 py-4.5 flex flex-row justify-center items-center space-x-2 rounded-sm border-[#0066B3] translate-y-0!"
+                className="text-sm font-medium px-3 py-4.5 flex flex-row justify-center items-center space-x-2 rounded-sm border-[#0066B3] translate-y-0!"
               >
                 <p className="hidden sm:block">{t('menuBtnLable')}</p>
                 <Image src={MenuIcon} alt="menu-icon" className="w-auto h-6" />
@@ -97,7 +88,7 @@ export default function Navbar() {
                 key={item.title}
                 className="flex flex-row justify-start items-baseline space-x-1.5 cursor-pointer"
               >
-                <p className="">{item.title}</p>
+                <p className="font-medium">{item.title}</p>
                 <Image
                   src={ArrowIcon}
                   alt="arrow-down-icon"
@@ -110,37 +101,15 @@ export default function Navbar() {
           <div className="flex flex-row justify-between items-center w-full sm:w-2/6 md:w-1/6">
             {/* more category */}
             <div className="flex flex-row flex-1 sm:flex-none justify-start items-baseline space-x-1.5 cursor-pointer">
-              <p className="">{t('categoryMoreBtnLable')}</p>
+              <p className="font-medium">{t('categoryMoreBtnLable')}</p>
               <Image
                 src={ArrowIcon}
                 alt="arrow-down-icon"
                 className="w-auto h-1.5"
               />
             </div>
-            {/* language change */}
-            <DropdownMenu>
-              <DropdownMenuTrigger
-                nativeButton={false}
-                render={
-                  <div className="flex flex-row justify-start items-baseline space-x-1.5 cursor-pointer">
-                    <p className="first-letter:uppercase">{locale}</p>
-                    <Image
-                      src={ArrowIcon}
-                      alt="arrow-down-icon"
-                      className="w-auto h-1.5"
-                    />
-                  </div>
-                }
-              ></DropdownMenuTrigger>
-              <DropdownMenuContent className="min-w-20! rounded-md!">
-                <Link href="/en">
-                  <DropdownMenuItem>English</DropdownMenuItem>
-                </Link>
-                <Link href="/ar">
-                  <DropdownMenuItem>العربية</DropdownMenuItem>
-                </Link>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            {/* language change dropdown */}
+            <LangDropdown />
             {/* search */}
             <div className="cursor-pointer ps-4 sm:pl-0">
               <Image

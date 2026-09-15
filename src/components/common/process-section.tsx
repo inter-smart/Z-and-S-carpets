@@ -18,16 +18,16 @@ export default function ProcessSections() {
 
   return (
     <section
-      className="bg-[#023260] text-primary-foreground py-16 lg:py-24"
+      className="bg-[#023260] text-primary-foreground pt-10 pb-21"
       aria-labelledby="process-title"
     >
       <div className="container-wrapper">
-        <p className="text-center text-5xl sm:text-6xl md:text-8xl font-semibold tracking-widest text-primary-foreground/5">
+        <p className="text-center text-5xl sm:text-6xl md:text-[7rem] font-bold font-cairo tracking-widest text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.05)]">
           {t('eyebrow')}
         </p>
         <h2
           id="process-title"
-          className="-mt-6 sm:-mt-7 md:-mt-10 text-center text-4xl font-medium ltr:font-nobile rtl:font-cairo tracking-[-0.04em] sm:text-5xl"
+          className="section-title text-center -mt-6 sm:-mt-7 md:-mt-10"
         >
           {t('title')}
         </h2>

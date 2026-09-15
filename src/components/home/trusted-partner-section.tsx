@@ -31,9 +31,7 @@ export default function TrustedPartnerSection() {
   return (
     <section className="container-wrapper py-16 lg:py-24">
       <div>
-        <h2 className="text-balance text-4xl font-medium ltr:font-nobile rtl:font-cairo tracking-tight md:text-5xl">
-          {t('title')}
-        </h2>
+        <h2 className="section-title">{t('title')}</h2>
       </div>
       <div className="w-full flex flex-wrap justify-center gap-3 mt-10">
         {trustedPartners.map((partner) => (

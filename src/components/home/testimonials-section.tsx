@@ -11,11 +11,11 @@ interface TestimonialReviewType {
 
 function ReviewCard({ review }: { review: TestimonialReviewType }) {
   return (
-    <article className="flex min-h-64 w-[min(86vw,396px)] shrink-0 flex-col justify-between rounded-lg border border-border bg-background p-7 sm:w-99 hover:border-[#0066B3]">
+    <article className="group flex min-h-64 w-[min(86vw,396px)] shrink-0 flex-col justify-between rounded-lg border border-border bg-background p-7 sm:w-99 hover:border-[#0066B3]">
       <div>
         <div
           aria-hidden="true"
-          className="font-serif text-6xl leading-8 text-primary/30"
+          className="font-serif text-8xl leading-8 text-primary/30 group-hover:text-[#812990] transition-colors"
         >
           &ldquo;
         </div>
@@ -50,15 +50,12 @@ export default function TestimonialsSection() {
       className="overflow-hidden bg-background py-16 sm:py-20"
       aria-labelledby="customer-experiences-title"
     >
-      <div className="container-wrapper flex items-start justify-between gap-6">
-        <h2
-          id="customer-experiences-title"
-          className="text-balance text-4xl font-medium ltr:font-nobile rtl:font-cairo tracking-tight sm:text-5xl"
-        >
+      <div className="container-wrapper flex flex-col lg:flex-row items-start lg:items-center lg:justify-between gap-3 lg:gap-6">
+        <h2 id="customer-experiences-title" className="section-title">
           {t('title')}
         </h2>
         <div
-          className="hidden shrink-0 items-center gap-3 sm:flex"
+          className="flex shrink-0 items-center gap-3"
           aria-label={`${t('rating')} on Google`}
         >
           <Image src={GoogleIcon} alt="google icon" className="w-9 h-auto" />

@@ -111,7 +111,7 @@ export default function BuiltForSection() {
       >
         <div className="absolute inset-0 bg-primary/70" />
         <div className="relative z-10">
-          <h2 className="text-center text-4xl font-medium ltr:font-nobile rtl:font-cairo tracking-tight text-primary-foreground sm:text-5xl">
+          <h2 className="section-title text-center text-primary-foreground">
             {t('title')}
           </h2>
 

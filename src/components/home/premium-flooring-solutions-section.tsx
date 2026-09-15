@@ -14,9 +14,7 @@ export default function PremiumFlooringSolutionsSection() {
       className="flex flex-col justify-start px-6 py-16 sm:px-10 lg:px-[5.2vw] lg:py-20 bg-[#EFF9FE]"
       aria-label="Premium Flooring Solutions Across UAE & GCC"
     >
-      <h2 className="text-4xl font-medium ltr:font-nobile rtl:font-cairo leading-[1.1] tracking-[-0.04em] text-foreground sm:text-5xl">
-        {pfs.title}
-      </h2>
+      <h2 className="section-title">{pfs.title}</h2>
       <div className="mt-12 flex flex-col gap-7 text-base leading-7 text-muted-foreground">
         {pfs.paragraphs.map((paragraph) => (
           <p key={paragraph}>{paragraph}</p>
