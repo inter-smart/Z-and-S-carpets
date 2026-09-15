@@ -4,6 +4,7 @@ import Image from 'next/image'
 
 export default function ChooseUsSection() {
   const t = useTranslations('ChooseUs')
+  const ctaTitle = t.raw('cta.title') as string[]
   const features = t.raw('features') as {
     title: string
     description: string
@@ -13,9 +14,7 @@ export default function ChooseUsSection() {
     <section className="container-wrapper py-16 lg:py-24">
       {/* title */}
       <div className="mx-auto">
-        <h2 className="text-center text-balance text-4xl font-medium ltr:font-nobile rtl:font-cairo tracking-tight md:text-5xl">
-          {t('title')}
-        </h2>
+        <h2 className="section-title text-center">{t('title')}</h2>
       </div>
       {/* our features */}
       <div className="flex flex-col lg:flex-row mt-8">
@@ -112,7 +111,7 @@ export default function ChooseUsSection() {
         <div className="w-full lg:w-1/4 ltr:lg:border-l rtl:lg:border-r">
           <div className="py-7 ltr:lg:pl-7 rtl:lg:pr-7">
             <h2 className="text-3xl font-medium ltr:font-nobile rtl:font-cairo">
-              {t('cta.title')}
+              {ctaTitle[0]} <br /> {ctaTitle[1]}
             </h2>
             <p className="mt-2 text-sm text-gray-500">{t('cta.description')}</p>
             <button

@@ -6,11 +6,15 @@ import Navbar from '@/components/common/navbar'
 import { cn } from '@/lib/utils'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
-import { Cairo, Inter, Manrope, Nobile } from 'next/font/google'
+import { Cairo, DM_Sans, Inter, Manrope, Nobile } from 'next/font/google'
 import '../globals.css'
 
 const inter = Inter({
   variable: '--font-inter',
+  subsets: ['latin'],
+})
+const dmSans = DM_Sans({
+  variable: '--font-dm-sans',
   subsets: ['latin'],
 })
 
@@ -65,6 +69,7 @@ export default async function RootLayout({
         nobile.variable,
         manrope.variable,
         cairo.variable,
+        dmSans.variable,
         'h-full antialiased font-sans ltr:font-inter rtl:font-cairo',
       )}
     >

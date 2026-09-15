@@ -22,12 +22,15 @@ export default function FAQSection({
       className={cn('py-16 lg:py-20', className)}
       aria-label="Frequently asked questions"
     >
-      <div className={cn(container && 'container-wrapper', 'flex flex-col')}>
-        <h2 className="max-w-md text-4xl font-medium ltr:font-nobile rtl:font-cairo leading-[1.08] tracking-[-0.04em] text-foreground sm:text-5xl">
-          {t('title')}
-        </h2>
+      <div
+        className={cn(
+          container && 'container-wrapper',
+          'flex flex-col sm:pe-8 lg:pe-12 xl:pe-18',
+        )}
+      >
+        <h2 className="section-title">{t('title')}</h2>
 
-        <div className="mt-14 sm:pe-8 lg:pe-12 xl:pe-18">
+        <div className="mt-12">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index
 

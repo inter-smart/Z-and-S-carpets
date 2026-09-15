@@ -2,6 +2,7 @@
 
 import { ArrowLeftIcon, ArrowRightIcon } from '@/assets/icons'
 import { FloorImg6, FloorImg7, FloorImg8 } from '@/assets/images'
+import { Button } from '@/components/ui/button'
 import { cn } from 'cn'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
@@ -34,27 +35,25 @@ export default function WorksSections() {
       aria-labelledby="projects-title"
     >
       <div className="container-wrapper">
-        <h2
-          id="projects-title"
-          className="text-center text-4xl font-mediummotion-safe:animate-testimonial-scroll-rtl tracking-[-0.04em] sm:text-5xl"
-        >
+        <h2 id="projects-title" className="section-title text-center">
           {t('title')}
         </h2>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           {workCategories.map((item) => (
-            <button
+            <Button
               key={item}
               type="button"
+              variant="outline"
               onClick={() => setCategory(item)}
               className={cn(
-                'rounded-md border px-7 py-2 text-xs font-medium transition-colors',
+                'rounded-md border px-7 py-4 text-xs font-medium transition-colors hover:border-[#0066B3] hover:text-[#0066B3]',
                 category === item
-                  ? 'border-[#0066B3] text-[#0066B3]'
-                  : 'border-border hover:border-primary',
+                  ? 'border-[#0066B3]! text-[#0066B3]!'
+                  : 'border-[#CDCDCD]!',
               )}
             >
               {item}
-            </button>
+            </Button>
           ))}
         </div>
         <div className="mt-10 grid gap-4 md:grid-cols-2">
@@ -71,14 +70,16 @@ export default function WorksSections() {
                 alt={item.title}
                 className="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-x-3 bottom-3 rounded-md bg-foreground/60 px-5 py-4 text-background backdrop-blur-sm flex flex-col sm:flex-row sm:justify-between sm:items-center md:max-lg:flex-col md:max-lg:items-start">
+              <div className="absolute inset-x-3 bottom-3 rounded-md bg-[#1F1A1A]/30 px-5 py-4 text-background backdrop-blur-sm flex flex-col sm:flex-row sm:justify-between sm:items-center md:max-lg:flex-col md:max-lg:items-start">
                 <div>
                   <h3 className="text-lg font-semibold">{item.title}</h3>
                   <p className="text-sm text-background/75">{item.location}</p>
                 </div>
                 <div>
                   <span className="mt-2 inline-block text-sm">
-                    {item.btnLabel}
+                    <span className="underline underline-offset-8">
+                      {item.btnLabel}
+                    </span>
                     <Image
                       src={ArrowLeftIcon}
                       alt="arrow-left"

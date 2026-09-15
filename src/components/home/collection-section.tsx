@@ -26,16 +26,13 @@ export default function CollectionSection() {
       className="container-wrapper bg-background py-16 lg:py-24"
       aria-labelledby="collection-title"
     >
-      <div className="flex items-center justify-between gap-6">
-        <h2
-          id="collection-title"
-          className="text-4xl font-medium ltr:font-nobile rtl:font-cairo tracking-[-0.04em] sm:text-5xl"
-        >
+      <div className="flex flex-col sm:flex-row sm:items-centers justify-between gap-3 sm:gap-6">
+        <h2 id="collection-title" className="section-title">
           {t('title')}
         </h2>
         <Button
           variant="outline"
-          className="hidden sm:inline-flex w-fit rounded-sm px-8 py-4.5 border-[#0066B3]"
+          className="inline-flex w-fit rounded-sm px-8 py-4.5 border-[#0066B3]"
         >
           {t('buttonLabel')}
         </Button>
@@ -52,7 +49,7 @@ export default function CollectionSection() {
               priority
               className="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
-            <div className="absolute inset-x-8 bottom-7 flex items-center justify-between gap-4 rounded-sm bg-foreground/65 px-6 py-5 text-background backdrop-blur-sm">
+            <div className="absolute inset-x-8 bottom-7 flex items-center justify-between gap-4 rounded-sm bg-[#1F1A1A]/30 px-6 py-5 text-background backdrop-blur-sm">
               <h3 className="text-xl font-medium">{item.title}</h3>
               <span className="text-sm font-medium flex justify-between items-center">
                 <span className="hidden sm:block">{t('itemButtonLabel')}</span>

@@ -1,3 +1,5 @@
+'use client'
+
 import {
   FacebookIcon,
   InstagramIcon,
@@ -12,8 +14,10 @@ import {
 } from '@/assets/icons'
 import { FloorImg1, FloorImg2, FloorImg3 } from '@/assets/images'
 import { SiteLogo } from '@/assets/logos'
+import { cn } from 'cn'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
+import { useState } from 'react'
 import FooterCarousel from './footer-carousel'
 
 interface FooterLinksItemsType {
@@ -39,6 +43,12 @@ const socialIcons = {
 export default function Footer() {
   const t = useTranslations('Footer')
 
+  const [openSection, setOpenSection] = useState<string | null>(null)
+
+  const toggleSection = (section: string) => {
+    setOpenSection((prev) => (prev === section ? null : section))
+  }
+
   const footerLinks_quickLinks_items = t.raw(
     'footerLinks.quickLinks.items',
   ) as FooterLinksItemsType[]
@@ -60,41 +70,71 @@ export default function Footer() {
           <FooterCarousel images={[FloorImg1, FloorImg2, FloorImg3]} />
 
           {/* links */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 pt-18">
-            <div className="space-y-7">
-              <div className="flex flex-col space-y-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 sm:gap-10 mt-18">
+            <div className="sm:space-y-7">
+              <div
+                className="flex flex-col space-y-2"
+                onClick={() => toggleSection(t('footerLinks.quickLinks.title'))}
+              >
                 <p className="uppercase font-bold text-lg">
                   {t('footerLinks.quickLinks.title')}
                 </p>
                 <div className="h-0.75 w-12 bg-[#0066B3]"></div>
               </div>
-              <div className="space-y-4">
+              <div
+                className={cn(
+                  'space-y-4 overflow-hidden transition-all duration-300 sm:block',
+                  openSection === t('footerLinks.quickLinks.title')
+                    ? 'max-h-100 opacity-100 mt-7 sm:mt-0'
+                    : 'max-h-0 opacity-0 sm:max-h-none sm:opacity-100',
+                )}
+              >
                 {footerLinks_quickLinks_items.map((item) => (
                   <p key={item.text}>{item.text}</p>
                 ))}
               </div>
             </div>
-            <div className="space-y-7">
-              <div className="flex flex-col space-y-2">
+            <div className="sm:space-y-7">
+              <div
+                className="flex flex-col space-y-2"
+                onClick={() => toggleSection(t('footerLinks.services.title'))}
+              >
                 <p className="uppercase font-bold text-lg">
                   {t('footerLinks.services.title')}
                 </p>
                 <div className="h-0.75 w-12 bg-[#0066B3]"></div>
               </div>
-              <div className="space-y-4">
+              <div
+                className={cn(
+                  'space-y-4 overflow-hidden transition-all duration-300 sm:block',
+                  openSection === t('footerLinks.services.title')
+                    ? 'max-h-100 opacity-100 mt-7 sm:mt-0'
+                    : 'max-h-0 opacity-0 sm:max-h-none sm:opacity-100',
+                )}
+              >
                 {footerLinks_services_items.map((item) => (
                   <p key={item.text}>{item.text}</p>
                 ))}
               </div>
             </div>
-            <div className="sm:col-span-2 md:col-span-1 lg:col-span-2 space-y-7">
-              <div className="flex flex-col space-y-2">
+            <div className="sm:col-span-2 md:col-span-1 lg:col-span-2 sm:space-y-7">
+              <div
+                className="flex flex-col space-y-2"
+                onClick={() => toggleSection(t('footerLinks.products.title'))}
+              >
                 <p className="uppercase font-bold text-lg">
                   {t('footerLinks.products.title')}
                 </p>
                 <div className="h-0.75 w-12 bg-[#0066B3]"></div>
               </div>
-              <div className="flex flex-col sm:flex-row space-y-4 space-x-10">
+              <div
+                className={cn(
+                  'flex flex-col sm:flex-row space-y-4 space-x-10 overflow-hidden transition-all duration-300 sm:flex',
+                  openSection === t('footerLinks.products.title')
+                    ? 'max-h-150 opacity-100 mt-7 sm:mt-0'
+                    : 'max-h-0 opacity-0 sm:max-h-none sm:opacity-100',
+                )}
+              >
                 <div className="space-y-4">
                   {footerLinks_products_items[0].map((item) => (
                     <p key={item.text}>{item.text}</p>
@@ -109,7 +149,7 @@ export default function Footer() {
             </div>
 
             {/* contacts */}
-            <div className="space-y-7">
+            <div className="sm:col-span-2 md:col-span-1 space-y-7 mt-7 sm:mt-0">
               <Image src={SiteLogo} alt="Z&S Carpets" />
               <div className="space-y-5">
                 {contacts.map((contact) => (

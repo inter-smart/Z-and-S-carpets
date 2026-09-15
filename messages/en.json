@@ -270,7 +270,7 @@
       {
         "name": "RESIDENTIAL",
         "description": "Warm, considered flooring for homes that feel as good as they look.",
-        "cta": "Explore Residential",
+        "cta": "Get Custom Solution",
         "feature": "VINYL FLOORING",
         "products": [
           {
@@ -282,12 +282,108 @@
             "image": "floor-3"
           },
           {
+            "name": "Deck Flooring",
+            "image": "floor-12"
+          },
+          {
             "name": "Vinyl Flooring",
             "image": "floor-7"
           },
           {
             "name": "Artificial Grass",
             "image": "floor-11"
+          },
+          {
+            "name": "Wooden Flooring",
+            "image": "floor-3"
+          },
+          {
+            "name": "Deck Flooring",
+            "image": "floor-12"
+          },
+          {
+            "name": "Carpet Tiles",
+            "image": "floor-2"
+          },
+          {
+            "name": "Wooden Flooring",
+            "image": "floor-3"
+          },
+          {
+            "name": "Deck Flooring",
+            "image": "floor-12"
+          },
+          {
+            "name": "Vinyl Flooring",
+            "image": "floor-7"
+          },
+          {
+            "name": "Artificial Grass",
+            "image": "floor-11"
+          },
+          {
+            "name": "Wooden Flooring",
+            "image": "floor-3"
+          },
+          {
+            "name": "Deck Flooring",
+            "image": "floor-12"
+          },
+          {
+            "name": "Carpet Tiles",
+            "image": "floor-2"
+          },
+          {
+            "name": "Wooden Flooring",
+            "image": "floor-3"
+          },
+          {
+            "name": "Deck Flooring",
+            "image": "floor-12"
+          },
+          {
+            "name": "Vinyl Flooring",
+            "image": "floor-7"
+          },
+          {
+            "name": "Artificial Grass",
+            "image": "floor-11"
+          },
+          {
+            "name": "Wooden Flooring",
+            "image": "floor-3"
+          },
+          {
+            "name": "Deck Flooring",
+            "image": "floor-12"
+          },
+          {
+            "name": "Carpet Tiles",
+            "image": "floor-2"
+          },
+          {
+            "name": "Wooden Flooring",
+            "image": "floor-3"
+          },
+          {
+            "name": "Deck Flooring",
+            "image": "floor-12"
+          },
+          {
+            "name": "Vinyl Flooring",
+            "image": "floor-7"
+          },
+          {
+            "name": "Artificial Grass",
+            "image": "floor-11"
+          },
+          {
+            "name": "Wooden Flooring",
+            "image": "floor-3"
+          },
+          {
+            "name": "Deck Flooring",
+            "image": "floor-12"
           }
         ]
       },
@@ -314,9 +410,29 @@
       {
         "name": "HOSPITALITY",
         "description": "Inviting surfaces and refined finishes for hotels, restaurants, and guest spaces built around memorable experiences.",
-        "cta": "Explore Hospitality",
+        "cta": "Get Custom Solution",
         "feature": "CARPET FLOORING",
         "products": [
+          {
+            "name": "Artificial Grass",
+            "image": "floor-3"
+          },
+          {
+            "name": "Deck Flooring",
+            "image": "floor-12"
+          },
+          {
+            "name": "Carpet Tiles",
+            "image": "floor-11"
+          },
+          {
+            "name": "Wooden Flooring",
+            "image": "floor-2"
+          },
+          {
+            "name": "Vinyl Flooring",
+            "image": "floor-7"
+          },
           {
             "name": "Artificial Grass",
             "image": "floor-3"
@@ -342,7 +458,7 @@
       {
         "name": "OUTDOOR",
         "description": "Durable outdoor finishes that bring comfort, character, and lasting performance to open-air spaces.",
-        "cta": "Explore Outdoor",
+        "cta": "Get Custom Solution",
         "feature": "DECK FLOORING",
         "products": [
           {
@@ -394,7 +510,7 @@
       }
     ],
     "cta": {
-      "title": "Trusted Quality. Proven Results.",
+      "title": ["Trusted Quality.", "Proven Results."],
       "description": "Delivering reliable solutions with exceptional quality and customer satisfaction.",
       "btnLabel": "Find your Perfect Carpet"
     }

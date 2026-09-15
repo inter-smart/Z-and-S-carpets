@@ -36,6 +36,7 @@
   --font-nobile: var(--font-nobile);
   --font-manrope: var(--font-manrope);
   --font-cairo: var(--font-cairo);
+  --font-dmSans: var(--font-dmSans);
 
   --font-mono: var(--font-geist-mono);
   --font-heading: var(--font-sans);
@@ -161,7 +162,10 @@
 @layer utilities {
   /* container with equal padding at left and right */
   .container-wrapper {
-    @apply container mx-auto px-5 sm:px-7.5 lg:px-22.5;
+    @apply container mx-auto px-5 sm:px-10 md:px-15 lg:px-20;
+  }
+  .section-title {
+    @apply text-4xl sm:text-5xl tracking-tight font-medium ltr:font-nobile rtl:font-cairo;
   }
   /* .container-wrapper-none {
     @apply max-w-none! w-full! mx-0! px-0!;
