@@ -3,10 +3,10 @@ import ChooseUsSection from '@/components/common/choose-us-section'
 import FAQSection from '@/components/common/faq-section'
 import ImgCompareSlider from '@/components/common/img-compare-slider'
 import ProcessSections from '@/components/common/process-section'
+import BannerSection from '@/components/home/banner-section'
 import BestSellers from '@/components/home/best-seller-section'
 import BuiltForSection from '@/components/home/built-for-section'
 import CollectionSection from '@/components/home/collection-section'
-import HeroSection from '@/components/home/hero-section'
 import PremiumFlooringSolutionsSection from '@/components/home/premium-flooring-solutions-section'
 import TestimonialsSection from '@/components/home/testimonials-section'
 import TrustedPartnerSection from '@/components/home/trusted-partner-section'
@@ -15,7 +15,7 @@ import WorksSections from '@/components/home/works-section'
 export default function HomePage() {
   return (
     <>
-      <HeroSection />
+      <BannerSection />
       <CollectionSection />
       <BestSellers />
       <BuiltForSection />
