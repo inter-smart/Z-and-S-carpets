@@ -5,7 +5,7 @@
       [
         {
           "text": "About Us",
-          "link": ""
+          "link": "/about"
         },
         {
           "text": "Services",
@@ -55,20 +55,105 @@
         "title": "Carpet Flooring"
       },
       {
-        "title": "Lvt Flooring More"
+        "title": "Lvt Flooring"
       }
     ],
     "categoryMoreBtnLable": "More"
   },
-  "HeroSection": {
+  "BannerSection": {
     "mainTag": "Trusted Flooring Specialists in UAE & GCC",
     "description": "For Homes, Offices & Commercial Spaces",
     "btnLabel": "Request Quote",
-    "sideMenu": ["Residential", "Commercial", "Hospitality", "Outdoor"],
-    "card": {
-      "itemValue": "15k+",
-      "itemText": "Projects Completed"
-    }
+    "category": [
+      {
+        "id": "residential",
+        "label": "Residential",
+        "video": "/videos/banner-video-2.mp4",
+        "cards": [
+          {
+            "itemValue": "40k+",
+            "itemText": "Trusted Parties",
+            "image": "/images/floor-img-1.webp"
+          },
+          {
+            "itemValue": "30",
+            "itemText": "Different Styles",
+            "image": "/images/floor-img-2.webp"
+          },
+          {
+            "itemValue": "15k+",
+            "itemText": "Projects Completed",
+            "image": "/images/floor-img-4.webp"
+          }
+        ]
+      },
+      {
+        "id": "commercial",
+        "label": "Commercial",
+        "video": "/videos/banner-video-1.mp4",
+        "cards": [
+          {
+            "itemValue": "15k+",
+            "itemText": "Projects Completed",
+            "image": "/images/floor-img-4.webp"
+          },
+          {
+            "itemValue": "40k+",
+            "itemText": "Trusted Parties",
+            "image": "/images/floor-img-2.webp"
+          },
+          {
+            "itemValue": "30",
+            "itemText": "Different Styles",
+            "image": "/images/floor-img-3.webp"
+          },
+          {
+            "itemValue": "40k+",
+            "itemText": "Trusted Parties",
+            "image": "/images/floor-img-1.webp"
+          },
+          {
+            "itemValue": "30",
+            "itemText": "Different Styles",
+            "image": "/images/floor-img-2.webp"
+          }
+        ]
+      },
+      {
+        "id": "hospitality",
+        "label": "Hospitality",
+        "video": "/videos/banner-video-3.mp4",
+        "cards": [
+          {
+            "itemValue": "30",
+            "itemText": "Different Styles",
+            "image": "/images/floor-img-2.webp"
+          },
+          {
+            "itemValue": "15k+",
+            "itemText": "Projects Completed",
+            "image": "/images/floor-img-4.webp"
+          }
+        ]
+      },
+      {
+        "id": "outdoor",
+        "label": "Outdoor",
+        "video": "/videos/banner-video-1.mp4",
+        "cards": [
+          {
+            "itemValue": "Card 1",
+            "itemText": "Trusted Parties",
+            "image": "/images/floor-img-1.webp"
+          },
+          {
+            "itemValue": "Card 2",
+            "itemText": "Projects Completed",
+            "image": "/images/floor-img-2.webp"
+          }
+        ]
+      }
+    ]
   },
   "collection": {
     "title": "Discover Our Collection",
@@ -88,7 +173,7 @@
   "process": {
     "eyebrow": "OUR PROCESS",
     "title": "How it Works",
-    "image": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-O9BA8oAzMITHDdRTzxM4hhv0TpnQIw.png",
+    "image": "/images/floor-img-1.webp",
     "steps": [
       {
         "title": "Design",
@@ -156,7 +241,7 @@
       {
         "category": "CARPET FLOORING",
         "title": "Carpet Tiles Pixel Block",
-        "description": "Crafted for modern interiors, Pixel Block Carpet Tiles bring structure, depth, and a contemporary modular look to any space.",
+        "description": "Crafted for modern interiors, Pixel Block Carpet Tiles bring structure, depth, and a contemporary modular look to any space. ted for modern exteriors, our landscaping grass brings structure, depth, and a contemporary finish to ever.",
         "tagLabel": "Best Seller"
       },
       {
@@ -577,6 +662,11 @@
     "btnLabel": "Enquire Now"
   },
   "Footer": {
+    "images": [
+      "/images/floor-img-1.webp",
+      "/images/floor-img-2.webp",
+      "/images/floor-img-3.webp"
+    ],
     "footerLinks": {
       "quickLinks": {
         "title": "Quick Links",
@@ -686,24 +776,24 @@
         ]
       }
     },
-    "contacts": [
-      {
-        "id": "location-icon",
-        "text": "Warehouse No:5, Street No:2 Al Warsan -3, Dubai (UAE)"
+    "contacts": {
+      "location": {
+        "label": "Warehouse No:5, Street No:2 Al Warsan -3, Dubai (UAE)",
+        "link": ""
       },
-      {
-        "id": "mail-icon",
-        "text": "info@zandscarpets.com"
+      "mail": {
+        "label": "info@zandscarpets.com",
+        "link": "info@zandscarpets.com"
       },
-      {
-        "id": "phone-icon",
-        "text": "+971 5270 044 20"
+      "phone": {
+        "label": "+971 5270 044 20",
+        "link": "+971 5270 044 20"
       },
-      {
-        "id": "whatsapp-icon",
-        "text": "+971 XX XXX XXXX"
+      "whatsapp": {
+        "label": "+971 XX XXX XXXX",
+        "link": "+971 XX XXX XXXX"
       }
-    ],
+    },
     "social": [
       {
         "id": "facebook-icon",

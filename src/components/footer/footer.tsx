@@ -12,13 +12,17 @@ import {
   XTwitterIcon,
   YouTubeIcon,
 } from '@/assets/icons'
-import { FloorImg1, FloorImg2, FloorImg3 } from '@/assets/images'
 import { SiteLogo } from '@/assets/logos'
+import FooterCarousel from '@/components/footer/footer-carousel'
 import { cn } from 'cn'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useState } from 'react'
-import FooterCarousel from './footer-carousel'
+
+interface ContactsItemType {
+  label: string
+  link: string
+}
 
 interface FooterLinksItemsType {
   text: string
@@ -26,10 +30,10 @@ interface FooterLinksItemsType {
 }
 
 const contactsIcons = {
-  'location-icon': LocationBlueIcon,
-  'mail-icon': MailBlueIcon,
-  'phone-icon': PhoneBlueIcon,
-  'whatsapp-icon': WhatsAppIcon,
+  location: LocationBlueIcon,
+  mail: MailBlueIcon,
+  phone: PhoneBlueIcon,
+  whatsapp: WhatsAppIcon,
 }
 
 const socialIcons = {
@@ -58,25 +62,33 @@ export default function Footer() {
   const footerLinks_products_items = t.raw(
     'footerLinks.products.items',
   ) as FooterLinksItemsType[][]
-  const contacts = t.raw('contacts') as { id: string; text: string }[]
+
+  const contacts = t.raw('contacts') as {
+    location: ContactsItemType
+    mail: ContactsItemType
+    phone: ContactsItemType
+    whatsapp: ContactsItemType
+  }
+
   const social = t.raw('social') as { id: string; link: string }[]
+  const images = t.raw('images') as string[]
 
   return (
-    <footer className="w-full text-sm bg-[#101010] text-white pt-18">
+    <footer className="w-full bg-[#101010] pt-12 text-sm text-white lg:pt-20">
       <div className="container-wrapper">
         {/* top */}
         <div className="pb-10">
           {/* images carousel */}
-          <FooterCarousel images={[FloorImg1, FloorImg2, FloorImg3]} />
+          <FooterCarousel images={images} />
 
           {/* links */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 sm:gap-10 mt-18">
+          <div className="mt-18 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-10 lg:grid-cols-5">
             <div className="sm:space-y-7">
               <div
                 className="flex flex-col space-y-2"
                 onClick={() => toggleSection(t('footerLinks.quickLinks.title'))}
               >
-                <p className="uppercase font-bold text-lg">
+                <p className="text-[1rem] font-bold tracking-widest uppercase">
                   {t('footerLinks.quickLinks.title')}
                 </p>
                 <div className="h-0.75 w-12 bg-[#0066B3]"></div>
@@ -85,7 +97,7 @@ export default function Footer() {
                 className={cn(
                   'space-y-4 overflow-hidden transition-all duration-300 sm:block',
                   openSection === t('footerLinks.quickLinks.title')
-                    ? 'max-h-100 opacity-100 mt-7 sm:mt-0'
+                    ? 'mt-7 max-h-100 opacity-100 sm:mt-0'
                     : 'max-h-0 opacity-0 sm:max-h-none sm:opacity-100',
                 )}
               >
@@ -99,7 +111,7 @@ export default function Footer() {
                 className="flex flex-col space-y-2"
                 onClick={() => toggleSection(t('footerLinks.services.title'))}
               >
-                <p className="uppercase font-bold text-lg">
+                <p className="text-[1rem] font-bold tracking-widest uppercase">
                   {t('footerLinks.services.title')}
                 </p>
                 <div className="h-0.75 w-12 bg-[#0066B3]"></div>
@@ -108,7 +120,7 @@ export default function Footer() {
                 className={cn(
                   'space-y-4 overflow-hidden transition-all duration-300 sm:block',
                   openSection === t('footerLinks.services.title')
-                    ? 'max-h-100 opacity-100 mt-7 sm:mt-0'
+                    ? 'mt-7 max-h-100 opacity-100 sm:mt-0'
                     : 'max-h-0 opacity-0 sm:max-h-none sm:opacity-100',
                 )}
               >
@@ -117,21 +129,21 @@ export default function Footer() {
                 ))}
               </div>
             </div>
-            <div className="sm:col-span-2 md:col-span-1 lg:col-span-2 sm:space-y-7">
+            <div className="sm:col-span-2 sm:space-y-7 md:col-span-1 lg:col-span-2">
               <div
                 className="flex flex-col space-y-2"
                 onClick={() => toggleSection(t('footerLinks.products.title'))}
               >
-                <p className="uppercase font-bold text-lg">
+                <p className="text-[1rem] font-bold tracking-widest uppercase">
                   {t('footerLinks.products.title')}
                 </p>
                 <div className="h-0.75 w-12 bg-[#0066B3]"></div>
               </div>
               <div
                 className={cn(
-                  'flex flex-col sm:flex-row space-y-4 space-x-10 overflow-hidden transition-all duration-300 sm:flex',
+                  'flex flex-col space-y-4 space-x-10 overflow-hidden transition-all duration-300 sm:flex sm:flex-row',
                   openSection === t('footerLinks.products.title')
-                    ? 'max-h-150 opacity-100 mt-7 sm:mt-0'
+                    ? 'mt-7 max-h-150 opacity-100 sm:mt-0'
                     : 'max-h-0 opacity-0 sm:max-h-none sm:opacity-100',
                 )}
               >
@@ -149,24 +161,54 @@ export default function Footer() {
             </div>
 
             {/* contacts */}
-            <div className="sm:col-span-2 md:col-span-1 space-y-7 mt-7 sm:mt-0">
+            <div className="mt-7 space-y-7 sm:col-span-2 sm:mt-0 md:col-span-1">
               <Image src={SiteLogo} alt="Z&S Carpets" />
               <div className="space-y-5">
-                {contacts.map((contact) => (
-                  <div
-                    key={contact.id}
-                    className="flex flex-row items-start space-x-2"
-                  >
-                    <Image
-                      src={
-                        contactsIcons[contact.id as keyof typeof contactsIcons]
-                      }
-                      alt={contact.id}
-                      className="w-4 h-auto"
-                    />
-                    <p className="leading-4">{contact.text}</p>
-                  </div>
-                ))}
+                {/* location */}
+                <div className="flex flex-row items-start space-x-2">
+                  <Image
+                    src={contactsIcons['location']}
+                    alt="location icon"
+                    className="h-auto w-4"
+                  />
+                  <p>{contacts.location.label}</p>
+                </div>
+                {/* mail */}
+                <a
+                  href={`mailto:${contacts.mail.link}`}
+                  className="flex flex-row items-start space-x-2"
+                >
+                  <Image
+                    src={contactsIcons['mail']}
+                    alt="location icon"
+                    className="h-auto w-4"
+                  />
+                  <p>{contacts.mail.label}</p>
+                </a>
+                {/* phone */}
+                <a
+                  href={`tel:${contacts.phone.link.replaceAll(' ', '')}`}
+                  className="flex flex-row items-start space-x-2"
+                >
+                  <Image
+                    src={contactsIcons['phone']}
+                    alt="location icon"
+                    className="h-auto w-4"
+                  />
+                  <p>{contacts.phone.label}</p>
+                </a>
+                {/* whatsapp */}
+                <a
+                  href={`https://wa.me/${contacts.whatsapp.link.replaceAll(' ', '')}`}
+                  className="flex flex-row items-start space-x-2"
+                >
+                  <Image
+                    src={contactsIcons['whatsapp']}
+                    alt="location icon"
+                    className="h-auto w-4"
+                  />
+                  <p>{contacts.whatsapp.label}</p>
+                </a>
               </div>
             </div>
           </div>
@@ -174,7 +216,7 @@ export default function Footer() {
 
         {/* bottom */}
         <hr className="border-white/10" />
-        <div className="w-full flex flex-col lg:flex-row justify-between items-center py-10 text-center space-y-4 lg:space-y-0">
+        <div className="flex w-full flex-col items-center justify-between space-y-4 py-10 text-center font-light lg:flex-row lg:space-y-0">
           <p className="hidden lg:block">{t('copyright')}</p>
           <div className="flex flex-row space-x-3 sm:space-x-8 xl:space-x-10">
             {social.map((logo) => (
@@ -182,20 +224,20 @@ export default function Footer() {
                 key={logo.id}
                 src={socialIcons[logo.id as keyof typeof socialIcons]}
                 alt={logo.id}
-                className="w-auto h-3.5"
+                className="h-3.5 w-auto"
               />
             ))}
           </div>
           <p className="lg:hidden">{t('copyright')}</p>
-          <div className="flex flex-col sm:flex-row space-x-1 justify-between items-center">
+          <div className="flex flex-col items-center justify-between space-x-1 text-sm sm:flex-row sm:justify-center">
             <p>{t('designedByLabel')}:</p>
-            <div className="flex flex-row space-x-1">
+            <div className="flex flex-row items-center space-x-0.5">
               <Image
                 src={InterSmartIcon}
                 alt="Intersmart"
-                className="w-min h-min"
+                className="h-2.75 w-auto"
               />
-              <p className="font-zalando-sans">iNTERSMART</p>
+              <p className="text-[0.7rem]">iNTERSMART</p>
             </div>
           </div>
         </div>

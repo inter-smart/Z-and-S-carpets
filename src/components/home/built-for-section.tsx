@@ -109,14 +109,14 @@ export default function BuiltForSection() {
         className="relative mx-auto overflow-hidden rounded-md bg-cover bg-bottom px-4 pt-18 pb-12 sm:px-8 lg:px-12"
         style={{ backgroundImage: `url(${FloorImg11.src})` }}
       >
-        <div className="absolute inset-0 bg-primary/70" />
+        <div className="bg-primary/70 absolute inset-0" />
         <div className="relative z-10">
-          <h2 className="section-title text-center text-primary-foreground">
+          <h2 className="section-title text-primary-foreground text-center">
             {t('title')}
           </h2>
 
           <div className="mt-10 grid gap-5 lg:grid-cols-[160px_minmax(0,1fr)]">
-            <div className="h-fit flex flex-wrap rounded-md bg-primary/25 backdrop-blur-lg border border-white/10 lg:flex-col gap-0 lg:overflow-visible">
+            <div className="bg-primary/25 flex h-fit flex-wrap overflow-hidden rounded-md border border-white/10 backdrop-blur-lg lg:flex-col lg:gap-6 lg:overflow-visible lg:py-10">
               {categories.map((item, index) => {
                 const active = activeCategory === index
                 return (
@@ -134,7 +134,7 @@ export default function BuiltForSection() {
                       })
                     }}
                     className={cn(
-                      'text-white w-1/2 sm:w-1/3 md:w-1/4 lg:w-full px-4 py-5 ltr:text-left rtl:text-right text-sm font-semibold tracking-widest transition-colors lg:min-w-0',
+                      'w-1/2 px-4 py-5 text-sm font-medium tracking-widest text-white transition-colors focus:ring-0 focus:outline-none sm:w-1/3 md:w-1/4 lg:w-full lg:min-w-0 ltr:text-left rtl:text-right',
                       active && 'bg-linear-to-t from-[#812990] to-[#812990]/0',
                     )}
                     aria-pressed={active}
@@ -145,147 +145,193 @@ export default function BuiltForSection() {
               })}
             </div>
 
-            <div className="rounded-md bg-primary/25 backdrop-blur-lg border border-white/10 p-5 sm:p-8 lg:flex lg:gap-6">
-              <div className="xl:w-5/6 flex flex-col-reverse xl:flex-row">
+            <div className="bg-primary/25 gap-6 rounded-md border border-white/10 px-4 py-6 backdrop-blur-lg lg:flex xl:px-8 xl:py-14">
+              <div className="flex flex-1 flex-col-reverse gap-3 xl:flex-row xl:gap-6">
                 {/* details */}
-                <div className="xl:w-4/12 2xl:w-3/12 flex flex-col justify-center py-4 text-primary-foreground">
-                  <p className="hidden xl:block text-3xl font-medium ltr:font-nobile rtl:font-cairo">
-                    {category.name.charAt(0) +
-                      category.name.slice(1).toLowerCase()}
-                  </p>
-                  <p className="mt-4 xl:pe-5 text-sm leading-6 text-primary-foreground/80">
-                    {category.description}
-                  </p>
+                <div className="text-primary-foreground flex w-full flex-col justify-evenly gap-3 xl:w-50 xl:gap-0 2xl:w-60">
+                  <div className="">
+                    <p className="ltr:font-nobile rtl:font-cairo hidden text-3xl font-semibold xl:block">
+                      {category.name.charAt(0) +
+                        category.name.slice(1).toLowerCase()}
+                    </p>
+                    <p className="text-primary-foreground mt-4 text-sm leading-6 xl:pe-5">
+                      {category.description}
+                    </p>
+                  </div>
                   <Button
                     variant="outline"
-                    className="mt-8 w-fit border-white/50 bg-transparent text-white hover:bg-white hover:text-[#073b68] px-5 py-4.5 rounded-md"
+                    className="w-fit rounded-md border-white bg-transparent px-6 py-4.5 text-xs font-semibold text-white hover:bg-white hover:text-[#073b68]"
                   >
                     {category.cta}
                   </Button>
                 </div>
 
                 {/* main image */}
-                <div className="xl:w-8/12 2xl:w-9/12 relative mt-6 lg:mt-0 min-[360px]:aspect-[1.45] xl:aspect-[3] 2xl:h-120 overflow-hidden rounded-md">
-                  <p className="text-white xl:hidden text-3xl font-medium ltr:font-nobile rtl:font-cairo">
+                <div className="flex-1">
+                  <p className="ltr:font-nobile rtl:font-cairo pb-3 text-3xl font-medium text-white xl:hidden">
                     {category.name.charAt(0) +
                       category.name.slice(1).toLowerCase()}
                   </p>
-                  <Image
-                    src={
-                      productImgs[
-                        activeProductData.image as keyof typeof productImgs
-                      ]
-                    }
-                    alt={`${activeProductData.name} interior`}
-                    className="max-xl:mt-4 size-full object-cover object-bottom transition-transform duration-700 ease-out h-full rounded-md"
-                  />
-                  <p className="absolute inset-x-3 sm:inset-x-6 lg:inset-x-3 xl:inset-x-6 2xl:inset-x-10 bottom-3 sm:bottom-6 lg:bottom-3 xl:bottom-6 2xl:bottom-10 text-3xl sm:text-4xl md:text-5xl font-cairo font-bold uppercase tracking-wider text-transparent [-webkit-text-stroke:1px_white]">
-                    {activeProductData.name.split(' ').map((word, i) => (
-                      <span key={i}>
-                        {word}
-                        <br />
-                      </span>
-                    ))}
-                  </p>
+                  <div className="relative">
+                    <Image
+                      src={
+                        productImgs[
+                          activeProductData.image as keyof typeof productImgs
+                        ]
+                      }
+                      alt={`${activeProductData.name} interior`}
+                      className={cn(
+                        'overflow-hidden rounded-md object-cover object-bottom transition-transform duration-700 ease-out',
+                        'h-(--main-image-height)',
+                      )}
+                    />
+                    <p className="font-cairo absolute inset-x-3 bottom-3 text-3xl font-bold tracking-wider text-transparent uppercase [-webkit-text-stroke:1px_white] sm:inset-x-6 sm:bottom-6 sm:text-4xl md:text-5xl lg:inset-x-3 lg:bottom-3 xl:inset-x-6 xl:bottom-6 2xl:inset-x-10 2xl:bottom-10">
+                      {activeProductData.name.split(' ').map((word, i) => (
+                        <span key={i}>
+                          {word}
+                          <br />
+                        </span>
+                      ))}
+                    </p>
+                  </div>
                 </div>
               </div>
 
               {/* image stack container */}
-              <div className="xl:w-1/6 flex flex-row lg:flex-col gap-2 mt-3">
+              <div className="flex flex-row gap-1 max-lg:mt-6 lg:flex-col lg:gap-0 lg:max-xl:mt-10">
                 {/* Left and up arrow */}
-                <Button
-                  aria-label="Scroll up"
-                  variant="ghost"
-                  size="icon"
-                  disabled={!isImgStackScrollable || imgStackScrollIsAtStart}
-                  onClick={() => scrollProducts('up')}
-                  className="hidden ltr:flex my-auto lg:mx-auto hover:bg-transparent cursor-pointer"
-                >
-                  <Image
-                    src={ArrowRightIcon}
-                    alt="arrow-left_and_up"
-                    className="w-auto h-2.5 rotate-180 lg:-rotate-90"
-                  />
-                </Button>
-                <Button
-                  aria-label="Scroll down"
-                  variant="ghost"
-                  size="icon"
-                  disabled={!isImgStackScrollable || imgStackScrollIsAtStart}
-                  onClick={() => scrollProducts('down')}
-                  className="hidden rtl:flex my-auto lg:mx-auto hover:bg-transparent cursor-pointer"
-                >
-                  <Image
-                    src={ArrowLeftIcon}
-                    alt="arrow-right_and_down"
-                    className="w-auto h-2.5 rotate-180 lg:-rotate-90"
-                  />
-                </Button>
-                {/* image stack */}
                 <div
                   className={cn(
-                    'scroll-smooth rounded [&::-webkit-scrollbar]:hidden mx-auto',
-                    'flex-1 flex gap-2 w-40 overflow-x-auto',
-                    'lg:flex-none lg:block lg:h-80 lg:w-30 lg:overflow-x-hidden lg:overflow-y-auto',
+                    'flex flex-col items-center justify-center lg:justify-start',
+                    'lg:h-(--image-stack-button-height)',
                   )}
-                  ref={productsRef}
                 >
-                  {category.products.map((product, index) => (
-                    <button
-                      key={product.name + index}
-                      type="button"
-                      onClick={() => setActiveProduct(index)}
-                      className={cn(
-                        'relative h-16 min-w-28 overflow-hidden rounded border-2 transition-all lg:h-1/5 lg:w-full lg:min-w-0 cursor-pointer',
-                        activeProduct === index
-                          ? 'border-2 border-white'
-                          : 'border-transparent opacity-80',
-                      )}
-                      aria-label={`Select ${product.name}`}
-                      aria-pressed={activeProduct === index}
-                    >
-                      <Image
-                        src={
-                          productImgs[product.image as keyof typeof productImgs]
-                        }
-                        alt={product.name}
-                        className="size-full object-cover object-bottom"
-                      />
-                      <span className="absolute inset-x-1 bottom-1 truncate text-[10px] font-medium text-primary-foreground [text-shadow:0_1px_3px_oklch(0_0_0/90%)]">
-                        {product.name}
-                      </span>
-                    </button>
-                  ))}
+                  <Button
+                    aria-label="Scroll up"
+                    variant="ghost"
+                    size="icon"
+                    disabled={!isImgStackScrollable || imgStackScrollIsAtStart}
+                    onClick={() => scrollProducts('up')}
+                    className={cn(
+                      'flex cursor-pointer hover:bg-transparent rtl:max-lg:hidden',
+                      !isImgStackScrollable && 'invisible',
+                    )}
+                  >
+                    <Image
+                      src={ArrowRightIcon}
+                      alt="arrow-left_and_up"
+                      className="h-2.5 w-auto rotate-180 lg:-rotate-90"
+                    />
+                  </Button>
+                  <Button
+                    aria-label="Scroll down"
+                    variant="ghost"
+                    size="icon"
+                    disabled={!isImgStackScrollable || imgStackScrollIsAtStart}
+                    onClick={() => scrollProducts('down')}
+                    className={cn(
+                      'hidden cursor-pointer hover:bg-transparent rtl:flex rtl:lg:hidden',
+                      !isImgStackScrollable && 'invisible',
+                    )}
+                  >
+                    <Image
+                      src={ArrowLeftIcon}
+                      alt="arrow-right_and_down"
+                      className="h-2.5 w-auto rotate-180 lg:-rotate-90"
+                    />
+                  </Button>
                 </div>
+
+                {/* image stack */}
+                <div className="w-1 flex-1 lg:w-full lg:flex-none">
+                  <div
+                    className={cn(
+                      'flex h-16 overflow-x-auto',
+                      'scroll-smooth rounded [&::-webkit-scrollbar]:hidden',
+                      // 'lg:block lg:w-20 lg:flex-col lg:overflow-x-hidden lg:overflow-y-auto 2xl:w-30',
+                      'gap-2 lg:w-20 lg:flex-col lg:gap-3 lg:overflow-x-hidden lg:overflow-y-auto 2xl:w-30',
+                      'lg:h-(--image-stack-height)',
+                    )}
+                    ref={productsRef}
+                  >
+                    {category.products.map((product, index) => (
+                      <button
+                        key={product.name + index}
+                        type="button"
+                        onClick={() => setActiveProduct(index)}
+                        className={cn(
+                          'relative h-16 w-28 shrink-0 cursor-pointer overflow-hidden rounded-sm transition-all focus:ring-0 focus:outline-none lg:h-12 lg:w-full 2xl:h-16',
+                        )}
+                        aria-label={`Select ${product.name}`}
+                        aria-pressed={activeProduct === index}
+                      >
+                        <div
+                          className={cn(
+                            'bg-primary/40 absolute inset-0 z-11 rounded-sm',
+                            activeProduct === index
+                              ? 'border border-white'
+                              : 'border-transparent',
+                          )}
+                        />
+                        <Image
+                          src={
+                            productImgs[
+                              product.image as keyof typeof productImgs
+                            ]
+                          }
+                          alt={product.name}
+                          className="size-full object-cover object-bottom"
+                        />
+                        <span className="text-primary-foreground absolute inset-x-1 bottom-1 z-12 truncate text-xs font-medium">
+                          {product.name}
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
                 {/* Right and Down arrow */}
-                <Button
-                  aria-label="Scroll down"
-                  variant="ghost"
-                  size="icon"
-                  disabled={!isImgStackScrollable || imgStackScrollIsAtEnd}
-                  onClick={() => scrollProducts('down')}
-                  className="hidden ltr:flex my-auto lg:mx-auto hover:bg-transparent cursor-pointer"
+                <div
+                  className={cn(
+                    'flex flex-col items-center justify-center lg:justify-end',
+                    'lg:h-(--image-stack-button-height)',
+                  )}
                 >
-                  <Image
-                    src={ArrowLeftIcon}
-                    alt="arrow-right_and_down"
-                    className="w-auto h-2.5 rotate-180 lg:-rotate-90"
-                  />
-                </Button>
-                <Button
-                  aria-label="Scroll up"
-                  variant="ghost"
-                  size="icon"
-                  disabled={!isImgStackScrollable || imgStackScrollIsAtEnd}
-                  onClick={() => scrollProducts('up')}
-                  className="hidden rtl:flex my-auto lg:mx-auto hover:bg-transparent cursor-pointer"
-                >
-                  <Image
-                    src={ArrowRightIcon}
-                    alt="arrow-left_and_up"
-                    className="w-auto h-2.5 rotate-180 lg:-rotate-90"
-                  />
-                </Button>
+                  <Button
+                    aria-label="Scroll down"
+                    variant="ghost"
+                    size="icon"
+                    disabled={!isImgStackScrollable || imgStackScrollIsAtEnd}
+                    onClick={() => scrollProducts('down')}
+                    className={cn(
+                      'flex cursor-pointer hover:bg-transparent rtl:max-lg:hidden',
+                      !isImgStackScrollable && 'invisible',
+                    )}
+                  >
+                    <Image
+                      src={ArrowLeftIcon}
+                      alt="arrow-right_and_down"
+                      className="h-2.5 w-auto rotate-180 lg:-rotate-90"
+                    />
+                  </Button>
+                  <Button
+                    aria-label="Scroll up"
+                    variant="ghost"
+                    size="icon"
+                    disabled={!isImgStackScrollable || imgStackScrollIsAtEnd}
+                    onClick={() => scrollProducts('up')}
+                    className={cn(
+                      'hidden cursor-pointer hover:bg-transparent rtl:flex rtl:lg:hidden',
+                      !isImgStackScrollable && 'invisible',
+                    )}
+                  >
+                    <Image
+                      src={ArrowRightIcon}
+                      alt="arrow-left_and_up"
+                      className="h-2.5 w-auto rotate-180 lg:-rotate-90"
+                    />
+                  </Button>
+                </div>
               </div>
             </div>
           </div>

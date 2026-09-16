@@ -5,7 +5,7 @@
       [
         {
           "text": "من نحن",
-          "link": ""
+          "link": "/about"
         },
         {
           "text": "الخدمات",
@@ -55,20 +55,105 @@
         "title": "أرضيات السجاد"
       },
       {
-        "title": "المزيد من أرضيات LVT"
+        "title": "من أرضيات LVT"
       }
     ],
     "categoryMoreBtnLable": "المزيد"
   },
-  "HeroSection": {
+  "BannerSection": {
     "mainTag": "خبراء موثوقون في الأرضيات في الإمارات ودول مجلس التعاون الخليجي",
     "description": "للمنازل والمكاتب والمساحات التجارية",
     "btnLabel": "اطلب عرض سعر",
-    "sideMenu": ["سكني", "تجاري", "ضيافة", "مساحات خارجية"],
-    "card": {
-      "itemValue": "15 ألف+",
-      "itemText": "مشروعًا تم إنجازه"
-    }
+    "category": [
+      {
+        "id": "residential",
+        "label": "سكني",
+        "video": "/videos/banner-video-2.mp4",
+        "cards": [
+          {
+            "itemValue": "40 ألف+",
+            "itemText": "جهة تثق بنا",
+            "image": "/images/floor-img-1.webp"
+          },
+          {
+            "itemValue": "30",
+            "itemText": "تصميمًا مختلفًا",
+            "image": "/images/floor-img-2.webp"
+          },
+          {
+            "itemValue": "15 ألف+",
+            "itemText": "مشروعًا تم إنجازه",
+            "image": "/images/floor-img-4.webp"
+          }
+        ]
+      },
+      {
+        "id": "commercial",
+        "label": "تجاري",
+        "video": "/videos/banner-video-1.mp4",
+        "cards": [
+          {
+            "itemValue": "15 ألف+",
+            "itemText": "مشروعًا تم إنجازه",
+            "image": "/images/floor-img-4.webp"
+          },
+          {
+            "itemValue": "40 ألف+",
+            "itemText": "جهة تثق بنا",
+            "image": "/images/floor-img-2.webp"
+          },
+          {
+            "itemValue": "30",
+            "itemText": "تصميمًا مختلفًا",
+            "image": "/images/floor-img-3.webp"
+          },
+          {
+            "itemValue": "40 ألف+",
+            "itemText": "جهة تثق بنا",
+            "image": "/images/floor-img-1.webp"
+          },
+          {
+            "itemValue": "30",
+            "itemText": "تصميمًا مختلفًا",
+            "image": "/images/floor-img-2.webp"
+          }
+        ]
+      },
+      {
+        "id": "hospitality",
+        "label": "ضيافة",
+        "video": "/videos/banner-video-3.mp4",
+        "cards": [
+          {
+            "itemValue": "30",
+            "itemText": "تصميمًا مختلفًا",
+            "image": "/images/floor-img-2.webp"
+          },
+          {
+            "itemValue": "15 ألف+",
+            "itemText": "مشروعًا تم إنجازه",
+            "image": "/images/floor-img-4.webp"
+          }
+        ]
+      },
+      {
+        "id": "outdoor",
+        "label": "مساحات خارجية",
+        "video": "/videos/banner-video-1.mp4",
+        "cards": [
+          {
+            "itemValue": "البطاقة 1",
+            "itemText": "جهة تثق بنا",
+            "image": "/images/floor-img-1.webp"
+          },
+          {
+            "itemValue": "البطاقة 2",
+            "itemText": "مشروعًا تم إنجازه",
+            "image": "/images/floor-img-2.webp"
+          }
+        ]
+      }
+    ]
   },
   "collection": {
     "title": "اكتشف مجموعتنا",
@@ -88,7 +173,7 @@
   "process": {
     "eyebrow": "عمليتنا",
     "title": "كيف نعمل",
-    "image": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-O9BA8oAzMITHDdRTzxM4hhv0TpnQIw.png",
+    "image": "/images/floor-img-1.webp",
     "steps": [
       {
         "title": "التصميم",
@@ -479,6 +564,11 @@
     "btnLabel": "استفسر الآن"
   },
   "Footer": {
+    "images": [
+      "/images/floor-img-1.webp",
+      "/images/floor-img-2.webp",
+      "/images/floor-img-3.webp"
+    ],
     "footerLinks": {
       "quickLinks": {
         "title": "روابط سريعة",
@@ -588,24 +678,24 @@
         ]
       }
     },
-    "contacts": [
-      {
-        "id": "location-icon",
-        "text": "المستودع رقم 5، الشارع رقم 2، الورسان -3، دبي (الإمارات العربية المتحدة)"
+    "contacts": {
+      "location": {
+        "text": "المستودع رقم 5، الشارع رقم 2، الورسان -3، دبي (الإمارات العربية المتحدة)",
+        "link": ""
       },
-      {
-        "id": "mail-icon",
-        "text": "info@zandscarpets.com"
+      "mail": {
+        "label": "info@zandscarpets.com",
+        "link": "info@zandscarpets.com"
       },
-      {
-        "id": "phone-icon",
-        "text": "+971 5270 044 20"
+      "phone": {
+        "label": "+971 5270 044 20",
+        "link": "+971 5270 044 20"
       },
-      {
-        "id": "whatsapp-icon",
-        "text": "+971 XX XXX XXXX"
+      "whatsapp": {
+        "label": "+971 XX XXX XXXX",
+        "link": "+971 XX XXX XXXX"
       }
-    ],
+    },
     "social": [
       {
         "id": "facebook-icon",

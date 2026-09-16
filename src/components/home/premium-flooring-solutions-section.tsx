@@ -11,18 +11,20 @@ export default function PremiumFlooringSolutionsSection() {
 
   return (
     <section
-      className="flex flex-col justify-start px-6 py-16 sm:px-10 lg:px-[5.2vw] lg:py-20 bg-[#EFF9FE]"
+      className="bg-[#EFF9FE] py-16 lg:py-20 lg:ps-12 xl:ps-18"
       aria-label="Premium Flooring Solutions Across UAE & GCC"
     >
-      <h2 className="section-title">{pfs.title}</h2>
-      <div className="mt-12 flex flex-col gap-7 text-base leading-7 text-muted-foreground">
-        {pfs.paragraphs.map((paragraph) => (
-          <p key={paragraph}>{paragraph}</p>
-        ))}
+      <div className="container-wrapper lg:container-wrapper-none flex flex-col justify-start">
+        <h2 className="section-title">{pfs.title}</h2>
+        <div className="text-muted-foreground mt-12 flex flex-col gap-7 text-base leading-7">
+          {pfs.paragraphs.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </div>
+        <Button className="mt-12 w-fit bg-[#0066B3] px-12 py-4.5 text-xs font-semibold text-white hover:bg-[#0066B3]/90">
+          {pfs.buttonLabel}
+        </Button>
       </div>
-      <Button className="w-fit mt-12 bg-[#0066B3] px-12 py-4.5 text-white hover:bg-[#0066B3]/90">
-        {pfs.buttonLabel}
-      </Button>
     </section>
   )
 }

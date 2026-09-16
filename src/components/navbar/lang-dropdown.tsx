@@ -24,12 +24,12 @@ export default function LangDropdown() {
       <DropdownMenuTrigger
         nativeButton={false}
         render={
-          <div className="flex flex-row justify-start items-baseline space-x-1.5 cursor-pointer">
-            <p className="first-letter:uppercase font-medium">{locale}</p>
+          <div className="flex cursor-pointer flex-row items-baseline justify-start space-x-0.5 sm:space-x-1.5">
+            <p className="first-letter:uppercase">{locale}</p>
             <Image
               src={ArrowIcon}
               alt="arrow-down-icon"
-              className={cn('w-auto h-1.5', open ? 'rotate-180' : '')}
+              className={cn('h-1.5 w-auto', open ? 'rotate-180' : '')}
             />
           </div>
         }
