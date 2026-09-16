@@ -1,6 +1,5 @@
 'use client'
 
-import { FloorImg1 } from '@/assets/images'
 import { cn } from 'cn'
 import { Play } from 'lucide-react'
 import { useTranslations } from 'next-intl'
@@ -18,33 +17,34 @@ export default function ProcessSections() {
 
   return (
     <section
-      className="bg-[#023260] text-primary-foreground pt-10 pb-21"
+      className="text-primary-foreground bg-[#023260] pt-10 pb-21"
       aria-labelledby="process-title"
     >
       <div className="container-wrapper">
-        <p className="text-center text-5xl sm:text-6xl md:text-[7rem] font-bold font-cairo tracking-widest text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.05)]">
+        <p className="font-cairo text-center text-5xl font-bold tracking-widest text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.05)] sm:text-6xl md:text-[7rem]">
           {t('eyebrow')}
         </p>
         <h2
           id="process-title"
-          className="section-title text-center -mt-6 sm:-mt-7 md:-mt-10"
+          className="section-title -mt-6 text-center sm:-mt-7 md:-mt-10"
         >
           {t('title')}
         </h2>
         <div className="mt-12 grid gap-6 lg:grid-cols-[1fr_1.2fr]">
           <div className="relative min-h-72 overflow-hidden rounded-md">
             <Image
-              src={FloorImg1}
+              src={t('image')}
               alt="Flooring project interior at sunset"
+              fill
               className="absolute inset-0 size-full object-cover"
             />
-            <div className="absolute inset-0 grid place-items-center bg-foreground/20">
+            <div className="bg-foreground/20 absolute inset-0 grid place-items-center">
               <button
                 type="button"
                 aria-label="Watch video"
                 className="grid place-items-center text-sm"
               >
-                <span className="grid size-10 place-items-center rounded-full bg-background text-primary">
+                <span className="bg-background text-primary grid size-10 place-items-center rounded-full">
                   <Play className="ml-1 size-4 fill-current" />
                 </span>
                 <span className="mt-2">Watch Video</span>
@@ -61,7 +61,7 @@ export default function ProcessSections() {
                   type="button"
                   onClick={() => setActiveStep(i)}
                   className={cn(
-                    'border p-5 transition-colors rounded-md text-xl flex flex-row justify-start items-start',
+                    'flex flex-row items-start justify-start rounded-md border p-5 text-xl transition-colors',
                     active
                       ? 'border-primary-foreground bg-primary-foreground/10'
                       : 'border-primary-foreground/15 bg-primary-foreground/5 hover:bg-primary-foreground/10 text-white/90',
@@ -76,14 +76,14 @@ export default function ProcessSections() {
                       id={`process-step-${i}`}
                       aria-hidden={!active}
                       className={cn(
-                        'grid transition-[grid-template-rows,opacity] duration-300 ease-out motion-reduce:transition-none text-start',
+                        'grid text-start transition-[grid-template-rows,opacity] duration-300 ease-out motion-reduce:transition-none',
                         active
                           ? 'grid-rows-[1fr] opacity-100'
                           : 'grid-rows-[0fr] opacity-0',
                       )}
                     >
                       <span className="min-h-0 overflow-hidden">
-                        <span className="block text-sm leading-6 text-primary-foreground/75">
+                        <span className="text-primary-foreground/75 block text-sm leading-6">
                           {step.description}
                         </span>
                       </span>

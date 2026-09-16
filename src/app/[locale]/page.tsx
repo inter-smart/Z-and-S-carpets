@@ -1,8 +1,8 @@
 import { FloorCImg1, FloorCImg2 } from '@/assets/images'
-import ChooseUsSection from '@/components/common/choose-us-section'
-import FAQSection from '@/components/common/faq-section'
 import ImgCompareSlider from '@/components/common/img-compare-slider'
-import ProcessSections from '@/components/common/process-section'
+import ChooseUsSection from '@/components/common/sections/choose-us-section'
+import FAQSection from '@/components/common/sections/faq-section'
+import ProcessSections from '@/components/common/sections/process-section'
 import BannerSection from '@/components/home/banner-section'
 import BestSellers from '@/components/home/best-seller-section'
 import BuiltForSection from '@/components/home/built-for-section'
@@ -31,7 +31,6 @@ export default function HomePage() {
       <ProcessSections />
       <TestimonialsSection />
       <TrustedPartnerSection />
-      {/* <FAQSection className="bg-[#EFF9FE]" /> */}
       <section className="container-wrapper grid grid-cols-1 lg:grid-cols-2">
         <FAQSection container={false} />
         <PremiumFlooringSolutionsSection />

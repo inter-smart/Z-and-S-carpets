@@ -1,20 +1,16 @@
 import type { Metadata } from 'next'
 
+import '@/app/globals.css'
 import BottomSideBtns from '@/components/common/bottom-side-btns'
-import Footer from '@/components/common/footer'
-import Navbar from '@/components/common/navbar'
+import Footer from '@/components/footer/footer'
+import Navbar from '@/components/navbar/navbar'
 import { cn } from '@/lib/utils'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
-import { Cairo, DM_Sans, Inter, Manrope, Nobile } from 'next/font/google'
-import '../globals.css'
+import { Cairo, Inter, Manrope, Nobile } from 'next/font/google'
 
 const inter = Inter({
   variable: '--font-inter',
-  subsets: ['latin'],
-})
-const dmSans = DM_Sans({
-  variable: '--font-dm-sans',
   subsets: ['latin'],
 })
 
@@ -69,11 +65,10 @@ export default async function RootLayout({
         nobile.variable,
         manrope.variable,
         cairo.variable,
-        dmSans.variable,
-        'h-full antialiased font-sans ltr:font-inter rtl:font-cairo',
+        'ltr:font-inter rtl:font-cairo h-full font-sans antialiased',
       )}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="flex min-h-full flex-col">
         <NextIntlClientProvider messages={messages}>
           <Navbar />
           <main>{children}</main>

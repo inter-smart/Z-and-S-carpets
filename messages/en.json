@@ -142,12 +142,12 @@
         "video": "/videos/banner-video-1.mp4",
         "cards": [
           {
-            "itemValue": "card 1",
+            "itemValue": "Card 1",
             "itemText": "Trusted Parties",
             "image": "/images/floor-img-1.webp"
           },
           {
-            "itemValue": "card 2",
+            "itemValue": "Card 2",
             "itemText": "Projects Completed",
             "image": "/images/floor-img-2.webp"
           }
@@ -173,7 +173,7 @@
   "process": {
     "eyebrow": "OUR PROCESS",
     "title": "How it Works",
-    "image": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-O9BA8oAzMITHDdRTzxM4hhv0TpnQIw.png",
+    "image": "/images/floor-img-1.webp",
     "steps": [
       {
         "title": "Design",
@@ -662,6 +662,11 @@
     "btnLabel": "Enquire Now"
   },
   "Footer": {
+    "images": [
+      "/images/floor-img-1.webp",
+      "/images/floor-img-2.webp",
+      "/images/floor-img-3.webp"
+    ],
     "footerLinks": {
       "quickLinks": {
         "title": "Quick Links",

@@ -1,14 +1,12 @@
 'use client'
 
+import { MoveLeftIcon, MoveRightIcon } from '@/assets/icons'
+import { Button } from '@/components/ui/button'
 import type { LocaleType } from '@/i18n/types'
-
 import { cn } from 'cn'
 import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
-
-import { MoveLeftIcon, MoveRightIcon } from '@/assets/icons'
-import { Button } from '@/components/ui/button'
 
 interface CategoryType {
   id: string
@@ -119,7 +117,7 @@ export default function BannerSection() {
               <div key={item.id} className="flex items-center">
                 <p
                   className={cn(
-                    'cursor-default whitespace-nowrap text-[1rem] font-light underline decoration-0 underline-offset-4',
+                    'cursor-default text-[1rem] font-light whitespace-nowrap underline decoration-0 underline-offset-4',
                     currentCategory.id === item.id && 'text-[#037EDA]',
                   )}
                   onClick={() => handleCategoryChange(item)}
@@ -137,10 +135,10 @@ export default function BannerSection() {
 
         {/* heading & slider */}
         <div className="container-wrapper">
-          <div className="flex h-full w-full flex-col justify-end gap-6 pb-23 ps-8 sm:ps-10 sm:pe-5 md:flex-row md:justify-between sm:pb-28">
+          <div className="flex h-full w-full flex-col justify-end gap-6 ps-8 pb-23 sm:ps-10 sm:pe-5 sm:pb-28 md:flex-row md:justify-between">
             {/* heading */}
             <div className="flex w-full flex-col justify-end gap-1 md:w-1/2 md:gap-6 lg:w-3/5">
-              <h1 className="text-4xl font-medium leading-12 sm:text-[2.75rem] sm:leading-14 ltr:font-nobile rtl:font-cairo">
+              <h1 className="ltr:font-nobile rtl:font-cairo text-4xl leading-12 font-medium sm:text-[2.75rem] sm:leading-14">
                 {t('mainTag')}
               </h1>
 
@@ -148,14 +146,14 @@ export default function BannerSection() {
 
               <Button
                 variant="outline"
-                className="mt-6 w-fit rounded-sm px-8 py-4.5 ltr:font-manrope rtl:font-cairo hover:bg-white/10 hover:text-white"
+                className="ltr:font-manrope rtl:font-cairo mt-6 w-fit rounded-sm px-8 py-4.5 hover:bg-white/10 hover:text-white"
               >
                 {t('btnLabel')}
               </Button>
             </div>
 
             {/* slider */}
-            <div className="flex flex-col justify-end overflow-hidden w-full min-[400px]:w-2/3  md:w-1/2 lg:w-2/5 xl:w-100">
+            <div className="flex w-full flex-col justify-end overflow-hidden min-[400px]:w-2/3 md:w-1/2 lg:w-2/5 xl:w-100">
               <div
                 onTransitionEnd={handleTransitionEnd}
                 className={cn(
@@ -179,7 +177,7 @@ export default function BannerSection() {
                     className="flex w-full min-w-full shrink-0 items-end justify-start px-1 md:justify-end"
                   >
                     {/* WHOLE CARD */}
-                    <div className="flex h-22 w-full flex-row justify-between gap-2 rounded-md bg-white p-2 sm:p-3 text-black sm:h-24 sm:gap-4 md:h-28 lg:h-32 xl:h-36 lg:w-100 lg:gap-4 xl:gap-8">
+                    <div className="flex h-22 w-full flex-row justify-between gap-2 rounded-md bg-white p-2 text-black sm:h-24 sm:gap-4 sm:p-3 md:h-28 lg:h-32 lg:w-100 lg:gap-4 xl:h-36 xl:gap-8">
                       {/* image */}
                       <div className="relative hidden aspect-square h-full items-center justify-center overflow-hidden rounded-md min-[300px]:flex">
                         <Image
@@ -191,13 +189,13 @@ export default function BannerSection() {
                       </div>
 
                       {/* content - arrows */}
-                      <div className="relative flex-1 flex flex-col justify-center">
+                      <div className="relative flex flex-1 flex-col justify-center">
                         {/* content */}
-                        <div className="w-full flex flex-col md:gap-2">
+                        <div className="flex w-full flex-col md:gap-2">
                           <p className="text-xl font-bold sm:text-2xl md:text-4xl">
                             {card.itemValue}
                           </p>
-                          <p className="text-xs sm:text-sm font-medium">
+                          <p className="text-xs font-medium sm:text-sm">
                             {card.itemText}
                           </p>
                         </div>
@@ -214,13 +212,13 @@ export default function BannerSection() {
                             <Image
                               src={MoveRightIcon}
                               alt=""
-                              className="hidden h-1 w-auto rtl:block sm:h-1.75"
+                              className="hidden h-1 w-auto sm:h-1.75 rtl:block"
                             />
 
                             <Image
                               src={MoveLeftIcon}
                               alt=""
-                              className="hidden h-1 w-auto ltr:block sm:h-1.75"
+                              className="hidden h-1 w-auto sm:h-1.75 ltr:block"
                             />
                           </button>
 
@@ -235,13 +233,13 @@ export default function BannerSection() {
                             <Image
                               src={MoveLeftIcon}
                               alt=""
-                              className="hidden h-1 w-auto rtl:block sm:h-1.75"
+                              className="hidden h-1 w-auto sm:h-1.75 rtl:block"
                             />
 
                             <Image
                               src={MoveRightIcon}
                               alt=""
-                              className="hidden h-1 w-auto ltr:block sm:h-1.75"
+                              className="hidden h-1 w-auto sm:h-1.75 ltr:block"
                             />
                           </button>
                         </div>

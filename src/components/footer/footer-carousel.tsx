@@ -3,14 +3,10 @@
 import { ArrowLeftIcon, ArrowRightIcon } from '@/assets/icons'
 import { Button } from '@/components/ui/button'
 import { cn } from 'cn'
-import Image, { StaticImageData } from 'next/image'
+import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 
-type FooterCarouselProps = {
-  images: StaticImageData[]
-}
-
-export default function FooterCarousel({ images }: FooterCarouselProps) {
+export default function FooterCarousel({ images }: { images: string[] }) {
   const [current, setCurrent] = useState(0)
 
   const timerRef = useRef<NodeJS.Timeout | null>(null)
@@ -61,7 +57,7 @@ export default function FooterCarousel({ images }: FooterCarouselProps) {
   }
 
   return (
-    <div className="relative h-36 sm:h-64 w-full overflow-hidden rounded-md">
+    <div className="relative h-36 w-full overflow-hidden rounded-md sm:h-64">
       {images.map((image, index) => (
         <Image
           key={index}
@@ -77,33 +73,33 @@ export default function FooterCarousel({ images }: FooterCarouselProps) {
       ))}
 
       {/* Previous */}
-      <div className="absolute left-1 top-1/2 -translate-y-1/2 z-10">
+      <div className="absolute top-1/2 left-1 z-10 -translate-y-1/2">
         <Button
           type="button"
           onClick={handlePrevious}
           aria-label="Previous button"
-          className="bg-black/40 px-2 py-3.5 text-white rounded-none"
+          className="rounded-none bg-black/40 px-2 py-3.5 text-white"
         >
           <Image
             src={ArrowLeftIcon}
             alt="arrow-left"
-            className="w-auto h-2.5"
+            className="h-2.5 w-auto"
           />
         </Button>
       </div>
 
       {/* Next */}
-      <div className="absolute right-1 top-1/2 -translate-y-1/2 z-10">
+      <div className="absolute top-1/2 right-1 z-10 -translate-y-1/2">
         <Button
           type="button"
           onClick={handleNext}
           aria-label="Next button"
-          className="bg-black/40 px-2 py-3.5 text-white rounded-none"
+          className="rounded-none bg-black/40 px-2 py-3.5 text-white"
         >
           <Image
             src={ArrowRightIcon}
             alt="arrow-left"
-            className="w-auto h-2.5"
+            className="h-2.5 w-auto"
           />
         </Button>
       </div>

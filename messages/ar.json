@@ -173,7 +173,7 @@
   "process": {
     "eyebrow": "عمليتنا",
     "title": "كيف نعمل",
-    "image": "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-O9BA8oAzMITHDdRTzxM4hhv0TpnQIw.png",
+    "image": "/images/floor-img-1.webp",
     "steps": [
       {
         "title": "التصميم",
@@ -564,6 +564,11 @@
     "btnLabel": "استفسر الآن"
   },
   "Footer": {
+    "images": [
+      "/images/floor-img-1.webp",
+      "/images/floor-img-2.webp",
+      "/images/floor-img-3.webp"
+    ],
     "footerLinks": {
       "quickLinks": {
         "title": "روابط سريعة",
