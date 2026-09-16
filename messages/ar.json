@@ -64,11 +64,96 @@
     "mainTag": "خبراء موثوقون في الأرضيات في الإمارات ودول مجلس التعاون الخليجي",
     "description": "للمنازل والمكاتب والمساحات التجارية",
     "btnLabel": "اطلب عرض سعر",
-    "sideMenu": ["سكني", "تجاري", "ضيافة", "مساحات خارجية"],
-    "card": {
-      "itemValue": "15 ألف+",
-      "itemText": "مشروعًا تم إنجازه"
-    }
+    "category": [
+      {
+        "id": "residential",
+        "label": "سكني",
+        "video": "/videos/banner-video-2.mp4",
+        "cards": [
+          {
+            "itemValue": "40 ألف+",
+            "itemText": "جهة تثق بنا",
+            "image": "/images/floor-img-1.webp"
+          },
+          {
+            "itemValue": "30",
+            "itemText": "تصميمًا مختلفًا",
+            "image": "/images/floor-img-2.webp"
+          },
+          {
+            "itemValue": "15 ألف+",
+            "itemText": "مشروعًا تم إنجازه",
+            "image": "/images/floor-img-4.webp"
+          }
+        ]
+      },
+      {
+        "id": "commercial",
+        "label": "تجاري",
+        "video": "/videos/banner-video-1.mp4",
+        "cards": [
+          {
+            "itemValue": "15 ألف+",
+            "itemText": "مشروعًا تم إنجازه",
+            "image": "/images/floor-img-4.webp"
+          },
+          {
+            "itemValue": "40 ألف+",
+            "itemText": "جهة تثق بنا",
+            "image": "/images/floor-img-2.webp"
+          },
+          {
+            "itemValue": "30",
+            "itemText": "تصميمًا مختلفًا",
+            "image": "/images/floor-img-3.webp"
+          },
+          {
+            "itemValue": "40 ألف+",
+            "itemText": "جهة تثق بنا",
+            "image": "/images/floor-img-1.webp"
+          },
+          {
+            "itemValue": "30",
+            "itemText": "تصميمًا مختلفًا",
+            "image": "/images/floor-img-2.webp"
+          }
+        ]
+      },
+      {
+        "id": "hospitality",
+        "label": "ضيافة",
+        "video": "/videos/banner-video-3.mp4",
+        "cards": [
+          {
+            "itemValue": "30",
+            "itemText": "تصميمًا مختلفًا",
+            "image": "/images/floor-img-2.webp"
+          },
+          {
+            "itemValue": "15 ألف+",
+            "itemText": "مشروعًا تم إنجازه",
+            "image": "/images/floor-img-4.webp"
+          }
+        ]
+      },
+      {
+        "id": "outdoor",
+        "label": "مساحات خارجية",
+        "video": "/videos/banner-video-1.mp4",
+        "cards": [
+          {
+            "itemValue": "البطاقة 1",
+            "itemText": "جهة تثق بنا",
+            "image": "/images/floor-img-1.webp"
+          },
+          {
+            "itemValue": "البطاقة 2",
+            "itemText": "مشروعًا تم إنجازه",
+            "image": "/images/floor-img-2.webp"
+          }
+        ]
+      }
+    ]
   },
   "collection": {
     "title": "اكتشف مجموعتنا",

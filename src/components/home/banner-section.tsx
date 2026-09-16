@@ -1,110 +1,254 @@
-import { MoveLeftIcon, MoveRightIcon } from '@/assets/icons'
-import { FloorImg4 } from '@/assets/images'
-import { Button } from '@/components/ui/button'
+'use client'
+
+import type { LocaleType } from '@/i18n/types'
+
 import { cn } from 'cn'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
+
+import { MoveLeftIcon, MoveRightIcon } from '@/assets/icons'
+import { Button } from '@/components/ui/button'
+
+interface CategoryType {
+  id: string
+  label: string
+  video: string
+  cards: {
+    itemValue: string
+    itemText: string
+    image: string
+  }[]
+}
 
 export default function BannerSection() {
+  const locale = useLocale() as LocaleType
   const t = useTranslations('BannerSection')
-  const sideMenuItems = t.raw('sideMenu') as string[]
+  const category = t.raw('category') as CategoryType[]
+
+  const [currentCategory, setCurrentCategory] = useState(category[1])
+
+  const cards = currentCategory.cards
+  const count = cards.length
+
+  // Create clones before and after the real cards
+  const loopedCards = count > 1 ? [...cards, ...cards, ...cards] : cards
+
+  // Start from the first card of the middle copy
+  const [slide, setSlide] = useState(count)
+
+  // Used to disable animation while silently repositioning
+  const [transitionEnabled, setTransitionEnabled] = useState(true)
+
+  // Auto slide
+  useEffect(() => {
+    if (count <= 1) return
+
+    const interval = setInterval(() => {
+      setSlide((current) => current + 1)
+    }, 5000)
+
+    return () => clearInterval(interval)
+  }, [currentCategory.id, count])
+
+  // Handle category change
+  const handleCategoryChange = (item: CategoryType) => {
+    setTransitionEnabled(false)
+    setCurrentCategory(item)
+    setSlide(item.cards.length)
+
+    // Enable transition again after the position has been updated
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        setTransitionEnabled(true)
+      })
+    })
+  }
+
+  // Handle infinite-loop repositioning
+  const handleTransitionEnd = (
+    event: React.TransitionEvent<HTMLDivElement>,
+  ) => {
+    if (event.propertyName !== 'transform' || count <= 1) return
+
+    // Moved into the third copy
+    if (slide >= count * 2) {
+      setTransitionEnabled(false)
+      setSlide(count)
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setTransitionEnabled(true)
+        })
+      })
+    }
+
+    // Moved into the first copy
+    if (slide < count) {
+      setTransitionEnabled(false)
+      setSlide(count * 2 - 1)
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setTransitionEnabled(true)
+        })
+      })
+    }
+  }
 
   return (
     <section className="relative">
       {/* video */}
       <video
-        className="w-full h-200 object-cover"
+        key={currentCategory.id}
+        className="h-200 w-full object-cover"
         playsInline
         autoPlay
         muted
         loop
       >
-        <source src="/videos/banner-1.mp4" type="video/mp4" />
+        <source src={currentCategory.video} type="video/mp4" />
       </video>
-      {/* top layer (above video) */}
-      <div className="absolute top-0 w-full h-200 bg-linear-to-r from-black/80 to-black/0 text-white flex flex-col justify-end">
+
+      {/* top layer */}
+      <div className="absolute top-0 flex h-200 w-full flex-col justify-end bg-linear-to-r from-black/80 to-black/0 text-white">
         {/* category */}
-        <div className="absolute h-full -ms-5 sm:-ms-1 w-20 flex flex-col justify-end pb-30 sm:pb-35">
+        <div className="absolute -ms-5 flex h-full w-20 flex-col justify-end pb-30 sm:-ms-1 sm:pb-35">
           <div className="flex flex-row items-center ltr:-rotate-90 rtl:rotate-90">
-            {sideMenuItems.map((label, i) => (
-              <div key={i} className="flex items-center">
+            {category.map((item, i) => (
+              <div key={item.id} className="flex items-center">
                 <p
                   className={cn(
-                    'text-[1rem] font-light whitespace-nowrap underline decoration-0 underline-offset-4 cursor-default',
+                    'cursor-default whitespace-nowrap text-[1rem] font-light underline decoration-0 underline-offset-4',
+                    currentCategory.id === item.id && 'text-[#037EDA]',
                   )}
+                  onClick={() => handleCategoryChange(item)}
                 >
-                  {label}
+                  {item.label}
                 </p>
-                {i < sideMenuItems.length - 1 && (
-                  <div className="w-[0.1px] h-4.5 bg-white/20 mx-[1.6rem]" />
+
+                {i < category.length - 1 && (
+                  <div className="mx-[1.6rem] h-4.5 w-[0.1px] bg-white/20" />
                 )}
               </div>
             ))}
           </div>
         </div>
+
         {/* heading & slider */}
         <div className="container-wrapper">
-          <div className="ps-8 sm:ps-10 sm:pe-5 w-full h-full flex flex-col md:flex-row justify-end md:justify-between gap-6 pb-23 sm:pb-28">
+          <div className="flex h-full w-full flex-col justify-end gap-6 pb-23 ps-8 sm:ps-10 sm:pe-5 md:flex-row md:justify-between sm:pb-28">
             {/* heading */}
-            <div className="w-full md:w-1/2 lg:3/5 flex flex-col justify-end gap-1 md:gap-6">
-              <h1 className="text-4xl sm:text-[2.75rem] leading-12 sm:leading-14 font-medium ltr:font-nobile rtl:font-cairo">
+            <div className="flex w-full flex-col justify-end gap-1 md:w-1/2 md:gap-6 lg:w-3/5">
+              <h1 className="text-4xl font-medium leading-12 sm:text-[2.75rem] sm:leading-14 ltr:font-nobile rtl:font-cairo">
                 {t('mainTag')}
               </h1>
+
               <h2 className="text-xl">{t('description')}</h2>
+
               <Button
                 variant="outline"
-                className="w-fit rounded-sm px-8 py-4.5 mt-6 ltr:font-manrope rtl:font-cairo hover:bg-white/10 hover:text-white"
+                className="mt-6 w-fit rounded-sm px-8 py-4.5 ltr:font-manrope rtl:font-cairo hover:bg-white/10 hover:text-white"
               >
                 {t('btnLabel')}
               </Button>
             </div>
+
             {/* slider */}
-            <div className="w-full md:w-1/2 lg:w-2/5 flex flex-col md:flex-row justify-end items-start md:items-end">
-              <div className="w-fit h-22 sm:h-24 md:h-30 lg:h-36 lg:w-100 p-3 bg-white text-black rounded-md flex flex-row justify-between gap-2 sm:gap-4 md:gap-2 lg:gap-6 xl:gap-8">
-                <div className="hidden min-[360px]:flex h-full aspect-square relative rounded-md overflow-hidden justify-center items-center">
-                  <Image
-                    src={FloorImg4}
-                    alt="floor-image"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="flex-1 flex flex-col">
-                  <div className="flex flex-row justify-end">
-                    <div className="p-1.5 border border-gray-200 ltr:rounded-l-sm rtl:rounded-r-sm cursor-pointer">
-                      <Image
-                        src={MoveRightIcon}
-                        alt="move-arrow-icon"
-                        className="hidden rtl:block w-auto h-1 sm:h-1.75"
-                      />
-                      <Image
-                        src={MoveLeftIcon}
-                        alt="move-arrow-icon"
-                        className="hidden ltr:block w-auto h-1 sm:h-1.75"
-                      />
-                    </div>
-                    <div className="p-1.5 border-y border-gray-200 ltr:border-r ltr:rounded-r-sm rtl:border-l rtl:rounded-l-sm cursor-pointer">
-                      <Image
-                        src={MoveLeftIcon}
-                        alt="move-arrow-icon"
-                        className="hidden rtl:block w-auto h-1 sm:h-1.75"
-                      />
-                      <Image
-                        src={MoveRightIcon}
-                        alt="move-arrow-icon"
-                        className="hidden ltr:block w-auto h-1 sm:h-1.75"
-                      />
+            <div className="flex flex-col justify-end overflow-hidden w-full min-[400px]:w-2/3  md:w-1/2 lg:w-2/5 xl:w-100">
+              <div
+                onTransitionEnd={handleTransitionEnd}
+                className={cn(
+                  'flex',
+                  transitionEnabled &&
+                    'transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]',
+                  'motion-reduce:transition-none',
+                )}
+                style={{
+                  transform:
+                    count <= 1
+                      ? 'translateX(0)'
+                      : locale === 'ar'
+                        ? `translateX(${slide * 100}%)`
+                        : `translateX(-${slide * 100}%)`,
+                }}
+              >
+                {loopedCards.map((card, index) => (
+                  <div
+                    key={`${currentCategory.id}-${index}`}
+                    className="flex w-full min-w-full shrink-0 items-end justify-start px-1 md:justify-end"
+                  >
+                    {/* WHOLE CARD */}
+                    <div className="flex h-22 w-full flex-row justify-between gap-2 rounded-md bg-white p-2 sm:p-3 text-black sm:h-24 sm:gap-4 md:h-28 lg:h-32 xl:h-36 lg:w-100 lg:gap-4 xl:gap-8">
+                      {/* image */}
+                      <div className="relative hidden aspect-square h-full items-center justify-center overflow-hidden rounded-md min-[300px]:flex">
+                        <Image
+                          src={card.image}
+                          alt="floor-image"
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+
+                      {/* content - arrows */}
+                      <div className="relative flex-1 flex flex-col justify-center">
+                        {/* content */}
+                        <div className="w-full flex flex-col md:gap-2">
+                          <p className="text-xl font-bold sm:text-2xl md:text-4xl">
+                            {card.itemValue}
+                          </p>
+                          <p className="text-xs sm:text-sm font-medium">
+                            {card.itemText}
+                          </p>
+                        </div>
+                        {/* arrows */}
+                        <div className="absolute top-0 right-0 flex flex-row justify-end">
+                          {/* Previous */}
+                          <button
+                            type="button"
+                            aria-label="Previous card"
+                            onClick={() => setSlide((current) => current - 1)}
+                            disabled={count <= 1}
+                            className="cursor-pointer border border-gray-200 p-1.5 disabled:cursor-default ltr:rounded-l-sm rtl:rounded-r-sm"
+                          >
+                            <Image
+                              src={MoveRightIcon}
+                              alt=""
+                              className="hidden h-1 w-auto rtl:block sm:h-1.75"
+                            />
+
+                            <Image
+                              src={MoveLeftIcon}
+                              alt=""
+                              className="hidden h-1 w-auto ltr:block sm:h-1.75"
+                            />
+                          </button>
+
+                          {/* Next */}
+                          <button
+                            type="button"
+                            aria-label="Next card"
+                            onClick={() => setSlide((current) => current + 1)}
+                            disabled={count <= 1}
+                            className="cursor-pointer border-y border-gray-200 p-1.5 disabled:cursor-default ltr:rounded-r-sm ltr:border-r rtl:rounded-l-sm rtl:border-l"
+                          >
+                            <Image
+                              src={MoveLeftIcon}
+                              alt=""
+                              className="hidden h-1 w-auto rtl:block sm:h-1.75"
+                            />
+
+                            <Image
+                              src={MoveRightIcon}
+                              alt=""
+                              className="hidden h-1 w-auto ltr:block sm:h-1.75"
+                            />
+                          </button>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div className="flex flex-col md:flex-1 md:justify-start md:gap-2">
-                    <p className="font-bold text-xl sm:text-2xl md:text-4xl">
-                      {t('card.itemValue')}
-                    </p>
-                    <p className="font-semibold text-sm">
-                      {t('card.itemText')}
-                    </p>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>

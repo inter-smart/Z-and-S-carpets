@@ -64,11 +64,96 @@
     "mainTag": "Trusted Flooring Specialists in UAE & GCC",
     "description": "For Homes, Offices & Commercial Spaces",
     "btnLabel": "Request Quote",
-    "sideMenu": ["Residential", "Commercial", "Hospitality", "Outdoor"],
-    "card": {
-      "itemValue": "15k+",
-      "itemText": "Projects Completed"
-    }
+    "category": [
+      {
+        "id": "residential",
+        "label": "Residential",
+        "video": "/videos/banner-video-2.mp4",
+        "cards": [
+          {
+            "itemValue": "40k+",
+            "itemText": "Trusted Parties",
+            "image": "/images/floor-img-1.webp"
+          },
+          {
+            "itemValue": "30",
+            "itemText": "Different Styles",
+            "image": "/images/floor-img-2.webp"
+          },
+          {
+            "itemValue": "15k+",
+            "itemText": "Projects Completed",
+            "image": "/images/floor-img-4.webp"
+          }
+        ]
+      },
+      {
+        "id": "commercial",
+        "label": "Commercial",
+        "video": "/videos/banner-video-1.mp4",
+        "cards": [
+          {
+            "itemValue": "15k+",
+            "itemText": "Projects Completed",
+            "image": "/images/floor-img-4.webp"
+          },
+          {
+            "itemValue": "40k+",
+            "itemText": "Trusted Parties",
+            "image": "/images/floor-img-2.webp"
+          },
+          {
+            "itemValue": "30",
+            "itemText": "Different Styles",
+            "image": "/images/floor-img-3.webp"
+          },
+          {
+            "itemValue": "40k+",
+            "itemText": "Trusted Parties",
+            "image": "/images/floor-img-1.webp"
+          },
+          {
+            "itemValue": "30",
+            "itemText": "Different Styles",
+            "image": "/images/floor-img-2.webp"
+          }
+        ]
+      },
+      {
+        "id": "hospitality",
+        "label": "Hospitality",
+        "video": "/videos/banner-video-3.mp4",
+        "cards": [
+          {
+            "itemValue": "30",
+            "itemText": "Different Styles",
+            "image": "/images/floor-img-2.webp"
+          },
+          {
+            "itemValue": "15k+",
+            "itemText": "Projects Completed",
+            "image": "/images/floor-img-4.webp"
+          }
+        ]
+      },
+      {
+        "id": "outdoor",
+        "label": "Outdoor",
+        "video": "/videos/banner-video-1.mp4",
+        "cards": [
+          {
+            "itemValue": "card 1",
+            "itemText": "Trusted Parties",
+            "image": "/images/floor-img-1.webp"
+          },
+          {
+            "itemValue": "card 2",
+            "itemText": "Projects Completed",
+            "image": "/images/floor-img-2.webp"
+          }
+        ]
+      }
+    ]
   },
   "collection": {
     "title": "Discover Our Collection",
