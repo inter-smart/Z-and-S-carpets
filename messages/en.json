@@ -776,24 +776,24 @@
         ]
       }
     },
-    "contacts": [
-      {
-        "id": "location-icon",
-        "text": "Warehouse No:5, Street No:2 Al Warsan -3, Dubai (UAE)"
+    "contacts": {
+      "location": {
+        "label": "Warehouse No:5, Street No:2 Al Warsan -3, Dubai (UAE)",
+        "link": ""
       },
-      {
-        "id": "mail-icon",
-        "text": "info@zandscarpets.com"
+      "mail": {
+        "label": "info@zandscarpets.com",
+        "link": "info@zandscarpets.com"
       },
-      {
-        "id": "phone-icon",
-        "text": "+971 5270 044 20"
+      "phone": {
+        "label": "+971 5270 044 20",
+        "link": "+971 5270 044 20"
       },
-      {
-        "id": "whatsapp-icon",
-        "text": "+971 XX XXX XXXX"
+      "whatsapp": {
+        "label": "+971 XX XXX XXXX",
+        "link": "+971 XX XXX XXXX"
       }
-    ],
+    },
     "social": [
       {
         "id": "facebook-icon",

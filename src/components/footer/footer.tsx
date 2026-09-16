@@ -19,16 +19,21 @@ import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useState } from 'react'
 
+interface ContactsItemType {
+  label: string
+  link: string
+}
+
 interface FooterLinksItemsType {
   text: string
   link: string
 }
 
 const contactsIcons = {
-  'location-icon': LocationBlueIcon,
-  'mail-icon': MailBlueIcon,
-  'phone-icon': PhoneBlueIcon,
-  'whatsapp-icon': WhatsAppIcon,
+  location: LocationBlueIcon,
+  mail: MailBlueIcon,
+  phone: PhoneBlueIcon,
+  whatsapp: WhatsAppIcon,
 }
 
 const socialIcons = {
@@ -57,7 +62,14 @@ export default function Footer() {
   const footerLinks_products_items = t.raw(
     'footerLinks.products.items',
   ) as FooterLinksItemsType[][]
-  const contacts = t.raw('contacts') as { id: string; text: string }[]
+
+  const contacts = t.raw('contacts') as {
+    location: ContactsItemType
+    mail: ContactsItemType
+    phone: ContactsItemType
+    whatsapp: ContactsItemType
+  }
+
   const social = t.raw('social') as { id: string; link: string }[]
   const images = t.raw('images') as string[]
 
@@ -152,21 +164,51 @@ export default function Footer() {
             <div className="mt-7 space-y-7 sm:col-span-2 sm:mt-0 md:col-span-1">
               <Image src={SiteLogo} alt="Z&S Carpets" />
               <div className="space-y-5">
-                {contacts.map((contact) => (
-                  <div
-                    key={contact.id}
-                    className="flex flex-row items-start space-x-2"
-                  >
-                    <Image
-                      src={
-                        contactsIcons[contact.id as keyof typeof contactsIcons]
-                      }
-                      alt={contact.id}
-                      className="h-auto w-4"
-                    />
-                    <p className="leading-4">{contact.text}</p>
-                  </div>
-                ))}
+                {/* location */}
+                <div className="flex flex-row items-start space-x-2">
+                  <Image
+                    src={contactsIcons['location']}
+                    alt="location icon"
+                    className="h-auto w-4"
+                  />
+                  <p className="leading-4">{contacts.location.label}</p>
+                </div>
+                {/* mail */}
+                <a
+                  href={`mailto:${contacts.mail.link}`}
+                  className="flex flex-row items-start space-x-2"
+                >
+                  <Image
+                    src={contactsIcons['mail']}
+                    alt="location icon"
+                    className="h-auto w-4"
+                  />
+                  <p className="leading-4">{contacts.mail.label}</p>
+                </a>
+                {/* phone */}
+                <a
+                  href={`tel:${contacts.phone.link.replaceAll(' ', '')}`}
+                  className="flex flex-row items-start space-x-2"
+                >
+                  <Image
+                    src={contactsIcons['phone']}
+                    alt="location icon"
+                    className="h-auto w-4"
+                  />
+                  <p className="leading-4">{contacts.phone.label}</p>
+                </a>
+                {/* whatsapp */}
+                <a
+                  href={`https://wa.me/${contacts.whatsapp.link.replaceAll(' ', '')}`}
+                  className="flex flex-row items-start space-x-2"
+                >
+                  <Image
+                    src={contactsIcons['whatsapp']}
+                    alt="location icon"
+                    className="h-auto w-4"
+                  />
+                  <p className="leading-4">{contacts.whatsapp.label}</p>
+                </a>
               </div>
             </div>
           </div>
