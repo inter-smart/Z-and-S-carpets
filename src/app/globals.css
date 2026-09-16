@@ -170,3 +170,37 @@
 @utility container-wrapper-none {
   @apply mx-0! w-full! max-w-none! px-0!;
 }
+
+:root {
+  --main-image-height: 160px;
+  --image-stack-button-height: 32px;
+
+  --image-stack-height: calc(
+    var(--main-image-height) - 2 * var(--image-stack-button-height)
+  );
+}
+@media (min-width: 30rem) {
+  :root {
+    --main-image-height: 200px;
+  }
+}
+@media (min-width: 40rem) {
+  :root {
+    --main-image-height: 260px;
+  }
+}
+@media (min-width: 64rem) {
+  :root {
+    --main-image-height: 260px;
+  }
+}
+@media (min-width: 80rem) {
+  :root {
+    --main-image-height: 320px;
+  }
+}
+@media (min-width: 96rem) {
+  :root {
+    --main-image-height: 480px;
+  }
+}
