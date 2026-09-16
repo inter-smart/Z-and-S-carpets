@@ -31,9 +31,17 @@ export default function HomePage() {
       <ProcessSections />
       <TestimonialsSection />
       <TrustedPartnerSection />
-      <section className="container-wrapper grid grid-cols-1 lg:grid-cols-2">
-        <FAQSection container={false} />
-        <PremiumFlooringSolutionsSection />
+      <section className="relative">
+        {/* right-side background */}
+        <div className="pointer-events-none absolute inset-y-0 hidden bg-[#EFF9FE] lg:block ltr:right-0 ltr:left-1/2 rtl:right-1/2 rtl:left-0" />
+        {/* actual content */}
+        <div className="lg:container-wrapper relative grid grid-cols-1 lg:grid-cols-2">
+          <FAQSection
+            container={false}
+            className="container-wrapper lg:container-wrapper-none"
+          />
+          <PremiumFlooringSolutionsSection />
+        </div>
       </section>
     </>
   )
