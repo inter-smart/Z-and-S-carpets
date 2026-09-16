@@ -5,7 +5,7 @@
       [
         {
           "text": "About Us",
-          "link": ""
+          "link": "/about"
         },
         {
           "text": "Services",
@@ -55,7 +55,7 @@
         "title": "Carpet Flooring"
       },
       {
-        "title": "Lvt Flooring More"
+        "title": "Lvt Flooring"
       }
     ],
     "categoryMoreBtnLable": "More"

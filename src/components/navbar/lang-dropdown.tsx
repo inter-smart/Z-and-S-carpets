@@ -24,8 +24,8 @@ export default function LangDropdown() {
       <DropdownMenuTrigger
         nativeButton={false}
         render={
-          <div className="flex cursor-pointer flex-row items-baseline justify-start space-x-1.5">
-            <p className="font-medium first-letter:uppercase">{locale}</p>
+          <div className="flex cursor-pointer flex-row items-baseline justify-start space-x-0.5 sm:space-x-1.5">
+            <p className="first-letter:uppercase">{locale}</p>
             <Image
               src={ArrowIcon}
               alt="arrow-down-icon"

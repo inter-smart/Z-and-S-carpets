@@ -5,7 +5,7 @@
       [
         {
           "text": "من نحن",
-          "link": ""
+          "link": "/about"
         },
         {
           "text": "الخدمات",
@@ -55,7 +55,7 @@
         "title": "أرضيات السجاد"
       },
       {
-        "title": "المزيد من أرضيات LVT"
+        "title": "من أرضيات LVT"
       }
     ],
     "categoryMoreBtnLable": "المزيد"
