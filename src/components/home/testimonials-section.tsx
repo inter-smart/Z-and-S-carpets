@@ -11,15 +11,15 @@ interface TestimonialReviewType {
 
 function ReviewCard({ review }: { review: TestimonialReviewType }) {
   return (
-    <article className="group flex min-h-64 w-[min(86vw,396px)] shrink-0 flex-col justify-between rounded-lg border border-border bg-background p-7 sm:w-99 hover:border-[#0066B3]">
+    <article className="group border-border bg-background flex min-h-64 w-[min(86vw,396px)] shrink-0 flex-col justify-between rounded-lg border p-7 hover:border-[#0066B3] sm:w-99">
       <div>
         <div
           aria-hidden="true"
-          className="font-serif text-8xl leading-8 text-primary/30 group-hover:text-[#812990] transition-colors"
+          className="text-primary/30 font-serif text-8xl leading-8 transition-colors group-hover:text-[#812990]"
         >
           &ldquo;
         </div>
-        <p className="mt-5 text-sm leading-6 text-foreground/80">
+        <p className="text-foreground/80 mt-5 text-sm leading-6">
           {review.quote}
         </p>
       </div>
@@ -31,7 +31,7 @@ function ReviewCard({ review }: { review: TestimonialReviewType }) {
         />
         <div>
           <p className="font-medium">{review.name}</p>
-          <p className="text-sm text-muted-foreground">{review.role}</p>
+          <p className="text-muted-foreground text-sm">{review.role}</p>
         </div>
       </div>
     </article>
@@ -47,10 +47,10 @@ export default function TestimonialsSection() {
 
   return (
     <section
-      className="overflow-hidden bg-background py-16 sm:py-20"
+      className="bg-background overflow-hidden py-16 sm:py-24"
       aria-labelledby="customer-experiences-title"
     >
-      <div className="container-wrapper flex flex-col lg:flex-row items-start lg:items-center lg:justify-between gap-3 lg:gap-6">
+      <div className="container-wrapper flex flex-col items-start gap-3 lg:flex-row lg:items-center lg:justify-between lg:gap-6">
         <h2 id="customer-experiences-title" className="section-title">
           {t('title')}
         </h2>
@@ -58,9 +58,9 @@ export default function TestimonialsSection() {
           className="flex shrink-0 items-center gap-3"
           aria-label={`${t('rating')} on Google`}
         >
-          <Image src={GoogleIcon} alt="google icon" className="w-9 h-auto" />
+          <Image src={GoogleIcon} alt="google icon" className="h-auto w-9" />
           <div>
-            <p className="text-xs text-muted-foreground">{t('rating')}</p>
+            <p className="text-muted-foreground text-xs">{t('rating')}</p>
             <p
               className="tracking-[0.22em] text-orange-500"
               aria-label="5 out of 5 stars"
@@ -71,11 +71,11 @@ export default function TestimonialsSection() {
         </div>
       </div>
       <div
-        className="mt-10 overflow-hidden focus-within:[&>div]:paused hover:[&>div]:paused"
+        className="focus-within:[&>div]:paused hover:[&>div]:paused mt-10 overflow-hidden"
         tabIndex={0}
         aria-label="Customer testimonials"
       >
-        <div className="flex w-max gap-2.5 motion-reduce:animate-none ltr:motion-safe:animate-testimonial-scroll-ltr rtl:motion-safe:animate-testimonial-scroll-rtl">
+        <div className="ltr:motion-safe:animate-testimonial-scroll-ltr rtl:motion-safe:animate-testimonial-scroll-rtl flex w-max gap-2.5 motion-reduce:animate-none">
           {loopedReviews.map((review, index) => (
             <ReviewCard key={`${review.name}-${index}`} review={review} />
           ))}

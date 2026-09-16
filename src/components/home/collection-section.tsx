@@ -26,13 +26,13 @@ export default function CollectionSection() {
       className="container-wrapper bg-background py-16 lg:py-24"
       aria-labelledby="collection-title"
     >
-      <div className="flex flex-col sm:flex-row sm:items-centers justify-between gap-3 sm:gap-6">
+      <div className="sm:items-centers flex flex-col justify-between gap-3 sm:flex-row sm:gap-6">
         <h2 id="collection-title" className="section-title">
           {t('title')}
         </h2>
         <Button
           variant="outline"
-          className="inline-flex w-fit rounded-sm px-8 py-4.5 border-[#0066B3]"
+          className="inline-flex w-fit rounded-sm border-[#0066B3] px-5 py-4.5 text-xs font-semibold"
         >
           {t('buttonLabel')}
         </Button>
@@ -41,7 +41,7 @@ export default function CollectionSection() {
         {collectionItems.map((item) => (
           <article
             key={item.title}
-            className="group relative min-h-80 overflow-hidden rounded-lg bg-muted sm:min-h-108"
+            className="group bg-muted relative min-h-80 overflow-hidden rounded-lg sm:min-h-108"
           >
             <Image
               src={collectionImgs[item.id as keyof typeof collectionImgs]}
@@ -49,19 +49,21 @@ export default function CollectionSection() {
               priority
               className="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
-            <div className="absolute inset-x-8 bottom-7 flex items-center justify-between gap-4 rounded-sm bg-[#1F1A1A]/30 px-6 py-5 text-background backdrop-blur-sm">
-              <h3 className="text-xl font-medium">{item.title}</h3>
-              <span className="text-sm font-medium flex justify-between items-center">
+            <div className="text-background absolute inset-x-8 bottom-7 flex items-center justify-between gap-4 rounded-sm bg-[#1F1A1A]/30 px-6 py-6 backdrop-blur-sm">
+              <h3 className="ltr:font-nobile rtl:font-cairo sm:text:xl text-lg font-medium">
+                {item.title}
+              </h3>
+              <span className="flex items-center justify-between text-sm font-medium">
                 <span className="hidden sm:block">{t('itemButtonLabel')}</span>
                 <Image
                   src={ArrowLeftIcon}
                   alt="arrow-left"
-                  className="hidden rtl:block w-auto h-2.5 sm:ms-3"
+                  className="hidden h-2.5 w-auto sm:ms-3 rtl:block"
                 />
                 <Image
                   src={ArrowRightIcon}
                   alt="arrow-right"
-                  className="hidden ltr:block w-auto h-2.5 sm:ms-3"
+                  className="hidden h-2.5 w-auto sm:ms-3 ltr:block"
                 />
               </span>
             </div>
@@ -70,25 +72,25 @@ export default function CollectionSection() {
         <Button
           type="button"
           aria-label="Previous collection"
-          className="absolute -left-10 top-1/2 hidden text-xl text-primary lg:block hover:bg-transparent"
+          className="text-primary absolute top-1/2 -left-10 hidden text-xl hover:bg-transparent lg:block"
           variant="ghost"
         >
           <Image
             src={ArrowLeftPurpleIcon}
             alt="arrow-left"
-            className="w-auto h-2.5"
+            className="h-2.5 w-auto"
           />
         </Button>
         <Button
           type="button"
           aria-label="Next collection"
-          className="absolute -right-10 top-1/2 hidden text-xl text-primary lg:block hover:bg-transparent"
+          className="text-primary absolute top-1/2 -right-10 hidden text-xl hover:bg-transparent lg:block"
           variant="ghost"
         >
           <Image
             src={ArrowRightPurpleIcon}
             alt="arrow-right"
-            className="w-auto h-2.5"
+            className="h-2.5 w-auto"
           />
         </Button>
       </div>

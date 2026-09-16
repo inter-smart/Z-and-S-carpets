@@ -109,14 +109,14 @@ export default function BuiltForSection() {
         className="relative mx-auto overflow-hidden rounded-md bg-cover bg-bottom px-4 pt-18 pb-12 sm:px-8 lg:px-12"
         style={{ backgroundImage: `url(${FloorImg11.src})` }}
       >
-        <div className="absolute inset-0 bg-primary/70" />
+        <div className="bg-primary/70 absolute inset-0" />
         <div className="relative z-10">
-          <h2 className="section-title text-center text-primary-foreground">
+          <h2 className="section-title text-primary-foreground text-center">
             {t('title')}
           </h2>
 
           <div className="mt-10 grid gap-5 lg:grid-cols-[160px_minmax(0,1fr)]">
-            <div className="h-fit flex flex-wrap rounded-md bg-primary/25 backdrop-blur-lg border border-white/10 lg:flex-col gap-0 lg:overflow-visible">
+            <div className="bg-primary/25 flex h-fit flex-wrap rounded-md border border-white/10 backdrop-blur-lg lg:flex-col lg:gap-6 lg:overflow-visible lg:py-10">
               {categories.map((item, index) => {
                 const active = activeCategory === index
                 return (
@@ -134,7 +134,7 @@ export default function BuiltForSection() {
                       })
                     }}
                     className={cn(
-                      'text-white w-1/2 sm:w-1/3 md:w-1/4 lg:w-full px-4 py-5 ltr:text-left rtl:text-right text-sm font-semibold tracking-widest transition-colors lg:min-w-0',
+                      'w-1/2 px-4 py-5 text-sm font-medium tracking-widest text-white transition-colors sm:w-1/3 md:w-1/4 lg:w-full lg:min-w-0 ltr:text-left rtl:text-right',
                       active && 'bg-linear-to-t from-[#812990] to-[#812990]/0',
                     )}
                     aria-pressed={active}
@@ -145,28 +145,28 @@ export default function BuiltForSection() {
               })}
             </div>
 
-            <div className="rounded-md bg-primary/25 backdrop-blur-lg border border-white/10 p-5 sm:p-8 lg:flex lg:gap-6">
-              <div className="xl:w-5/6 flex flex-col-reverse xl:flex-row">
+            <div className="bg-primary/25 rounded-md border border-white/10 p-5 backdrop-blur-lg sm:p-8 lg:flex lg:gap-6">
+              <div className="flex flex-col-reverse xl:w-5/6 xl:flex-row">
                 {/* details */}
-                <div className="xl:w-4/12 2xl:w-3/12 flex flex-col justify-center py-4 text-primary-foreground">
-                  <p className="hidden xl:block text-3xl font-medium ltr:font-nobile rtl:font-cairo">
+                <div className="text-primary-foreground flex flex-col justify-center py-4 xl:w-4/12 2xl:w-3/12">
+                  <p className="ltr:font-nobile rtl:font-cairo hidden text-3xl font-semibold xl:block">
                     {category.name.charAt(0) +
                       category.name.slice(1).toLowerCase()}
                   </p>
-                  <p className="mt-4 xl:pe-5 text-sm leading-6 text-primary-foreground/80">
+                  <p className="text-primary-foreground mt-4 text-sm leading-6 xl:pe-5">
                     {category.description}
                   </p>
                   <Button
                     variant="outline"
-                    className="mt-8 w-fit border-white/50 bg-transparent text-white hover:bg-white hover:text-[#073b68] px-5 py-4.5 rounded-md"
+                    className="mt-8 w-fit rounded-md border-white bg-transparent px-6 py-4.5 text-xs font-semibold text-white hover:bg-white hover:text-[#073b68]"
                   >
                     {category.cta}
                   </Button>
                 </div>
 
                 {/* main image */}
-                <div className="xl:w-8/12 2xl:w-9/12 relative mt-6 lg:mt-0 min-[360px]:aspect-[1.45] xl:aspect-[3] 2xl:h-120 overflow-hidden rounded-md">
-                  <p className="text-white xl:hidden text-3xl font-medium ltr:font-nobile rtl:font-cairo">
+                <div className="relative mt-6 overflow-hidden rounded-md min-[360px]:aspect-[1.45] lg:mt-0 xl:aspect-[3] xl:w-8/12 2xl:h-120 2xl:w-9/12">
+                  <p className="ltr:font-nobile rtl:font-cairo text-3xl font-medium text-white xl:hidden">
                     {category.name.charAt(0) +
                       category.name.slice(1).toLowerCase()}
                   </p>
@@ -177,9 +177,9 @@ export default function BuiltForSection() {
                       ]
                     }
                     alt={`${activeProductData.name} interior`}
-                    className="max-xl:mt-4 size-full object-cover object-bottom transition-transform duration-700 ease-out h-full rounded-md"
+                    className="size-full h-full rounded-md object-cover object-bottom transition-transform duration-700 ease-out max-xl:mt-4"
                   />
-                  <p className="absolute inset-x-3 sm:inset-x-6 lg:inset-x-3 xl:inset-x-6 2xl:inset-x-10 bottom-3 sm:bottom-6 lg:bottom-3 xl:bottom-6 2xl:bottom-10 text-3xl sm:text-4xl md:text-5xl font-cairo font-bold uppercase tracking-wider text-transparent [-webkit-text-stroke:1px_white]">
+                  <p className="font-cairo absolute inset-x-3 bottom-3 text-3xl font-bold tracking-wider text-transparent uppercase [-webkit-text-stroke:1px_white] sm:inset-x-6 sm:bottom-6 sm:text-4xl md:text-5xl lg:inset-x-3 lg:bottom-3 xl:inset-x-6 xl:bottom-6 2xl:inset-x-10 2xl:bottom-10">
                     {activeProductData.name.split(' ').map((word, i) => (
                       <span key={i}>
                         {word}
@@ -191,7 +191,7 @@ export default function BuiltForSection() {
               </div>
 
               {/* image stack container */}
-              <div className="xl:w-1/6 flex flex-row lg:flex-col gap-2 mt-3">
+              <div className="mt-3 flex flex-row gap-2 lg:flex-col xl:w-1/6">
                 {/* Left and up arrow */}
                 <Button
                   aria-label="Scroll up"
@@ -199,12 +199,12 @@ export default function BuiltForSection() {
                   size="icon"
                   disabled={!isImgStackScrollable || imgStackScrollIsAtStart}
                   onClick={() => scrollProducts('up')}
-                  className="hidden ltr:flex my-auto lg:mx-auto hover:bg-transparent cursor-pointer"
+                  className="my-auto hidden cursor-pointer hover:bg-transparent lg:mx-auto ltr:flex"
                 >
                   <Image
                     src={ArrowRightIcon}
                     alt="arrow-left_and_up"
-                    className="w-auto h-2.5 rotate-180 lg:-rotate-90"
+                    className="h-2.5 w-auto rotate-180 lg:-rotate-90"
                   />
                 </Button>
                 <Button
@@ -213,20 +213,20 @@ export default function BuiltForSection() {
                   size="icon"
                   disabled={!isImgStackScrollable || imgStackScrollIsAtStart}
                   onClick={() => scrollProducts('down')}
-                  className="hidden rtl:flex my-auto lg:mx-auto hover:bg-transparent cursor-pointer"
+                  className="my-auto hidden cursor-pointer hover:bg-transparent lg:mx-auto rtl:flex"
                 >
                   <Image
                     src={ArrowLeftIcon}
                     alt="arrow-right_and_down"
-                    className="w-auto h-2.5 rotate-180 lg:-rotate-90"
+                    className="h-2.5 w-auto rotate-180 lg:-rotate-90"
                   />
                 </Button>
                 {/* image stack */}
                 <div
                   className={cn(
-                    'scroll-smooth rounded [&::-webkit-scrollbar]:hidden mx-auto',
-                    'flex-1 flex gap-2 w-40 overflow-x-auto',
-                    'lg:flex-none lg:block lg:h-80 lg:w-30 lg:overflow-x-hidden lg:overflow-y-auto',
+                    'mx-auto scroll-smooth rounded [&::-webkit-scrollbar]:hidden',
+                    'flex w-40 flex-1 gap-2 overflow-x-auto',
+                    'lg:block lg:h-80 lg:w-30 lg:flex-none lg:overflow-x-hidden lg:overflow-y-auto',
                   )}
                   ref={productsRef}
                 >
@@ -236,14 +236,15 @@ export default function BuiltForSection() {
                       type="button"
                       onClick={() => setActiveProduct(index)}
                       className={cn(
-                        'relative h-16 min-w-28 overflow-hidden rounded border-2 transition-all lg:h-1/5 lg:w-full lg:min-w-0 cursor-pointer',
+                        'relative h-16 min-w-28 cursor-pointer overflow-hidden rounded border-2 transition-all lg:h-1/5 lg:w-full lg:min-w-0',
                         activeProduct === index
                           ? 'border-2 border-white'
-                          : 'border-transparent opacity-80',
+                          : 'border-transparent',
                       )}
                       aria-label={`Select ${product.name}`}
                       aria-pressed={activeProduct === index}
                     >
+                      <div className="bg-primary/40 absolute inset-0 z-11 rounded"></div>
                       <Image
                         src={
                           productImgs[product.image as keyof typeof productImgs]
@@ -251,7 +252,7 @@ export default function BuiltForSection() {
                         alt={product.name}
                         className="size-full object-cover object-bottom"
                       />
-                      <span className="absolute inset-x-1 bottom-1 truncate text-[10px] font-medium text-primary-foreground [text-shadow:0_1px_3px_oklch(0_0_0/90%)]">
+                      <span className="text-primary-foreground absolute inset-x-1 bottom-1 z-99 truncate text-xs font-medium [text-shadow:0_1px_3px_oklch(0_0_0/90%)]">
                         {product.name}
                       </span>
                     </button>
@@ -264,12 +265,12 @@ export default function BuiltForSection() {
                   size="icon"
                   disabled={!isImgStackScrollable || imgStackScrollIsAtEnd}
                   onClick={() => scrollProducts('down')}
-                  className="hidden ltr:flex my-auto lg:mx-auto hover:bg-transparent cursor-pointer"
+                  className="my-auto hidden cursor-pointer hover:bg-transparent lg:mx-auto ltr:flex"
                 >
                   <Image
                     src={ArrowLeftIcon}
                     alt="arrow-right_and_down"
-                    className="w-auto h-2.5 rotate-180 lg:-rotate-90"
+                    className="h-2.5 w-auto rotate-180 lg:-rotate-90"
                   />
                 </Button>
                 <Button
@@ -278,12 +279,12 @@ export default function BuiltForSection() {
                   size="icon"
                   disabled={!isImgStackScrollable || imgStackScrollIsAtEnd}
                   onClick={() => scrollProducts('up')}
-                  className="hidden rtl:flex my-auto lg:mx-auto hover:bg-transparent cursor-pointer"
+                  className="my-auto hidden cursor-pointer hover:bg-transparent lg:mx-auto rtl:flex"
                 >
                   <Image
                     src={ArrowRightIcon}
                     alt="arrow-left_and_up"
-                    className="w-auto h-2.5 rotate-180 lg:-rotate-90"
+                    className="h-2.5 w-auto rotate-180 lg:-rotate-90"
                   />
                 </Button>
               </div>

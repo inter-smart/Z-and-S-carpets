@@ -164,7 +164,7 @@
 }
 
 @utility section-title {
-  @apply ltr:font-nobile rtl:font-cairo text-4xl font-medium tracking-tight sm:text-5xl;
+  @apply ltr:font-nobile rtl:font-cairo text-4xl font-medium tracking-tight sm:text-[2.75rem];
 }
 
 @utility container-wrapper-none {

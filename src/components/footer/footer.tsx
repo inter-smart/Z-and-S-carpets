@@ -74,7 +74,7 @@ export default function Footer() {
   const images = t.raw('images') as string[]
 
   return (
-    <footer className="w-full bg-[#101010] pt-18 text-sm text-white">
+    <footer className="w-full bg-[#101010] pt-12 text-sm text-white lg:pt-20">
       <div className="container-wrapper">
         {/* top */}
         <div className="pb-10">
@@ -88,7 +88,7 @@ export default function Footer() {
                 className="flex flex-col space-y-2"
                 onClick={() => toggleSection(t('footerLinks.quickLinks.title'))}
               >
-                <p className="text-lg font-bold uppercase">
+                <p className="text-[1rem] font-bold tracking-widest uppercase">
                   {t('footerLinks.quickLinks.title')}
                 </p>
                 <div className="h-0.75 w-12 bg-[#0066B3]"></div>
@@ -111,7 +111,7 @@ export default function Footer() {
                 className="flex flex-col space-y-2"
                 onClick={() => toggleSection(t('footerLinks.services.title'))}
               >
-                <p className="text-lg font-bold uppercase">
+                <p className="text-[1rem] font-bold tracking-widest uppercase">
                   {t('footerLinks.services.title')}
                 </p>
                 <div className="h-0.75 w-12 bg-[#0066B3]"></div>
@@ -134,7 +134,7 @@ export default function Footer() {
                 className="flex flex-col space-y-2"
                 onClick={() => toggleSection(t('footerLinks.products.title'))}
               >
-                <p className="text-lg font-bold uppercase">
+                <p className="text-[1rem] font-bold tracking-widest uppercase">
                   {t('footerLinks.products.title')}
                 </p>
                 <div className="h-0.75 w-12 bg-[#0066B3]"></div>
@@ -171,7 +171,7 @@ export default function Footer() {
                     alt="location icon"
                     className="h-auto w-4"
                   />
-                  <p className="leading-4">{contacts.location.label}</p>
+                  <p>{contacts.location.label}</p>
                 </div>
                 {/* mail */}
                 <a
@@ -183,7 +183,7 @@ export default function Footer() {
                     alt="location icon"
                     className="h-auto w-4"
                   />
-                  <p className="leading-4">{contacts.mail.label}</p>
+                  <p>{contacts.mail.label}</p>
                 </a>
                 {/* phone */}
                 <a
@@ -195,7 +195,7 @@ export default function Footer() {
                     alt="location icon"
                     className="h-auto w-4"
                   />
-                  <p className="leading-4">{contacts.phone.label}</p>
+                  <p>{contacts.phone.label}</p>
                 </a>
                 {/* whatsapp */}
                 <a
@@ -207,7 +207,7 @@ export default function Footer() {
                     alt="location icon"
                     className="h-auto w-4"
                   />
-                  <p className="leading-4">{contacts.whatsapp.label}</p>
+                  <p>{contacts.whatsapp.label}</p>
                 </a>
               </div>
             </div>
@@ -216,7 +216,7 @@ export default function Footer() {
 
         {/* bottom */}
         <hr className="border-white/10" />
-        <div className="flex w-full flex-col items-center justify-between space-y-4 py-10 text-center lg:flex-row lg:space-y-0">
+        <div className="flex w-full flex-col items-center justify-between space-y-4 py-10 text-center font-light lg:flex-row lg:space-y-0">
           <p className="hidden lg:block">{t('copyright')}</p>
           <div className="flex flex-row space-x-3 sm:space-x-8 xl:space-x-10">
             {social.map((logo) => (
@@ -229,15 +229,15 @@ export default function Footer() {
             ))}
           </div>
           <p className="lg:hidden">{t('copyright')}</p>
-          <div className="flex flex-col items-center justify-between space-x-1 sm:flex-row">
+          <div className="flex flex-col items-center justify-between space-x-1 text-sm sm:flex-row sm:justify-center">
             <p>{t('designedByLabel')}:</p>
-            <div className="flex flex-row space-x-1">
+            <div className="flex flex-row items-center space-x-0.5">
               <Image
                 src={InterSmartIcon}
                 alt="Intersmart"
-                className="h-min w-min"
+                className="h-2.75 w-auto"
               />
-              <p className="font-zalando-sans">iNTERSMART</p>
+              <p className="text-[0.7rem]">iNTERSMART</p>
             </div>
           </div>
         </div>

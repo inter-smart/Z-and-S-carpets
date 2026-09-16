@@ -21,7 +21,7 @@ export default function PremiumFlooringSolutionsSection() {
             <p key={paragraph}>{paragraph}</p>
           ))}
         </div>
-        <Button className="mt-12 w-fit bg-[#0066B3] px-12 py-4.5 text-white hover:bg-[#0066B3]/90">
+        <Button className="mt-12 w-fit bg-[#0066B3] px-12 py-4.5 text-xs font-semibold text-white hover:bg-[#0066B3]/90">
           {pfs.buttonLabel}
         </Button>
       </div>

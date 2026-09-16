@@ -62,9 +62,10 @@ export default function Navbar() {
             </div>
 
             <div className="flex flex-row items-center space-x-3">
+              {/* writeTo btn */}
               <Button
                 size="icon"
-                className="h-10 w-10 translate-y-0! rounded-full bg-[#0066B3] p-2 hover:bg-[#0066B3]/90"
+                className="h-9.5 w-9.5 translate-y-0! rounded-full bg-[#0066B3] hover:bg-[#0066B3]/90"
               >
                 <Image
                   src={FilePenIcon}
@@ -72,9 +73,10 @@ export default function Navbar() {
                   className="h-4.5 w-auto"
                 />
               </Button>
+              {/* menu btn */}
               <Button
                 variant="outline"
-                className="flex translate-y-0! flex-row items-center justify-center space-x-2 rounded-sm border-[#0066B3] px-3 py-4.5 text-sm font-medium"
+                className="ltr:font-manrope rtl:font-cairo flex translate-y-0! flex-row items-center justify-center space-x-2 rounded-sm border-[#0066B3] px-3 py-4.25 text-sm font-medium"
               >
                 <p className="hidden sm:block">{t('menuBtnLable')}</p>
                 <Image src={MenuIcon} alt="menu-icon" className="h-6 w-auto" />

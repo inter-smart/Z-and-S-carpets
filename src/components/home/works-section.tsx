@@ -31,14 +31,14 @@ export default function WorksSections() {
 
   return (
     <section
-      className="bg-[#EFF9FE] py-16 lg:py-24"
+      className="bg-[#EFF9FE] pt-16 pb-12 lg:pt-24 lg:pb-18"
       aria-labelledby="projects-title"
     >
       <div className="container-wrapper">
         <h2 id="projects-title" className="section-title text-center">
           {t('title')}
         </h2>
-        <div className="mt-8 flex flex-wrap justify-center gap-3">
+        <div className="mt-9 flex flex-wrap justify-center gap-3">
           {workCategories.map((item) => (
             <Button
               key={item}
@@ -46,7 +46,7 @@ export default function WorksSections() {
               variant="outline"
               onClick={() => setCategory(item)}
               className={cn(
-                'rounded-md border px-7 py-4 text-xs font-medium transition-colors hover:border-[#0066B3] hover:text-[#0066B3]',
+                'rounded-md border px-9 py-4.5 text-xs font-semibold transition-colors hover:border-[#0066B3] hover:text-[#0066B3]',
                 category === item
                   ? 'border-[#0066B3]! text-[#0066B3]!'
                   : 'border-[#CDCDCD]!',
@@ -70,25 +70,27 @@ export default function WorksSections() {
                 alt={item.title}
                 className="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-x-3 bottom-3 rounded-md bg-[#1F1A1A]/30 px-5 py-4 text-background backdrop-blur-sm flex flex-col sm:flex-row sm:justify-between sm:items-center md:max-lg:flex-col md:max-lg:items-start">
+              <div className="text-background absolute inset-x-3 bottom-3 flex flex-col rounded-md bg-[#1F1A1A]/30 px-5 py-7 backdrop-blur-sm sm:flex-row sm:items-center sm:justify-between md:max-lg:flex-col md:max-lg:items-start">
                 <div>
-                  <h3 className="text-lg font-semibold">{item.title}</h3>
-                  <p className="text-sm text-background/75">{item.location}</p>
+                  <h3 className="text-xl font-bold sm:text-2xl">
+                    {item.title}
+                  </h3>
+                  <p className="text-background/90 text-sm">{item.location}</p>
                 </div>
                 <div>
-                  <span className="mt-2 inline-block text-sm">
-                    <span className="underline underline-offset-8">
+                  <span className="mt-2 inline-block text-sm font-light sm:text-[1rem]">
+                    <span className="underline decoration-0 underline-offset-8">
                       {item.btnLabel}
                     </span>
                     <Image
                       src={ArrowLeftIcon}
                       alt="arrow-left"
-                      className="hidden rtl:inline-block w-auto h-2.5 ms-3"
+                      className="ms-3 hidden h-2.5 w-auto rtl:inline-block"
                     />
                     <Image
                       src={ArrowRightIcon}
                       alt="arrow-right"
-                      className="hidden ltr:inline-block w-auto h-2.5 ms-3"
+                      className="ms-3 hidden h-2.5 w-auto ltr:inline-block"
                     />
                   </span>
                 </div>
@@ -98,7 +100,7 @@ export default function WorksSections() {
         </div>
         <button
           type="button"
-          className="mx-auto mt-10 block rounded-sm bg-[#0066B3] px-5 py-2.5 text-sm text-white"
+          className="mx-auto mt-10 block rounded-sm bg-[#0066B3] px-5 py-3 text-xs font-semibold text-white lg:mt-12"
         >
           {t('viewAllProjectsBtnLabel')}
         </button>

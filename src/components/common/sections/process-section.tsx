@@ -17,7 +17,7 @@ export default function ProcessSections() {
 
   return (
     <section
-      className="text-primary-foreground bg-[#023260] pt-10 pb-21"
+      className="text-primary-foreground bg-[#023260] pt-10 pb-24"
       aria-labelledby="process-title"
     >
       <div className="container-wrapper">
@@ -30,7 +30,7 @@ export default function ProcessSections() {
         >
           {t('title')}
         </h2>
-        <div className="mt-12 grid gap-6 lg:grid-cols-[1fr_1.2fr]">
+        <div className="mt-12 grid gap-8 lg:grid-cols-[1fr_1.2fr]">
           <div className="relative min-h-72 overflow-hidden rounded-md">
             <Image
               src={t('image')}
@@ -61,16 +61,16 @@ export default function ProcessSections() {
                   type="button"
                   onClick={() => setActiveStep(i)}
                   className={cn(
-                    'flex flex-row items-start justify-start rounded-md border p-5 text-xl transition-colors',
+                    'flex flex-row items-start justify-start rounded border p-5 text-xl transition-colors focus:ring-0 focus:outline-none',
                     active
-                      ? 'border-primary-foreground bg-primary-foreground/10'
+                      ? 'border-primary-foreground/85 bg-primary-foreground/10 font-medium'
                       : 'border-primary-foreground/15 bg-primary-foreground/5 hover:bg-primary-foreground/10 text-white/90',
                   )}
                   aria-expanded={active}
                   aria-controls={`process-step-${i}`}
                 >
                   <span className="">0{i + 1}</span>
-                  <div className="flex flex-col items-start ps-6">
+                  <div className="flex flex-col items-start gap-2 ps-6">
                     <span className="text-start">{step.title}</span>
                     <span
                       id={`process-step-${i}`}
@@ -83,7 +83,7 @@ export default function ProcessSections() {
                       )}
                     >
                       <span className="min-h-0 overflow-hidden">
-                        <span className="text-primary-foreground/75 block text-sm leading-6">
+                        <span className="text-primary-foreground/90 block text-[1rem] leading-6 font-light">
                           {step.description}
                         </span>
                       </span>
