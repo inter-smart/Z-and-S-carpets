@@ -68,7 +68,7 @@
       {
         "id": "residential",
         "label": "Residential",
-        "video": "/videos/banner-video-2.mp4",
+        "video": "/videos/floor-video-2.mp4",
         "cards": [
           {
             "itemValue": "40k+",
@@ -90,7 +90,7 @@
       {
         "id": "commercial",
         "label": "Commercial",
-        "video": "/videos/banner-video-1.mp4",
+        "video": "/videos/floor-video-1.mp4",
         "cards": [
           {
             "itemValue": "15k+",
@@ -122,7 +122,7 @@
       {
         "id": "hospitality",
         "label": "Hospitality",
-        "video": "/videos/banner-video-3.mp4",
+        "video": "/videos/floor-video-3.mp4",
         "cards": [
           {
             "itemValue": "30",
@@ -139,7 +139,7 @@
       {
         "id": "outdoor",
         "label": "Outdoor",
-        "video": "/videos/banner-video-1.mp4",
+        "video": "/videos/floor-video-1.mp4",
         "cards": [
           {
             "itemValue": "Card 1",
@@ -160,12 +160,20 @@
     "buttonLabel": "View All Products",
     "items": [
       {
-        "id": "laminate-flooring",
-        "title": "Laminate Flooring"
+        "title": "Laminate Flooring",
+        "image": "/images/floor-img-5.webp"
       },
       {
-        "id": "carpet-flooring",
-        "title": "Carpet Flooring"
+        "title": "Carpet Flooring",
+        "image": "/images/floor-img-2.webp"
+      },
+      {
+        "title": "Carpet Flooring",
+        "image": "/images/floor-img-4.webp"
+      },
+      {
+        "title": "Laminate Flooring",
+        "image": "/images/floor-img-6.webp"
       }
     ],
     "itemButtonLabel": "View Products"
@@ -204,23 +212,89 @@
     ],
     "items": [
       {
-        "title": "Wood Pattern Vinyl",
+        "id": "1",
+        "title": "Oakwood Herringbone Vinyl",
         "category": "RESIDENTIAL",
-        "location": "United Arab Emirates",
+        "location": "Dubai, United Arab Emirates",
         "featured": true,
-        "btnLabel": "View Project"
+        "btnLabel": "View Project",
+        "image": "/images/floor-img-6.webp"
       },
       {
-        "title": "Laminate Flooring",
+        "id": "2",
+        "title": "Ash Grey Laminate Flooring",
         "category": "COMMERCIAL",
-        "location": "United Arab Emirates",
-        "btnLabel": "View Project"
+        "location": "Sharjah, United Arab Emirates",
+        "btnLabel": "View Project",
+        "image": "/images/floor-img-7.webp"
       },
       {
-        "title": "Deck Flooring",
+        "id": "3",
+        "title": "Teak Outdoor Decking",
         "category": "OUTDOOR",
-        "location": "United Arab Emirates",
-        "btnLabel": "View Project"
+        "location": "Dubai, United Arab Emirates",
+        "btnLabel": "View Project",
+        "image": "/images/floor-img-8.webp"
+      },
+      {
+        "id": "4",
+        "title": "Walnut Hotel Flooring",
+        "category": "HOSPITALITY",
+        "location": "Ras Al Khaimah, United Arab Emirates",
+        "featured": true,
+        "btnLabel": "View Project",
+        "image": "/images/floor-img-5.webp"
+      },
+      {
+        "id": "5",
+        "title": "Classic Maple Laminate",
+        "category": "COMMERCIAL",
+        "location": "Ajman, United Arab Emirates",
+        "btnLabel": "View Project",
+        "image": "/images/floor-img-8.webp"
+      },
+      {
+        "id": "6",
+        "title": "Smoked Oak Vinyl Planks",
+        "category": "RESIDENTIAL",
+        "location": "Al Ain, United Arab Emirates",
+        "featured": true,
+        "btnLabel": "View Project",
+        "image": "/images/floor-img-6.webp"
+      },
+      {
+        "id": "7",
+        "title": "Weathered Wood Decking",
+        "category": "OUTDOOR",
+        "location": "Fujairah, United Arab Emirates",
+        "btnLabel": "View Project",
+        "image": "/images/floor-img-4.webp"
+      },
+      {
+        "id": "8",
+        "title": "Warm Walnut Resort Flooring",
+        "category": "HOSPITALITY",
+        "location": "Abu Dhabi, United Arab Emirates",
+        "featured": true,
+        "btnLabel": "View Project",
+        "image": "/images/floor-img-5.webp"
+      },
+      {
+        "id": "9",
+        "title": "Light Oak Chevron Flooring",
+        "category": "RESIDENTIAL",
+        "location": "Dubai, United Arab Emirates",
+        "btnLabel": "View Project",
+        "image": "/images/floor-img-6.webp"
+      },
+      {
+        "id": "10",
+        "title": "Deep Walnut Commercial SPC",
+        "category": "COMMERCIAL",
+        "location": "Dubai, United Arab Emirates",
+        "featured": true,
+        "btnLabel": "View Project",
+        "image": "/images/floor-img-7.webp"
       }
     ],
     "viewAllProjectsBtnLabel": "View All Projects"
@@ -236,37 +310,43 @@
         "category": "DECK FLOORING",
         "title": "Landscaping Grass",
         "description": "Crafted for modern exteriors, our landscaping grass brings structure, depth, and a contemporary finish to every garden.",
-        "tagLabel": "Best Seller"
+        "tagLabel": "Best Seller",
+        "image": "/images/floor-img-8.webp"
       },
       {
         "category": "CARPET FLOORING",
         "title": "Carpet Tiles Pixel Block",
         "description": "Crafted for modern interiors, Pixel Block Carpet Tiles bring structure, depth, and a contemporary modular look to any space. ted for modern exteriors, our landscaping grass brings structure, depth, and a contemporary finish to ever.",
-        "tagLabel": "Best Seller"
+        "tagLabel": "Best Seller",
+        "image": "/images/floor-img-9.webp"
       },
       {
         "category": "DECK FLOORING",
         "title": "Acacia Deck Tiles",
         "description": "Bring warmth and durability outdoors with Acacia Deck Tiles designed for relaxed poolside and terrace living.",
-        "tagLabel": "Best Seller"
+        "tagLabel": "Best Seller",
+        "image": "/images/floor-img-10.webp"
       },
       {
         "category": "VINYL FLOORING",
         "title": "Oak Grain Vinyl",
         "description": "A practical, low-maintenance surface with the natural character of timber for busy residential spaces.",
-        "tagLabel": "Best Seller"
+        "tagLabel": "Best Seller",
+        "image": "/images/floor-img-4.webp"
       },
       {
         "category": "ARTIFICIAL GRASS",
         "title": "Garden Luxe",
         "description": "Soft underfoot and evergreen year-round, Garden Luxe creates a polished landscape with minimal upkeep.",
-        "tagLabel": "Best Seller"
+        "tagLabel": "Best Seller",
+        "image": "/images/floor-img-2.webp"
       },
       {
         "category": "WOOD FLOORING",
         "title": "Natural Herringbone",
         "description": "Refined herringbone flooring adds rhythm and warmth to welcoming residential interiors.",
-        "tagLabel": "Best Seller"
+        "tagLabel": "Best Seller",
+        "image": "/images/floor-img-8.webp"
       }
     ]
   },
@@ -605,51 +685,75 @@
     "partners": [
       {
         "name": "partner-name-1",
-        "image": "trusted-1"
+        "image": "/images/trusted-img-1.png"
       },
       {
         "name": "partner-name-2",
-        "image": "trusted-2"
+        "image": "/images/trusted-img-2.png"
       },
       {
         "name": "partner-name-3",
-        "image": "trusted-3"
+        "image": "/images/trusted-img-3.png"
       },
       {
         "name": "partner-name-4",
-        "image": "trusted-4"
+        "image": "/images/trusted-img-4.png"
       },
       {
         "name": "partner-name-5",
-        "image": "trusted-5"
+        "image": "/images/trusted-img-5.png"
       },
       {
         "name": "partner-name-6",
-        "image": "trusted-3"
+        "image": "/images/trusted-img-3.png"
       },
       {
         "name": "partner-name-7",
-        "image": "trusted-2"
+        "image": "/images/trusted-img-2.png"
       },
       {
         "name": "partner-name-8",
-        "image": "trusted-6"
+        "image": "/images/trusted-img-6.png"
       },
       {
         "name": "partner-name-9",
-        "image": "trusted-7"
+        "image": "/images/trusted-img-7.png"
       },
       {
         "name": "partner-name-10",
-        "image": "trusted-1"
+        "image": "/images/trusted-img-1.png"
       },
       {
         "name": "partner-name-11",
-        "image": "trusted-3"
+        "image": "/images/trusted-img-3.png"
       },
       {
         "name": "partner-name-12",
-        "image": "trusted-4"
+        "image": "/images/trusted-img-4.png"
+      },
+      {
+        "name": "partner-name-7",
+        "image": "/images/trusted-img-2.png"
+      },
+      {
+        "name": "partner-name-8",
+        "image": "/images/trusted-img-6.png"
+      },
+      {
+        "name": "partner-name-9",
+        "image": "/images/trusted-img-7.png"
+      },
+      {
+        "name": "partner-name-10",
+        "image": "/images/trusted-img-1.png"
+      },
+      {
+        "name": "partner-name-11",
+        "image": "/images/trusted-img-3.png"
+      },
+      {
+        "name": "partner-name-12",
+        "image": "/images/trusted-img-4.png"
       }
     ]
   },

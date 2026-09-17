@@ -68,7 +68,7 @@
       {
         "id": "residential",
         "label": "سكني",
-        "video": "/videos/banner-video-2.mp4",
+        "video": "/videos/floor-video-2.mp4",
         "cards": [
           {
             "itemValue": "40 ألف+",
@@ -90,7 +90,7 @@
       {
         "id": "commercial",
         "label": "تجاري",
-        "video": "/videos/banner-video-1.mp4",
+        "video": "/videos/floor-video-1.mp4",
         "cards": [
           {
             "itemValue": "15 ألف+",
@@ -122,7 +122,7 @@
       {
         "id": "hospitality",
         "label": "ضيافة",
-        "video": "/videos/banner-video-3.mp4",
+        "video": "/videos/floor-video-3.mp4",
         "cards": [
           {
             "itemValue": "30",
@@ -139,7 +139,7 @@
       {
         "id": "outdoor",
         "label": "مساحات خارجية",
-        "video": "/videos/banner-video-1.mp4",
+        "video": "/videos/floor-video-1.mp4",
         "cards": [
           {
             "itemValue": "البطاقة 1",
@@ -160,12 +160,17 @@
     "buttonLabel": "عرض جميع المنتجات",
     "items": [
       {
-        "id": "laminate-flooring",
-        "title": "أرضيات اللامينيت"
+        "title": "أرضيات اللامينيت",
+        "image": "/images/floor-img-5.webp"
       },
       {
         "id": "carpet-flooring",
-        "title": "أرضيات السجاد"
+        "title": "أرضيات السجاد",
+        "image": "/images/floor-img-2.webp"
+      },
+      {
+        "title": "أرضيات اللامينيت",
+        "image": "/images/floor-img-4.webp"
       }
     ],
     "itemButtonLabel": "عرض المنتجات"
@@ -198,23 +203,89 @@
     "categories": ["الكل", "سكني", "تجاري", "ضيافة", "خارجي"],
     "items": [
       {
-        "title": "فينيل بنقشة خشبية",
+        "id": "1",
+        "title": "أرضيات فينيل أوك وود",
         "category": "سكني",
-        "location": "الإمارات العربية المتحدة",
+        "location": "دبي، الإمارات العربية المتحدة",
         "featured": true,
-        "btnLabel": "عرض المشروع"
+        "btnLabel": "عرض المشروع",
+        "image": "/images/floor-img-6.webp"
       },
       {
-        "title": "أرضيات اللامينيت",
+        "id": "2",
+        "title": "أرضيات لامينيت الفاتح",
         "category": "تجاري",
-        "location": "الإمارات العربية المتحدة",
-        "btnLabel": "عرض المشروع"
+        "location": "الشارقة، الإمارات العربية المتحدة",
+        "btnLabel": "عرض المشروع",
+        "image": "/images/floor-img-7.webp"
       },
       {
-        "title": "أرضيات الديك",
-        "category": "خارجي",
-        "location": "الإمارات العربية المتحدة",
-        "btnLabel": "عرض المشروع"
+        "id": "3",
+        "title": "أرضيات خشبية خشب الساج",
+        "category": "مساحات خارجية",
+        "location": "دبي، الإمارات العربية المتحدة",
+        "btnLabel": "عرض المشروع",
+        "image": "/images/floor-img-8.webp"
+      },
+      {
+        "id": "4",
+        "title": "أرضيات خشب الجوز",
+        "category": "ضيافة",
+        "location": "رأس الخيمة، الإمارات العربية المتحدة",
+        "featured": true,
+        "btnLabel": "عرض المشروع",
+        "image": "/images/floor-img-5.webp"
+      },
+      {
+        "id": "5",
+        "title": "أرضيات لامينيت خشب القيقب",
+        "category": "تجاري",
+        "location": "عجمان، الإمارات العربية المتحدة",
+        "btnLabel": "عرض المشروع",
+        "image": "/images/floor-img-8.webp"
+      },
+      {
+        "id": "6",
+        "title": "ألواح فينيل المدخن",
+        "category": "سكني",
+        "location": "العين، الإمارات العربية المتحدة",
+        "featured": true,
+        "btnLabel": "عرض المشروع",
+        "image": "/images/floor-img-6.webp"
+      },
+      {
+        "id": "7",
+        "title": "أرضيات خشبية خارجية المعتّق",
+        "category": "مساحات خارجية",
+        "location": "الفجيرة، الإمارات العربية المتحدة",
+        "btnLabel": "عرض المشروع",
+        "image": "/images/floor-img-4.webp"
+      },
+      {
+        "id": "8",
+        "title": "أرضيات منتمن خشب الجوز",
+        "category": "ضيافة",
+        "location": "أبوظبي، الإمارات العربية المتحدة",
+        "featured": true,
+        "btnLabel": "عرض المشروع",
+        "image": "/images/floor-img-5.webp"
+      },
+      {
+        "id": "9",
+        "title": "أرضيات شيفرون البلوط",
+        "category": "سكني",
+        "location": "دبي، الإمارات العربية المتحدة",
+        "btnLabel": "عرض المشروع",
+        "image": "/images/floor-img-6.webp"
+      },
+      {
+        "id": "10",
+        "title": "أرضيات SPC تارية باللون",
+        "category": "تجاري",
+        "location": "دبي، الإمارات العربية المتحدة",
+        "featured": true,
+        "btnLabel": "عرض المشروع",
+        "image": "/images/floor-img-7.webp"
       }
     ],
     "viewAllProjectsBtnLabel": "عرض جميع المشاريع"
@@ -230,37 +301,43 @@
         "category": "أرضيات الديك",
         "title": "عشب تنسيق الحدائق",
         "description": "صُمم عشب تنسيق الحدائق لدينا للمساحات الخارجية العصرية، ليضيف تنسيقًا وعمقًا ولمسة نهائية معاصرة إلى كل حديقة.",
-        "tagLabel": "الأكثر مبيعًا"
+        "tagLabel": "الأكثر مبيعًا",
+        "image": "/images/floor-img-8.webp"
       },
       {
         "category": "أرضيات السجاد",
         "title": "بلاطات سجاد بيكسل بلوك",
         "description": "صُممت بلاطات سجاد بيكسل بلوك للتصاميم الداخلية العصرية، لتضيف تنسيقًا وعمقًا ومظهرًا عصريًا بتصميم وحدات إلى أي مساحة.",
-        "tagLabel": "الأكثر مبيعًا"
+        "tagLabel": "الأكثر مبيعًا",
+        "image": "/images/floor-img-9.webp"
       },
       {
         "category": "أرضيات الديك",
         "title": "بلاطات ديك الأكاسيا",
         "description": "أضف الدفء والمتانة إلى المساحات الخارجية مع بلاطات ديك الأكاسيا المصممة للاستمتاع المريح بجانب المسبح وعلى الشرفات.",
-        "tagLabel": "الأكثر مبيعًا"
+        "tagLabel": "الأكثر مبيعًا",
+        "image": "/images/floor-img-10.webp"
       },
       {
         "category": "أرضيات الفينيل",
         "title": "فينيل بنقشة خشب البلوط",
         "description": "سطح عملي وسهل الصيانة يتميز بالطابع الطبيعي للخشب، ومناسب للمساحات السكنية كثيرة الاستخدام.",
-        "tagLabel": "الأكثر مبيعًا"
+        "tagLabel": "الأكثر مبيعًا",
+        "image": "/images/floor-img-4.webp"
       },
       {
         "category": "العشب الصناعي",
         "title": "جاردن لوكس",
         "description": "ناعمة تحت القدم وخضراء طوال العام، تضفي جاردن لوكس مظهرًا أنيقًا على المناظر الطبيعية مع الحد الأدنى من الصيانة.",
-        "tagLabel": "الأكثر مبيعًا"
+        "tagLabel": "الأكثر مبيعًا",
+        "image": "/images/floor-img-2.webp"
       },
       {
         "category": "الأرضيات الخشبية",
         "title": "نمط متعرج طبيعي",
         "description": "تضيف أرضيات النمط المتعرج الراقية إيقاعًا ودفئًا إلى التصاميم الداخلية السكنية الترحيبية.",
-        "tagLabel": "الأكثر مبيعًا"
+        "tagLabel": "الأكثر مبيعًا",
+        "image": "/images/floor-img-8.webp"
       }
     ]
   },
@@ -507,51 +584,51 @@
     "partners": [
       {
         "name": "partner-name-1",
-        "image": "trusted-1"
+        "image": "/images/trusted-img-1.png"
       },
       {
         "name": "partner-name-2",
-        "image": "trusted-2"
+        "image": "/images/trusted-img-2.png"
       },
       {
         "name": "partner-name-3",
-        "image": "trusted-3"
+        "image": "/images/trusted-img-3.png"
       },
       {
         "name": "partner-name-4",
-        "image": "trusted-4"
+        "image": "/images/trusted-img-4.png"
       },
       {
         "name": "partner-name-5",
-        "image": "trusted-5"
+        "image": "/images/trusted-img-5.png"
       },
       {
         "name": "partner-name-6",
-        "image": "trusted-3"
+        "image": "/images/trusted-img-3.png"
       },
       {
         "name": "partner-name-7",
-        "image": "trusted-2"
+        "image": "/images/trusted-img-2.png"
       },
       {
         "name": "partner-name-8",
-        "image": "trusted-6"
+        "image": "/images/trusted-img-6.png"
       },
       {
         "name": "partner-name-9",
-        "image": "trusted-7"
+        "image": "/images/trusted-img-7.png"
       },
       {
         "name": "partner-name-10",
-        "image": "trusted-1"
+        "image": "/images/trusted-img-1.png"
       },
       {
         "name": "partner-name-11",
-        "image": "trusted-3"
+        "image": "/images/trusted-img-3.png"
       },
       {
         "name": "partner-name-12",
-        "image": "trusted-4"
+        "image": "/images/trusted-img-4.png"
       }
     ]
   },

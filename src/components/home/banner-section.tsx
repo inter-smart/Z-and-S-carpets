@@ -200,7 +200,7 @@ export default function BannerSection() {
                           </p>
                         </div>
                         {/* arrows */}
-                        <div className="absolute top-0 right-0 flex flex-row justify-end">
+                        <div className="absolute top-0 flex flex-row justify-end ltr:right-0 rtl:left-0">
                           {/* Previous */}
                           <button
                             type="button"

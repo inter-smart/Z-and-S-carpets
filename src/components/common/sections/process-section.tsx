@@ -1,19 +1,32 @@
 'use client'
 
 import { cn } from 'cn'
-import { Play } from 'lucide-react'
+import { Pause, Play } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import Image from 'next/image'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 
 export default function ProcessSections() {
   const [activeStep, setActiveStep] = useState(0)
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const [isPlaying, setIsPlaying] = useState(false)
 
   const t = useTranslations('process')
   const processSteps = t.raw('steps') as {
     title: string
     description: string
   }[]
+
+  const handleToggle = async () => {
+    const video = videoRef.current
+
+    if (!video) return
+
+    if (video.paused) {
+      await video.play()
+    } else {
+      video.pause()
+    }
+  }
 
   return (
     <section
@@ -31,23 +44,42 @@ export default function ProcessSections() {
           {t('title')}
         </h2>
         <div className="mt-12 grid gap-8 lg:grid-cols-[1fr_1.2fr]">
-          <div className="relative min-h-72 overflow-hidden rounded-md">
-            <Image
-              src={t('image')}
-              alt="Flooring project interior at sunset"
-              fill
-              className="absolute inset-0 size-full object-cover"
-            />
-            <div className="bg-foreground/20 absolute inset-0 grid place-items-center">
+          <div className="group relative min-h-72 overflow-hidden rounded-md">
+            <video
+              ref={videoRef}
+              className="h-full w-full object-cover"
+              playsInline
+              muted
+              loop
+              onPlay={() => setIsPlaying(true)}
+              onPause={() => setIsPlaying(false)}
+            >
+              <source src="/videos/floor-video-3.mp4" type="video/mp4" />
+            </video>
+
+            <div
+              className={cn(
+                'bg-foreground/20 absolute inset-0 grid place-items-center transition-opacity',
+                isPlaying ? 'opacity-0 group-hover:opacity-100' : 'opacity-100',
+              )}
+            >
               <button
                 type="button"
-                aria-label="Watch video"
-                className="grid place-items-center text-sm"
+                aria-label={isPlaying ? 'Pause video' : 'Play video'}
+                onClick={handleToggle}
+                className="grid cursor-pointer place-items-center text-sm focus:ring-0 focus:outline-none"
               >
-                <span className="bg-background text-primary grid size-10 place-items-center rounded-full">
-                  <Play className="ml-1 size-4 fill-current" />
+                <span className="bg-background grid size-7 place-items-center rounded-full text-[#0066B3]">
+                  {isPlaying ? (
+                    <Pause className="size-3 fill-current" />
+                  ) : (
+                    <Play className="size-3 fill-current" />
+                  )}
                 </span>
-                <span className="mt-2">Watch Video</span>
+
+                <span className="mt-1.5 text-xs">
+                  {isPlaying ? 'Pause Video' : 'Watch Video'}
+                </span>
               </button>
             </div>
           </div>

@@ -19,7 +19,7 @@ export default function ImgCompareSlider({
   return (
     <ImgComparisonSlider
       className={cn(
-        'block w-full h-110 overflow-hidden rounded-md outline-none',
+        'block h-110 w-full overflow-hidden rounded-md outline-none',
         className,
       )}
       style={
@@ -43,9 +43,9 @@ export default function ImgCompareSlider({
       />
       <div
         slot="handle"
-        className="size-10 flex justify-center items-center rounded-full bg-[#812990] text-white"
+        className="flex size-6 items-center justify-center rounded-full bg-[#812990] text-white sm:size-10"
       >
-        <ChevronsLeftRightIcon />
+        <ChevronsLeftRightIcon className="size-4 sm:size-7" />
       </div>
     </ImgComparisonSlider>
   )

@@ -10,19 +10,12 @@ import FloorImg6 from './floor-6.webp'
 import FloorImg7 from './floor-7.webp'
 import FloorImg8 from './floor-8.webp'
 import FloorImg9 from './floor-9.webp'
-import FloorCImg1 from './floor-c-1.webp'
-import FloorCImg2 from './floor-c-2.webp'
-import TrustedLogo1 from './trusted-1.png'
-import TrustedLogo2 from './trusted-2.png'
-import TrustedLogo3 from './trusted-3.png'
-import TrustedLogo4 from './trusted-4.png'
-import TrustedLogo5 from './trusted-5.png'
-import TrustedLogo6 from './trusted-6.png'
-import TrustedLogo7 from './trusted-7.png'
+import FloorCImg1_1 from './floor-c-img-1_1.webp'
+import FloorCImg1_2 from './floor-c-img-1_2.webp'
 
 export {
-  FloorCImg1,
-  FloorCImg2,
+  FloorCImg1_1,
+  FloorCImg1_2,
   FloorImg1,
   FloorImg10,
   FloorImg11,
@@ -35,11 +28,4 @@ export {
   FloorImg7,
   FloorImg8,
   FloorImg9,
-  TrustedLogo1,
-  TrustedLogo2,
-  TrustedLogo3,
-  TrustedLogo4,
-  TrustedLogo5,
-  TrustedLogo6,
-  TrustedLogo7,
 }
