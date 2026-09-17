@@ -68,7 +68,7 @@
       {
         "id": "residential",
         "label": "Residential",
-        "video": "/videos/banner-video-2.mp4",
+        "video": "/videos/floor-video-2.mp4",
         "cards": [
           {
             "itemValue": "40k+",
@@ -90,7 +90,7 @@
       {
         "id": "commercial",
         "label": "Commercial",
-        "video": "/videos/banner-video-1.mp4",
+        "video": "/videos/floor-video-1.mp4",
         "cards": [
           {
             "itemValue": "15k+",
@@ -122,7 +122,7 @@
       {
         "id": "hospitality",
         "label": "Hospitality",
-        "video": "/videos/banner-video-3.mp4",
+        "video": "/videos/floor-video-3.mp4",
         "cards": [
           {
             "itemValue": "30",
@@ -139,7 +139,7 @@
       {
         "id": "outdoor",
         "label": "Outdoor",
-        "video": "/videos/banner-video-1.mp4",
+        "video": "/videos/floor-video-1.mp4",
         "cards": [
           {
             "itemValue": "Card 1",

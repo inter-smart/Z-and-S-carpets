@@ -109,7 +109,7 @@ export default function ChooseUsSection() {
         </div>
         {/* CTA */}
         <div className="w-full lg:w-1/4 ltr:lg:border-l rtl:lg:border-r">
-          <div className="flex h-full flex-col items-start gap-7 py-7 ps-7">
+          <div className="flex h-full flex-col items-start gap-4 py-7 lg:gap-7 lg:ps-7">
             <h2 className="ltr:font-nobile rtl:font-cairo text-3xl font-medium">
               {ctaTitle[0]} <br /> {ctaTitle[1]}
             </h2>

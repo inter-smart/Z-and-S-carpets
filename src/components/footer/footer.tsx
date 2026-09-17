@@ -229,7 +229,7 @@ export default function Footer() {
             ))}
           </div>
           <p className="lg:hidden">{t('copyright')}</p>
-          <div className="flex flex-col items-center justify-between space-x-1 text-sm sm:flex-row sm:justify-center">
+          <div className="flex items-center justify-between space-x-1 text-sm sm:flex-row sm:justify-center">
             <p>{t('designedByLabel')}:</p>
             <div className="flex flex-row items-center space-x-0.5">
               <Image
