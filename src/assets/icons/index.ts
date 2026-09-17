@@ -1,5 +1,7 @@
+import ArrowLeftBlueIcon from './arrow-left-blue.svg'
 import ArrowLeftPurpleIcon from './arrow-left-purple.svg'
 import ArrowLeftIcon from './arrow-left.svg'
+import ArrowRightBlueIcon from './arrow-right-blue.svg'
 import ArrowRightPurpleIcon from './arrow-right-purple.svg'
 import ArrowRightIcon from './arrow-right.svg'
 import ArrowIcon from './arrow.svg'
@@ -19,6 +21,7 @@ import MoveRightIcon from './move-right.svg'
 import PhoneBlueIcon from './phone-blue.svg'
 import PhoneOutlineIcon from './phone-outline.svg'
 import SearchIcon from './search.svg'
+import Vector1 from './vector-1.svg'
 import WhatsAppOutlineIcon from './whatsapp-outline.svg'
 import WhatsAppIcon from './whatsapp.svg'
 import XTwitterIcon from './xtwitter.svg'
@@ -26,8 +29,10 @@ import YouTubeIcon from './youtube.svg'
 
 export {
   ArrowIcon,
+  ArrowLeftBlueIcon,
   ArrowLeftIcon,
   ArrowLeftPurpleIcon,
+  ArrowRightBlueIcon,
   ArrowRightIcon,
   ArrowRightPurpleIcon,
   BadgeCheckIcon,
@@ -46,6 +51,7 @@ export {
   PhoneBlueIcon,
   PhoneOutlineIcon,
   SearchIcon,
+  Vector1,
   WhatsAppIcon,
   WhatsAppOutlineIcon,
   XTwitterIcon,

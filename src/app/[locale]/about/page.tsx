@@ -1,6 +1,7 @@
 import ChooseUsSection from '@/components/common/sections/choose-us-section'
 import FAQSection from '@/components/common/sections/faq-section'
 import ProcessSections from '@/components/common/sections/process-section'
+import { EmblaCarousel } from './embla'
 
 export default function HomePage() {
   return (
@@ -9,6 +10,8 @@ export default function HomePage() {
       <FAQSection className="bg-[#EFF9FE]" />
       <ProcessSections />
       <ChooseUsSection />
+
+      <EmblaCarousel />
     </>
   )
 }

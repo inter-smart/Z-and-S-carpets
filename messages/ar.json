@@ -584,51 +584,51 @@
     "partners": [
       {
         "name": "partner-name-1",
-        "image": "trusted-1"
+        "image": "/images/trusted-img-1.png"
       },
       {
         "name": "partner-name-2",
-        "image": "trusted-2"
+        "image": "/images/trusted-img-2.png"
       },
       {
         "name": "partner-name-3",
-        "image": "trusted-3"
+        "image": "/images/trusted-img-3.png"
       },
       {
         "name": "partner-name-4",
-        "image": "trusted-4"
+        "image": "/images/trusted-img-4.png"
       },
       {
         "name": "partner-name-5",
-        "image": "trusted-5"
+        "image": "/images/trusted-img-5.png"
       },
       {
         "name": "partner-name-6",
-        "image": "trusted-3"
+        "image": "/images/trusted-img-3.png"
       },
       {
         "name": "partner-name-7",
-        "image": "trusted-2"
+        "image": "/images/trusted-img-2.png"
       },
       {
         "name": "partner-name-8",
-        "image": "trusted-6"
+        "image": "/images/trusted-img-6.png"
       },
       {
         "name": "partner-name-9",
-        "image": "trusted-7"
+        "image": "/images/trusted-img-7.png"
       },
       {
         "name": "partner-name-10",
-        "image": "trusted-1"
+        "image": "/images/trusted-img-1.png"
       },
       {
         "name": "partner-name-11",
-        "image": "trusted-3"
+        "image": "/images/trusted-img-3.png"
       },
       {
         "name": "partner-name-12",
-        "image": "trusted-4"
+        "image": "/images/trusted-img-4.png"
       }
     ]
   },
