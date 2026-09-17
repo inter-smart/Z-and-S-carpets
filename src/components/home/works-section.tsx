@@ -295,35 +295,55 @@ export default function WorksSections() {
           </div>
 
           {/* Desktop navigation */}
-          <Button
-            type="button"
-            aria-label="Previous collection"
-            onClick={handlePrevious}
-            disabled={currentIndex === 0 || isAnimating}
-            className="text-primary absolute top-1/2 -left-8 hidden cursor-pointer text-xl hover:bg-transparent disabled:opacity-30 sm:inline-flex md:-left-10"
-            variant="ghost"
-          >
-            <Image
-              src={ArrowLeftPurpleIcon}
-              alt="arrow-left"
-              className="h-2.5 w-auto"
-            />
-          </Button>
+          {/* Desktop Previous */}
+          <div className="absolute top-1/2 -left-8 hidden -translate-y-1/2 sm:block md:-left-10 rtl:-right-8 rtl:left-auto rtl:md:-right-10">
+            <Button
+              type="button"
+              variant="ghost"
+              aria-label="Previous collection"
+              onClick={handlePrevious}
+              disabled={currentIndex === 0 || isAnimating}
+              className="text-primary pointer-events-auto cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
+            >
+              {/* LTR */}
+              <Image
+                src={ArrowLeftPurpleIcon}
+                alt=""
+                className="h-2.5 w-auto ltr:block rtl:hidden"
+              />
 
-          <Button
-            type="button"
-            aria-label="Next collection"
-            onClick={handleNext}
-            disabled={currentIndex === maxIndex || isAnimating}
-            className="text-primary absolute top-1/2 -right-8 hidden cursor-pointer text-xl hover:bg-transparent disabled:opacity-30 sm:inline-flex md:-right-10"
-            variant="ghost"
-          >
-            <Image
-              src={ArrowRightPurpleIcon}
-              alt="arrow-right"
-              className="h-2.5 w-auto"
-            />
-          </Button>
+              {/* RTL */}
+              <Image
+                src={ArrowRightPurpleIcon}
+                alt=""
+                className="hidden h-2.5 w-auto rtl:block"
+              />
+            </Button>
+          </div>
+          {/* Desktop Next */}
+          <div className="absolute top-1/2 -right-8 hidden -translate-y-1/2 sm:block md:-right-10 rtl:right-auto rtl:-left-8 rtl:md:-left-10">
+            <Button
+              type="button"
+              variant="ghost"
+              aria-label="Next collection"
+              onClick={handleNext}
+              disabled={currentIndex === maxIndex || isAnimating}
+              className="text-primary pointer-events-auto cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
+            >
+              {/* LTR */}
+              <Image
+                src={ArrowRightPurpleIcon}
+                alt=""
+                className="h-2.5 w-auto ltr:block rtl:hidden"
+              />
+              {/* RTL */}
+              <Image
+                src={ArrowLeftPurpleIcon}
+                alt=""
+                className="hidden h-2.5 w-auto rtl:block"
+              />
+            </Button>
+          </div>
         </div>
 
         {/* Mobile navigation */}

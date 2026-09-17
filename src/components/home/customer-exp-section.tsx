@@ -172,35 +172,50 @@ export default function CustomerExpSection() {
               {/* w-5 sm:w-10 md:w-15 lg:w-20 */}
               <div className="pointer-events-auto absolute top-0 right-full h-full w-5 bg-linear-to-r from-white to-white/0 sm:w-10 md:w-15 lg:w-20"></div>
               <div className="pointer-events-auto absolute top-0 left-full h-full w-5 bg-linear-to-l from-white to-white/0 sm:w-10 md:w-15 lg:w-20"></div>
-              {/* Previous */}
-              <div className="absolute top-1/2 -left-8 hidden -translate-1/2 sm:block md:-left-10">
+              {/* Desktop Previous */}
+              <div className="absolute top-1/2 -left-8 hidden -translate-y-1/2 sm:block md:-left-10 rtl:-right-8 rtl:left-auto rtl:md:-right-10">
                 <Button
                   type="button"
                   variant="ghost"
                   aria-label="Previous collection"
                   onClick={scrollPrev}
-                  className="text-primary pointer-events-auto cursor-pointer text-xl hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0! disabled:opacity-30"
+                  className="text-primary pointer-events-auto cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
                 >
+                  {/* LTR */}
                   <Image
                     src={ArrowLeftPurpleIcon}
-                    alt="arrow-left"
-                    className="h-2.5 w-auto"
+                    alt=""
+                    className="h-2.5 w-auto ltr:block rtl:hidden"
+                  />
+
+                  {/* RTL */}
+                  <Image
+                    src={ArrowRightPurpleIcon}
+                    alt=""
+                    className="hidden h-2.5 w-auto rtl:block"
                   />
                 </Button>
               </div>
-              {/* Next */}
-              <div className="absolute top-1/2 -right-8 hidden -translate-1/2 sm:block md:-right-10">
+              {/* Desktop Next */}
+              <div className="absolute top-1/2 -right-8 hidden -translate-y-1/2 sm:block md:-right-10 rtl:right-auto rtl:-left-8 rtl:md:-left-10">
                 <Button
                   type="button"
                   variant="ghost"
                   aria-label="Next collection"
                   onClick={scrollNext}
-                  className="text-primary pointer-events-auto cursor-pointer text-xl hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0! disabled:opacity-30"
+                  className="text-primary pointer-events-auto cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
                 >
+                  {/* LTR */}
                   <Image
                     src={ArrowRightPurpleIcon}
-                    alt="arrow-right"
-                    className="h-2.5 w-auto"
+                    alt=""
+                    className="h-2.5 w-auto ltr:block rtl:hidden"
+                  />
+                  {/* RTL */}
+                  <Image
+                    src={ArrowLeftPurpleIcon}
+                    alt=""
+                    className="hidden h-2.5 w-auto rtl:block"
                   />
                 </Button>
               </div>
