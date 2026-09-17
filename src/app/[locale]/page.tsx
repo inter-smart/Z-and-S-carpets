@@ -2,7 +2,7 @@ import ChooseUsSection from '@/components/common/sections/choose-us-section'
 import FAQSection from '@/components/common/sections/faq-section'
 import ProcessSections from '@/components/common/sections/process-section'
 import BannerSection from '@/components/home/banner-section'
-import BestSellers from '@/components/home/best-seller-section'
+import BestSellersSection from '@/components/home/best-sellers-section'
 import BuiltForSection from '@/components/home/built-for-section'
 import CollectionSection from '@/components/home/collection-section'
 import CustomerExpSection from '@/components/home/customer-exp-section'
@@ -16,7 +16,7 @@ export default function HomePage() {
     <>
       <BannerSection />
       <CollectionSection />
-      <BestSellers />
+      <BestSellersSection />
       <BuiltForSection />
       <WorksSections />
       <ChooseUsSection />

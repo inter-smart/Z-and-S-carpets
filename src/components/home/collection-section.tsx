@@ -130,7 +130,7 @@ export default function CollectionSection() {
             aria-label="Previous collection"
             onClick={scrollPrev}
             disabled={!canPrev}
-            className="text-primary cursor-pointer hover:bg-transparent focus:ring-0 focus:outline-none"
+            className="text-primary cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
           >
             {/* LTR */}
             <Image
@@ -156,7 +156,7 @@ export default function CollectionSection() {
             aria-label="Next collection"
             onClick={scrollNext}
             disabled={!canNext}
-            className="text-primary cursor-pointer hover:bg-transparent focus:ring-0 focus:outline-none"
+            className="text-primary cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
           >
             {/* LTR */}
             <Image
@@ -182,7 +182,7 @@ export default function CollectionSection() {
           size="icon"
           onClick={scrollPrev}
           disabled={!canPrev}
-          className="cursor-pointer hover:bg-transparent focus:ring-0 focus:outline-none"
+          className="cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
         >
           <Image
             src={ArrowRightPurpleIcon}
@@ -201,7 +201,7 @@ export default function CollectionSection() {
           size="icon"
           onClick={scrollNext}
           disabled={!canNext}
-          className="cursor-pointer hover:bg-transparent focus:ring-0 focus:outline-none"
+          className="cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
         >
           <Image
             src={ArrowLeftPurpleIcon}

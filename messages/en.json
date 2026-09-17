@@ -310,37 +310,43 @@
         "category": "DECK FLOORING",
         "title": "Landscaping Grass",
         "description": "Crafted for modern exteriors, our landscaping grass brings structure, depth, and a contemporary finish to every garden.",
-        "tagLabel": "Best Seller"
+        "tagLabel": "Best Seller",
+        "image": "/images/floor-img-8.webp"
       },
       {
         "category": "CARPET FLOORING",
         "title": "Carpet Tiles Pixel Block",
         "description": "Crafted for modern interiors, Pixel Block Carpet Tiles bring structure, depth, and a contemporary modular look to any space. ted for modern exteriors, our landscaping grass brings structure, depth, and a contemporary finish to ever.",
-        "tagLabel": "Best Seller"
+        "tagLabel": "Best Seller",
+        "image": "/images/floor-img-9.webp"
       },
       {
         "category": "DECK FLOORING",
         "title": "Acacia Deck Tiles",
         "description": "Bring warmth and durability outdoors with Acacia Deck Tiles designed for relaxed poolside and terrace living.",
-        "tagLabel": "Best Seller"
+        "tagLabel": "Best Seller",
+        "image": "/images/floor-img-10.webp"
       },
       {
         "category": "VINYL FLOORING",
         "title": "Oak Grain Vinyl",
         "description": "A practical, low-maintenance surface with the natural character of timber for busy residential spaces.",
-        "tagLabel": "Best Seller"
+        "tagLabel": "Best Seller",
+        "image": "/images/floor-img-4.webp"
       },
       {
         "category": "ARTIFICIAL GRASS",
         "title": "Garden Luxe",
         "description": "Soft underfoot and evergreen year-round, Garden Luxe creates a polished landscape with minimal upkeep.",
-        "tagLabel": "Best Seller"
+        "tagLabel": "Best Seller",
+        "image": "/images/floor-img-2.webp"
       },
       {
         "category": "WOOD FLOORING",
         "title": "Natural Herringbone",
         "description": "Refined herringbone flooring adds rhythm and warmth to welcoming residential interiors.",
-        "tagLabel": "Best Seller"
+        "tagLabel": "Best Seller",
+        "image": "/images/floor-img-8.webp"
       }
     ]
   },
