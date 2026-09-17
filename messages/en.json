@@ -204,23 +204,89 @@
     ],
     "items": [
       {
-        "title": "Wood Pattern Vinyl",
+        "id": "1",
+        "title": "Oakwood Herringbone Vinyl",
         "category": "RESIDENTIAL",
-        "location": "United Arab Emirates",
+        "location": "Dubai, United Arab Emirates",
         "featured": true,
-        "btnLabel": "View Project"
+        "btnLabel": "View Project",
+        "image": "/images/floor-img-6.webp"
       },
       {
-        "title": "Laminate Flooring",
+        "id": "2",
+        "title": "Ash Grey Laminate Flooring",
         "category": "COMMERCIAL",
-        "location": "United Arab Emirates",
-        "btnLabel": "View Project"
+        "location": "Sharjah, United Arab Emirates",
+        "btnLabel": "View Project",
+        "image": "/images/floor-img-7.webp"
       },
       {
-        "title": "Deck Flooring",
+        "id": "3",
+        "title": "Teak Outdoor Decking",
         "category": "OUTDOOR",
-        "location": "United Arab Emirates",
-        "btnLabel": "View Project"
+        "location": "Dubai, United Arab Emirates",
+        "btnLabel": "View Project",
+        "image": "/images/floor-img-8.webp"
+      },
+      {
+        "id": "4",
+        "title": "Walnut Hotel Flooring",
+        "category": "HOSPITALITY",
+        "location": "Ras Al Khaimah, United Arab Emirates",
+        "featured": true,
+        "btnLabel": "View Project",
+        "image": "/images/floor-img-5.webp"
+      },
+      {
+        "id": "5",
+        "title": "Classic Maple Laminate",
+        "category": "COMMERCIAL",
+        "location": "Ajman, United Arab Emirates",
+        "btnLabel": "View Project",
+        "image": "/images/floor-img-8.webp"
+      },
+      {
+        "id": "6",
+        "title": "Smoked Oak Vinyl Planks",
+        "category": "RESIDENTIAL",
+        "location": "Al Ain, United Arab Emirates",
+        "featured": true,
+        "btnLabel": "View Project",
+        "image": "/images/floor-img-6.webp"
+      },
+      {
+        "id": "7",
+        "title": "Weathered Wood Decking",
+        "category": "OUTDOOR",
+        "location": "Fujairah, United Arab Emirates",
+        "btnLabel": "View Project",
+        "image": "/images/floor-img-4.webp"
+      },
+      {
+        "id": "8",
+        "title": "Warm Walnut Resort Flooring",
+        "category": "HOSPITALITY",
+        "location": "Abu Dhabi, United Arab Emirates",
+        "featured": true,
+        "btnLabel": "View Project",
+        "image": "/images/floor-img-5.webp"
+      },
+      {
+        "id": "9",
+        "title": "Light Oak Chevron Flooring",
+        "category": "RESIDENTIAL",
+        "location": "Dubai, United Arab Emirates",
+        "btnLabel": "View Project",
+        "image": "/images/floor-img-6.webp"
+      },
+      {
+        "id": "10",
+        "title": "Deep Walnut Commercial SPC",
+        "category": "COMMERCIAL",
+        "location": "Dubai, United Arab Emirates",
+        "featured": true,
+        "btnLabel": "View Project",
+        "image": "/images/floor-img-7.webp"
       }
     ],
     "viewAllProjectsBtnLabel": "View All Projects"

@@ -198,23 +198,89 @@
     "categories": ["الكل", "سكني", "تجاري", "ضيافة", "خارجي"],
     "items": [
       {
-        "title": "فينيل بنقشة خشبية",
+        "id": "1",
+        "title": "أرضيات فينيل أوك وود",
         "category": "سكني",
-        "location": "الإمارات العربية المتحدة",
+        "location": "دبي، الإمارات العربية المتحدة",
         "featured": true,
-        "btnLabel": "عرض المشروع"
+        "btnLabel": "عرض المشروع",
+        "image": "/images/floor-img-6.webp"
       },
       {
-        "title": "أرضيات اللامينيت",
+        "id": "2",
+        "title": "أرضيات لامينيت الفاتح",
         "category": "تجاري",
-        "location": "الإمارات العربية المتحدة",
-        "btnLabel": "عرض المشروع"
+        "location": "الشارقة، الإمارات العربية المتحدة",
+        "btnLabel": "عرض المشروع",
+        "image": "/images/floor-img-7.webp"
       },
       {
-        "title": "أرضيات الديك",
-        "category": "خارجي",
-        "location": "الإمارات العربية المتحدة",
-        "btnLabel": "عرض المشروع"
+        "id": "3",
+        "title": "أرضيات خشبية خشب الساج",
+        "category": "مساحات خارجية",
+        "location": "دبي، الإمارات العربية المتحدة",
+        "btnLabel": "عرض المشروع",
+        "image": "/images/floor-img-8.webp"
+      },
+      {
+        "id": "4",
+        "title": "أرضيات خشب الجوز",
+        "category": "ضيافة",
+        "location": "رأس الخيمة، الإمارات العربية المتحدة",
+        "featured": true,
+        "btnLabel": "عرض المشروع",
+        "image": "/images/floor-img-5.webp"
+      },
+      {
+        "id": "5",
+        "title": "أرضيات لامينيت خشب القيقب",
+        "category": "تجاري",
+        "location": "عجمان، الإمارات العربية المتحدة",
+        "btnLabel": "عرض المشروع",
+        "image": "/images/floor-img-8.webp"
+      },
+      {
+        "id": "6",
+        "title": "ألواح فينيل المدخن",
+        "category": "سكني",
+        "location": "العين، الإمارات العربية المتحدة",
+        "featured": true,
+        "btnLabel": "عرض المشروع",
+        "image": "/images/floor-img-6.webp"
+      },
+      {
+        "id": "7",
+        "title": "أرضيات خشبية خارجية المعتّق",
+        "category": "مساحات خارجية",
+        "location": "الفجيرة، الإمارات العربية المتحدة",
+        "btnLabel": "عرض المشروع",
+        "image": "/images/floor-img-4.webp"
+      },
+      {
+        "id": "8",
+        "title": "أرضيات منتمن خشب الجوز",
+        "category": "ضيافة",
+        "location": "أبوظبي، الإمارات العربية المتحدة",
+        "featured": true,
+        "btnLabel": "عرض المشروع",
+        "image": "/images/floor-img-5.webp"
+      },
+      {
+        "id": "9",
+        "title": "أرضيات شيفرون البلوط",
+        "category": "سكني",
+        "location": "دبي، الإمارات العربية المتحدة",
+        "btnLabel": "عرض المشروع",
+        "image": "/images/floor-img-6.webp"
+      },
+      {
+        "id": "10",
+        "title": "أرضيات SPC تارية باللون",
+        "category": "تجاري",
+        "location": "دبي، الإمارات العربية المتحدة",
+        "featured": true,
+        "btnLabel": "عرض المشروع",
+        "image": "/images/floor-img-7.webp"
       }
     ],
     "viewAllProjectsBtnLabel": "عرض جميع المشاريع"

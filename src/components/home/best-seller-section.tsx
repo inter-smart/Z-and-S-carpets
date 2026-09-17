@@ -275,7 +275,7 @@ export default function BestSellers() {
             size="icon"
             disabled={currentIndex === 0 || isAnimating}
             onClick={handlePrevious}
-            className="absolute top-1/2 -left-10 hidden cursor-pointer text-xl hover:bg-transparent disabled:opacity-30 lg:inline-flex"
+            className="absolute top-1/2 -left-8 hidden cursor-pointer text-xl hover:bg-transparent disabled:opacity-30 sm:inline-flex md:-left-10"
           >
             <Image
               src={ArrowLeftIcon}
@@ -290,7 +290,7 @@ export default function BestSellers() {
             size="icon"
             disabled={currentIndex === maxIndex || isAnimating}
             onClick={handleNext}
-            className="absolute top-1/2 -right-10 hidden cursor-pointer text-xl hover:bg-transparent disabled:opacity-30 lg:inline-flex"
+            className="absolute top-1/2 -right-8 hidden cursor-pointer text-xl hover:bg-transparent disabled:opacity-30 sm:inline-flex md:-right-10"
           >
             <Image
               src={ArrowRightIcon}
@@ -301,7 +301,7 @@ export default function BestSellers() {
         </div>
 
         {/* Mobile / tablet arrows */}
-        <div className="mt-6 flex justify-center gap-2 lg:hidden">
+        <div className="mt-6 flex justify-center gap-2 sm:hidden">
           <Button
             aria-label="Previous products"
             variant="ghost"
