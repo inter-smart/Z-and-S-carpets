@@ -202,8 +202,8 @@ export default function BuiltForSection() {
                 {/* Left and up arrow */}
                 <div
                   className={cn(
-                    'flex flex-col items-center justify-center lg:justify-start',
-                    'lg:h-(--image-stack-button-height)',
+                    'flex flex-col items-center justify-center lg:h-(--image-stack-button-height) lg:justify-start',
+                    !isImgStackScrollable && 'hidden lg:invisible lg:flex',
                   )}
                 >
                   <Button
@@ -212,10 +212,7 @@ export default function BuiltForSection() {
                     size="icon"
                     disabled={!isImgStackScrollable || imgStackScrollIsAtStart}
                     onClick={() => scrollProducts('up')}
-                    className={cn(
-                      'flex cursor-pointer hover:bg-transparent rtl:max-lg:hidden',
-                      !isImgStackScrollable && 'invisible',
-                    )}
+                    className="flex cursor-pointer hover:bg-transparent rtl:max-lg:hidden"
                   >
                     <Image
                       src={ArrowRightIcon}
@@ -229,10 +226,7 @@ export default function BuiltForSection() {
                     size="icon"
                     disabled={!isImgStackScrollable || imgStackScrollIsAtStart}
                     onClick={() => scrollProducts('down')}
-                    className={cn(
-                      'hidden cursor-pointer hover:bg-transparent rtl:flex rtl:lg:hidden',
-                      !isImgStackScrollable && 'invisible',
-                    )}
+                    className="hidden cursor-pointer hover:bg-transparent rtl:flex rtl:lg:hidden"
                   >
                     <Image
                       src={ArrowLeftIcon}
@@ -293,8 +287,8 @@ export default function BuiltForSection() {
                 {/* Right and Down arrow */}
                 <div
                   className={cn(
-                    'flex flex-col items-center justify-center lg:justify-end',
-                    'lg:h-(--image-stack-button-height)',
+                    'flex flex-col items-center justify-center lg:h-(--image-stack-button-height) lg:justify-end',
+                    !isImgStackScrollable && 'hidden lg:invisible lg:flex',
                   )}
                 >
                   <Button
@@ -303,10 +297,7 @@ export default function BuiltForSection() {
                     size="icon"
                     disabled={!isImgStackScrollable || imgStackScrollIsAtEnd}
                     onClick={() => scrollProducts('down')}
-                    className={cn(
-                      'flex cursor-pointer hover:bg-transparent rtl:max-lg:hidden',
-                      !isImgStackScrollable && 'invisible',
-                    )}
+                    className="flex cursor-pointer hover:bg-transparent rtl:max-lg:hidden"
                   >
                     <Image
                       src={ArrowLeftIcon}
@@ -320,10 +311,7 @@ export default function BuiltForSection() {
                     size="icon"
                     disabled={!isImgStackScrollable || imgStackScrollIsAtEnd}
                     onClick={() => scrollProducts('up')}
-                    className={cn(
-                      'hidden cursor-pointer hover:bg-transparent rtl:flex rtl:lg:hidden',
-                      !isImgStackScrollable && 'invisible',
-                    )}
+                    className="hidden cursor-pointer hover:bg-transparent rtl:flex rtl:lg:hidden"
                   >
                     <Image
                       src={ArrowRightIcon}
