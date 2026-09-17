@@ -25,6 +25,51 @@
       transform: translateX(calc(50% - 0.3125rem));
     }
   }
+
+  --animate-slide-out-left: slide-out-left 700ms ease-out forwards;
+  --animate-slide-out-right: slide-out-right 700ms ease-out forwards;
+  --animate-slide-in-right: slide-in-right 700ms ease-out forwards;
+  --animate-slide-in-left: slide-in-left 700ms ease-out forwards;
+
+  @keyframes slide-out-left {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes slide-out-right {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(100%);
+    }
+  }
+
+  @keyframes slide-in-right {
+    from {
+      transform: translateX(100%);
+    }
+
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slide-in-left {
+    from {
+      transform: translateX(-100%);
+    }
+
+    to {
+      transform: translateX(0);
+    }
+  }
 }
 
 @theme inline {
