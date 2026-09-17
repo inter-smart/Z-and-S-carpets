@@ -160,12 +160,17 @@
     "buttonLabel": "عرض جميع المنتجات",
     "items": [
       {
-        "id": "laminate-flooring",
-        "title": "أرضيات اللامينيت"
+        "title": "أرضيات اللامينيت",
+        "image": "/images/floor-img-5.webp"
       },
       {
         "id": "carpet-flooring",
-        "title": "أرضيات السجاد"
+        "title": "أرضيات السجاد",
+        "image": "/images/floor-img-2.webp"
+      },
+      {
+        "title": "أرضيات اللامينيت",
+        "image": "/images/floor-img-4.webp"
       }
     ],
     "itemButtonLabel": "عرض المنتجات"

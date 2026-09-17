@@ -50,7 +50,7 @@ function ReviewCard({ review }: { review: CustomerReviewType }) {
   )
 }
 
-export function CustomerExpSection() {
+export default function CustomerExpSection() {
   const locale = useLocale() as LocaleType
 
   const t = useTranslations('testimonials')

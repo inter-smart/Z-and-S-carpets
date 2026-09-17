@@ -160,12 +160,20 @@
     "buttonLabel": "View All Products",
     "items": [
       {
-        "id": "laminate-flooring",
-        "title": "Laminate Flooring"
+        "title": "Laminate Flooring",
+        "image": "/images/floor-img-5.webp"
       },
       {
-        "id": "carpet-flooring",
-        "title": "Carpet Flooring"
+        "title": "Carpet Flooring",
+        "image": "/images/floor-img-2.webp"
+      },
+      {
+        "title": "Carpet Flooring",
+        "image": "/images/floor-img-4.webp"
+      },
+      {
+        "title": "Laminate Flooring",
+        "image": "/images/floor-img-6.webp"
       }
     ],
     "itemButtonLabel": "View Products"
