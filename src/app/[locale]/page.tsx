@@ -5,9 +5,9 @@ import BannerSection from '@/components/home/banner-section'
 import BestSellers from '@/components/home/best-seller-section'
 import BuiltForSection from '@/components/home/built-for-section'
 import CollectionSection from '@/components/home/collection-section'
+import { CustomerExpSection } from '@/components/home/customer-exp-section'
 import ImgCompareSection from '@/components/home/img-compare-section'
 import PremiumFlooringSolutionsSection from '@/components/home/premium-flooring-solutions-section'
-import TestimonialsSection from '@/components/home/testimonials-section'
 import TrustedPartnerSection from '@/components/home/trusted-partner-section'
 import WorksSections from '@/components/home/works-section'
 
@@ -22,7 +22,7 @@ export default function HomePage() {
       <ChooseUsSection />
       <ImgCompareSection />
       <ProcessSections />
-      <TestimonialsSection />
+      <CustomerExpSection />
       <TrustedPartnerSection />
       <section className="relative">
         {/* right-side background */}
