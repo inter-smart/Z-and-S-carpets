@@ -71,7 +71,7 @@ export default async function RootLayout({
       <body className="flex min-h-full flex-col">
         <NextIntlClientProvider messages={messages}>
           <Navbar />
-          <main>{children}</main>
+          <main className="mt-34">{children}</main>
           <Footer />
           <BottomSideBtns />
         </NextIntlClientProvider>

@@ -99,7 +99,7 @@ export default function BannerSection() {
       {/* video */}
       <video
         key={currentCategory.id}
-        className="h-200 w-full object-cover"
+        className="h-166 w-full object-cover"
         playsInline
         autoPlay
         muted
@@ -109,7 +109,7 @@ export default function BannerSection() {
       </video>
 
       {/* top layer */}
-      <div className="absolute top-0 flex h-200 w-full flex-col justify-end bg-linear-to-r from-black/80 to-black/0 text-white">
+      <div className="absolute top-0 flex h-166 w-full flex-col justify-end bg-linear-to-r from-black/80 to-black/0 text-white">
         {/* category */}
         <div className="absolute -ms-5 flex h-full w-20 flex-col justify-end pb-30 sm:-ms-1 sm:pb-35">
           <div className="flex flex-row items-center ltr:-rotate-90 rtl:rotate-90">
