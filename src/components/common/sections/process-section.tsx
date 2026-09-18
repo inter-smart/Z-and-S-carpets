@@ -10,7 +10,7 @@ export default function ProcessSections() {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [isPlaying, setIsPlaying] = useState(false)
 
-  const t = useTranslations('process')
+  const t = useTranslations('Common.ProcessSection')
   const processSteps = t.raw('steps') as {
     title: string
     description: string

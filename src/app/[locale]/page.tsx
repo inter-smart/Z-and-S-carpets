@@ -7,7 +7,7 @@ import BuiltForSection from '@/components/home/built-for-section'
 import CollectionSection from '@/components/home/collection-section'
 import CustomerExpSection from '@/components/home/customer-exp-section'
 import ImgCompareSection from '@/components/home/img-compare-section'
-import PremiumFlooringSolutionsSection from '@/components/home/premium-flooring-solutions-section'
+import PremiumSolutionsSection from '@/components/home/premium-solutions-section'
 import TrustedPartnerSection from '@/components/home/trusted-partner-section'
 import WorksSections from '@/components/home/works-section'
 
@@ -33,7 +33,7 @@ export default function HomePage() {
             container={false}
             className="container-wrapper lg:container-wrapper-none"
           />
-          <PremiumFlooringSolutionsSection />
+          <PremiumSolutionsSection />
         </div>
       </section>
     </>

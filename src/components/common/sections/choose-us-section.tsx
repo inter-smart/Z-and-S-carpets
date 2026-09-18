@@ -3,7 +3,7 @@ import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 
 export default function ChooseUsSection() {
-  const t = useTranslations('ChooseUs')
+  const t = useTranslations('Common.ChooseUsSection')
   const ctaTitle = t.raw('cta.title') as string[]
   const features = t.raw('features') as {
     title: string

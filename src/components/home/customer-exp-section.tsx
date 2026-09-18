@@ -53,7 +53,7 @@ function ReviewCard({ review }: { review: CustomerReviewType }) {
 export default function CustomerExpSection() {
   const locale = useLocale() as LocaleType
 
-  const t = useTranslations('testimonials')
+  const t = useTranslations('HomePage.CustomerExpSection')
   const reviews = t.raw('reviews') as CustomerReviewType[]
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
