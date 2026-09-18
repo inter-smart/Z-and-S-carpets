@@ -17,7 +17,7 @@ import { Button } from '../ui/button'
 export default function CollectionSection() {
   const locale = useLocale() as LocaleType
 
-  const t = useTranslations('collection')
+  const t = useTranslations('HomePage.CollectionSection')
   const collectionItems = t.raw('items') as {
     title: string
     image: string

@@ -1,4 +1,92 @@
 {
+  "Common": {
+    "ProcessSection": {
+      "eyebrow": "OUR PROCESS",
+      "title": "How it Works",
+      "image": "/images/floor-img-1.webp",
+      "steps": [
+        {
+          "title": "Design",
+          "description": "We help you shape the right flooring direction for your space."
+        },
+        {
+          "title": "Supervision",
+          "description": "Our project managers oversee every detail from selection to site preparation."
+        },
+        {
+          "title": "Budget Planning",
+          "description": "Clear recommendations and practical planning keep your project on track."
+        },
+        {
+          "title": "Delivery & Install",
+          "description": "Our skilled team delivers and installs your flooring with care."
+        }
+      ]
+    },
+    "FAQSection": {
+      "title": "Frequently Asked Questions",
+      "faqs": [
+        {
+          "question": "Do You Offer Free Samples Before Purchase?",
+          "answer": "Yes, we offer complimentary samples so you can confidently choose the right finish, texture, and colour for your space."
+        },
+        {
+          "question": "Do You Install Outside Of Dubai?",
+          "answer": "Absolutely. We serve all GCC countries including UAE, Saudi Arabia, Qatar, Kuwait, Bahrain and Oman. Delivery and installation can be arranged across the region."
+        },
+        {
+          "question": "How Long Does Installation Take?",
+          "answer": "Installation timelines depend on the product and project size. After our site measurement, we will provide a clear schedule before work begins."
+        },
+        {
+          "question": "Can You Help With Design And Selection?",
+          "answer": "Our flooring consultants can help you compare materials, finishes and layouts to find a solution that suits your style, space and budget."
+        },
+        {
+          "question": "Is There A Warranty On Products And Installation?",
+          "answer": "Yes. Product and installation warranties vary by collection, and our team will explain the coverage for your selected flooring before purchase."
+        },
+        {
+          "question": "Do You Work With Interior Designers And Contractors?",
+          "answer": "Yes, we regularly partner with interior designers, contractors, developers and project teams across the UAE and GCC."
+        }
+      ]
+    },
+    "ChooseUsSection": {
+      "title": "Why Clients Choose Us",
+      "features": [
+        {
+          "title": "Premium Quality Materials",
+          "description": "Sourced from world-class manufacturers with strict quality standards."
+        },
+        {
+          "title": "Wide Product Range",
+          "description": "Hundreds of options across carpets, vinyl, wood, grass and more."
+        },
+        {
+          "title": "Custom Solutions",
+          "description": "Tailored design consultations for every project, big or small."
+        },
+        {
+          "title": "Competitive Pricing",
+          "description": "Best-in-market pricing without compromise on quality."
+        },
+        {
+          "title": "GCC-Wide Delivery",
+          "description": "Reliable delivery and installation across all GCC countries."
+        },
+        {
+          "title": "Professional Installation",
+          "description": "Expert teams ensuring flawless finish on every installation."
+        }
+      ],
+      "cta": {
+        "title": ["Trusted Quality.", "Proven Results."],
+        "description": "Delivering reliable solutions with exceptional quality and customer satisfaction.",
+        "btnLabel": "Find your Perfect Carpet"
+      }
+    }
+  },
   "Navbar": {
     "menuBtnLable": "Menu",
     "navLinks": [
@@ -59,711 +147,6 @@
       }
     ],
     "categoryMoreBtnLable": "More"
-  },
-  "BannerSection": {
-    "mainTag": "Trusted Flooring Specialists in UAE & GCC",
-    "description": "For Homes, Offices & Commercial Spaces",
-    "btnLabel": "Request Quote",
-    "category": [
-      {
-        "id": "residential",
-        "label": "Residential",
-        "video": "/videos/floor-video-2.mp4",
-        "cards": [
-          {
-            "itemValue": "40k+",
-            "itemText": "Trusted Parties",
-            "image": "/images/floor-img-1.webp"
-          },
-          {
-            "itemValue": "30",
-            "itemText": "Different Styles",
-            "image": "/images/floor-img-2.webp"
-          },
-          {
-            "itemValue": "15k+",
-            "itemText": "Projects Completed",
-            "image": "/images/floor-img-4.webp"
-          }
-        ]
-      },
-      {
-        "id": "commercial",
-        "label": "Commercial",
-        "video": "/videos/floor-video-1.mp4",
-        "cards": [
-          {
-            "itemValue": "15k+",
-            "itemText": "Projects Completed",
-            "image": "/images/floor-img-4.webp"
-          },
-          {
-            "itemValue": "40k+",
-            "itemText": "Trusted Parties",
-            "image": "/images/floor-img-2.webp"
-          },
-          {
-            "itemValue": "30",
-            "itemText": "Different Styles",
-            "image": "/images/floor-img-3.webp"
-          },
-          {
-            "itemValue": "40k+",
-            "itemText": "Trusted Parties",
-            "image": "/images/floor-img-1.webp"
-          },
-          {
-            "itemValue": "30",
-            "itemText": "Different Styles",
-            "image": "/images/floor-img-2.webp"
-          }
-        ]
-      },
-      {
-        "id": "hospitality",
-        "label": "Hospitality",
-        "video": "/videos/floor-video-3.mp4",
-        "cards": [
-          {
-            "itemValue": "30",
-            "itemText": "Different Styles",
-            "image": "/images/floor-img-2.webp"
-          },
-          {
-            "itemValue": "15k+",
-            "itemText": "Projects Completed",
-            "image": "/images/floor-img-4.webp"
-          }
-        ]
-      },
-      {
-        "id": "outdoor",
-        "label": "Outdoor",
-        "video": "/videos/floor-video-1.mp4",
-        "cards": [
-          {
-            "itemValue": "Card 1",
-            "itemText": "Trusted Parties",
-            "image": "/images/floor-img-1.webp"
-          },
-          {
-            "itemValue": "Card 2",
-            "itemText": "Projects Completed",
-            "image": "/images/floor-img-2.webp"
-          }
-        ]
-      }
-    ]
-  },
-  "collection": {
-    "title": "Discover Our Collection",
-    "buttonLabel": "View All Products",
-    "items": [
-      {
-        "title": "Laminate Flooring",
-        "image": "/images/floor-img-5.webp"
-      },
-      {
-        "title": "Carpet Flooring",
-        "image": "/images/floor-img-2.webp"
-      },
-      {
-        "title": "Carpet Flooring",
-        "image": "/images/floor-img-4.webp"
-      },
-      {
-        "title": "Laminate Flooring",
-        "image": "/images/floor-img-6.webp"
-      }
-    ],
-    "itemButtonLabel": "View Products"
-  },
-  "process": {
-    "eyebrow": "OUR PROCESS",
-    "title": "How it Works",
-    "image": "/images/floor-img-1.webp",
-    "steps": [
-      {
-        "title": "Design",
-        "description": "We help you shape the right flooring direction for your space."
-      },
-      {
-        "title": "Supervision",
-        "description": "Our project managers oversee every detail from selection to site preparation."
-      },
-      {
-        "title": "Budget Planning",
-        "description": "Clear recommendations and practical planning keep your project on track."
-      },
-      {
-        "title": "Delivery & Install",
-        "description": "Our skilled team delivers and installs your flooring with care."
-      }
-    ]
-  },
-  "works": {
-    "title": "Explore Our Work",
-    "categories": [
-      "ALL",
-      "RESIDENTIAL",
-      "COMMERCIAL",
-      "HOSPITALITY",
-      "OUTDOOR"
-    ],
-    "items": [
-      {
-        "id": "1",
-        "title": "Oakwood Herringbone Vinyl",
-        "category": "RESIDENTIAL",
-        "location": "Dubai, United Arab Emirates",
-        "featured": true,
-        "btnLabel": "View Project",
-        "image": "/images/floor-img-6.webp"
-      },
-      {
-        "id": "2",
-        "title": "Ash Grey Laminate Flooring",
-        "category": "COMMERCIAL",
-        "location": "Sharjah, United Arab Emirates",
-        "btnLabel": "View Project",
-        "image": "/images/floor-img-7.webp"
-      },
-      {
-        "id": "3",
-        "title": "Teak Outdoor Decking",
-        "category": "OUTDOOR",
-        "location": "Dubai, United Arab Emirates",
-        "btnLabel": "View Project",
-        "image": "/images/floor-img-8.webp"
-      },
-      {
-        "id": "4",
-        "title": "Walnut Hotel Flooring",
-        "category": "HOSPITALITY",
-        "location": "Ras Al Khaimah, United Arab Emirates",
-        "featured": true,
-        "btnLabel": "View Project",
-        "image": "/images/floor-img-5.webp"
-      },
-      {
-        "id": "5",
-        "title": "Classic Maple Laminate",
-        "category": "COMMERCIAL",
-        "location": "Ajman, United Arab Emirates",
-        "btnLabel": "View Project",
-        "image": "/images/floor-img-8.webp"
-      },
-      {
-        "id": "6",
-        "title": "Smoked Oak Vinyl Planks",
-        "category": "RESIDENTIAL",
-        "location": "Al Ain, United Arab Emirates",
-        "featured": true,
-        "btnLabel": "View Project",
-        "image": "/images/floor-img-6.webp"
-      },
-      {
-        "id": "7",
-        "title": "Weathered Wood Decking",
-        "category": "OUTDOOR",
-        "location": "Fujairah, United Arab Emirates",
-        "btnLabel": "View Project",
-        "image": "/images/floor-img-4.webp"
-      },
-      {
-        "id": "8",
-        "title": "Warm Walnut Resort Flooring",
-        "category": "HOSPITALITY",
-        "location": "Abu Dhabi, United Arab Emirates",
-        "featured": true,
-        "btnLabel": "View Project",
-        "image": "/images/floor-img-5.webp"
-      },
-      {
-        "id": "9",
-        "title": "Light Oak Chevron Flooring",
-        "category": "RESIDENTIAL",
-        "location": "Dubai, United Arab Emirates",
-        "btnLabel": "View Project",
-        "image": "/images/floor-img-6.webp"
-      },
-      {
-        "id": "10",
-        "title": "Deep Walnut Commercial SPC",
-        "category": "COMMERCIAL",
-        "location": "Dubai, United Arab Emirates",
-        "featured": true,
-        "btnLabel": "View Project",
-        "image": "/images/floor-img-7.webp"
-      }
-    ],
-    "viewAllProjectsBtnLabel": "View All Projects"
-  },
-  "bestseller": {
-    "title": "Our Residential Bestsellers",
-    "filterLabel": "Filter",
-    "viewAllLabel": "View All Products",
-    "getSampleBtnLabel": "Get a sample",
-    "viewMoreBtnLabel": "View More",
-    "products": [
-      {
-        "category": "DECK FLOORING",
-        "title": "Landscaping Grass",
-        "description": "Crafted for modern exteriors, our landscaping grass brings structure, depth, and a contemporary finish to every garden.",
-        "tagLabel": "Best Seller",
-        "image": "/images/floor-img-8.webp"
-      },
-      {
-        "category": "CARPET FLOORING",
-        "title": "Carpet Tiles Pixel Block",
-        "description": "Crafted for modern interiors, Pixel Block Carpet Tiles bring structure, depth, and a contemporary modular look to any space. ted for modern exteriors, our landscaping grass brings structure, depth, and a contemporary finish to ever.",
-        "tagLabel": "Best Seller",
-        "image": "/images/floor-img-9.webp"
-      },
-      {
-        "category": "DECK FLOORING",
-        "title": "Acacia Deck Tiles",
-        "description": "Bring warmth and durability outdoors with Acacia Deck Tiles designed for relaxed poolside and terrace living.",
-        "tagLabel": "Best Seller",
-        "image": "/images/floor-img-10.webp"
-      },
-      {
-        "category": "VINYL FLOORING",
-        "title": "Oak Grain Vinyl",
-        "description": "A practical, low-maintenance surface with the natural character of timber for busy residential spaces.",
-        "tagLabel": "Best Seller",
-        "image": "/images/floor-img-4.webp"
-      },
-      {
-        "category": "ARTIFICIAL GRASS",
-        "title": "Garden Luxe",
-        "description": "Soft underfoot and evergreen year-round, Garden Luxe creates a polished landscape with minimal upkeep.",
-        "tagLabel": "Best Seller",
-        "image": "/images/floor-img-2.webp"
-      },
-      {
-        "category": "WOOD FLOORING",
-        "title": "Natural Herringbone",
-        "description": "Refined herringbone flooring adds rhythm and warmth to welcoming residential interiors.",
-        "tagLabel": "Best Seller",
-        "image": "/images/floor-img-8.webp"
-      }
-    ]
-  },
-  "FAQ": {
-    "title": "Frequently Asked Questions",
-    "faqs": [
-      {
-        "question": "Do You Offer Free Samples Before Purchase?",
-        "answer": "Yes, we offer complimentary samples so you can confidently choose the right finish, texture, and colour for your space."
-      },
-      {
-        "question": "Do You Install Outside Of Dubai?",
-        "answer": "Absolutely. We serve all GCC countries including UAE, Saudi Arabia, Qatar, Kuwait, Bahrain and Oman. Delivery and installation can be arranged across the region."
-      },
-      {
-        "question": "How Long Does Installation Take?",
-        "answer": "Installation timelines depend on the product and project size. After our site measurement, we will provide a clear schedule before work begins."
-      },
-      {
-        "question": "Can You Help With Design And Selection?",
-        "answer": "Our flooring consultants can help you compare materials, finishes and layouts to find a solution that suits your style, space and budget."
-      },
-      {
-        "question": "Is There A Warranty On Products And Installation?",
-        "answer": "Yes. Product and installation warranties vary by collection, and our team will explain the coverage for your selected flooring before purchase."
-      },
-      {
-        "question": "Do You Work With Interior Designers And Contractors?",
-        "answer": "Yes, we regularly partner with interior designers, contractors, developers and project teams across the UAE and GCC."
-      }
-    ],
-    "pfs": {
-      "title": "Premium Flooring Solutions Across UAE & GCC",
-      "paragraphs": [
-        "Z&S Carpets & Flooring Is One Of The UAE's Most Trusted Flooring Specialists, Offering An Extensive Range Of Carpets, Artificial Grass, Vinyl Flooring, Engineered Wooden Flooring, Outdoor Decking And Decorative Rugs. With Over 15 Years Of Experience Serving Dubai, Abu Dhabi, Sharjah, And Across The GCC, We Bring Premium-Quality Flooring To Residential Villas, Corporate Offices, Hotels, Retail Outlets And Outdoor Spaces.",
-        "Our Team Of Flooring Consultants, Project Managers And Installation Technicians Are Committed To Delivering A Seamless Experience — From Product Selection And Sample Delivery To Site Measurement, Installation And Aftercare. Whether You're Refurbishing A Single Room Or Outfitting An Entire Development, Z&S Has The Expertise, Range And Resources To Deliver Exceptional Results."
-      ],
-      "buttonLabel": "See More"
-    }
-  },
-  "testimonials": {
-    "title": "Customer Experiences",
-    "rating": "5.0 Ratings",
-    "reviews": [
-      {
-        "quote": "Donec sit amet turpis tincidunt eros, euismod non nam luctus vulputate dui penatibus pulvinar quis netus penatibus pretium.",
-        "name": "Isla Grace",
-        "role": "Customer",
-        "avatar": "https://i.pravatar.cc/120?img=47"
-      },
-      {
-        "quote": "The entire flooring experience was seamless from the first consultation through installation. The finish looks incredible.",
-        "name": "Marcus Reed",
-        "role": "Customer",
-        "avatar": "https://i.pravatar.cc/120?img=12"
-      },
-      {
-        "quote": "Professional advice, thoughtful details, and a beautiful result. We are thrilled with how our home came together.",
-        "name": "Sofia Bennett",
-        "role": "Customer",
-        "avatar": "https://i.pravatar.cc/120?img=32"
-      },
-      {
-        "quote": "The team understood our brief immediately and delivered on time. Every detail was handled with real care.",
-        "name": "Noah Williams",
-        "role": "Customer",
-        "avatar": "https://i.pravatar.cc/120?img=68"
-      },
-      {
-        "quote": "From samples to the final walkthrough, the service was attentive and reliable. I would happily recommend them.",
-        "name": "Amelia Carter",
-        "role": "Customer",
-        "avatar": "https://i.pravatar.cc/120?img=49"
-      },
-      {
-        "quote": "A polished, comfortable finish that completely changed the feeling of the room. Excellent work all around.",
-        "name": "Daniel Hayes",
-        "role": "Customer",
-        "avatar": "https://i.pravatar.cc/120?img=11"
-      }
-    ]
-  },
-  "BuiltFor": {
-    "title": "Built for Every Space",
-    "categories": [
-      {
-        "name": "RESIDENTIAL",
-        "description": "Warm, considered flooring for homes that feel as good as they look.",
-        "cta": "Get Custom Solution",
-        "feature": "VINYL FLOORING",
-        "products": [
-          {
-            "name": "Carpet Tiles",
-            "image": "floor-2"
-          },
-          {
-            "name": "Wooden Flooring",
-            "image": "floor-3"
-          },
-          {
-            "name": "Deck Flooring",
-            "image": "floor-12"
-          },
-          {
-            "name": "Vinyl Flooring",
-            "image": "floor-7"
-          },
-          {
-            "name": "Artificial Grass",
-            "image": "floor-11"
-          },
-          {
-            "name": "Wooden Flooring",
-            "image": "floor-3"
-          },
-          {
-            "name": "Deck Flooring",
-            "image": "floor-12"
-          },
-          {
-            "name": "Carpet Tiles",
-            "image": "floor-2"
-          },
-          {
-            "name": "Wooden Flooring",
-            "image": "floor-3"
-          },
-          {
-            "name": "Deck Flooring",
-            "image": "floor-12"
-          },
-          {
-            "name": "Vinyl Flooring",
-            "image": "floor-7"
-          },
-          {
-            "name": "Artificial Grass",
-            "image": "floor-11"
-          },
-          {
-            "name": "Wooden Flooring",
-            "image": "floor-3"
-          },
-          {
-            "name": "Deck Flooring",
-            "image": "floor-12"
-          },
-          {
-            "name": "Carpet Tiles",
-            "image": "floor-2"
-          },
-          {
-            "name": "Wooden Flooring",
-            "image": "floor-3"
-          },
-          {
-            "name": "Deck Flooring",
-            "image": "floor-12"
-          },
-          {
-            "name": "Vinyl Flooring",
-            "image": "floor-7"
-          },
-          {
-            "name": "Artificial Grass",
-            "image": "floor-11"
-          },
-          {
-            "name": "Wooden Flooring",
-            "image": "floor-3"
-          },
-          {
-            "name": "Deck Flooring",
-            "image": "floor-12"
-          },
-          {
-            "name": "Carpet Tiles",
-            "image": "floor-2"
-          },
-          {
-            "name": "Wooden Flooring",
-            "image": "floor-3"
-          },
-          {
-            "name": "Deck Flooring",
-            "image": "floor-12"
-          },
-          {
-            "name": "Vinyl Flooring",
-            "image": "floor-7"
-          },
-          {
-            "name": "Artificial Grass",
-            "image": "floor-11"
-          },
-          {
-            "name": "Wooden Flooring",
-            "image": "floor-3"
-          },
-          {
-            "name": "Deck Flooring",
-            "image": "floor-12"
-          }
-        ]
-      },
-      {
-        "name": "COMMERCIAL",
-        "description": "High-performance flooring for offices, retail spaces, and corporate environments that demand durability alongside aesthetics.",
-        "cta": "Get Custom Solution",
-        "feature": "VINYL FLOORING",
-        "products": [
-          {
-            "name": "Vinyl Flooring",
-            "image": "floor-7"
-          },
-          {
-            "name": "Artificial Grass",
-            "image": "floor-2"
-          },
-          {
-            "name": "Deck Flooring",
-            "image": "floor-12"
-          }
-        ]
-      },
-      {
-        "name": "HOSPITALITY",
-        "description": "Inviting surfaces and refined finishes for hotels, restaurants, and guest spaces built around memorable experiences.",
-        "cta": "Get Custom Solution",
-        "feature": "CARPET FLOORING",
-        "products": [
-          {
-            "name": "Artificial Grass",
-            "image": "floor-3"
-          },
-          {
-            "name": "Deck Flooring",
-            "image": "floor-12"
-          },
-          {
-            "name": "Carpet Tiles",
-            "image": "floor-11"
-          },
-          {
-            "name": "Wooden Flooring",
-            "image": "floor-2"
-          },
-          {
-            "name": "Vinyl Flooring",
-            "image": "floor-7"
-          },
-          {
-            "name": "Artificial Grass",
-            "image": "floor-3"
-          },
-          {
-            "name": "Deck Flooring",
-            "image": "floor-12"
-          },
-          {
-            "name": "Carpet Tiles",
-            "image": "floor-11"
-          },
-          {
-            "name": "Wooden Flooring",
-            "image": "floor-2"
-          },
-          {
-            "name": "Vinyl Flooring",
-            "image": "floor-7"
-          }
-        ]
-      },
-      {
-        "name": "OUTDOOR",
-        "description": "Durable outdoor finishes that bring comfort, character, and lasting performance to open-air spaces.",
-        "cta": "Get Custom Solution",
-        "feature": "DECK FLOORING",
-        "products": [
-          {
-            "name": "Carpet Tiles",
-            "image": "floor-12"
-          },
-          {
-            "name": "Wooden Flooring",
-            "image": "floor-7"
-          },
-          {
-            "name": "Vinyl Flooring",
-            "image": "floor-3"
-          },
-          {
-            "name": "Artificial Grass",
-            "image": "floor-11"
-          }
-        ]
-      }
-    ]
-  },
-  "ChooseUs": {
-    "title": "Why Clients Choose Us",
-    "features": [
-      {
-        "title": "Premium Quality Materials",
-        "description": "Sourced from world-class manufacturers with strict quality standards."
-      },
-      {
-        "title": "Wide Product Range",
-        "description": "Hundreds of options across carpets, vinyl, wood, grass and more."
-      },
-      {
-        "title": "Custom Solutions",
-        "description": "Tailored design consultations for every project, big or small."
-      },
-      {
-        "title": "Competitive Pricing",
-        "description": "Best-in-market pricing without compromise on quality."
-      },
-      {
-        "title": "GCC-Wide Delivery",
-        "description": "Reliable delivery and installation across all GCC countries."
-      },
-      {
-        "title": "Professional Installation",
-        "description": "Expert teams ensuring flawless finish on every installation."
-      }
-    ],
-    "cta": {
-      "title": ["Trusted Quality.", "Proven Results."],
-      "description": "Delivering reliable solutions with exceptional quality and customer satisfaction.",
-      "btnLabel": "Find your Perfect Carpet"
-    }
-  },
-  "TrustedPartner": {
-    "title": "Trusted Across the UAE",
-    "partners": [
-      {
-        "name": "partner-name-1",
-        "image": "/images/trusted-img-1.png"
-      },
-      {
-        "name": "partner-name-2",
-        "image": "/images/trusted-img-2.png"
-      },
-      {
-        "name": "partner-name-3",
-        "image": "/images/trusted-img-3.png"
-      },
-      {
-        "name": "partner-name-4",
-        "image": "/images/trusted-img-4.png"
-      },
-      {
-        "name": "partner-name-5",
-        "image": "/images/trusted-img-5.png"
-      },
-      {
-        "name": "partner-name-6",
-        "image": "/images/trusted-img-3.png"
-      },
-      {
-        "name": "partner-name-7",
-        "image": "/images/trusted-img-2.png"
-      },
-      {
-        "name": "partner-name-8",
-        "image": "/images/trusted-img-6.png"
-      },
-      {
-        "name": "partner-name-9",
-        "image": "/images/trusted-img-7.png"
-      },
-      {
-        "name": "partner-name-10",
-        "image": "/images/trusted-img-1.png"
-      },
-      {
-        "name": "partner-name-11",
-        "image": "/images/trusted-img-3.png"
-      },
-      {
-        "name": "partner-name-12",
-        "image": "/images/trusted-img-4.png"
-      },
-      {
-        "name": "partner-name-7",
-        "image": "/images/trusted-img-2.png"
-      },
-      {
-        "name": "partner-name-8",
-        "image": "/images/trusted-img-6.png"
-      },
-      {
-        "name": "partner-name-9",
-        "image": "/images/trusted-img-7.png"
-      },
-      {
-        "name": "partner-name-10",
-        "image": "/images/trusted-img-1.png"
-      },
-      {
-        "name": "partner-name-11",
-        "image": "/images/trusted-img-3.png"
-      },
-      {
-        "name": "partner-name-12",
-        "image": "/images/trusted-img-4.png"
-      }
-    ]
-  },
-  "LookingForwardMsg": {
-    "title": {
-      "first": "We are looking forward to",
-      "second": "meeting you"
-    },
-    "description": "Let's create beautiful spaces together. Our flooring specialists are ready to guide you from inspiration to installation.",
-    "btnLabel": "Enquire Now"
   },
   "Footer": {
     "images": [
@@ -922,5 +305,561 @@
     ],
     "copyright": "Copyright © Z&S Carpets Trading L.L.C. All Rights Reserved",
     "designedByLabel": "Designed By"
+  },
+  "HomePage": {
+    "BannerSection": {
+      "mainTag": "Trusted Flooring Specialists in UAE & GCC",
+      "description": "For Homes, Offices & Commercial Spaces",
+      "btnLabel": "Request Quote",
+      "category": [
+        {
+          "id": "residential",
+          "label": "Residential",
+          "video": "/videos/floor-video-2.mp4",
+          "cards": [
+            {
+              "itemValue": "40k+",
+              "itemText": "Trusted Parties",
+              "image": "/images/floor-img-1.webp"
+            },
+            {
+              "itemValue": "30",
+              "itemText": "Different Styles",
+              "image": "/images/floor-img-2.webp"
+            },
+            {
+              "itemValue": "15k+",
+              "itemText": "Projects Completed",
+              "image": "/images/floor-img-4.webp"
+            }
+          ]
+        },
+        {
+          "id": "commercial",
+          "label": "Commercial",
+          "video": "/videos/floor-video-1.mp4",
+          "cards": [
+            {
+              "itemValue": "15k+",
+              "itemText": "Projects Completed",
+              "image": "/images/floor-img-4.webp"
+            },
+            {
+              "itemValue": "40k+",
+              "itemText": "Trusted Parties",
+              "image": "/images/floor-img-2.webp"
+            },
+            {
+              "itemValue": "30",
+              "itemText": "Different Styles",
+              "image": "/images/floor-img-3.webp"
+            },
+            {
+              "itemValue": "40k+",
+              "itemText": "Trusted Parties",
+              "image": "/images/floor-img-1.webp"
+            },
+            {
+              "itemValue": "30",
+              "itemText": "Different Styles",
+              "image": "/images/floor-img-2.webp"
+            }
+          ]
+        },
+        {
+          "id": "hospitality",
+          "label": "Hospitality",
+          "video": "/videos/floor-video-3.mp4",
+          "cards": [
+            {
+              "itemValue": "30",
+              "itemText": "Different Styles",
+              "image": "/images/floor-img-2.webp"
+            },
+            {
+              "itemValue": "15k+",
+              "itemText": "Projects Completed",
+              "image": "/images/floor-img-4.webp"
+            }
+          ]
+        },
+        {
+          "id": "outdoor",
+          "label": "Outdoor",
+          "video": "/videos/floor-video-1.mp4",
+          "cards": [
+            {
+              "itemValue": "Card 1",
+              "itemText": "Trusted Parties",
+              "image": "/images/floor-img-1.webp"
+            },
+            {
+              "itemValue": "Card 2",
+              "itemText": "Projects Completed",
+              "image": "/images/floor-img-2.webp"
+            }
+          ]
+        }
+      ]
+    },
+    "CollectionSection": {
+      "title": "Discover Our Collection",
+      "buttonLabel": "View All Products",
+      "itemButtonLabel": "View Products",
+      "items": [
+        {
+          "title": "Laminate Flooring",
+          "image": "/images/floor-img-5.webp"
+        },
+        {
+          "title": "Carpet Flooring",
+          "image": "/images/floor-img-2.webp"
+        },
+        {
+          "title": "Carpet Flooring",
+          "image": "/images/floor-img-4.webp"
+        },
+        {
+          "title": "Laminate Flooring",
+          "image": "/images/floor-img-6.webp"
+        }
+      ]
+    },
+    "BestSellerSection": {
+      "title": "Our Residential Bestsellers",
+      "filterLabel": "Filter",
+      "viewAllLabel": "View All Products",
+      "getSampleBtnLabel": "Get a sample",
+      "viewMoreBtnLabel": "View More",
+      "products": [
+        {
+          "category": "DECK FLOORING",
+          "title": "Landscaping Grass",
+          "description": "Crafted for modern exteriors, our landscaping grass brings structure, depth, and a contemporary finish to every garden.",
+          "tagLabel": "Best Seller",
+          "image": "/images/floor-img-8.webp"
+        },
+        {
+          "category": "CARPET FLOORING",
+          "title": "Carpet Tiles Pixel Block",
+          "description": "Crafted for modern interiors, Pixel Block Carpet Tiles bring structure, depth, and a contemporary modular look to any space. ted for modern exteriors, our landscaping grass brings structure, depth, and a contemporary finish to ever.",
+          "tagLabel": "Best Seller",
+          "image": "/images/floor-img-9.webp"
+        },
+        {
+          "category": "DECK FLOORING",
+          "title": "Acacia Deck Tiles",
+          "description": "Bring warmth and durability outdoors with Acacia Deck Tiles designed for relaxed poolside and terrace living.",
+          "tagLabel": "Best Seller",
+          "image": "/images/floor-img-10.webp"
+        },
+        {
+          "category": "VINYL FLOORING",
+          "title": "Oak Grain Vinyl",
+          "description": "A practical, low-maintenance surface with the natural character of timber for busy residential spaces.",
+          "tagLabel": "Best Seller",
+          "image": "/images/floor-img-4.webp"
+        },
+        {
+          "category": "ARTIFICIAL GRASS",
+          "title": "Garden Luxe",
+          "description": "Soft underfoot and evergreen year-round, Garden Luxe creates a polished landscape with minimal upkeep.",
+          "tagLabel": "Best Seller",
+          "image": "/images/floor-img-2.webp"
+        },
+        {
+          "category": "WOOD FLOORING",
+          "title": "Natural Herringbone",
+          "description": "Refined herringbone flooring adds rhythm and warmth to welcoming residential interiors.",
+          "tagLabel": "Best Seller",
+          "image": "/images/floor-img-8.webp"
+        }
+      ]
+    },
+    "BuiltForSection": {
+      "title": "Built for Every Space",
+      "categories": [
+        {
+          "name": "RESIDENTIAL",
+          "description": "Warm, considered flooring for homes that feel as good as they look.",
+          "cta": "Get Custom Solution",
+          "feature": "VINYL FLOORING",
+          "products": [
+            {
+              "name": "Carpet Tiles",
+              "image": "floor-2"
+            },
+            {
+              "name": "Wooden Flooring",
+              "image": "floor-3"
+            },
+            {
+              "name": "Deck Flooring",
+              "image": "floor-12"
+            },
+            {
+              "name": "Vinyl Flooring",
+              "image": "floor-7"
+            },
+            {
+              "name": "Artificial Grass",
+              "image": "floor-11"
+            },
+            {
+              "name": "Wooden Flooring",
+              "image": "floor-3"
+            },
+            {
+              "name": "Deck Flooring",
+              "image": "floor-12"
+            },
+            {
+              "name": "Carpet Tiles",
+              "image": "floor-2"
+            },
+            {
+              "name": "Wooden Flooring",
+              "image": "floor-3"
+            },
+            {
+              "name": "Deck Flooring",
+              "image": "floor-12"
+            }
+          ]
+        },
+        {
+          "name": "COMMERCIAL",
+          "description": "High-performance flooring for offices, retail spaces, and corporate environments that demand durability alongside aesthetics.",
+          "cta": "Get Custom Solution",
+          "feature": "VINYL FLOORING",
+          "products": [
+            {
+              "name": "Vinyl Flooring",
+              "image": "floor-7"
+            },
+            {
+              "name": "Artificial Grass",
+              "image": "floor-2"
+            },
+            {
+              "name": "Deck Flooring",
+              "image": "floor-12"
+            }
+          ]
+        },
+        {
+          "name": "HOSPITALITY",
+          "description": "Inviting surfaces and refined finishes for hotels, restaurants, and guest spaces built around memorable experiences.",
+          "cta": "Get Custom Solution",
+          "feature": "CARPET FLOORING",
+          "products": [
+            {
+              "name": "Artificial Grass",
+              "image": "floor-3"
+            },
+            {
+              "name": "Deck Flooring",
+              "image": "floor-12"
+            },
+            {
+              "name": "Carpet Tiles",
+              "image": "floor-11"
+            },
+            {
+              "name": "Wooden Flooring",
+              "image": "floor-2"
+            },
+            {
+              "name": "Vinyl Flooring",
+              "image": "floor-7"
+            },
+            {
+              "name": "Artificial Grass",
+              "image": "floor-3"
+            },
+            {
+              "name": "Deck Flooring",
+              "image": "floor-12"
+            },
+            {
+              "name": "Carpet Tiles",
+              "image": "floor-11"
+            },
+            {
+              "name": "Wooden Flooring",
+              "image": "floor-2"
+            },
+            {
+              "name": "Vinyl Flooring",
+              "image": "floor-7"
+            }
+          ]
+        },
+        {
+          "name": "OUTDOOR",
+          "description": "Durable outdoor finishes that bring comfort, character, and lasting performance to open-air spaces.",
+          "cta": "Get Custom Solution",
+          "feature": "DECK FLOORING",
+          "products": [
+            {
+              "name": "Carpet Tiles",
+              "image": "floor-12"
+            },
+            {
+              "name": "Wooden Flooring",
+              "image": "floor-7"
+            },
+            {
+              "name": "Vinyl Flooring",
+              "image": "floor-3"
+            },
+            {
+              "name": "Artificial Grass",
+              "image": "floor-11"
+            }
+          ]
+        }
+      ]
+    },
+    "WorksSection": {
+      "title": "Explore Our Work",
+      "categories": [
+        "ALL",
+        "RESIDENTIAL",
+        "COMMERCIAL",
+        "HOSPITALITY",
+        "OUTDOOR"
+      ],
+      "items": [
+        {
+          "id": "1",
+          "title": "Oakwood Herringbone Vinyl",
+          "category": "RESIDENTIAL",
+          "location": "Dubai, United Arab Emirates",
+          "featured": true,
+          "btnLabel": "View Project",
+          "image": "/images/floor-img-6.webp"
+        },
+        {
+          "id": "2",
+          "title": "Ash Grey Laminate Flooring",
+          "category": "COMMERCIAL",
+          "location": "Sharjah, United Arab Emirates",
+          "btnLabel": "View Project",
+          "image": "/images/floor-img-7.webp"
+        },
+        {
+          "id": "3",
+          "title": "Teak Outdoor Decking",
+          "category": "OUTDOOR",
+          "location": "Dubai, United Arab Emirates",
+          "btnLabel": "View Project",
+          "image": "/images/floor-img-8.webp"
+        },
+        {
+          "id": "4",
+          "title": "Walnut Hotel Flooring",
+          "category": "HOSPITALITY",
+          "location": "Ras Al Khaimah, United Arab Emirates",
+          "featured": true,
+          "btnLabel": "View Project",
+          "image": "/images/floor-img-5.webp"
+        },
+        {
+          "id": "5",
+          "title": "Classic Maple Laminate",
+          "category": "COMMERCIAL",
+          "location": "Ajman, United Arab Emirates",
+          "btnLabel": "View Project",
+          "image": "/images/floor-img-8.webp"
+        },
+        {
+          "id": "6",
+          "title": "Smoked Oak Vinyl Planks",
+          "category": "RESIDENTIAL",
+          "location": "Al Ain, United Arab Emirates",
+          "featured": true,
+          "btnLabel": "View Project",
+          "image": "/images/floor-img-6.webp"
+        },
+        {
+          "id": "7",
+          "title": "Weathered Wood Decking",
+          "category": "OUTDOOR",
+          "location": "Fujairah, United Arab Emirates",
+          "btnLabel": "View Project",
+          "image": "/images/floor-img-4.webp"
+        },
+        {
+          "id": "8",
+          "title": "Warm Walnut Resort Flooring",
+          "category": "HOSPITALITY",
+          "location": "Abu Dhabi, United Arab Emirates",
+          "featured": true,
+          "btnLabel": "View Project",
+          "image": "/images/floor-img-5.webp"
+        },
+        {
+          "id": "9",
+          "title": "Light Oak Chevron Flooring",
+          "category": "RESIDENTIAL",
+          "location": "Dubai, United Arab Emirates",
+          "btnLabel": "View Project",
+          "image": "/images/floor-img-6.webp"
+        },
+        {
+          "id": "10",
+          "title": "Deep Walnut Commercial SPC",
+          "category": "COMMERCIAL",
+          "location": "Dubai, United Arab Emirates",
+          "featured": true,
+          "btnLabel": "View Project",
+          "image": "/images/floor-img-7.webp"
+        }
+      ],
+      "viewAllProjectsBtnLabel": "View All Projects"
+    },
+    "CustomerExpSection": {
+      "title": "Customer Experiences",
+      "rating": "5.0 Ratings",
+      "reviews": [
+        {
+          "quote": "Donec sit amet turpis tincidunt eros, euismod non nam luctus vulputate dui penatibus pulvinar quis netus penatibus pretium.",
+          "name": "Isla Grace",
+          "role": "Customer",
+          "avatar": "https://i.pravatar.cc/120?img=47"
+        },
+        {
+          "quote": "The entire flooring experience was seamless from the first consultation through installation. The finish looks incredible.",
+          "name": "Marcus Reed",
+          "role": "Customer",
+          "avatar": "https://i.pravatar.cc/120?img=12"
+        },
+        {
+          "quote": "Professional advice, thoughtful details, and a beautiful result. We are thrilled with how our home came together.",
+          "name": "Sofia Bennett",
+          "role": "Customer",
+          "avatar": "https://i.pravatar.cc/120?img=32"
+        },
+        {
+          "quote": "The team understood our brief immediately and delivered on time. Every detail was handled with real care.",
+          "name": "Noah Williams",
+          "role": "Customer",
+          "avatar": "https://i.pravatar.cc/120?img=68"
+        },
+        {
+          "quote": "From samples to the final walkthrough, the service was attentive and reliable. I would happily recommend them.",
+          "name": "Amelia Carter",
+          "role": "Customer",
+          "avatar": "https://i.pravatar.cc/120?img=49"
+        },
+        {
+          "quote": "A polished, comfortable finish that completely changed the feeling of the room. Excellent work all around.",
+          "name": "Daniel Hayes",
+          "role": "Customer",
+          "avatar": "https://i.pravatar.cc/120?img=11"
+        }
+      ]
+    },
+    "TrustedPartnersSection": {
+      "title": "Trusted Across the UAE",
+      "partners": [
+        {
+          "name": "partner-name-1",
+          "image": "/images/trusted-img-1.png"
+        },
+        {
+          "name": "partner-name-2",
+          "image": "/images/trusted-img-2.png"
+        },
+        {
+          "name": "partner-name-3",
+          "image": "/images/trusted-img-3.png"
+        },
+        {
+          "name": "partner-name-4",
+          "image": "/images/trusted-img-4.png"
+        },
+        {
+          "name": "partner-name-5",
+          "image": "/images/trusted-img-5.png"
+        },
+        {
+          "name": "partner-name-6",
+          "image": "/images/trusted-img-3.png"
+        },
+        {
+          "name": "partner-name-7",
+          "image": "/images/trusted-img-2.png"
+        },
+        {
+          "name": "partner-name-8",
+          "image": "/images/trusted-img-6.png"
+        },
+        {
+          "name": "partner-name-9",
+          "image": "/images/trusted-img-7.png"
+        },
+        {
+          "name": "partner-name-10",
+          "image": "/images/trusted-img-1.png"
+        },
+        {
+          "name": "partner-name-11",
+          "image": "/images/trusted-img-3.png"
+        },
+        {
+          "name": "partner-name-12",
+          "image": "/images/trusted-img-4.png"
+        },
+        {
+          "name": "partner-name-7",
+          "image": "/images/trusted-img-2.png"
+        },
+        {
+          "name": "partner-name-8",
+          "image": "/images/trusted-img-6.png"
+        },
+        {
+          "name": "partner-name-9",
+          "image": "/images/trusted-img-7.png"
+        },
+        {
+          "name": "partner-name-10",
+          "image": "/images/trusted-img-1.png"
+        },
+        {
+          "name": "partner-name-11",
+          "image": "/images/trusted-img-3.png"
+        },
+        {
+          "name": "partner-name-12",
+          "image": "/images/trusted-img-4.png"
+        }
+      ]
+    },
+    "LookingForwardCard": {
+      "title": {
+        "first": "We are looking forward to",
+        "second": "meeting you"
+      },
+      "description": "Let's create beautiful spaces together. Our flooring specialists are ready to guide you from inspiration to installation.",
+      "btnLabel": "Enquire Now"
+    },
+    "PremiumSolutionsSection": {
+      "title": "Premium Flooring Solutions Across UAE & GCC",
+      "paragraphs": [
+        "Z&S Carpets & Flooring Is One Of The UAE's Most Trusted Flooring Specialists, Offering An Extensive Range Of Carpets, Artificial Grass, Vinyl Flooring, Engineered Wooden Flooring, Outdoor Decking And Decorative Rugs. With Over 15 Years Of Experience Serving Dubai, Abu Dhabi, Sharjah, And Across The GCC, We Bring Premium-Quality Flooring To Residential Villas, Corporate Offices, Hotels, Retail Outlets And Outdoor Spaces.",
+        "Our Team Of Flooring Consultants, Project Managers And Installation Technicians Are Committed To Delivering A Seamless Experience — From Product Selection And Sample Delivery To Site Measurement, Installation And Aftercare. Whether You're Refurbishing A Single Room Or Outfitting An Entire Development, Z&S Has The Expertise, Range And Resources To Deliver Exceptional Results."
+      ],
+      "buttonLabel": "See More"
+    }
+  },
+  "AboutPage": {
+    "BannerSection": {
+      "title": "About Us",
+      "description": "Delivering quality solutions with trust, innovation, and excellence.",
+      "image": "/images/floor-img-14.webp"
+    }
   }
 }

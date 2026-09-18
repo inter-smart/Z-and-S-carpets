@@ -1,4 +1,92 @@
 {
+  "Common": {
+    "ProcessSection": {
+      "eyebrow": "عمليتنا",
+      "title": "كيف نعمل",
+      "image": "/images/floor-img-1.webp",
+      "steps": [
+        {
+          "title": "التصميم",
+          "description": "نساعدك في اختيار حل الأرضيات المناسب لمساحتك."
+        },
+        {
+          "title": "الإشراف",
+          "description": "يشرف مديرو مشاريعنا على كل التفاصيل، بدءًا من الاختيار وحتى تجهيز الموقع."
+        },
+        {
+          "title": "تخطيط الميزانية",
+          "description": "تساعدك توصياتنا الواضحة والتخطيط العملي على تنفيذ مشروعك وفق الخطة."
+        },
+        {
+          "title": "التوصيل والتركيب",
+          "description": "يقوم فريقنا المتخصص بتوصيل وتركيب الأرضيات بعناية ودقة."
+        }
+      ]
+    },
+    "FAQSection": {
+      "title": "الأسئلة الشائعة",
+      "faqs": [
+        {
+          "question": "هل تقدمون عينات مجانية قبل الشراء؟",
+          "answer": "نعم، نقدم عينات مجانية لتتمكن من اختيار التشطيب والملمس واللون المناسب لمساحتك بثقة."
+        },
+        {
+          "question": "هل تقدمون خدمات التركيب خارج دبي؟",
+          "answer": "بالتأكيد. نخدم جميع دول مجلس التعاون الخليجي، بما في ذلك الإمارات والسعودية وقطر والكويت والبحرين وعُمان. ويمكن ترتيب التوصيل والتركيب في جميع أنحاء المنطقة."
+        },
+        {
+          "question": "كم يستغرق التركيب؟",
+          "answer": "تعتمد مدة التركيب على نوع المنتج وحجم المشروع. بعد معاينة الموقع وقياسه، سنقدم لك جدولًا زمنيًا واضحًا قبل بدء العمل."
+        },
+        {
+          "question": "هل يمكنكم المساعدة في التصميم والاختيار؟",
+          "answer": "يمكن لمستشاري الأرضيات لدينا مساعدتك في مقارنة المواد والتشطيبات والتصاميم لاختيار الحل الذي يناسب أسلوبك ومساحتك وميزانيتك."
+        },
+        {
+          "question": "هل توجد ضمانات على المنتجات والتركيب؟",
+          "answer": "نعم. تختلف ضمانات المنتجات والتركيب حسب المجموعة، وسيشرح لك فريقنا تفاصيل التغطية الخاصة بالأرضيات التي اخترتها قبل الشراء."
+        },
+        {
+          "question": "هل تتعاونون مع مصممي الديكور والمقاولين؟",
+          "answer": "نعم، نتعاون باستمرار مع مصممي الديكور الداخلي والمقاولين والمطورين وفرق المشاريع في جميع أنحاء الإمارات ودول مجلس التعاون الخليجي."
+        }
+      ]
+    },
+    "ChooseUsSection": {
+      "title": "لماذا يختارنا العملاء",
+      "features": [
+        {
+          "title": "مواد عالية الجودة",
+          "description": "نختارها من شركات تصنيع عالمية وفق معايير جودة صارمة."
+        },
+        {
+          "title": "مجموعة واسعة من المنتجات",
+          "description": "مئات الخيارات من السجاد والفينيل والخشب والعشب وغيرها."
+        },
+        {
+          "title": "حلول مخصصة",
+          "description": "استشارات تصميم مخصصة لكل مشروع، مهما كان حجمه."
+        },
+        {
+          "title": "أسعار تنافسية",
+          "description": "أسعار تنافسية في السوق دون المساومة على الجودة."
+        },
+        {
+          "title": "توصيل في جميع دول الخليج",
+          "description": "خدمات توصيل وتركيب موثوقة في جميع دول مجلس التعاون الخليجي."
+        },
+        {
+          "title": "تركيب احترافي",
+          "description": "فرق متخصصة تضمن تشطيبًا متقنًا في كل عملية تركيب."
+        }
+      ],
+      "cta": {
+        "title": ["جودة موثوقة.", "نتائج مثبتة."],
+        "description": "نقدم حلولًا موثوقة بجودة استثنائية ورضا عالٍ للعملاء.",
+        "btnLabel": "اعثر على السجاد المثالي لك"
+      }
+    }
+  },
   "Navbar": {
     "menuBtnLable": "القائمة",
     "navLinks": [
@@ -16,7 +104,7 @@
           "link": ""
         },
         {
-          "text": "الموارد",
+          "text": "المصادر",
           "link": ""
         }
       ],
@@ -26,7 +114,7 @@
           "link": ""
         },
         {
-          "text": "اتصل بنا",
+          "text": "تواصل معنا",
           "link": ""
         },
         {
@@ -49,596 +137,16 @@
         "title": "أرضيات SPC"
       },
       {
-        "title": "أرضيات اللامينيت"
+        "title": "أرضيات لامينيت"
       },
       {
         "title": "أرضيات السجاد"
       },
       {
-        "title": "من أرضيات LVT"
+        "title": "أرضيات LVT"
       }
     ],
     "categoryMoreBtnLable": "المزيد"
-  },
-  "BannerSection": {
-    "mainTag": "خبراء موثوقون في الأرضيات في الإمارات ودول مجلس التعاون الخليجي",
-    "description": "للمنازل والمكاتب والمساحات التجارية",
-    "btnLabel": "اطلب عرض سعر",
-    "category": [
-      {
-        "id": "residential",
-        "label": "سكني",
-        "video": "/videos/floor-video-2.mp4",
-        "cards": [
-          {
-            "itemValue": "40 ألف+",
-            "itemText": "جهة تثق بنا",
-            "image": "/images/floor-img-1.webp"
-          },
-          {
-            "itemValue": "30",
-            "itemText": "تصميمًا مختلفًا",
-            "image": "/images/floor-img-2.webp"
-          },
-          {
-            "itemValue": "15 ألف+",
-            "itemText": "مشروعًا تم إنجازه",
-            "image": "/images/floor-img-4.webp"
-          }
-        ]
-      },
-      {
-        "id": "commercial",
-        "label": "تجاري",
-        "video": "/videos/floor-video-1.mp4",
-        "cards": [
-          {
-            "itemValue": "15 ألف+",
-            "itemText": "مشروعًا تم إنجازه",
-            "image": "/images/floor-img-4.webp"
-          },
-          {
-            "itemValue": "40 ألف+",
-            "itemText": "جهة تثق بنا",
-            "image": "/images/floor-img-2.webp"
-          },
-          {
-            "itemValue": "30",
-            "itemText": "تصميمًا مختلفًا",
-            "image": "/images/floor-img-3.webp"
-          },
-          {
-            "itemValue": "40 ألف+",
-            "itemText": "جهة تثق بنا",
-            "image": "/images/floor-img-1.webp"
-          },
-          {
-            "itemValue": "30",
-            "itemText": "تصميمًا مختلفًا",
-            "image": "/images/floor-img-2.webp"
-          }
-        ]
-      },
-      {
-        "id": "hospitality",
-        "label": "ضيافة",
-        "video": "/videos/floor-video-3.mp4",
-        "cards": [
-          {
-            "itemValue": "30",
-            "itemText": "تصميمًا مختلفًا",
-            "image": "/images/floor-img-2.webp"
-          },
-          {
-            "itemValue": "15 ألف+",
-            "itemText": "مشروعًا تم إنجازه",
-            "image": "/images/floor-img-4.webp"
-          }
-        ]
-      },
-      {
-        "id": "outdoor",
-        "label": "مساحات خارجية",
-        "video": "/videos/floor-video-1.mp4",
-        "cards": [
-          {
-            "itemValue": "البطاقة 1",
-            "itemText": "جهة تثق بنا",
-            "image": "/images/floor-img-1.webp"
-          },
-          {
-            "itemValue": "البطاقة 2",
-            "itemText": "مشروعًا تم إنجازه",
-            "image": "/images/floor-img-2.webp"
-          }
-        ]
-      }
-    ]
-  },
-  "collection": {
-    "title": "اكتشف مجموعتنا",
-    "buttonLabel": "عرض جميع المنتجات",
-    "items": [
-      {
-        "title": "أرضيات اللامينيت",
-        "image": "/images/floor-img-5.webp"
-      },
-      {
-        "id": "carpet-flooring",
-        "title": "أرضيات السجاد",
-        "image": "/images/floor-img-2.webp"
-      },
-      {
-        "title": "أرضيات اللامينيت",
-        "image": "/images/floor-img-4.webp"
-      }
-    ],
-    "itemButtonLabel": "عرض المنتجات"
-  },
-  "process": {
-    "eyebrow": "عمليتنا",
-    "title": "كيف نعمل",
-    "image": "/images/floor-img-1.webp",
-    "steps": [
-      {
-        "title": "التصميم",
-        "description": "نساعدك في تحديد خيار الأرضيات المناسب لمساحتك."
-      },
-      {
-        "title": "الإشراف",
-        "description": "يشرف مديرو مشاريعنا على كل تفصيل بدءًا من الاختيار وحتى تجهيز الموقع."
-      },
-      {
-        "title": "تخطيط الميزانية",
-        "description": "تساعدك التوصيات الواضحة والتخطيط العملي على إبقاء مشروعك على المسار الصحيح."
-      },
-      {
-        "title": "التوصيل والتركيب",
-        "description": "يقوم فريقنا الماهر بتوصيل وتركيب أرضياتك بعناية."
-      }
-    ]
-  },
-  "works": {
-    "title": "استكشف أعمالنا",
-    "categories": ["الكل", "سكني", "تجاري", "ضيافة", "خارجي"],
-    "items": [
-      {
-        "id": "1",
-        "title": "أرضيات فينيل أوك وود",
-        "category": "سكني",
-        "location": "دبي، الإمارات العربية المتحدة",
-        "featured": true,
-        "btnLabel": "عرض المشروع",
-        "image": "/images/floor-img-6.webp"
-      },
-      {
-        "id": "2",
-        "title": "أرضيات لامينيت الفاتح",
-        "category": "تجاري",
-        "location": "الشارقة، الإمارات العربية المتحدة",
-        "btnLabel": "عرض المشروع",
-        "image": "/images/floor-img-7.webp"
-      },
-      {
-        "id": "3",
-        "title": "أرضيات خشبية خشب الساج",
-        "category": "مساحات خارجية",
-        "location": "دبي، الإمارات العربية المتحدة",
-        "btnLabel": "عرض المشروع",
-        "image": "/images/floor-img-8.webp"
-      },
-      {
-        "id": "4",
-        "title": "أرضيات خشب الجوز",
-        "category": "ضيافة",
-        "location": "رأس الخيمة، الإمارات العربية المتحدة",
-        "featured": true,
-        "btnLabel": "عرض المشروع",
-        "image": "/images/floor-img-5.webp"
-      },
-      {
-        "id": "5",
-        "title": "أرضيات لامينيت خشب القيقب",
-        "category": "تجاري",
-        "location": "عجمان، الإمارات العربية المتحدة",
-        "btnLabel": "عرض المشروع",
-        "image": "/images/floor-img-8.webp"
-      },
-      {
-        "id": "6",
-        "title": "ألواح فينيل المدخن",
-        "category": "سكني",
-        "location": "العين، الإمارات العربية المتحدة",
-        "featured": true,
-        "btnLabel": "عرض المشروع",
-        "image": "/images/floor-img-6.webp"
-      },
-      {
-        "id": "7",
-        "title": "أرضيات خشبية خارجية المعتّق",
-        "category": "مساحات خارجية",
-        "location": "الفجيرة، الإمارات العربية المتحدة",
-        "btnLabel": "عرض المشروع",
-        "image": "/images/floor-img-4.webp"
-      },
-      {
-        "id": "8",
-        "title": "أرضيات منتمن خشب الجوز",
-        "category": "ضيافة",
-        "location": "أبوظبي، الإمارات العربية المتحدة",
-        "featured": true,
-        "btnLabel": "عرض المشروع",
-        "image": "/images/floor-img-5.webp"
-      },
-      {
-        "id": "9",
-        "title": "أرضيات شيفرون البلوط",
-        "category": "سكني",
-        "location": "دبي، الإمارات العربية المتحدة",
-        "btnLabel": "عرض المشروع",
-        "image": "/images/floor-img-6.webp"
-      },
-      {
-        "id": "10",
-        "title": "أرضيات SPC تارية باللون",
-        "category": "تجاري",
-        "location": "دبي، الإمارات العربية المتحدة",
-        "featured": true,
-        "btnLabel": "عرض المشروع",
-        "image": "/images/floor-img-7.webp"
-      }
-    ],
-    "viewAllProjectsBtnLabel": "عرض جميع المشاريع"
-  },
-  "bestseller": {
-    "title": "الأكثر مبيعًا للمنازل",
-    "filterLabel": "تصفية",
-    "viewAllLabel": "عرض جميع المنتجات",
-    "getSampleBtnLabel": "احصل على عينة",
-    "viewMoreBtnLabel": "عرض المزيد",
-    "products": [
-      {
-        "category": "أرضيات الديك",
-        "title": "عشب تنسيق الحدائق",
-        "description": "صُمم عشب تنسيق الحدائق لدينا للمساحات الخارجية العصرية، ليضيف تنسيقًا وعمقًا ولمسة نهائية معاصرة إلى كل حديقة.",
-        "tagLabel": "الأكثر مبيعًا",
-        "image": "/images/floor-img-8.webp"
-      },
-      {
-        "category": "أرضيات السجاد",
-        "title": "بلاطات سجاد بيكسل بلوك",
-        "description": "صُممت بلاطات سجاد بيكسل بلوك للتصاميم الداخلية العصرية، لتضيف تنسيقًا وعمقًا ومظهرًا عصريًا بتصميم وحدات إلى أي مساحة.",
-        "tagLabel": "الأكثر مبيعًا",
-        "image": "/images/floor-img-9.webp"
-      },
-      {
-        "category": "أرضيات الديك",
-        "title": "بلاطات ديك الأكاسيا",
-        "description": "أضف الدفء والمتانة إلى المساحات الخارجية مع بلاطات ديك الأكاسيا المصممة للاستمتاع المريح بجانب المسبح وعلى الشرفات.",
-        "tagLabel": "الأكثر مبيعًا",
-        "image": "/images/floor-img-10.webp"
-      },
-      {
-        "category": "أرضيات الفينيل",
-        "title": "فينيل بنقشة خشب البلوط",
-        "description": "سطح عملي وسهل الصيانة يتميز بالطابع الطبيعي للخشب، ومناسب للمساحات السكنية كثيرة الاستخدام.",
-        "tagLabel": "الأكثر مبيعًا",
-        "image": "/images/floor-img-4.webp"
-      },
-      {
-        "category": "العشب الصناعي",
-        "title": "جاردن لوكس",
-        "description": "ناعمة تحت القدم وخضراء طوال العام، تضفي جاردن لوكس مظهرًا أنيقًا على المناظر الطبيعية مع الحد الأدنى من الصيانة.",
-        "tagLabel": "الأكثر مبيعًا",
-        "image": "/images/floor-img-2.webp"
-      },
-      {
-        "category": "الأرضيات الخشبية",
-        "title": "نمط متعرج طبيعي",
-        "description": "تضيف أرضيات النمط المتعرج الراقية إيقاعًا ودفئًا إلى التصاميم الداخلية السكنية الترحيبية.",
-        "tagLabel": "الأكثر مبيعًا",
-        "image": "/images/floor-img-8.webp"
-      }
-    ]
-  },
-  "FAQ": {
-    "title": "الأسئلة الشائعة",
-    "faqs": [
-      {
-        "question": "هل تقدمون عينات مجانية قبل الشراء؟",
-        "answer": "نعم، نقدم عينات مجانية لتتمكن من اختيار التشطيب والملمس واللون المناسب لمساحتك بثقة."
-      },
-      {
-        "question": "هل تقومون بالتركيب خارج دبي؟",
-        "answer": "بالتأكيد. نخدم جميع دول مجلس التعاون الخليجي، بما في ذلك الإمارات والسعودية وقطر والكويت والبحرين وعُمان. ويمكن ترتيب التوصيل والتركيب في جميع أنحاء المنطقة."
-      },
-      {
-        "question": "كم يستغرق التركيب؟",
-        "answer": "تعتمد مدة التركيب على المنتج وحجم المشروع. بعد إجراء قياس الموقع، سنقدم لك جدولًا زمنيًا واضحًا قبل بدء العمل."
-      },
-      {
-        "question": "هل يمكنكم المساعدة في التصميم والاختيار؟",
-        "answer": "يمكن لمستشاري الأرضيات لدينا مساعدتك في مقارنة المواد والتشطيبات والتصاميم للعثور على حل يناسب أسلوبك ومساحتك وميزانيتك."
-      },
-      {
-        "question": "هل توجد ضمانة على المنتجات والتركيب؟",
-        "answer": "نعم. تختلف ضمانات المنتجات والتركيب حسب المجموعة، وسيشرح لك فريقنا نطاق التغطية لأرضياتك المختارة قبل الشراء."
-      },
-      {
-        "question": "هل تعملون مع مصممي الديكور الداخلي والمقاولين؟",
-        "answer": "نعم، نتعاون بانتظام مع مصممي الديكور الداخلي والمقاولين والمطورين وفرق المشاريع في جميع أنحاء الإمارات ودول مجلس التعاون الخليجي."
-      }
-    ],
-    "pfs": {
-      "title": "حلول أرضيات فاخرة في جميع أنحاء الإمارات ودول مجلس التعاون الخليجي",
-      "paragraphs": [
-        "تُعد Z&S Carpets & Flooring واحدة من أكثر شركات الأرضيات موثوقية في الإمارات، حيث تقدم مجموعة واسعة من السجاد والعشب الصناعي وأرضيات الفينيل والأرضيات الخشبية الهندسية والأرضيات الخارجية والسجاد الزخرفي. وبخبرة تزيد على 15 عامًا في خدمة دبي وأبوظبي والشارقة وجميع أنحاء دول مجلس التعاون الخليجي، نوفر أرضيات عالية الجودة للفلل السكنية والمكاتب والشركات والفنادق ومنافذ البيع بالتجزئة والمساحات الخارجية.",
-        "يلتزم فريقنا من مستشاري الأرضيات ومديري المشاريع وفنيي التركيب بتقديم تجربة سلسة — بدءًا من اختيار المنتج وتوصيل العينات وحتى قياس الموقع والتركيب وخدمات ما بعد البيع. سواء كنت تجدد غرفة واحدة أو تجهز مشروعًا متكاملًا، تمتلك Z&S الخبرة والتنوع والموارد اللازمة لتحقيق نتائج استثنائية."
-      ],
-      "buttonLabel": "عرض المزيد"
-    }
-  },
-  "testimonials": {
-    "title": "تجارب العملاء",
-    "rating": "تقييمات 5.0",
-    "reviews": [
-      {
-        "quote": "لقد كان من دواعي سرورنا التعامل معكم، ونشكركم على جودة الخدمة والاهتمام بالتفاصيل.",
-        "name": "إيلا غريس",
-        "role": "عميل",
-        "avatar": "https://i.pravatar.cc/120?img=47"
-      },
-      {
-        "quote": "كانت تجربة الأرضيات بأكملها سلسة بدءًا من الاستشارة الأولى وحتى التركيب. والنتيجة النهائية تبدو رائعة.",
-        "name": "ماركوس ريد",
-        "role": "عميل",
-        "avatar": "https://i.pravatar.cc/120?img=12"
-      },
-      {
-        "quote": "نصائح احترافية، واهتمام بالتفاصيل، ونتيجة جميلة. نحن سعداء جدًا بالشكل الذي أصبح عليه منزلنا.",
-        "name": "صوفيا بينيت",
-        "role": "عميل",
-        "avatar": "https://i.pravatar.cc/120?img=32"
-      },
-      {
-        "quote": "فهم الفريق متطلباتنا فورًا وأنجز العمل في الوقت المحدد. تم التعامل مع كل التفاصيل بعناية فائقة.",
-        "name": "نواه ويليامز",
-        "role": "عميل",
-        "avatar": "https://i.pravatar.cc/120?img=68"
-      },
-      {
-        "quote": "من العينات وحتى الجولة النهائية، كانت الخدمة متميزة وموثوقة. أوصي بهم بكل سرور.",
-        "name": "أميليا كارتر",
-        "role": "عميل",
-        "avatar": "https://i.pravatar.cc/120?img=49"
-      },
-      {
-        "quote": "تشطيب أنيق ومريح غيّر أجواء الغرفة بالكامل. عمل ممتاز من جميع النواحي.",
-        "name": "دانيال هايز",
-        "role": "عميل",
-        "avatar": "https://i.pravatar.cc/120?img=11"
-      }
-    ]
-  },
-  "BuiltFor": {
-    "title": "مصمم لكل مساحة",
-    "categories": [
-      {
-        "name": "سكني",
-        "description": "أرضيات دافئة ومدروسة للمنازل التي تبدو رائعة وتشعرك بالراحة.",
-        "cta": "استكشف الحلول السكنية",
-        "feature": "أرضيات الفينيل",
-        "products": [
-          {
-            "name": "بلاطات السجاد",
-            "image": "floor-2"
-          },
-          {
-            "name": "الأرضيات الخشبية",
-            "image": "floor-3"
-          },
-          {
-            "name": "أرضيات الفينيل",
-            "image": "floor-7"
-          },
-          {
-            "name": "العشب الصناعي",
-            "image": "floor-11"
-          },
-          {
-            "name": "أرضيات الفينيل",
-            "image": "floor-7"
-          },
-          {
-            "name": "العشب الصناعي",
-            "image": "floor-2"
-          },
-          {
-            "name": "أرضيات الديك",
-            "image": "floor-12"
-          },
-          {
-            "name": "أرضيات الفينيل",
-            "image": "floor-7"
-          },
-          {
-            "name": "العشب الصناعي",
-            "image": "floor-2"
-          },
-          {
-            "name": "أرضيات الديك",
-            "image": "floor-12"
-          }
-        ]
-      },
-      {
-        "name": "تجاري",
-        "description": "أرضيات عالية الأداء للمكاتب ومساحات البيع بالتجزئة والبيئات المؤسسية التي تتطلب المتانة إلى جانب الجماليات.",
-        "cta": "احصل على حل مخصص",
-        "feature": "أرضيات الفينيل",
-        "products": [
-          {
-            "name": "أرضيات الفينيل",
-            "image": "floor-7"
-          },
-          {
-            "name": "العشب الصناعي",
-            "image": "floor-2"
-          },
-          {
-            "name": "أرضيات الديك",
-            "image": "floor-12"
-          }
-        ]
-      },
-      {
-        "name": "ضيافة",
-        "description": "أسطح جذابة وتشطيبات راقية للفنادق والمطاعم ومساحات الضيوف المصممة لتقديم تجارب لا تُنسى.",
-        "cta": "استكشف حلول الضيافة",
-        "feature": "أرضيات السجاد",
-        "products": [
-          {
-            "name": "العشب الصناعي",
-            "image": "floor-3"
-          },
-          {
-            "name": "أرضيات الديك",
-            "image": "floor-12"
-          },
-          {
-            "name": "بلاطات السجاد",
-            "image": "floor-11"
-          },
-          {
-            "name": "الأرضيات الخشبية",
-            "image": "floor-2"
-          },
-          {
-            "name": "أرضيات الفينيل",
-            "image": "floor-7"
-          }
-        ]
-      },
-      {
-        "name": "خارجي",
-        "description": "تشطيبات خارجية متينة تضفي الراحة والطابع والأداء المستدام على المساحات المفتوحة.",
-        "cta": "استكشف الحلول الخارجية",
-        "feature": "أرضيات الديك",
-        "products": [
-          {
-            "name": "بلاطات السجاد",
-            "image": "floor-12"
-          },
-          {
-            "name": "الأرضيات الخشبية",
-            "image": "floor-7"
-          },
-          {
-            "name": "أرضيات الفينيل",
-            "image": "floor-3"
-          },
-          {
-            "name": "العشب الصناعي",
-            "image": "floor-11"
-          }
-        ]
-      }
-    ]
-  },
-  "ChooseUs": {
-    "title": "لماذا يختارنا العملاء",
-    "features": [
-      {
-        "title": "مواد عالية الجودة",
-        "description": "مصادرها من شركات تصنيع عالمية المستوى تلتزم بمعايير جودة صارمة."
-      },
-      {
-        "title": "مجموعة واسعة من المنتجات",
-        "description": "مئات الخيارات من السجاد والفينيل والخشب والعشب والمزيد."
-      },
-      {
-        "title": "حلول مخصصة",
-        "description": "استشارات تصميم مخصصة لكل مشروع، كبيرًا كان أم صغيرًا."
-      },
-      {
-        "title": "أسعار تنافسية",
-        "description": "أفضل الأسعار في السوق دون المساومة على الجودة."
-      },
-      {
-        "title": "التوصيل في جميع دول مجلس التعاون الخليجي",
-        "description": "توصيل وتركيب موثوقان في جميع دول مجلس التعاون الخليجي."
-      },
-      {
-        "title": "تركيب احترافي",
-        "description": "فرق متخصصة تضمن تشطيبًا مثاليًا في كل عملية تركيب."
-      }
-    ],
-    "cta": {
-      "title": ["جودة موثوقة.", "نتائج مثبتة."],
-      "description": "نقدم حلولًا موثوقة بجودة استثنائية ورضا عالٍ للعملاء.",
-      "btnLabel": "اعثر على سجادتك المثالية"
-    }
-  },
-  "TrustedPartner": {
-    "title": "موثوق بنا في جميع أنحاء الإمارات",
-    "partners": [
-      {
-        "name": "partner-name-1",
-        "image": "/images/trusted-img-1.png"
-      },
-      {
-        "name": "partner-name-2",
-        "image": "/images/trusted-img-2.png"
-      },
-      {
-        "name": "partner-name-3",
-        "image": "/images/trusted-img-3.png"
-      },
-      {
-        "name": "partner-name-4",
-        "image": "/images/trusted-img-4.png"
-      },
-      {
-        "name": "partner-name-5",
-        "image": "/images/trusted-img-5.png"
-      },
-      {
-        "name": "partner-name-6",
-        "image": "/images/trusted-img-3.png"
-      },
-      {
-        "name": "partner-name-7",
-        "image": "/images/trusted-img-2.png"
-      },
-      {
-        "name": "partner-name-8",
-        "image": "/images/trusted-img-6.png"
-      },
-      {
-        "name": "partner-name-9",
-        "image": "/images/trusted-img-7.png"
-      },
-      {
-        "name": "partner-name-10",
-        "image": "/images/trusted-img-1.png"
-      },
-      {
-        "name": "partner-name-11",
-        "image": "/images/trusted-img-3.png"
-      },
-      {
-        "name": "partner-name-12",
-        "image": "/images/trusted-img-4.png"
-      }
-    ]
-  },
-  "LookingForwardMsg": {
-    "title": {
-      "first": "نتطلع إلى",
-      "second": "لقائك"
-    },
-    "description": "لنصنع مساحات جميلة معًا. متخصصو الأرضيات لدينا مستعدون لإرشادك من مرحلة الإلهام وحتى التركيب.",
-    "btnLabel": "استفسر الآن"
   },
   "Footer": {
     "images": [
@@ -676,7 +184,7 @@
         "title": "الخدمات",
         "items": [
           {
-            "text": "استشارة تصميم",
+            "text": "استشارات التصميم",
             "link": ""
           },
           {
@@ -714,7 +222,7 @@
               "link": ""
             },
             {
-              "text": "الأرضيات الخشبية",
+              "text": "أرضيات خشبية",
               "link": ""
             },
             {
@@ -732,7 +240,7 @@
               "link": ""
             },
             {
-              "text": "الأرضيات المطاطية",
+              "text": "أرضيات مطاطية",
               "link": ""
             },
             {
@@ -744,7 +252,7 @@
               "link": ""
             },
             {
-              "text": "أرضيات اللامينيت",
+              "text": "أرضيات لامينيت",
               "link": ""
             },
             {
@@ -757,7 +265,7 @@
     },
     "contacts": {
       "location": {
-        "text": "المستودع رقم 5، الشارع رقم 2، الورسان -3، دبي (الإمارات العربية المتحدة)",
+        "label": "Warehouse No:5, Street No:2 Al Warsan -3, Dubai (UAE)",
         "link": ""
       },
       "mail": {
@@ -795,7 +303,563 @@
         "link": ""
       }
     ],
-    "copyright": "Copyright © Z&S Carpets Trading L.L.C. All Rights Reserved",
+    "copyright": "حقوق الطبع والنشر © Z&S Carpets Trading L.L.C. جميع الحقوق محفوظة",
     "designedByLabel": "تصميم بواسطة"
+  },
+  "HomePage": {
+    "BannerSection": {
+      "mainTag": "خبراء موثوقون في الأرضيات في الإمارات ودول مجلس التعاون الخليجي",
+      "description": "للمنازل والمكاتب والمساحات التجارية",
+      "btnLabel": "اطلب عرض سعر",
+      "category": [
+        {
+          "id": "residential",
+          "label": "سكني",
+          "video": "/videos/floor-video-2.mp4",
+          "cards": [
+            {
+              "itemValue": "40k+",
+              "itemText": "جهة تثق بنا",
+              "image": "/images/floor-img-1.webp"
+            },
+            {
+              "itemValue": "30",
+              "itemText": "تصميمًا مختلفًا",
+              "image": "/images/floor-img-2.webp"
+            },
+            {
+              "itemValue": "15k+",
+              "itemText": "مشروعًا تم إنجازه",
+              "image": "/images/floor-img-4.webp"
+            }
+          ]
+        },
+        {
+          "id": "commercial",
+          "label": "تجاري",
+          "video": "/videos/floor-video-1.mp4",
+          "cards": [
+            {
+              "itemValue": "15k+",
+              "itemText": "مشروعًا تم إنجازه",
+              "image": "/images/floor-img-4.webp"
+            },
+            {
+              "itemValue": "40k+",
+              "itemText": "جهة تثق بنا",
+              "image": "/images/floor-img-2.webp"
+            },
+            {
+              "itemValue": "30",
+              "itemText": "تصميمًا مختلفًا",
+              "image": "/images/floor-img-3.webp"
+            },
+            {
+              "itemValue": "40k+",
+              "itemText": "جهة تثق بنا",
+              "image": "/images/floor-img-1.webp"
+            },
+            {
+              "itemValue": "30",
+              "itemText": "تصميمًا مختلفًا",
+              "image": "/images/floor-img-2.webp"
+            }
+          ]
+        },
+        {
+          "id": "hospitality",
+          "label": "ضيافة",
+          "video": "/videos/floor-video-3.mp4",
+          "cards": [
+            {
+              "itemValue": "30",
+              "itemText": "تصميمًا مختلفًا",
+              "image": "/images/floor-img-2.webp"
+            },
+            {
+              "itemValue": "15k+",
+              "itemText": "مشروعًا تم إنجازه",
+              "image": "/images/floor-img-4.webp"
+            }
+          ]
+        },
+        {
+          "id": "outdoor",
+          "label": "مساحات خارجية",
+          "video": "/videos/floor-video-1.mp4",
+          "cards": [
+            {
+              "itemValue": "البطاقة 1",
+              "itemText": "جهة تثق بنا",
+              "image": "/images/floor-img-1.webp"
+            },
+            {
+              "itemValue": "البطاقة 2",
+              "itemText": "مشروعًا تم إنجازه",
+              "image": "/images/floor-img-2.webp"
+            }
+          ]
+        }
+      ]
+    },
+    "CollectionSection": {
+      "title": "اكتشف مجموعتنا",
+      "buttonLabel": "عرض جميع المنتجات",
+      "itemButtonLabel": "عرض المنتجات",
+      "items": [
+        {
+          "title": "أرضيات لامينيت",
+          "image": "/images/floor-img-5.webp"
+        },
+        {
+          "title": "أرضيات السجاد",
+          "image": "/images/floor-img-2.webp"
+        },
+        {
+          "title": "أرضيات السجاد",
+          "image": "/images/floor-img-4.webp"
+        },
+        {
+          "title": "أرضيات لامينيت",
+          "image": "/images/floor-img-6.webp"
+        }
+      ]
+    },
+    "BestSellerSection": {
+      "title": "الأكثر مبيعًا لمشاريعنا السكنية",
+      "filterLabel": "تصفية",
+      "viewAllLabel": "عرض جميع المنتجات",
+      "getSampleBtnLabel": "احصل على عينة",
+      "viewMoreBtnLabel": "عرض المزيد",
+      "products": [
+        {
+          "category": "أرضيات الديك",
+          "title": "عشب تنسيق الحدائق",
+          "description": "صُمم عشب تنسيق الحدائق لدينا للمساحات الخارجية العصرية، ليمنح كل حديقة مظهرًا منظمًا وعمقًا ولمسة عصرية أنيقة.",
+          "tagLabel": "الأكثر مبيعًا",
+          "image": "/images/floor-img-8.webp"
+        },
+        {
+          "category": "أرضيات السجاد",
+          "title": "بلاطات سجاد Pixel Block",
+          "description": "صُممت بلاطات سجاد Pixel Block للمساحات الداخلية العصرية، لتمنح أي مساحة مظهرًا منظمًا وعميقًا وعصريًا بنمط وحدات أنيق.",
+          "tagLabel": "الأكثر مبيعًا",
+          "image": "/images/floor-img-9.webp"
+        },
+        {
+          "category": "أرضيات الديك",
+          "title": "بلاطات ديك من خشب الأكاسيا",
+          "description": "أضف الدفء والمتانة إلى المساحات الخارجية مع بلاطات الديك المصنوعة من خشب الأكاسيا، والمصممة للجلوس والاسترخاء بجوار المسبح وفي التراسات.",
+          "tagLabel": "الأكثر مبيعًا",
+          "image": "/images/floor-img-10.webp"
+        },
+        {
+          "category": "أرضيات الفينيل",
+          "title": "فينيل بنقشة خشب البلوط",
+          "description": "سطح عملي وسهل الصيانة يتميز بالطابع الطبيعي للخشب، ومناسب للمساحات السكنية كثيرة الاستخدام.",
+          "tagLabel": "الأكثر مبيعًا",
+          "image": "/images/floor-img-4.webp"
+        },
+        {
+          "category": "العشب الصناعي",
+          "title": "Garden Luxe",
+          "description": "ناعم تحت القدم ويحافظ على مظهره الأخضر طوال العام، ليمنح Garden Luxe حديقتك مظهرًا أنيقًا مع أقل قدر من الصيانة.",
+          "tagLabel": "الأكثر مبيعًا",
+          "image": "/images/floor-img-2.webp"
+        },
+        {
+          "category": "أرضيات خشبية",
+          "title": "نقشة عظم السمك الطبيعية",
+          "description": "تضيف أرضيات عظم السمك الأنيقة إيقاعًا ودفئًا إلى المساحات الداخلية السكنية الترحيبية.",
+          "tagLabel": "الأكثر مبيعًا",
+          "image": "/images/floor-img-8.webp"
+        }
+      ]
+    },
+    "BuiltForSection": {
+      "title": "مصمم لكل مساحة",
+      "categories": [
+        {
+          "name": "RESIDENTIAL",
+          "description": "أرضيات دافئة ومدروسة للمنازل التي تجمع بين جمال المظهر وروعة الإحساس.",
+          "cta": "احصل على حل مخصص",
+          "feature": "أرضيات الفينيل",
+          "products": [
+            {
+              "name": "بلاطات السجاد",
+              "image": "floor-2"
+            },
+            {
+              "name": "أرضيات خشبية",
+              "image": "floor-3"
+            },
+            {
+              "name": "أرضيات الديك",
+              "image": "floor-12"
+            },
+            {
+              "name": "أرضيات الفينيل",
+              "image": "floor-7"
+            },
+            {
+              "name": "العشب الصناعي",
+              "image": "floor-11"
+            },
+            {
+              "name": "أرضيات خشبية",
+              "image": "floor-3"
+            },
+            {
+              "name": "أرضيات الديك",
+              "image": "floor-12"
+            },
+            {
+              "name": "بلاطات السجاد",
+              "image": "floor-2"
+            },
+            {
+              "name": "أرضيات خشبية",
+              "image": "floor-3"
+            },
+            {
+              "name": "أرضيات الديك",
+              "image": "floor-12"
+            }
+          ]
+        },
+        {
+          "name": "COMMERCIAL",
+          "description": "أرضيات عالية الأداء للمكاتب ومساحات البيع بالتجزئة والبيئات المؤسسية التي تتطلب المتانة إلى جانب الجمال.",
+          "cta": "احصل على حل مخصص",
+          "feature": "أرضيات الفينيل",
+          "products": [
+            {
+              "name": "أرضيات الفينيل",
+              "image": "floor-7"
+            },
+            {
+              "name": "العشب الصناعي",
+              "image": "floor-2"
+            },
+            {
+              "name": "أرضيات الديك",
+              "image": "floor-12"
+            }
+          ]
+        },
+        {
+          "name": "HOSPITALITY",
+          "description": "أسطح جذابة وتشطيبات راقية للفنادق والمطاعم ومساحات الضيوف، مصممة لتقديم تجارب لا تُنسى.",
+          "cta": "احصل على حل مخصص",
+          "feature": "أرضيات السجاد",
+          "products": [
+            {
+              "name": "العشب الصناعي",
+              "image": "floor-3"
+            },
+            {
+              "name": "أرضيات الديك",
+              "image": "floor-12"
+            },
+            {
+              "name": "بلاطات السجاد",
+              "image": "floor-11"
+            },
+            {
+              "name": "أرضيات خشبية",
+              "image": "floor-2"
+            },
+            {
+              "name": "أرضيات الفينيل",
+              "image": "floor-7"
+            },
+            {
+              "name": "العشب الصناعي",
+              "image": "floor-3"
+            },
+            {
+              "name": "أرضيات الديك",
+              "image": "floor-12"
+            },
+            {
+              "name": "بلاطات السجاد",
+              "image": "floor-11"
+            },
+            {
+              "name": "أرضيات خشبية",
+              "image": "floor-2"
+            },
+            {
+              "name": "أرضيات الفينيل",
+              "image": "floor-7"
+            }
+          ]
+        },
+        {
+          "name": "OUTDOOR",
+          "description": "تشطيبات خارجية متينة تضفي الراحة والطابع المميز والأداء طويل الأمد على المساحات المفتوحة.",
+          "cta": "احصل على حل مخصص",
+          "feature": "أرضيات الديك",
+          "products": [
+            {
+              "name": "بلاطات السجاد",
+              "image": "floor-12"
+            },
+            {
+              "name": "أرضيات خشبية",
+              "image": "floor-7"
+            },
+            {
+              "name": "أرضيات الفينيل",
+              "image": "floor-3"
+            },
+            {
+              "name": "العشب الصناعي",
+              "image": "floor-11"
+            }
+          ]
+        }
+      ]
+    },
+    "WorksSection": {
+      "title": "استكشف أعمالنا",
+      "categories": [
+        "الكل",
+        "RESIDENTIAL",
+        "COMMERCIAL",
+        "HOSPITALITY",
+        "OUTDOOR"
+      ],
+      "items": [
+        {
+          "id": "1",
+          "title": "أرضيات فينيل بنقشة عظم السمك من أوك وود",
+          "category": "RESIDENTIAL",
+          "location": "دبي، الإمارات العربية المتحدة",
+          "featured": true,
+          "btnLabel": "عرض المشروع",
+          "image": "/images/floor-img-6.webp"
+        },
+        {
+          "id": "2",
+          "title": "أرضيات لامينيت باللون الرمادي الفاتح",
+          "category": "COMMERCIAL",
+          "location": "الشارقة، الإمارات العربية المتحدة",
+          "btnLabel": "عرض المشروع",
+          "image": "/images/floor-img-7.webp"
+        },
+        {
+          "id": "3",
+          "title": "أرضيات خشبية خارجية من خشب الساج",
+          "category": "OUTDOOR",
+          "location": "دبي، الإمارات العربية المتحدة",
+          "btnLabel": "عرض المشروع",
+          "image": "/images/floor-img-8.webp"
+        },
+        {
+          "id": "4",
+          "title": "أرضيات فندقية من خشب الجوز",
+          "category": "HOSPITALITY",
+          "location": "رأس الخيمة، الإمارات العربية المتحدة",
+          "featured": true,
+          "btnLabel": "عرض المشروع",
+          "image": "/images/floor-img-5.webp"
+        },
+        {
+          "id": "5",
+          "title": "أرضيات لامينيت كلاسيكية من خشب القيقب",
+          "category": "COMMERCIAL",
+          "location": "عجمان، الإمارات العربية المتحدة",
+          "btnLabel": "عرض المشروع",
+          "image": "/images/floor-img-8.webp"
+        },
+        {
+          "id": "6",
+          "title": "ألواح فينيل من خشب البلوط المدخن",
+          "category": "RESIDENTIAL",
+          "location": "العين، الإمارات العربية المتحدة",
+          "featured": true,
+          "btnLabel": "عرض المشروع",
+          "image": "/images/floor-img-6.webp"
+        },
+        {
+          "id": "7",
+          "title": "أرضيات خشبية خارجية بمظهر الخشب المعتّق",
+          "category": "OUTDOOR",
+          "location": "الفجيرة، الإمارات العربية المتحدة",
+          "btnLabel": "عرض المشروع",
+          "image": "/images/floor-img-4.webp"
+        },
+        {
+          "id": "8",
+          "title": "أرضيات منتجعات دافئة من خشب الجوز",
+          "category": "HOSPITALITY",
+          "location": "أبوظبي، الإمارات العربية المتحدة",
+          "featured": true,
+          "btnLabel": "عرض المشروع",
+          "image": "/images/floor-img-5.webp"
+        },
+        {
+          "id": "9",
+          "title": "أرضيات شيفرون فاتحة من خشب البلوط",
+          "category": "RESIDENTIAL",
+          "location": "دبي، الإمارات العربية المتحدة",
+          "btnLabel": "عرض المشروع",
+          "image": "/images/floor-img-6.webp"
+        },
+        {
+          "id": "10",
+          "title": "أرضيات SPC تجارية باللون البني الداكن من خشب الجوز",
+          "category": "COMMERCIAL",
+          "location": "دبي، الإمارات العربية المتحدة",
+          "featured": true,
+          "btnLabel": "عرض المشروع",
+          "image": "/images/floor-img-7.webp"
+        }
+      ],
+      "viewAllProjectsBtnLabel": "عرض جميع المشاريع"
+    },
+    "CustomerExpSection": {
+      "title": "تجارب العملاء",
+      "rating": "تقييمات 5.0",
+      "reviews": [
+        {
+          "quote": "لقد كان من دواعي سرورنا التعامل معكم، ونشكركم على جودة الخدمة والاهتمام بالتفاصيل.",
+          "name": "إيلا غريس",
+          "role": "عميل",
+          "avatar": "https://i.pravatar.cc/120?img=47"
+        },
+        {
+          "quote": "كانت تجربة الأرضيات بأكملها سلسة بدءًا من الاستشارة الأولى وحتى التركيب. والنتيجة النهائية تبدو رائعة.",
+          "name": "ماركوس ريد",
+          "role": "عميل",
+          "avatar": "https://i.pravatar.cc/120?img=12"
+        },
+        {
+          "quote": "نصائح احترافية، واهتمام بالتفاصيل، ونتيجة جميلة. نحن سعداء جدًا بالشكل الذي أصبح عليه منزلنا.",
+          "name": "صوفيا بينيت",
+          "role": "عميل",
+          "avatar": "https://i.pravatar.cc/120?img=32"
+        },
+        {
+          "quote": "فهم الفريق متطلباتنا فورًا وأنجز العمل في الوقت المحدد. تم التعامل مع كل التفاصيل بعناية فائقة.",
+          "name": "نواه ويليامز",
+          "role": "عميل",
+          "avatar": "https://i.pravatar.cc/120?img=68"
+        },
+        {
+          "quote": "من العينات وحتى الجولة النهائية، كانت الخدمة متميزة وموثوقة. أوصي بهم بكل سرور.",
+          "name": "أميليا كارتر",
+          "role": "عميل",
+          "avatar": "https://i.pravatar.cc/120?img=49"
+        },
+        {
+          "quote": "تشطيب أنيق ومريح غيّر أجواء الغرفة بالكامل. عمل ممتاز من جميع النواحي.",
+          "name": "دانيال هايز",
+          "role": "عميل",
+          "avatar": "https://i.pravatar.cc/120?img=11"
+        }
+      ]
+    },
+    "TrustedPartnersSection": {
+      "title": "موثوق به في جميع أنحاء الإمارات",
+      "partners": [
+        {
+          "name": "partner-name-1",
+          "image": "/images/trusted-img-1.png"
+        },
+        {
+          "name": "partner-name-2",
+          "image": "/images/trusted-img-2.png"
+        },
+        {
+          "name": "partner-name-3",
+          "image": "/images/trusted-img-3.png"
+        },
+        {
+          "name": "partner-name-4",
+          "image": "/images/trusted-img-4.png"
+        },
+        {
+          "name": "partner-name-5",
+          "image": "/images/trusted-img-5.png"
+        },
+        {
+          "name": "partner-name-6",
+          "image": "/images/trusted-img-3.png"
+        },
+        {
+          "name": "partner-name-7",
+          "image": "/images/trusted-img-2.png"
+        },
+        {
+          "name": "partner-name-8",
+          "image": "/images/trusted-img-6.png"
+        },
+        {
+          "name": "partner-name-9",
+          "image": "/images/trusted-img-7.png"
+        },
+        {
+          "name": "partner-name-10",
+          "image": "/images/trusted-img-1.png"
+        },
+        {
+          "name": "partner-name-11",
+          "image": "/images/trusted-img-3.png"
+        },
+        {
+          "name": "partner-name-12",
+          "image": "/images/trusted-img-4.png"
+        },
+        {
+          "name": "partner-name-7",
+          "image": "/images/trusted-img-2.png"
+        },
+        {
+          "name": "partner-name-8",
+          "image": "/images/trusted-img-6.png"
+        },
+        {
+          "name": "partner-name-9",
+          "image": "/images/trusted-img-7.png"
+        },
+        {
+          "name": "partner-name-10",
+          "image": "/images/trusted-img-1.png"
+        },
+        {
+          "name": "partner-name-11",
+          "image": "/images/trusted-img-3.png"
+        },
+        {
+          "name": "partner-name-12",
+          "image": "/images/trusted-img-4.png"
+        }
+      ]
+    },
+    "LookingForwardCard": {
+      "title": {
+        "first": "نتطلع إلى",
+        "second": "لقائك"
+      },
+      "description": "لنصنع معًا مساحات جميلة. خبراء الأرضيات لدينا مستعدون لإرشادك من مرحلة الإلهام وحتى التركيب.",
+      "btnLabel": "استفسر الآن"
+    },
+    "PremiumSolutionsSection": {
+      "title": "حلول أرضيات فاخرة في جميع أنحاء الإمارات ودول مجلس التعاون الخليجي",
+      "paragraphs": [
+        "تُعد Z&S Carpets & Flooring من أكثر خبراء الأرضيات موثوقية في دولة الإمارات، حيث تقدم مجموعة واسعة من السجاد والعشب الصناعي وأرضيات الفينيل والأرضيات الخشبية الهندسية وأرضيات الديك الخارجية والسجاد الزخرفي. وبخبرة تزيد على 15 عامًا في خدمة دبي وأبوظبي والشارقة ومختلف أنحاء دول مجلس التعاون الخليجي، نقدم أرضيات عالية الجودة للفلل السكنية والمكاتب والشركات والفنادق ومنافذ البيع بالتجزئة والمساحات الخارجية.",
+        "يلتزم فريقنا من مستشاري الأرضيات ومديري المشاريع وفنيي التركيب بتقديم تجربة سلسة، بدءًا من اختيار المنتج وتوصيل العينات وحتى قياس الموقع والتركيب وخدمات ما بعد البيع. سواء كنت تجدد غرفة واحدة أو تجهز مشروعًا كاملًا، تمتلك Z&S الخبرة والتنوع والموارد اللازمة لتحقيق نتائج استثنائية."
+      ],
+      "buttonLabel": "شاهد المزيد"
+    }
+  },
+  "AboutPage": {
+    "BannerSection": {
+      "title": "About Us",
+      "description": "Delivering quality solutions with trust, innovation, and excellence.",
+      "image": "/images/floor-img-14.webp"
+    }
   }
 }

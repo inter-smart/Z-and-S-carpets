@@ -13,7 +13,7 @@ import { Button } from '../ui/button'
 export default function BestSellersSection() {
   const locale = useLocale() as LocaleType
 
-  const t = useTranslations('bestseller')
+  const t = useTranslations('HomePage.BestSellerSection')
 
   const products = t.raw('products') as {
     category: string

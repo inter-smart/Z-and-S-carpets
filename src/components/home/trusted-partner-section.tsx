@@ -1,9 +1,10 @@
 'use client'
 
 import { ArrowLeftBlueIcon, ArrowRightBlueIcon } from '@/assets/icons'
+import type { LocaleType } from '@/i18n/types'
 import Autoplay from 'embla-carousel-autoplay'
 import useEmblaCarousel from 'embla-carousel-react'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useCallback } from 'react'
 import LookingForwardBanner from '../common/looking-forward-banner'
@@ -23,7 +24,9 @@ function chunkPairs(arr: PartnerType[]) {
 }
 
 export default function TrustedPartnerSection() {
-  const t = useTranslations('TrustedPartner')
+  const locale = useLocale() as LocaleType
+
+  const t = useTranslations('HomePage.TrustedPartnersSection')
   const trustedPartners = t.raw('partners') as PartnerType[]
   const trustedPartnersPaired = chunkPairs(trustedPartners)
 
@@ -31,6 +34,7 @@ export default function TrustedPartnerSection() {
     {
       loop: true,
       align: 'start',
+      direction: locale === 'ar' ? 'rtl' : 'ltr',
     },
     [
       Autoplay({

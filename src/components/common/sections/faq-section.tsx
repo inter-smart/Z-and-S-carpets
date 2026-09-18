@@ -12,7 +12,7 @@ export default function FAQSection({
   className?: string
   container?: boolean
 }) {
-  const t = useTranslations('FAQ')
+  const t = useTranslations('Common.FAQSection')
   const faqs = t.raw('faqs') as { question: string; answer: string }[]
 
   const [openIndex, setOpenIndex] = useState(0)

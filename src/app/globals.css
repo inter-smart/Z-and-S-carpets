@@ -193,12 +193,12 @@
   /*  */
 }
 
-/* @utility our-heading {
+@utility our-heading {
   @apply ltr:font-nobile rtl:font-cairo text-4xl leading-14 font-medium md:leading-12;
 }
 @utility our-text {
   @apply ltr:font-inter rtl:font-cairo text-base leading-7 font-light;
-} */
+}
 
 /* Built for section */
 :root {

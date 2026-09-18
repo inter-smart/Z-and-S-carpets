@@ -12,12 +12,20 @@ import { cn } from 'cn'
 import { useLocale } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 
 export default function LangDropdown() {
   const locale = useLocale() as LocaleType
 
   const [open, setOpen] = useState(false)
+
+  const pathname = usePathname()
+
+  const exactPathname =
+    pathname.indexOf('/', 1) > -1
+      ? pathname.slice(pathname.indexOf('/', 1))
+      : ''
 
   return (
     <DropdownMenu open={open} onOpenChange={setOpen}>
@@ -35,10 +43,10 @@ export default function LangDropdown() {
         }
       ></DropdownMenuTrigger>
       <DropdownMenuContent className="min-w-20! rounded-sm! **:rounded-sm!">
-        <Link href="/en">
+        <Link href={`/en${exactPathname}`}>
           <DropdownMenuItem>English</DropdownMenuItem>
         </Link>
-        <Link href="/ar">
+        <Link href={`/ar${exactPathname}`}>
           <DropdownMenuItem>العربية</DropdownMenuItem>
         </Link>
       </DropdownMenuContent>

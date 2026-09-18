@@ -21,7 +21,7 @@ interface CategoryType {
 
 export default function BannerSection() {
   const locale = useLocale() as LocaleType
-  const t = useTranslations('BannerSection')
+  const t = useTranslations('HomePage.BannerSection')
   const category = t.raw('category') as CategoryType[]
 
   const [currentCategory, setCurrentCategory] = useState(category[1])
@@ -109,7 +109,7 @@ export default function BannerSection() {
       </video>
 
       {/* top layer */}
-      <div className="absolute top-0 flex h-166 w-full flex-col justify-end bg-linear-to-r from-black/80 to-black/0 text-white">
+      <div className="absolute top-0 flex h-166 w-full flex-col justify-end from-black/80 to-black/0 text-white ltr:bg-linear-to-r rtl:bg-linear-to-l">
         {/* category */}
         <div className="absolute -ms-5 flex h-full w-20 flex-col justify-end pb-30 sm:-ms-1 sm:pb-35">
           <div className="flex flex-row items-center ltr:-rotate-90 rtl:rotate-90">

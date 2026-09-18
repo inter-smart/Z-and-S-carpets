@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 
 export default function LookingForwardBanner() {
-  const t = useTranslations('LookingForwardMsg')
+  const t = useTranslations('HomePage.LookingForwardCard')
 
   return (
     <article>

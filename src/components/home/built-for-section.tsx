@@ -23,7 +23,7 @@ const productImgs = {
 }
 
 export default function BuiltForSection() {
-  const t = useTranslations('BuiltFor')
+  const t = useTranslations('HomePage.BuiltForSection')
   const [activeCategory, setActiveCategory] = useState(0)
   const [activeProduct, setActiveProduct] = useState(0)
   const productsRef = useRef<HTMLDivElement>(null)

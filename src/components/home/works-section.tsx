@@ -156,7 +156,7 @@ const createSlides = (projects: WorkProject[], itemsPerSlide: number) => {
 }
 
 export default function WorksSections() {
-  const t = useTranslations('works')
+  const t = useTranslations('HomePage.WorksSection')
 
   const workCategories = t.raw('categories') as string[]
 
