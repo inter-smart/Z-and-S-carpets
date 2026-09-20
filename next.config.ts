@@ -4,7 +4,7 @@ import createNextIntlPlugin from 'next-intl/plugin'
 const nextConfig: NextConfig = {
   turbopack: {
     rules: {
-      '**/assets/icons/*.svg': {
+      '**/*.icon.svg': {
         loaders: [
           {
             loader: '@svgr/webpack',
