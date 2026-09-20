@@ -1,3 +1,4 @@
+import HistorySection from '@/components/about/history-section'
 import IndustriesSection from '@/components/about/industries-section'
 import IntroSection from '@/components/about/intro-section'
 import ManagementSection from '@/components/about/management-section'
@@ -14,11 +15,12 @@ export default function HomePage() {
       <BreadcrumbBar
         values={[
           { name: 'About Us', link: 'about' },
-          { name: 'Contact Us', link: 'contact' },
+          // { name: 'Contact Us', link: 'contact' },
         ]}
       />
       <IntroSection />
       {/* <FAQSection className="bg-[#EFF9FE]" /> */}
+      <HistorySection />
       <ManagementSection />
       <ProcessSections />
       <ValuesSection />

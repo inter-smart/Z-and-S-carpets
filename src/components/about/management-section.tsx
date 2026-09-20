@@ -16,7 +16,7 @@ export default function ManagementSection() {
     <section className="bg-[#EFF9FE]" aria-labelledby="management-title">
       <div className="container-wrapper our-section-gap">
         <div className="text-center">
-          <h2 id="management-title" className="our-heading">
+          <h2 id="management-title" className="our-heading text-3xl!">
             {t('title')}
           </h2>
           <p className="our-text">{t('subtitle')}</p>

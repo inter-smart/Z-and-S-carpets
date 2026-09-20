@@ -948,6 +948,36 @@
           "icon": "building-3-star"
         }
       ]
+    },
+    "HistorySection": {
+      "title": "Our History",
+      "events": [
+        {
+          "year": "2010",
+          "title": "A Small Beginning",
+          "description": "Z&S Carpets began with a clear vision to make high-quality flooring accessible to customers across the UAE."
+        },
+        {
+          "year": "2012",
+          "title": "Growing Retail Presence",
+          "description": "Expanded operations by opening multiple retail outlets, offering customers a wider range of carpets and flooring solutions across the UAE."
+        },
+        {
+          "year": "2014",
+          "title": "Expanding Our Reach",
+          "description": "Strengthened our wholesale network and began serving more customers across the GCC with trusted flooring products."
+        },
+        {
+          "year": "2018",
+          "title": "Building Global Connections",
+          "description": "Extended our sourcing and export partnerships across Africa, Oman, Saudi Arabia, and the wider region."
+        },
+        {
+          "year": "2024",
+          "title": "A Flooring Partner for Tomorrow",
+          "description": "Today, we continue to grow through quality, innovation, and a commitment to exceptional customer experiences."
+        }
+      ]
     }
   }
 }

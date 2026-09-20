@@ -2,27 +2,6 @@ import { Button } from '@/components/ui/button'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 
-function SimpleIcon({ type }: { type: string }) {
-  return (
-    <span
-      aria-hidden="true"
-      className="text-[21px] leading-none text-[#9b41b5]"
-    >
-      {type === 'Quality'
-        ? '◎'
-        : type === 'Customer focus'
-          ? '♧'
-          : type === 'Innovation'
-            ? '♧'
-            : type === 'Residential'
-              ? '▥'
-              : type === 'Commercial'
-                ? '▤'
-                : '▦'}
-    </span>
-  )
-}
-
 export default function IntroSection() {
   const t = useTranslations('AboutPage.IntroSection')
   const stats = t.raw('stats') as {
@@ -69,15 +48,14 @@ export default function IntroSection() {
           </h2>
           <p className="our-text">{t('quality.body')}</p>
           <div className="mt-4 flex gap-2">
-            <Button className="our-btn border-black bg-white text-black">
+            <Button className="our-btn border-black bg-white text-black hover:bg-white">
               {t('actions.contact')}
             </Button>
-            <Button className="bg-our-purple our-btn">
+            <Button className="bg-our-purple our-btn hover:bg-our-purple">
               {t('actions.quote')}
             </Button>
           </div>
         </div>
-        {/* <StatCard stats={stats} /> */}
         <aside className="grid h-fit grid-cols-2 overflow-hidden rounded-md bg-[#023260] text-white shadow-sm 2xl:h-full">
           {stats.map((stat) => (
             <div
@@ -102,11 +80,11 @@ export default function IntroSection() {
         className="grid gap-4 lg:grid-cols-2"
         aria-label="Our mission and vision"
       >
-        <article className="rounded-md border border-[#62a9dc] bg-[#e5f2fa] p-10">
+        <article className="border-our-blue bg-our-blue/10 rounded-md border p-10">
           <h2 className="our-heading text-3xl!">{t('mission.title')}</h2>
           <p className="our-text">{t('mission.body')}</p>
         </article>
-        <article className="rounded-md border border-[#c46bd0] bg-[#f6edf8] p-10">
+        <article className="border-our-purple bg-our-purple/10 rounded-md border p-10">
           <h2 className="our-heading text-3xl!">{t('vision.title')}</h2>
           <p className="our-text">{t('vision.body')}</p>
         </article>

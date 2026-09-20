@@ -861,91 +861,121 @@
   },
   "AboutPage": {
     "BannerSection": {
-      "title": "About Us",
-      "description": "Delivering quality solutions with trust, innovation, and excellence.",
+      "title": "من نحن",
+      "description": "نقدم حلولًا عالية الجودة تقوم على الثقة والابتكار والتميز.",
       "image": "/images/floor-img-14.webp"
     },
     "IntroSection": {
       "image": "/images/floor-img-15.webp",
       "intro": {
-        "eyebrow": "About Us",
-        "title": "Transforming Ideas into Exceptional Flooring Solutions",
-        "body": "Z&S Carpets started as a small shop in 2010 and quickly expanded to offer customers easy access to their multiple stores in the UAE, providing them with a wide range of floorings, including our in-house brand for the entire market retail of the United Arab Emirates. We import high-quality products from countries such as India, Turkey, China, and Europe which follow strict international quality protocols. In addition to the wholesale and retail vertical, we have even started exporting our products to countries like Oman, Saudi Arabia, Africa, and the rest of the GCC. Thus, making us known all over the world!"
+        "eyebrow": "من نحن",
+        "title": "نحوّل الأفكار إلى حلول استثنائية في مجال الأرضيات",
+        "body": "بدأت شركة Z&S Carpets كمتجر صغير في عام 2010، وسرعان ما توسعت لتوفر لعملائها سهولة الوصول إلى فروعها المتعددة في جميع أنحاء الإمارات العربية المتحدة، مع مجموعة واسعة من حلول الأرضيات، بما في ذلك علامتنا التجارية الخاصة التي نخدم من خلالها سوق التجزئة في دولة الإمارات. نستورد منتجات عالية الجودة من دول مثل الهند وتركيا والصين وأوروبا، والتي تلتزم بمعايير جودة دولية صارمة. وإلى جانب قطاعي البيع بالجملة والتجزئة، بدأنا أيضًا بتصدير منتجاتنا إلى دول مثل عُمان والمملكة العربية السعودية ودول أفريقيا وبقية دول مجلس التعاون الخليجي، مما ساهم في تعزيز حضورنا وانتشارنا على نطاق واسع."
       },
       "quality": {
-        "title": "Driven by Quality & Trust",
-        "body": "Looking for a way to update your habitat? The flooring could be the best solution. Flooring is becoming increasingly popular for good reasons like it is versatile, long-lasting, and inexpensive! This adaptable material may be utilised in a variety of ways to create an appearance that is distinctive to your home, workspace, or anywhere. We have emerged as a homeowner-favourite firm since we entered the flooring market in 2010. We offer bespoke modern flooring designs that you prefer because of our modern quarries, advanced technology, and dependable craftsmen. We also offer a comprehensive range of flooring solutions with installation services in a variety of forms, sizes, finishes, and edges to meet your design and aesthetic requirements. Every product we sell is of high quality, long-lasting, and resistant to weather and misuse. You can be confident that the natural stone kind you select will age gracefully over time without requiring you to invest much time, effort, or money in its upkeep. We will look at some of the most creative flooring designs that will astound you. We have the appropriate solution for you whether you want to upgrade your kitchen, bathroom, or workspace. So do not put it off any longer; start browsing your ideas with us and get inspired, let’s transform ideas into flooring works."
+        "title": "نلتزم بالجودة والثقة",
+        "body": "هل تبحث عن طريقة لتجديد مساحتك؟ قد تكون الأرضيات هي الحل الأمثل. تزداد شعبية الأرضيات لأسباب عديدة، فهي متعددة الاستخدامات، ومتينة، وبتكلفة مناسبة. ويمكن استخدام هذه الخامة المرنة بطرق متنوعة لابتكار مظهر مميز لمنزلك أو مساحة عملك أو أي مكان آخر. ومنذ دخولنا سوق الأرضيات في عام 2010، أصبحنا من الشركات المفضلة لدى أصحاب المنازل. نقدم تصاميم أرضيات عصرية مخصصة وفق تفضيلاتك، مستفيدين من أحدث التقنيات وخبرات الحرفيين الموثوقين. كما نوفر مجموعة متكاملة من حلول الأرضيات مع خدمات التركيب، وبأشكال ومقاسات وتشطيبات وحواف متنوعة لتلبية متطلباتك التصميمية والجمالية. نحرص على أن يتميز كل منتج نقدمه بالجودة العالية والمتانة ومقاومة العوامل الجوية والاستخدام المكثف. ويمكنك أن تطمئن إلى أن نوع الأرضيات الذي تختاره سيحافظ على جماله مع مرور الوقت، دون الحاجة إلى استثمار الكثير من الوقت أو الجهد أو المال في صيانته. اكتشف معنا مجموعة من أكثر تصاميم الأرضيات إبداعًا وتميزًا. سواء كنت ترغب في تجديد مطبخك أو حمامك أو مساحة عملك، لدينا الحل المناسب لك. فلا تؤجل أكثر؛ ابدأ باستكشاف أفكارك معنا واستلهم منها، ودعنا نحوّل الأفكار إلى أعمال فنية من الأرضيات."
       },
       "stats": [
-        { "value": "1500+", "label": "Products" },
-        { "value": "100 Acre", "label": "Factory" },
-        { "value": "UAE", "label": "No 1 Store" },
-        { "value": "Millions", "label": "Sq.m stock" },
-        { "value": "40+", "label": "Warehouses" },
-        { "value": "16+ Years", "label": "Experience" }
+        { "value": "1500+", "label": "منتج" },
+        { "value": "100 فدان", "label": "مصنع" },
+        { "value": "الإمارات", "label": "المتجر رقم 1" },
+        { "value": "ملايين", "label": "متر مربع من المخزون" },
+        { "value": "40+", "label": "مستودعًا" },
+        { "value": "16+ عامًا", "label": "من الخبرة" }
       ],
       "mission": {
-        "title": "Our Mission",
-        "body": "Our mission is to put the consumer first, and we endeavour to improve ourselves regularly. Nothing motivates us to keep inventing and researching new flooring technology more than the delight of our clients. Their needs and expectations have always been and will continue to be at the core of everything Z&S Carpets does."
+        "title": "رسالتنا",
+        "body": "تتمثل رسالتنا في وضع المستهلك أولًا، ونسعى باستمرار إلى تطوير أنفسنا وتحسين خدماتنا. ولا شيء يحفزنا على مواصلة الابتكار والبحث في تقنيات الأرضيات الجديدة أكثر من رضا عملائنا وسعادتهم. فقد كانت احتياجاتهم وتوقعاتهم دائمًا، وستظل، في صميم كل ما تقوم به Z&S Carpets."
       },
       "vision": {
-        "title": "Our Vision",
-        "body": "As one of the best flooring companies in Dubai we aim to be the global leader for all flooring related solutions. We strive to offer our clients the most spectacular products imaginable, utilizing cutting-edge technology and the most cost-effective solutions."
+        "title": "رؤيتنا",
+        "body": "باعتبارنا إحدى شركات الأرضيات الرائدة في دبي، نطمح إلى أن نكون الرائد عالميًا في تقديم جميع الحلول المتعلقة بالأرضيات. ونسعى إلى تقديم منتجات استثنائية لعملائنا، بالاستفادة من أحدث التقنيات وأفضل الحلول ذات الكفاءة من حيث التكلفة."
       },
       "actions": {
-        "contact": "Get in Touch",
-        "quote": "Request Quote"
+        "contact": "تواصل معنا",
+        "quote": "اطلب عرض سعر"
       }
     },
     "ManagementSection": {
-      "title": "Message from the Management",
-      "subtitle": "Leading with quality, trust, and a commitment to excellence in every step we take.",
+      "title": "رسالة من الإدارة",
+      "subtitle": "نقود مسيرتنا بالجودة والثقة والالتزام بالتميز في كل خطوة نخطوها.",
       "leaders": [
         {
-          "role": "Owner",
+          "role": "المالك",
           "name": "Mohammed Zia Uddin",
-          "message": "Founded in 2010, Z&S Carpets has grown into a trusted flooring supplier across the UAE, offering premium-quality products from around the world. We serve both retail and wholesale customers while exporting to GCC countries, Africa, and beyond.",
+          "message": "تأسست Z&S Carpets في عام 2010، ونمت لتصبح موردًا موثوقًا لحلول الأرضيات في جميع أنحاء الإمارات العربية المتحدة، حيث نقدم منتجات عالية الجودة من مختلف أنحاء العالم. نخدم عملاء التجزئة والجملة على حد سواء، كما نصدر منتجاتنا إلى دول مجلس التعاون الخليجي وأفريقيا ومناطق أخرى.",
           "company": "Zia and Sagor Carpets Trading LLC",
           "image": "/images/management-person-img-1.webp"
         },
         {
-          "role": "Owner",
+          "role": "المالك",
           "name": "Abdhul Zia",
-          "message": "Founded in 2010, Z&S Carpets has grown into a trusted flooring supplier across the UAE, offering premium-quality products from around the world. We serve both retail and wholesale customers while exporting to GCC countries, Africa, and beyond.",
+          "message": "تأسست Z&S Carpets في عام 2010، ونمت لتصبح موردًا موثوقًا لحلول الأرضيات في جميع أنحاء الإمارات العربية المتحدة، حيث نقدم منتجات عالية الجودة من مختلف أنحاء العالم. نخدم عملاء التجزئة والجملة على حد سواء، كما نصدر منتجاتنا إلى دول مجلس التعاون الخليجي وأفريقيا ومناطق أخرى.",
           "company": "Zia and Sagor Carpets Trading LLC",
           "image": "/images/management-person-img-2.webp"
         }
       ]
     },
     "ValuesSection": {
-      "title": "Core Values",
-      "body": "Our core values are built on quality, customer focus, and innovation. We are committed to delivering reliable solutions, creating meaningful customer experiences, and continuously improving through modern ideas and forward-thinking approaches.",
+      "title": "قيمنا الأساسية",
+      "body": "تقوم قيمنا الأساسية على الجودة والتركيز على العملاء والابتكار. نحن ملتزمون بتقديم حلول موثوقة، وصناعة تجارب مميزة لعملائنا، والتطوير المستمر من خلال الأفكار الحديثة والأساليب القائمة على التفكير المستقبلي.",
       "image": "/images/floor-img-15.webp",
       "items": [
-        { "label": "Quality", "icon": "award" },
-        { "label": "Customer Focus", "icon": "people-focus" },
-        { "label": "Innovation", "icon": "innovation" }
+        { "label": "الجودة", "icon": "award" },
+        { "label": "التركيز على العملاء", "icon": "people-focus" },
+        { "label": "الابتكار", "icon": "innovation" }
       ]
     },
     "IndustriesSection": {
-      "title": "Industries We Serve",
-      "body": "We provide tailored solutions across residential, commercial, and hospitality sectors, delivering quality, functionality, and design excellence to meet diverse industry needs.",
+      "title": "القطاعات التي نخدمها",
+      "body": "نقدم حلولًا مصممة خصيصًا للقطاعات السكنية والتجارية وقطاع الضيافة، مع التركيز على الجودة والوظائف العملية والتميز في التصميم لتلبية الاحتياجات المتنوعة لكل قطاع.",
       "image": "/images/floor-img-13.webp",
       "items": [
         {
-          "title": "Residential",
-          "description": "Delivering stylish, comfortable, and functional solutions tailored for modern living spaces and homes.",
+          "title": "سكني",
+          "description": "نقدم حلولًا أنيقة ومريحة وعملية مصممة خصيصًا للمنازل ومساحات المعيشة العصرية.",
           "icon": "building_2"
         },
         {
-          "title": "Commercial",
-          "description": "Providing durable and professional solutions designed to enhance offices, retail spaces, and business environments.",
+          "title": "تجاري",
+          "description": "نوفر حلولًا متينة واحترافية مصممة لتعزيز المكاتب ومتاجر التجزئة وبيئات الأعمال.",
           "icon": "building"
         },
         {
-          "title": "Hospitality",
-          "description": "Creating elegant and welcoming spaces for hotels, resorts, and hospitality venues with a focus on comfort and experience.",
+          "title": "ضيافة",
+          "description": "نصمم مساحات أنيقة ومرحبة للفنادق والمنتجعات ومنشآت الضيافة، مع التركيز على الراحة وتجربة الزوار.",
           "icon": "building-3-star"
+        }
+      ]
+    },
+    "HistorySection": {
+      "title": "مسيرتنا",
+      "events": [
+        {
+          "year": "2010",
+          "title": "بداية متواضعة",
+          "description": "بدأت Z&S Carpets برؤية واضحة تهدف إلى توفير الأرضيات عالية الجودة لعملائنا في جميع أنحاء الإمارات العربية المتحدة."
+        },
+        {
+          "year": "2012",
+          "title": "توسّع حضورنا في قطاع التجزئة",
+          "description": "وسعنا عملياتنا من خلال افتتاح عدة فروع للبيع بالتجزئة، لنقدم لعملائنا مجموعة أكبر من السجاد وحلول الأرضيات في مختلف أنحاء الإمارات."
+        },
+        {
+          "year": "2014",
+          "title": "توسيع نطاق حضورنا",
+          "description": "عززنا شبكة البيع بالجملة وبدأنا في خدمة المزيد من العملاء في دول مجلس التعاون الخليجي من خلال منتجات أرضيات موثوقة وعالية الجودة."
+        },
+        {
+          "year": "2018",
+          "title": "بناء شراكات عالمية",
+          "description": "وسعنا شراكات التوريد والتصدير لتشمل أفريقيا وعُمان والمملكة العربية السعودية ومناطق أخرى في المنطقة."
+        },
+        {
+          "year": "2024",
+          "title": "شريكك في الأرضيات للمستقبل",
+          "description": "نواصل اليوم مسيرة النمو من خلال الجودة والابتكار والالتزام بتقديم تجارب استثنائية لعملائنا."
         }
       ]
     }
