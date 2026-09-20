@@ -1,6 +1,5 @@
 'use client'
 
-import { ArrowLeftBlueIcon, ArrowRightBlueIcon } from '@/assets/icons'
 import type { LocaleType } from '@/i18n/types'
 import Autoplay from 'embla-carousel-autoplay'
 import useEmblaCarousel from 'embla-carousel-react'
@@ -9,6 +8,7 @@ import Image from 'next/image'
 import { useCallback } from 'react'
 import LookingForwardBanner from '../common/looking-forward-banner'
 import { Button } from '../ui/button'
+import { OurIcon } from '../ui/icon'
 
 interface PartnerType {
   name: string
@@ -68,18 +68,10 @@ export default function TrustedPartnerSection() {
             variant="ghost"
             size="icon"
             onClick={scrollPrev}
-            className="cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
+            className="text-our-blue hover:text-our-blue cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
           >
-            <Image
-              src={ArrowRightBlueIcon}
-              alt="arrow-right"
-              className="hidden h-3 w-auto rtl:block"
-            />
-            <Image
-              src={ArrowLeftBlueIcon}
-              alt="arrow-left"
-              className="hidden h-3 w-auto ltr:block"
-            />
+            <OurIcon name="arrow-right" className="hidden size-4! rtl:block" />
+            <OurIcon name="arrow-left" className="hidden size-4! ltr:block" />
           </Button>
 
           {/* next btn */}
@@ -88,18 +80,10 @@ export default function TrustedPartnerSection() {
             variant="ghost"
             size="icon"
             onClick={scrollNext}
-            className="cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
+            className="text-our-blue hover:text-our-blue cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
           >
-            <Image
-              src={ArrowLeftBlueIcon}
-              alt="arrow-left"
-              className="hidden h-3 w-auto rtl:block"
-            />
-            <Image
-              src={ArrowRightBlueIcon}
-              alt="arrow-right"
-              className="hidden h-3 w-auto ltr:block"
-            />
+            <OurIcon name="arrow-left" className="hidden size-4! rtl:block" />
+            <OurIcon name="arrow-right" className="hidden size-4! ltr:block" />
           </Button>
         </div>
       </div>

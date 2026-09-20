@@ -45,7 +45,7 @@ export default function ImgCompareSlider({
         slot="handle"
         className="flex size-6 items-center justify-center rounded-full bg-[#812990] text-white sm:size-10"
       >
-        <ChevronsLeftRightIcon className="size-4 sm:size-7" />
+        <ChevronsLeftRightIcon className="size-4 stroke-1 sm:size-7" />
       </div>
     </ImgComparisonSlider>
   )

@@ -1,7 +1,24 @@
 import type { NextConfig } from 'next'
 import createNextIntlPlugin from 'next-intl/plugin'
 
-const nextConfig: NextConfig = {/* config options here */}
+const nextConfig: NextConfig = {
+  turbopack: {
+    rules: {
+      '**/*.icon.svg': {
+        loaders: [
+          {
+            loader: '@svgr/webpack',
+            options: {
+              // dimensions: false,
+              icon: true,
+            },
+          },
+        ],
+        as: '*.js',
+      },
+    },
+  },
+}
 
 const withNextIntl = createNextIntlPlugin()
 export default withNextIntl(nextConfig)

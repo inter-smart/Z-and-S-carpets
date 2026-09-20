@@ -1,17 +1,12 @@
 'use client'
 
-import {
-  ArrowLeftPurpleIcon,
-  ArrowRightPurpleIcon,
-  GoogleIcon,
-} from '@/assets/icons'
 import type { LocaleType } from '@/i18n/types'
 import AutoScroll from 'embla-carousel-auto-scroll'
 import useEmblaCarousel from 'embla-carousel-react'
 import { useLocale, useTranslations } from 'next-intl'
-import Image from 'next/image'
 import { useCallback } from 'react'
 import { Button } from '../ui/button'
+import { OurIcon } from '../ui/icon'
 
 interface CustomerReviewType {
   quote: string
@@ -27,9 +22,10 @@ function ReviewCard({ review }: { review: CustomerReviewType }) {
       <div>
         <div
           aria-hidden="true"
-          className="text-primary/30 font-serif text-8xl leading-8 transition-colors group-hover:text-[#812990]"
+          className="group-hover:text-our-purple font-serif text-3xl leading-8 text-[#B3B3B3] transition-colors"
         >
-          &ldquo;
+          {/* &ldquo; */}
+          <OurIcon name="quote" />
         </div>
         <p className="text-foreground/80 mt-5 text-sm leading-6">
           {review.quote}
@@ -129,7 +125,8 @@ export default function CustomerExpSection() {
           className="flex shrink-0 items-center gap-3"
           aria-label={`${t('rating')} on Google`}
         >
-          <Image src={GoogleIcon} alt="google icon" className="h-auto w-9" />
+          {/* <Image src={GoogleIcon} alt="google icon" className="h-auto w-9" /> */}
+          <OurIcon name="google" className="size-9" />
           <div>
             <p className="text-muted-foreground text-xs">{t('rating')}</p>
             <p
@@ -170,8 +167,8 @@ export default function CustomerExpSection() {
           <div className="container-wrapper relative h-full">
             <div className="relative h-full">
               {/* w-5 sm:w-10 md:w-15 lg:w-20 */}
-              <div className="pointer-events-auto absolute top-0 right-full h-full w-5 bg-linear-to-r from-white to-white/0 sm:w-10 md:w-15 lg:w-20"></div>
-              <div className="pointer-events-auto absolute top-0 left-full h-full w-5 bg-linear-to-l from-white to-white/0 sm:w-10 md:w-15 lg:w-20"></div>
+              <div className="pointer-events-auto absolute top-0 right-[100.5%] h-full w-5 bg-linear-to-r from-white to-white/0 sm:w-10 md:w-15 lg:w-20"></div>
+              <div className="pointer-events-auto absolute top-0 left-[100.5%] h-full w-5 bg-linear-to-l from-white to-white/0 sm:w-10 md:w-15 lg:w-20"></div>
               {/* Desktop Previous */}
               <div className="absolute top-1/2 -left-8 hidden -translate-y-1/2 sm:block md:-left-10 rtl:-right-8 rtl:left-auto rtl:md:-right-10">
                 <Button
@@ -179,20 +176,14 @@ export default function CustomerExpSection() {
                   variant="ghost"
                   aria-label="Previous collection"
                   onClick={scrollPrev}
-                  className="text-primary pointer-events-auto cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
+                  className="text-our-purple hover:text-our-purple pointer-events-auto cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
                 >
                   {/* LTR */}
-                  <Image
-                    src={ArrowLeftPurpleIcon}
-                    alt=""
-                    className="h-2.5 w-auto ltr:block rtl:hidden"
-                  />
-
+                  <OurIcon name="arrow-left" className="ltr:block rtl:hidden" />
                   {/* RTL */}
-                  <Image
-                    src={ArrowRightPurpleIcon}
-                    alt=""
-                    className="hidden h-2.5 w-auto rtl:block"
+                  <OurIcon
+                    name="arrow-right"
+                    className="ltr:hidden rtl:block"
                   />
                 </Button>
               </div>
@@ -203,20 +194,15 @@ export default function CustomerExpSection() {
                   variant="ghost"
                   aria-label="Next collection"
                   onClick={scrollNext}
-                  className="text-primary pointer-events-auto cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
+                  className="text-our-purple hover:text-our-purple pointer-events-auto cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
                 >
                   {/* LTR */}
-                  <Image
-                    src={ArrowRightPurpleIcon}
-                    alt=""
-                    className="h-2.5 w-auto ltr:block rtl:hidden"
+                  <OurIcon
+                    name="arrow-right"
+                    className="ltr:block rtl:hidden"
                   />
                   {/* RTL */}
-                  <Image
-                    src={ArrowLeftPurpleIcon}
-                    alt=""
-                    className="hidden h-2.5 w-auto rtl:block"
-                  />
+                  <OurIcon name="arrow-left" className="ltr:hidden rtl:block" />
                 </Button>
               </div>
             </div>
@@ -231,36 +217,24 @@ export default function CustomerExpSection() {
           variant="ghost"
           size="icon"
           onClick={scrollPrev}
-          className="cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
+          className="text-our-purple hover:text-our-purple cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
         >
-          <Image
-            src={ArrowRightPurpleIcon}
-            alt="arrow-right"
-            className="hidden h-2.5 w-auto rtl:block"
-          />
-          <Image
-            src={ArrowLeftPurpleIcon}
-            alt="arrow-left"
-            className="hidden h-2.5 w-auto ltr:block"
-          />
+          {/* LTR */}
+          <OurIcon name="arrow-left" className="ltr:block rtl:hidden" />
+          {/* RTL */}
+          <OurIcon name="arrow-right" className="ltr:hidden rtl:block" />
         </Button>
         <Button
           aria-label="Next products"
           variant="ghost"
           size="icon"
           onClick={scrollNext}
-          className="cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
+          className="text-our-purple hover:text-our-purple cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
         >
-          <Image
-            src={ArrowLeftPurpleIcon}
-            alt="arrow-left"
-            className="hidden h-2.5 w-auto rtl:block"
-          />
-          <Image
-            src={ArrowRightPurpleIcon}
-            alt="arrow-right"
-            className="hidden h-2.5 w-auto ltr:block"
-          />
+          {/* LTR */}
+          <OurIcon name="arrow-left" className="ltr:hidden rtl:block" />
+          {/* RTL */}
+          <OurIcon name="arrow-right" className="ltr:block rtl:hidden" />
         </Button>
       </div>
     </section>

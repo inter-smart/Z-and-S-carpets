@@ -1,79 +1,67 @@
-import ArrowLeftBlueIcon from './arrow-left-blue.svg'
-import ArrowLeftPurpleIcon from './arrow-left-purple.svg'
-import ArrowLeftIcon from './arrow-left.svg'
-import ArrowRightBlueIcon from './arrow-right-blue.svg'
-import ArrowRightPurpleIcon from './arrow-right-purple.svg'
-import ArrowRightIcon from './arrow-right.svg'
-import ArrowIcon from './arrow.svg'
-import AwardPurpleOutlineFigmaIcon from './award-purple-outline-figma.svg'
-import BadgeCheckIcon from './badge-check.svg'
-import BuildingPurpleOutlineFigmaIcon from './building-purple-outline-figma.svg'
-import Building2PurpleOutlineFigmaIcon from './building2-purple-outline-figma.svg'
-import FacebookIcon from './facebook.svg'
-import FilePenIcon from './file-pen.svg'
-import GoogleIcon from './google.svg'
-import InnovationPupleOutlineFigmaIcon from './innovation-puple-outline-figma.svg'
-import InstagramIcon from './instagram.svg'
-import InterSmartIcon from './intersmart.svg'
-import LinkedInIcon from './linkedin.svg'
-import LocationBlueIcon from './location-blue.svg'
-import MailBlueIcon from './mail-blue.svg'
-import MailOutlineIcon from './mail-outline.svg'
-import MenuIcon from './menu.svg'
-import MoveLeftBlackFillFigmaIcon from './move-left-black-fill-figma.svg'
-import MoveLeftIcon from './move-left.svg'
-import MoveRightBlackFillFigmaIcon from './move-right-black-fill-figma.svg'
-import MoveRightIcon from './move-right.svg'
-import PeopleFocusWhiteOutlineFigmaIcon from './people-focus-white-outline-figma.svg'
-import PhoneBlueIcon from './phone-blue.svg'
-import PhoneOutlineIcon from './phone-outline.svg'
-import QuoteBlackOutlineFigmaIcon from './quote-black-outline-figma.svg'
-import QuoteGrayFillFigmaIcon from './quote-gray-fill-figma.svg'
-import QuotePurpleFillFigmaIcon from './quote-purple-fill-figma.svg'
-import SearchIcon from './search.svg'
-import Vector1 from './vector-1.svg'
-import WhatsAppOutlineIcon from './whatsapp-outline.svg'
-import WhatsAppIcon from './whatsapp.svg'
-import XTwitterIcon from './xtwitter.svg'
-import YouTubeIcon from './youtube.svg'
+import ArrowDownIcon from './arrow-down.icon.svg'
+import ArrowLeftIcon from './arrow-left.icon.svg'
+import ArrowRightIcon from './arrow-right.icon.svg'
+import ArrowUpIcon from './arrow-up.icon.svg'
+import AwardIcon from './award.icon.svg'
+import BadgeCheckIcon from './badge-check.icon.svg'
+import BadgeCheck_2Icon from './badge-check_2.svg'
+import Building3StarIcon from './building-3-star.icon.svg'
+import BuildingIcon from './building.icon.svg'
+import Building_2Icon from './building_2.icon.svg'
+import ChevronDownIcon from './chevron-down.icon.svg'
+import FacebookIcon from './facebook.icon.svg'
+import FilePenIcon from './file-pen.icon.svg'
+import GoogleIcon from './google.icon.svg'
+import InnovationIcon from './innovation.icon.svg'
+import InstagramIcon from './instagram.icon.svg'
+import InterSmartIcon from './intersmart.icon.svg'
+import LinkedInIcon from './linkedin.icon.svg'
+import LocationIcon from './location.icon.svg'
+import MailIcon from './mail.icon.svg'
+import Mail_2Icon from './mail_2.icon.svg'
+import MenuIcon from './menu.icon.svg'
+import PeopleFocusIcon from './people-focus.icon.svg'
+import PhoneIcon from './phone.icon.svg'
+import Phone_2Icon from './phone_2.icon.svg'
+import QuoteIcon from './quote.icon.svg'
+import Quote_2Icon from './quote_2.icon.svg'
+import SearchIcon from './search.icon.svg'
+import WhatsAppIcon from './whatsapp.icon.svg'
+import WhatsApp_2Icon from './whatsapp_2.icon.svg'
+import XTwitterIcon from './xtwitter.icon.svg'
+import YouTubeIcon from './youtube.icon.svg'
 
 export {
-  ArrowIcon,
-  ArrowLeftBlueIcon,
+  ArrowDownIcon,
   ArrowLeftIcon,
-  ArrowLeftPurpleIcon,
-  ArrowRightBlueIcon,
   ArrowRightIcon,
-  ArrowRightPurpleIcon,
-  AwardPurpleOutlineFigmaIcon,
+  ArrowUpIcon,
+  AwardIcon,
+  BadgeCheck_2Icon,
   BadgeCheckIcon,
-  Building2PurpleOutlineFigmaIcon,
-  BuildingPurpleOutlineFigmaIcon,
+  Building3StarIcon,
+  Building_2Icon,
+  BuildingIcon,
+  ChevronDownIcon,
   FacebookIcon,
   FilePenIcon,
   GoogleIcon,
-  InnovationPupleOutlineFigmaIcon,
+  InnovationIcon,
   InstagramIcon,
   InterSmartIcon,
   LinkedInIcon,
-  LocationBlueIcon,
-  MailBlueIcon,
-  MailOutlineIcon,
+  LocationIcon,
+  Mail_2Icon,
+  MailIcon,
   MenuIcon,
-  MoveLeftBlackFillFigmaIcon,
-  MoveLeftIcon,
-  MoveRightBlackFillFigmaIcon,
-  MoveRightIcon,
-  PeopleFocusWhiteOutlineFigmaIcon,
-  PhoneBlueIcon,
-  PhoneOutlineIcon,
-  QuoteBlackOutlineFigmaIcon,
-  QuoteGrayFillFigmaIcon,
-  QuotePurpleFillFigmaIcon,
+  PeopleFocusIcon,
+  Phone_2Icon,
+  PhoneIcon,
+  Quote_2Icon,
+  QuoteIcon,
   SearchIcon,
-  Vector1,
+  WhatsApp_2Icon,
   WhatsAppIcon,
-  WhatsAppOutlineIcon,
   XTwitterIcon,
   YouTubeIcon,
 }

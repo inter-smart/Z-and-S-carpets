@@ -1,5 +1,4 @@
-import { Vector1 } from '@/assets/icons'
-import { FloorImg1 } from '@/assets/images'
+import { FloorImg1, VectorPart1 } from '@/assets/images'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 
@@ -18,7 +17,7 @@ export default function LookingForwardBanner() {
           <div className="absolute inset-0 -z-10 w-full bg-[#812990] ltr:sm:right-24 rtl:sm:left-24">
             <div className="relative ms-auto hidden h-full w-40 md:block">
               <Image
-                src={Vector1}
+                src={VectorPart1}
                 alt="vector part"
                 className="absolute top-0 h-full object-cover ltr:-right-1/2 rtl:-left-1/2 rtl:scale-x-[-1]"
               />

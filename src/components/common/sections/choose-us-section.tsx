@@ -1,4 +1,4 @@
-import { BadgeCheckIcon } from '@/assets/icons'
+import { BadgeCheck_2Icon } from '@/assets/icons'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 
@@ -24,7 +24,7 @@ export default function ChooseUsSection() {
             {/* 1 */}
             <div className="flex items-start gap-5 border-b border-gray-200 py-7 sm:pe-7 ltr:sm:border-r rtl:sm:border-l">
               <Image
-                src={BadgeCheckIcon}
+                src={BadgeCheck_2Icon}
                 alt="badge check icon"
                 className="mt-1.5 h-5.5 w-auto"
               />
@@ -38,7 +38,7 @@ export default function ChooseUsSection() {
             {/* 2 */}
             <div className="flex items-start gap-5 border-b border-gray-200 py-7 sm:px-7 ltr:md:border-r rtl:md:border-l">
               <Image
-                src={BadgeCheckIcon}
+                src={BadgeCheck_2Icon}
                 alt="badge check icon"
                 className="mt-1.5 h-5.5 w-auto"
               />
@@ -52,7 +52,7 @@ export default function ChooseUsSection() {
             {/* 3 */}
             <div className="flex items-start gap-5 border-b border-gray-200 py-7 sm:pe-7 md:ps-7 ltr:sm:max-md:border-r rtl:sm:max-md:border-l">
               <Image
-                src={BadgeCheckIcon}
+                src={BadgeCheck_2Icon}
                 alt="badge check icon"
                 className="mt-1.5 h-5.5 w-auto"
               />
@@ -66,7 +66,7 @@ export default function ChooseUsSection() {
             {/* 4 */}
             <div className="flex items-start gap-5 border-b border-gray-200 py-7 sm:px-7 md:border-b-0 md:ps-0 ltr:md:border-r rtl:md:border-l">
               <Image
-                src={BadgeCheckIcon}
+                src={BadgeCheck_2Icon}
                 alt="badge check icon"
                 className="mt-1.5 h-5.5 w-auto"
               />
@@ -80,7 +80,7 @@ export default function ChooseUsSection() {
             {/* 5 */}
             <div className="flex items-start gap-5 border-b border-gray-200 py-7 sm:border-b-0 sm:pe-7 md:px-7 ltr:sm:border-r rtl:sm:border-l">
               <Image
-                src={BadgeCheckIcon}
+                src={BadgeCheck_2Icon}
                 alt="badge check icon"
                 className="mt-1.5 h-5.5 w-auto"
               />
@@ -94,7 +94,7 @@ export default function ChooseUsSection() {
             {/* 6 */}
             <div className="flex items-start gap-5 py-7 sm:px-7">
               <Image
-                src={BadgeCheckIcon}
+                src={BadgeCheck_2Icon}
                 alt="badge check icon"
                 className="mt-1.5 h-5.5 w-auto"
               />

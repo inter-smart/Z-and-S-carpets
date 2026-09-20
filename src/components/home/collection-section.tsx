@@ -1,11 +1,11 @@
 'use client'
 
-import {
-  ArrowLeftIcon,
-  ArrowLeftPurpleIcon,
-  ArrowRightIcon,
-  ArrowRightPurpleIcon,
-} from '@/assets/icons'
+// import {
+//   ArrowLeftIcon,
+//   ArrowLeftPurpleIcon,
+//   ArrowRightIcon,
+//   ArrowRightPurpleIcon,
+// } from '@/assets/icons'
 import type { LocaleType } from '@/i18n/types'
 import { cn } from 'cn'
 import useEmblaCarousel from 'embla-carousel-react'
@@ -13,6 +13,7 @@ import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useCallback, useEffect, useState } from 'react'
 import { Button } from '../ui/button'
+import { OurIcon } from '../ui/icon'
 
 export default function CollectionSection() {
   const locale = useLocale() as LocaleType
@@ -103,15 +104,15 @@ export default function CollectionSection() {
                       <span className="hidden sm:block">
                         {t('itemButtonLabel')}
                       </span>
-                      <Image
-                        src={ArrowLeftIcon}
-                        alt="arrow-left"
-                        className="hidden h-2.5 w-auto sm:ms-3 rtl:block"
+                      {/* LTR */}
+                      <OurIcon
+                        name="arrow-right"
+                        className="ms-3 hidden ltr:block"
                       />
-                      <Image
-                        src={ArrowRightIcon}
-                        alt="arrow-right"
-                        className="hidden h-2.5 w-auto sm:ms-3 ltr:block"
+                      {/* RTL */}
+                      <OurIcon
+                        name="arrow-left"
+                        className="ms-3 hidden rtl:block"
                       />
                     </span>
                   </div>
@@ -121,8 +122,7 @@ export default function CollectionSection() {
           </div>
         </div>
 
-        {/* btns */}
-        {/* Desktop Previous */}
+        {/*Button Desktop Previous */}
         <div className="absolute top-1/2 -left-10 hidden -translate-y-1/2 lg:block rtl:-right-10 rtl:left-auto">
           <Button
             type="button"
@@ -130,25 +130,16 @@ export default function CollectionSection() {
             aria-label="Previous collection"
             onClick={scrollPrev}
             disabled={!canPrev}
-            className="text-primary cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
+            className="text-our-purple hover:text-our-purple cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
           >
             {/* LTR */}
-            <Image
-              src={ArrowLeftPurpleIcon}
-              alt=""
-              className="h-2.5 w-auto ltr:block rtl:hidden"
-            />
-
+            <OurIcon name="arrow-left" className="ltr:block rtl:hidden" />
             {/* RTL */}
-            <Image
-              src={ArrowRightPurpleIcon}
-              alt=""
-              className="hidden h-2.5 w-auto rtl:block"
-            />
+            <OurIcon name="arrow-right" className="ltr:hidden rtl:block" />
           </Button>
         </div>
 
-        {/* Desktop Next */}
+        {/* Button Desktop Next */}
         <div className="absolute top-1/2 -right-10 hidden -translate-y-1/2 lg:block rtl:right-auto rtl:-left-10">
           <Button
             type="button"
@@ -156,63 +147,44 @@ export default function CollectionSection() {
             aria-label="Next collection"
             onClick={scrollNext}
             disabled={!canNext}
-            className="text-primary cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
+            className="text-our-purple hover:text-our-purple cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
           >
             {/* LTR */}
-            <Image
-              src={ArrowRightPurpleIcon}
-              alt=""
-              className="h-2.5 w-auto ltr:block rtl:hidden"
-            />
+            <OurIcon name="arrow-right" className="ltr:block rtl:hidden" />
             {/* RTL */}
-            <Image
-              src={ArrowLeftPurpleIcon}
-              alt=""
-              className="hidden h-2.5 w-auto rtl:block"
-            />
+            <OurIcon name="arrow-left" className="ltr:hidden rtl:block" />
           </Button>
         </div>
       </div>
 
-      {/* btn mobile */}
       <div className="mt-2 flex justify-center gap-2 lg:hidden">
+        {/* Button Mobile Previous */}
         <Button
           aria-label="Previous products"
           variant="ghost"
           size="icon"
           onClick={scrollPrev}
           disabled={!canPrev}
-          className="cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
+          className="text-our-purple hover:text-our-purple cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
         >
-          <Image
-            src={ArrowRightPurpleIcon}
-            alt="arrow-right"
-            className="hidden h-2.5 w-auto rtl:block"
-          />
-          <Image
-            src={ArrowLeftPurpleIcon}
-            alt="arrow-left"
-            className="hidden h-2.5 w-auto ltr:block"
-          />
+          {/* LTR */}
+          <OurIcon name="arrow-left" className="hidden ltr:block" />
+          {/* RTL */}
+          <OurIcon name="arrow-right" className="hidden rtl:block" />
         </Button>
+        {/* Button Mobile Next */}
         <Button
           aria-label="Next products"
           variant="ghost"
           size="icon"
           onClick={scrollNext}
           disabled={!canNext}
-          className="cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
+          className="text-our-purple hover:text-our-purple cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
         >
-          <Image
-            src={ArrowLeftPurpleIcon}
-            alt="arrow-left"
-            className="hidden h-2.5 w-auto rtl:block"
-          />
-          <Image
-            src={ArrowRightPurpleIcon}
-            alt="arrow-right"
-            className="hidden h-2.5 w-auto ltr:block"
-          />
+          {/* LTR */}
+          <OurIcon name="arrow-right" className="hidden ltr:block" />
+          {/* RTL */}
+          <OurIcon name="arrow-left" className="hidden rtl:block" />
         </Button>
       </div>
     </section>
