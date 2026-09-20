@@ -864,6 +864,90 @@
       "title": "About Us",
       "description": "Delivering quality solutions with trust, innovation, and excellence.",
       "image": "/images/floor-img-14.webp"
+    },
+    "IntroSection": {
+      "image": "/images/floor-img-15.webp",
+      "intro": {
+        "eyebrow": "About Us",
+        "title": "Transforming Ideas into Exceptional Flooring Solutions",
+        "body": "Z&S Carpets started as a small shop in 2010 and quickly expanded to offer customers easy access to their multiple stores in the UAE, providing them with a wide range of floorings, including our in-house brand for the entire market retail of the United Arab Emirates. We import high-quality products from countries such as India, Turkey, China, and Europe which follow strict international quality protocols. In addition to the wholesale and retail vertical, we have even started exporting our products to countries like Oman, Saudi Arabia, Africa, and the rest of the GCC. Thus, making us known all over the world!"
+      },
+      "quality": {
+        "title": "Driven by Quality & Trust",
+        "body": "Looking for a way to update your habitat? The flooring could be the best solution. Flooring is becoming increasingly popular for good reasons like it is versatile, long-lasting, and inexpensive! This adaptable material may be utilised in a variety of ways to create an appearance that is distinctive to your home, workspace, or anywhere. We have emerged as a homeowner-favourite firm since we entered the flooring market in 2010. We offer bespoke modern flooring designs that you prefer because of our modern quarries, advanced technology, and dependable craftsmen. We also offer a comprehensive range of flooring solutions with installation services in a variety of forms, sizes, finishes, and edges to meet your design and aesthetic requirements. Every product we sell is of high quality, long-lasting, and resistant to weather and misuse. You can be confident that the natural stone kind you select will age gracefully over time without requiring you to invest much time, effort, or money in its upkeep. We will look at some of the most creative flooring designs that will astound you. We have the appropriate solution for you whether you want to upgrade your kitchen, bathroom, or workspace. So do not put it off any longer; start browsing your ideas with us and get inspired, let’s transform ideas into flooring works."
+      },
+      "stats": [
+        { "value": "1500+", "label": "Products" },
+        { "value": "100 Acre", "label": "Factory" },
+        { "value": "UAE", "label": "No 1 Store" },
+        { "value": "Millions", "label": "Sq.m stock" },
+        { "value": "40+", "label": "Warehouses" },
+        { "value": "16+ Years", "label": "Experience" }
+      ],
+      "mission": {
+        "title": "Our Mission",
+        "body": "Our mission is to put the consumer first, and we endeavour to improve ourselves regularly. Nothing motivates us to keep inventing and researching new flooring technology more than the delight of our clients. Their needs and expectations have always been and will continue to be at the core of everything Z&S Carpets does."
+      },
+      "vision": {
+        "title": "Our Vision",
+        "body": "As one of the best flooring companies in Dubai we aim to be the global leader for all flooring related solutions. We strive to offer our clients the most spectacular products imaginable, utilizing cutting-edge technology and the most cost-effective solutions."
+      },
+      "actions": {
+        "contact": "Get in Touch",
+        "quote": "Request Quote"
+      }
+    },
+    "ManagementSection": {
+      "title": "Message from the Management",
+      "subtitle": "Leading with quality, trust, and a commitment to excellence in every step we take.",
+      "leaders": [
+        {
+          "role": "Owner",
+          "name": "Mohammed Zia Uddin",
+          "message": "Founded in 2010, Z&S Carpets has grown into a trusted flooring supplier across the UAE, offering premium-quality products from around the world. We serve both retail and wholesale customers while exporting to GCC countries, Africa, and beyond.",
+          "company": "Zia and Sagor Carpets Trading LLC",
+          "image": "/images/management-person-img-1.webp"
+        },
+        {
+          "role": "Owner",
+          "name": "Abdhul Zia",
+          "message": "Founded in 2010, Z&S Carpets has grown into a trusted flooring supplier across the UAE, offering premium-quality products from around the world. We serve both retail and wholesale customers while exporting to GCC countries, Africa, and beyond.",
+          "company": "Zia and Sagor Carpets Trading LLC",
+          "image": "/images/management-person-img-2.webp"
+        }
+      ]
+    },
+    "ValuesSection": {
+      "title": "Core Values",
+      "body": "Our core values are built on quality, customer focus, and innovation. We are committed to delivering reliable solutions, creating meaningful customer experiences, and continuously improving through modern ideas and forward-thinking approaches.",
+      "image": "/images/floor-img-15.webp",
+      "items": [
+        { "label": "Quality", "icon": "award" },
+        { "label": "Customer Focus", "icon": "people-focus" },
+        { "label": "Innovation", "icon": "innovation" }
+      ]
+    },
+    "IndustriesSection": {
+      "title": "Industries We Serve",
+      "body": "We provide tailored solutions across residential, commercial, and hospitality sectors, delivering quality, functionality, and design excellence to meet diverse industry needs.",
+      "image": "/images/floor-img-13.webp",
+      "items": [
+        {
+          "title": "Residential",
+          "description": "Delivering stylish, comfortable, and functional solutions tailored for modern living spaces and homes.",
+          "icon": "building_2"
+        },
+        {
+          "title": "Commercial",
+          "description": "Providing durable and professional solutions designed to enhance offices, retail spaces, and business environments.",
+          "icon": "building"
+        },
+        {
+          "title": "Hospitality",
+          "description": "Creating elegant and welcoming spaces for hotels, resorts, and hospitality venues with a focus on comfort and experience.",
+          "icon": "building-3-star"
+        }
+      ]
     }
   }
 }
