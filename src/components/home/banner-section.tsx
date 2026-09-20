@@ -1,9 +1,9 @@
 'use client'
 
-import { MoveLeftIcon, MoveRightIcon } from '@/assets/icons'
 import { Button } from '@/components/ui/button'
 import type { LocaleType } from '@/i18n/types'
 import { cn } from 'cn'
+import { ArrowLeftIcon, ArrowRightIcon } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
@@ -207,19 +207,10 @@ export default function BannerSection() {
                             aria-label="Previous card"
                             onClick={() => setSlide((current) => current - 1)}
                             disabled={count <= 1}
-                            className="cursor-pointer border border-gray-200 p-1.5 disabled:cursor-default ltr:rounded-l-sm rtl:rounded-r-sm"
+                            className="cursor-pointer border border-gray-200 p-0.5 disabled:cursor-default sm:p-1 ltr:rounded-l-sm rtl:rounded-r-sm"
                           >
-                            <Image
-                              src={MoveRightIcon}
-                              alt=""
-                              className="hidden h-1 w-auto sm:h-1.75 rtl:block"
-                            />
-
-                            <Image
-                              src={MoveLeftIcon}
-                              alt=""
-                              className="hidden h-1 w-auto sm:h-1.75 ltr:block"
-                            />
+                            <ArrowLeftIcon className="hidden size-2.75 stroke-1 sm:size-3 ltr:block" />
+                            <ArrowRightIcon className="hidden size-2.75 stroke-1 sm:size-3 rtl:block" />
                           </button>
 
                           {/* Next */}
@@ -228,19 +219,10 @@ export default function BannerSection() {
                             aria-label="Next card"
                             onClick={() => setSlide((current) => current + 1)}
                             disabled={count <= 1}
-                            className="cursor-pointer border-y border-gray-200 p-1.5 disabled:cursor-default ltr:rounded-r-sm ltr:border-r rtl:rounded-l-sm rtl:border-l"
+                            className="cursor-pointer border-y border-gray-200 p-0.5 disabled:cursor-default sm:p-1 ltr:rounded-r-sm ltr:border-r rtl:rounded-l-sm rtl:border-l"
                           >
-                            <Image
-                              src={MoveLeftIcon}
-                              alt=""
-                              className="hidden h-1 w-auto sm:h-1.75 rtl:block"
-                            />
-
-                            <Image
-                              src={MoveRightIcon}
-                              alt=""
-                              className="hidden h-1 w-auto sm:h-1.75 ltr:block"
-                            />
+                            <ArrowLeftIcon className="hidden size-2.75 stroke-1 sm:size-3 rtl:block" />
+                            <ArrowRightIcon className="hidden size-2.75 stroke-1 sm:size-3 ltr:block" />
                           </button>
                         </div>
                       </div>

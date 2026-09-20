@@ -1,16 +1,11 @@
 'use client'
 
-import {
-  ArrowLeftIcon,
-  ArrowLeftPurpleIcon,
-  ArrowRightIcon,
-  ArrowRightPurpleIcon,
-} from '@/assets/icons'
 import { Button } from '@/components/ui/button'
 import { cn } from 'cn'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
+import { OurIcon } from '../ui/icon'
 
 type WorkItem = {
   id: string
@@ -58,17 +53,13 @@ function ProjectCard({ project }: { project: WorkProject }) {
             <span className="underline decoration-0 underline-offset-8">
               {item.btnLabel}
             </span>
-
-            <Image
-              src={ArrowLeftIcon}
-              alt="arrow-left"
-              className="ms-3 hidden h-2.5 w-auto rtl:inline-block"
+            <OurIcon
+              name="arrow-left"
+              className="ms-3 hidden size-3.5 rtl:inline-block"
             />
-
-            <Image
-              src={ArrowRightIcon}
-              alt="arrow-right"
-              className="ms-3 hidden h-2.5 w-auto ltr:inline-block"
+            <OurIcon
+              name="arrow-right"
+              className="ms-3 hidden size-3.5 ltr:inline-block"
             />
           </span>
         </div>
@@ -303,21 +294,12 @@ export default function WorksSections() {
               aria-label="Previous collection"
               onClick={handlePrevious}
               disabled={currentIndex === 0 || isAnimating}
-              className="text-primary pointer-events-auto cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
+              className="text-our-purple hover:text-our-purple pointer-events-auto cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
             >
               {/* LTR */}
-              <Image
-                src={ArrowLeftPurpleIcon}
-                alt=""
-                className="h-2.5 w-auto ltr:block rtl:hidden"
-              />
-
+              <OurIcon name="arrow-left" className="ltr:block rtl:hidden" />
               {/* RTL */}
-              <Image
-                src={ArrowRightPurpleIcon}
-                alt=""
-                className="hidden h-2.5 w-auto rtl:block"
-              />
+              <OurIcon name="arrow-right" className="ltr:hidden rtl:block" />
             </Button>
           </div>
           {/* Desktop Next */}
@@ -328,20 +310,12 @@ export default function WorksSections() {
               aria-label="Next collection"
               onClick={handleNext}
               disabled={currentIndex === maxIndex || isAnimating}
-              className="text-primary pointer-events-auto cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
+              className="text-our-purple hover:text-our-purple pointer-events-auto cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
             >
               {/* LTR */}
-              <Image
-                src={ArrowRightPurpleIcon}
-                alt=""
-                className="h-2.5 w-auto ltr:block rtl:hidden"
-              />
+              <OurIcon name="arrow-right" className="ltr:block rtl:hidden" />
               {/* RTL */}
-              <Image
-                src={ArrowLeftPurpleIcon}
-                alt=""
-                className="hidden h-2.5 w-auto rtl:block"
-              />
+              <OurIcon name="arrow-left" className="ltr:hidden rtl:block" />
             </Button>
           </div>
         </div>
@@ -355,19 +329,12 @@ export default function WorksSections() {
             size="icon"
             disabled={currentIndex === 0 || isAnimating}
             onClick={handlePrevious}
-            className="cursor-pointer hover:bg-transparent disabled:opacity-30"
+            className="text-our-purple hover:text-our-purple cursor-pointer hover:bg-transparent disabled:opacity-30"
           >
-            <Image
-              src={ArrowRightPurpleIcon}
-              alt="arrow-right"
-              className="hidden h-2.5 w-auto rtl:block"
-            />
-
-            <Image
-              src={ArrowLeftPurpleIcon}
-              alt="arrow-left"
-              className="hidden h-2.5 w-auto ltr:block"
-            />
+            {/* LTR */}
+            <OurIcon name="arrow-left" className="hidden ltr:block" />
+            {/* RTL */}
+            <OurIcon name="arrow-right" className="hidden rtl:block" />
           </Button>
 
           <Button
@@ -377,19 +344,12 @@ export default function WorksSections() {
             size="icon"
             disabled={currentIndex === maxIndex || isAnimating}
             onClick={handleNext}
-            className="cursor-pointer hover:bg-transparent disabled:opacity-30"
+            className="text-our-purple hover:text-our-purple cursor-pointer hover:bg-transparent disabled:opacity-30"
           >
-            <Image
-              src={ArrowLeftPurpleIcon}
-              alt="arrow-left"
-              className="hidden h-2.5 w-auto rtl:block"
-            />
-
-            <Image
-              src={ArrowRightPurpleIcon}
-              alt="arrow-right"
-              className="hidden h-2.5 w-auto ltr:block"
-            />
+            {/* LTR */}
+            <OurIcon name="arrow-right" className="hidden ltr:block" />
+            {/* RTL */}
+            <OurIcon name="arrow-left" className="hidden rtl:block" />
           </Button>
         </div>
 

@@ -1,6 +1,5 @@
 'use client'
 
-import { ArrowLeftIcon, ArrowRightIcon } from '@/assets/icons'
 import {
   FloorImg11,
   FloorImg12,
@@ -13,6 +12,7 @@ import { cn } from 'cn'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
+import { OurIcon } from '../ui/icon'
 
 const productImgs = {
   'floor-2': FloorImg2,
@@ -212,13 +212,14 @@ export default function BuiltForSection() {
                     size="icon"
                     disabled={!isImgStackScrollable || imgStackScrollIsAtStart}
                     onClick={() => scrollProducts('up')}
-                    className="flex cursor-pointer hover:bg-transparent rtl:max-lg:hidden"
+                    className="flex cursor-pointer text-white hover:bg-transparent hover:text-white rtl:max-lg:hidden"
                   >
-                    <Image
+                    {/* <Image
                       src={ArrowRightIcon}
                       alt="arrow-left_and_up"
                       className="h-2.5 w-auto rotate-180 lg:-rotate-90"
-                    />
+                    /> */}
+                    <OurIcon name="arrow-left" className="lg:rotate-90" />
                   </Button>
                   <Button
                     aria-label="Scroll down"
@@ -226,13 +227,14 @@ export default function BuiltForSection() {
                     size="icon"
                     disabled={!isImgStackScrollable || imgStackScrollIsAtStart}
                     onClick={() => scrollProducts('down')}
-                    className="hidden cursor-pointer hover:bg-transparent rtl:flex rtl:lg:hidden"
+                    className="hidden cursor-pointer text-white hover:bg-transparent hover:text-white rtl:flex rtl:lg:hidden"
                   >
-                    <Image
+                    {/* <Image
                       src={ArrowLeftIcon}
                       alt="arrow-right_and_down"
                       className="h-2.5 w-auto rotate-180 lg:-rotate-90"
-                    />
+                      /> */}
+                    <OurIcon name="arrow-right" />
                   </Button>
                 </div>
 
@@ -297,13 +299,14 @@ export default function BuiltForSection() {
                     size="icon"
                     disabled={!isImgStackScrollable || imgStackScrollIsAtEnd}
                     onClick={() => scrollProducts('down')}
-                    className="flex cursor-pointer hover:bg-transparent rtl:max-lg:hidden"
+                    className="flex cursor-pointer text-white hover:bg-transparent hover:text-white rtl:max-lg:hidden"
                   >
-                    <Image
+                    {/* <Image
                       src={ArrowLeftIcon}
                       alt="arrow-right_and_down"
                       className="h-2.5 w-auto rotate-180 lg:-rotate-90"
-                    />
+                    /> */}
+                    <OurIcon name="arrow-right" className="lg:rotate-90" />
                   </Button>
                   <Button
                     aria-label="Scroll up"
@@ -311,13 +314,14 @@ export default function BuiltForSection() {
                     size="icon"
                     disabled={!isImgStackScrollable || imgStackScrollIsAtEnd}
                     onClick={() => scrollProducts('up')}
-                    className="hidden cursor-pointer hover:bg-transparent rtl:flex rtl:lg:hidden"
+                    className="hidden cursor-pointer text-white hover:bg-transparent hover:text-white rtl:flex rtl:lg:hidden"
                   >
-                    <Image
+                    {/* <Image
                       src={ArrowRightIcon}
                       alt="arrow-left_and_up"
                       className="h-2.5 w-auto rotate-180 lg:-rotate-90"
-                    />
+                    /> */}
+                    <OurIcon name="arrow-left" />
                   </Button>
                 </div>
               </div>

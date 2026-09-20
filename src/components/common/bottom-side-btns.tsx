@@ -1,11 +1,6 @@
-import {
-  MailOutlineIcon,
-  PhoneOutlineIcon,
-  WhatsAppOutlineIcon,
-} from '@/assets/icons'
-import Image from 'next/image'
+import { OurIcon } from '@/components/ui/icon'
 
-const contact = {
+const contacts = {
   mail: 'info@zandscarpets.com',
   whatsapp: '+971 XX XXX XXXX',
   phone: '+971 5270 044 20',
@@ -13,41 +8,29 @@ const contact = {
 
 export default function BottomSideBtns() {
   return (
-    <div className="fixed bottom-14 ltr:right-2 ltr:sm:right-5 rtl:left-2 rtl:sm:left-5 flex flex-col-reverse gap-1.25 z-99">
+    <div className="fixed bottom-14 z-99 flex flex-col-reverse gap-1.25 ltr:right-2 ltr:sm:right-5 rtl:left-2 rtl:sm:left-5">
       <a
-        className="w-9.5 h-9.5 bg-[#812990] rounded-sm p-2.5 flex justify-center items-center"
-        href={`mailto:${contact.mail}`}
+        className="flex h-9.5 w-9.5 items-center justify-center rounded-sm bg-[#812990] p-2.5"
+        href={`mailto:${contacts.mail}`}
         aria-label="Send us an email"
       >
-        <Image
-          src={MailOutlineIcon}
-          alt="Phone Outline Icon"
-          className="h-auto w-full"
-        />
+        <OurIcon name="mail" className="size-5 text-white" />
       </a>
       <a
-        className="w-9.5 h-9.5 bg-[#72BF44] rounded-sm p-2.5 flex justify-center items-center"
-        href={`https://wa.me/${contact.whatsapp.replaceAll(' ', '')}`}
+        className="flex h-9.5 w-9.5 items-center justify-center rounded-sm bg-[#72BF44] p-2.5"
+        href={`https://wa.me/${contacts.whatsapp.replaceAll(' ', '')}`}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Contact us on WhatsApp"
       >
-        <Image
-          src={WhatsAppOutlineIcon}
-          alt="Phone Outline Icon"
-          className="h-auto w-full"
-        />
+        <OurIcon name="whatsapp" className="size-5 text-white" />
       </a>
       <a
-        className="w-9.5 h-9.5 bg-[#0066B3] rounded-sm p-2.5 flex justify-center items-center"
-        href={`tel:${contact.phone.replaceAll(' ', '')}`}
+        className="flex h-9.5 w-9.5 items-center justify-center rounded-sm bg-[#0066B3] p-2.5"
+        href={`tel:${contacts.phone.replaceAll(' ', '')}`}
         aria-label="Call us"
       >
-        <Image
-          src={PhoneOutlineIcon}
-          alt="Phone Outline Icon"
-          className="h-auto w-full"
-        />
+        <OurIcon name="phone" className="size-5 text-white" />
       </a>
     </div>
   )

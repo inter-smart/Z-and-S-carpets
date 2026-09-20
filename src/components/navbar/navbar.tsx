@@ -1,7 +1,7 @@
-import { ArrowIcon, FilePenIcon, MenuIcon, SearchIcon } from '@/assets/icons'
 import { SiteLogo } from '@/assets/logos'
 import LangDropdown from '@/components/navbar/lang-dropdown'
 import { Button } from '@/components/ui/button'
+import { OurIcon } from '@/components/ui/icon'
 import type { LocaleType } from '@/i18n/types'
 import { cn } from 'cn'
 import { useLocale, useTranslations } from 'next-intl'
@@ -67,11 +67,7 @@ export default function Navbar() {
                 size="icon"
                 className="h-9.5 w-9.5 translate-y-0! rounded-full bg-[#0066B3] hover:bg-[#0066B3]/90"
               >
-                <Image
-                  src={FilePenIcon}
-                  alt="file-pen-icon"
-                  className="h-4.5 w-auto"
-                />
+                <OurIcon name="file-pen" className="size-4.5" />
               </Button>
               {/* menu btn */}
               <Button
@@ -79,7 +75,7 @@ export default function Navbar() {
                 className="ltr:font-manrope rtl:font-cairo flex translate-y-0! flex-row items-center justify-center space-x-2 rounded-sm border-[#0066B3] px-3 py-4.25 text-sm font-medium"
               >
                 <p className="hidden sm:block">{t('menuBtnLable')}</p>
-                <Image src={MenuIcon} alt="menu-icon" className="h-6 w-auto" />
+                <OurIcon name="menu" className="size-7" />
               </Button>
             </div>
           </div>
@@ -102,35 +98,29 @@ export default function Navbar() {
             )}
           >
             {/* categories */}
-            {category.map((item) => (
-              <div
-                key={item.title}
-                className="flex cursor-pointer flex-row items-baseline space-x-0.5 sm:space-x-1.5"
+            {category.map((item, i) => (
+              <p
+                key={i}
+                className="flex cursor-pointer flex-row items-center space-x-0.5 sm:space-x-1.5"
               >
-                <p>{item.title}</p>
-                <Image
-                  src={ArrowIcon}
-                  alt="arrow-down-icon"
-                  className="h-1.5 w-auto"
-                />
-              </div>
+                <span className="first-letter:uppercase">{item.title}</span>
+                <OurIcon name="chevron-down" className="size-2.5" />
+              </p>
             ))}
           </div>
           {/* more category btn */}
-          <div className="flex cursor-pointer flex-row items-baseline space-x-0.5 sm:space-x-1.5">
-            <p>{t('categoryMoreBtnLable')}</p>
-            <Image
-              src={ArrowIcon}
-              alt="arrow-down-icon"
-              className="h-1.5 w-auto"
-            />
-          </div>
+          <p className="flex cursor-pointer flex-row items-center space-x-0.5 sm:space-x-1.5">
+            <span className="first-letter:uppercase">
+              {t('categoryMoreBtnLable')}
+            </span>
+            <OurIcon name="chevron-down" className="size-2.5" />
+          </p>
           {/* language change dropdown */}
           <LangDropdown />
           {/* search */}
-          <div className="cursor-pointer">
-            <Image src={SearchIcon} alt="serach-icon" className="h-4 w-auto" />
-          </div>
+          <p className="cursor-pointer space-x-0.5 sm:space-x-1.5">
+            <OurIcon name="search" className="size-4" />
+          </p>
         </div>
       </div>
     </header>

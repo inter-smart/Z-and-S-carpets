@@ -1,47 +1,22 @@
 'use client'
 
-import {
-  FacebookIcon,
-  InstagramIcon,
-  InterSmartIcon,
-  LinkedInIcon,
-  LocationBlueIcon,
-  MailBlueIcon,
-  PhoneBlueIcon,
-  WhatsAppIcon,
-  XTwitterIcon,
-  YouTubeIcon,
-} from '@/assets/icons'
 import { SiteLogo } from '@/assets/logos'
-import FooterCarousel from '@/components/footer/footer-carousel'
+import { OurIcon, type OurIconName } from '@/components/ui/icon'
 import { cn } from 'cn'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useState } from 'react'
+import FooterCarousel from './footer-carousel'
 
 interface ContactsItemType {
   label: string
   link: string
+  icon: OurIconName
 }
 
 interface FooterLinksItemsType {
   text: string
   link: string
-}
-
-const contactsIcons = {
-  location: LocationBlueIcon,
-  mail: MailBlueIcon,
-  phone: PhoneBlueIcon,
-  whatsapp: WhatsAppIcon,
-}
-
-const socialIcons = {
-  'facebook-icon': FacebookIcon,
-  'youtube-icon': YouTubeIcon,
-  'instagram-icon': InstagramIcon,
-  'linkedin-icon': LinkedInIcon,
-  'xtwitter-icon': XTwitterIcon,
 }
 
 export default function Footer() {
@@ -63,14 +38,12 @@ export default function Footer() {
     'footerLinks.products.items',
   ) as FooterLinksItemsType[][]
 
-  const contacts = t.raw('contacts') as {
-    location: ContactsItemType
-    mail: ContactsItemType
-    phone: ContactsItemType
-    whatsapp: ContactsItemType
-  }
+  const contacts = t.raw('contacts') as ContactsItemType[]
 
-  const social = t.raw('social') as { id: string; link: string }[]
+  const social = t.raw('social') as {
+    link: string
+    icon: OurIconName
+  }[]
   const images = t.raw('images') as string[]
 
   return (
@@ -164,51 +137,34 @@ export default function Footer() {
             <div className="mt-7 space-y-7 sm:col-span-2 sm:mt-0 md:col-span-1">
               <Image src={SiteLogo} alt="Z&S Carpets" />
               <div className="space-y-5">
-                {/* location */}
-                <div className="flex flex-row items-start space-x-2">
-                  <Image
-                    src={contactsIcons['location']}
-                    alt="location icon"
-                    className="h-auto w-4"
-                  />
-                  <p>{contacts.location.label}</p>
-                </div>
-                {/* mail */}
-                <a
-                  href={`mailto:${contacts.mail.link}`}
-                  className="flex flex-row items-start space-x-2"
-                >
-                  <Image
-                    src={contactsIcons['mail']}
-                    alt="location icon"
-                    className="h-auto w-4"
-                  />
-                  <p>{contacts.mail.label}</p>
-                </a>
-                {/* phone */}
-                <a
-                  href={`tel:${contacts.phone.link.replaceAll(' ', '')}`}
-                  className="flex flex-row items-start space-x-2"
-                >
-                  <Image
-                    src={contactsIcons['phone']}
-                    alt="location icon"
-                    className="h-auto w-4"
-                  />
-                  <p>{contacts.phone.label}</p>
-                </a>
-                {/* whatsapp */}
-                <a
-                  href={`https://wa.me/${contacts.whatsapp.link.replaceAll(' ', '')}`}
-                  className="flex flex-row items-start space-x-2"
-                >
-                  <Image
-                    src={contactsIcons['whatsapp']}
-                    alt="location icon"
-                    className="h-auto w-4"
-                  />
-                  <p>{contacts.whatsapp.label}</p>
-                </a>
+                {contacts.map((item, i) => {
+                  if (!item.link.length)
+                    return (
+                      <div
+                        key={i}
+                        className="flex flex-row items-start space-x-2"
+                      >
+                        <OurIcon
+                          name={item.icon}
+                          className="text-our-blue size-6"
+                        />
+                        <p>{item.label}</p>
+                      </div>
+                    )
+                  return (
+                    <a
+                      key={i}
+                      href={item.link.replaceAll(' ', '')}
+                      className="flex flex-row items-start space-x-2"
+                    >
+                      <OurIcon
+                        name={item.icon}
+                        className="text-our-blue size-4"
+                      />
+                      <p>{item.label}</p>
+                    </a>
+                  )
+                })}
               </div>
             </div>
           </div>
@@ -219,24 +175,15 @@ export default function Footer() {
         <div className="flex w-full flex-col items-center justify-between space-y-4 py-10 text-center font-light lg:flex-row lg:space-y-0">
           <p className="hidden lg:block">{t('copyright')}</p>
           <div className="flex flex-row space-x-3 sm:space-x-8 xl:space-x-10">
-            {social.map((logo) => (
-              <Image
-                key={logo.id}
-                src={socialIcons[logo.id as keyof typeof socialIcons]}
-                alt={logo.id}
-                className="h-3.5 w-auto"
-              />
+            {social.map((logo, i) => (
+              <OurIcon key={i} name={logo.icon} className="size-4 text-white" />
             ))}
           </div>
           <p className="lg:hidden">{t('copyright')}</p>
           <div className="flex items-center justify-between space-x-1 text-sm sm:flex-row sm:justify-center">
             <p>{t('designedByLabel')}:</p>
-            <div className="flex flex-row items-center space-x-0.5">
-              <Image
-                src={InterSmartIcon}
-                alt="Intersmart"
-                className="h-2.75 w-auto"
-              />
+            <div className="flex flex-row items-center space-x-px">
+              <OurIcon name="intersmart" className="size-2.75" />
               <p className="text-[0.7rem]">iNTERSMART</p>
             </div>
           </div>

@@ -71,9 +71,9 @@ export default function ProcessSections() {
               >
                 <span className="bg-background grid size-7 place-items-center rounded-full text-[#0066B3]">
                   {isPlaying ? (
-                    <Pause className="size-3 fill-current" />
+                    <Pause className="size-3 fill-current stroke-1" />
                   ) : (
-                    <Play className="size-3 fill-current" />
+                    <Play className="size-3 fill-current stroke-1" />
                   )}
                 </span>
 

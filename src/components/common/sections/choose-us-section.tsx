@@ -1,4 +1,4 @@
-import { BadgeCheckIcon } from '@/assets/icons'
+import { BadgeCheckIcon } from '@/assets/icons2'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 

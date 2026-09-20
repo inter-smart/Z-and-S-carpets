@@ -263,44 +263,48 @@
         ]
       }
     },
-    "contacts": {
-      "location": {
+    "contacts": [
+      {
         "label": "Warehouse No:5, Street No:2 Al Warsan -3, Dubai (UAE)",
-        "link": ""
+        "link": "",
+        "icon": "location"
       },
-      "mail": {
+      {
         "label": "info@zandscarpets.com",
-        "link": "info@zandscarpets.com"
+        "link": "mailto:info@zandscarpets.com",
+        "icon": "mail_2"
       },
-      "phone": {
+      {
         "label": "+971 5270 044 20",
-        "link": "+971 5270 044 20"
+        "link": "tel:+971527004420",
+        "icon": "phone_2"
       },
-      "whatsapp": {
+      {
         "label": "+971 XX XXX XXXX",
-        "link": "+971 XX XXX XXXX"
+        "link": "https://wa.me/+971XXXXXXXXX",
+        "icon": "whatsapp_2"
       }
-    },
+    ],
     "social": [
       {
-        "id": "facebook-icon",
-        "link": ""
+        "link": "",
+        "icon": "facebook"
       },
       {
-        "id": "youtube-icon",
-        "link": ""
+        "link": "",
+        "icon": "youtube"
       },
       {
-        "id": "instagram-icon",
-        "link": ""
+        "link": "",
+        "icon": "instagram"
       },
       {
-        "id": "linkedin-icon",
-        "link": ""
+        "link": "",
+        "icon": "linkedin"
       },
       {
-        "id": "xtwitter-icon",
-        "link": ""
+        "link": "",
+        "icon": "xtwitter"
       }
     ],
     "copyright": "حقوق الطبع والنشر © Z&S Carpets Trading L.L.C. جميع الحقوق محفوظة",

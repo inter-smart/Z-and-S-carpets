@@ -1,6 +1,5 @@
 'use client'
 
-import { ArrowIcon } from '@/assets/icons'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,12 +7,11 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import type { LocaleType } from '@/i18n/types'
-import { cn } from 'cn'
 import { useLocale } from 'next-intl'
-import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
+import { OurIcon } from '../ui/icon'
 
 export default function LangDropdown() {
   const locale = useLocale() as LocaleType
@@ -32,14 +30,10 @@ export default function LangDropdown() {
       <DropdownMenuTrigger
         nativeButton={false}
         render={
-          <div className="flex cursor-pointer flex-row items-baseline justify-start space-x-0.5 sm:space-x-1.5">
-            <p className="first-letter:uppercase">{locale}</p>
-            <Image
-              src={ArrowIcon}
-              alt="arrow-down-icon"
-              className={cn('h-1.5 w-auto', open ? 'rotate-180' : '')}
-            />
-          </div>
+          <p className="flex cursor-pointer flex-row items-center space-x-0.5 sm:space-x-1.5">
+            <span className="first-letter:uppercase">{locale}</span>
+            <OurIcon name="chevron-down" className="size-2.5" />
+          </p>
         }
       ></DropdownMenuTrigger>
       <DropdownMenuContent className="min-w-20! rounded-sm! **:rounded-sm!">

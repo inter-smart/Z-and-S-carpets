@@ -1,11 +1,12 @@
 'use client'
 
-import { ArrowLeftPurpleIcon, ArrowRightPurpleIcon } from '@/assets/icons'
+// import { ArrowLeftPurpleIcon, ArrowRightPurpleIcon } from '@/assets/icons'
 import { FloorCImg1_1, FloorCImg1_2 } from '@/assets/images'
 import { Button } from '@/components/ui/button'
-import Image, { type StaticImageData } from 'next/image'
+import { type StaticImageData } from 'next/image'
 import { useState } from 'react'
 import ImgCompareSlider from '../common/img-compare-slider'
+import { OurIcon } from '../ui/icon'
 
 export default function ImgCompareSection() {
   const imgGroups = [
@@ -87,32 +88,24 @@ export default function ImgCompareSection() {
           aria-label="Previous collection"
           onClick={handlePrevious}
           disabled={currentIndex === 0 || isAnimating}
-          className="text-primary absolute top-1/2 -left-8 hidden cursor-pointer text-xl hover:bg-transparent disabled:opacity-30 sm:block md:-left-10"
+          className="text-our-purple hover:text-our-purple absolute top-1/2 -left-8 hidden cursor-pointer text-xl hover:bg-transparent disabled:opacity-30 sm:block md:-left-10"
           variant="ghost"
         >
-          <Image
-            src={ArrowLeftPurpleIcon}
-            alt="arrow-left"
-            className="h-2.5 w-auto"
-          />
+          <OurIcon name="arrow-left" />
         </Button>
-
         {/* Next */}
         <Button
           type="button"
           aria-label="Next collection"
           onClick={handleNext}
           disabled={currentIndex === imgGroups.length - 1 || isAnimating}
-          className="text-primary absolute top-1/2 -right-8 hidden cursor-pointer text-xl hover:bg-transparent disabled:opacity-30 sm:block md:-right-10"
+          className="text-our-purple hover:text-our-purple absolute top-1/2 -right-8 hidden cursor-pointer text-xl hover:bg-transparent disabled:opacity-30 sm:block md:-right-10"
           variant="ghost"
         >
-          <Image
-            src={ArrowRightPurpleIcon}
-            alt="arrow-right"
-            className="h-2.5 w-auto"
-          />
+          <OurIcon name="arrow-right" />
         </Button>
       </div>
+
       <div className="mt-2 flex justify-center gap-2 sm:hidden">
         <Button
           aria-label="Previous products"
@@ -120,18 +113,10 @@ export default function ImgCompareSection() {
           size="icon"
           onClick={handlePrevious}
           disabled={currentIndex === 0 || isAnimating}
-          className="cursor-pointer hover:bg-transparent"
+          className="text-our-purple hover:text-our-purple cursor-pointer hover:bg-transparent"
         >
-          <Image
-            src={ArrowRightPurpleIcon}
-            alt="arrow-right"
-            className="hidden h-2.5 w-auto rtl:block"
-          />
-          <Image
-            src={ArrowLeftPurpleIcon}
-            alt="arrow-left"
-            className="hidden h-2.5 w-auto ltr:block"
-          />
+          <OurIcon name="arrow-right" className="hidden rtl:block" />
+          <OurIcon name="arrow-left" className="hidden ltr:block" />
         </Button>
         <Button
           aria-label="Next products"
@@ -139,18 +124,10 @@ export default function ImgCompareSection() {
           size="icon"
           onClick={handleNext}
           disabled={currentIndex === imgGroups.length - 1 || isAnimating}
-          className="cursor-pointer hover:bg-transparent"
+          className="text-our-purple hover:text-our-purple cursor-pointer hover:bg-transparent"
         >
-          <Image
-            src={ArrowLeftPurpleIcon}
-            alt="arrow-left"
-            className="hidden h-2.5 w-auto rtl:block"
-          />
-          <Image
-            src={ArrowRightPurpleIcon}
-            alt="arrow-right"
-            className="hidden h-2.5 w-auto ltr:block"
-          />
+          <OurIcon name="arrow-left" className="hidden rtl:block" />
+          <OurIcon name="arrow-right" className="hidden ltr:block" />
         </Button>
       </div>
     </div>

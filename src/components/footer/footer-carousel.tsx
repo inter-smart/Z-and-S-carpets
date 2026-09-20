@@ -1,7 +1,7 @@
 'use client'
 
-import { ArrowLeftIcon, ArrowRightIcon } from '@/assets/icons'
 import { Button } from '@/components/ui/button'
+import { OurIcon } from '@/components/ui/icon'
 import { cn } from 'cn'
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
@@ -78,13 +78,9 @@ export default function FooterCarousel({ images }: { images: string[] }) {
           type="button"
           onClick={handlePrevious}
           aria-label="Previous button"
-          className="rounded-none bg-black/40 px-2 py-3.5 text-white"
+          className="cursor-pointer rounded-none bg-black/40 px-2 py-3.5 text-white"
         >
-          <Image
-            src={ArrowLeftIcon}
-            alt="arrow-left"
-            className="h-2.5 w-auto"
-          />
+          <OurIcon name="arrow-left" className="size-3.5" />
         </Button>
       </div>
 
@@ -94,13 +90,9 @@ export default function FooterCarousel({ images }: { images: string[] }) {
           type="button"
           onClick={handleNext}
           aria-label="Next button"
-          className="rounded-none bg-black/40 px-2 py-3.5 text-white"
+          className="cursor-pointer rounded-none bg-black/40 px-2 py-3.5 text-white"
         >
-          <Image
-            src={ArrowRightIcon}
-            alt="arrow-left"
-            className="h-2.5 w-auto"
-          />
+          <OurIcon name="arrow-right" className="size-3.5" />
         </Button>
       </div>
     </div>
