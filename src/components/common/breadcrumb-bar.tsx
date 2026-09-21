@@ -19,7 +19,7 @@ export default function BreadcrumbBar({
   const pathname = usePathname()
 
   const pathnameSplits = pathname.split('/')
-  const currentUrlEndPoint = pathnameSplits[pathnameSplits.length - 1]
+  const currentUrlEndPoint = '/' + pathnameSplits[pathnameSplits.length - 1]
 
   return (
     <div className="container-wrapper flex h-12 items-center">
@@ -37,7 +37,7 @@ export default function BreadcrumbBar({
               </BreadcrumbSeparator>
               <BreadcrumbItem>
                 <BreadcrumbLink
-                  render={<Link href={`/${value.link}`} />}
+                  render={<Link href={value.link} />}
                   className={cn(
                     currentUrlEndPoint === value.link
                       ? 'text-[#812990] hover:text-[#812990]'

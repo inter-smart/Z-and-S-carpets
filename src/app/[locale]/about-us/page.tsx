@@ -14,7 +14,7 @@ export default function HomePage() {
       <BannerSection pageName="AboutPage" />
       <BreadcrumbBar
         values={[
-          { name: 'About Us', link: 'about' },
+          { name: 'About Us', link: '/about-us' },
           // { name: 'Contact Us', link: 'contact' },
         ]}
       />
