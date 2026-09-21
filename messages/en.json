@@ -93,7 +93,7 @@
       [
         {
           "text": "About Us",
-          "link": "/about-us"
+          "link": "/about"
         },
         {
           "text": "Services",
@@ -115,7 +115,7 @@
         },
         {
           "text": "Contact us",
-          "link": "/contact-us"
+          "link": "/contact"
         },
         {
           "text": "Get a sample",
@@ -287,7 +287,7 @@
     ],
     "social": [
       {
-        "link": "",
+        "link": "https://www.facebook.com/zandscarpet",
         "icon": "facebook"
       },
       {
@@ -295,7 +295,7 @@
         "icon": "youtube"
       },
       {
-        "link": "",
+        "link": "https://www.instagram.com/zandscarpet",
         "icon": "instagram"
       },
       {
@@ -303,7 +303,7 @@
         "icon": "linkedin"
       },
       {
-        "link": "",
+        "link": "https://x.com/Zandscarpet",
         "icon": "xtwitter"
       }
     ],
@@ -980,6 +980,42 @@
       ]
     }
   },
+  "ContactPage": {
+    "BannerSection": {
+      "title": "Contact Us",
+      "description": "Reach out for expert support and assistance.",
+      "image": "/images/contact-us-img.webp"
+    },
+    "contactDetails": {
+      "title": "We're here to help.",
+      "description": "Need help choosing the right flooring solution? Contact our team today for product information, expert guidance, and personalized assistance. We're here to support your project every step of the way.",
+      "items": [
+        {
+          "title": "Reach Us by Phone",
+          "description": "Have questions or need assistance? Give us a call to speak with our friendly team of lighting experts.",
+          "value": "+971 5270 044 20",
+          "icon": "phone_2"
+        },
+        {
+          "title": "Drop Us an Email",
+          "description": "Prefer to communicate via email? Feel free to send us an email and we'll get back to you promptly.",
+          "value": "info@zandscarpets.com",
+          "icon": "mail_3"
+        }
+      ],
+      "socialTitle": "Follow us :",
+      "office": {
+        "title": "Visit Our Office",
+        "address": "Warehouse No:5, Street No:2 Al Warsan -3, Dubai (UAE)"
+      }
+    },
+    "getInTouch": {
+      "formTitle": "Get In Touch with us",
+      "fields": ["Name", "Email", "Phone", "Requirement"],
+      "upload": "File upload",
+      "submit": "Send"
+    }
+  },
   "NotFoundPage": {
     "title": "Page not Found",
     "description": "Sorry, we couldn't find the page you're looking for. It might have been moved, deleted, or you entered the wrong URL.",
@@ -989,7 +1025,7 @@
       },
       "contactUs": {
         "label": "Contact Us",
-        "link": "/contact-us"
+        "link": "/contact"
       }
     },
     "social": {

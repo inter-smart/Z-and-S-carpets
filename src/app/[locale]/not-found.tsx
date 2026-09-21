@@ -1,10 +1,13 @@
 import { GoBackBtn } from '@/components/common/go-back-btn'
 import { Button } from '@/components/ui/button'
 import { OurIcon, type OurIconName } from '@/components/ui/icon'
-import { useTranslations } from 'next-intl'
+import type { LocaleType } from '@/i18n/types'
+import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
 
 export default function NotFound() {
+  const locale = useLocale() as LocaleType
+
   const t = useTranslations('NotFoundPage')
   const t2 = useTranslations('Footer')
 
@@ -32,7 +35,7 @@ export default function NotFound() {
           />
           <Button
             nativeButton={false}
-            render={<Link href={t('buttons.contactUs.link')} />}
+            render={<Link href={`/${locale}${t('buttons.contactUs.link')}`} />}
             className="bg-our-purple our-btn hover:bg-our-purple px-10!"
           >
             {t('buttons.contactUs.label')}
@@ -42,7 +45,9 @@ export default function NotFound() {
           <p>{t('social.title')}</p>
           <div className="flex gap-10">
             {social.map((logo, i) => (
-              <OurIcon key={i} name={logo.icon} className="size-4 text-black" />
+              <Link key={i} href={logo.link}>
+                <OurIcon name={logo.icon} className="size-4 text-black" />
+              </Link>
             ))}
           </div>
         </div>

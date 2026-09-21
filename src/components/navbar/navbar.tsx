@@ -27,7 +27,11 @@ export default function Navbar() {
         <div className="container-wrapper flex flex-row items-center justify-between">
           <div className="hidden flex-row items-center justify-between space-x-3 pe-25 lg:w-5/12 xl:flex 2xl:space-x-10">
             {navLinks[0].map((item, i) => (
-              <Link key={i} href={item.link} className="font-medium">
+              <Link
+                key={i}
+                href={`/${locale}${item.link}`}
+                className="font-medium"
+              >
                 {item.text}
               </Link>
             ))}
@@ -47,7 +51,11 @@ export default function Navbar() {
           <div className="flex w-1/2 flex-row items-center justify-end space-x-4 lg:w-5/12 2xl:space-x-8">
             <div className="hidden flex-row items-center space-x-3 xl:flex 2xl:space-x-10">
               {navLinks[1].map((item, i) => (
-                <Link key={i} href={item.link} className="font-medium">
+                <Link
+                  key={i}
+                  href={`/${locale}${item.link}`}
+                  className="font-medium"
+                >
                   {item.text}
                 </Link>
               ))}

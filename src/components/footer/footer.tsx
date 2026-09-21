@@ -5,6 +5,7 @@ import { OurIcon, type OurIconName } from '@/components/ui/icon'
 import { cn } from 'cn'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useState } from 'react'
 import FooterCarousel from './footer-carousel'
 
@@ -176,7 +177,9 @@ export default function Footer() {
           <p className="hidden lg:block">{t('copyright')}</p>
           <div className="flex flex-row space-x-3 sm:space-x-8 xl:space-x-10">
             {social.map((logo, i) => (
-              <OurIcon key={i} name={logo.icon} className="size-4 text-white" />
+              <Link key={i} href={logo.link}>
+                <OurIcon name={logo.icon} className="size-4 text-white" />
+              </Link>
             ))}
           </div>
           <p className="lg:hidden">{t('copyright')}</p>

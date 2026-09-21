@@ -8,16 +8,11 @@ import BannerSection from '@/components/common/sections/banner-section'
 import ChooseUsSection from '@/components/common/sections/choose-us-section'
 import ProcessSections from '@/components/common/sections/process-section'
 
-export default function HomePage() {
+export default function AboutUsPage() {
   return (
     <>
       <BannerSection pageName="AboutPage" />
-      <BreadcrumbBar
-        values={[
-          { name: 'About Us', link: '/about-us' },
-          // { name: 'Contact Us', link: 'contact' },
-        ]}
-      />
+      <BreadcrumbBar values={[{ name: 'About Us', link: '/about' }]} />
       <IntroSection />
       {/* <FAQSection className="bg-[#EFF9FE]" /> */}
       <HistorySection />
