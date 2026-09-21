@@ -31,6 +31,7 @@ import {
   Quote_2Icon,
   QuoteIcon,
   SearchIcon,
+  SquareCheckIcon,
   WhatsApp_2Icon,
   WhatsAppIcon,
   XTwitterIcon,
@@ -72,6 +73,7 @@ const icons = {
   mail_3: Mail_3Icon,
   location_2: Location_2Icon,
   'cloud-upload': CloudUploadIcon,
+  'square-check': SquareCheckIcon,
 } as const
 
 export type OurIconName = keyof typeof icons

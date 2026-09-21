@@ -4,7 +4,6 @@ import ArrowRightIcon from './arrow-right.icon.svg'
 import ArrowUpIcon from './arrow-up.icon.svg'
 import AwardIcon from './award.icon.svg'
 import BadgeCheckIcon from './badge-check.icon.svg'
-import BadgeCheck_2Icon from './badge-check_2.svg'
 import Building3StarIcon from './building-3-star.icon.svg'
 import BuildingIcon from './building.icon.svg'
 import Building_2Icon from './building_2.icon.svg'
@@ -29,6 +28,7 @@ import Phone_2Icon from './phone_2.icon.svg'
 import QuoteIcon from './quote.icon.svg'
 import Quote_2Icon from './quote_2.icon.svg'
 import SearchIcon from './search.icon.svg'
+import SquareCheckIcon from './square-check.icon.svg'
 import WhatsAppIcon from './whatsapp.icon.svg'
 import WhatsApp_2Icon from './whatsapp_2.icon.svg'
 import XTwitterIcon from './xtwitter.icon.svg'
@@ -40,7 +40,6 @@ export {
   ArrowRightIcon,
   ArrowUpIcon,
   AwardIcon,
-  BadgeCheck_2Icon,
   BadgeCheckIcon,
   Building3StarIcon,
   Building_2Icon,
@@ -66,6 +65,7 @@ export {
   Quote_2Icon,
   QuoteIcon,
   SearchIcon,
+  SquareCheckIcon,
   WhatsApp_2Icon,
   WhatsAppIcon,
   XTwitterIcon,

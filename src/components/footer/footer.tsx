@@ -62,21 +62,23 @@ export default function Footer() {
                 className="flex flex-col space-y-2"
                 onClick={() => toggleSection(t('footerLinks.quickLinks.title'))}
               >
-                <p className="text-[1rem] font-bold tracking-widest uppercase">
+                <p className="cursor-pointer text-[1rem] font-bold tracking-widest uppercase sm:cursor-text">
                   {t('footerLinks.quickLinks.title')}
                 </p>
                 <div className="h-0.75 w-12 bg-[#0066B3]"></div>
               </div>
               <div
                 className={cn(
-                  'space-y-4 overflow-hidden transition-all duration-300 sm:block',
+                  'flex flex-col gap-4 overflow-hidden transition-all duration-300',
                   openSection === t('footerLinks.quickLinks.title')
                     ? 'mt-7 max-h-100 opacity-100 sm:mt-0'
                     : 'max-h-0 opacity-0 sm:max-h-none sm:opacity-100',
                 )}
               >
                 {footerLinks_quickLinks_items.map((item) => (
-                  <p key={item.text}>{item.text}</p>
+                  <Link key={item.text} href={item.link}>
+                    {item.text}
+                  </Link>
                 ))}
               </div>
             </div>
@@ -85,21 +87,23 @@ export default function Footer() {
                 className="flex flex-col space-y-2"
                 onClick={() => toggleSection(t('footerLinks.services.title'))}
               >
-                <p className="text-[1rem] font-bold tracking-widest uppercase">
+                <p className="cursor-pointer text-[1rem] font-bold tracking-widest uppercase sm:cursor-text">
                   {t('footerLinks.services.title')}
                 </p>
                 <div className="h-0.75 w-12 bg-[#0066B3]"></div>
               </div>
               <div
                 className={cn(
-                  'space-y-4 overflow-hidden transition-all duration-300 sm:block',
+                  'flex flex-col gap-4 overflow-hidden transition-all duration-300',
                   openSection === t('footerLinks.services.title')
                     ? 'mt-7 max-h-100 opacity-100 sm:mt-0'
                     : 'max-h-0 opacity-0 sm:max-h-none sm:opacity-100',
                 )}
               >
                 {footerLinks_services_items.map((item) => (
-                  <p key={item.text}>{item.text}</p>
+                  <Link key={item.text} href={item.link}>
+                    {item.text}
+                  </Link>
                 ))}
               </div>
             </div>
@@ -108,7 +112,7 @@ export default function Footer() {
                 className="flex flex-col space-y-2"
                 onClick={() => toggleSection(t('footerLinks.products.title'))}
               >
-                <p className="text-[1rem] font-bold tracking-widest uppercase">
+                <p className="cursor-pointer text-[1rem] font-bold tracking-widest uppercase sm:cursor-text">
                   {t('footerLinks.products.title')}
                 </p>
                 <div className="h-0.75 w-12 bg-[#0066B3]"></div>
@@ -121,14 +125,18 @@ export default function Footer() {
                     : 'max-h-0 opacity-0 sm:max-h-none sm:opacity-100',
                 )}
               >
-                <div className="space-y-4">
+                <div className="flex flex-col gap-4">
                   {footerLinks_products_items[0].map((item) => (
-                    <p key={item.text}>{item.text}</p>
+                    <Link key={item.text} href={item.link}>
+                      {item.text}
+                    </Link>
                   ))}
                 </div>
-                <div className="space-y-4">
+                <div className="flex flex-col gap-4">
                   {footerLinks_products_items[1].map((item) => (
-                    <p key={item.text}>{item.text}</p>
+                    <Link key={item.text} href={item.link}>
+                      {item.text}
+                    </Link>
                   ))}
                 </div>
               </div>
