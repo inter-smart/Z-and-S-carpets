@@ -93,7 +93,7 @@
       [
         {
           "text": "من نحن",
-          "link": "/about-us"
+          "link": "/about"
         },
         {
           "text": "الخدمات",
@@ -115,7 +115,7 @@
         },
         {
           "text": "تواصل معنا",
-          "link": "/contact-us"
+          "link": "/contact"
         },
         {
           "text": "احصل على عينة",
@@ -287,7 +287,7 @@
     ],
     "social": [
       {
-        "link": "",
+        "link": "https://www.facebook.com/zandscarpet",
         "icon": "facebook"
       },
       {
@@ -295,7 +295,7 @@
         "icon": "youtube"
       },
       {
-        "link": "",
+        "link": "https://www.instagram.com/zandscarpet",
         "icon": "instagram"
       },
       {
@@ -303,7 +303,7 @@
         "icon": "linkedin"
       },
       {
-        "link": "",
+        "link": "https://x.com/Zandscarpet",
         "icon": "xtwitter"
       }
     ],
@@ -980,6 +980,42 @@
       ]
     }
   },
+  "ContactPage": {
+    "BannerSection": {
+      "title": "تواصل معنا",
+      "description": "تواصل معنا للحصول على الدعم والمساعدة من خبرائنا.",
+      "image": "/images/contact-us-img.webp"
+    },
+    "contactDetails": {
+      "title": "نحن هنا لمساعدتك.",
+      "description": "هل تحتاج إلى مساعدة في اختيار حل الأرضيات المناسب؟ تواصل مع فريقنا اليوم للحصول على معلومات حول المنتجات، وإرشادات من الخبراء، ومساعدة مخصصة. نحن هنا لدعم مشروعك في كل خطوة.",
+      "items": [
+        {
+          "title": "تواصل معنا هاتفيًا",
+          "description": "هل لديك أسئلة أو تحتاج إلى مساعدة؟ اتصل بنا للتحدث مع فريقنا المتخصص والودود.",
+          "value": "+971 5270 044 20",
+          "icon": "phone_2"
+        },
+        {
+          "title": "راسلنا عبر البريد الإلكتروني",
+          "description": "هل تفضل التواصل عبر البريد الإلكتروني؟ لا تتردد في مراسلتنا وسنعاود التواصل معك في أقرب وقت.",
+          "value": "info@zandscarpets.com",
+          "icon": "mail_3"
+        }
+      ],
+      "socialTitle": "تابعنا:",
+      "office": {
+        "title": "تفضل بزيارة مكتبنا",
+        "address": "المستودع رقم: 5، شارع رقم: 2، الورسان 3، دبي (الإمارات العربية المتحدة)"
+      }
+    },
+    "getInTouch": {
+      "formTitle": "تواصل معنا",
+      "fields": ["الاسم", "البريد الإلكتروني", "رقم الهاتف", "المتطلبات"],
+      "upload": "رفع ملف",
+      "submit": "إرسال"
+    }
+  },
   "NotFoundPage": {
     "title": "الصفحة غير موجودة",
     "description": "عذرًا، لم نتمكن من العثور على الصفحة التي تبحث عنها. ربما تم نقلها أو حذفها، أو قد يكون عنوان URL الذي أدخلته غير صحيح.",
@@ -989,7 +1025,7 @@
       },
       "contactUs": {
         "label": "تواصل معنا",
-        "link": "/contact-us"
+        "link": "/contact"
       }
     },
     "social": {

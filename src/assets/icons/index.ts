@@ -9,6 +9,7 @@ import Building3StarIcon from './building-3-star.icon.svg'
 import BuildingIcon from './building.icon.svg'
 import Building_2Icon from './building_2.icon.svg'
 import ChevronDownIcon from './chevron-down.icon.svg'
+import CloudUploadIcon from './cloud-upload.icon.svg'
 import FacebookIcon from './facebook.icon.svg'
 import FilePenIcon from './file-pen.icon.svg'
 import GoogleIcon from './google.icon.svg'
@@ -17,8 +18,10 @@ import InstagramIcon from './instagram.icon.svg'
 import InterSmartIcon from './intersmart.icon.svg'
 import LinkedInIcon from './linkedin.icon.svg'
 import LocationIcon from './location.icon.svg'
+import Location_2Icon from './location_2.icon.svg'
 import MailIcon from './mail.icon.svg'
 import Mail_2Icon from './mail_2.icon.svg'
+import Mail_3Icon from './mail_3.icon.svg'
 import MenuIcon from './menu.icon.svg'
 import PeopleFocusIcon from './people-focus.icon.svg'
 import PhoneIcon from './phone.icon.svg'
@@ -43,6 +46,7 @@ export {
   Building_2Icon,
   BuildingIcon,
   ChevronDownIcon,
+  CloudUploadIcon,
   FacebookIcon,
   FilePenIcon,
   GoogleIcon,
@@ -50,8 +54,10 @@ export {
   InstagramIcon,
   InterSmartIcon,
   LinkedInIcon,
+  Location_2Icon,
   LocationIcon,
   Mail_2Icon,
+  Mail_3Icon,
   MailIcon,
   MenuIcon,
   PeopleFocusIcon,

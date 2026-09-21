@@ -11,6 +11,7 @@ import {
   Building_2Icon,
   BuildingIcon,
   ChevronDownIcon,
+  CloudUploadIcon,
   FacebookIcon,
   FilePenIcon,
   GoogleIcon,
@@ -18,8 +19,10 @@ import {
   InstagramIcon,
   InterSmartIcon,
   LinkedInIcon,
+  Location_2Icon,
   LocationIcon,
   Mail_2Icon,
+  Mail_3Icon,
   MailIcon,
   MenuIcon,
   PeopleFocusIcon,
@@ -66,6 +69,9 @@ const icons = {
   innovation: InnovationIcon,
   'badge-check': BadgeCheckIcon,
   award: AwardIcon,
+  mail_3: Mail_3Icon,
+  location_2: Location_2Icon,
+  'cloud-upload': CloudUploadIcon,
 } as const
 
 export type OurIconName = keyof typeof icons
