@@ -7,6 +7,12 @@ import BreadcrumbBar from '@/components/common/breadcrumb-bar'
 import BannerSection from '@/components/common/sections/banner-section'
 import ChooseUsSection from '@/components/common/sections/choose-us-section'
 import ProcessSections from '@/components/common/sections/process-section'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'About Us | Z&S Carpets',
+  description: 'About Z&S Carpets.',
+}
 
 export default function AboutUsPage() {
   return (

@@ -176,7 +176,7 @@
           },
           {
             "text": "Privacy Policy",
-            "link": ""
+            "link": "/privacy-policy"
           }
         ]
       },
@@ -1031,5 +1031,55 @@
     "social": {
       "title": "Social"
     }
+  },
+  "PrivacyPolicyPage": {
+    "title": "Privacy Policy",
+    "intro": "We recognize the significance of securely storing any information you supply. As a result, we keep the greatest standards of security. Any information obtained, including any information provided during the ordering process, is gathered legitimately and in line with UAE laws governing internet security and privacy. Your privacy is very important to us, and we will never to provide your personal information to a third party for marketing or promotional reasons. All credit/debit card information, as well as personally identifying information, will NOT be retained, sold, shared, rented, or leased to any third party.",
+    "sections": [
+      {
+        "title": "Responsible Use and Conduct",
+        "paragraphs": [
+          "By visiting our website and accessing the information, resources, services, products, and tools we provide for you, either directly or indirectly (hereafter referred to as 'Resources'), you agree to use these Resources only for the purposes intended as permitted by (a) the terms of this User Agreement, and (b) applicable laws, regulations and generally accepted online practices or guidelines."
+        ],
+        "bullets": [
+          "In order to access our Resources, you may be required to provide certain information about yourself (such as identification, contact details, etc.) as part of the registration process, or as part of your ability to use the Resources. You agree that any information you provide will always be accurate, correct, and up to date.",
+          "You are responsible for maintaining the confidentiality of any login information associated with any account you use to access our Resources. Accordingly, you are responsible for all activities that occur under your accounts.",
+          "Accessing (or attempting to access) any of our Resources by any means other than through the means we provide, is strictly prohibited. You specifically agree not to access (or attempt to access) any of our Resources through any automated, unethical or unconventional means.",
+          "Engaging in any activity that disrupts or interferes with our Resources, including the servers and/or networks to which our Resources are located or connected, is strictly prohibited.",
+          "Attempting to copy, duplicate, reproduce, sell, trade, or resell our Resources is strictly prohibited.",
+          "You are solely responsible for any consequences, losses, or damages that we may directly or indirectly incur or suffer due to any unauthorized activities conducted by you, as explained above, and may incur criminal or civil liability."
+        ]
+      },
+      {
+        "title": "Acceptance of Terms",
+        "paragraphs": [
+          "By accessing this website, you acknowledge that you have read, understood, and agree to be bound by these Terms. If you do not agree, you should not use the site. Terms & Conditions sets out the basis on which any personal data, including but not limited to payment details and other information we collect from you or other sources or that you provide to us ('Information') will be handled by us in connection with your access and use of www.telagramintl.com, and/or the Vies mobile applications (collectively, the 'Services'). We understand the importance you place on the Information, and we are committed to protecting and respecting your privacy. Please read the following carefully to understand our practices regarding your Information. By using our Services, you agree to the handling of your Information in accordance with this Privacy Policy."
+        ]
+      },
+      {
+        "title": "Privacy",
+        "paragraphs": [
+          "Your privacy is very important to us, which is why we've created a separate Privacy Policy in order to explain in detail how we collect, manage, process, secure, and store your private information. Our privacy policy is included under the scope of this User Agreement. To read our privacy policy in its entirety, <privacy>click here</privacy>."
+        ]
+      },
+      {
+        "title": "Limitation of Liability",
+        "paragraphs": [
+          "In conjunction with the Limitation of Warranties as explained above, you expressly understand and agree that any claim against us shall be limited to the amount you paid, if any, for use of products and/or services. The Operators's web sites will not be liable for any direct, indirect, incidental, consequential or exemplary loss or damages which may be incurred by you as a result of using our Resources, or as a result of any changes, data loss or corruption, cancellation, loss of access, or downtime to the full extent that applicable limitation of liability laws apply."
+        ]
+      },
+      {
+        "title": "Termination of Use",
+        "paragraphs": [
+          "You agree that we may, at our sole discretion, suspend or terminate your access to all or part of our website and Resources with or without notice and for any reason, including, without limitation, breach of this User Agreement. Any suspected illegal, fraudulent or abusive activity may be grounds for terminating your relationship and may be referred to appropriate law enforcement authorities. Upon suspension or termination, your right to use the Resources would be immediately cease, and we reserve the right to remove or delete any information that you may have on file with us, including any account or login information."
+        ]
+      },
+      {
+        "title": "Governing Law",
+        "paragraphs": [
+          "It can be accessed by most countries around the world. By accessing our website, you agree that the statutes and laws of our state, without regard to the conflict of laws and the United Nations Convention on the International Sales of Goods, will apply to all matters relating to the use of this website and the purchase of any products or services through this site. Furthermore, any action to enforce this User Agreement shall be brought in the federal or state courts UK You hereby agree to personal jurisdiction by such courts, and waive any jurisdictional, venue, or inconvenient forum objections to such courts."
+        ]
+      }
+    ]
   }
 }

@@ -2,6 +2,12 @@ import BreadcrumbBar from '@/components/common/breadcrumb-bar'
 import BannerSection from '@/components/common/sections/banner-section'
 import ContactDetailsSection from '@/components/contact/contact-details-section'
 import GetInTouchForm from '@/components/contact/get-in-touch-form'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Contact Us | Z&S Carpets',
+  description: 'Contact Z&S Carpets team.',
+}
 
 export default function ContactUsPage() {
   return (

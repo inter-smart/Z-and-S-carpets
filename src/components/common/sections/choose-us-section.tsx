@@ -1,6 +1,5 @@
-import { BadgeCheck_2Icon } from '@/assets/icons'
+import { OurIcon } from '@/components/ui/icon'
 import { useTranslations } from 'next-intl'
-import Image from 'next/image'
 
 export default function ChooseUsSection() {
   const t = useTranslations('Common.ChooseUsSection')
@@ -22,12 +21,13 @@ export default function ChooseUsSection() {
         <div className="lg:w-3/4">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
             {/* 1 */}
-            <div className="flex items-start gap-5 border-b border-gray-200 py-7 sm:pe-7 ltr:sm:border-r rtl:sm:border-l">
-              <Image
-                src={BadgeCheck_2Icon}
-                alt="badge check icon"
-                className="mt-1.5 h-5.5 w-auto"
-              />
+            <div className="flex items-start gap-5 border-b border-gray-200 py-7 sm:pe-6 ltr:sm:border-r rtl:sm:border-l">
+              <div className="mt-0.5">
+                <OurIcon
+                  name="badge-check"
+                  className="text-our-purple size-6"
+                />
+              </div>
               <div className="">
                 <h4 className="text-[1.2rem] font-semibold">
                   {features[0].title}
@@ -36,12 +36,13 @@ export default function ChooseUsSection() {
               </div>
             </div>
             {/* 2 */}
-            <div className="flex items-start gap-5 border-b border-gray-200 py-7 sm:px-7 ltr:md:border-r rtl:md:border-l">
-              <Image
-                src={BadgeCheck_2Icon}
-                alt="badge check icon"
-                className="mt-1.5 h-5.5 w-auto"
-              />
+            <div className="flex items-start gap-5 border-b border-gray-200 py-7 sm:px-6 ltr:md:border-r rtl:md:border-l">
+              <div className="mt-0.5">
+                <OurIcon
+                  name="badge-check"
+                  className="text-our-purple size-6"
+                />
+              </div>
               <div className="">
                 <h4 className="text-[1.2rem] font-semibold">
                   {features[1].title}
@@ -50,12 +51,13 @@ export default function ChooseUsSection() {
               </div>
             </div>
             {/* 3 */}
-            <div className="flex items-start gap-5 border-b border-gray-200 py-7 sm:pe-7 md:ps-7 ltr:sm:max-md:border-r rtl:sm:max-md:border-l">
-              <Image
-                src={BadgeCheck_2Icon}
-                alt="badge check icon"
-                className="mt-1.5 h-5.5 w-auto"
-              />
+            <div className="flex items-start gap-5 border-b border-gray-200 py-7 sm:pe-6 md:ps-6 ltr:sm:max-md:border-r rtl:sm:max-md:border-l">
+              <div className="mt-0.5">
+                <OurIcon
+                  name="badge-check"
+                  className="text-our-purple size-6"
+                />
+              </div>
               <div className="">
                 <h4 className="text-[1.2rem] font-semibold">
                   {features[2].title}
@@ -64,12 +66,13 @@ export default function ChooseUsSection() {
               </div>
             </div>
             {/* 4 */}
-            <div className="flex items-start gap-5 border-b border-gray-200 py-7 sm:px-7 md:border-b-0 md:ps-0 ltr:md:border-r rtl:md:border-l">
-              <Image
-                src={BadgeCheck_2Icon}
-                alt="badge check icon"
-                className="mt-1.5 h-5.5 w-auto"
-              />
+            <div className="flex items-start gap-5 border-b border-gray-200 py-7 sm:px-6 md:border-b-0 md:ps-0 ltr:md:border-r rtl:md:border-l">
+              <div className="mt-0.5">
+                <OurIcon
+                  name="badge-check"
+                  className="text-our-purple size-6"
+                />
+              </div>
               <div className="">
                 <h4 className="text-[1.2rem] font-semibold">
                   {features[3].title}
@@ -78,12 +81,13 @@ export default function ChooseUsSection() {
               </div>
             </div>
             {/* 5 */}
-            <div className="flex items-start gap-5 border-b border-gray-200 py-7 sm:border-b-0 sm:pe-7 md:px-7 ltr:sm:border-r rtl:sm:border-l">
-              <Image
-                src={BadgeCheck_2Icon}
-                alt="badge check icon"
-                className="mt-1.5 h-5.5 w-auto"
-              />
+            <div className="flex items-start gap-5 border-b border-gray-200 py-7 sm:border-b-0 sm:pe-6 md:px-6 ltr:sm:border-r rtl:sm:border-l">
+              <div className="mt-0.5">
+                <OurIcon
+                  name="badge-check"
+                  className="text-our-purple size-6"
+                />
+              </div>
               <div className="">
                 <h4 className="text-[1.2rem] font-semibold">
                   {features[4].title}
@@ -92,12 +96,13 @@ export default function ChooseUsSection() {
               </div>
             </div>
             {/* 6 */}
-            <div className="flex items-start gap-5 py-7 sm:px-7">
-              <Image
-                src={BadgeCheck_2Icon}
-                alt="badge check icon"
-                className="mt-1.5 h-5.5 w-auto"
-              />
+            <div className="flex items-start gap-5 py-7 sm:px-6">
+              <div className="mt-0.5">
+                <OurIcon
+                  name="badge-check"
+                  className="text-our-purple size-6"
+                />
+              </div>
               <div className="">
                 <h4 className="text-[1.2rem] font-semibold">
                   {features[5].title}
