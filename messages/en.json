@@ -93,7 +93,7 @@
       [
         {
           "text": "About Us",
-          "link": "/about"
+          "link": "/about-us"
         },
         {
           "text": "Services",
@@ -115,7 +115,7 @@
         },
         {
           "text": "Contact us",
-          "link": ""
+          "link": "/contact-us"
         },
         {
           "text": "Get a sample",
@@ -978,6 +978,22 @@
           "description": "Today, we continue to grow through quality, innovation, and a commitment to exceptional customer experiences."
         }
       ]
+    }
+  },
+  "NotFoundPage": {
+    "title": "Page not Found",
+    "description": "Sorry, we couldn't find the page you're looking for. It might have been moved, deleted, or you entered the wrong URL.",
+    "buttons": {
+      "goBack": {
+        "label": "Go Back"
+      },
+      "contactUs": {
+        "label": "Contact Us",
+        "link": "/contact-us"
+      }
+    },
+    "social": {
+      "title": "Social"
     }
   }
 }
