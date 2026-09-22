@@ -97,7 +97,7 @@
         },
         {
           "text": "Services",
-          "link": ""
+          "link": "/services"
         },
         {
           "text": "Our Work",
@@ -1081,5 +1081,115 @@
         ]
       }
     ]
+  },
+  "ServicesPage": {
+    "BannerSection": {
+      "title": "Services",
+      "description": "Reach out for expert support and assistance.",
+      "image": "/images/services-img.webp"
+    },
+    "IntroSection": {
+      "title": "Transforming Ideas Into Stunning Flooring Solutions.",
+      "paragraphs": [
+        "Z&S Carpets started as a small shop in 2010 and quickly expanded to offer customers easy access to their multiple stores in the UAE, providing them with a wide range of floorings, including our in-house brand for the entire market of the United Arab Emirates. We import high-quality products from countries such as India, Turkey, China, and Europe which follow strict international quality protocols. In addition to the wholesale and retail vertical, we have even started exporting our products to countries like Oman, Saudi Arabia, Africa, and the rest of the GCC. Thus, making us known all over the world!",
+        "Turkey, China, and Europe which follow strict international quality protocols. In addition to the wholesale and retail vertical, we have even started."
+      ],
+      "categories": [
+        {
+          "id": "residential",
+          "label": "Residential"
+        },
+        {
+          "id": "commercial",
+          "label": "Commercial"
+        },
+        {
+          "id": "hospitality",
+          "label": "Hospitality"
+        },
+        {
+          "id": "outdoor",
+          "label": "Outdoor"
+        }
+      ]
+    },
+    "ServicesSection": {
+      "title": {
+        "lineOne": "Expert Flooring Services",
+        "lineTwo": "Personalized For You"
+      },
+      "service": [
+        {
+          "number": "01",
+          "title": "Carpet Supply",
+          "description": "Access our curated collection of premium carpets from leading manufacturers worldwide — spanning textures, piles, and price points to suit every interior vision and budget.",
+          "features": [
+            "Wool, synthetic & blended fibres",
+            "Luxury, mid-range & budget ranges",
+            "Sample viewing & home consultation",
+            "Trade & bulk order discounts"
+          ]
+        },
+        {
+          "number": "02",
+          "title": "Installation",
+          "description": "Access our curated collection of premium carpets from leading manufacturers worldwide — spanning textures, piles, and price points to suit every interior vision and budget.",
+          "features": [
+            "Wool, synthetic & blended fibres",
+            "Luxury, mid-range & budget ranges",
+            "Sample viewing & home consultation",
+            "Trade & bulk order discounts"
+          ]
+        },
+        {
+          "number": "03",
+          "title": "Custom Design",
+          "description": "Access our curated collection of premium carpets from leading manufacturers worldwide — spanning textures, piles, and price points to suit every interior vision and budget.",
+          "features": [
+            "Wool, synthetic & blended fibres",
+            "Luxury, mid-range & budget ranges",
+            "Sample viewing & home consultation",
+            "Trade & bulk order discounts"
+          ]
+        },
+        {
+          "number": "04",
+          "title": "Maintenance",
+          "description": "Access our curated collection of premium carpets from leading manufacturers worldwide — spanning textures, piles, and price points to suit every interior vision and budget.",
+          "features": [
+            "Wool, synthetic & blended fibres",
+            "Luxury, mid-range & budget ranges",
+            "Sample viewing & home consultation",
+            "Trade & bulk order discounts"
+          ]
+        }
+      ]
+    },
+    "ProcessSection": {
+      "eyebrow": "OUR PROCESS",
+      "title": "Our Process",
+      "items": [
+        {
+          "title": "Design",
+          "description": "Our project managers oversee every detail from selection to site preparation.",
+          "icon": "designing"
+        },
+        {
+          "title": "Supervision",
+          "description": "Our team carefully monitors every stage of the project to ensure quality, and timely completion.",
+          "icon": "vision"
+        },
+        {
+          "title": "Budget Planning",
+          "description": "We provide cost-effective flooring solutions tailored to your budget without compromising on quality.",
+          "icon": "budget-planning"
+        },
+        {
+          "title": "Delivery & Install",
+          "description": "We ensure timely delivery and professional installation for a smooth & hassle-free experience.",
+          "icon": "truck"
+        }
+      ]
+    }
   }
 }
