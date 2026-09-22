@@ -174,7 +174,7 @@ export default function Footer() {
                           className="text-our-blue size-3.5"
                         />
                       </div>
-                      <p>{item.label}</p>
+                      <p dir="ltr">{item.label}</p>
                     </a>
                   )
                 })}
