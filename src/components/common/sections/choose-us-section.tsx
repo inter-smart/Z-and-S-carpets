@@ -1,13 +1,34 @@
 import { OurIcon } from '@/components/ui/icon'
+import { cn } from 'cn'
 import { useTranslations } from 'next-intl'
+
+interface FeatureType {
+  title: string
+  description: string
+}
+
+const FeatureCard = ({
+  feature,
+  className,
+}: {
+  feature: FeatureType
+  className?: string
+}) => (
+  <div className={cn('flex items-start gap-5 border-gray-200', className)}>
+    <div className="mt-0.5">
+      <OurIcon name="badge-check" className="text-our-purple size-6" />
+    </div>
+    <div className="">
+      <h4 className="text-[1.2rem] font-semibold">{feature.title}</h4>
+      <p className="pt-2 text-gray-500">{feature.description}</p>
+    </div>
+  </div>
+)
 
 export default function ChooseUsSection() {
   const t = useTranslations('Common.ChooseUsSection')
   const ctaTitle = t.raw('cta.title') as string[]
-  const features = t.raw('features') as {
-    title: string
-    description: string
-  }[]
+  const features = t.raw('features') as FeatureType[]
 
   return (
     <section className="container-wrapper py-16 lg:py-24">
@@ -21,95 +42,27 @@ export default function ChooseUsSection() {
         <div className="lg:w-3/4">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
             {/* 1 */}
-            <div className="flex items-start gap-5 border-b border-gray-200 py-7 sm:pe-6 ltr:sm:border-r rtl:sm:border-l">
-              <div className="mt-0.5">
-                <OurIcon
-                  name="badge-check"
-                  className="text-our-purple size-6"
-                />
-              </div>
-              <div className="">
-                <h4 className="text-[1.2rem] font-semibold">
-                  {features[0].title}
-                </h4>
-                <p className="pt-2 text-gray-500">{features[0].description}</p>
-              </div>
-            </div>
-            {/* 2 */}
-            <div className="flex items-start gap-5 border-b border-gray-200 py-7 sm:px-6 ltr:md:border-r rtl:md:border-l">
-              <div className="mt-0.5">
-                <OurIcon
-                  name="badge-check"
-                  className="text-our-purple size-6"
-                />
-              </div>
-              <div className="">
-                <h4 className="text-[1.2rem] font-semibold">
-                  {features[1].title}
-                </h4>
-                <p className="pt-2 text-gray-500">{features[1].description}</p>
-              </div>
-            </div>
-            {/* 3 */}
-            <div className="flex items-start gap-5 border-b border-gray-200 py-7 sm:pe-6 md:ps-6 ltr:sm:max-md:border-r rtl:sm:max-md:border-l">
-              <div className="mt-0.5">
-                <OurIcon
-                  name="badge-check"
-                  className="text-our-purple size-6"
-                />
-              </div>
-              <div className="">
-                <h4 className="text-[1.2rem] font-semibold">
-                  {features[2].title}
-                </h4>
-                <p className="pt-2 text-gray-500">{features[2].description}</p>
-              </div>
-            </div>
-            {/* 4 */}
-            <div className="flex items-start gap-5 border-b border-gray-200 py-7 sm:px-6 md:border-b-0 md:ps-0 ltr:md:border-r rtl:md:border-l">
-              <div className="mt-0.5">
-                <OurIcon
-                  name="badge-check"
-                  className="text-our-purple size-6"
-                />
-              </div>
-              <div className="">
-                <h4 className="text-[1.2rem] font-semibold">
-                  {features[3].title}
-                </h4>
-                <p className="pt-2 text-gray-500">{features[3].description}</p>
-              </div>
-            </div>
-            {/* 5 */}
-            <div className="flex items-start gap-5 border-b border-gray-200 py-7 sm:border-b-0 sm:pe-6 md:px-6 ltr:sm:border-r rtl:sm:border-l">
-              <div className="mt-0.5">
-                <OurIcon
-                  name="badge-check"
-                  className="text-our-purple size-6"
-                />
-              </div>
-              <div className="">
-                <h4 className="text-[1.2rem] font-semibold">
-                  {features[4].title}
-                </h4>
-                <p className="pt-2 text-gray-500">{features[4].description}</p>
-              </div>
-            </div>
-            {/* 6 */}
-            <div className="flex items-start gap-5 py-7 sm:px-6">
-              <div className="mt-0.5">
-                <OurIcon
-                  name="badge-check"
-                  className="text-our-purple size-6"
-                />
-              </div>
-              <div className="">
-                <h4 className="text-[1.2rem] font-semibold">
-                  {features[5].title}
-                </h4>
-                <p className="pt-2 text-gray-500">{features[5].description}</p>
-              </div>
-            </div>
+            <FeatureCard
+              feature={features[0]}
+              className="border-b py-7 sm:pe-6 ltr:sm:border-r rtl:sm:border-l"
+            />
+            <FeatureCard
+              feature={features[1]}
+              className="border-b py-7 sm:px-6 ltr:md:border-r rtl:md:border-l"
+            />
+            <FeatureCard
+              feature={features[2]}
+              className="border-b py-7 sm:pe-6 md:ps-6 ltr:sm:max-md:border-r rtl:sm:max-md:border-l"
+            />
+            <FeatureCard
+              feature={features[3]}
+              className="border-b py-7 sm:px-6 md:border-b-0 md:ps-0 ltr:md:border-r rtl:md:border-l"
+            />
+            <FeatureCard
+              feature={features[4]}
+              className="border-b py-7 sm:border-b-0 sm:pe-6 md:px-6 ltr:sm:border-r rtl:sm:border-l"
+            />
+            <FeatureCard feature={features[5]} className="py-7 sm:px-6" />
           </div>
         </div>
         {/* CTA */}

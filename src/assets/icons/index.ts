@@ -4,11 +4,13 @@ import ArrowRightIcon from './arrow-right.icon.svg'
 import ArrowUpIcon from './arrow-up.icon.svg'
 import AwardIcon from './award.icon.svg'
 import BadgeCheckIcon from './badge-check.icon.svg'
+import BudgetPlanningIcon from './budget-planning.icon.svg'
 import Building3StarIcon from './building-3-star.icon.svg'
 import BuildingIcon from './building.icon.svg'
 import Building_2Icon from './building_2.icon.svg'
 import ChevronDownIcon from './chevron-down.icon.svg'
 import CloudUploadIcon from './cloud-upload.icon.svg'
+import DesigningIcon from './designing.icon.svg'
 import FacebookIcon from './facebook.icon.svg'
 import FilePenIcon from './file-pen.icon.svg'
 import GoogleIcon from './google.icon.svg'
@@ -29,6 +31,8 @@ import QuoteIcon from './quote.icon.svg'
 import Quote_2Icon from './quote_2.icon.svg'
 import SearchIcon from './search.icon.svg'
 import SquareCheckIcon from './square-check.icon.svg'
+import TruckIcon from './truck.icon.svg'
+import VisionIcon from './vision.icon.svg'
 import WhatsAppIcon from './whatsapp.icon.svg'
 import WhatsApp_2Icon from './whatsapp_2.icon.svg'
 import XTwitterIcon from './xtwitter.icon.svg'
@@ -41,11 +45,13 @@ export {
   ArrowUpIcon,
   AwardIcon,
   BadgeCheckIcon,
+  BudgetPlanningIcon,
   Building3StarIcon,
   Building_2Icon,
   BuildingIcon,
   ChevronDownIcon,
   CloudUploadIcon,
+  DesigningIcon,
   FacebookIcon,
   FilePenIcon,
   GoogleIcon,
@@ -66,6 +72,8 @@ export {
   QuoteIcon,
   SearchIcon,
   SquareCheckIcon,
+  TruckIcon,
+  VisionIcon,
   WhatsApp_2Icon,
   WhatsAppIcon,
   XTwitterIcon,

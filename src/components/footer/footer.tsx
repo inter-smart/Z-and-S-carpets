@@ -153,10 +153,12 @@ export default function Footer() {
                         key={i}
                         className="flex flex-row items-start space-x-2"
                       >
-                        <OurIcon
-                          name={item.icon}
-                          className="text-our-blue size-6"
-                        />
+                        <div className="mt-0.5">
+                          <OurIcon
+                            name={item.icon}
+                            className="text-our-blue size-3.5"
+                          />
+                        </div>
                         <p>{item.label}</p>
                       </div>
                     )
@@ -166,10 +168,12 @@ export default function Footer() {
                       href={item.link.replaceAll(' ', '')}
                       className="flex flex-row items-start space-x-2"
                     >
-                      <OurIcon
-                        name={item.icon}
-                        className="text-our-blue size-4"
-                      />
+                      <div className="mt-0.5">
+                        <OurIcon
+                          name={item.icon}
+                          className="text-our-blue size-3.5"
+                        />
+                      </div>
                       <p>{item.label}</p>
                     </a>
                   )

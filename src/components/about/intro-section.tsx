@@ -47,7 +47,7 @@ export default function IntroSection() {
             {t('quality.title')}
           </h2>
           <p className="our-text">{t('quality.body')}</p>
-          <div className="mt-4 flex gap-2">
+          <div className="mt-4 flex flex-col gap-2 min-[450px]:flex-row">
             <Button className="our-btn border-black bg-white text-black hover:bg-white">
               {t('actions.contact')}
             </Button>

@@ -7,11 +7,13 @@ import {
   ArrowUpIcon,
   AwardIcon,
   BadgeCheckIcon,
+  BudgetPlanningIcon,
   Building3StarIcon,
   Building_2Icon,
   BuildingIcon,
   ChevronDownIcon,
   CloudUploadIcon,
+  DesigningIcon,
   FacebookIcon,
   FilePenIcon,
   GoogleIcon,
@@ -32,6 +34,8 @@ import {
   QuoteIcon,
   SearchIcon,
   SquareCheckIcon,
+  TruckIcon,
+  VisionIcon,
   WhatsApp_2Icon,
   WhatsAppIcon,
   XTwitterIcon,
@@ -74,6 +78,10 @@ const icons = {
   location_2: Location_2Icon,
   'cloud-upload': CloudUploadIcon,
   'square-check': SquareCheckIcon,
+  designing: DesigningIcon,
+  truck: TruckIcon,
+  'budget-planning': BudgetPlanningIcon,
+  vision: VisionIcon,
 } as const
 
 export type OurIconName = keyof typeof icons
