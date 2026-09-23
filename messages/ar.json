@@ -1013,7 +1013,13 @@
       "formTitle": "تواصل معنا",
       "fields": ["الاسم", "البريد الإلكتروني", "رقم الهاتف", "المتطلبات"],
       "upload": "رفع ملف",
-      "submit": "إرسال"
+      "submit": "إرسال",
+      "successDialog": {
+        "icon": "",
+        "title": "شكرًا لتواصلك معنا",
+        "description": "سنتواصل معك في أقرب وقت ممكن.",
+        "btnLable": "العودة"
+      }
     }
   },
   "NotFoundPage": {
@@ -1190,6 +1196,39 @@
           "icon": "truck"
         }
       ]
+    }
+  },
+  "DownloadsPage": {
+    "BannerSection": {
+      "title": "التنزيلات",
+      "description": "تواصل معنا للحصول على الدعم والمساعدة من خبرائنا.",
+      "image": "/images/downloads-img.webp"
+    },
+    "CardSection": {
+      "downloadBtnLable": "تنزيل",
+      "loadMoreBtnLable": "عرض المزيد",
+      "cards": [
+        {
+          "title": "كتالوج المنتجات",
+          "description": "اكتشف منتجات عالية الجودة تناسب جميع المساحات."
+        },
+        {
+          "title": "كتالوج منتجات العشب",
+          "description": "استكشف مجموعات العشب الصناعي الفاخرة."
+        }
+      ],
+      "downloadFormDialog": {
+        "title": "تواصل معنا",
+        "description": "",
+        "fields": ["الاسم", "رقم الهاتف", "البريد الإلكتروني", "اسم الشركة"],
+        "submit": "إرسال"
+      },
+      "successDialog": {
+        "icon": "",
+        "title": "تم استلام طلبك",
+        "description": "لقد استلمنا طلبك. سيتم إرسال المستند المطلوب إلى بريدك الإلكتروني قريبًا.",
+        "btnLable": "العودة"
+      }
     }
   }
 }

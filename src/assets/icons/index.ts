@@ -12,6 +12,7 @@ import ChevronDownIcon from './chevron-down.icon.svg'
 import CloudUploadIcon from './cloud-upload.icon.svg'
 import DesigningIcon from './designing.icon.svg'
 import FacebookIcon from './facebook.icon.svg'
+import FileOpenIcon from './file-open.icon.svg'
 import FilePenIcon from './file-pen.icon.svg'
 import GoogleIcon from './google.icon.svg'
 import InnovationIcon from './innovation.icon.svg'
@@ -53,6 +54,7 @@ export {
   CloudUploadIcon,
   DesigningIcon,
   FacebookIcon,
+  FileOpenIcon,
   FilePenIcon,
   GoogleIcon,
   InnovationIcon,

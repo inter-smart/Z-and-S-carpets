@@ -15,6 +15,7 @@ import {
   CloudUploadIcon,
   DesigningIcon,
   FacebookIcon,
+  FileOpenIcon,
   FilePenIcon,
   GoogleIcon,
   InnovationIcon,
@@ -82,6 +83,7 @@ const icons = {
   truck: TruckIcon,
   'budget-planning': BudgetPlanningIcon,
   vision: VisionIcon,
+  'file-open': FileOpenIcon,
 } as const
 
 export type OurIconName = keyof typeof icons

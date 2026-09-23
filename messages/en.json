@@ -1013,7 +1013,13 @@
       "formTitle": "Get In Touch with us",
       "fields": ["Name", "Email", "Phone", "Requirement"],
       "upload": "File upload",
-      "submit": "Send"
+      "submit": "Send",
+      "successDialog": {
+        "icon": "",
+        "title": "Thank you for contacting us",
+        "description": "We will get back to you as soon as possible.",
+        "btnLable": "Go Back"
+      }
     }
   },
   "NotFoundPage": {
@@ -1190,6 +1196,39 @@
           "icon": "truck"
         }
       ]
+    }
+  },
+  "DownloadsPage": {
+    "BannerSection": {
+      "title": "Downloads",
+      "description": "Reach out for expert support and assistance.",
+      "image": "/images/downloads-img.webp"
+    },
+    "CardSection": {
+      "downloadBtnLable": "Download",
+      "loadMoreBtnLable": "Load More",
+      "cards": [
+        {
+          "title": "Catalogue Products",
+          "description": "Discover quality products for every space."
+        },
+        {
+          "title": "Catalogue Grass Products",
+          "description": "Explore premium artificial grass collections."
+        }
+      ],
+      "downloadFormDialog": {
+        "title": "Get In Touch with us",
+        "description": "",
+        "fields": ["Name", "Phone Number", "Email", "Company Name"],
+        "submit": "Submit"
+      },
+      "successDialog": {
+        "icon": "",
+        "title": "Request Received",
+        "description": "We have received your request. The required document will be shared to your email ID shortly.",
+        "btnLable": "Go Back"
+      }
     }
   }
 }
