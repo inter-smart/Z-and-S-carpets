@@ -134,7 +134,7 @@ export default function BuiltForSection() {
                       })
                     }}
                     className={cn(
-                      'w-1/2 px-4 py-5 text-sm font-medium tracking-widest text-white transition-colors focus:ring-0 focus:outline-none sm:w-1/3 md:w-1/4 lg:w-full lg:min-w-0 ltr:text-left rtl:text-right',
+                      'flex w-1/2 cursor-pointer justify-center px-4 py-5 text-sm font-medium tracking-widest text-white transition-colors focus:ring-0 focus:outline-none sm:w-1/3 md:w-1/4 lg:w-full lg:min-w-0 lg:justify-start ltr:text-left rtl:text-right',
                       active && 'bg-linear-to-t from-[#812990] to-[#812990]/0',
                     )}
                     aria-pressed={active}
@@ -212,13 +212,8 @@ export default function BuiltForSection() {
                     size="icon"
                     disabled={!isImgStackScrollable || imgStackScrollIsAtStart}
                     onClick={() => scrollProducts('up')}
-                    className="flex cursor-pointer text-white hover:bg-transparent hover:text-white rtl:max-lg:hidden"
+                    className="flex cursor-pointer text-white hover:bg-transparent hover:text-white focus-visible:border-transparent! focus-visible:ring-0! rtl:max-lg:hidden"
                   >
-                    {/* <Image
-                      src={ArrowRightIcon}
-                      alt="arrow-left_and_up"
-                      className="h-2.5 w-auto rotate-180 lg:-rotate-90"
-                    /> */}
                     <OurIcon name="arrow-left" className="lg:rotate-90" />
                   </Button>
                   <Button
@@ -227,13 +222,8 @@ export default function BuiltForSection() {
                     size="icon"
                     disabled={!isImgStackScrollable || imgStackScrollIsAtStart}
                     onClick={() => scrollProducts('down')}
-                    className="hidden cursor-pointer text-white hover:bg-transparent hover:text-white rtl:flex rtl:lg:hidden"
+                    className="hidden cursor-pointer text-white hover:bg-transparent hover:text-white focus-visible:border-transparent! focus-visible:ring-0! rtl:flex rtl:lg:hidden"
                   >
-                    {/* <Image
-                      src={ArrowLeftIcon}
-                      alt="arrow-right_and_down"
-                      className="h-2.5 w-auto rotate-180 lg:-rotate-90"
-                      /> */}
                     <OurIcon name="arrow-right" />
                   </Button>
                 </div>
@@ -299,13 +289,8 @@ export default function BuiltForSection() {
                     size="icon"
                     disabled={!isImgStackScrollable || imgStackScrollIsAtEnd}
                     onClick={() => scrollProducts('down')}
-                    className="flex cursor-pointer text-white hover:bg-transparent hover:text-white rtl:max-lg:hidden"
+                    className="flex cursor-pointer text-white hover:bg-transparent hover:text-white focus-visible:border-transparent! focus-visible:ring-0! rtl:max-lg:hidden"
                   >
-                    {/* <Image
-                      src={ArrowLeftIcon}
-                      alt="arrow-right_and_down"
-                      className="h-2.5 w-auto rotate-180 lg:-rotate-90"
-                    /> */}
                     <OurIcon name="arrow-right" className="lg:rotate-90" />
                   </Button>
                   <Button
@@ -314,13 +299,8 @@ export default function BuiltForSection() {
                     size="icon"
                     disabled={!isImgStackScrollable || imgStackScrollIsAtEnd}
                     onClick={() => scrollProducts('up')}
-                    className="hidden cursor-pointer text-white hover:bg-transparent hover:text-white rtl:flex rtl:lg:hidden"
+                    className="hidden cursor-pointer text-white hover:bg-transparent hover:text-white focus-visible:border-transparent! focus-visible:ring-0! rtl:flex rtl:lg:hidden"
                   >
-                    {/* <Image
-                      src={ArrowRightIcon}
-                      alt="arrow-left_and_up"
-                      className="h-2.5 w-auto rotate-180 lg:-rotate-90"
-                    /> */}
                     <OurIcon name="arrow-left" />
                   </Button>
                 </div>

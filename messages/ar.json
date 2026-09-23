@@ -640,7 +640,6 @@
           "title": "أرضيات فينيل بنقشة عظم السمك من أوك وود",
           "category": "RESIDENTIAL",
           "location": "دبي، الإمارات العربية المتحدة",
-          "featured": true,
           "btnLabel": "عرض المشروع",
           "image": "/images/floor-img-6.webp"
         },
@@ -665,7 +664,6 @@
           "title": "أرضيات فندقية من خشب الجوز",
           "category": "HOSPITALITY",
           "location": "رأس الخيمة، الإمارات العربية المتحدة",
-          "featured": true,
           "btnLabel": "عرض المشروع",
           "image": "/images/floor-img-5.webp"
         },
@@ -682,7 +680,6 @@
           "title": "ألواح فينيل من خشب البلوط المدخن",
           "category": "RESIDENTIAL",
           "location": "العين، الإمارات العربية المتحدة",
-          "featured": true,
           "btnLabel": "عرض المشروع",
           "image": "/images/floor-img-6.webp"
         },
@@ -699,7 +696,6 @@
           "title": "أرضيات منتجعات دافئة من خشب الجوز",
           "category": "HOSPITALITY",
           "location": "أبوظبي، الإمارات العربية المتحدة",
-          "featured": true,
           "btnLabel": "عرض المشروع",
           "image": "/images/floor-img-5.webp"
         },
@@ -716,7 +712,6 @@
           "title": "أرضيات SPC تجارية باللون البني الداكن من خشب الجوز",
           "category": "COMMERCIAL",
           "location": "دبي، الإمارات العربية المتحدة",
-          "featured": true,
           "btnLabel": "عرض المشروع",
           "image": "/images/floor-img-7.webp"
         }

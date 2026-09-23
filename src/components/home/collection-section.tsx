@@ -1,13 +1,8 @@
 'use client'
 
-// import {
-//   ArrowLeftIcon,
-//   ArrowLeftPurpleIcon,
-//   ArrowRightIcon,
-//   ArrowRightPurpleIcon,
-// } from '@/assets/icons'
 import type { LocaleType } from '@/i18n/types'
 import { cn } from 'cn'
+import Autoplay from 'embla-carousel-autoplay'
 import useEmblaCarousel from 'embla-carousel-react'
 import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
@@ -24,10 +19,19 @@ export default function CollectionSection() {
     image: string
   }[]
 
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    align: 'start',
-    direction: locale === 'ar' ? 'rtl' : 'ltr',
-  })
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    {
+      align: 'start',
+      direction: locale === 'ar' ? 'rtl' : 'ltr',
+    },
+    [
+      Autoplay({
+        delay: 3000,
+        stopOnInteraction: false,
+        stopOnMouseEnter: true,
+      }),
+    ],
+  )
 
   const [canPrev, setCanPrev] = useState(false)
   const [canNext, setCanNext] = useState(false)
@@ -100,20 +104,17 @@ export default function CollectionSection() {
                     <h3 className="ltr:font-nobile rtl:font-cairo sm:text:xl text-lg font-medium">
                       {item.title}
                     </h3>
-                    <span className="flex items-center justify-between text-sm font-medium">
-                      <span className="hidden sm:block">
+                    <span className="flex cursor-pointer items-center justify-between text-sm font-medium">
+                      <span className="me-2 hidden sm:block">
                         {t('itemButtonLabel')}
                       </span>
                       {/* LTR */}
                       <OurIcon
                         name="arrow-right"
-                        className="ms-3 hidden ltr:block"
+                        className="hidden ltr:block"
                       />
                       {/* RTL */}
-                      <OurIcon
-                        name="arrow-left"
-                        className="ms-3 hidden rtl:block"
-                      />
+                      <OurIcon name="arrow-left" className="hidden rtl:block" />
                     </span>
                   </div>
                 </article>

@@ -97,7 +97,7 @@ export default function TrustedPartnerSection() {
           {trustedPartnersPaired.map((partner, i) => (
             <div
               key={i}
-              className="flex h-72 min-w-0 shrink-0 grow-0 basis-1/2 flex-col justify-start border-[#0066B3]/40 min-[400px]:basis-1/3 lg:basis-1/5 xl:basis-1/7 ltr:border-r rtl:border-l"
+              className="flex h-72 min-w-0 shrink-0 grow-0 basis-1/2 cursor-grabbing flex-col justify-start border-[#0066B3]/40 min-[400px]:basis-1/3 lg:basis-1/5 xl:basis-1/7 ltr:border-r rtl:border-l"
             >
               <div className="flex h-1/2 w-full items-center justify-center border-b border-[#0066B3]/40">
                 <div className="h-auto w-30 xl:w-35">
@@ -106,7 +106,7 @@ export default function TrustedPartnerSection() {
                     width={250}
                     height={200}
                     alt="site-logo"
-                    className="h-auto w-full cursor-pointer"
+                    className="h-auto w-full"
                   />
                 </div>
               </div>
@@ -118,7 +118,7 @@ export default function TrustedPartnerSection() {
                       width={250}
                       height={200}
                       alt="site-logo"
-                      className="h-auto w-full cursor-pointer"
+                      className="h-auto w-full"
                     />
                   </div>
                 </div>
