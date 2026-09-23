@@ -628,17 +628,32 @@
     "WorksSection": {
       "title": "استكشف أعمالنا",
       "categories": [
-        "الكل",
-        "RESIDENTIAL",
-        "COMMERCIAL",
-        "HOSPITALITY",
-        "OUTDOOR"
+        {
+          "id": "all",
+          "label": "الكل"
+        },
+        {
+          "id": "residential",
+          "label": "سكني"
+        },
+        {
+          "id": "commercial",
+          "label": "تجاري"
+        },
+        {
+          "id": "hospitality",
+          "label": "ضيافة"
+        },
+        {
+          "id": "outdoor",
+          "label": "مساحات خارجية"
+        }
       ],
       "items": [
         {
           "id": "1",
           "title": "أرضيات فينيل بنقشة عظم السمك من أوك وود",
-          "category": "RESIDENTIAL",
+          "category": "residential",
           "location": "دبي، الإمارات العربية المتحدة",
           "btnLabel": "عرض المشروع",
           "image": "/images/floor-img-6.webp"
@@ -646,7 +661,7 @@
         {
           "id": "2",
           "title": "أرضيات لامينيت باللون الرمادي الفاتح",
-          "category": "COMMERCIAL",
+          "category": "commercial",
           "location": "الشارقة، الإمارات العربية المتحدة",
           "btnLabel": "عرض المشروع",
           "image": "/images/floor-img-7.webp"
@@ -654,7 +669,7 @@
         {
           "id": "3",
           "title": "أرضيات خشبية خارجية من خشب الساج",
-          "category": "OUTDOOR",
+          "category": "outdoor",
           "location": "دبي، الإمارات العربية المتحدة",
           "btnLabel": "عرض المشروع",
           "image": "/images/floor-img-8.webp"
@@ -662,7 +677,7 @@
         {
           "id": "4",
           "title": "أرضيات فندقية من خشب الجوز",
-          "category": "HOSPITALITY",
+          "category": "hospitality",
           "location": "رأس الخيمة، الإمارات العربية المتحدة",
           "btnLabel": "عرض المشروع",
           "image": "/images/floor-img-5.webp"
@@ -670,7 +685,7 @@
         {
           "id": "5",
           "title": "أرضيات لامينيت كلاسيكية من خشب القيقب",
-          "category": "COMMERCIAL",
+          "category": "commercial",
           "location": "عجمان، الإمارات العربية المتحدة",
           "btnLabel": "عرض المشروع",
           "image": "/images/floor-img-8.webp"
@@ -678,7 +693,7 @@
         {
           "id": "6",
           "title": "ألواح فينيل من خشب البلوط المدخن",
-          "category": "RESIDENTIAL",
+          "category": "residential",
           "location": "العين، الإمارات العربية المتحدة",
           "btnLabel": "عرض المشروع",
           "image": "/images/floor-img-6.webp"
@@ -686,7 +701,7 @@
         {
           "id": "7",
           "title": "أرضيات خشبية خارجية بمظهر الخشب المعتّق",
-          "category": "OUTDOOR",
+          "category": "outdoor",
           "location": "الفجيرة، الإمارات العربية المتحدة",
           "btnLabel": "عرض المشروع",
           "image": "/images/floor-img-4.webp"
@@ -694,7 +709,7 @@
         {
           "id": "8",
           "title": "أرضيات منتجعات دافئة من خشب الجوز",
-          "category": "HOSPITALITY",
+          "category": "hospitality",
           "location": "أبوظبي، الإمارات العربية المتحدة",
           "btnLabel": "عرض المشروع",
           "image": "/images/floor-img-5.webp"
@@ -702,7 +717,7 @@
         {
           "id": "9",
           "title": "أرضيات شيفرون فاتحة من خشب البلوط",
-          "category": "RESIDENTIAL",
+          "category": "residential",
           "location": "دبي، الإمارات العربية المتحدة",
           "btnLabel": "عرض المشروع",
           "image": "/images/floor-img-6.webp"
@@ -710,7 +725,7 @@
         {
           "id": "10",
           "title": "أرضيات SPC تجارية باللون البني الداكن من خشب الجوز",
-          "category": "COMMERCIAL",
+          "category": "commercial",
           "location": "دبي، الإمارات العربية المتحدة",
           "btnLabel": "عرض المشروع",
           "image": "/images/floor-img-7.webp"
@@ -1224,6 +1239,16 @@
         "description": "لقد استلمنا طلبك. سيتم إرسال المستند المطلوب إلى بريدك الإلكتروني قريبًا.",
         "btnLable": "العودة"
       }
+    }
+  },
+  "WorkPage": {
+    "BannerSection": {
+      "title": "أعمالنا",
+      "description": "اكتشف مشاريعنا التي نُفذت بجودة وابتكار وتميز.",
+      "image": "/images/our-work-img.webp"
+    },
+    "OurWorks": {
+      "loadMoreBtnLable": "عرض المزيد"
     }
   }
 }

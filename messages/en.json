@@ -628,17 +628,32 @@
     "WorksSection": {
       "title": "Explore Our Work",
       "categories": [
-        "ALL",
-        "RESIDENTIAL",
-        "COMMERCIAL",
-        "HOSPITALITY",
-        "OUTDOOR"
+        {
+          "id": "all",
+          "label": "All"
+        },
+        {
+          "id": "residential",
+          "label": "Residential"
+        },
+        {
+          "id": "commercial",
+          "label": "Commercial"
+        },
+        {
+          "id": "hospitality",
+          "label": "Hospitality"
+        },
+        {
+          "id": "outdoor",
+          "label": "Outdoor"
+        }
       ],
       "items": [
         {
           "id": "1",
           "title": "Oakwood Herringbone Vinyl",
-          "category": "RESIDENTIAL",
+          "category": "residential",
           "location": "Dubai, United Arab Emirates",
 
           "btnLabel": "View Project",
@@ -647,7 +662,7 @@
         {
           "id": "2",
           "title": "Ash Grey Laminate Flooring",
-          "category": "COMMERCIAL",
+          "category": "commercial",
           "location": "Sharjah, United Arab Emirates",
           "btnLabel": "View Project",
           "image": "/images/floor-img-7.webp"
@@ -655,7 +670,7 @@
         {
           "id": "3",
           "title": "Teak Outdoor Decking",
-          "category": "OUTDOOR",
+          "category": "outdoor",
           "location": "Dubai, United Arab Emirates",
           "btnLabel": "View Project",
           "image": "/images/floor-img-8.webp"
@@ -663,7 +678,7 @@
         {
           "id": "4",
           "title": "Walnut Hotel Flooring",
-          "category": "HOSPITALITY",
+          "category": "hospitality",
           "location": "Ras Al Khaimah, United Arab Emirates",
           "btnLabel": "View Project",
           "image": "/images/floor-img-5.webp"
@@ -671,7 +686,7 @@
         {
           "id": "5",
           "title": "Classic Maple Laminate",
-          "category": "COMMERCIAL",
+          "category": "commercial",
           "location": "Ajman, United Arab Emirates",
           "btnLabel": "View Project",
           "image": "/images/floor-img-8.webp"
@@ -679,7 +694,7 @@
         {
           "id": "6",
           "title": "Smoked Oak Vinyl Planks",
-          "category": "RESIDENTIAL",
+          "category": "residential",
           "location": "Al Ain, United Arab Emirates",
           "btnLabel": "View Project",
           "image": "/images/floor-img-6.webp"
@@ -687,7 +702,7 @@
         {
           "id": "7",
           "title": "Weathered Wood Decking",
-          "category": "OUTDOOR",
+          "category": "outdoor",
           "location": "Fujairah, United Arab Emirates",
           "btnLabel": "View Project",
           "image": "/images/floor-img-4.webp"
@@ -695,7 +710,7 @@
         {
           "id": "8",
           "title": "Warm Walnut Resort Flooring",
-          "category": "HOSPITALITY",
+          "category": "hospitality",
           "location": "Abu Dhabi, United Arab Emirates",
           "btnLabel": "View Project",
           "image": "/images/floor-img-5.webp"
@@ -703,7 +718,7 @@
         {
           "id": "9",
           "title": "Light Oak Chevron Flooring",
-          "category": "RESIDENTIAL",
+          "category": "residential",
           "location": "Dubai, United Arab Emirates",
           "btnLabel": "View Project",
           "image": "/images/floor-img-6.webp"
@@ -711,7 +726,7 @@
         {
           "id": "10",
           "title": "Deep Walnut Commercial SPC",
-          "category": "COMMERCIAL",
+          "category": "commercial",
           "location": "Dubai, United Arab Emirates",
           "btnLabel": "View Project",
           "image": "/images/floor-img-7.webp"
@@ -719,7 +734,7 @@
         {
           "id": "11",
           "title": "Smoked Oak Vinyl Planks",
-          "category": "RESIDENTIAL",
+          "category": "residential",
           "location": "Al Ain, United Arab Emirates",
           "btnLabel": "View Project",
           "image": "/images/floor-img-6.webp"
@@ -1233,6 +1248,16 @@
         "description": "We have received your request. The required document will be shared to your email ID shortly.",
         "btnLable": "Go Back"
       }
+    }
+  },
+  "WorkPage": {
+    "BannerSection": {
+      "title": "Our Work",
+      "description": "Discover our projects crafted with quality, innovation, and excellence.",
+      "image": "/images/our-work-img.webp"
+    },
+    "OurWorks": {
+      "loadMoreBtnLable": "Load More"
     }
   }
 }
