@@ -1,12 +1,12 @@
 'use client'
 
+import { Button } from '@/components/ui/button'
+import { OurIcon } from '@/components/ui/icon'
 import type { LocaleType } from '@/i18n/types'
 import AutoScroll from 'embla-carousel-auto-scroll'
 import useEmblaCarousel from 'embla-carousel-react'
 import { useLocale, useTranslations } from 'next-intl'
 import { useCallback } from 'react'
-import { Button } from '../ui/button'
-import { OurIcon } from '../ui/icon'
 
 interface CustomerReviewType {
   quote: string

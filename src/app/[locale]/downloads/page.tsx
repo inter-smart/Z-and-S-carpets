@@ -1,11 +1,11 @@
 import BreadcrumbBar from '@/components/common/breadcrumb-bar'
-import BannerSection from '@/components/common/sections/banner-section'
-import DownloadsCardSection from '@/components/downloads/downloads-card-section'
+import InnerBannerSection from '@/components/pages/common/inner-banner.section'
+import DownloadsCardSection from '@/components/pages/downloads/downloads-card.section'
 
 export default function DownloadsPage() {
   return (
     <>
-      <BannerSection pageName="DownloadsPage" />
+      <InnerBannerSection pageName="DownloadsPage" />
       <BreadcrumbBar values={[{ name: 'Downloads', link: '/downloads' }]} />
       <DownloadsCardSection />
     </>

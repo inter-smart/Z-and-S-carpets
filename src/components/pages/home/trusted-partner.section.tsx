@@ -1,14 +1,14 @@
 'use client'
 
+import LookingForwardCard from '@/components/common/looking-forward.card'
+import { Button } from '@/components/ui/button'
+import { OurIcon } from '@/components/ui/icon'
 import type { LocaleType } from '@/i18n/types'
 import Autoplay from 'embla-carousel-autoplay'
 import useEmblaCarousel from 'embla-carousel-react'
 import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useCallback } from 'react'
-import LookingForwardBanner from '../common/looking-forward-banner'
-import { Button } from '../ui/button'
-import { OurIcon } from '../ui/icon'
 
 interface PartnerType {
   name: string
@@ -127,7 +127,7 @@ export default function TrustedPartnerSection() {
           ))}
         </div>
       </div>
-      <LookingForwardBanner />
+      <LookingForwardCard />
     </div>
   )
 }

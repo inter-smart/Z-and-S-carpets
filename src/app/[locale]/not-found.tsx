@@ -1,4 +1,4 @@
-import { GoBackBtn } from '@/components/common/go-back-btn'
+import GoBackBtn from '@/components/common/go-back.btn'
 import { Button } from '@/components/ui/button'
 import { OurIcon, type OurIconName } from '@/components/ui/icon'
 import type { LocaleType } from '@/i18n/types'

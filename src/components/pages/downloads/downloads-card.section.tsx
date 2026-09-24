@@ -1,11 +1,11 @@
 'use client'
 
+import { Button } from '@/components/ui/button'
+import { Dialog, DialogClose, DialogContent } from '@/components/ui/dialog'
+import { OurIcon } from '@/components/ui/icon'
 import { LaptopMinimalCheckIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { useState, type SubmitEvent } from 'react'
-import { Button } from '../ui/button'
-import { Dialog, DialogClose, DialogContent } from '../ui/dialog'
-import { OurIcon } from '../ui/icon'
 
 interface CardType {
   title: string

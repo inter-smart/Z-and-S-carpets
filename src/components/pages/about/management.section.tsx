@@ -1,6 +1,6 @@
+import { OurIcon } from '@/components/ui/icon'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
-import { OurIcon } from '../ui/icon'
 
 export default function ManagementSection() {
   const t = useTranslations('AboutPage.ManagementSection')

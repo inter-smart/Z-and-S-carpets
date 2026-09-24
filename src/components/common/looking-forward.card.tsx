@@ -2,7 +2,7 @@ import { VectorPart1 } from '@/assets/images'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 
-export default function LookingForwardBanner() {
+export default function LookingForwardCard() {
   const t = useTranslations('HomePage.LookingForwardCard')
 
   return (

@@ -3,7 +3,7 @@
 import { Button } from '@/components/ui/button'
 import { useRouter } from 'next/navigation'
 
-export function GoBackBtn({ ...props }) {
+export default function GoBackBtn({ ...props }) {
   const router = useRouter()
 
   return (

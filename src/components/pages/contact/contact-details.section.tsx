@@ -1,6 +1,6 @@
+import { type OurIconName, OurIcon } from '@/components/ui/icon'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
-import { type OurIconName, OurIcon } from '../ui/icon'
 
 export default function ContactDetailsSection() {
   const t = useTranslations('ContactPage.contactDetails')

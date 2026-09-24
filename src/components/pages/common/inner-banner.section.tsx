@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl'
 
-export default function BannerSection({ pageName }: { pageName: string }) {
+export default function InnerBannerSection({ pageName }: { pageName: string }) {
   const t = useTranslations(`${pageName}.BannerSection`)
 
   return (

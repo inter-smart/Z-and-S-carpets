@@ -1,7 +1,7 @@
 import BreadcrumbBar from '@/components/common/breadcrumb-bar'
-import BannerSection from '@/components/common/sections/banner-section'
-import ContactDetailsSection from '@/components/contact/contact-details-section'
-import GetInTouchForm from '@/components/contact/get-in-touch-form'
+import InnerBannerSection from '@/components/pages/common/inner-banner.section'
+import ContactDetailsSection from '@/components/pages/contact/contact-details.section'
+import GetInTouchSection from '@/components/pages/contact/get-in-touch.section'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -12,12 +12,12 @@ export const metadata: Metadata = {
 export default function ContactUsPage() {
   return (
     <>
-      <BannerSection pageName="ContactPage" />
+      <InnerBannerSection pageName="ContactPage" />
       <BreadcrumbBar values={[{ name: 'Contact Us', link: '/contact' }]} />
 
       <div className="container-wrapper grid pt-5 pb-10 lg:grid-cols-[1fr_0.95fr] lg:gap-12 lg:pt-12 lg:pb-20 xl:gap-24">
         <ContactDetailsSection />
-        <GetInTouchForm />
+        <GetInTouchSection />
       </div>
 
       {/* map section*/}

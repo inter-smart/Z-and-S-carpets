@@ -1,5 +1,4 @@
 import { SiteLogo } from '@/assets/logos'
-import LangDropdown from '@/components/navbar/lang-dropdown'
 import { Button } from '@/components/ui/button'
 import { OurIcon } from '@/components/ui/icon'
 import type { LocaleType } from '@/i18n/types'
@@ -7,6 +6,7 @@ import { cn } from 'cn'
 import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
+import NavbarLangDropdown from './navbar-lang.dropdown'
 
 interface NavbarNavLinksType {
   text: string
@@ -119,7 +119,7 @@ export default function Navbar() {
             <OurIcon name="chevron-down" className="size-2.5" />
           </p>
           {/* language change dropdown */}
-          <LangDropdown />
+          <NavbarLangDropdown />
           {/* search */}
           <p className="cursor-pointer space-x-0.5 sm:space-x-1.5">
             <OurIcon name="search" className="size-4" />
