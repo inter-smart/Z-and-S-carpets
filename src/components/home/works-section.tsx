@@ -1,11 +1,14 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
+import { OurIcon } from '@/components/ui/icon'
+import type { LocaleType } from '@/i18n/types'
 import { cn } from 'cn'
-import { useTranslations } from 'next-intl'
+import Autoplay from 'embla-carousel-autoplay'
+import useEmblaCarousel from 'embla-carousel-react'
+import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
-import { OurIcon } from '../ui/icon'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 
 type WorkItem = {
   id: string
@@ -13,209 +16,138 @@ type WorkItem = {
   category: string
   location: string
   image: string
-  featured: boolean
   btnLabel: string
 }
 
-type WorkProject = {
-  item: WorkItem
-  originalIndex: number
-}
-
-type Direction = 'next' | 'previous'
-
-function ProjectCard({ project }: { project: WorkProject }) {
-  const { item, originalIndex } = project
-
+function ProjectCard({ project }: { project: WorkItem }) {
   return (
-    <article
-      className={cn(
-        'group relative min-h-64 overflow-hidden rounded-md',
-        item.featured ? 'md:row-span-2 md:min-h-128' : '',
-      )}
-    >
+    <article className="group relative h-full overflow-hidden rounded-md">
       <Image
-        src={item.image}
+        src={project.image}
         fill
-        alt={item.title}
+        alt={project.title}
         className="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover:scale-105"
       />
 
-      <div className="text-background absolute inset-x-3 bottom-3 flex flex-col rounded-md bg-[#1F1A1A]/30 px-3 py-4 backdrop-blur-sm sm:flex-row sm:items-start sm:justify-between md:px-5 md:max-lg:flex-col md:max-lg:items-start lg:py-7 lg:max-lg:flex-col">
+      <div className="text-background absolute inset-x-3 bottom-3 flex flex-col rounded-md bg-[#1F1A1A]/30 px-3 py-4 backdrop-blur-sm sm:flex-row sm:items-start sm:justify-between md:p-5 lg:flex-col xl:flex-row xl:p-7">
         <div>
-          <h3 className="text-xl font-bold lg:text-2xl">{item.title}</h3>
+          <h3 className="text-xl font-bold">{project.title}</h3>
 
-          <p className="text-background/90 text-sm">{item.location}</p>
+          <p className="text-background/90 text-sm">{project.location}</p>
         </div>
 
-        <div>
-          <span className="mt-2 inline-block text-xs font-light sm:max-md:text-sm lg:text-[1rem]">
-            <span className="underline decoration-0 underline-offset-8">
-              {item.btnLabel}
-            </span>
-            <OurIcon
-              name="arrow-left"
-              className="ms-3 hidden size-3.5 rtl:inline-block"
-            />
-            <OurIcon
-              name="arrow-right"
-              className="ms-3 hidden size-3.5 ltr:inline-block"
-            />
+        <span className="mt-2 inline-block cursor-pointer text-xs font-light sm:max-md:text-sm lg:text-[1rem]">
+          <span className="me-2 underline decoration-0 underline-offset-8">
+            {project.btnLabel}
           </span>
-        </div>
+          <OurIcon
+            name="arrow-left"
+            className="hidden size-3.5 rtl:inline-block"
+          />
+          <OurIcon
+            name="arrow-right"
+            className="hidden size-3.5 ltr:inline-block"
+          />
+        </span>
       </div>
     </article>
   )
 }
 
-function ProjectGrid({ projects }: { projects: WorkProject[] }) {
-  return (
-    <div className="grid gap-4 md:grid-cols-2">
-      {projects.map((project) => (
-        <ProjectCard key={project.item.id} project={project} />
-      ))}
-    </div>
-  )
-}
+export default function WorksSection() {
+  const locale = useLocale() as LocaleType
 
-const createSlides = (projects: WorkProject[], itemsPerSlide: number) => {
-  if (itemsPerSlide === 1) {
-    return projects.map((project) => [project])
-  }
-
-  const slides: WorkProject[][] = []
-  let index = 0
-
-  while (index < projects.length) {
-    const current = projects[index]
-    const next = projects[index + 1]
-    const afterNext = projects[index + 2]
-
-    // Two featured items should always stay together
-    if (current.item.featured && next?.item.featured) {
-      slides.push([current, next])
-      index += 2
-      continue
-    }
-
-    // Featured + 2 normal
-    if (
-      current.item.featured &&
-      next &&
-      !next.item.featured &&
-      afterNext &&
-      !afterNext.item.featured
-    ) {
-      slides.push([current, next, afterNext])
-      index += 3
-      continue
-    }
-
-    // Featured + one normal
-    if (current.item.featured && next && !next.item.featured) {
-      slides.push([current, next])
-      index += 2
-      continue
-    }
-
-    // Three normal items
-    if (
-      !current.item.featured &&
-      next &&
-      !next.item.featured &&
-      afterNext &&
-      !afterNext.item.featured
-    ) {
-      slides.push([current, next, afterNext])
-      index += 3
-      continue
-    }
-
-    // Two normal items
-    if (!current.item.featured && next && !next.item.featured) {
-      slides.push([current, next])
-      index += 2
-      continue
-    }
-
-    // Single item
-    slides.push([current])
-    index += 1
-  }
-
-  return slides
-}
-
-export default function WorksSections() {
   const t = useTranslations('HomePage.WorksSection')
 
-  const workCategories = t.raw('categories') as string[]
-
+  const workCategories = t.raw('categories') as { id: string; label: string }[]
   const workItems = t.raw('items') as WorkItem[]
 
-  const [category, setCategory] = useState(workCategories[0])
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [itemsPerSlide, setItemsPerSlide] = useState(1)
-  const [direction, setDirection] = useState<Direction>('next')
-  const [isAnimating, setIsAnimating] = useState(false)
-
-  useEffect(() => {
-    const updateItemsPerSlide = () => {
-      setItemsPerSlide(window.matchMedia('(min-width: 768px)').matches ? 3 : 1)
-      setCurrentIndex(0)
-      setIsAnimating(false)
-    }
-
-    updateItemsPerSlide()
-
-    window.addEventListener('resize', updateItemsPerSlide)
-
-    return () => {
-      window.removeEventListener('resize', updateItemsPerSlide)
-    }
-  }, [])
-
-  const visibleProjects = workItems.filter(
-    (item) => category === workCategories[0] || item.category === category,
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    {
+      align: 'start',
+      direction: locale === 'ar' ? 'rtl' : 'ltr',
+    },
+    [
+      Autoplay({
+        delay: 3000,
+        stopOnInteraction: false,
+        stopOnMouseEnter: true,
+      }),
+    ],
   )
 
-  const projectsWithIndex = visibleProjects.map((item) => ({
-    item,
-    originalIndex: workItems.indexOf(item),
-  }))
+  // #Filter by category
+  const [category, setCategory] = useState(workCategories[0].id)
 
-  const slides = createSlides(projectsWithIndex, itemsPerSlide)
+  const filteredWorkItems = useMemo(
+    () =>
+      workItems.filter(
+        (item) =>
+          category === workCategories[0].id || item.category === category,
+      ),
+    [workCategories, workItems, category],
+  )
 
-  const maxIndex = Math.max(slides.length - 1, 0)
+  const columns = useMemo(() => {
+    const result: {
+      type: 'full' | 'stacked'
+      items: WorkItem[]
+    }[] = []
 
-  const nextIndex = direction === 'next' ? currentIndex + 1 : currentIndex - 1
+    for (let i = 0; i < filteredWorkItems.length; i += 3) {
+      result.push({
+        type: 'full',
+        items: [filteredWorkItems[i]],
+      })
 
-  const handleNext = () => {
-    if (isAnimating || currentIndex >= maxIndex) return
+      if (filteredWorkItems[i + 1]) {
+        result.push({
+          type: 'stacked',
+          items: filteredWorkItems.slice(i + 1, i + 3),
+        })
+      }
+    }
 
-    setDirection('next')
-    setIsAnimating(true)
-  }
+    return result
+  }, [filteredWorkItems])
 
-  const handlePrevious = () => {
-    if (isAnimating || currentIndex <= 0) return
+  useEffect(() => {
+    if (!emblaApi) return
 
-    setDirection('previous')
-    setIsAnimating(true)
-  }
+    emblaApi.reInit()
+    emblaApi.scrollTo(0, true)
+  }, [category, emblaApi])
 
-  const handleAnimationEnd = () => {
-    setCurrentIndex((current) =>
-      direction === 'next' ? current + 1 : current - 1,
-    )
+  // #Prev/Next
+  const [canPrev, setCanPrev] = useState(false)
+  const [canNext, setCanNext] = useState(false)
 
-    setIsAnimating(false)
-  }
+  const scrollPrev = useCallback(() => {
+    emblaApi?.scrollPrev()
+  }, [emblaApi])
 
-  // useEffect(() => {
-  //   setCurrentIndex(0)
-  //   setIsAnimating(false)
-  // }, [category, itemsPerSlide])
+  const scrollNext = useCallback(() => {
+    emblaApi?.scrollNext()
+  }, [emblaApi])
+
+  useEffect(() => {
+    if (!emblaApi) return
+
+    const updateButtons = () => {
+      setCanPrev(emblaApi.canScrollPrev())
+      setCanNext(emblaApi.canScrollNext())
+    }
+
+    updateButtons()
+
+    emblaApi.on('select', updateButtons)
+    emblaApi.on('reInit', updateButtons)
+
+    return () => {
+      emblaApi.off('select', updateButtons)
+      emblaApi.off('reInit', updateButtons)
+    }
+  }, [emblaApi])
 
   return (
     <section
@@ -230,58 +162,44 @@ export default function WorksSections() {
         <div className="mt-9 flex flex-wrap justify-center gap-3">
           {workCategories.map((item) => (
             <Button
-              key={item}
+              key={item.id}
               type="button"
               variant="outline"
               onClick={() => {
-                setCategory(item)
-                setCurrentIndex(0)
-                setIsAnimating(false)
+                setCategory(item.id)
               }}
               className={cn(
                 'rounded-md border px-9 py-4.5 text-xs font-semibold transition-colors hover:border-[#0066B3] hover:text-[#0066B3]',
-                category === item
+                category === item.id
                   ? 'border-[#0066B3]! text-[#0066B3]!'
                   : 'border-[#CDCDCD]!',
               )}
             >
-              {item}
+              {item.label}
             </Button>
           ))}
         </div>
 
+        {/* cards */}
         <div className="relative mt-10">
-          <div className="overflow-hidden rounded-md">
-            <div className="relative">
-              {/* Current slide */}
-              <div
-                className={
-                  isAnimating
-                    ? direction === 'next'
-                      ? 'animate-slide-out-left'
-                      : 'animate-slide-out-right'
-                    : ''
-                }
-                onAnimationEnd={handleAnimationEnd}
-              >
-                {slides[currentIndex] && (
-                  <ProjectGrid projects={slides[currentIndex]} />
-                )}
-              </div>
-
-              {/* Incoming slide */}
-              {isAnimating && slides[nextIndex] && (
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="-ms-4 flex">
+              {columns.map((column, columnIndex) => (
                 <div
-                  className={cn(
-                    'absolute inset-0',
-                    direction === 'next'
-                      ? 'animate-slide-in-right'
-                      : 'animate-slide-in-left',
-                  )}
+                  key={columnIndex}
+                  className="min-h-100 min-w-0 shrink-0 grow-0 basis-full ps-4 lg:min-h-120 lg:basis-1/2 xl:min-h-140 2xl:min-h-160"
                 >
-                  <ProjectGrid projects={slides[nextIndex]} />
+                  {column.type === 'full' ? (
+                    <ProjectCard project={column.items[0]} />
+                  ) : (
+                    <div className="grid h-full grid-rows-2 gap-5">
+                      {column.items.map((item, itemIndex) => (
+                        <ProjectCard key={itemIndex} project={item} />
+                      ))}
+                    </div>
+                  )}
                 </div>
-              )}
+              ))}
             </div>
           </div>
 
@@ -292,8 +210,8 @@ export default function WorksSections() {
               type="button"
               variant="ghost"
               aria-label="Previous collection"
-              onClick={handlePrevious}
-              disabled={currentIndex === 0 || isAnimating}
+              onClick={scrollPrev}
+              disabled={!canPrev}
               className="text-our-purple hover:text-our-purple pointer-events-auto cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
             >
               {/* LTR */}
@@ -308,8 +226,8 @@ export default function WorksSections() {
               type="button"
               variant="ghost"
               aria-label="Next collection"
-              onClick={handleNext}
-              disabled={currentIndex === maxIndex || isAnimating}
+              onClick={scrollNext}
+              disabled={!canNext}
               className="text-our-purple hover:text-our-purple pointer-events-auto cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
             >
               {/* LTR */}
@@ -327,9 +245,9 @@ export default function WorksSections() {
             aria-label="Previous projects"
             variant="ghost"
             size="icon"
-            disabled={currentIndex === 0 || isAnimating}
-            onClick={handlePrevious}
-            className="text-our-purple hover:text-our-purple cursor-pointer hover:bg-transparent disabled:opacity-30"
+            onClick={scrollPrev}
+            disabled={!canPrev}
+            className="text-our-purple hover:text-our-purple cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0! disabled:opacity-30"
           >
             {/* LTR */}
             <OurIcon name="arrow-left" className="hidden ltr:block" />
@@ -342,9 +260,9 @@ export default function WorksSections() {
             aria-label="Next projects"
             variant="ghost"
             size="icon"
-            disabled={currentIndex === maxIndex || isAnimating}
-            onClick={handleNext}
-            className="text-our-purple hover:text-our-purple cursor-pointer hover:bg-transparent disabled:opacity-30"
+            onClick={scrollNext}
+            disabled={!canNext}
+            className="text-our-purple hover:text-our-purple cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0! disabled:opacity-30"
           >
             {/* LTR */}
             <OurIcon name="arrow-right" className="hidden ltr:block" />

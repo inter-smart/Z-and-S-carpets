@@ -83,27 +83,31 @@ export default function ImgCompareSection() {
         </div>
 
         {/* Previous */}
-        <Button
-          type="button"
-          aria-label="Previous collection"
-          onClick={handlePrevious}
-          disabled={currentIndex === 0 || isAnimating}
-          className="text-our-purple hover:text-our-purple absolute top-1/2 -left-8 hidden cursor-pointer text-xl hover:bg-transparent disabled:opacity-30 sm:block md:-left-10"
-          variant="ghost"
-        >
-          <OurIcon name="arrow-left" />
-        </Button>
+        <div className="absolute top-1/2 -left-8 hidden -translate-y-1/2 sm:block md:-left-10">
+          <Button
+            type="button"
+            aria-label="Previous collection"
+            onClick={handlePrevious}
+            disabled={currentIndex === 0 || isAnimating}
+            className="text-our-purple hover:text-our-purple cursor-pointer text-xl hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0! disabled:opacity-30"
+            variant="ghost"
+          >
+            <OurIcon name="arrow-left" />
+          </Button>
+        </div>
         {/* Next */}
-        <Button
-          type="button"
-          aria-label="Next collection"
-          onClick={handleNext}
-          disabled={currentIndex === imgGroups.length - 1 || isAnimating}
-          className="text-our-purple hover:text-our-purple absolute top-1/2 -right-8 hidden cursor-pointer text-xl hover:bg-transparent disabled:opacity-30 sm:block md:-right-10"
-          variant="ghost"
-        >
-          <OurIcon name="arrow-right" />
-        </Button>
+        <div className="absolute top-1/2 -right-8 hidden -translate-y-1/2 sm:block md:-right-10">
+          <Button
+            type="button"
+            aria-label="Next collection"
+            onClick={handleNext}
+            disabled={currentIndex === imgGroups.length - 1 || isAnimating}
+            className="text-our-purple hover:text-our-purple cursor-pointer text-xl hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0! disabled:opacity-30"
+            variant="ghost"
+          >
+            <OurIcon name="arrow-right" />
+          </Button>
+        </div>
       </div>
 
       <div className="mt-2 flex justify-center gap-2 sm:hidden">
@@ -113,7 +117,7 @@ export default function ImgCompareSection() {
           size="icon"
           onClick={handlePrevious}
           disabled={currentIndex === 0 || isAnimating}
-          className="text-our-purple hover:text-our-purple cursor-pointer hover:bg-transparent"
+          className="text-our-purple hover:text-our-purple cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
         >
           <OurIcon name="arrow-right" className="hidden rtl:block" />
           <OurIcon name="arrow-left" className="hidden ltr:block" />
@@ -124,7 +128,7 @@ export default function ImgCompareSection() {
           size="icon"
           onClick={handleNext}
           disabled={currentIndex === imgGroups.length - 1 || isAnimating}
-          className="text-our-purple hover:text-our-purple cursor-pointer hover:bg-transparent"
+          className="text-our-purple hover:text-our-purple cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
         >
           <OurIcon name="arrow-left" className="hidden rtl:block" />
           <OurIcon name="arrow-right" className="hidden ltr:block" />

@@ -6,7 +6,7 @@ import useEmblaCarousel from 'embla-carousel-react'
 import { ListFilter } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
-import { useCallback } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { Button } from '../ui/button'
 import { OurIcon } from '../ui/icon'
 
@@ -25,7 +25,6 @@ export default function BestSellersSection() {
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
-      loop: true,
       align: 'start',
       direction: locale === 'ar' ? 'rtl' : 'ltr',
     },
@@ -38,12 +37,35 @@ export default function BestSellersSection() {
     ],
   )
 
+  // #Prev/Next
+  const [canPrev, setCanPrev] = useState(false)
+  const [canNext, setCanNext] = useState(false)
+
   const scrollPrev = useCallback(() => {
     emblaApi?.scrollPrev()
   }, [emblaApi])
 
   const scrollNext = useCallback(() => {
     emblaApi?.scrollNext()
+  }, [emblaApi])
+
+  useEffect(() => {
+    if (!emblaApi) return
+
+    const updateButtons = () => {
+      setCanPrev(emblaApi.canScrollPrev())
+      setCanNext(emblaApi.canScrollNext())
+    }
+
+    updateButtons()
+
+    emblaApi.on('select', updateButtons)
+    emblaApi.on('reInit', updateButtons)
+
+    return () => {
+      emblaApi.off('select', updateButtons)
+      emblaApi.off('reInit', updateButtons)
+    }
   }, [emblaApi])
 
   return (
@@ -79,13 +101,13 @@ export default function BestSellersSection() {
                     key={index}
                     className="min-w-0 shrink-0 grow-0 basis-full ps-7 sm:basis-1/2 lg:basis-1/3"
                   >
-                    <article className="overflow-hidden rounded-md border border-white/30 bg-[#073b68] text-white">
+                    <article className="group overflow-hidden rounded-md border border-white/30 bg-[#073b68] text-white">
                       <div className="relative aspect-[1.5] overflow-hidden">
                         <Image
                           src={product.image}
                           alt={product.title}
                           fill
-                          className="size-full object-cover"
+                          className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
                         />
 
                         <span className="bg-background text-foreground absolute top-3 right-3 rounded px-3 py-1 text-xs tracking-wide uppercase">
@@ -109,12 +131,12 @@ export default function BestSellersSection() {
                         <div className="mt-auto flex gap-3 pt-7">
                           <Button
                             variant="outline"
-                            className="min-w-0 flex-1 rounded-sm border-white bg-transparent py-4.5 text-white hover:bg-white hover:text-[#073b68]"
+                            className="min-w-0 flex-1 cursor-pointer rounded-sm border-white bg-transparent py-4.5 text-white hover:bg-white hover:text-[#073b68]"
                           >
                             {t('getSampleBtnLabel')}
                           </Button>
 
-                          <Button className="min-w-0 flex-1 rounded-sm bg-[#812990] py-4.5 font-medium text-white hover:bg-[#812990]/85">
+                          <Button className="min-w-0 flex-1 cursor-pointer rounded-sm bg-[#812990] py-4.5 font-medium text-white hover:bg-[#812990]/85">
                             {t('viewMoreBtnLabel')}
                           </Button>
                         </div>
@@ -134,6 +156,7 @@ export default function BestSellersSection() {
               variant="ghost"
               aria-label="Previous collection"
               onClick={scrollPrev}
+              disabled={!canPrev}
               className="cursor-pointer text-white hover:bg-transparent hover:text-white focus-visible:border-transparent! focus-visible:ring-0!"
             >
               {/* LTR */}
@@ -150,6 +173,7 @@ export default function BestSellersSection() {
               variant="ghost"
               aria-label="Next collection"
               onClick={scrollNext}
+              disabled={!canNext}
               className="cursor-pointer text-white hover:bg-transparent hover:text-white focus-visible:border-transparent! focus-visible:ring-0!"
             >
               {/* LTR */}
@@ -167,6 +191,7 @@ export default function BestSellersSection() {
             variant="ghost"
             size="icon"
             onClick={scrollPrev}
+            disabled={!canPrev}
             className="cursor-pointer text-white hover:bg-transparent hover:text-white focus-visible:border-transparent! focus-visible:ring-0!"
           >
             {/* LTR */}
@@ -179,6 +204,7 @@ export default function BestSellersSection() {
             variant="ghost"
             size="icon"
             onClick={scrollNext}
+            disabled={!canNext}
             className="cursor-pointer text-white hover:bg-transparent hover:text-white focus-visible:border-transparent! focus-visible:ring-0!"
           >
             {/* LTR */}

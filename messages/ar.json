@@ -101,7 +101,7 @@
         },
         {
           "text": "أعمالنا",
-          "link": ""
+          "link": "/work"
         },
         {
           "text": "المصادر",
@@ -482,144 +482,145 @@
     },
     "BuiltForSection": {
       "title": "مصمم لكل مساحة",
+      "bgImage": "/images/floor-img-11.webp",
       "categories": [
         {
-          "name": "RESIDENTIAL",
-          "description": "أرضيات دافئة ومدروسة للمنازل التي تجمع بين جمال المظهر وروعة الإحساس.",
+          "name": "سكني",
+          "description": "أرضيات دافئة ومدروسة للمنازل التي تجمع بين الراحة والجمال.",
           "cta": "احصل على حل مخصص",
           "feature": "أرضيات الفينيل",
           "products": [
             {
               "name": "بلاطات السجاد",
-              "image": "floor-2"
+              "image": "/images/floor-img-1.webp"
             },
             {
-              "name": "أرضيات خشبية",
-              "image": "floor-3"
+              "name": "الأرضيات الخشبية",
+              "image": "/images/floor-img-3.webp"
             },
             {
               "name": "أرضيات الديك",
-              "image": "floor-12"
+              "image": "/images/floor-img-12.webp"
             },
             {
               "name": "أرضيات الفينيل",
-              "image": "floor-7"
+              "image": "/images/floor-img-7.webp"
             },
             {
               "name": "العشب الصناعي",
-              "image": "floor-11"
+              "image": "/images/floor-img-11.webp"
             },
             {
-              "name": "أرضيات خشبية",
-              "image": "floor-3"
+              "name": "الأرضيات الخشبية",
+              "image": "/images/floor-img-3.webp"
             },
             {
               "name": "أرضيات الديك",
-              "image": "floor-12"
+              "image": "/images/floor-img-12.webp"
             },
             {
               "name": "بلاطات السجاد",
-              "image": "floor-2"
+              "image": "/images/floor-img-2.webp"
             },
             {
-              "name": "أرضيات خشبية",
-              "image": "floor-3"
+              "name": "الأرضيات الخشبية",
+              "image": "/images/floor-img-3.webp"
             },
             {
               "name": "أرضيات الديك",
-              "image": "floor-12"
+              "image": "/images/floor-img-12.webp"
             }
           ]
         },
         {
-          "name": "COMMERCIAL",
-          "description": "أرضيات عالية الأداء للمكاتب ومساحات البيع بالتجزئة والبيئات المؤسسية التي تتطلب المتانة إلى جانب الجمال.",
+          "name": "تجاري",
+          "description": "أرضيات عالية الأداء للمكاتب ومساحات البيع بالتجزئة وبيئات الشركات التي تتطلب المتانة إلى جانب المظهر الجمالي.",
           "cta": "احصل على حل مخصص",
           "feature": "أرضيات الفينيل",
           "products": [
             {
               "name": "أرضيات الفينيل",
-              "image": "floor-7"
-            },
-            {
-              "name": "العشب الصناعي",
-              "image": "floor-2"
+              "image": "/images/floor-img-12.webp"
             },
             {
               "name": "أرضيات الديك",
-              "image": "floor-12"
+              "image": "/images/floor-img-7.webp"
+            },
+            {
+              "name": "العشب الصناعي",
+              "image": "/images/floor-img-3.webp"
             }
           ]
         },
         {
-          "name": "HOSPITALITY",
-          "description": "أسطح جذابة وتشطيبات راقية للفنادق والمطاعم ومساحات الضيوف، مصممة لتقديم تجارب لا تُنسى.",
+          "name": "ضيافة",
+          "description": "أسطح جذابة وتشطيبات راقية للفنادق والمطاعم ومساحات الضيوف المصممة لصناعة تجارب لا تُنسى.",
           "cta": "احصل على حل مخصص",
           "feature": "أرضيات السجاد",
           "products": [
             {
               "name": "العشب الصناعي",
-              "image": "floor-3"
+              "image": "/images/floor-img-3.webp"
             },
             {
               "name": "أرضيات الديك",
-              "image": "floor-12"
+              "image": "/images/floor-img-12.webp"
             },
             {
               "name": "بلاطات السجاد",
-              "image": "floor-11"
+              "image": "/images/floor-img-11.webp"
             },
             {
-              "name": "أرضيات خشبية",
-              "image": "floor-2"
+              "name": "الأرضيات الخشبية",
+              "image": "/images/floor-img-2.webp"
             },
             {
               "name": "أرضيات الفينيل",
-              "image": "floor-7"
+              "image": "/images/floor-img-7.webp"
             },
             {
               "name": "العشب الصناعي",
-              "image": "floor-3"
+              "image": "/images/floor-img-3.webp"
             },
             {
               "name": "أرضيات الديك",
-              "image": "floor-12"
+              "image": "/images/floor-img-12.webp"
             },
             {
               "name": "بلاطات السجاد",
-              "image": "floor-11"
+              "image": "/images/floor-img-11.webp"
             },
             {
-              "name": "أرضيات خشبية",
-              "image": "floor-2"
+              "name": "الأرضيات الخشبية",
+              "image": "/images/floor-img-2.webp"
             },
             {
               "name": "أرضيات الفينيل",
-              "image": "floor-7"
+              "image": "/images/floor-img-7.webp"
             }
           ]
         },
         {
-          "name": "OUTDOOR",
+          "name": "مساحات خارجية",
           "description": "تشطيبات خارجية متينة تضفي الراحة والطابع المميز والأداء طويل الأمد على المساحات المفتوحة.",
           "cta": "احصل على حل مخصص",
           "feature": "أرضيات الديك",
           "products": [
             {
               "name": "بلاطات السجاد",
-              "image": "floor-12"
+              "image": "/images/floor-img-12.webp"
             },
             {
-              "name": "أرضيات خشبية",
-              "image": "floor-7"
+              "name": "الأرضيات الخشبية",
+              "image": "/images/floor-img-7.webp"
             },
             {
               "name": "أرضيات الفينيل",
-              "image": "floor-3"
+              "image": "/images/floor-img-3.webp"
             },
             {
               "name": "العشب الصناعي",
-              "image": "floor-11"
+              "image": "/images/floor-img-11.webp"
             }
           ]
         }
@@ -628,97 +629,124 @@
     "WorksSection": {
       "title": "استكشف أعمالنا",
       "categories": [
-        "الكل",
-        "RESIDENTIAL",
-        "COMMERCIAL",
-        "HOSPITALITY",
-        "OUTDOOR"
+        {
+          "id": "all",
+          "label": "الكل"
+        },
+        {
+          "id": "residential",
+          "label": "سكني"
+        },
+        {
+          "id": "commercial",
+          "label": "تجاري"
+        },
+        {
+          "id": "hospitality",
+          "label": "ضيافة"
+        },
+        {
+          "id": "outdoor",
+          "label": "مساحات خارجية"
+        }
       ],
       "items": [
         {
           "id": "1",
-          "title": "أرضيات فينيل بنقشة عظم السمك من أوك وود",
-          "category": "RESIDENTIAL",
-          "location": "دبي، الإمارات العربية المتحدة",
-          "featured": true,
+          "title": "أرضيات فينيل بنقشة خشبية",
+          "category": "residential",
+          "location": "الإمارات العربية المتحدة",
           "btnLabel": "عرض المشروع",
           "image": "/images/floor-img-6.webp"
         },
         {
           "id": "2",
-          "title": "أرضيات لامينيت باللون الرمادي الفاتح",
-          "category": "COMMERCIAL",
-          "location": "الشارقة، الإمارات العربية المتحدة",
+          "title": "أرضيات لامينيت",
+          "category": "residential",
+          "location": "الإمارات العربية المتحدة",
+          "btnLabel": "عرض المشروع",
+          "image": "/images/floor-img-4.webp"
+        },
+        {
+          "id": "3",
+          "title": "أرضيات الديك",
+          "category": "outdoor",
+          "location": "الإمارات العربية المتحدة",
           "btnLabel": "عرض المشروع",
           "image": "/images/floor-img-7.webp"
         },
         {
-          "id": "3",
-          "title": "أرضيات خشبية خارجية من خشب الساج",
-          "category": "OUTDOOR",
-          "location": "دبي، الإمارات العربية المتحدة",
-          "btnLabel": "عرض المشروع",
-          "image": "/images/floor-img-8.webp"
-        },
-        {
           "id": "4",
-          "title": "أرضيات فندقية من خشب الجوز",
-          "category": "HOSPITALITY",
-          "location": "رأس الخيمة، الإمارات العربية المتحدة",
-          "featured": true,
+          "title": "أرضيات SPC",
+          "category": "commercial",
+          "location": "الإمارات العربية المتحدة",
+          "btnLabel": "عرض المشروع",
+          "image": "/images/floor-img-3.webp"
+        },
+
+        {
+          "id": "5",
+          "title": "أرضيات السجاد",
+          "category": "commercial",
+          "location": "الإمارات العربية المتحدة",
           "btnLabel": "عرض المشروع",
           "image": "/images/floor-img-5.webp"
         },
         {
-          "id": "5",
-          "title": "أرضيات لامينيت كلاسيكية من خشب القيقب",
-          "category": "COMMERCIAL",
-          "location": "عجمان، الإمارات العربية المتحدة",
-          "btnLabel": "عرض المشروع",
-          "image": "/images/floor-img-8.webp"
-        },
-        {
           "id": "6",
-          "title": "ألواح فينيل من خشب البلوط المدخن",
-          "category": "RESIDENTIAL",
-          "location": "العين، الإمارات العربية المتحدة",
-          "featured": true,
+          "title": "أرضيات الجيم والرياضات",
+          "category": "hospitality",
+          "location": "الإمارات العربية المتحدة",
           "btnLabel": "عرض المشروع",
           "image": "/images/floor-img-6.webp"
         },
         {
           "id": "7",
-          "title": "أرضيات خشبية خارجية بمظهر الخشب المعتّق",
-          "category": "OUTDOOR",
-          "location": "الفجيرة، الإمارات العربية المتحدة",
+          "title": "أرضيات البلاط المطاطي",
+          "category": "commercial",
+          "location": "الإمارات العربية المتحدة",
           "btnLabel": "عرض المشروع",
-          "image": "/images/floor-img-4.webp"
+          "image": "/images/floor-img-7.webp"
         },
         {
           "id": "8",
-          "title": "أرضيات منتجعات دافئة من خشب الجوز",
-          "category": "HOSPITALITY",
-          "location": "أبوظبي، الإمارات العربية المتحدة",
-          "featured": true,
+          "title": "كسوة الجدران",
+          "category": "hospitality",
+          "location": "الإمارات العربية المتحدة",
           "btnLabel": "عرض المشروع",
-          "image": "/images/floor-img-5.webp"
+          "image": "/images/floor-img-8.webp"
         },
         {
           "id": "9",
-          "title": "أرضيات شيفرون فاتحة من خشب البلوط",
-          "category": "RESIDENTIAL",
-          "location": "دبي، الإمارات العربية المتحدة",
+          "title": "العشب الصناعي",
+          "category": "outdoor",
+          "location": "الإمارات العربية المتحدة",
           "btnLabel": "عرض المشروع",
-          "image": "/images/floor-img-6.webp"
+          "image": "/images/floor-img-9.webp"
         },
         {
           "id": "10",
-          "title": "أرضيات SPC تجارية باللون البني الداكن من خشب الجوز",
-          "category": "COMMERCIAL",
-          "location": "دبي، الإمارات العربية المتحدة",
-          "featured": true,
+          "title": "أرضيات الفينيل",
+          "category": "residential",
+          "location": "الإمارات العربية المتحدة",
           "btnLabel": "عرض المشروع",
-          "image": "/images/floor-img-7.webp"
+          "image": "/images/floor-img-10.webp"
+        },
+        {
+          "id": "11",
+          "title": "أرضيات الديك",
+          "category": "outdoor",
+          "location": "الإمارات العربية المتحدة",
+          "btnLabel": "عرض المشروع",
+          "image": "/images/floor-img-11.webp"
+        },
+        {
+          "id": "12",
+          "title": "أرضيات لامينيت",
+          "category": "residential",
+          "location": "الإمارات العربية المتحدة",
+          "btnLabel": "عرض المشروع",
+          "image": "/images/floor-img-12.webp"
         }
       ],
       "viewAllProjectsBtnLabel": "عرض جميع المشاريع"
@@ -847,6 +875,7 @@
         "first": "نتطلع إلى",
         "second": "لقائك"
       },
+      "image": "/images/floor-img-26.webp",
       "description": "لنصنع معًا مساحات جميلة. خبراء الأرضيات لدينا مستعدون لإرشادك من مرحلة الإلهام وحتى التركيب.",
       "btnLabel": "استفسر الآن"
     },
@@ -1229,6 +1258,16 @@
         "description": "لقد استلمنا طلبك. سيتم إرسال المستند المطلوب إلى بريدك الإلكتروني قريبًا.",
         "btnLable": "العودة"
       }
+    }
+  },
+  "WorkPage": {
+    "BannerSection": {
+      "title": "أعمالنا",
+      "description": "اكتشف مشاريعنا التي نُفذت بجودة وابتكار وتميز.",
+      "image": "/images/our-work-img.webp"
+    },
+    "OurWorks": {
+      "loadMoreBtnLable": "عرض المزيد"
     }
   }
 }

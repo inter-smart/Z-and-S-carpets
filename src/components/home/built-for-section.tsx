@@ -1,26 +1,11 @@
 'use client'
 
-import {
-  FloorImg11,
-  FloorImg12,
-  FloorImg2,
-  FloorImg3,
-  FloorImg7,
-} from '@/assets/images'
 import { Button } from '@/components/ui/button'
 import { cn } from 'cn'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 import { OurIcon } from '../ui/icon'
-
-const productImgs = {
-  'floor-2': FloorImg2,
-  'floor-3': FloorImg3,
-  'floor-7': FloorImg7,
-  'floor-11': FloorImg11,
-  'floor-12': FloorImg12,
-}
 
 export default function BuiltForSection() {
   const t = useTranslations('HomePage.BuiltForSection')
@@ -107,7 +92,7 @@ export default function BuiltForSection() {
     <section className="bg-background container-wrapper py-16 lg:py-24">
       <div
         className="relative mx-auto overflow-hidden rounded-md bg-cover bg-bottom px-4 pt-18 pb-12 sm:px-8 lg:px-12"
-        style={{ backgroundImage: `url(${FloorImg11.src})` }}
+        style={{ backgroundImage: `url(${t('bgImage')})` }}
       >
         <div className="bg-primary/70 absolute inset-0" />
         <div className="relative z-10">
@@ -134,7 +119,7 @@ export default function BuiltForSection() {
                       })
                     }}
                     className={cn(
-                      'w-1/2 px-4 py-5 text-sm font-medium tracking-widest text-white transition-colors focus:ring-0 focus:outline-none sm:w-1/3 md:w-1/4 lg:w-full lg:min-w-0 ltr:text-left rtl:text-right',
+                      'flex w-1/2 cursor-pointer justify-center px-4 py-5 text-sm font-medium tracking-widest text-white transition-colors focus:ring-0 focus:outline-none sm:w-1/3 md:w-1/4 lg:w-full lg:min-w-0 lg:justify-start ltr:text-left rtl:text-right',
                       active && 'bg-linear-to-t from-[#812990] to-[#812990]/0',
                     )}
                     aria-pressed={active}
@@ -172,18 +157,12 @@ export default function BuiltForSection() {
                     {category.name.charAt(0) +
                       category.name.slice(1).toLowerCase()}
                   </p>
-                  <div className="relative">
+                  <div className="relative h-(--main-image-height)">
                     <Image
-                      src={
-                        productImgs[
-                          activeProductData.image as keyof typeof productImgs
-                        ]
-                      }
+                      src={activeProductData.image}
                       alt={`${activeProductData.name} interior`}
-                      className={cn(
-                        'overflow-hidden rounded-md object-cover object-bottom transition-transform duration-700 ease-out',
-                        'h-(--main-image-height)',
-                      )}
+                      fill
+                      className="overflow-hidden rounded-md object-cover object-bottom transition-transform duration-700 ease-out"
                     />
                     <p className="font-cairo absolute inset-x-3 bottom-3 text-3xl font-bold tracking-wider text-transparent uppercase [-webkit-text-stroke:1px_white] sm:inset-x-6 sm:bottom-6 sm:text-4xl md:text-5xl lg:inset-x-3 lg:bottom-3 xl:inset-x-6 xl:bottom-6 2xl:inset-x-10 2xl:bottom-10">
                       {activeProductData.name.split(' ').map((word, i) => (
@@ -212,13 +191,8 @@ export default function BuiltForSection() {
                     size="icon"
                     disabled={!isImgStackScrollable || imgStackScrollIsAtStart}
                     onClick={() => scrollProducts('up')}
-                    className="flex cursor-pointer text-white hover:bg-transparent hover:text-white rtl:max-lg:hidden"
+                    className="flex cursor-pointer text-white hover:bg-transparent hover:text-white focus-visible:border-transparent! focus-visible:ring-0! rtl:max-lg:hidden"
                   >
-                    {/* <Image
-                      src={ArrowRightIcon}
-                      alt="arrow-left_and_up"
-                      className="h-2.5 w-auto rotate-180 lg:-rotate-90"
-                    /> */}
                     <OurIcon name="arrow-left" className="lg:rotate-90" />
                   </Button>
                   <Button
@@ -227,13 +201,8 @@ export default function BuiltForSection() {
                     size="icon"
                     disabled={!isImgStackScrollable || imgStackScrollIsAtStart}
                     onClick={() => scrollProducts('down')}
-                    className="hidden cursor-pointer text-white hover:bg-transparent hover:text-white rtl:flex rtl:lg:hidden"
+                    className="hidden cursor-pointer text-white hover:bg-transparent hover:text-white focus-visible:border-transparent! focus-visible:ring-0! rtl:flex rtl:lg:hidden"
                   >
-                    {/* <Image
-                      src={ArrowLeftIcon}
-                      alt="arrow-right_and_down"
-                      className="h-2.5 w-auto rotate-180 lg:-rotate-90"
-                      /> */}
                     <OurIcon name="arrow-right" />
                   </Button>
                 </div>
@@ -270,12 +239,9 @@ export default function BuiltForSection() {
                           )}
                         />
                         <Image
-                          src={
-                            productImgs[
-                              product.image as keyof typeof productImgs
-                            ]
-                          }
+                          src={product.image}
                           alt={product.name}
+                          fill
                           className="size-full object-cover object-bottom"
                         />
                         <span className="text-primary-foreground absolute inset-x-1 bottom-1 z-12 truncate text-xs font-medium">
@@ -299,13 +265,8 @@ export default function BuiltForSection() {
                     size="icon"
                     disabled={!isImgStackScrollable || imgStackScrollIsAtEnd}
                     onClick={() => scrollProducts('down')}
-                    className="flex cursor-pointer text-white hover:bg-transparent hover:text-white rtl:max-lg:hidden"
+                    className="flex cursor-pointer text-white hover:bg-transparent hover:text-white focus-visible:border-transparent! focus-visible:ring-0! rtl:max-lg:hidden"
                   >
-                    {/* <Image
-                      src={ArrowLeftIcon}
-                      alt="arrow-right_and_down"
-                      className="h-2.5 w-auto rotate-180 lg:-rotate-90"
-                    /> */}
                     <OurIcon name="arrow-right" className="lg:rotate-90" />
                   </Button>
                   <Button
@@ -314,13 +275,8 @@ export default function BuiltForSection() {
                     size="icon"
                     disabled={!isImgStackScrollable || imgStackScrollIsAtEnd}
                     onClick={() => scrollProducts('up')}
-                    className="hidden cursor-pointer text-white hover:bg-transparent hover:text-white rtl:flex rtl:lg:hidden"
+                    className="hidden cursor-pointer text-white hover:bg-transparent hover:text-white focus-visible:border-transparent! focus-visible:ring-0! rtl:flex rtl:lg:hidden"
                   >
-                    {/* <Image
-                      src={ArrowRightIcon}
-                      alt="arrow-left_and_up"
-                      className="h-2.5 w-auto rotate-180 lg:-rotate-90"
-                    /> */}
                     <OurIcon name="arrow-left" />
                   </Button>
                 </div>
