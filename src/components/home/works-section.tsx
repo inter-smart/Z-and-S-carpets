@@ -3,64 +3,23 @@
 import { Button } from '@/components/ui/button'
 import { OurIcon } from '@/components/ui/icon'
 import type { LocaleType } from '@/i18n/types'
+import type { WorkCategoryType, WorkItemType } from '@/types/work'
 import { cn } from 'cn'
 import Autoplay from 'embla-carousel-autoplay'
 import useEmblaCarousel from 'embla-carousel-react'
 import { useLocale, useTranslations } from 'next-intl'
-import Image from 'next/image'
+import Link from 'next/link'
 import { useCallback, useEffect, useMemo, useState } from 'react'
-
-type WorkItem = {
-  id: string
-  title: string
-  category: string
-  location: string
-  image: string
-  btnLabel: string
-}
-
-function ProjectCard({ project }: { project: WorkItem }) {
-  return (
-    <article className="group relative h-full overflow-hidden rounded-md">
-      <Image
-        src={project.image}
-        fill
-        alt={project.title}
-        className="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover:scale-105"
-      />
-
-      <div className="text-background absolute inset-x-3 bottom-3 flex flex-col rounded-md bg-[#1F1A1A]/30 px-3 py-4 backdrop-blur-sm sm:flex-row sm:items-start sm:justify-between md:p-5 lg:flex-col xl:flex-row xl:p-7">
-        <div>
-          <h3 className="text-xl font-bold">{project.title}</h3>
-
-          <p className="text-background/90 text-sm">{project.location}</p>
-        </div>
-
-        <span className="mt-2 inline-block cursor-pointer text-xs font-light sm:max-md:text-sm lg:text-[1rem]">
-          <span className="me-2 underline decoration-0 underline-offset-8">
-            {project.btnLabel}
-          </span>
-          <OurIcon
-            name="arrow-left"
-            className="hidden size-3.5 rtl:inline-block"
-          />
-          <OurIcon
-            name="arrow-right"
-            className="hidden size-3.5 ltr:inline-block"
-          />
-        </span>
-      </div>
-    </article>
-  )
-}
+import WorkItemCard from '../common/work-item-card'
 
 export default function WorksSection() {
   const locale = useLocale() as LocaleType
 
   const t = useTranslations('HomePage.WorksSection')
+  const t2 = useTranslations('Works')
 
-  const workCategories = t.raw('categories') as { id: string; label: string }[]
-  const workItems = t.raw('items') as WorkItem[]
+  const workCategories = t2.raw('Categories') as WorkCategoryType[]
+  const workItems = t2.raw('Items') as WorkItemType[]
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
@@ -91,7 +50,7 @@ export default function WorksSection() {
   const columns = useMemo(() => {
     const result: {
       type: 'full' | 'stacked'
-      items: WorkItem[]
+      items: WorkItemType[]
     }[] = []
 
     for (let i = 0; i < filteredWorkItems.length; i += 3) {
@@ -180,7 +139,7 @@ export default function WorksSection() {
           ))}
         </div>
 
-        {/* cards */}
+        {/* WorkItemCards */}
         <div className="relative mt-10">
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="-ms-4 flex">
@@ -190,11 +149,11 @@ export default function WorksSection() {
                   className="min-h-100 min-w-0 shrink-0 grow-0 basis-full ps-4 lg:min-h-120 lg:basis-1/2 xl:min-h-140 2xl:min-h-160"
                 >
                   {column.type === 'full' ? (
-                    <ProjectCard project={column.items[0]} />
+                    <WorkItemCard project={column.items[0]} />
                   ) : (
                     <div className="grid h-full grid-rows-2 gap-5">
                       {column.items.map((item, itemIndex) => (
-                        <ProjectCard key={itemIndex} project={item} />
+                        <WorkItemCard key={itemIndex} project={item} />
                       ))}
                     </div>
                   )}
@@ -271,12 +230,16 @@ export default function WorksSection() {
           </Button>
         </div>
 
-        <button
-          type="button"
-          className="mx-auto mt-10 block rounded-sm bg-[#0066B3] px-5 py-3 text-xs font-semibold text-white lg:mt-12"
-        >
-          {t('viewAllProjectsBtnLabel')}
-        </button>
+        <div className="flex justify-center">
+          <Button
+            type="button"
+            render={<Link href={'/works'} />}
+            nativeButton={false}
+            className="our-btn bg-our-blue hover:bg-our-blue mt-10 px-5! text-white lg:mt-12"
+          >
+            {t('viewAllProjectsBtnLabel')}
+          </Button>
+        </div>
       </div>
     </section>
   )
