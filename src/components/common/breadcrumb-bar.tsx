@@ -15,7 +15,7 @@ export default function BreadcrumbBar({
   values,
   className,
 }: {
-  values: { name: string; link: string }[]
+  values: { name: string; link: string; currentPage?: boolean }[]
   className?: string
 }) {
   const pathname = usePathname()
@@ -25,16 +25,16 @@ export default function BreadcrumbBar({
 
   return (
     <div className={cn(className)}>
-      <div className="container-wrapper flex h-12 items-center">
+      <div className="container-wrapper flex min-h-12 items-center">
         <Breadcrumb>
-          <BreadcrumbList className="our-text! gap-3">
+          <BreadcrumbList className="our-text! gap-1 sm:gap-3">
             <BreadcrumbItem>
               <BreadcrumbLink render={<Link href="/" />} className="text-black">
                 Home
               </BreadcrumbLink>
             </BreadcrumbItem>
             {values.map((value) => (
-              <div key={value.link} className="flex gap-3">
+              <div key={value.link} className="flex gap-1 sm:gap-3">
                 <BreadcrumbSeparator className="text-black">
                   /
                 </BreadcrumbSeparator>
@@ -42,7 +42,7 @@ export default function BreadcrumbBar({
                   <BreadcrumbLink
                     render={<Link href={value.link} />}
                     className={cn(
-                      currentUrlEndPoint === value.link
+                      currentUrlEndPoint === value.link || value.currentPage
                         ? 'text-[#812990] hover:text-[#812990]'
                         : 'text-black',
                     )}

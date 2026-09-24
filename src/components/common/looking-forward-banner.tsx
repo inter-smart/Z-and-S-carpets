@@ -22,7 +22,7 @@ export default function LookingForwardBanner() {
         <Image
           src={VectorPart1}
           alt="vector part"
-          className="absolute top-0 z-10 h-full object-cover ltr:-right-20 rtl:-left-20 rtl:scale-x-[-1]"
+          className="absolute top-0 z-10 hidden h-full object-cover sm:block ltr:-right-20 rtl:-left-20 rtl:scale-x-[-1]"
         />
       </div>
       <div className="relative hidden sm:block">

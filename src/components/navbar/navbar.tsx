@@ -39,7 +39,10 @@ export default function Navbar() {
 
           {/* site logo */}
           <div className="flex w-1/2 flex-row items-center justify-start lg:w-2/12 lg:justify-center">
-            <Link href={`/${locale}`}>
+            <Link
+              href={`/${locale}`}
+              className="focus:ring-0 focus:outline-none"
+            >
               <Image
                 src={SiteLogo}
                 alt="Z&S Carpets"

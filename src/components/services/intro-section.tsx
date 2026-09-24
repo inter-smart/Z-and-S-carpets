@@ -21,7 +21,7 @@ export default function IntroSection() {
             {categories.map((category) => (
               <Link
                 key={category.id}
-                href={`/work?type=${category.id}`}
+                href={`/works?type=${category.id}`}
                 className="our-text pb-1 font-normal underline decoration-1 underline-offset-4 hover:text-[#037EDA]"
               >
                 {category.label}

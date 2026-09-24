@@ -1,4 +1,474 @@
 {
+  "Works": {
+    "Categories": [
+      {
+        "id": "all",
+        "label": "All"
+      },
+      {
+        "id": "residential",
+        "label": "Residential"
+      },
+      {
+        "id": "commercial",
+        "label": "Commercial"
+      },
+      {
+        "id": "hospitality",
+        "label": "Hospitality"
+      },
+      {
+        "id": "outdoor",
+        "label": "Outdoor"
+      }
+    ],
+    "Items": [
+      {
+        "id": "1",
+        "title": "Wood Pattern Vinyl",
+        "category": "residential",
+        "location": "United Arab Emirates",
+        "btnLabel": "View Project",
+        "image": "/images/floor-img-6.webp",
+        "details": {
+          "metadata": [
+            {
+              "label": "Location",
+              "value": "United Arab Emirates"
+            },
+            {
+              "label": "Date Of Completion",
+              "value": "2024"
+            },
+            {
+              "label": "Using Material",
+              "value": "Wood Pattern Vinyl"
+            }
+          ],
+          "paragraphs": [
+            "Elegant colors paired with various surface treatments result in an unrivaled selection for various situations that look fantastic and lasting. The Z&S WPC outdoor decking boards perfectly combine beauty, and great durability, requiring little maintenance. Our WPC decking boards have the appearance of quality prefinished wood, but with significantly higher weathering capabilities than any real timber. Z&S WPC outdoor decking is resistant to scratching, fading, staining, fungus, splitting, cracking, and decay and requires little to no maintenance during its lifespan.",
+            "Z & S Deck Flooring delivers premium outdoor flooring solutions designed to combine durability, style, and long-lasting performance. From residential decks and poolside areas to commercial outdoor spaces, our flooring systems are crafted to withstand varying weather conditions while maintaining a modern and elegant appearance. With a focus on quality materials and expert craftsmanship, we provide customized deck flooring solutions that enhance comfort, safety, and visual appeal. Our team ensures every project is completed with precision, creating outdoor environments that are functional, low-maintenance, and built to last.",
+            "Z & S Deck Flooring specializes in creating premium outdoor flooring solutions that blend aesthetics, durability, and functionality. Our deck flooring systems are designed to transform outdoor spaces into elegant and comfortable environments, suitable for residential, commercial, and hospitality projects. With carefully selected materials and modern installation techniques, we ensure every deck delivers lasting performance and visual appeal."
+          ],
+          "gallery": [
+            "/images/floor-img-28.webp",
+            "/images/floor-img-31.webp",
+            "/images/floor-img-27.webp",
+            "/images/floor-img-29.webp",
+            "/images/floor-img-30.webp",
+            "/images/floor-img-9.webp"
+          ]
+        }
+      },
+      {
+        "id": "2",
+        "title": "Laminate Flooring",
+        "category": "residential",
+        "location": "United Arab Emirates",
+        "btnLabel": "View Project",
+        "image": "/images/floor-img-4.webp",
+        "details": {
+          "metadata": [
+            {
+              "label": "Location",
+              "value": "United Arab Emirates"
+            },
+            {
+              "label": "Date Of Completion",
+              "value": "2024"
+            },
+            {
+              "label": "Using Material",
+              "value": "Laminate Flooring"
+            }
+          ],
+          "paragraphs": [
+            "Elegant colors paired with various surface treatments result in an unrivaled selection for various situations that look fantastic and lasting. The Z&S WPC outdoor decking boards perfectly combine beauty, and great durability, requiring little maintenance. Our WPC decking boards have the appearance of quality prefinished wood, but with significantly higher weathering capabilities than any real timber. Z&S WPC outdoor decking is resistant to scratching, fading, staining, fungus, splitting, cracking, and decay and requires little to no maintenance during its lifespan.",
+            "Z & S Deck Flooring delivers premium outdoor flooring solutions designed to combine durability, style, and long-lasting performance. From residential decks and poolside areas to commercial outdoor spaces, our flooring systems are crafted to withstand varying weather conditions while maintaining a modern and elegant appearance. With a focus on quality materials and expert craftsmanship, we provide customized deck flooring solutions that enhance comfort, safety, and visual appeal. Our team ensures every project is completed with precision, creating outdoor environments that are functional, low-maintenance, and built to last.",
+            "Z & S Deck Flooring specializes in creating premium outdoor flooring solutions that blend aesthetics, durability, and functionality. Our deck flooring systems are designed to transform outdoor spaces into elegant and comfortable environments, suitable for residential, commercial, and hospitality projects. With carefully selected materials and modern installation techniques, we ensure every deck delivers lasting performance and visual appeal."
+          ],
+          "gallery": [
+            "/images/floor-img-28.webp",
+            "/images/floor-img-31.webp",
+            "/images/floor-img-27.webp",
+            "/images/floor-img-29.webp",
+            "/images/floor-img-30.webp",
+            "/images/floor-img-9.webp"
+          ]
+        }
+      },
+      {
+        "id": "3",
+        "title": "Deck Flooring",
+        "category": "outdoor",
+        "location": "United Arab Emirates",
+        "btnLabel": "View Project",
+        "image": "/images/floor-img-7.webp",
+        "details": {
+          "metadata": [
+            {
+              "label": "Location",
+              "value": "United Arab Emirates"
+            },
+            {
+              "label": "Date Of Completion",
+              "value": "Nov 2022"
+            },
+            {
+              "label": "Using Material",
+              "value": "WPC Decking"
+            }
+          ],
+          "paragraphs": [
+            "Elegant colors paired with various surface treatments result in an unrivaled selection for various situations that look fantastic and lasting. The Z&S WPC outdoor decking boards perfectly combine beauty, and great durability, requiring little maintenance. Our WPC decking boards have the appearance of quality prefinished wood, but with significantly higher weathering capabilities than any real timber. Z&S WPC outdoor decking is resistant to scratching, fading, staining, fungus, splitting, cracking, and decay and requires little to no maintenance during its lifespan.",
+            "Z & S Deck Flooring delivers premium outdoor flooring solutions designed to combine durability, style, and long-lasting performance. From residential decks and poolside areas to commercial outdoor spaces, our flooring systems are crafted to withstand varying weather conditions while maintaining a modern and elegant appearance. With a focus on quality materials and expert craftsmanship, we provide customized deck flooring solutions that enhance comfort, safety, and visual appeal. Our team ensures every project is completed with precision, creating outdoor environments that are functional, low-maintenance, and built to last.",
+            "Z & S Deck Flooring specializes in creating premium outdoor flooring solutions that blend aesthetics, durability, and functionality. Our deck flooring systems are designed to transform outdoor spaces into elegant and comfortable environments, suitable for residential, commercial, and hospitality projects. With carefully selected materials and modern installation techniques, we ensure every deck delivers lasting performance and visual appeal."
+          ],
+          "gallery": [
+            "/images/floor-img-28.webp",
+            "/images/floor-img-31.webp",
+            "/images/floor-img-27.webp",
+            "/images/floor-img-29.webp",
+            "/images/floor-img-30.webp",
+            "/images/floor-img-9.webp"
+          ]
+        }
+      },
+      {
+        "id": "4",
+        "title": "SPC Flooring",
+        "category": "commercial",
+        "location": "United Arab Emirates",
+        "btnLabel": "View Project",
+        "image": "/images/floor-img-3.webp",
+        "details": {
+          "metadata": [
+            {
+              "label": "Location",
+              "value": "United Arab Emirates"
+            },
+            {
+              "label": "Date Of Completion",
+              "value": "2024"
+            },
+            {
+              "label": "Using Material",
+              "value": "SPC Flooring"
+            }
+          ],
+          "paragraphs": [
+            "Elegant colors paired with various surface treatments result in an unrivaled selection for various situations that look fantastic and lasting. The Z&S WPC outdoor decking boards perfectly combine beauty, and great durability, requiring little maintenance. Our WPC decking boards have the appearance of quality prefinished wood, but with significantly higher weathering capabilities than any real timber. Z&S WPC outdoor decking is resistant to scratching, fading, staining, fungus, splitting, cracking, and decay and requires little to no maintenance during its lifespan.",
+            "Z & S Deck Flooring delivers premium outdoor flooring solutions designed to combine durability, style, and long-lasting performance. From residential decks and poolside areas to commercial outdoor spaces, our flooring systems are crafted to withstand varying weather conditions while maintaining a modern and elegant appearance. With a focus on quality materials and expert craftsmanship, we provide customized deck flooring solutions that enhance comfort, safety, and visual appeal. Our team ensures every project is completed with precision, creating outdoor environments that are functional, low-maintenance, and built to last.",
+            "Z & S Deck Flooring specializes in creating premium outdoor flooring solutions that blend aesthetics, durability, and functionality. Our deck flooring systems are designed to transform outdoor spaces into elegant and comfortable environments, suitable for residential, commercial, and hospitality projects. With carefully selected materials and modern installation techniques, we ensure every deck delivers lasting performance and visual appeal."
+          ],
+          "gallery": [
+            "/images/floor-img-28.webp",
+            "/images/floor-img-31.webp",
+            "/images/floor-img-27.webp",
+            "/images/floor-img-29.webp",
+            "/images/floor-img-30.webp",
+            "/images/floor-img-9.webp"
+          ]
+        }
+      },
+      {
+        "id": "5",
+        "title": "Carpet Flooring",
+        "category": "commercial",
+        "location": "United Arab Emirates",
+        "btnLabel": "View Project",
+        "image": "/images/floor-img-5.webp",
+        "details": {
+          "metadata": [
+            {
+              "label": "Location",
+              "value": "United Arab Emirates"
+            },
+            {
+              "label": "Date Of Completion",
+              "value": "2024"
+            },
+            {
+              "label": "Using Material",
+              "value": "Commercial Carpet"
+            }
+          ],
+          "paragraphs": [
+            "Elegant colors paired with various surface treatments result in an unrivaled selection for various situations that look fantastic and lasting. The Z&S WPC outdoor decking boards perfectly combine beauty, and great durability, requiring little maintenance. Our WPC decking boards have the appearance of quality prefinished wood, but with significantly higher weathering capabilities than any real timber. Z&S WPC outdoor decking is resistant to scratching, fading, staining, fungus, splitting, cracking, and decay and requires little to no maintenance during its lifespan.",
+            "Z & S Deck Flooring delivers premium outdoor flooring solutions designed to combine durability, style, and long-lasting performance. From residential decks and poolside areas to commercial outdoor spaces, our flooring systems are crafted to withstand varying weather conditions while maintaining a modern and elegant appearance. With a focus on quality materials and expert craftsmanship, we provide customized deck flooring solutions that enhance comfort, safety, and visual appeal. Our team ensures every project is completed with precision, creating outdoor environments that are functional, low-maintenance, and built to last.",
+            "Z & S Deck Flooring specializes in creating premium outdoor flooring solutions that blend aesthetics, durability, and functionality. Our deck flooring systems are designed to transform outdoor spaces into elegant and comfortable environments, suitable for residential, commercial, and hospitality projects. With carefully selected materials and modern installation techniques, we ensure every deck delivers lasting performance and visual appeal."
+          ],
+          "gallery": [
+            "/images/floor-img-28.webp",
+            "/images/floor-img-31.webp",
+            "/images/floor-img-27.webp",
+            "/images/floor-img-29.webp",
+            "/images/floor-img-30.webp",
+            "/images/floor-img-9.webp"
+          ]
+        }
+      },
+      {
+        "id": "6",
+        "title": "Gym & Sports Flooring",
+        "category": "hospitality",
+        "location": "United Arab Emirates",
+        "btnLabel": "View Project",
+        "image": "/images/floor-img-6.webp",
+        "details": {
+          "metadata": [
+            {
+              "label": "Location",
+              "value": "United Arab Emirates"
+            },
+            {
+              "label": "Date Of Completion",
+              "value": "2024"
+            },
+            {
+              "label": "Using Material",
+              "value": "Sports Flooring"
+            }
+          ],
+          "paragraphs": [
+            "Elegant colors paired with various surface treatments result in an unrivaled selection for various situations that look fantastic and lasting. The Z&S WPC outdoor decking boards perfectly combine beauty, and great durability, requiring little maintenance. Our WPC decking boards have the appearance of quality prefinished wood, but with significantly higher weathering capabilities than any real timber. Z&S WPC outdoor decking is resistant to scratching, fading, staining, fungus, splitting, cracking, and decay and requires little to no maintenance during its lifespan.",
+            "Z & S Deck Flooring delivers premium outdoor flooring solutions designed to combine durability, style, and long-lasting performance. From residential decks and poolside areas to commercial outdoor spaces, our flooring systems are crafted to withstand varying weather conditions while maintaining a modern and elegant appearance. With a focus on quality materials and expert craftsmanship, we provide customized deck flooring solutions that enhance comfort, safety, and visual appeal. Our team ensures every project is completed with precision, creating outdoor environments that are functional, low-maintenance, and built to last.",
+            "Z & S Deck Flooring specializes in creating premium outdoor flooring solutions that blend aesthetics, durability, and functionality. Our deck flooring systems are designed to transform outdoor spaces into elegant and comfortable environments, suitable for residential, commercial, and hospitality projects. With carefully selected materials and modern installation techniques, we ensure every deck delivers lasting performance and visual appeal."
+          ],
+          "gallery": [
+            "/images/floor-img-28.webp",
+            "/images/floor-img-31.webp",
+            "/images/floor-img-27.webp",
+            "/images/floor-img-29.webp",
+            "/images/floor-img-30.webp",
+            "/images/floor-img-9.webp"
+          ]
+        }
+      },
+      {
+        "id": "7",
+        "title": "Rubber Tile Flooring",
+        "category": "commercial",
+        "location": "United Arab Emirates",
+        "btnLabel": "View Project",
+        "image": "/images/floor-img-7.webp",
+        "details": {
+          "metadata": [
+            {
+              "label": "Location",
+              "value": "United Arab Emirates"
+            },
+            {
+              "label": "Date Of Completion",
+              "value": "2024"
+            },
+            {
+              "label": "Using Material",
+              "value": "Rubber Tile Flooring"
+            }
+          ],
+          "paragraphs": [
+            "Elegant colors paired with various surface treatments result in an unrivaled selection for various situations that look fantastic and lasting. The Z&S WPC outdoor decking boards perfectly combine beauty, and great durability, requiring little maintenance. Our WPC decking boards have the appearance of quality prefinished wood, but with significantly higher weathering capabilities than any real timber. Z&S WPC outdoor decking is resistant to scratching, fading, staining, fungus, splitting, cracking, and decay and requires little to no maintenance during its lifespan.",
+            "Z & S Deck Flooring delivers premium outdoor flooring solutions designed to combine durability, style, and long-lasting performance. From residential decks and poolside areas to commercial outdoor spaces, our flooring systems are crafted to withstand varying weather conditions while maintaining a modern and elegant appearance. With a focus on quality materials and expert craftsmanship, we provide customized deck flooring solutions that enhance comfort, safety, and visual appeal. Our team ensures every project is completed with precision, creating outdoor environments that are functional, low-maintenance, and built to last.",
+            "Z & S Deck Flooring specializes in creating premium outdoor flooring solutions that blend aesthetics, durability, and functionality. Our deck flooring systems are designed to transform outdoor spaces into elegant and comfortable environments, suitable for residential, commercial, and hospitality projects. With carefully selected materials and modern installation techniques, we ensure every deck delivers lasting performance and visual appeal."
+          ],
+          "gallery": [
+            "/images/floor-img-28.webp",
+            "/images/floor-img-31.webp",
+            "/images/floor-img-27.webp",
+            "/images/floor-img-29.webp",
+            "/images/floor-img-30.webp",
+            "/images/floor-img-9.webp"
+          ]
+        }
+      },
+      {
+        "id": "8",
+        "title": "Wall Cladding",
+        "category": "hospitality",
+        "location": "United Arab Emirates",
+        "btnLabel": "View Project",
+        "image": "/images/floor-img-8.webp",
+        "details": {
+          "metadata": [
+            {
+              "label": "Location",
+              "value": "United Arab Emirates"
+            },
+            {
+              "label": "Date Of Completion",
+              "value": "2024"
+            },
+            {
+              "label": "Using Material",
+              "value": "Decorative Wall Cladding"
+            }
+          ],
+          "paragraphs": [
+            "Elegant colors paired with various surface treatments result in an unrivaled selection for various situations that look fantastic and lasting. The Z&S WPC outdoor decking boards perfectly combine beauty, and great durability, requiring little maintenance. Our WPC decking boards have the appearance of quality prefinished wood, but with significantly higher weathering capabilities than any real timber. Z&S WPC outdoor decking is resistant to scratching, fading, staining, fungus, splitting, cracking, and decay and requires little to no maintenance during its lifespan.",
+            "Z & S Deck Flooring delivers premium outdoor flooring solutions designed to combine durability, style, and long-lasting performance. From residential decks and poolside areas to commercial outdoor spaces, our flooring systems are crafted to withstand varying weather conditions while maintaining a modern and elegant appearance. With a focus on quality materials and expert craftsmanship, we provide customized deck flooring solutions that enhance comfort, safety, and visual appeal. Our team ensures every project is completed with precision, creating outdoor environments that are functional, low-maintenance, and built to last.",
+            "Z & S Deck Flooring specializes in creating premium outdoor flooring solutions that blend aesthetics, durability, and functionality. Our deck flooring systems are designed to transform outdoor spaces into elegant and comfortable environments, suitable for residential, commercial, and hospitality projects. With carefully selected materials and modern installation techniques, we ensure every deck delivers lasting performance and visual appeal."
+          ],
+          "gallery": [
+            "/images/floor-img-28.webp",
+            "/images/floor-img-31.webp",
+            "/images/floor-img-27.webp",
+            "/images/floor-img-29.webp",
+            "/images/floor-img-30.webp",
+            "/images/floor-img-9.webp"
+          ]
+        }
+      },
+      {
+        "id": "9",
+        "title": "Artificial Grass",
+        "category": "outdoor",
+        "location": "United Arab Emirates",
+        "btnLabel": "View Project",
+        "image": "/images/floor-img-9.webp",
+        "details": {
+          "metadata": [
+            {
+              "label": "Location",
+              "value": "United Arab Emirates"
+            },
+            {
+              "label": "Date Of Completion",
+              "value": "2024"
+            },
+            {
+              "label": "Using Material",
+              "value": "Artificial Grass"
+            }
+          ],
+          "paragraphs": [
+            "Elegant colors paired with various surface treatments result in an unrivaled selection for various situations that look fantastic and lasting. The Z&S WPC outdoor decking boards perfectly combine beauty, and great durability, requiring little maintenance. Our WPC decking boards have the appearance of quality prefinished wood, but with significantly higher weathering capabilities than any real timber. Z&S WPC outdoor decking is resistant to scratching, fading, staining, fungus, splitting, cracking, and decay and requires little to no maintenance during its lifespan.",
+            "Z & S Deck Flooring delivers premium outdoor flooring solutions designed to combine durability, style, and long-lasting performance. From residential decks and poolside areas to commercial outdoor spaces, our flooring systems are crafted to withstand varying weather conditions while maintaining a modern and elegant appearance. With a focus on quality materials and expert craftsmanship, we provide customized deck flooring solutions that enhance comfort, safety, and visual appeal. Our team ensures every project is completed with precision, creating outdoor environments that are functional, low-maintenance, and built to last.",
+            "Z & S Deck Flooring specializes in creating premium outdoor flooring solutions that blend aesthetics, durability, and functionality. Our deck flooring systems are designed to transform outdoor spaces into elegant and comfortable environments, suitable for residential, commercial, and hospitality projects. With carefully selected materials and modern installation techniques, we ensure every deck delivers lasting performance and visual appeal."
+          ],
+          "gallery": [
+            "/images/floor-img-28.webp",
+            "/images/floor-img-31.webp",
+            "/images/floor-img-27.webp",
+            "/images/floor-img-29.webp",
+            "/images/floor-img-30.webp",
+            "/images/floor-img-9.webp"
+          ]
+        }
+      },
+      {
+        "id": "10",
+        "title": "Vinyl Flooring",
+        "category": "residential",
+        "location": "United Arab Emirates",
+        "btnLabel": "View Project",
+        "image": "/images/floor-img-10.webp",
+        "details": {
+          "metadata": [
+            {
+              "label": "Location",
+              "value": "United Arab Emirates"
+            },
+            {
+              "label": "Date Of Completion",
+              "value": "2024"
+            },
+            {
+              "label": "Using Material",
+              "value": "Vinyl Flooring"
+            }
+          ],
+          "paragraphs": [
+            "Elegant colors paired with various surface treatments result in an unrivaled selection for various situations that look fantastic and lasting. The Z&S WPC outdoor decking boards perfectly combine beauty, and great durability, requiring little maintenance. Our WPC decking boards have the appearance of quality prefinished wood, but with significantly higher weathering capabilities than any real timber. Z&S WPC outdoor decking is resistant to scratching, fading, staining, fungus, splitting, cracking, and decay and requires little to no maintenance during its lifespan.",
+            "Z & S Deck Flooring delivers premium outdoor flooring solutions designed to combine durability, style, and long-lasting performance. From residential decks and poolside areas to commercial outdoor spaces, our flooring systems are crafted to withstand varying weather conditions while maintaining a modern and elegant appearance. With a focus on quality materials and expert craftsmanship, we provide customized deck flooring solutions that enhance comfort, safety, and visual appeal. Our team ensures every project is completed with precision, creating outdoor environments that are functional, low-maintenance, and built to last.",
+            "Z & S Deck Flooring specializes in creating premium outdoor flooring solutions that blend aesthetics, durability, and functionality. Our deck flooring systems are designed to transform outdoor spaces into elegant and comfortable environments, suitable for residential, commercial, and hospitality projects. With carefully selected materials and modern installation techniques, we ensure every deck delivers lasting performance and visual appeal."
+          ],
+          "gallery": [
+            "/images/floor-img-28.webp",
+            "/images/floor-img-31.webp",
+            "/images/floor-img-27.webp",
+            "/images/floor-img-29.webp",
+            "/images/floor-img-30.webp",
+            "/images/floor-img-9.webp"
+          ]
+        }
+      },
+      {
+        "id": "11",
+        "title": "Deck Flooring",
+        "category": "outdoor",
+        "location": "United Arab Emirates",
+        "btnLabel": "View Project",
+        "image": "/images/floor-img-11.webp",
+        "details": {
+          "metadata": [
+            {
+              "label": "Location",
+              "value": "United Arab Emirates"
+            },
+            {
+              "label": "Date Of Completion",
+              "value": "2024"
+            },
+            {
+              "label": "Using Material",
+              "value": "WPC Decking"
+            }
+          ],
+          "paragraphs": [
+            "Elegant colors paired with various surface treatments result in an unrivaled selection for various situations that look fantastic and lasting. The Z&S WPC outdoor decking boards perfectly combine beauty, and great durability, requiring little maintenance. Our WPC decking boards have the appearance of quality prefinished wood, but with significantly higher weathering capabilities than any real timber. Z&S WPC outdoor decking is resistant to scratching, fading, staining, fungus, splitting, cracking, and decay and requires little to no maintenance during its lifespan.",
+            "Z & S Deck Flooring delivers premium outdoor flooring solutions designed to combine durability, style, and long-lasting performance. From residential decks and poolside areas to commercial outdoor spaces, our flooring systems are crafted to withstand varying weather conditions while maintaining a modern and elegant appearance. With a focus on quality materials and expert craftsmanship, we provide customized deck flooring solutions that enhance comfort, safety, and visual appeal. Our team ensures every project is completed with precision, creating outdoor environments that are functional, low-maintenance, and built to last.",
+            "Z & S Deck Flooring specializes in creating premium outdoor flooring solutions that blend aesthetics, durability, and functionality. Our deck flooring systems are designed to transform outdoor spaces into elegant and comfortable environments, suitable for residential, commercial, and hospitality projects. With carefully selected materials and modern installation techniques, we ensure every deck delivers lasting performance and visual appeal."
+          ],
+          "gallery": [
+            "/images/floor-img-28.webp",
+            "/images/floor-img-31.webp",
+            "/images/floor-img-27.webp",
+            "/images/floor-img-29.webp",
+            "/images/floor-img-30.webp",
+            "/images/floor-img-9.webp"
+          ]
+        }
+      },
+      {
+        "id": "12",
+        "title": "Laminate Flooring",
+        "category": "residential",
+        "location": "United Arab Emirates",
+        "btnLabel": "View Project",
+        "image": "/images/floor-img-12.webp",
+        "details": {
+          "metadata": [
+            {
+              "label": "Location",
+              "value": "United Arab Emirates"
+            },
+            {
+              "label": "Date Of Completion",
+              "value": "2024"
+            },
+            {
+              "label": "Using Material",
+              "value": "Laminate Flooring"
+            }
+          ],
+          "paragraphs": [
+            "Elegant colors paired with various surface treatments result in an unrivaled selection for various situations that look fantastic and lasting. The Z&S WPC outdoor decking boards perfectly combine beauty, and great durability, requiring little maintenance. Our WPC decking boards have the appearance of quality prefinished wood, but with significantly higher weathering capabilities than any real timber. Z&S WPC outdoor decking is resistant to scratching, fading, staining, fungus, splitting, cracking, and decay and requires little to no maintenance during its lifespan.",
+            "Z & S Deck Flooring delivers premium outdoor flooring solutions designed to combine durability, style, and long-lasting performance. From residential decks and poolside areas to commercial outdoor spaces, our flooring systems are crafted to withstand varying weather conditions while maintaining a modern and elegant appearance. With a focus on quality materials and expert craftsmanship, we provide customized deck flooring solutions that enhance comfort, safety, and visual appeal. Our team ensures every project is completed with precision, creating outdoor environments that are functional, low-maintenance, and built to last.",
+            "Z & S Deck Flooring specializes in creating premium outdoor flooring solutions that blend aesthetics, durability, and functionality. Our deck flooring systems are designed to transform outdoor spaces into elegant and comfortable environments, suitable for residential, commercial, and hospitality projects. With carefully selected materials and modern installation techniques, we ensure every deck delivers lasting performance and visual appeal."
+          ],
+          "gallery": [
+            "/images/floor-img-28.webp",
+            "/images/floor-img-31.webp",
+            "/images/floor-img-27.webp",
+            "/images/floor-img-29.webp",
+            "/images/floor-img-30.webp",
+            "/images/floor-img-9.webp"
+          ]
+        }
+      }
+    ]
+  },
   "Common": {
     "ProcessSection": {
       "eyebrow": "OUR PROCESS",
@@ -101,7 +571,7 @@
         },
         {
           "text": "Our Work",
-          "link": "/work"
+          "link": "/works"
         },
         {
           "text": "Resources",
@@ -628,127 +1098,7 @@
     },
     "WorksSection": {
       "title": "Explore Our Work",
-      "categories": [
-        {
-          "id": "all",
-          "label": "All"
-        },
-        {
-          "id": "residential",
-          "label": "Residential"
-        },
-        {
-          "id": "commercial",
-          "label": "Commercial"
-        },
-        {
-          "id": "hospitality",
-          "label": "Hospitality"
-        },
-        {
-          "id": "outdoor",
-          "label": "Outdoor"
-        }
-      ],
-      "items": [
-        {
-          "id": "1",
-          "title": "Wood Pattern Vinyl",
-          "category": "residential",
-          "location": "United Arab Emirates",
-          "btnLabel": "View Project",
-          "image": "/images/floor-img-6.webp"
-        },
-        {
-          "id": "2",
-          "title": "Laminate Flooring",
-          "category": "residential",
-          "location": "United Arab Emirates",
-          "btnLabel": "View Project",
-          "image": "/images/floor-img-4.webp"
-        },
-        {
-          "id": "3",
-          "title": "Deck Flooring",
-          "category": "outdoor",
-          "location": "United Arab Emirates",
-          "btnLabel": "View Project",
-          "image": "/images/floor-img-7.webp"
-        },
-        {
-          "id": "4",
-          "title": "Spc Flooring",
-          "category": "commercial",
-          "location": "United Arab Emirates",
-          "btnLabel": "View Project",
-          "image": "/images/floor-img-3.webp"
-        },
 
-        {
-          "id": "5",
-          "title": "Carpet Flooring",
-          "category": "commercial",
-          "location": "United Arab Emirates",
-          "btnLabel": "View Project",
-          "image": "/images/floor-img-5.webp"
-        },
-        {
-          "id": "6",
-          "title": "Gym & Sports Flooring",
-          "category": "hospitality",
-          "location": "United Arab Emirates",
-          "btnLabel": "View Project",
-          "image": "/images/floor-img-6.webp"
-        },
-        {
-          "id": "7",
-          "title": "Rubber Tile Flooring",
-          "category": "commercial",
-          "location": "United Arab Emirates",
-          "btnLabel": "View Project",
-          "image": "/images/floor-img-7.webp"
-        },
-        {
-          "id": "8",
-          "title": "Wall Cladding",
-          "category": "hospitality",
-          "location": "United Arab Emirates",
-          "btnLabel": "View Project",
-          "image": "/images/floor-img-8.webp"
-        },
-        {
-          "id": "9",
-          "title": "Artificial Grass",
-          "category": "outdoor",
-          "location": "United Arab Emirates",
-          "btnLabel": "View Project",
-          "image": "/images/floor-img-9.webp"
-        },
-        {
-          "id": "10",
-          "title": "Vinyl Flooring",
-          "category": "residential",
-          "location": "United Arab Emirates",
-          "btnLabel": "View Project",
-          "image": "/images/floor-img-10.webp"
-        },
-        {
-          "id": "11",
-          "title": "Deck Flooring",
-          "category": "outdoor",
-          "location": "United Arab Emirates",
-          "btnLabel": "View Project",
-          "image": "/images/floor-img-11.webp"
-        },
-        {
-          "id": "12",
-          "title": "Laminate Flooring",
-          "category": "residential",
-          "location": "United Arab Emirates",
-          "btnLabel": "View Project",
-          "image": "/images/floor-img-12.webp"
-        }
-      ],
       "viewAllProjectsBtnLabel": "View All Projects"
     },
     "CustomerExpSection": {
@@ -1260,14 +1610,19 @@
       }
     }
   },
-  "WorkPage": {
+  "WorksPage": {
     "BannerSection": {
       "title": "Our Work",
       "description": "Discover our projects crafted with quality, innovation, and excellence.",
       "image": "/images/our-work-img.webp"
     },
     "OurWorks": {
+      "title": "Explore Our Work",
       "loadMoreBtnLable": "Load More"
+    },
+    "RelatedProjectsSection": {
+      "title": "Related projects",
+      "filterLabel": "Filter"
     }
   }
 }
