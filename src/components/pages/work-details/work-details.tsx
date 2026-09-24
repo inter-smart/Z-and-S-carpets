@@ -27,7 +27,7 @@ export default function WorkDetailsSection({ id }: { id: string }) {
         </dl>
       </header>
 
-      <div className="relative mt-10 mb-15 h-50 w-full overflow-hidden rounded-md sm:h-75 xl:h-100 2xl:h-120">
+      <div className="relative mt-15 mb-15 h-50 w-full overflow-hidden rounded-md sm:h-75 xl:h-100 2xl:h-120">
         <Image
           src={work.image}
           alt="Outdoor deck flooring project"
@@ -43,7 +43,7 @@ export default function WorkDetailsSection({ id }: { id: string }) {
       </div>
 
       <section
-        className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3"
+        className="mt-15 grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3"
         aria-label="Deck flooring project gallery"
       >
         {work.details.gallery.map((image, index) => (

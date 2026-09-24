@@ -20,7 +20,8 @@ export default function WorkItemCard({
         fill
         className="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover:scale-105"
       />
-      <div className="text-background absolute inset-x-3 bottom-3 flex flex-col items-start justify-between rounded-md bg-[#1F1A1A]/30 p-3 backdrop-blur-sm sm:p-5 md:flex-row md:items-center lg:flex-col lg:items-start xl:flex-row xl:items-center">
+      {/* <div className="text-background absolute inset-x-3 bottom-3 flex flex-col items-start justify-between rounded-md bg-[#1F1A1A]/30 p-3 backdrop-blur-sm sm:p-5 md:flex-row md:items-center lg:flex-col lg:items-start xl:flex-row xl:items-center"> */}
+      <div className="text-background absolute inset-x-3 bottom-3 flex flex-col items-start justify-between rounded-md bg-[#1F1A1A]/30 p-3 backdrop-blur-sm sm:p-5 xl:flex-row xl:items-center">
         <div>
           <h3 className="text-xl font-bold">{project.title}</h3>
           <p className="text-background/90 text-sm">{project.location}</p>

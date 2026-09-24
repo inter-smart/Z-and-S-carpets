@@ -1,26 +1,23 @@
 'use client'
 
+import WorkItemCard from '@/components/common/work-item-card'
 import { Button } from '@/components/ui/button'
 import { OurIcon } from '@/components/ui/icon'
 import type { LocaleType } from '@/i18n/types'
+import type { WorkItemType } from '@/types/work'
 import Autoplay from 'embla-carousel-autoplay'
 import useEmblaCarousel from 'embla-carousel-react'
-import { ListFilter } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import { useCallback, useEffect, useState } from 'react'
+import RelatedProjectsFilterDropdown from './related-projects-filter-dropdown'
 
 export default function RelatedProjectsSection() {
   const locale = useLocale() as LocaleType
 
   const t = useTranslations('WorksPage.RelatedProjectsSection')
+  const t2 = useTranslations('Works')
 
-  // const products = t.raw('products') as {
-  //   category: string
-  //   title: string
-  //   description: string
-  //   tagLabel: string
-  //   image: string
-  // }[]
+  const workItems = t2.raw('Items') as WorkItemType[]
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
@@ -67,47 +64,31 @@ export default function RelatedProjectsSection() {
     }
   }, [emblaApi])
 
+  const filterValues = ['One', 'Two', 'Three']
+
   return (
-    <section className="bg-[#EFF9FE] py-16 lg:py-24">
+    <section className="bg-[#EFF9FE] py-12 lg:py-20">
       <div className="container-wrapper">
         {/* header */}
-        <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-start md:justify-between xl:items-center">
-          <h2 className="section-title">{t('title')}</h2>
-
-          <div className="flex flex-col items-start gap-3 sm:flex-row">
-            <Button className="rounded-sm border-2! border-black bg-black px-5 py-4.5 text-[0.95rem] font-semibold tracking-widest text-white uppercase hover:bg-black/80">
-              <ListFilter
-                data-icon="inline-center"
-                className="me-1 h-5! w-5!"
-              />
-              {t('filterLabel')}
-            </Button>
-          </div>
+        <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between md:gap-6 xl:items-center">
+          <h2 className="our-heading">{t('title')}</h2>
+          <RelatedProjectsFilterDropdown filterValues={filterValues} />
         </div>
-        <div className="relative mt-12">
-          {/* <div className="overflow-hidden" ref={emblaRef}>
-            <div className="-ms-7 flex">
-              {products.map((product, index) => {
+        <div className="relative mt-10">
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="-ms-4 flex">
+              {workItems.map((product, index) => {
                 return (
                   <div
                     key={index}
-                    className="min-w-0 shrink-0 grow-0 basis-full ps-7 md:basis-1/2"
+                    className="h-60 min-w-0 shrink-0 grow-0 basis-full ps-4 md:basis-1/2 2xl:h-80"
                   >
-                    <article className="group overflow-hidden rounded-md">
-                      <div className="relative aspect-[1.8] overflow-hidden">
-                        <Image
-                          src={product.image}
-                          alt={product.title}
-                          fill
-                          className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
-                      </div>
-                    </article>
+                    <WorkItemCard project={product} hasViewProductsBtn />
                   </div>
                 )
               })}
             </div>
-          </div> */}
+          </div>
 
           {/* btns */}
           {/* Desktop Previous */}
@@ -153,7 +134,7 @@ export default function RelatedProjectsSection() {
             size="icon"
             onClick={scrollPrev}
             disabled={!canPrev}
-            className="cursor-pointer text-white hover:bg-transparent hover:text-white focus-visible:border-transparent! focus-visible:ring-0!"
+            className="text-our-purple hover:text-our-purple cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
           >
             {/* LTR */}
             <OurIcon name="arrow-left" className="hidden ltr:block" />
@@ -166,7 +147,7 @@ export default function RelatedProjectsSection() {
             size="icon"
             onClick={scrollNext}
             disabled={!canNext}
-            className="cursor-pointer text-white hover:bg-transparent hover:text-white focus-visible:border-transparent! focus-visible:ring-0!"
+            className="text-our-purple hover:text-our-purple cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
           >
             {/* LTR */}
             <OurIcon name="arrow-right" className="hidden ltr:block" />

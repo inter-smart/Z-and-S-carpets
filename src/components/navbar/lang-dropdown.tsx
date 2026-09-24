@@ -6,12 +6,12 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import { OurIcon } from '@/components/ui/icon'
 import type { LocaleType } from '@/i18n/types'
 import { useLocale } from 'next-intl'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
-import { OurIcon } from '../ui/icon'
 
 export default function LangDropdown() {
   const locale = useLocale() as LocaleType
@@ -27,15 +27,12 @@ export default function LangDropdown() {
 
   return (
     <DropdownMenu open={open} onOpenChange={setOpen}>
-      <DropdownMenuTrigger
-        nativeButton={false}
-        render={
-          <p className="flex cursor-pointer flex-row items-center space-x-0.5 sm:space-x-1.5">
-            <span className="first-letter:uppercase">{locale}</span>
-            <OurIcon name="chevron-down" className="size-2.5" />
-          </p>
-        }
-      ></DropdownMenuTrigger>
+      <DropdownMenuTrigger>
+        <p className="flex cursor-pointer flex-row items-center space-x-0.5 sm:space-x-1.5">
+          <span className="first-letter:uppercase">{locale}</span>
+          <OurIcon name="chevron-down" className="size-2.5" />
+        </p>
+      </DropdownMenuTrigger>
       <DropdownMenuContent className="min-w-20! rounded-sm! **:rounded-sm!">
         <Link href={`/en${exactPathname}`}>
           <DropdownMenuItem>English</DropdownMenuItem>
