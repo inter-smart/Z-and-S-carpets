@@ -1,26 +1,11 @@
 'use client'
 
-import {
-  FloorImg11,
-  FloorImg12,
-  FloorImg2,
-  FloorImg3,
-  FloorImg7,
-} from '@/assets/images'
 import { Button } from '@/components/ui/button'
 import { cn } from 'cn'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 import { OurIcon } from '../ui/icon'
-
-const productImgs = {
-  'floor-2': FloorImg2,
-  'floor-3': FloorImg3,
-  'floor-7': FloorImg7,
-  'floor-11': FloorImg11,
-  'floor-12': FloorImg12,
-}
 
 export default function BuiltForSection() {
   const t = useTranslations('HomePage.BuiltForSection')
@@ -107,7 +92,7 @@ export default function BuiltForSection() {
     <section className="bg-background container-wrapper py-16 lg:py-24">
       <div
         className="relative mx-auto overflow-hidden rounded-md bg-cover bg-bottom px-4 pt-18 pb-12 sm:px-8 lg:px-12"
-        style={{ backgroundImage: `url(${FloorImg11.src})` }}
+        style={{ backgroundImage: `url(${t('bgImage')})` }}
       >
         <div className="bg-primary/70 absolute inset-0" />
         <div className="relative z-10">
@@ -172,18 +157,12 @@ export default function BuiltForSection() {
                     {category.name.charAt(0) +
                       category.name.slice(1).toLowerCase()}
                   </p>
-                  <div className="relative">
+                  <div className="relative h-(--main-image-height)">
                     <Image
-                      src={
-                        productImgs[
-                          activeProductData.image as keyof typeof productImgs
-                        ]
-                      }
+                      src={activeProductData.image}
                       alt={`${activeProductData.name} interior`}
-                      className={cn(
-                        'overflow-hidden rounded-md object-cover object-bottom transition-transform duration-700 ease-out',
-                        'h-(--main-image-height)',
-                      )}
+                      fill
+                      className="overflow-hidden rounded-md object-cover object-bottom transition-transform duration-700 ease-out"
                     />
                     <p className="font-cairo absolute inset-x-3 bottom-3 text-3xl font-bold tracking-wider text-transparent uppercase [-webkit-text-stroke:1px_white] sm:inset-x-6 sm:bottom-6 sm:text-4xl md:text-5xl lg:inset-x-3 lg:bottom-3 xl:inset-x-6 xl:bottom-6 2xl:inset-x-10 2xl:bottom-10">
                       {activeProductData.name.split(' ').map((word, i) => (
@@ -260,12 +239,9 @@ export default function BuiltForSection() {
                           )}
                         />
                         <Image
-                          src={
-                            productImgs[
-                              product.image as keyof typeof productImgs
-                            ]
-                          }
+                          src={product.image}
                           alt={product.name}
+                          fill
                           className="size-full object-cover object-bottom"
                         />
                         <span className="text-primary-foreground absolute inset-x-1 bottom-1 z-12 truncate text-xs font-medium">

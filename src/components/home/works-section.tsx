@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import { OurIcon } from '@/components/ui/icon'
 import type { LocaleType } from '@/i18n/types'
 import { cn } from 'cn'
+import Autoplay from 'embla-carousel-autoplay'
 import useEmblaCarousel from 'embla-carousel-react'
 import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
@@ -66,13 +67,13 @@ export default function WorksSection() {
       align: 'start',
       direction: locale === 'ar' ? 'rtl' : 'ltr',
     },
-    // [
-    //   Autoplay({
-    //     delay: 3000,
-    //     stopOnInteraction: false,
-    //     stopOnMouseEnter: true,
-    //   }),
-    // ],
+    [
+      Autoplay({
+        delay: 3000,
+        stopOnInteraction: false,
+        stopOnMouseEnter: true,
+      }),
+    ],
   )
 
   // #Filter by category
@@ -186,7 +187,7 @@ export default function WorksSection() {
               {columns.map((column, columnIndex) => (
                 <div
                   key={columnIndex}
-                  className="min-h-100 min-w-0 shrink-0 grow-0 basis-full ps-4 lg:min-h-120 lg:basis-1/2 xl:min-h-140 2xl:min-h-180"
+                  className="min-h-100 min-w-0 shrink-0 grow-0 basis-full ps-4 lg:min-h-120 lg:basis-1/2 xl:min-h-140 2xl:min-h-160"
                 >
                   {column.type === 'full' ? (
                     <ProjectCard project={column.items[0]} />

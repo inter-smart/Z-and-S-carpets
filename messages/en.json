@@ -101,7 +101,7 @@
         },
         {
           "text": "Our Work",
-          "link": ""
+          "link": "/work"
         },
         {
           "text": "Resources",
@@ -482,6 +482,7 @@
     },
     "BuiltForSection": {
       "title": "Built for Every Space",
+      "bgImage": "/images/floor-img-11.webp",
       "categories": [
         {
           "name": "RESIDENTIAL",
@@ -491,43 +492,43 @@
           "products": [
             {
               "name": "Carpet Tiles",
-              "image": "floor-2"
+              "image": "/images/floor-img-1.webp"
             },
             {
               "name": "Wooden Flooring",
-              "image": "floor-3"
+              "image": "/images/floor-img-3.webp"
             },
             {
               "name": "Deck Flooring",
-              "image": "floor-12"
+              "image": "/images/floor-img-12.webp"
             },
             {
               "name": "Vinyl Flooring",
-              "image": "floor-7"
+              "image": "/images/floor-img-7.webp"
             },
             {
               "name": "Artificial Grass",
-              "image": "floor-11"
+              "image": "/images/floor-img-11.webp"
             },
             {
               "name": "Wooden Flooring",
-              "image": "floor-3"
+              "image": "/images/floor-img-3.webp"
             },
             {
               "name": "Deck Flooring",
-              "image": "floor-12"
+              "image": "/images/floor-img-12.webp"
             },
             {
               "name": "Carpet Tiles",
-              "image": "floor-2"
+              "image": "/images/floor-img-2.webp"
             },
             {
               "name": "Wooden Flooring",
-              "image": "floor-3"
+              "image": "/images/floor-img-3.webp"
             },
             {
               "name": "Deck Flooring",
-              "image": "floor-12"
+              "image": "/images/floor-img-12.webp"
             }
           ]
         },
@@ -539,15 +540,15 @@
           "products": [
             {
               "name": "Vinyl Flooring",
-              "image": "floor-7"
-            },
-            {
-              "name": "Artificial Grass",
-              "image": "floor-2"
+              "image": "/images/floor-img-12.webp"
             },
             {
               "name": "Deck Flooring",
-              "image": "floor-12"
+              "image": "/images/floor-img-7.webp"
+            },
+            {
+              "name": "Artificial Grass",
+              "image": "/images/floor-img-3.webp"
             }
           ]
         },
@@ -559,43 +560,43 @@
           "products": [
             {
               "name": "Artificial Grass",
-              "image": "floor-3"
+              "image": "/images/floor-img-3.webp"
             },
             {
               "name": "Deck Flooring",
-              "image": "floor-12"
+              "image": "/images/floor-img-12.webp"
             },
             {
               "name": "Carpet Tiles",
-              "image": "floor-11"
+              "image": "/images/floor-img-11.webp"
             },
             {
               "name": "Wooden Flooring",
-              "image": "floor-2"
+              "image": "/images/floor-img-2.webp"
             },
             {
               "name": "Vinyl Flooring",
-              "image": "floor-7"
+              "image": "/images/floor-img-7.webp"
             },
             {
               "name": "Artificial Grass",
-              "image": "floor-3"
+              "image": "/images/floor-img-3.webp"
             },
             {
               "name": "Deck Flooring",
-              "image": "floor-12"
+              "image": "/images/floor-img-12.webp"
             },
             {
               "name": "Carpet Tiles",
-              "image": "floor-11"
+              "image": "/images/floor-img-11.webp"
             },
             {
               "name": "Wooden Flooring",
-              "image": "floor-2"
+              "image": "/images/floor-img-2.webp"
             },
             {
               "name": "Vinyl Flooring",
-              "image": "floor-7"
+              "image": "/images/floor-img-7.webp"
             }
           ]
         },
@@ -607,19 +608,19 @@
           "products": [
             {
               "name": "Carpet Tiles",
-              "image": "floor-12"
+              "image": "/images/floor-img-12.webp"
             },
             {
               "name": "Wooden Flooring",
-              "image": "floor-7"
+              "image": "/images/floor-img-7.webp"
             },
             {
               "name": "Vinyl Flooring",
-              "image": "floor-3"
+              "image": "/images/floor-img-3.webp"
             },
             {
               "name": "Artificial Grass",
-              "image": "floor-11"
+              "image": "/images/floor-img-11.webp"
             }
           ]
         }
@@ -652,92 +653,100 @@
       "items": [
         {
           "id": "1",
-          "title": "Oakwood Herringbone Vinyl",
+          "title": "Wood Pattern Vinyl",
           "category": "residential",
-          "location": "Dubai, United Arab Emirates",
-
+          "location": "United Arab Emirates",
           "btnLabel": "View Project",
           "image": "/images/floor-img-6.webp"
         },
         {
           "id": "2",
-          "title": "Ash Grey Laminate Flooring",
-          "category": "commercial",
-          "location": "Sharjah, United Arab Emirates",
+          "title": "Laminate Flooring",
+          "category": "residential",
+          "location": "United Arab Emirates",
+          "btnLabel": "View Project",
+          "image": "/images/floor-img-4.webp"
+        },
+        {
+          "id": "3",
+          "title": "Deck Flooring",
+          "category": "outdoor",
+          "location": "United Arab Emirates",
           "btnLabel": "View Project",
           "image": "/images/floor-img-7.webp"
         },
         {
-          "id": "3",
-          "title": "Teak Outdoor Decking",
-          "category": "outdoor",
-          "location": "Dubai, United Arab Emirates",
-          "btnLabel": "View Project",
-          "image": "/images/floor-img-8.webp"
-        },
-        {
           "id": "4",
-          "title": "Walnut Hotel Flooring",
-          "category": "hospitality",
-          "location": "Ras Al Khaimah, United Arab Emirates",
+          "title": "Spc Flooring",
+          "category": "commercial",
+          "location": "United Arab Emirates",
+          "btnLabel": "View Project",
+          "image": "/images/floor-img-3.webp"
+        },
+
+        {
+          "id": "5",
+          "title": "Carpet Flooring",
+          "category": "commercial",
+          "location": "United Arab Emirates",
           "btnLabel": "View Project",
           "image": "/images/floor-img-5.webp"
         },
         {
-          "id": "5",
-          "title": "Classic Maple Laminate",
-          "category": "commercial",
-          "location": "Ajman, United Arab Emirates",
-          "btnLabel": "View Project",
-          "image": "/images/floor-img-8.webp"
-        },
-        {
           "id": "6",
-          "title": "Smoked Oak Vinyl Planks",
-          "category": "residential",
-          "location": "Al Ain, United Arab Emirates",
+          "title": "Gym & Sports Flooring",
+          "category": "hospitality",
+          "location": "United Arab Emirates",
           "btnLabel": "View Project",
           "image": "/images/floor-img-6.webp"
         },
         {
           "id": "7",
-          "title": "Weathered Wood Decking",
-          "category": "outdoor",
-          "location": "Fujairah, United Arab Emirates",
-          "btnLabel": "View Project",
-          "image": "/images/floor-img-4.webp"
-        },
-        {
-          "id": "8",
-          "title": "Warm Walnut Resort Flooring",
-          "category": "hospitality",
-          "location": "Abu Dhabi, United Arab Emirates",
-          "btnLabel": "View Project",
-          "image": "/images/floor-img-5.webp"
-        },
-        {
-          "id": "9",
-          "title": "Light Oak Chevron Flooring",
-          "category": "residential",
-          "location": "Dubai, United Arab Emirates",
-          "btnLabel": "View Project",
-          "image": "/images/floor-img-6.webp"
-        },
-        {
-          "id": "10",
-          "title": "Deep Walnut Commercial SPC",
+          "title": "Rubber Tile Flooring",
           "category": "commercial",
-          "location": "Dubai, United Arab Emirates",
+          "location": "United Arab Emirates",
           "btnLabel": "View Project",
           "image": "/images/floor-img-7.webp"
         },
         {
-          "id": "11",
-          "title": "Smoked Oak Vinyl Planks",
-          "category": "residential",
-          "location": "Al Ain, United Arab Emirates",
+          "id": "8",
+          "title": "Wall Cladding",
+          "category": "hospitality",
+          "location": "United Arab Emirates",
           "btnLabel": "View Project",
-          "image": "/images/floor-img-6.webp"
+          "image": "/images/floor-img-8.webp"
+        },
+        {
+          "id": "9",
+          "title": "Artificial Grass",
+          "category": "outdoor",
+          "location": "United Arab Emirates",
+          "btnLabel": "View Project",
+          "image": "/images/floor-img-9.webp"
+        },
+        {
+          "id": "10",
+          "title": "Vinyl Flooring",
+          "category": "residential",
+          "location": "United Arab Emirates",
+          "btnLabel": "View Project",
+          "image": "/images/floor-img-10.webp"
+        },
+        {
+          "id": "11",
+          "title": "Deck Flooring",
+          "category": "outdoor",
+          "location": "United Arab Emirates",
+          "btnLabel": "View Project",
+          "image": "/images/floor-img-11.webp"
+        },
+        {
+          "id": "12",
+          "title": "Laminate Flooring",
+          "category": "residential",
+          "location": "United Arab Emirates",
+          "btnLabel": "View Project",
+          "image": "/images/floor-img-12.webp"
         }
       ],
       "viewAllProjectsBtnLabel": "View All Projects"
@@ -866,6 +875,7 @@
         "first": "We are looking forward to",
         "second": "meeting you"
       },
+      "image": "/images/floor-img-26.webp",
       "description": "Let's create beautiful spaces together. Our flooring specialists are ready to guide you from inspiration to installation.",
       "btnLabel": "Enquire Now"
     },
