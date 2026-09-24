@@ -1,9 +1,9 @@
 'use client'
 
+import { OurIcon, type OurIconName } from '@/components/ui/icon'
 import { cn } from 'cn'
 import { useTranslations } from 'next-intl'
 import { useState, type CSSProperties } from 'react'
-import { OurIcon, type OurIconName } from '../ui/icon'
 
 export default function HistorySection() {
   const t = useTranslations('AboutPage.HistorySection')

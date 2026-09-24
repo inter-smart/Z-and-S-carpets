@@ -1,7 +1,7 @@
 import BreadcrumbBar from '@/components/common/breadcrumb-bar'
-import BannerSection from '@/components/common/sections/banner-section'
-import RelatedProjectsSection from '@/components/pages/work-details/related-projects'
-import WorkDetailsSection from '@/components/pages/work-details/work-details'
+import InnerBannerSection from '@/components/pages/common/inner-banner.section'
+import RelatedProjectsSection from '@/components/pages/work-details/related-projects.section'
+import WorkDetailsSection from '@/components/pages/work-details/work-details.section'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -18,7 +18,7 @@ export default async function WorkDetailsPage({
 
   return (
     <>
-      <BannerSection pageName="WorksPage" />
+      <InnerBannerSection pageName="WorksPage" />
       <BreadcrumbBar
         values={[
           { name: 'Our Work', link: '/works' },

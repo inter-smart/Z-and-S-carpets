@@ -1,12 +1,12 @@
-import HistorySection from '@/components/about/history-section'
-import IndustriesSection from '@/components/about/industries-section'
-import IntroSection from '@/components/about/intro-section'
-import ManagementSection from '@/components/about/management-section'
-import ValuesSection from '@/components/about/values-section'
 import BreadcrumbBar from '@/components/common/breadcrumb-bar'
-import BannerSection from '@/components/common/sections/banner-section'
-import ChooseUsSection from '@/components/common/sections/choose-us-section'
-import ProcessSections from '@/components/common/sections/process-section'
+import HistorySection from '@/components/pages/about/history.section'
+import IndustriesSection from '@/components/pages/about/industries.section'
+import ManagementSection from '@/components/pages/about/management.section'
+import ValuesSection from '@/components/pages/about/values.section'
+import ChooseUsSection from '@/components/pages/common/choose-us.section'
+import InnerBannerSection from '@/components/pages/common/inner-banner.section'
+import ProcessSections from '@/components/pages/common/process.section'
+import IntroSection from '@/components/pages/services/intro.section'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 export default function AboutUsPage() {
   return (
     <>
-      <BannerSection pageName="AboutPage" />
+      <InnerBannerSection pageName="AboutPage" />
       <BreadcrumbBar values={[{ name: 'About Us', link: '/about' }]} />
       <IntroSection />
       {/* <FAQSection className="bg-[#EFF9FE]" /> */}

@@ -7,7 +7,7 @@ import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
-import FooterCarousel from './footer-carousel'
+import FooterCarousel from './footer.carousel'
 
 interface ContactsItemType {
   label: string

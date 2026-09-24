@@ -1,5 +1,7 @@
 'use client'
 
+import { Button } from '@/components/ui/button'
+import { OurIcon } from '@/components/ui/icon'
 import type { LocaleType } from '@/i18n/types'
 import Autoplay from 'embla-carousel-autoplay'
 import useEmblaCarousel from 'embla-carousel-react'
@@ -7,8 +9,6 @@ import { ListFilter } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useCallback, useEffect, useState } from 'react'
-import { Button } from '../ui/button'
-import { OurIcon } from '../ui/icon'
 
 export default function BestSellersSection() {
   const locale = useLocale() as LocaleType

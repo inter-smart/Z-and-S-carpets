@@ -1,12 +1,11 @@
 'use client'
 
-// import { ArrowLeftPurpleIcon, ArrowRightPurpleIcon } from '@/assets/icons'
 import { FloorCImg1_1, FloorCImg1_2 } from '@/assets/images'
+import ImgCompareSlider from '@/components/common/img-compare.slider'
 import { Button } from '@/components/ui/button'
+import { OurIcon } from '@/components/ui/icon'
 import { type StaticImageData } from 'next/image'
 import { useState } from 'react'
-import ImgCompareSlider from '../common/img-compare-slider'
-import { OurIcon } from '../ui/icon'
 
 export default function ImgCompareSection() {
   const imgGroups = [

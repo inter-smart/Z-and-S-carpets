@@ -1,6 +1,6 @@
 'use client'
 
-import WorkItemCard from '@/components/common/work-item-card'
+import WorkItemCard from '@/components/common/work-item.card'
 import { Button } from '@/components/ui/button'
 import { OurIcon } from '@/components/ui/icon'
 import type { LocaleType } from '@/i18n/types'
@@ -9,7 +9,7 @@ import Autoplay from 'embla-carousel-autoplay'
 import useEmblaCarousel from 'embla-carousel-react'
 import { useLocale, useTranslations } from 'next-intl'
 import { useCallback, useEffect, useState } from 'react'
-import RelatedProjectsFilterDropdown from './related-projects-filter-dropdown'
+import RelatedProjectsFilterDropdown from './related-projects-filter.dropdown'
 
 export default function RelatedProjectsSection() {
   const locale = useLocale() as LocaleType

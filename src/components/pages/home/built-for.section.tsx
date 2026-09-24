@@ -1,11 +1,11 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
+import { OurIcon } from '@/components/ui/icon'
 import { cn } from 'cn'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
-import { OurIcon } from '../ui/icon'
 
 export default function BuiltForSection() {
   const t = useTranslations('HomePage.BuiltForSection')

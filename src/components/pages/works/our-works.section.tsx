@@ -1,6 +1,6 @@
 'use client'
 
-import WorkItemCard from '@/components/common/work-item-card'
+import WorkItemCard from '@/components/common/work-item.card'
 import { Button } from '@/components/ui/button'
 import type { LocaleType } from '@/i18n/types'
 import type { WorkCategoryType, WorkItemType } from '@/types/work'

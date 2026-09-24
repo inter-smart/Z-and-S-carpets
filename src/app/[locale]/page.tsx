@@ -1,15 +1,15 @@
-import ChooseUsSection from '@/components/common/sections/choose-us-section'
-import FAQSection from '@/components/common/sections/faq-section'
-import ProcessSections from '@/components/common/sections/process-section'
-import BannerSection from '@/components/home/banner-section'
-import BestSellersSection from '@/components/home/best-sellers-section'
-import BuiltForSection from '@/components/home/built-for-section'
-import CollectionSection from '@/components/home/collection-section'
-import CustomerExpSection from '@/components/home/customer-exp-section'
-import ImgCompareSection from '@/components/home/img-compare-section'
-import PremiumSolutionsSection from '@/components/home/premium-solutions-section'
-import TrustedPartnerSection from '@/components/home/trusted-partner-section'
-import WorksSections from '@/components/home/works-section'
+import ChooseUsSection from '@/components/pages/common/choose-us.section'
+import FAQSection from '@/components/pages/common/faq.section'
+import ProcessSections from '@/components/pages/common/process.section'
+import BannerSection from '@/components/pages/home/banner.section'
+import BestSellersSection from '@/components/pages/home/best-sellers.section'
+import BuiltForSection from '@/components/pages/home/built-for.section'
+import CollectionSection from '@/components/pages/home/collection.section'
+import CustomerExpSection from '@/components/pages/home/customer-exp.section'
+import ImgCompareSection from '@/components/pages/home/img-compare.section'
+import PremiumSolutionsSection from '@/components/pages/home/premium-solutions.section'
+import TrustedPartnerSection from '@/components/pages/home/trusted-partner.section'
+import WorksSection from '@/components/pages/home/works.section'
 
 export default function HomePage() {
   return (
@@ -18,7 +18,7 @@ export default function HomePage() {
       <CollectionSection />
       <BestSellersSection />
       <BuiltForSection />
-      <WorksSections />
+      <WorksSection />
       <ChooseUsSection />
       <ImgCompareSection />
       <ProcessSections />

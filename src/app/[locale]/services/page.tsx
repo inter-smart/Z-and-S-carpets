@@ -1,8 +1,8 @@
 import BreadcrumbBar from '@/components/common/breadcrumb-bar'
-import BannerSection from '@/components/common/sections/banner-section'
-import IntroSection from '@/components/services/intro-section'
-import ProcessSection from '@/components/services/process-section'
-import ServicesGridSection from '@/components/services/services-grid-section'
+import InnerBannerSection from '@/components/pages/common/inner-banner.section'
+import IntroSection from '@/components/pages/services/intro.section'
+import ProcessSection from '@/components/pages/services/process.section'
+import ServicesGridSection from '@/components/pages/services/services-grid.section'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <BannerSection pageName="ServicesPage" />
+      <InnerBannerSection pageName="ServicesPage" />
       <BreadcrumbBar
         values={[{ name: 'Services', link: '/services' }]}
         className="bg-[#EFF9FE]"

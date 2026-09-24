@@ -1,15 +1,15 @@
 'use client'
 
-import { cn } from 'cn'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
 import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbSeparator,
-} from '../ui/breadcrumb'
+} from '@/components/ui/breadcrumb'
+import { cn } from 'cn'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 export default function BreadcrumbBar({
   values,

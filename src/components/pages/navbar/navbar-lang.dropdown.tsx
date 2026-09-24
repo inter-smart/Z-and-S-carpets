@@ -13,7 +13,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 
-export default function LangDropdown() {
+export default function NavbarLangDropdown() {
   const locale = useLocale() as LocaleType
 
   const [open, setOpen] = useState(false)

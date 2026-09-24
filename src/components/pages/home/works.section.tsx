@@ -1,5 +1,6 @@
 'use client'
 
+import WorkItemCard from '@/components/common/work-item.card'
 import { Button } from '@/components/ui/button'
 import { OurIcon } from '@/components/ui/icon'
 import type { LocaleType } from '@/i18n/types'
@@ -10,7 +11,6 @@ import useEmblaCarousel from 'embla-carousel-react'
 import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import WorkItemCard from '../common/work-item-card'
 
 export default function WorksSection() {
   const locale = useLocale() as LocaleType
