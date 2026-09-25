@@ -469,6 +469,106 @@
       }
     ]
   },
+  "Products": {
+    "categories": [
+      {
+        "id": "laminate-flooring",
+        "name": "Laminate Flooring",
+        "description": "Stylish wood-look flooring that combines durability, affordability, and easy maintenance for modern residential and commercial spaces.",
+        "badge": "BEST SELLER",
+        "features": ["Residential", "Wood Look", "Durable"],
+        "image": "/images/floor-img-5.webp"
+      },
+      {
+        "id": "carpet-flooring",
+        "name": "Carpet Flooring",
+        "description": "Stylish wood-look flooring that combines durability, affordability, and easy maintenance for modern residential and commercial spaces.",
+        "badge": "BEST SELLER",
+        "features": ["Waterproof", "Residential"],
+        "image": "/images/floor-img-2.webp"
+      },
+      {
+        "id": "artificial-grass",
+        "name": "Artificial Grass",
+        "description": "Stylish wood-look flooring that combines durability, affordability, and easy maintenance for modern residential and commercial spaces.",
+        "badge": "BEST SELLER",
+        "features": ["Outdoor", "Landscape", "Sports"],
+        "image": "/images/floor-img-32.webp"
+      },
+      {
+        "id": "vinyl-flooring",
+        "name": "Vinyl Flooring",
+        "description": "Stylish wood-look flooring that combines durability, affordability, and easy maintenance for modern residential and commercial spaces.",
+        "badge": "BEST SELLER",
+        "features": ["Waterproof", "Office", "Healthcare"],
+        "image": "/images/floor-img-33.webp"
+      },
+      {
+        "id": "deck-flooring",
+        "name": "Deck Flooring",
+        "description": "Stylish wood-look flooring that combines durability, affordability, and easy maintenance for modern residential and commercial spaces.",
+        "badge": "LATEST",
+        "features": ["Residential", "Wood Look", "Durable"],
+        "image": "/images/floor-img-36.webp"
+      },
+      {
+        "id": "spc-flooring",
+        "name": "Spc Flooring",
+        "description": "Stylish wood-look flooring that combines durability, affordability, and easy maintenance for modern residential and commercial spaces.",
+        "badge": "LATEST",
+        "features": ["Residential", "Wood Look", "Durable"],
+        "image": "/images/floor-img-39.webp"
+      },
+      {
+        "id": "lvt-flooring",
+        "name": "Lvt Flooring",
+        "description": "Stylish wood-look flooring that combines durability, affordability, and easy maintenance for modern residential and commercial spaces.",
+        "badge": "LATEST",
+        "features": ["Residential", "Wood Look", "Durable"],
+        "image": "/images/floor-img-5.webp"
+      },
+      {
+        "id": "wood-flooring",
+        "name": "Wood Flooring",
+        "description": "Stylish wood-look flooring that combines durability, affordability, and easy maintenance for modern residential and commercial spaces.",
+        "badge": "LATEST",
+        "features": ["Residential", "Wood Look", "Durable"],
+        "image": "/images/floor-img-14.webp"
+      },
+      {
+        "id": "gym-and-sports-flooring",
+        "name": "Gym & Sports Flooring",
+        "description": "Stylish wood-look flooring that combines durability, affordability, and easy maintenance for modern residential and commercial spaces.",
+        "badge": "LATEST",
+        "features": ["Sports", "Heavy Traffic", "Shock Absorbing"],
+        "image": "/images/floor-img-40.webp"
+      },
+      {
+        "id": "rubber-flooring",
+        "name": "Rubber Flooring",
+        "description": "Stylish wood-look flooring that combines durability, affordability, and easy maintenance for modern residential and commercial spaces.",
+        "badge": "LATEST",
+        "features": ["Industrial", "Sports", "Anti Slip"],
+        "image": "/images/floor-img-34.webp"
+      },
+      {
+        "id": "wall-cladding",
+        "name": "Wall Cladding",
+        "description": "Stylish wood-look flooring that combines durability, affordability, and easy maintenance for modern residential and commercial spaces.",
+        "badge": "LATEST",
+        "features": ["Residential", "Wood Look", "Durable"],
+        "image": "/images/floor-img-38.webp"
+      },
+      {
+        "id": "pvc-flooring",
+        "name": "PVC Flooring",
+        "description": "Stylish wood-look flooring that combines durability, affordability, and easy maintenance for modern residential and commercial spaces.",
+        "badge": "LATEST",
+        "features": ["Residential", "Wood Look", "Durable"],
+        "image": "/images/floor-img-37.webp"
+      }
+    ]
+  },
   "Common": {
     "ProcessSection": {
       "eyebrow": "OUR PROCESS",
@@ -558,7 +658,7 @@
     }
   },
   "Navbar": {
-    "menuBtnLable": "Menu",
+    "menuBtnLabel": "Menu",
     "navLinks": [
       [
         {
@@ -616,7 +716,7 @@
         "title": "Lvt Flooring"
       }
     ],
-    "categoryMoreBtnLable": "More"
+    "categoryMoreBtnLabel": "More"
   },
   "Footer": {
     "images": [
@@ -1623,6 +1723,20 @@
     "RelatedProjectsSection": {
       "title": "Related projects",
       "filterLabel": "Filter"
+    }
+  },
+  "CategoryPage": {
+    "BannerSection": {
+      "title": "Category",
+      "description": "Reach out for expert support and assistance.",
+      "image": "/images/services-img.webp"
+    },
+    "CategoryListSection": {
+      "title": "Explore Our Flooring Categories",
+      "button": "View Products",
+      "loadMore": "Load More",
+      "filterLabel": "Filter",
+      "filterValues": ["Best Seller", "Latest"]
     }
   }
 }

@@ -5,7 +5,7 @@ import type { LocaleType } from '@/i18n/types'
 import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
 
-export default function NotFound() {
+export default function NotFoundPage() {
   const locale = useLocale() as LocaleType
 
   const t = useTranslations('NotFoundPage')

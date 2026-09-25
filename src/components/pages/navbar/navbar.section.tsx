@@ -77,7 +77,7 @@ export default function Navbar() {
                 variant="outline"
                 className="ltr:font-manrope rtl:font-cairo flex translate-y-0! flex-row items-center justify-center space-x-2 rounded-sm border-[#0066B3] px-3 py-4.25 text-sm font-medium"
               >
-                <p className="hidden sm:block">{t('menuBtnLable')}</p>
+                <p className="hidden sm:block">{t('menuBtnLabel')}</p>
                 <OurIcon name="menu" className="size-7" />
               </Button>
             </div>
@@ -114,7 +114,7 @@ export default function Navbar() {
           {/* more category btn */}
           <p className="flex cursor-pointer flex-row items-center space-x-0.5 sm:space-x-1.5">
             <span className="first-letter:uppercase">
-              {t('categoryMoreBtnLable')}
+              {t('categoryMoreBtnLabel')}
             </span>
             <OurIcon name="chevron-down" className="size-2.5" />
           </p>
