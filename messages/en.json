@@ -558,7 +558,7 @@
     }
   },
   "Navbar": {
-    "menuBtnLable": "Menu",
+    "menuBtnLabel": "Menu",
     "navLinks": [
       [
         {
@@ -616,7 +616,7 @@
         "title": "Lvt Flooring"
       }
     ],
-    "categoryMoreBtnLable": "More"
+    "categoryMoreBtnLabel": "More"
   },
   "Footer": {
     "images": [

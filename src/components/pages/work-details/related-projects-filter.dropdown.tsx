@@ -18,7 +18,7 @@ export default function RelatedProjectsFilterDropdown({
 
   return (
     <DropdownMenu open={open} onOpenChange={setOpen}>
-      <DropdownMenuTrigger className="flex w-30 flex-row items-center justify-between rounded-sm border border-t-0 border-blue-500 bg-white px-4 py-2 text-sm font-medium focus:ring-0 focus:outline-none">
+      <DropdownMenuTrigger className="flex w-30 flex-row items-center justify-between rounded-sm border border-blue-500 bg-white px-4 py-2 text-sm font-medium focus:ring-0 focus:outline-none">
         <span className="first-letter:uppercase">Filter</span>
         <OurIcon name="chevron-down" className="size-2.5" />
       </DropdownMenuTrigger>
