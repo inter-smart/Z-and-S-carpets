@@ -1,5 +1,6 @@
 'use client'
 
+import FilterDropdown from '@/components/common/filter.dropdown'
 import WorkItemCard from '@/components/common/work-item.card'
 import { Button } from '@/components/ui/button'
 import { OurIcon } from '@/components/ui/icon'
@@ -9,7 +10,8 @@ import Autoplay from 'embla-carousel-autoplay'
 import useEmblaCarousel from 'embla-carousel-react'
 import { useLocale, useTranslations } from 'next-intl'
 import { useCallback, useEffect, useState } from 'react'
-import RelatedProjectsFilterDropdown from './related-projects-filter.dropdown'
+
+const filterValues = ['One', 'Two', 'Three']
 
 export default function RelatedProjectsSection() {
   const locale = useLocale() as LocaleType
@@ -64,7 +66,7 @@ export default function RelatedProjectsSection() {
     }
   }, [emblaApi])
 
-  const filterValues = ['One', 'Two', 'Three']
+  const [selectedFilter, setSelectedFilter] = useState<null | string>(null)
 
   return (
     <section className="bg-[#EFF9FE] py-12 lg:py-20">
@@ -72,7 +74,12 @@ export default function RelatedProjectsSection() {
         {/* header */}
         <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between md:gap-6 xl:items-center">
           <h2 className="our-heading">{t('title')}</h2>
-          <RelatedProjectsFilterDropdown filterValues={filterValues} />
+          <FilterDropdown
+            filterLabel={t('filterLabel')}
+            filterValues={[null, ...filterValues]}
+            value={selectedFilter}
+            onValueChange={setSelectedFilter}
+          />
         </div>
         <div className="relative mt-10">
           <div className="overflow-hidden" ref={emblaRef}>
