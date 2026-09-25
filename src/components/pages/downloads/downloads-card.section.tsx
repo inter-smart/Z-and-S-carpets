@@ -75,9 +75,11 @@ export default function DownloadsCardSection() {
             className="flex w-full flex-col items-start"
             onSubmit={(event) => handleForm(event)}
           >
-            <span className="our-heading mt-5">{t('successDialog.title')}</span>
+            <span className="our-heading mt-5">
+              {t('downloadFormDialog.title')}
+            </span>
             <span className="our-text mt-3 font-normal">
-              {t('successDialog.description')}
+              {t('downloadFormDialog.description')}
             </span>
             <div className="mt-8 grid w-full grid-cols-1 gap-3 sm:grid-cols-2">
               <input

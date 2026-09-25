@@ -1597,8 +1597,8 @@
         }
       ],
       "downloadFormDialog": {
-        "title": "Get In Touch with us",
-        "description": "",
+        "title": "Download Brochure",
+        "description": "Access our brochure for a detailed overview of our collections.",
         "fields": ["Name", "Phone Number", "Email", "Company Name"],
         "submit": "Submit"
       },
