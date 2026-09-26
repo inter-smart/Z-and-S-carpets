@@ -8,7 +8,7 @@ export default function BlogItemCard({ article }: { article: blogItemType }) {
     <article className="grid grid-cols-1 gap-3 overflow-hidden rounded-md border p-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
       <div className="relative aspect-square w-full overflow-hidden rounded-sm min-[400px]:max-sm:h-75 sm:order-last lg:order-first xl:order-last">
         <Image
-          src={article.image}
+          src={article.image[0]}
           alt={article.title}
           fill
           className="object-cover"
@@ -27,7 +27,7 @@ export default function BlogItemCard({ article }: { article: blogItemType }) {
         <Button
           variant={'outline'}
           nativeButton={false}
-          render={<Link href={`/blog-details?id=${article.id}`} />}
+          render={<Link href={`/blogs/${article.id}`} />}
           className="our-btn border-our-blue hover:bg-our-blue mt-3 w-fit hover:text-white"
         >
           Read More
