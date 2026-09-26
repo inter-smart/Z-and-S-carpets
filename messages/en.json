@@ -569,6 +569,57 @@
       }
     ]
   },
+  "Blogs": {
+    "Items": [
+      {
+        "id": "outdoor-flooring-dubai",
+        "date": "November 10, 2025",
+        "author": "Romine",
+        "title": "Outdoor Flooring in Dubai: What Works Best for Heat, Sand & Heavy Footfall?",
+        "image": "/images/floor-img-42.webp",
+        "excerpt": "Find the ideal outdoor flooring for Dubai's heat, sand, and footfall. Z&S Carpets provides top-quality materials...",
+        "tags": ["Outdoor", "Dubai", "Decking"]
+      },
+      {
+        "id": "laminate-scratch-resistance",
+        "date": "October 16, 2025",
+        "author": "Milda",
+        "title": "Laminate Flooring Scratch Resistance: A Connoisseur's Guide to Lasting Elegance",
+        "image": "/images/floor-img-51.webp",
+        "excerpt": "Discover the ultimate guide to laminate flooring scratch resistance. Learn about AC5 ratings and wear layers to protect your luxury UAE home from desert sand.",
+        "tags": [
+          "Laminate Flooring",
+          "Scratch Resistance",
+          "Flooring Guide",
+          "Interior Design",
+          "Home Improvement",
+          "Dubai",
+          "Wear Layer",
+          "Flooring Tips",
+          "Maintenance"
+        ]
+      },
+
+      {
+        "id": "carpets-heritage",
+        "date": "August 02, 2025",
+        "author": "Romine",
+        "title": "The Connoisseur's Guide to Exquisite Carpets: From Heritage to Modern Artistry",
+        "image": "/images/floor-img-49.webp",
+        "excerpt": "Find the ideal outdoor flooring for Dubai's heat, sand, and footfall. Z&S Carpets provides top-quality materials...",
+        "tags": ["Carpets", "Heritage", "Interior"]
+      },
+      {
+        "id": "flooring-suppliers",
+        "date": "March 28, 2025",
+        "author": "Romine",
+        "title": "How to Choose the Right Flooring Supplier in Dubai for Large-Scale Projects",
+        "image": "/images/floor-img-48.webp",
+        "excerpt": "Find the ideal outdoor flooring for Dubai's heat, sand, and footfall. Z&S Carpets provides top-quality materials...",
+        "tags": ["Suppliers", "Commercial", "Projects"]
+      }
+    ]
+  },
   "Common": {
     "ProcessSection": {
       "eyebrow": "OUR PROCESS",
@@ -738,7 +789,7 @@
           },
           {
             "text": "Blog",
-            "link": ""
+            "link": "/blogs"
           },
           {
             "text": "Careers",
@@ -1737,6 +1788,37 @@
       "loadMore": "Load More",
       "filterLabel": "Filter",
       "filterValues": ["Best Seller", "Latest"]
+    }
+  },
+  "BlogsPage": {
+    "BannerSection": {
+      "title": "Expert Insights",
+      "description": "Reach out for expert support and assistance.",
+      "image": "/images/floor-img-35.webp"
+    },
+    "BlogListSection": {
+      "title": "Latest Updates & Insights",
+      "loadMore": "Load More",
+      "filters": {
+        "category": {
+          "label": "Category",
+          "values": ["Laminate Flooring", "Carpet Flooring", "Artificial Grass"]
+        },
+        "blogs": {
+          "label": "Blogs",
+          "values": ["Latest", "Old"]
+        },
+        "tags": {
+          "label": "Tags",
+          "values": [
+            "Laminate Flooring",
+            "Scratch Resistance",
+            "Flooring Guide",
+            "Dubai",
+            "Maintanance"
+          ]
+        }
+      }
     }
   }
 }

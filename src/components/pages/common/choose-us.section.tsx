@@ -44,29 +44,29 @@ export default function ChooseUsSection() {
             {/* 1 */}
             <FeatureCard
               feature={features[0]}
-              className="border-b py-7 sm:pe-6 ltr:sm:border-r rtl:sm:border-l"
+              className="border-b py-7 sm:border-e sm:pe-6"
             />
             <FeatureCard
               feature={features[1]}
-              className="border-b py-7 sm:px-6 ltr:md:border-r rtl:md:border-l"
+              className="border-b py-7 sm:px-6 md:border-e"
             />
             <FeatureCard
               feature={features[2]}
-              className="border-b py-7 sm:pe-6 md:ps-6 ltr:sm:max-md:border-r rtl:sm:max-md:border-l"
+              className="border-b py-7 sm:pe-6 sm:max-md:border-e md:ps-6"
             />
             <FeatureCard
               feature={features[3]}
-              className="border-b py-7 sm:px-6 md:border-b-0 md:ps-0 ltr:md:border-r rtl:md:border-l"
+              className="border-b py-7 sm:px-6 md:border-e md:border-b-0 md:ps-0"
             />
             <FeatureCard
               feature={features[4]}
-              className="border-b py-7 sm:border-b-0 sm:pe-6 md:px-6 ltr:sm:border-r rtl:sm:border-l"
+              className="border-b py-7 sm:border-e sm:border-b-0 sm:pe-6 md:px-6"
             />
             <FeatureCard feature={features[5]} className="py-7 sm:px-6" />
           </div>
         </div>
         {/* CTA */}
-        <div className="w-full lg:w-1/4 ltr:lg:border-l rtl:lg:border-r">
+        <div className="w-full lg:w-1/4 lg:border-s">
           <div className="flex h-full flex-col items-start gap-4 py-7 lg:gap-7 lg:ps-7">
             <h2 className="ltr:font-nobile rtl:font-cairo text-3xl font-medium">
               {ctaTitle[0]} <br /> {ctaTitle[1]}
