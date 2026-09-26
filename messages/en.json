@@ -470,7 +470,7 @@
     ]
   },
   "Products": {
-    "categories": [
+    "Categories": [
       {
         "id": "laminate-flooring",
         "name": "Laminate Flooring",
@@ -566,6 +566,63 @@
         "badge": "LATEST",
         "features": ["Residential", "Wood Look", "Durable"],
         "image": "/images/floor-img-37.webp"
+      }
+    ],
+    "Items": [
+      {
+        "name": "Landscaping Grass",
+        "description": "Crafted for modern interiors, Pixel Block Carpet Tiles bring structure, depth, and a contemporary modular look to any space",
+        "image": "/images/floor-img-35.webp",
+        "badge": "BEST SELLER"
+      },
+      {
+        "name": "Wood Pattern Vinyl",
+        "description": "Crafted for modern interiors, Pixel Block Carpet Tiles bring structure, depth, and a contemporary modular look to any space",
+        "image": "/images/floor-img-30.webp"
+      },
+      {
+        "name": "Coin Vinyl Flooring",
+        "description": "Crafted for modern interiors, Pixel Block Carpet Tiles bring structure, depth, and a contemporary modular look to any space",
+        "image": "/images/floor-img-41.webp"
+      },
+      {
+        "name": "Linoleum Vinyl Flooring",
+        "description": "Crafted for modern interiors, Pixel Block Carpet Tiles bring structure, depth, and a contemporary modular look to any space",
+        "image": "/images/floor-img-46.webp",
+        "badge": "BEST SELLER"
+      },
+      {
+        "name": "Homogeneous Medical Vinyl Flooring",
+        "description": "Crafted for modern interiors, Pixel Block Carpet Tiles bring structure, depth, and a contemporary modular look to any space",
+        "image": "/images/floor-img-27.webp"
+      },
+      {
+        "name": "Sigma Medical Vinyl Flooring",
+        "description": "Crafted for modern interiors, Pixel Block Carpet Tiles bring structure, depth, and a contemporary modular look to any space",
+        "image": "/images/floor-img-25.webp",
+        "badge": "BEST SELLER"
+      },
+      {
+        "name": "Heterogeneous Vinyl Flooring",
+        "description": "Crafted for modern interiors, Pixel Block Carpet Tiles bring structure, depth, and a contemporary modular look to any space",
+        "image": "/images/floor-img-5.webp"
+      },
+      {
+        "name": "Plain Color Vinyl Flooring",
+        "description": "Crafted for modern interiors, Pixel Block Carpet Tiles bring structure, depth, and a contemporary modular look to any space",
+        "image": "/images/floor-img-12.webp",
+        "badge": "BEST SELLER"
+      },
+      {
+        "name": "Cresto Vinyl Flooring",
+        "description": "Crafted for modern interiors, Pixel Block Carpet Tiles bring structure, depth, and a contemporary modular look to any space",
+        "image": "/images/floor-img-36.webp"
+      },
+      {
+        "name": "Vinyl Flooring Accessories",
+        "description": "Crafted for modern interiors, Pixel Block Carpet Tiles bring structure, depth, and a contemporary modular look to any space",
+        "image": "/images/floor-img-44.webp",
+        "badge": "BEST SELLER"
       }
     ]
   },
@@ -1833,6 +1890,31 @@
     },
     "RelatedBlogsSection": {
       "title": "Related Blogs"
+    }
+  },
+  "ProductsPage": {
+    "BannerSection": {
+      "title": "Products",
+      "description": "Reach out for expert support and assistance.",
+      "image": "/images/floor-img-12.webp"
+    },
+    "ProductListSection": {
+      "loadMore": "Load More",
+      "filters": ["Category", "Material", "Color", "Usage", "Tags"],
+      "categories": [
+        "Artificial Grass",
+        "Vinyl Flooring",
+        "Deck Flooring",
+        "Spc Flooring",
+        "Lvt Flooring",
+        "Laminate Flooring",
+        "Carpet Flooring",
+        "Wood Flooring",
+        "Gym & Sports Flooring",
+        "Rubber Flooring",
+        "Wall Cladding",
+        "PVC Flooring"
+      ]
     }
   }
 }

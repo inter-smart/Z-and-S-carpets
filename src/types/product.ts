@@ -6,3 +6,10 @@ export interface ProductCategoryType {
   features: string[]
   image: string
 }
+
+export interface ProductItemType {
+  name: string
+  description: string
+  image: string
+  badge?: string
+}
