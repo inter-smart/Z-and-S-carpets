@@ -73,7 +73,7 @@ export default function DownloadsCardSection() {
         <DialogContent className="flex min-h-100 min-w-[90vw] flex-row items-center justify-center rounded-sm bg-[#023260] p-5 text-white md:min-w-[70vw] md:p-10 lg:min-w-[60vw] lg:p-15 xl:min-w-[50vw] 2xl:min-w-180">
           <form
             className="flex w-full flex-col items-start"
-            onSubmit={(event) => handleForm(event)}
+            onSubmit={handleForm}
           >
             <span className="our-heading mt-5">
               {t('downloadFormDialog.title')}

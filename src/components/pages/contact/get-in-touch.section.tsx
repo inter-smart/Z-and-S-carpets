@@ -26,7 +26,7 @@ export default function GetInTouchSection() {
       <section>
         <form
           className="mt-14 h-fit rounded-md bg-[#023260] px-8 py-18 text-white"
-          onSubmit={(event) => handleForm(event)}
+          onSubmit={handleForm}
         >
           <h2 className="our-heading">{t('formTitle')}</h2>
           <div className="mt-8 space-y-3">

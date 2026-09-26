@@ -14,6 +14,7 @@ import {
   ChevronDownIcon,
   CloudUploadIcon,
   DesigningIcon,
+  EmptyBoxIcon,
   FacebookIcon,
   FileOpenIcon,
   FilePenIcon,
@@ -84,6 +85,7 @@ const icons = {
   'budget-planning': BudgetPlanningIcon,
   vision: VisionIcon,
   'file-open': FileOpenIcon,
+  'empty-box-icon': EmptyBoxIcon,
 } as const
 
 export type OurIconName = keyof typeof icons

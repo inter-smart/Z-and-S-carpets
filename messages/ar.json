@@ -1833,5 +1833,29 @@
     "RelatedBlogsSection": {
       "title": "المدونات ذات الصلة"
     }
+  },
+  "QuotesPage": {
+    "title": "طلب عرض السعر الخاص بك",
+    "description": "راجع المنتجات التي اخترتها وأرسل استفسارك.",
+    "products": [
+      {
+        "name": "عشب تنسيق الحدائق",
+        "image": "/images/floor-img-35.webp",
+        "color": "رمادي",
+        "material": "خشب"
+      },
+      {
+        "name": "بلاط أكاديا",
+        "image": "/images/floor-img-30.webp",
+        "color": "رمادي",
+        "material": "خشب"
+      },
+      {
+        "name": "بلاطات السجاد بيكسل بلوك",
+        "image": "/images/floor-img-41.webp",
+        "color": "رمادي",
+        "material": "خشب"
+      }
+    ]
   }
 }
