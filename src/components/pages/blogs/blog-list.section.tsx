@@ -4,6 +4,7 @@ import BlogItemCard from '@/components/common/blog-item.card'
 import FilterDropdown from '@/components/common/filter.dropdown'
 import { AdBanner1, AdBanner2 } from '@/components/pages/common/ad.banner'
 import { Button } from '@/components/ui/button'
+import type { blogItemType } from '@/types/blog'
 import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 
@@ -25,34 +26,34 @@ export default function BlogListSection() {
       values: string
     }
   }
-  const data = t2.raw('Items')
+  const data = t2.raw('Items') as blogItemType[]
 
   const extraData = [
     {
       ...data[0],
-      image: '/images/floor-img-46.webp',
+      image: ['/images/floor-img-46.webp'],
     },
     {
       ...data[1],
-      image: '/images/floor-img-44.webp',
+      image: ['/images/floor-img-44.webp'],
     },
     {
       ...data[2],
-      image: '/images/floor-img-50.webp',
+      image: ['/images/floor-img-50.webp'],
     },
     {
       ...data[3],
-      image: '/images/floor-img-45.webp',
+      image: ['/images/floor-img-45.webp'],
     },
     {
       ...data[2],
       id: 'office',
-      image: '/images/floor-img-41.webp',
+      image: ['/images/floor-img-41.webp'],
     },
     {
       ...data[3],
       id: 'rolling',
-      image: '/images/floor-img-43.webp',
+      image: ['/images/floor-img-43.webp'],
     },
   ]
 

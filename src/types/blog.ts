@@ -3,7 +3,7 @@ export interface blogItemType {
   date: string
   author: string
   title: string
-  image: string
+  image: string[]
   excerpt: string
   tags: string[]
 }

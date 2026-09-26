@@ -25,6 +25,7 @@ export function AdBanner1() {
             FLOORING
           </strong>
         </div>
+        <p>LIMITED TIME ONLY</p>
         <Button
           variant={'outline'}
           className="our-btn mt-3 w-fit border-white px-8!"
