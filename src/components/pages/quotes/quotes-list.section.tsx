@@ -139,6 +139,8 @@ export default function QuotesListSection() {
           <aside className="mt-1 flex items-center justify-center rounded-sm bg-[#D9D9D9]/20 px-8 py-10 lg:mt-10">
             <Button
               type="button"
+              nativeButton={false}
+              render={<Link href={'/quotes/form'} />}
               className="bg-our-purple our-btn hover:bg-our-purple"
             >
               Request A Quote
