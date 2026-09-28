@@ -74,7 +74,7 @@ export default function RelatedProductsSection({
           <h2 className="our-heading">Related Products</h2>
         </div>
         <div className="relative mt-10">
-          <div className="overflow-hidden" ref={emblaRef}>
+          <div className="overflow-hidden py-1" ref={emblaRef}>
             <div className="-ms-4 flex">
               {workItems.map((product, index) => {
                 return (

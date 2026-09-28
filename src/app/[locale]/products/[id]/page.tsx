@@ -1,6 +1,7 @@
 import BreadcrumbBar from '@/components/common/breadcrumb-bar'
 import FAQSection from '@/components/pages/common/faq.section'
 import InnerBannerSection from '@/components/pages/common/inner-banner.section'
+import ProductDetailsSection from '@/components/pages/product-details/product-details.section'
 import TagsSection from '@/components/pages/product-details/tags.section'
 import RelatedProductsSection from '@/components/pages/products/related-products.section'
 import type { Metadata } from 'next'
@@ -33,6 +34,7 @@ export default async function ProductDetailsPage({
           },
         ]}
       />
+      <ProductDetailsSection />
       <RelatedProductsSection className="bg-[#EFF9FE]" />
       <FAQSection />
       <TagsSection />
