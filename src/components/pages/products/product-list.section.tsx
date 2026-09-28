@@ -13,6 +13,7 @@ import { ProductItemType } from '@/types/product'
 import { ChevronDownIcon, ChevronUpIcon, ListFilterIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { useState } from 'react'
+import ProductsEmptySection from './products-empty.section'
 
 const visibleProductDefalutCount = 6
 
@@ -217,13 +218,17 @@ export default function ProductListSection() {
           </SheetContent>
         </Sheet>
 
-        <div className="grid gap-4 sm:grid-cols-2 md:gap-2 lg:gap-5 xl:grid-cols-3">
-          {filteredProducts.slice(0, visibleProductCount).map((product) => (
-            <div key={product.name}>
-              <ProductItemCard product={product} />
-            </div>
-          ))}
-        </div>
+        {filteredProducts.length ? (
+          <div className="grid gap-4 sm:grid-cols-2 md:gap-2 lg:gap-5 xl:grid-cols-3">
+            {filteredProducts.slice(0, visibleProductCount).map((product) => (
+              <div key={product.name}>
+                <ProductItemCard product={product} />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <ProductsEmptySection />
+        )}
 
         {visibleProductCount < filteredProducts.length && (
           <div className="mt-12 flex w-full justify-center lg:mt-20">
