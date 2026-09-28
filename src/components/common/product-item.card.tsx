@@ -23,7 +23,7 @@ export default function ProductItemCard({
         )}
       </div>
       <div className="border-our-blue rounded-b-sm border border-t-0 p-3 pb-6">
-        <p className="text-[0.6rem] uppercase">Vinyl Flooring</p>
+        <p className="text-[0.6rem] uppercase">{product.category}</p>
         <h3 className="mt-1 line-clamp-1 text-sm font-semibold">
           {product.name}
         </h3>
