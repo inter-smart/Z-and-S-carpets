@@ -1,5 +1,4 @@
 import BreadcrumbBar from '@/components/common/breadcrumb-bar'
-import FAQSection from '@/components/pages/common/faq.section'
 import InnerBannerSection from '@/components/pages/common/inner-banner.section'
 import ProductListSection from '@/components/pages/products/product-list.section'
 import type { Metadata } from 'next'
@@ -24,7 +23,6 @@ export default function ProductsPage() {
         className="md:bg-[#EFF9FE]"
       />
       <ProductListSection />
-      <FAQSection className="bg-[#EFF9FE]" />
     </>
   )
 }
