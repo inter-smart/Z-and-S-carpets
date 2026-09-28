@@ -1952,6 +1952,7 @@
       "loadMore": "Load More",
       "filters": [
         {
+          "id": "category",
           "label": "Category",
           "items": [
             "Artificial Grass",
@@ -1969,18 +1970,22 @@
           ]
         },
         {
+          "id": "material",
           "label": "Material",
           "items": ["Wood", "Rubber", "Plastic", "Cloth"]
         },
         {
+          "id": "color",
           "label": "Color",
           "items": ["Red", "Blue", "Green", "Yellow"]
         },
         {
+          "id": "usage",
           "label": "Usage",
           "items": ["Deck", "Gym", "Floor", "Grass"]
         },
         {
+          "id": "tags",
           "label": "Tags",
           "items": ["Vinyl", "Wooden", "Waterproof", "Anti-slip", "Artificial"]
         }

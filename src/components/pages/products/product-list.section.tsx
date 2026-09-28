@@ -9,21 +9,22 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet'
-import type { LocaleType } from '@/i18n/types'
 import { ProductItemType } from '@/types/product'
 import { ChevronDownIcon, ChevronUpIcon, ListFilterIcon } from 'lucide-react'
-import { useLocale, useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 
 const visibleProductDefalutCount = 6
 
 export default function ProductListSection() {
-  const locale = useLocale() as LocaleType
-
   const t = useTranslations('ProductsPage.ProductListSection')
   const t2 = useTranslations('Products')
 
-  const filters = t.raw('filters') as { label: string; items: string[] }[]
+  const filters = t.raw('filters') as {
+    id: string
+    label: string
+    items: string[]
+  }[]
   const products = t2.raw('Items') as ProductItemType[]
 
   const [visibleProductCount, setVisibleProductCount] = useState(
@@ -34,10 +35,10 @@ export default function ProductListSection() {
     Record<string, string[]>
   >({})
 
-  const toggleFilter = (filterLabel: string, item: string) => {
+  const toggleFilter = (filterId: string, item: string) => {
     setVisibleProductCount(visibleProductDefalutCount)
     setSelectedFilters((prev) => {
-      const current = prev[filterLabel] ?? []
+      const current = prev[filterId] ?? []
 
       const updated = current.includes(item)
         ? current.filter((value) => value !== item)
@@ -45,30 +46,30 @@ export default function ProductListSection() {
 
       return {
         ...prev,
-        [filterLabel]: updated,
+        [filterId]: updated,
       }
     })
   }
 
   const filteredProducts = products.filter((product) => {
     return Object.entries(selectedFilters).every(
-      ([filterLabel, selectedValues]) => {
-        if (selectedValues.length === 0) return true
+      ([filterId, selectedValues]) => {
+        if (!selectedValues.length) return true
 
-        switch (filterLabel) {
-          case 'Category':
+        switch (filterId) {
+          case 'category':
             return selectedValues.includes(product.category)
 
-          case 'Material':
+          case 'material':
             return selectedValues.includes(product.material)
 
-          case 'Color':
+          case 'color':
             return selectedValues.includes(product.color)
 
-          case 'Usage':
+          case 'usage':
             return selectedValues.includes(product.usage)
 
-          case 'Tags':
+          case 'tags':
             return selectedValues.some((tag) => product.tags.includes(tag))
 
           default:
@@ -81,37 +82,37 @@ export default function ProductListSection() {
   return (
     <section className="container-wrapper flex">
       <div className="relative hidden h-fit w-60 bg-[#EFF9FE] md:block lg:w-70 2xl:w-80">
-        <div className="absolute right-full h-full w-dvw bg-[#EFF9FE]" />
+        <div className="absolute right-full h-full w-dvw bg-[#EFF9FE] rtl:right-auto rtl:left-full" />
         <aside className="pe-5 pt-5 pb-8">
           <h2 className="our-heading max-sm:text-2xl">Filter</h2>
           <div className="mt-4 space-y-2">
             {filters.map((filter) => (
               <div
-                key={filter.label}
+                key={filter.id}
                 className="rounded-sm border border-[#AAAAAA]/25 bg-white px-4"
               >
                 <button
                   type="button"
                   onClick={() =>
-                    openFilter.includes(filter.label)
+                    openFilter.includes(filter.id)
                       ? setOpenFilter((prev) =>
-                          prev.filter((item) => item !== filter.label),
+                          prev.filter((item) => item !== filter.id),
                         )
-                      : setOpenFilter((prev) => [...prev, filter.label])
+                      : setOpenFilter((prev) => [...prev, filter.id])
                   }
-                  aria-expanded={openFilter.includes(filter.label)}
+                  aria-expanded={openFilter.includes(filter.id)}
                   className="flex w-full items-center justify-between py-3 text-left text-[14px] focus:ring-0 focus:outline-none"
                 >
                   <span>{filter.label}</span>
                   <span aria-hidden="true">
-                    {openFilter.includes(filter.label) ? (
+                    {openFilter.includes(filter.id) ? (
                       <ChevronUpIcon className="stroke-1" size={15} />
                     ) : (
                       <ChevronDownIcon className="stroke-1" size={15} />
                     )}
                   </span>
                 </button>
-                {openFilter.includes(filter.label) && (
+                {openFilter.includes(filter.id) && (
                   <div className="border-t border-black/15 py-3">
                     {filter.items.map((item) => (
                       <label
@@ -121,10 +122,9 @@ export default function ProductListSection() {
                         <input
                           type="checkbox"
                           checked={
-                            selectedFilters[filter.label]?.includes(item) ??
-                            false
+                            selectedFilters[filter.id]?.includes(item) ?? false
                           }
-                          onChange={() => toggleFilter(filter.label, item)}
+                          onChange={() => toggleFilter(filter.id, item)}
                           className="accent-our-blue size-3.5"
                         />
                         {item}
@@ -143,7 +143,7 @@ export default function ProductListSection() {
             render={
               <Button
                 variant={'outline'}
-                className="absolute -top-10 right-0 rounded-sm px-3 py-3.5 text-xs font-medium tracking-widest text-black uppercase hover:bg-transparent md:hidden rtl:left-0"
+                className="absolute -top-10 right-0 w-fit rounded-sm px-3 py-3.5 text-xs font-medium tracking-widest text-black uppercase hover:bg-transparent md:hidden rtl:right-auto rtl:left-0"
               >
                 <ListFilterIcon data-icon="inline-center" />
                 Filter
@@ -151,9 +151,8 @@ export default function ProductListSection() {
             }
           />
           <SheetContent
-            side={locale === 'ar' ? 'right' : 'left'}
-            // className="top-4! bottom-4! left-4! h-auto! rounded-sm"
-            className="top-4! bottom-4! h-auto! w-[94%]! max-w-80! overflow-x-scroll rounded-e-sm bg-[#EFF9FE] pt-5"
+            side="left"
+            className="inset-y-4! top-4! bottom-4! h-auto! w-[94%]! max-w-80! overflow-x-scroll rounded-e-sm bg-[#EFF9FE] pt-5 rtl:right-0! rtl:left-auto!"
           >
             <SheetHeader>
               <SheetTitle>
@@ -163,31 +162,31 @@ export default function ProductListSection() {
             <div className="space-y-2 px-6 pb-6">
               {filters.map((filter) => (
                 <div
-                  key={filter.label}
+                  key={filter.id}
                   className="rounded-sm border border-[#AAAAAA]/25 bg-white px-4"
                 >
                   <button
                     type="button"
                     onClick={() =>
-                      openFilter.includes(filter.label)
+                      openFilter.includes(filter.id)
                         ? setOpenFilter((prev) =>
-                            prev.filter((item) => item !== filter.label),
+                            prev.filter((item) => item !== filter.id),
                           )
-                        : setOpenFilter((prev) => [...prev, filter.label])
+                        : setOpenFilter((prev) => [...prev, filter.id])
                     }
-                    aria-expanded={openFilter.includes(filter.label)}
+                    aria-expanded={openFilter.includes(filter.id)}
                     className="flex w-full items-center justify-between py-3 text-left text-[14px] focus:ring-0 focus:outline-none"
                   >
                     <span>{filter.label}</span>
                     <span aria-hidden="true">
-                      {openFilter.includes(filter.label) ? (
+                      {openFilter.includes(filter.id) ? (
                         <ChevronUpIcon className="stroke-1" size={15} />
                       ) : (
                         <ChevronDownIcon className="stroke-1" size={15} />
                       )}
                     </span>
                   </button>
-                  {openFilter.includes(filter.label) && (
+                  {openFilter.includes(filter.id) && (
                     <div className="border-t border-black/15 py-3">
                       {filter.items.map((item) => (
                         <label
@@ -197,10 +196,10 @@ export default function ProductListSection() {
                           <input
                             type="checkbox"
                             checked={
-                              selectedFilters[filter.label]?.includes(item) ??
+                              selectedFilters[filter.id]?.includes(item) ??
                               false
                             }
-                            onChange={() => toggleFilter(filter.label, item)}
+                            onChange={() => toggleFilter(filter.id, item)}
                             className="accent-our-blue size-3.5"
                           />
                           {item}
