@@ -1,10 +1,10 @@
 'use client'
 
+import ProductItemCard from '@/components/common/product-item.card'
 import { Button } from '@/components/ui/button'
 import { ProductItemType } from '@/types/product'
 import { ChevronDownIcon, ChevronUpIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import Image from 'next/image'
 import { useState } from 'react'
 
 const visibleProductDefalutCount = 6
@@ -70,10 +70,10 @@ export default function ProductListSection() {
 
   return (
     <section className="container-wrapper flex">
-      <div className="relative h-fit w-80 bg-[#EFF9FE]">
+      <div className="relative hidden h-fit w-60 bg-[#EFF9FE] md:block lg:w-70 2xl:w-80">
         <div className="absolute right-full h-full w-dvw bg-[#EFF9FE]" />
         <aside className="pe-5 pt-5 pb-8">
-          <h2 className="our-heading">Filter</h2>
+          <h2 className="our-heading max-sm:text-2xl">Filter</h2>
           <div className="mt-4 space-y-2">
             {filters.map((filter) => (
               <div
@@ -127,46 +127,12 @@ export default function ProductListSection() {
           </div>
         </aside>
       </div>
-      <div className="flex-1 ps-4 pt-4 pb-20">
-        <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+      <div className="flex-1 pt-4 pb-20 md:ps-4">
+        <div className="grid gap-4 sm:grid-cols-2 md:gap-2 lg:gap-5 xl:grid-cols-3">
           {filteredProducts.slice(0, visibleProductCount).map((product) => (
-            <article key={product.name} className="bg-white">
-              <div className="relative h-45 overflow-hidden rounded-t-sm">
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  fill
-                  className="h-full w-full object-cover"
-                />
-                {product.badge && (
-                  <span className="absolute top-3 right-3 rounded bg-white px-2 py-0.5 text-[0.55rem]">
-                    {product.badge}
-                  </span>
-                )}
-              </div>
-              <div className="border-our-blue rounded-b-sm border border-t-0 p-3 pb-6">
-                <p className="text-[0.6rem] uppercase">Vinyl Flooring</p>
-                <h3 className="mt-1 text-sm font-semibold">{product.name}</h3>
-                <p className="mt-2 line-clamp-3 text-xs text-[#222]">
-                  {product.description}
-                </p>
-                <div className="mt-7 flex gap-2">
-                  <Button
-                    type="button"
-                    variant={'outline'}
-                    className="flex-1 rounded border border-black py-3 text-[9px] font-semibold hover:bg-[#f3f3f3]"
-                  >
-                    View Details
-                  </Button>
-                  <Button
-                    type="button"
-                    className="flex-1 rounded bg-[#8b279c] py-3 text-[9px] font-semibold text-white hover:bg-[#702080]"
-                  >
-                    Add to Quote
-                  </Button>
-                </div>
-              </div>
-            </article>
+            <div key={product.name}>
+              <ProductItemCard product={product} />
+            </div>
           ))}
         </div>
         {visibleProductCount < filteredProducts.length && (

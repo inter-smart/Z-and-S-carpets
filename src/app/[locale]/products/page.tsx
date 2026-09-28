@@ -21,7 +21,7 @@ export default function ProductsPage() {
             link: '/products',
           },
         ]}
-        className="bg-[#EFF9FE]"
+        className="md:bg-[#EFF9FE]"
       />
       <ProductListSection />
       <FAQSection className="bg-[#EFF9FE]" />
