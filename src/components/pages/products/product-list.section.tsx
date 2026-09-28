@@ -2,14 +2,24 @@
 
 import ProductItemCard from '@/components/common/product-item.card'
 import { Button } from '@/components/ui/button'
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from '@/components/ui/sheet'
+import type { LocaleType } from '@/i18n/types'
 import { ProductItemType } from '@/types/product'
-import { ChevronDownIcon, ChevronUpIcon } from 'lucide-react'
-import { useTranslations } from 'next-intl'
+import { ChevronDownIcon, ChevronUpIcon, ListFilterIcon } from 'lucide-react'
+import { useLocale, useTranslations } from 'next-intl'
 import { useState } from 'react'
 
 const visibleProductDefalutCount = 6
 
 export default function ProductListSection() {
+  const locale = useLocale() as LocaleType
+
   const t = useTranslations('ProductsPage.ProductListSection')
   const t2 = useTranslations('Products')
 
@@ -127,7 +137,87 @@ export default function ProductListSection() {
           </div>
         </aside>
       </div>
-      <div className="flex-1 pt-4 pb-20 md:ps-4">
+      <div className="relative flex-1 pt-4 pb-20 md:ps-4">
+        <Sheet>
+          <SheetTrigger
+            render={
+              <Button
+                variant={'outline'}
+                className="absolute -top-10 right-0 rounded-sm px-3 py-3.5 text-xs font-medium tracking-widest text-black uppercase hover:bg-transparent md:hidden rtl:left-0"
+              >
+                <ListFilterIcon data-icon="inline-center" />
+                Filter
+              </Button>
+            }
+          />
+          <SheetContent
+            side={locale === 'ar' ? 'right' : 'left'}
+            // className="top-4! bottom-4! left-4! h-auto! rounded-sm"
+            className="top-4! bottom-4! h-auto! w-[94%]! max-w-80! overflow-x-scroll rounded-e-sm bg-[#EFF9FE] pt-5"
+          >
+            <SheetHeader>
+              <SheetTitle>
+                <p className="our-heading text-2xl">Filter</p>
+              </SheetTitle>
+            </SheetHeader>
+            <div className="space-y-2 px-6 pb-6">
+              {filters.map((filter) => (
+                <div
+                  key={filter.label}
+                  className="rounded-sm border border-[#AAAAAA]/25 bg-white px-4"
+                >
+                  <button
+                    type="button"
+                    onClick={() =>
+                      openFilter.includes(filter.label)
+                        ? setOpenFilter((prev) =>
+                            prev.filter((item) => item !== filter.label),
+                          )
+                        : setOpenFilter((prev) => [...prev, filter.label])
+                    }
+                    aria-expanded={openFilter.includes(filter.label)}
+                    className="flex w-full items-center justify-between py-3 text-left text-[14px] focus:ring-0 focus:outline-none"
+                  >
+                    <span>{filter.label}</span>
+                    <span aria-hidden="true">
+                      {openFilter.includes(filter.label) ? (
+                        <ChevronUpIcon className="stroke-1" size={15} />
+                      ) : (
+                        <ChevronDownIcon className="stroke-1" size={15} />
+                      )}
+                    </span>
+                  </button>
+                  {openFilter.includes(filter.label) && (
+                    <div className="border-t border-black/15 py-3">
+                      {filter.items.map((item) => (
+                        <label
+                          key={item}
+                          className="flex items-center gap-3 py-2 text-[13px]"
+                        >
+                          <input
+                            type="checkbox"
+                            checked={
+                              selectedFilters[filter.label]?.includes(item) ??
+                              false
+                            }
+                            onChange={() => toggleFilter(filter.label, item)}
+                            className="accent-our-blue size-3.5"
+                          />
+                          {item}
+                        </label>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+            {/* <SheetFooter>
+              <Button type="submit">Save changes</Button>
+              <SheetClose render={<Button variant="outline">Close</Button>} />
+            </SheetFooter> */}
+          </SheetContent>
+        </Sheet>
+
         <div className="grid gap-4 sm:grid-cols-2 md:gap-2 lg:gap-5 xl:grid-cols-3">
           {filteredProducts.slice(0, visibleProductCount).map((product) => (
             <div key={product.name}>
@@ -135,6 +225,7 @@ export default function ProductListSection() {
             </div>
           ))}
         </div>
+
         {visibleProductCount < filteredProducts.length && (
           <div className="mt-12 flex w-full justify-center lg:mt-20">
             <Button
