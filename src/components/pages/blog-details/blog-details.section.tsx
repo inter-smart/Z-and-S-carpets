@@ -92,7 +92,12 @@ function Section({
         <ul className="mt-4 space-y-3">
           {list.map((item) => (
             <li key={item} className="flex gap-3 text-sm leading-normal">
-              <CircleCheckIcon className="text-our-purple stroke-1" size={16} />
+              <div>
+                <CircleCheckIcon
+                  className="text-our-purple stroke-1"
+                  size={16}
+                />
+              </div>
               {item}
             </li>
           ))}

@@ -855,10 +855,6 @@
         {
           "text": "Contact us",
           "link": "/contact"
-        },
-        {
-          "text": "Get a sample",
-          "link": ""
         }
       ]
     ],
@@ -1941,6 +1937,30 @@
     "RelatedBlogsSection": {
       "title": "Related Blogs"
     }
+  },
+  "QuotesPage": {
+    "title": "Your Quote Request",
+    "description": "Review your selected products and submit your enquiry.",
+    "products": [
+      {
+        "name": "Landscaping Grass",
+        "image": "/images/floor-img-35.webp",
+        "color": "Grey",
+        "material": "Wood"
+      },
+      {
+        "name": "Acadia Tiles",
+        "image": "/images/floor-img-30.webp",
+        "color": "Grey",
+        "material": "Wood"
+      },
+      {
+        "name": "Carpet Tiles Pixel Block",
+        "image": "/images/floor-img-41.webp",
+        "color": "Grey",
+        "material": "Wood"
+      }
+    ]
   },
   "ProductsPage": {
     "BannerSection": {
