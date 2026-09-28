@@ -35,10 +35,7 @@ export default function FAQSection({
             const isOpen = openIndex === index
 
             return (
-              <div
-                key={faq.question}
-                className="border-border border-b last:border-none"
-              >
+              <div key={faq.question} className="border-border border-b">
                 <button
                   type="button"
                   className="text-foreground hover:text-primary focus-visible:ring-ring flex w-full items-start justify-between gap-6 py-6 text-base font-medium transition-colors focus-visible:ring-2 focus-visible:ring-offset-4 focus-visible:outline-none ltr:text-left rtl:text-right"

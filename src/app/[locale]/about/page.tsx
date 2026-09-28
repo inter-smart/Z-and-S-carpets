@@ -20,7 +20,6 @@ export default function AboutUsPage() {
       <InnerBannerSection pageName="AboutPage" />
       <BreadcrumbBar values={[{ name: 'About Us', link: '/about' }]} />
       <IntroSection />
-      {/* <FAQSection className="bg-[#EFF9FE]" /> */}
       <HistorySection />
       <ManagementSection />
       <ProcessSections />

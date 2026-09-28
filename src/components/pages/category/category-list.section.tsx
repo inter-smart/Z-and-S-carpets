@@ -13,7 +13,7 @@ export default function CategoryListSection() {
   const t = useTranslations('CategoryPage.CategoryListSection')
   const t2 = useTranslations('Products')
 
-  const categories = t2.raw('categories') as ProductCategoryType[]
+  const categories = t2.raw('Categories') as ProductCategoryType[]
   const filterValues = t.raw('filterValues') as string[]
 
   const [selectedFilter, setSelectedFilter] = useState<null | string>(null)
