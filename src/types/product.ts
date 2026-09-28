@@ -12,4 +12,9 @@ export interface ProductItemType {
   description: string
   image: string
   badge?: string
+  category: string
+  material: string
+  color: string
+  usage: string
+  tags: string[]
 }

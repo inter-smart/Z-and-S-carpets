@@ -573,56 +573,106 @@
         "name": "Landscaping Grass",
         "description": "Crafted for modern interiors, Pixel Block Carpet Tiles bring structure, depth, and a contemporary modular look to any space",
         "image": "/images/floor-img-35.webp",
-        "badge": "BEST SELLER"
+        "badge": "BEST SELLER",
+        "category": "Vinyl Flooring",
+        "material": "Wood",
+        "color": "Red",
+        "usage": "Floor",
+        "tags": ["Vinyl", "Wooden", "Waterproof", "Anti-slip"]
       },
       {
         "name": "Wood Pattern Vinyl",
         "description": "Crafted for modern interiors, Pixel Block Carpet Tiles bring structure, depth, and a contemporary modular look to any space",
-        "image": "/images/floor-img-30.webp"
+        "image": "/images/floor-img-30.webp",
+        "category": "Artificial Grass",
+        "material": "Rubber",
+        "color": "Green",
+        "usage": "Gym",
+        "tags": ["Wooden", "Waterproof"]
       },
       {
         "name": "Coin Vinyl Flooring",
         "description": "Crafted for modern interiors, Pixel Block Carpet Tiles bring structure, depth, and a contemporary modular look to any space",
-        "image": "/images/floor-img-41.webp"
+        "image": "/images/floor-img-41.webp",
+        "category": "Deck Flooring",
+        "material": "Plastic",
+        "color": "Blue",
+        "usage": "Deck",
+        "tags": ["Wooden", "Anti-slip"]
       },
       {
         "name": "Linoleum Vinyl Flooring",
         "description": "Crafted for modern interiors, Pixel Block Carpet Tiles bring structure, depth, and a contemporary modular look to any space",
         "image": "/images/floor-img-46.webp",
-        "badge": "BEST SELLER"
+        "badge": "BEST SELLER",
+        "category": "Laminate Flooring",
+        "material": "Rubber",
+        "color": "Red",
+        "usage": "Floor",
+        "tags": ["Vinyl", "Wooden", "Waterproof"]
       },
       {
         "name": "Homogeneous Medical Vinyl Flooring",
         "description": "Crafted for modern interiors, Pixel Block Carpet Tiles bring structure, depth, and a contemporary modular look to any space",
-        "image": "/images/floor-img-27.webp"
+        "image": "/images/floor-img-27.webp",
+        "category": "Spc Flooring",
+        "material": "Cloth",
+        "color": "Blue",
+        "usage": "Gym",
+        "tags": ["Anti-slip"]
       },
       {
         "name": "Sigma Medical Vinyl Flooring",
         "description": "Crafted for modern interiors, Pixel Block Carpet Tiles bring structure, depth, and a contemporary modular look to any space",
         "image": "/images/floor-img-25.webp",
-        "badge": "BEST SELLER"
+        "badge": "BEST SELLER",
+        "category": "Laminate Flooring",
+        "material": "Wood",
+        "color": "Green",
+        "usage": "Floor",
+        "tags": ["Vinyl", "Wooden", "Anti-slip"]
       },
       {
         "name": "Heterogeneous Vinyl Flooring",
         "description": "Crafted for modern interiors, Pixel Block Carpet Tiles bring structure, depth, and a contemporary modular look to any space",
-        "image": "/images/floor-img-5.webp"
+        "image": "/images/floor-img-5.webp",
+        "category": "Artificial Grass",
+        "material": "Rubber",
+        "color": "Red",
+        "usage": "Gym",
+        "tags": ["Vinyl", "Wooden", "Waterproof", "Anti-slip"]
       },
       {
         "name": "Plain Color Vinyl Flooring",
         "description": "Crafted for modern interiors, Pixel Block Carpet Tiles bring structure, depth, and a contemporary modular look to any space",
         "image": "/images/floor-img-12.webp",
-        "badge": "BEST SELLER"
+        "badge": "BEST SELLER",
+        "category": "Vinyl Flooring",
+        "material": "Plastic",
+        "color": "Blue",
+        "usage": "Floor",
+        "tags": ["Vinyl"]
       },
       {
         "name": "Cresto Vinyl Flooring",
         "description": "Crafted for modern interiors, Pixel Block Carpet Tiles bring structure, depth, and a contemporary modular look to any space",
-        "image": "/images/floor-img-36.webp"
+        "image": "/images/floor-img-36.webp",
+        "category": "Deck Flooring",
+        "material": "Plastic",
+        "color": "Green",
+        "usage": "Deck",
+        "tags": ["Vinyl", "Wooden", "Anti-slip"]
       },
       {
         "name": "Vinyl Flooring Accessories",
         "description": "Crafted for modern interiors, Pixel Block Carpet Tiles bring structure, depth, and a contemporary modular look to any space",
         "image": "/images/floor-img-44.webp",
-        "badge": "BEST SELLER"
+        "badge": "BEST SELLER",
+        "category": "Vinyl Flooring",
+        "material": "Wood",
+        "color": "Red",
+        "usage": "Gym",
+        "tags": ["Wooden", "Waterproof", "Anti-slip"]
       }
     ]
   },
@@ -1900,20 +1950,40 @@
     },
     "ProductListSection": {
       "loadMore": "Load More",
-      "filters": ["Category", "Material", "Color", "Usage", "Tags"],
-      "categories": [
-        "Artificial Grass",
-        "Vinyl Flooring",
-        "Deck Flooring",
-        "Spc Flooring",
-        "Lvt Flooring",
-        "Laminate Flooring",
-        "Carpet Flooring",
-        "Wood Flooring",
-        "Gym & Sports Flooring",
-        "Rubber Flooring",
-        "Wall Cladding",
-        "PVC Flooring"
+      "filters": [
+        {
+          "label": "Category",
+          "items": [
+            "Artificial Grass",
+            "Vinyl Flooring",
+            "Deck Flooring",
+            "Spc Flooring",
+            "Lvt Flooring",
+            "Laminate Flooring",
+            "Carpet Flooring",
+            "Wood Flooring",
+            "Gym & Sports Flooring",
+            "Rubber Flooring",
+            "Wall Cladding",
+            "PVC Flooring"
+          ]
+        },
+        {
+          "label": "Material",
+          "items": ["Wood", "Rubber", "Plastic", "Cloth"]
+        },
+        {
+          "label": "Color",
+          "items": ["Red", "Blue", "Green", "Yellow"]
+        },
+        {
+          "label": "Usage",
+          "items": ["Deck", "Gym", "Floor", "Grass"]
+        },
+        {
+          "label": "Tags",
+          "items": ["Vinyl", "Wooden", "Waterproof", "Anti-slip", "Artificial"]
+        }
       ]
     }
   }
