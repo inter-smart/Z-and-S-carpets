@@ -15,6 +15,7 @@ import {
   CloudUploadIcon,
   DesigningIcon,
   EmptyBoxIcon,
+  EmptySearchIcon,
   FacebookIcon,
   FileOpenIcon,
   FilePenIcon,
@@ -86,6 +87,7 @@ const icons = {
   vision: VisionIcon,
   'file-open': FileOpenIcon,
   'empty-box-icon': EmptyBoxIcon,
+  'empty-search-icon': EmptySearchIcon,
 } as const
 
 export type OurIconName = keyof typeof icons
