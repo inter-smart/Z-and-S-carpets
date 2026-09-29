@@ -18,3 +18,27 @@ export interface ProductItemType {
   usage: string
   tags: string[]
 }
+
+export interface ProductColorType {
+  label: string
+  image: string
+}
+
+export interface DetailedDescriptionType {
+  desc: string
+  bullets: string[]
+}
+
+export interface ProductDetailsType {
+  name: string
+  category: string
+  description: string
+  image: string
+  tags: string[]
+  specifications: string[]
+  sizes: string[]
+  colors: ProductColorType[]
+  detailedDesc: DetailedDescriptionType
+  detailPhotos: string[]
+  videos: string[]
+}
