@@ -8,6 +8,7 @@ import useEmblaCarousel from 'embla-carousel-react'
 import { ListFilter } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useCallback, useEffect, useState } from 'react'
 
 export default function BestSellersSection() {
@@ -86,7 +87,9 @@ export default function BestSellersSection() {
 
             <Button
               variant="outline"
-              className="rounded-sm border-white/50 bg-transparent px-5 py-4.5 text-white hover:bg-white hover:text-[#073b68]"
+              className="rounded-sm border-white/50 bg-transparent px-5 py-4.5 text-white hover:bg-transparent hover:text-white"
+              nativeButton={false}
+              render={<Link href={`/${locale}/products`} />}
             >
               {t('viewAllLabel')}
             </Button>

@@ -15,7 +15,7 @@ import { ChevronDownIcon, ChevronUpIcon, ListFilterIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 import ProductsEmptySection from './products-empty.section'
-import RelatedCategorySection from './related-category.section'
+import RelatedProductsSection from './related-products.section'
 
 const visibleProductDefalutCount = 6
 
@@ -253,7 +253,7 @@ export default function ProductListSection() {
         {filteredProducts.length ? (
           <FAQSection className="bg-[#EFF9FE]" />
         ) : (
-          <RelatedCategorySection />
+          <RelatedProductsSection />
         )}
       </div>
     </>

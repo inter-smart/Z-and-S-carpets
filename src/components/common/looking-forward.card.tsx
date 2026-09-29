@@ -1,8 +1,13 @@
 import { VectorPart1 } from '@/assets/images'
-import { useTranslations } from 'next-intl'
+import { Button } from '@/components/ui/button'
+import type { LocaleType } from '@/i18n/types'
+import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function LookingForwardCard() {
+  const locale = useLocale() as LocaleType
+
   const t = useTranslations('HomePage.LookingForwardCard')
 
   return (
@@ -13,12 +18,14 @@ export default function LookingForwardCard() {
           <span className="font-thin">{t('title.second')}</span>
         </h3>
         <p className="text-sm lg:text-base">{t('description')}</p>
-        <button
+        <Button
           type="button"
-          className="bg-our-blue pointer-events-auto mt-5 block w-fit rounded-sm px-8 py-2.5 text-sm"
+          className="bg-our-blue our-btn hover:bg-our-blue pointer-events-auto mt-5 w-fit px-9!"
+          nativeButton={false}
+          render={<Link href={`/${locale}/contact`} />}
         >
           {t('btnLabel')}
-        </button>
+        </Button>
         <Image
           src={VectorPart1}
           alt="vector part"

@@ -53,6 +53,7 @@ export default function ProcessSections() {
               loop
               onPlay={() => setIsPlaying(true)}
               onPause={() => setIsPlaying(false)}
+              poster="/images/video-poster-3.webp"
             >
               <source src="/videos/floor-video-3.mp4" type="video/mp4" />
             </video>

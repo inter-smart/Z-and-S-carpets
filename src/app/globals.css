@@ -47,6 +47,13 @@
   }
 }
 
+@theme {
+  --text-xs: 11px;
+  --text-sm: 13px;
+  --text-base: 15px;
+  --text-lg: 17px;
+}
+
 @theme inline {
   --color-our-purple: var(--our-purple);
   --color-our-blue: var(--our-blue);
@@ -210,7 +217,7 @@
   @apply pt-16 pb-16 lg:pt-22 lg:pb-22;
 }
 @utility our-btn {
-  @apply rounded-sm! px-12! py-4.5!;
+  @apply rounded-sm! px-12! py-4.5! text-sm! font-normal!;
 }
 
 /* Built for section */

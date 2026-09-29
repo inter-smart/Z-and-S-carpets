@@ -10,7 +10,11 @@ import useEmblaCarousel from 'embla-carousel-react'
 import { useLocale, useTranslations } from 'next-intl'
 import { useCallback, useEffect, useState } from 'react'
 
-export default function RelatedCategorySection() {
+export default function RelatedProductsSection({
+  className,
+}: {
+  className?: string
+}) {
   const locale = useLocale() as LocaleType
 
   const t2 = useTranslations('Products')
@@ -63,14 +67,14 @@ export default function RelatedCategorySection() {
   }, [emblaApi])
 
   return (
-    <section className="py-12 lg:py-20">
-      <div className="container-wrapper">
+    <section className={className}>
+      <div className="container-wrapper py-12 lg:py-20">
         {/* header */}
         <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between md:gap-6 xl:items-center">
-          <h2 className="our-heading">Related categories</h2>
+          <h2 className="our-heading">Related Products</h2>
         </div>
         <div className="relative mt-10">
-          <div className="overflow-hidden" ref={emblaRef}>
+          <div className="overflow-hidden py-1" ref={emblaRef}>
             <div className="-ms-4 flex">
               {workItems.map((product, index) => {
                 return (
@@ -78,7 +82,6 @@ export default function RelatedCategorySection() {
                     key={index}
                     className="min-w-0 shrink-0 grow-0 basis-full ps-4 sm:basis-1/2 lg:basis-1/3 2xl:basis-1/4"
                   >
-                    {/* <WorkItemCard project={product} hasViewProductsBtn /> */}
                     <ProductItemCard product={product} />
                   </div>
                 )

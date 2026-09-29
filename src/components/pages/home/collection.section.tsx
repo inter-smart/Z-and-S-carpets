@@ -8,6 +8,7 @@ import Autoplay from 'embla-carousel-autoplay'
 import useEmblaCarousel from 'embla-carousel-react'
 import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useCallback, useEffect, useState } from 'react'
 
 export default function CollectionSection() {
@@ -76,6 +77,8 @@ export default function CollectionSection() {
         <Button
           variant="outline"
           className="inline-flex w-fit rounded-sm border-[#0066B3] px-5 py-4.5 text-xs font-semibold"
+          nativeButton={false}
+          render={<Link href={`/${locale}/products`} />}
         >
           {t('buttonLabel')}
         </Button>
@@ -104,7 +107,16 @@ export default function CollectionSection() {
                     <h3 className="ltr:font-nobile rtl:font-cairo sm:text:xl text-lg font-medium">
                       {item.title}
                     </h3>
-                    <span className="flex cursor-pointer items-center justify-between text-sm font-medium">
+                    <Button
+                      variant={'ghost'}
+                      className={
+                        'flex items-center justify-between p-0 text-sm! font-medium hover:bg-transparent hover:text-white'
+                      }
+                      nativeButton={false}
+                      render={
+                        <Link href={`${locale}/products/${item.title}`} />
+                      }
+                    >
                       <span className="me-2 hidden sm:block">
                         {t('itemButtonLabel')}
                       </span>
@@ -115,7 +127,7 @@ export default function CollectionSection() {
                       />
                       {/* RTL */}
                       <OurIcon name="arrow-left" className="hidden rtl:block" />
-                    </span>
+                    </Button>
                   </div>
                 </article>
               </div>

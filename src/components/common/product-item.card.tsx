@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button'
 import type { ProductItemType } from '@/types/product'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function ProductItemCard({
   product,
@@ -8,7 +9,7 @@ export default function ProductItemCard({
   product: ProductItemType
 }) {
   return (
-    <article className="bg-white">
+    <article>
       <div className="relative h-45 overflow-hidden rounded-t-sm min-[450px]:h-70 sm:h-45 md:max-lg:h-35">
         <Image
           src={product.image}
@@ -35,6 +36,8 @@ export default function ProductItemCard({
             type="button"
             variant={'outline'}
             className="flex-1 rounded border border-black py-3 text-[9px] font-semibold hover:bg-white"
+            nativeButton={false}
+            render={<Link href={`/products/${product.name}`} />}
           >
             View Details
           </Button>

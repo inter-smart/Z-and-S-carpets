@@ -12,6 +12,7 @@ interface CategoryType {
   id: string
   label: string
   video: string
+  videoPoster: string
   cards: {
     itemValue: string
     itemText: string
@@ -104,6 +105,7 @@ export default function BannerSection() {
         autoPlay
         muted
         loop
+        poster={currentCategory.videoPoster}
       >
         <source src={currentCategory.video} type="video/mp4" />
       </video>
@@ -117,7 +119,7 @@ export default function BannerSection() {
               <div key={item.id} className="flex items-center">
                 <p
                   className={cn(
-                    'cursor-default text-[1rem] font-light whitespace-nowrap underline decoration-0 underline-offset-4',
+                    'cursor-default text-[1rem] font-light whitespace-nowrap underline decoration-1 underline-offset-4',
                     currentCategory.id === item.id && 'text-[#037EDA]',
                   )}
                   onClick={() => handleCategoryChange(item)}

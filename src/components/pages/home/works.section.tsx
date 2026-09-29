@@ -233,7 +233,7 @@ export default function WorksSection() {
         <div className="flex justify-center">
           <Button
             type="button"
-            render={<Link href={'/works'} />}
+            render={<Link href={`/${locale}/works`} />}
             nativeButton={false}
             className="our-btn bg-our-blue hover:bg-our-blue mt-10 px-5! text-white lg:mt-12"
           >
