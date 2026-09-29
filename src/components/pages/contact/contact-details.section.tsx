@@ -24,7 +24,7 @@ export default function ContactDetailsSection() {
         {t('title')}
       </h2>
       <p className="our-text">{t('description')}</p>
-      <div className="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+      <div className="mt-9 grid gap-3 sm:grid-cols-2 sm:gap-5 lg:grid-cols-1 lg:gap-3 xl:grid-cols-2 xl:gap-5">
         {items.map((item, index) => (
           <article
             key={index}

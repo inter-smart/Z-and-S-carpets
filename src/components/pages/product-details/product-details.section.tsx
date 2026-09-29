@@ -116,7 +116,7 @@ export default function ProductDetailsSection({
                 variant="ghost"
                 disabled={!isTagRowScrollable}
                 onClick={() => scrollTagRow('left')}
-                className="text-our-purple hover:text-our-purple flex cursor-pointer p-0! hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0! rtl:max-lg:hidden"
+                className="text-our-purple hover:text-our-purple flex h-full cursor-pointer p-0! hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0! rtl:max-lg:hidden"
               >
                 <ChevronLeftIcon />
               </Button>
@@ -128,7 +128,7 @@ export default function ProductDetailsSection({
                 variant="ghost"
                 disabled={!isTagRowScrollable}
                 onClick={() => scrollTagRow('right')}
-                className="text-our-purple hover:text-our-purple flex cursor-pointer p-0! hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0! rtl:max-lg:hidden"
+                className="text-our-purple hover:text-our-purple flex h-full cursor-pointer p-0! hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0! rtl:max-lg:hidden"
               >
                 <ChevronRightIcon />
               </Button>
