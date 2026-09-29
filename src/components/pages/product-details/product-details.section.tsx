@@ -187,7 +187,7 @@ export default function ProductDetailsSection({
               >
                 <button
                   type="button"
-                  className="relative size-15 overflow-hidden rounded-full"
+                  className="relative size-13 overflow-hidden rounded-full 2xl:size-14.5"
                 >
                   <span className="sr-only">{color.label}</span>
                   <Image src={color.image} alt={color.label} fill />
@@ -235,7 +235,10 @@ export default function ProductDetailsSection({
               onChange={(event) =>
                 setQuantity(Math.max(1, Number(event.target.value)))
               }
-              className="h-full min-w-0 flex-1 border-0 bg-transparent pe-1 text-end text-sm font-medium outline-none"
+              className={cn(
+                'h-full min-w-0 flex-1 border-0 bg-transparent text-center text-sm font-medium outline-none',
+                '[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none',
+              )}
             />
 
             <div className="me-1 flex w-5 flex-col overflow-hidden rounded bg-gray-100">
