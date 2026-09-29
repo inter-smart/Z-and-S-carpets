@@ -1,7 +1,9 @@
 import { Button } from '@/components/ui/button'
 import { OurIcon } from '@/components/ui/icon'
+import type { LocaleType } from '@/i18n/types'
 import type { WorkItemType } from '@/types/work'
 import { cn } from 'cn'
+import { useLocale } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -12,6 +14,8 @@ export default function WorkItemCard({
   project: WorkItemType
   hasViewProductsBtn?: boolean
 }) {
+  const locale = useLocale() as LocaleType
+
   return (
     <article className="group relative h-full overflow-hidden rounded-md">
       <Image
@@ -33,7 +37,7 @@ export default function WorkItemCard({
               variant="ghost"
               nativeButton={false}
               render={<Link href={`/projects`} />}
-              className="p-0! text-sm font-normal whitespace-nowrap underline decoration-0 underline-offset-8 hover:bg-transparent hover:text-white focus-visible:border-transparent! focus-visible:ring-0!"
+              className="p-0! text-sm font-normal whitespace-nowrap underline decoration-1 underline-offset-8 hover:bg-transparent hover:text-white focus-visible:border-transparent! focus-visible:ring-0!"
             >
               <span>View Products</span>
             </Button>
@@ -44,8 +48,8 @@ export default function WorkItemCard({
           <Button
             variant="ghost"
             nativeButton={false}
-            render={<Link href={`/works/${project.id}`} />}
-            className="space-x-1 p-0! text-sm font-normal whitespace-nowrap underline decoration-0 underline-offset-8 hover:bg-transparent hover:text-white focus-visible:border-transparent! focus-visible:ring-0!"
+            render={<Link href={`/${locale}/works/${project.id}`} />}
+            className="space-x-1 p-0! text-sm font-normal whitespace-nowrap underline decoration-1 underline-offset-8 hover:bg-transparent hover:text-white focus-visible:border-transparent! focus-visible:ring-0!"
           >
             <span>{project.btnLabel}</span>
             <OurIcon
