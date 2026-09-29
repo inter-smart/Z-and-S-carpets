@@ -194,7 +194,7 @@ export default function NavbarCategoryDropdown() {
               <NavigationMenuTrigger className="navigation-menu-trigger-style-change p-0 text-sm font-normal">
                 {item.title}
               </NavigationMenuTrigger>
-              <NavigationMenuContent className="rounded-md bg-white">
+              <NavigationMenuContent>
                 <DropdownContent category={item} />
               </NavigationMenuContent>
             </NavigationMenuItem>
