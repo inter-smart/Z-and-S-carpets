@@ -1,15 +1,14 @@
 'use client'
 
 import { SiteLogo } from '@/assets/logos'
+import GetASampleDialog from '@/components/pages/common/get-a-sample.dialog'
 import { Button } from '@/components/ui/button'
 import { OurIcon } from '@/components/ui/icon'
 import type { LocaleType } from '@/i18n/types'
-import { cn } from 'cn'
 import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
-import GetASampleDialog from '../common/get-a-sample.dialog'
-import NavbarLangDropdown from './navbar-lang.dropdown'
+import NavbarCategoryDropdown from './navbar-category.dropdown'
 
 interface NavbarNavLinksType {
   text: string
@@ -21,7 +20,7 @@ export default function Navbar() {
   const t = useTranslations('Navbar')
 
   const navLinks = t.raw('navLinks') as NavbarNavLinksType[][]
-  const category = t.raw('category') as { title: string }[]
+  // const category = t.raw('category') as { title: string }[]
 
   return (
     <header className="fixed top-0 z-50 w-full text-sm shadow-md">
@@ -90,9 +89,9 @@ export default function Navbar() {
       </nav>
 
       {/* category menu */}
-      <div className="bg-[#0066B3] py-2.25 text-white">
+      {/*<div className="bg-[#0066B3] py-2.25 text-white">
         <div className="container-wrapper flex w-full items-center justify-between">
-          {/* categories */}
+          /~ categories ~/
           <div
             className={cn(
               'contents overflow-hidden',
@@ -104,7 +103,7 @@ export default function Navbar() {
               'max-xl:[&>*:nth-last-child(-n+2)]:hidden',
             )}
           >
-            {/* categories */}
+            /~ categories ~/
             {category.map((item, i) => (
               <p
                 key={i}
@@ -115,19 +114,24 @@ export default function Navbar() {
               </p>
             ))}
           </div>
-          {/* more category btn */}
+          /~ more category btn ~/
           <p className="flex cursor-pointer flex-row items-center space-x-0.5 sm:space-x-1.5">
             <span className="first-letter:uppercase">
               {t('categoryMoreBtnLabel')}
             </span>
             <OurIcon name="chevron-down" className="size-2.5" />
           </p>
-          {/* language change dropdown */}
+          /~ language change dropdown ~/
           <NavbarLangDropdown />
-          {/* search */}
+          /~ search ~/
           <p className="cursor-pointer space-x-0.5 sm:space-x-1.5">
             <OurIcon name="search" className="size-4" />
           </p>
+        </div>
+      </div>*/}
+      <div className="bg-our-blue">
+        <div className="container-wrapper text-white">
+          <NavbarCategoryDropdown />
         </div>
       </div>
     </header>

@@ -220,6 +220,12 @@
   @apply rounded-sm! px-12! py-4.5! text-sm! font-normal!;
 }
 
+@layer utilities {
+  .navigation-menu-trigger-style-change {
+    @apply hover:bg-transparent! focus:bg-transparent! focus-visible:border-transparent! focus-visible:ring-0! data-popup-open:bg-transparent!;
+  }
+}
+
 /* Built for section */
 :root {
   --main-image-height: 160px;

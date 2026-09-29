@@ -82,7 +82,7 @@ export default function CategoryListSection() {
               <Button
                 type="button"
                 nativeButton={false}
-                render={<Link href={`/products?category=${item.id}`} />}
+                render={<Link href={`/products`} />}
                 className="hover:bg-our-purple border-our-purple our-btn w-fit border bg-transparent text-black transition-colors hover:text-white"
               >
                 {t('button')}
