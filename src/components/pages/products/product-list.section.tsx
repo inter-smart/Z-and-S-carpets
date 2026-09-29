@@ -143,6 +143,7 @@ export default function ProductListSection() {
           </aside>
         </div>
 
+        {/* FILTER SIDEBAR */}
         <div className="relative flex-1 pt-4 pb-20 md:ps-4">
           <Sheet>
             <SheetTrigger
@@ -158,7 +159,7 @@ export default function ProductListSection() {
             />
             <SheetContent
               side="left"
-              className="inset-y-4! top-4! bottom-4! h-auto! w-[94%]! max-w-80! overflow-x-scroll rounded-e-sm bg-[#EFF9FE] pt-5 rtl:right-0! rtl:left-auto!"
+              className="inset-y-4! top-4! bottom-4! h-auto! w-[94%]! max-w-80! scrollbar-none overflow-y-scroll rounded-e-md bg-[#EFF9FE] pt-5 rtl:right-0! rtl:left-auto!"
             >
               <SheetHeader>
                 <SheetTitle>
@@ -216,10 +217,6 @@ export default function ProductListSection() {
                   </div>
                 ))}
               </div>
-              {/* <SheetFooter>
-              <Button type="submit">Save changes</Button>
-              <SheetClose render={<Button variant="outline">Close</Button>} />
-            </SheetFooter> */}
             </SheetContent>
           </Sheet>
 

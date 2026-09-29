@@ -6,8 +6,9 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { OurIcon } from '@/components/ui/icon'
 import type { LocaleType } from '@/i18n/types'
+import { cn } from 'cn'
+import { ChevronDownIcon } from 'lucide-react'
 import { useLocale } from 'next-intl'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -27,17 +28,32 @@ export default function NavbarLangDropdown() {
 
   return (
     <DropdownMenu open={open} onOpenChange={setOpen}>
-      <DropdownMenuTrigger>
+      <DropdownMenuTrigger className="py-2.25 focus:ring-0 focus:outline-none">
         <p className="flex cursor-pointer flex-row items-center space-x-0.5 sm:space-x-1.5">
           <span className="first-letter:uppercase">{locale}</span>
-          <OurIcon name="chevron-down" className="size-2.5" />
+          <ChevronDownIcon
+            size={12}
+            className={cn(
+              'transition-transform duration-300',
+              open ? 'rotate-180' : 'rotate-0',
+            )}
+          />
         </p>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="min-w-20! rounded-sm! **:rounded-sm!">
-        <Link href={`/en${exactPathname}`}>
+      <DropdownMenuContent
+        sideOffset={7.5}
+        className="min-w-20! rounded-md! **:rounded-md!"
+      >
+        <Link
+          href={`/en${exactPathname}`}
+          className="focus:ring-0 focus:outline-none"
+        >
           <DropdownMenuItem>English</DropdownMenuItem>
         </Link>
-        <Link href={`/ar${exactPathname}`}>
+        <Link
+          href={`/ar${exactPathname}`}
+          className="focus:ring-0 focus:outline-none"
+        >
           <DropdownMenuItem>العربية</DropdownMenuItem>
         </Link>
       </DropdownMenuContent>

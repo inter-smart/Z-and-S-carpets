@@ -4,6 +4,7 @@ import '@/app/globals.css'
 import BottomSideBtns from '@/components/common/bottom-side-btns'
 import Footer from '@/components/pages/footer/footer.section'
 import Navbar from '@/components/pages/navbar/navbar.section'
+import { GetASampleProvider } from '@/context/get-a-sample.context'
 import { cn } from '@/lib/utils'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
@@ -70,10 +71,12 @@ export default async function RootLayout({
     >
       <body className="flex min-h-full flex-col">
         <NextIntlClientProvider messages={messages}>
-          <Navbar />
-          <main className="mt-34">{children}</main>
-          <Footer />
-          <BottomSideBtns />
+          <GetASampleProvider>
+            <Navbar />
+            <main className="mt-34">{children}</main>
+            <Footer />
+            <BottomSideBtns />
+          </GetASampleProvider>
         </NextIntlClientProvider>
         {/* dev helper */}
         {/* <div className="fixed top-0 left-0 z-99 flex flex-row space-x-2">
