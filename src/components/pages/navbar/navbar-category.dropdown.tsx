@@ -87,7 +87,7 @@ function DropdownContent({ category }: { category: { title: string } }) {
 
         <Link
           href={`/${locale}/category`}
-          className="group text-our-purple flex items-center gap-3 text-xs font-medium"
+          className="group text-our-purple flex items-center gap-2 text-sm font-medium"
         >
           <span>View All</span>
           <OurIcon
@@ -106,7 +106,7 @@ function DropdownContent({ category }: { category: { title: string } }) {
               <Link
                 key={product.name}
                 href={product.href}
-                className="group hover:border-our-blue hover:text-our-blue flex items-center justify-between border-b border-black/15 py-2 text-sm font-light text-black transition-colors hover:border-b-2"
+                className="group hover:border-our-blue hover:text-our-blue flex items-center justify-between border-b-2 border-black/15 py-2 text-sm font-light text-black transition-colors"
               >
                 <span className="pe-2">{product.name}</span>
                 <ChevronRight

@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button'
-import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
+import { Dialog, DialogContent } from '@/components/ui/dialog'
 import {
   Select,
   SelectContent,
@@ -8,8 +8,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
+import { useGetASample } from '@/context/get-a-sample.context'
 import { cn } from 'cn'
-import { useState, type SubmitEvent } from 'react'
+import { type SubmitEvent } from 'react'
 
 const categories = [
   { label: 'Product Category', value: null },
@@ -33,31 +34,17 @@ const products = [
 const formField = ['Name', 'Phone Number', 'Email', 'Company Name']
 
 export default function GetASampleDialog() {
-  const [openGetASampleFormDialog, setOpenGetASampleFormDialog] =
-    useState(false)
+  const { open, setOpen } = useGetASample()
 
   const handleForm = (event: SubmitEvent<HTMLFormElement>) => {
     event.preventDefault()
 
     console.log('Form submitted.')
-    setOpenGetASampleFormDialog(false)
+    setOpen(false)
   }
 
   return (
-    <Dialog
-      open={openGetASampleFormDialog}
-      onOpenChange={setOpenGetASampleFormDialog}
-    >
-      <DialogTrigger
-        render={
-          <button
-            onClick={() => setOpenGetASampleFormDialog(true)}
-            className="cursor-pointer font-medium focus:ring-0 focus:outline-none"
-          >
-            Get a sample
-          </button>
-        }
-      />
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent className="flex min-h-100 flex-row items-center justify-center rounded-sm bg-[#023260] p-5 text-white sm:min-w-120 md:p-10 lg:p-12">
         <form
           className="flex w-full flex-col items-start"
@@ -141,7 +128,7 @@ export default function GetASampleDialog() {
             </Select>
           </div>
           <Button
-            className="bg-our-purple our-btn hover:bg-our-purple ms-auto mt-10 w-fit rounded-sm border p-2 px-10 text-white"
+            className="bg-our-purple our-btn hover:bg-our-purple me-auto mt-10 w-fit rounded-sm border p-2 px-10 text-white"
             type="submit"
           >
             <span className="font-medium">Submit</span>
