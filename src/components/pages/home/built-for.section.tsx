@@ -212,7 +212,7 @@ export default function BuiltForSection() {
                   <div
                     className={cn(
                       'flex h-16 overflow-x-auto',
-                      'scroll-smooth rounded [&::-webkit-scrollbar]:hidden',
+                      'scrollbar-none scroll-smooth rounded',
                       // 'lg:block lg:w-20 lg:flex-col lg:overflow-x-hidden lg:overflow-y-auto 2xl:w-30',
                       'gap-2 lg:w-20 lg:flex-col lg:gap-3 lg:overflow-x-hidden lg:overflow-y-auto 2xl:w-30',
                       'lg:h-(--image-stack-height)',

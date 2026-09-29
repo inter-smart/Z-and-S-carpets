@@ -1055,6 +1055,7 @@
           "id": "residential",
           "label": "Residential",
           "video": "/videos/floor-video-2.mp4",
+          "videoPoster": "/images/video-poster-2.webp",
           "cards": [
             {
               "itemValue": "40k+",
@@ -1077,6 +1078,7 @@
           "id": "commercial",
           "label": "Commercial",
           "video": "/videos/floor-video-1.mp4",
+          "videoPoster": "/images/video-poster-1.webp",
           "cards": [
             {
               "itemValue": "15k+",
@@ -1109,6 +1111,7 @@
           "id": "hospitality",
           "label": "Hospitality",
           "video": "/videos/floor-video-3.mp4",
+          "videoPoster": "/images/video-poster-3.webp",
           "cards": [
             {
               "itemValue": "30",
@@ -1125,7 +1128,8 @@
         {
           "id": "outdoor",
           "label": "Outdoor",
-          "video": "/videos/floor-video-1.mp4",
+          "video": "/videos/floor-video-6.mp4",
+          "videoPoster": "/images/video-poster-6.webp",
           "cards": [
             {
               "itemValue": "Card 1",

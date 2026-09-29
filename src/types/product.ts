@@ -23,7 +23,6 @@ export interface ProductColorType {
   label: string
   image: string
 }
-
 export interface DetailedDescriptionType {
   desc: string
   bullets: string[]
@@ -33,7 +32,12 @@ export interface DetailedPhotosType {
   description: string
   image: string
 }
-
+export interface DetailedVideosType {
+  title: string
+  description: string
+  src: string
+  poster: string
+}
 export interface ProductDetailsType {
   name: string
   category: string
@@ -45,5 +49,5 @@ export interface ProductDetailsType {
   colors: ProductColorType[]
   detailedDesc: DetailedDescriptionType
   detailPhotos: DetailedPhotosType[]
-  videos: string[]
+  detailVideos: DetailedVideosType[]
 }

@@ -17,28 +17,6 @@ const tabs = [
   'Videos',
 ]
 
-function MediaGrid({ items, title }: { items: string; title: string }) {
-  return (
-    <article
-      // className={`group overflow-hidden rounded-sm ${items.length === 5 && index > 2 ? 'lg:col-span-2' : ''}`}
-      className={`group overflow-hidden rounded-sm`}
-    >
-      <div className="relative h-55 w-full">
-        <Image
-          src={items}
-          alt={`${title}`}
-          fill
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
-        />
-      </div>
-      <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/70 to-transparent px-5 pt-12 pb-4 text-white">
-        <p className="text-[22px] font-medium">Experience realistic</p>
-        <p className="text-[14px]">Wood aesthetics with durable vinyl</p>
-      </div>
-    </article>
-  )
-}
-
 export default function ProductDetailsTabSection({
   product,
 }: {
@@ -49,7 +27,7 @@ export default function ProductDetailsTabSection({
   return (
     <section className="container-wrapper mt-12 pb-15">
       {/* tabs */}
-      <div className="flex justify-between gap-10 overflow-x-auto scroll-smooth border-y border-[#eee] [&::-webkit-scrollbar]:hidden">
+      <div className="flex scrollbar-none justify-between gap-5 overflow-x-auto scroll-smooth border-y border-black/10">
         {tabs.map((tab, i) => (
           <button
             type="button"
@@ -96,7 +74,7 @@ export default function ProductDetailsTabSection({
               <div
                 key={i}
                 className={cn(
-                  'relative col-span-full h-60 w-full overflow-hidden xl:h-70 2xl:h-80',
+                  'relative h-60 overflow-hidden xl:h-70 2xl:h-80',
                   i === 2 ? 'sm:col-span-2' : 'sm:col-span-1',
                   i < 3 ? 'lg:col-span-2' : 'lg:col-span-3',
                 )}
@@ -124,10 +102,27 @@ export default function ProductDetailsTabSection({
           <h3 className="ltr:font-manrope rtl:font-cairo text-[15px] font-semibold">
             Videos
           </h3>
-          <div className="mt-4 grid gap-3 sm:grid-cols-2">
-            {product.videos.map((src, index) => (
-              <div key={index}>
-                <MediaGrid items={src} title="Videos" />
+          <div className="mt-4 grid gap-3 lg:grid-cols-2 xl:gap-4">
+            {product.detailVideos.map((video, index) => (
+              <div
+                key={index}
+                className="relative h-60 sm:h-80 lg:h-70 2xl:h-80"
+              >
+                <div className="absolute top-0 z-10 h-full w-full bg-black/20" />
+                <video
+                  className="h-full w-full object-cover"
+                  playsInline
+                  autoPlay
+                  muted
+                  loop
+                  poster={video.poster}
+                >
+                  <source src={video.src} type="video/mp4" />
+                </video>
+                <div className="absolute bottom-0 z-20 w-full px-5 pb-3 text-white">
+                  <h3 className="text-2xl">{video.title}</h3>
+                  <p className="text-lg">{video.description}</p>
+                </div>
               </div>
             ))}
           </div>

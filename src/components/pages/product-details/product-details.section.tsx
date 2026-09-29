@@ -4,7 +4,13 @@ import { Button } from '@/components/ui/button'
 import { OurIcon } from '@/components/ui/icon'
 import type { ProductDetailsType } from '@/types/product'
 import { cn } from 'cn'
-import { ChevronLeftIcon, ChevronRightIcon, ExpandIcon } from 'lucide-react'
+import {
+  ChevronDownIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  ChevronUpIcon,
+  ExpandIcon,
+} from 'lucide-react'
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 
@@ -90,7 +96,7 @@ export default function ProductDetailsSection({
           <div className="border-our-purple/60 border-y xl:w-130 2xl:w-160">
             <div
               ref={tagRowRef}
-              className="mx-6 flex gap-3 overflow-x-auto scroll-smooth py-2 [&::-webkit-scrollbar]:hidden"
+              className="mx-6 flex scrollbar-none gap-3 overflow-x-auto scroll-smooth py-2"
             >
               {product.tags.map((tag, i) => (
                 <p key={i} className="z-30 shrink-0 text-xs">
@@ -172,7 +178,7 @@ export default function ProductDetailsSection({
         <div className="relative mt-2 xl:w-130 2xl:w-160">
           <div
             ref={colorRowRef}
-            className="mx-10 flex gap-3 overflow-x-auto scroll-smooth md:gap-6 [&::-webkit-scrollbar]:hidden"
+            className="mx-10 flex scrollbar-none gap-3 overflow-x-auto scroll-smooth md:gap-6"
           >
             {product.colors.map((color, index) => (
               <div
@@ -220,16 +226,38 @@ export default function ProductDetailsSection({
 
         {/* buttons */}
         <div className="mt-4 flex flex-wrap gap-2 border-t border-[#D2D2D2]/80 pt-6">
-          <input
-            aria-label="Quantity"
-            type="number"
-            min="1"
-            value={quantity}
-            onChange={(event) =>
-              setQuantity(Math.max(1, Number(event.target.value)))
-            }
-            className="border-our-blue h-10 w-18 rounded-sm border px-2 py-2.5 text-center text-sm font-medium"
-          />
+          <div className="border-our-blue flex h-10 w-18 items-center rounded-sm border">
+            <input
+              aria-label="Quantity"
+              type="number"
+              min={1}
+              value={quantity}
+              onChange={(event) =>
+                setQuantity(Math.max(1, Number(event.target.value)))
+              }
+              className="h-full min-w-0 flex-1 border-0 bg-transparent pe-1 text-end text-sm font-medium outline-none"
+            />
+
+            <div className="me-1 flex w-5 flex-col overflow-hidden rounded bg-gray-100">
+              <button
+                type="button"
+                onClick={() => setQuantity((q) => q + 1)}
+                className="flex flex-1 items-center justify-center hover:bg-gray-200"
+                aria-label="Increase quantity"
+              >
+                <ChevronUpIcon className="size-4" />
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setQuantity((q) => Math.max(1, q - 1))}
+                className="flex flex-1 items-center justify-center hover:bg-gray-200"
+                aria-label="Decrease quantity"
+              >
+                <ChevronDownIcon className="size-4" />
+              </button>
+            </div>
+          </div>
           <button
             type="button"
             className="rounded-sm bg-[#8b279c] px-4 py-2.5 text-sm font-medium text-white"

@@ -12,6 +12,7 @@ interface CategoryType {
   id: string
   label: string
   video: string
+  videoPoster: string
   cards: {
     itemValue: string
     itemText: string
@@ -104,6 +105,7 @@ export default function BannerSection() {
         autoPlay
         muted
         loop
+        poster={currentCategory.videoPoster}
       >
         <source src={currentCategory.video} type="video/mp4" />
       </video>

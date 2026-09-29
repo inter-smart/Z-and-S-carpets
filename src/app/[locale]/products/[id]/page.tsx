@@ -130,11 +130,31 @@ const dummyProductDetails: ProductDetailsType = {
       image: '/images/prod-details-img-5.webp',
     },
   ],
-  videos: [
-    '/images/floor-img-12.webp',
-    '/images/floor-img-12.webp',
-    '/images/floor-img-12.webp',
-    '/images/floor-img-12.webp',
+  detailVideos: [
+    {
+      title: 'Crafted to deliver',
+      description: 'Timeless wood elegance with modern durability.',
+      src: '/videos/floor-video-2.mp4',
+      poster: '/images/video-poster-2.webp',
+    },
+    {
+      title: 'Experience realistic',
+      description: 'Wood aesthetics with durable vinyl performance.',
+      src: '/videos/floor-video-4.mp4',
+      poster: '/images/video-poster-4.webp',
+    },
+    {
+      title: 'Crafted to deliver',
+      description: 'Timeless wood elegance with modern durability.',
+      src: '/videos/floor-video-5.mp4',
+      poster: '/images/video-poster-5.webp',
+    },
+    {
+      title: 'Wood Pattern Vinyl',
+      description: 'Watch how natural wood-inspired flooring transforms',
+      src: '/videos/floor-video-6.mp4',
+      poster: '/images/video-poster-6.webp',
+    },
   ],
 }
 
