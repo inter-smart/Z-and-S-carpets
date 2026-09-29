@@ -28,6 +28,11 @@ export interface DetailedDescriptionType {
   desc: string
   bullets: string[]
 }
+export interface DetailedPhotosType {
+  title: string
+  description: string
+  image: string
+}
 
 export interface ProductDetailsType {
   name: string
@@ -39,6 +44,6 @@ export interface ProductDetailsType {
   sizes: string[]
   colors: ProductColorType[]
   detailedDesc: DetailedDescriptionType
-  detailPhotos: string[]
+  detailPhotos: DetailedPhotosType[]
   videos: string[]
 }

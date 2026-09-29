@@ -104,11 +104,31 @@ const dummyProductDetails: ProductDetailsType = {
     ],
   },
   detailPhotos: [
-    '/images/floor-img-12.webp',
-    '/images/floor-img-12.webp',
-    '/images/floor-img-12.webp',
-    '/images/floor-img-12.webp',
-    '/images/floor-img-12.webp',
+    {
+      title: 'Experience realistic',
+      description: 'Wood aesthetics with durable vinyl',
+      image: '/images/prod-details-img-1.webp',
+    },
+    {
+      title: 'Experience realistic',
+      description: 'Wood aesthetics with durable vinyl',
+      image: '/images/prod-details-img-2.webp',
+    },
+    {
+      title: 'Experience realistic',
+      description: 'Wood aesthetics with durable vinyl',
+      image: '/images/prod-details-img-3.webp',
+    },
+    {
+      title: 'Experience realistic',
+      description: 'Wood aesthetics with durable vinyl performance.',
+      image: '/images/prod-details-img-4.webp',
+    },
+    {
+      title: 'Crafted to deliver',
+      description: 'Timeless wood elegance with modern durability.',
+      image: '/images/prod-details-img-5.webp',
+    },
   ],
   videos: [
     '/images/floor-img-12.webp',

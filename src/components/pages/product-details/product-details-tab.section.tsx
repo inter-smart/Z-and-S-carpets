@@ -4,7 +4,6 @@ import type { ProductDetailsType } from '@/types/product'
 import { cn } from 'cn'
 import { CircleCheck } from 'lucide-react'
 import Image from 'next/image'
-import { title } from 'process'
 import { useState } from 'react'
 
 const tabs = [
@@ -49,6 +48,7 @@ export default function ProductDetailsTabSection({
 
   return (
     <section className="container-wrapper mt-12 pb-15">
+      {/* tabs */}
       <div className="flex justify-between gap-10 overflow-x-auto scroll-smooth border-y border-[#eee] [&::-webkit-scrollbar]:hidden">
         {tabs.map((tab, i) => (
           <button
@@ -56,10 +56,8 @@ export default function ProductDetailsTabSection({
             key={i}
             onClick={() => setActiveTab(tab)}
             className={cn(
-              'ltr:font-manrope rtl:font-cairo w-fit shrink-0 py-4 focus:ring-0 focus:outline-none',
-              activeTab === tab
-                ? 'border-our-purple border-b-3 text-base font-semibold'
-                : 'text-sm',
+              'ltr:font-manrope rtl:font-cairo w-fit shrink-0 py-4 text-sm focus:ring-0 focus:outline-none',
+              activeTab === tab && 'border-our-purple border-b-3 font-semibold',
             )}
           >
             {tab}
@@ -67,9 +65,10 @@ export default function ProductDetailsTabSection({
         ))}
       </div>
 
+      {/* tab - product_description */}
       {activeTab === 'Product Description' && (
         <section className="mt-9">
-          <h3 className="ltr:font-manrope rtl:font-cairo text-[15px] font-semibold">
+          <h3 className="ltr:font-manrope rtl:font-cairo text-base font-semibold">
             Detailed Product Description
           </h3>
           <p className="mt-4 text-sm">{product.detailedDesc.desc}</p>
@@ -86,18 +85,45 @@ export default function ProductDetailsTabSection({
         </section>
       )}
 
+      {/* tab - detailed_photos */}
       {activeTab === 'Detailed Photos' && (
-        <section className="mt-7">
-          <h3 className="text-[15px] font-semibold">{title}</h3>
-          <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {/* <MediaGrid items={product.detailPhotos} title="Detailed Photos" /> */}
+        <section className="mt-9">
+          <h3 className="ltr:font-manrope rtl:font-cairo text-base font-semibold">
+            Detailed Photos
+          </h3>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-6 xl:gap-4">
+            {product.detailPhotos.map((photo, i) => (
+              <div
+                key={i}
+                className={cn(
+                  'relative col-span-full h-60 w-full overflow-hidden xl:h-70 2xl:h-80',
+                  i === 2 ? 'sm:col-span-2' : 'sm:col-span-1',
+                  i < 3 ? 'lg:col-span-2' : 'lg:col-span-3',
+                )}
+              >
+                <div className="absolute top-0 z-10 h-full w-full bg-black/20" />
+                <Image
+                  src={photo.image}
+                  alt={photo.title}
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute bottom-0 z-20 w-full px-5 pb-3 text-white">
+                  <h3 className="text-2xl">{photo.title}</h3>
+                  <p className="text-lg">{photo.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
       )}
 
+      {/* tab - videos */}
       {activeTab === 'Videos' && (
-        <section className="mt-7">
-          <h3 className="text-[15px] font-semibold">{title}</h3>
+        <section className="mt-9">
+          <h3 className="ltr:font-manrope rtl:font-cairo text-[15px] font-semibold">
+            Videos
+          </h3>
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
             {product.videos.map((src, index) => (
               <div key={index}>
@@ -108,6 +134,7 @@ export default function ProductDetailsTabSection({
         </section>
       )}
 
+      {/* tab - coming_tabs */}
       {!['Product Description', 'Detailed Photos', 'Videos'].includes(
         activeTab,
       ) && (

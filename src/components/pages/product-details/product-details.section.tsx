@@ -104,7 +104,7 @@ export default function ProductDetailsSection({
               ))}
             </div>
             {/* LEFT ARROW */}
-            <div className="absolute top-0 left-0 h-full bg-linear-to-r from-white to-white/5 pe-15">
+            <div className="absolute top-0 left-0 h-full bg-linear-to-r from-white to-white/5 pr-15">
               <Button
                 aria-label="Scroll up"
                 variant="ghost"
@@ -116,7 +116,7 @@ export default function ProductDetailsSection({
               </Button>
             </div>
             {/* RIGHT ARROW */}
-            <div className="absolute top-0 right-0 h-full bg-linear-to-l from-white to-white/5 ps-15">
+            <div className="absolute top-0 right-0 h-full bg-linear-to-l from-white to-white/5 pl-15">
               <Button
                 aria-label="Scroll up"
                 variant="ghost"
