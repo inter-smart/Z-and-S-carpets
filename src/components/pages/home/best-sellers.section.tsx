@@ -76,7 +76,7 @@ export default function BestSellersSection() {
         <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-start md:justify-between xl:items-center">
           <h2 className="section-title">{t('title')}</h2>
 
-          <div className="flex flex-col items-start gap-3 sm:flex-row">
+          <div className="flex flex-col items-start gap-3 min-[350px]:flex-row">
             <Button className="rounded-sm border-2! border-black bg-black px-5 py-4.5 text-[0.95rem] font-semibold tracking-widest text-white uppercase hover:bg-black/80">
               <ListFilter
                 data-icon="inline-center"
