@@ -47,7 +47,9 @@ export default function PrivacyPolicyPage() {
                       privacy: (chunks) => (
                         <Link
                           href="https://masscareagency.co.uk/privacy-policy"
-                          className="text-our-blue underline hover:no-underline"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-our-blue underline"
                         >
                           {chunks}
                         </Link>

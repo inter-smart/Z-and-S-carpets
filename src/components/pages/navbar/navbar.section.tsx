@@ -29,7 +29,7 @@ export default function Navbar() {
     <>
       <header className="fixed top-0 z-50 w-full text-sm shadow-md">
         {/* navigation */}
-        <nav className="bg-white py-3">
+        <nav className="bg-white py-2">
           <div className="container-wrapper flex flex-row items-center justify-between">
             <div className="hidden flex-row items-center justify-between space-x-3 pe-25 lg:w-5/12 xl:flex 2xl:space-x-10">
               {navLinks[0].map((item, i) => (

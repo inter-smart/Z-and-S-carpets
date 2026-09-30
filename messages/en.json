@@ -766,7 +766,22 @@
           "/images/floor-img-1.webp"
         ],
         "excerpt": "Find the ideal outdoor flooring for Dubai's heat, sand, and footfall. Z&S Carpets provides top-quality materials...",
-        "tags": ["Outdoor", "Dubai", "Decking"]
+        "tags": [
+          "Laminate Flooring",
+          "Scratch Resistance",
+          "Wear Layer",
+          "Flooring Guide",
+          "Dubai",
+          "Interior Design",
+          "Home Improvement",
+          "Flooring Tips",
+          "Interior Design",
+          "Maintenance",
+          "Flooring Guide",
+          "Wear Layer",
+          "Home Improvement",
+          "Dubai"
+        ]
       },
       {
         "id": "laminate-scratch-resistance",
@@ -785,13 +800,18 @@
         "tags": [
           "Laminate Flooring",
           "Scratch Resistance",
+          "Wear Layer",
           "Flooring Guide",
+          "Dubai",
           "Interior Design",
           "Home Improvement",
-          "Dubai",
-          "Wear Layer",
           "Flooring Tips",
-          "Maintenance"
+          "Interior Design",
+          "Maintenance",
+          "Flooring Guide",
+          "Wear Layer",
+          "Home Improvement",
+          "Dubai"
         ]
       },
 
@@ -807,7 +827,22 @@
           "/images/floor-img-52.webp"
         ],
         "excerpt": "Find the ideal outdoor flooring for Dubai's heat, sand, and footfall. Z&S Carpets provides top-quality materials...",
-        "tags": ["Carpets", "Heritage", "Interior"]
+        "tags": [
+          "Laminate Flooring",
+          "Scratch Resistance",
+          "Wear Layer",
+          "Flooring Guide",
+          "Dubai",
+          "Interior Design",
+          "Home Improvement",
+          "Flooring Tips",
+          "Interior Design",
+          "Maintenance",
+          "Flooring Guide",
+          "Wear Layer",
+          "Home Improvement",
+          "Dubai"
+        ]
       },
       {
         "id": "flooring-suppliers",
@@ -821,7 +856,22 @@
           "/images/floor-img-31.webp"
         ],
         "excerpt": "Find the ideal outdoor flooring for Dubai's heat, sand, and footfall. Z&S Carpets provides top-quality materials...",
-        "tags": ["Suppliers", "Commercial", "Projects"]
+        "tags": [
+          "Laminate Flooring",
+          "Scratch Resistance",
+          "Wear Layer",
+          "Flooring Guide",
+          "Dubai",
+          "Interior Design",
+          "Home Improvement",
+          "Flooring Tips",
+          "Interior Design",
+          "Maintenance",
+          "Flooring Guide",
+          "Wear Layer",
+          "Home Improvement",
+          "Dubai"
+        ]
       }
     ]
   },
@@ -1975,7 +2025,7 @@
       "loadMoreBtnLable": "Load More"
     },
     "RelatedProjectsSection": {
-      "title": "Related projects",
+      "title": "Related Projects",
       "filterLabel": "Filter"
     }
   },

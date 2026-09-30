@@ -65,7 +65,7 @@ export default function BlogImgCarousal({
   return (
     <div>
       {/* header */}
-      <div className="relative mt-10">
+      <div className="relative mt-10 bg-amber-400">
         <div className="overflow-hidden" ref={emblaRef}>
           <div className="-ms-4 flex">
             {article.image.map((image, index) => {

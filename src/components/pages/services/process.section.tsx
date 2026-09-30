@@ -16,12 +16,12 @@ export default function ProcessSection() {
       aria-labelledby="process-title"
     >
       <div className="container-wrapper">
-        <p className="font-cairo text-center text-5xl font-bold tracking-widest text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.05)] sm:text-6xl md:text-[7rem]">
+        <p className="font-cairo text-center text-[3.6rem] leading-14 font-bold tracking-widest text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.03)] sm:text-[5.5rem] sm:leading-20 lg:text-[6.5rem] lg:leading-none">
           {t('eyebrow')}
         </p>
         <h2
           id="process-title"
-          className="section-title -mt-6 text-center sm:-mt-7 md:-mt-10"
+          className="section-title -mt-6 text-center sm:-mt-7 md:-mt-8 lg:-mt-11"
         >
           {t('title')}
         </h2>

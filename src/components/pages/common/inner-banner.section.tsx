@@ -5,7 +5,7 @@ export default function InnerBannerSection({ pageName }: { pageName: string }) {
 
   return (
     <div
-      className="relative h-56 w-full text-white lg:h-64 xl:h-86"
+      className="relative h-54 w-full text-white lg:h-64 xl:h-74"
       style={{
         backgroundImage: `url(${t('image')})`,
         backgroundSize: 'cover',
@@ -13,7 +13,7 @@ export default function InnerBannerSection({ pageName }: { pageName: string }) {
       }}
     >
       <div className="absolute top-0 h-full w-full from-black/80 to-black/0 ltr:bg-linear-to-r rtl:bg-linear-to-l">
-        <div className="container-wrapper flex h-full items-end justify-start pb-8 lg:pb-16">
+        <div className="container-wrapper flex h-full items-end justify-start pb-6 lg:pb-8 xl:pb-10">
           <div>
             <h1 className="our-heading">{t('title')}</h1>
             <h1 className="our-text leading-5!">{t('description')}</h1>
