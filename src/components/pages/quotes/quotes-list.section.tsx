@@ -71,7 +71,7 @@ export default function QuotesListSection() {
                   <div className="relative mb-auto aspect-square min-w-26! overflow-hidden rounded">
                     <Image
                       src={item.image}
-                      alt=""
+                      alt={item.name}
                       fill
                       className="object-cover"
                     />

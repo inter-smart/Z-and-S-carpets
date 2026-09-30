@@ -36,7 +36,7 @@ export default function IntroSection() {
         </div>
       </section>
 
-      <hr className="w-full border-t border-dashed border-[#812990]" />
+      <div className="spaced-dotted" />
 
       <section
         className="grid gap-20 lg:grid-cols-[1.25fr_1fr] xl:grid-cols-[1.75fr_1fr]"

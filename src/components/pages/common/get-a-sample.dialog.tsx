@@ -45,7 +45,10 @@ export default function GetASampleDialog() {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent className="flex min-h-100 flex-row items-center justify-center rounded-sm bg-[#023260] p-5 text-white sm:min-w-120 md:p-10 lg:p-12">
+      <DialogContent
+        showCloseButton={false}
+        className="flex min-h-100 flex-row items-center justify-center rounded-sm bg-[#023260] p-5 text-white sm:min-w-120 md:p-10 lg:p-12"
+      >
         <form
           className="flex w-full flex-col items-start"
           onSubmit={handleForm}

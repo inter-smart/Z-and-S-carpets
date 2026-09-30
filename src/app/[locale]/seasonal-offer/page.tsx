@@ -1,5 +1,11 @@
 import { Button } from '@/components/ui/button'
-import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogTrigger,
+} from '@/components/ui/dialog'
+import { XIcon } from 'lucide-react'
 import Image from 'next/image'
 
 export default function SeasonalOffer() {
@@ -7,7 +13,13 @@ export default function SeasonalOffer() {
     <div className="container-wrapper flex h-100 items-center justify-center">
       <Dialog>
         <DialogTrigger render={<Button variant="outline">Show Offer</Button>} />
-        <DialogContent className="flex min-w-[35vw] rounded-sm p-1.5 min-[300px]:h-100 sm:min-w-150 md:min-w-180 lg:min-w-200">
+        <DialogContent
+          showCloseButton={false}
+          className="flex min-w-[35vw] rounded-sm p-1.5 min-[300px]:h-100 sm:min-w-150 md:min-w-180 lg:min-w-200"
+        >
+          <DialogClose className="absolute top-2 right-2 z-50 focus:ring-0 focus:outline-none">
+            <XIcon className="stroke-1" />
+          </DialogClose>
           <div className="relative grid h-full w-full grid-rows-2 text-black sm:grid-cols-[auto_200px] sm:grid-rows-none">
             <div className="absolute -top-20 left-8 z-20 h-35 w-35 rounded-full bg-white sm:-top-10 rtl:right-8">
               <div className="bg-our-green ms-auto flex aspect-square h-33 w-33 items-center justify-center rounded-full text-white">
@@ -28,7 +40,7 @@ export default function SeasonalOffer() {
             <div className="relative h-full w-full overflow-hidden rounded-sm sm:h-full">
               <Image
                 src={'/images/floor-img-12.webp'}
-                alt=""
+                alt="Premium Quality Flooring"
                 fill
                 className="z-10 object-cover"
               />

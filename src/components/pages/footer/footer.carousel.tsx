@@ -62,7 +62,7 @@ export default function FooterCarousel({ images }: { images: string[] }) {
         <Image
           key={index}
           src={image}
-          alt={`floor-img-${index + 1}`}
+          alt={`Elegant Flooring ${index + 1}`}
           fill
           // priority={index === 0}
           className={cn(

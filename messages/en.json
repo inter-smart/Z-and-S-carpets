@@ -38,7 +38,7 @@
             },
             {
               "label": "Date Of Completion",
-              "value": "2024"
+              "value": "Nov 2024"
             },
             {
               "label": "Using Material",
@@ -75,7 +75,7 @@
             },
             {
               "label": "Date Of Completion",
-              "value": "2024"
+              "value": "June 2024"
             },
             {
               "label": "Using Material",
@@ -149,7 +149,7 @@
             },
             {
               "label": "Date Of Completion",
-              "value": "2024"
+              "value": "Aug 2024"
             },
             {
               "label": "Using Material",
@@ -186,7 +186,7 @@
             },
             {
               "label": "Date Of Completion",
-              "value": "2024"
+              "value": "Jan 2024"
             },
             {
               "label": "Using Material",
@@ -223,7 +223,7 @@
             },
             {
               "label": "Date Of Completion",
-              "value": "2024"
+              "value": "Feb 2024"
             },
             {
               "label": "Using Material",
@@ -260,7 +260,7 @@
             },
             {
               "label": "Date Of Completion",
-              "value": "2024"
+              "value": "Jan 2024"
             },
             {
               "label": "Using Material",
@@ -297,7 +297,7 @@
             },
             {
               "label": "Date Of Completion",
-              "value": "2024"
+              "value": "July 2024"
             },
             {
               "label": "Using Material",
@@ -334,7 +334,7 @@
             },
             {
               "label": "Date Of Completion",
-              "value": "2024"
+              "value": "Aug 2024"
             },
             {
               "label": "Using Material",
@@ -371,7 +371,7 @@
             },
             {
               "label": "Date Of Completion",
-              "value": "2024"
+              "value": "Oct 2024"
             },
             {
               "label": "Using Material",
@@ -408,7 +408,7 @@
             },
             {
               "label": "Date Of Completion",
-              "value": "2024"
+              "value": "Nov 2024"
             },
             {
               "label": "Using Material",
@@ -445,7 +445,7 @@
             },
             {
               "label": "Date Of Completion",
-              "value": "2024"
+              "value": "Nov 2024"
             },
             {
               "label": "Using Material",
@@ -568,6 +568,82 @@
         "image": "/images/floor-img-37.webp"
       }
     ],
+    "Materials": [
+      {
+        "id": "wood",
+        "name": "Wood"
+      },
+      {
+        "id": "rubber",
+        "name": "Rubber"
+      },
+      {
+        "id": "plastic",
+        "name": "Plastic"
+      },
+      {
+        "id": "cloth",
+        "name": "Cloth"
+      }
+    ],
+    "Colors": [
+      {
+        "id": "red",
+        "name": "Red"
+      },
+      {
+        "id": "blue",
+        "name": "Blue"
+      },
+      {
+        "id": "green",
+        "name": "Green"
+      },
+      {
+        "id": "yellow",
+        "name": "Yellow"
+      }
+    ],
+    "Usages": [
+      {
+        "id": "deck",
+        "name": "Deck"
+      },
+      {
+        "id": "gym",
+        "name": "Gym"
+      },
+      {
+        "id": "floor",
+        "name": "Floor"
+      },
+      {
+        "id": "grass",
+        "name": "Grass"
+      }
+    ],
+    "Tags": [
+      {
+        "id": "vinyl",
+        "name": "Vinyl"
+      },
+      {
+        "id": "wooden",
+        "name": "Wooden"
+      },
+      {
+        "id": "waterproof",
+        "name": "Waterproof"
+      },
+      {
+        "id": "anti-slip",
+        "name": "Anti-slip"
+      },
+      {
+        "id": "artificial",
+        "name": "Artificial"
+      }
+    ],
     "Items": [
       {
         "name": "Landscaping Grass",
@@ -686,7 +762,8 @@
         "image": [
           "/images/floor-img-42.webp",
           "/images/floor-img-50.webp",
-          "/images/floor-img-31.webp"
+          "/images/floor-img-31.webp",
+          "/images/floor-img-1.webp"
         ],
         "excerpt": "Find the ideal outdoor flooring for Dubai's heat, sand, and footfall. Z&S Carpets provides top-quality materials...",
         "tags": ["Outdoor", "Dubai", "Decking"]
@@ -723,7 +800,12 @@
         "date": "August 02, 2025",
         "author": "Romine",
         "title": "The Connoisseur's Guide to Exquisite Carpets: From Heritage to Modern Artistry",
-        "image": ["/images/floor-img-49.webp"],
+        "image": [
+          "/images/floor-img-49.webp",
+          "/images/floor-img-31.webp",
+          "/images/floor-img-42.webp",
+          "/images/floor-img-52.webp"
+        ],
         "excerpt": "Find the ideal outdoor flooring for Dubai's heat, sand, and footfall. Z&S Carpets provides top-quality materials...",
         "tags": ["Carpets", "Heritage", "Interior"]
       },
@@ -732,7 +814,12 @@
         "date": "March 28, 2025",
         "author": "Romine",
         "title": "How to Choose the Right Flooring Supplier in Dubai for Large-Scale Projects",
-        "image": ["/images/floor-img-48.webp"],
+        "image": [
+          "/images/floor-img-48.webp",
+          "/images/floor-img-42.webp",
+          "/images/floor-img-46.webp",
+          "/images/floor-img-31.webp"
+        ],
         "excerpt": "Find the ideal outdoor flooring for Dubai's heat, sand, and footfall. Z&S Carpets provides top-quality materials...",
         "tags": ["Suppliers", "Commercial", "Projects"]
       }
@@ -1637,20 +1724,18 @@
     "contactDetails": {
       "title": "We're here to help.",
       "description": "Need help choosing the right flooring solution? Contact our team today for product information, expert guidance, and personalized assistance. We're here to support your project every step of the way.",
-      "items": [
-        {
+      "items": {
+        "phone": {
           "title": "Reach Us by Phone",
           "description": "Have questions or need assistance? Give us a call to speak with our friendly team of lighting experts.",
-          "value": "+971 5270 044 20",
-          "icon": "phone_2"
+          "value": "+971 5270 044 20"
         },
-        {
+        "email": {
           "title": "Drop Us an Email",
           "description": "Prefer to communicate via email? Feel free to send us an email and we'll get back to you promptly.",
-          "value": "info@zandscarpets.com",
-          "icon": "mail_3"
+          "value": "info@zandscarpets.com"
         }
-      ],
+      },
       "socialTitle": "Follow us :",
       "office": {
         "title": "Visit Our Office",
@@ -1683,7 +1768,7 @@
       }
     },
     "social": {
-      "title": "Social"
+      "title": "Social Media"
     }
   },
   "PrivacyPolicyPage": {
@@ -1971,49 +2056,6 @@
       "title": "Products",
       "description": "Reach out for expert support and assistance.",
       "image": "/images/floor-img-12.webp"
-    },
-    "ProductListSection": {
-      "loadMore": "Load More",
-      "filters": [
-        {
-          "id": "category",
-          "label": "Category",
-          "items": [
-            "Artificial Grass",
-            "Vinyl Flooring",
-            "Deck Flooring",
-            "Spc Flooring",
-            "Lvt Flooring",
-            "Laminate Flooring",
-            "Carpet Flooring",
-            "Wood Flooring",
-            "Gym & Sports Flooring",
-            "Rubber Flooring",
-            "Wall Cladding",
-            "PVC Flooring"
-          ]
-        },
-        {
-          "id": "material",
-          "label": "Material",
-          "items": ["Wood", "Rubber", "Plastic", "Cloth"]
-        },
-        {
-          "id": "color",
-          "label": "Color",
-          "items": ["Red", "Blue", "Green", "Yellow"]
-        },
-        {
-          "id": "usage",
-          "label": "Usage",
-          "items": ["Deck", "Gym", "Floor", "Grass"]
-        },
-        {
-          "id": "tags",
-          "label": "Tags",
-          "items": ["Vinyl", "Wooden", "Waterproof", "Anti-slip", "Artificial"]
-        }
-      ]
     }
   },
   "ProductDetailsPage": {

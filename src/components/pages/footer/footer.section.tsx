@@ -189,7 +189,12 @@ export default function Footer() {
           <p className="hidden lg:block">{t('copyright')}</p>
           <div className="flex flex-row space-x-3 sm:space-x-8 xl:space-x-10">
             {social.map((logo, i) => (
-              <Link key={i} href={logo.link}>
+              <Link
+                key={i}
+                href={logo.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <OurIcon name={logo.icon} className="size-4 text-white" />
               </Link>
             ))}

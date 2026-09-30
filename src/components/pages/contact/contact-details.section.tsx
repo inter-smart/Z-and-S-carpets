@@ -25,20 +25,34 @@ export default function ContactDetailsSection() {
       </h2>
       <p className="our-text">{t('description')}</p>
       <div className="mt-9 grid gap-3 sm:grid-cols-2 sm:gap-5 lg:grid-cols-1 lg:gap-3 xl:grid-cols-2 xl:gap-5">
-        {items.map((item, index) => (
-          <article
-            key={index}
-            className="group overflow-hidden rounded-sm border"
-          >
-            <div className="flex flex-col gap-5 px-5 py-7">
-              <OurIcon name={item.icon} className="text-our-purple size-10" />
-              <h3 className="text-lg font-medium">{item.title}</h3>
-              <p className="text-xs">{item.description}</p>
-              <p className="mt-2 text-lg font-medium">{item.value}</p>
-            </div>
-            <div className="group-hover:bg-our-purple h-1" />
-          </article>
-        ))}
+        <article className="group overflow-hidden rounded-sm border">
+          <div className="flex flex-col gap-5 px-5 py-7">
+            <OurIcon name="phone_2" className="text-our-purple size-10" />
+            <h3 className="text-lg font-medium">{t('items.phone.title')}</h3>
+            <p className="text-xs">{t('items.phone.description')}</p>
+            <a
+              href={`tel:${t('items.phone.value').replaceAll(' ', '')}`}
+              className="mt-2 text-lg font-medium"
+            >
+              {t('items.phone.value')}
+            </a>
+          </div>
+          <div className="group-hover:bg-our-purple h-1" />
+        </article>
+        <article className="group overflow-hidden rounded-sm border">
+          <div className="flex flex-col gap-5 px-5 py-7">
+            <OurIcon name="mail_3" className="text-our-purple size-10" />
+            <h3 className="text-lg font-medium">{t('items.email.title')}</h3>
+            <p className="text-xs">{t('items.email.description')}</p>
+            <a
+              href={`mailto:${t('items.email.value')}`}
+              className="mt-2 text-lg font-medium"
+            >
+              {t('items.email.value')}
+            </a>
+          </div>
+          <div className="group-hover:bg-our-purple h-1" />
+        </article>
       </div>
       <div className="mt-3 flex flex-col items-start gap-2 rounded-sm border border-[#dedede] px-5 py-6 min-[450px]:flex-row min-[450px]:items-center min-[450px]:gap-7">
         <span className="text-lg">{t('socialTitle')}</span>
@@ -47,7 +61,12 @@ export default function ContactDetailsSection() {
           aria-label="Social media links"
         >
           {social.map((logo, i) => (
-            <Link key={i} href={logo.link}>
+            <Link
+              key={i}
+              href={logo.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <OurIcon
                 key={i}
                 name={logo.icon}

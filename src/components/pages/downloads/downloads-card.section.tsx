@@ -1,10 +1,11 @@
 'use client'
 
+import { Success_2Icon } from '@/assets/icons'
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogClose, DialogContent } from '@/components/ui/dialog'
 import { OurIcon } from '@/components/ui/icon'
-import { LaptopMinimalCheckIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
+import Image from 'next/image'
 import { useState, type SubmitEvent } from 'react'
 
 interface CardType {
@@ -130,13 +131,19 @@ export default function DownloadsCardSection() {
 
       {/* Success Dialog */}
       <Dialog open={openSuccessDialog} onOpenChange={setOpenSuccessDialog}>
-        <DialogContent className="flex min-h-100 min-w-[35vw] flex-row items-center justify-center rounded-sm 2xl:min-w-125">
+        <DialogContent className="flex min-h-100 min-w-[35vw] flex-row items-center justify-center rounded-sm px-15! 2xl:min-w-125">
           <div className="flex flex-col items-center text-center text-black">
-            <LaptopMinimalCheckIcon className="text-our-blue" size={100} />
-            <span className="mt-5 text-2xl font-medium">
+            <div className="h-25">
+              <Image
+                src={Success_2Icon}
+                alt="Request Success"
+                className="size-full"
+              />
+            </div>
+            <span className="mt-7 text-xl font-medium">
               {t('successDialog.title')}
             </span>
-            <span className="our-text font-normal">
+            <span className="mt-2 text-sm leading-5 text-[#120D0D]">
               {t('successDialog.description')}
             </span>
             <DialogClose className="bg-our-purple mt-5 w-fit rounded-sm border p-2 px-10 text-white">

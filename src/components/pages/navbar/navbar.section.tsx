@@ -52,7 +52,7 @@ export default function Navbar() {
                 <Image
                   src={SiteLogo}
                   alt="Z&S Carpets"
-                  className="h-19 w-auto cursor-pointer"
+                  className="h-14 w-auto cursor-pointer md:h-16 xl:h-18"
                 />
               </Link>
             </div>

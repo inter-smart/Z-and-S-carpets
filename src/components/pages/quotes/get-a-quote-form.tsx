@@ -1,5 +1,6 @@
 'use client'
 
+import { Success_1Icon } from '@/assets/icons'
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogClose, DialogContent } from '@/components/ui/dialog'
 import {
@@ -11,7 +12,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { cn } from 'cn'
-import { CloudCheckIcon } from 'lucide-react'
+import Image from 'next/image'
 import { useState, type SubmitEvent } from 'react'
 
 const categories = [
@@ -153,13 +154,19 @@ export default function GetAQuoteForm() {
 
       {/* Success Dialog */}
       <Dialog open={openSuccessDialog} onOpenChange={setOpenSuccessDialog}>
-        <DialogContent className="flex min-h-100 min-w-[35vw] flex-row items-center justify-center rounded-sm 2xl:min-w-125">
+        <DialogContent className="flex min-h-100 min-w-[35vw] flex-row items-center justify-center rounded-sm px-15! 2xl:min-w-125">
           <div className="flex flex-col items-center text-center text-black">
-            <CloudCheckIcon className="text-our-blue" size={100} />
-            <span className="mt-5 text-2xl font-medium">
+            <div className="h-25">
+              <Image
+                src={Success_1Icon}
+                alt="Inquiry Success"
+                className="size-full"
+              />
+            </div>
+            <span className="mt-7 text-xl font-medium">
               Thank You for Your Inquiry
             </span>
-            <span className="our-text font-normal">
+            <span className="mt-2 text-sm leading-5 text-[#120D0D]">
               We&apos;ve received your request and will contact you soon with
               the details.
             </span>

@@ -34,7 +34,7 @@ function ReviewCard({ review }: { review: CustomerReviewType }) {
       <div className="mt-7 flex items-center gap-3">
         <img
           src={review.avatar}
-          alt=""
+          alt={`${review.name}, ${review.role}`}
           className="size-14 rounded-full object-cover"
         />
         <div>

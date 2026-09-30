@@ -9,11 +9,13 @@ const paragraphs = [
   "Discover how the intricate engineering of high-end laminate preserves the soul of your home against the rigorous demands of daily life. We'll explore the technical provenance of AC5 ratings, the foundation that withstands unique environmental demands, supported by a maintenance protocol that treats your flooring as the cultural artifact it truly is.",
 ]
 
-export function BlogDetailsSection() {
+export function BlogDetailsSection({ id }: { id: string }) {
   const t2 = useTranslations('Blogs')
 
   const data = t2.raw('Items') as blogItemType[]
-  const article = data[1]
+  const article = data.find((item) => item.id === id)
+
+  if (!article) return null
 
   return (
     <section className="container-wrapper pt-10">
@@ -61,7 +63,7 @@ export function BlogDetailsSection() {
           title="The Aesthetic Cost of Surface Wear"
           text="In the sunlight of a Dubai afternoon, even the smallest imperfections become visible. Micro-scratches accumulate, stripping away the depth of color that initially drew the connoisseur to the design."
         />
-        <BlogImgCarousal />
+        <BlogImgCarousal article={article} />
         <Section
           title="Laminate vs. Natural Wood: A Study in Resilience"
           text="While traditional wood flooring offers a timeless warmth, natural oils and lacquers possess a slower core compared to the mineral-infused surfaces of premium laminate. By choosing a surface engineered for scratch resistance, the homeowner bridges the gap between ancient aesthetic traditions and modern durability."

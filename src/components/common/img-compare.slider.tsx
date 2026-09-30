@@ -32,13 +32,13 @@ export default function ImgCompareSlider({
       <Image
         slot={locale === 'ar' ? 'second' : 'first'}
         src={images[0]}
-        alt="compare-after-image"
+        alt="Floor after"
         className="block w-full"
       />
       <Image
         slot={locale === 'ar' ? 'first' : 'second'}
         src={images[1]}
-        alt="compare-before-image"
+        alt="Floor before"
         className="block w-full"
       />
       <div
