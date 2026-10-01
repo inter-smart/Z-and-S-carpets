@@ -20,7 +20,7 @@ export default function ProductsPage() {
             link: '/products',
           },
         ]}
-        className="md:bg-[#EFF9FE]"
+        className="z-0"
       />
       <ProductListSection />
     </>

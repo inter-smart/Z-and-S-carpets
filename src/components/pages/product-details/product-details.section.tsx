@@ -66,7 +66,7 @@ export default function ProductDetailsSection({
   return (
     <section className="container-wrapper space-y-8 pt-8 lg:pt-12 xl:grid xl:grid-cols-[0.95fr_1.05fr] xl:gap-10 xl:space-y-0 2xl:gap-12">
       {/* main image */}
-      <div className="relative h-120 overflow-hidden rounded-md xl:h-auto">
+      <div className="relative h-80 overflow-hidden rounded-md min-[400px]:h-120 xl:h-auto">
         <Image
           src={product.image}
           alt={product.name}

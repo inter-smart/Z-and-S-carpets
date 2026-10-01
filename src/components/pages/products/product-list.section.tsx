@@ -122,7 +122,8 @@ export default function ProductListSection() {
     <>
       <section className="container-wrapper flex">
         <div className="relative hidden h-fit w-60 bg-[#EFF9FE] md:block lg:w-70 2xl:w-80">
-          <div className="absolute right-full h-full w-dvw bg-[#EFF9FE] rtl:right-auto rtl:left-full" />
+          <div className="absolute bottom-full -z-10 h-full w-dvw bg-[#EFF9FE] ltr:right-0 rtl:left-0" />
+          <div className="absolute h-full w-dvw bg-[#EFF9FE] ltr:right-full rtl:left-full" />
           <aside className="pe-5 pt-5 pb-8">
             <h2 className="our-heading max-sm:text-2xl">Filter</h2>
             <div className="mt-4 space-y-2">
