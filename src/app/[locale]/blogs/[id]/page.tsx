@@ -23,8 +23,9 @@ export default async function BlogDetailsPage({
           { name: 'Blogs', link: `/blogs` },
           { name: 'Blog Details', link: `/blogs/${id}`, currentPage: true },
         ]}
+        className="mt-2"
       />
-      <BlogDetailsSection />
+      <BlogDetailsSection id={id} />
       <div className="container-wrapper my-15">
         <AdBanner1 />
       </div>

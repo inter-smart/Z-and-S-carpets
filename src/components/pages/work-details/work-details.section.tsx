@@ -30,7 +30,7 @@ export default function WorkDetailsSection({ id }: { id: string }) {
       <div className="relative mt-15 mb-15 h-50 w-full overflow-hidden rounded-md sm:h-75 xl:h-100 2xl:h-120">
         <Image
           src={work.image}
-          alt="Outdoor deck flooring project"
+          alt={work.title}
           fill
           className="object-cover"
         />
@@ -53,7 +53,7 @@ export default function WorkDetailsSection({ id }: { id: string }) {
           >
             <Image
               src={image}
-              alt={`Deck flooring project view ${index + 1}`}
+              alt={`${work.title} ${index + 1}`}
               fill
               className="object-cover"
             />

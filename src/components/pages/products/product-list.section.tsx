@@ -10,9 +10,10 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet'
-import { ProductItemType } from '@/types/product'
+import { ProductItemType, type ProductCategoryType } from '@/types/product'
 import { ChevronDownIcon, ChevronUpIcon, ListFilterIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
+import { useSearchParams } from 'next/navigation'
 import { useState } from 'react'
 import ProductsEmptySection from './products-empty.section'
 import RelatedProductsSection from './related-products.section'
@@ -20,32 +21,67 @@ import RelatedProductsSection from './related-products.section'
 const visibleProductDefalutCount = 6
 
 export default function ProductListSection() {
-  const t = useTranslations('ProductsPage.ProductListSection')
+  const searchParams = useSearchParams()
+  const categoryId_query = searchParams.get('category')
+
   const t2 = useTranslations('Products')
 
-  const filters = t.raw('filters') as {
-    id: string
-    label: string
-    items: string[]
-  }[]
   const products = t2.raw('Items') as ProductItemType[]
+
+  const prodCategories = t2.raw('Categories') as ProductCategoryType[]
+  const prodMaterials = t2.raw('Materials') as { id: string; name: string }[]
+  const prodColors = t2.raw('Colors') as { id: string; name: string }[]
+  const prodUsages = t2.raw('Usages') as { id: string; name: string }[]
+  const prodTags = t2.raw('Tags') as { id: string; name: string }[]
+
+  const categoryName_query = prodCategories.find(
+    (item) => item.id === categoryId_query,
+  )?.name
+
+  const filters = [
+    {
+      id: 'category',
+      label: 'Category',
+      items: prodCategories,
+    },
+    {
+      id: 'material',
+      label: 'Material',
+      items: prodMaterials,
+    },
+    {
+      id: 'color',
+      label: 'Color',
+      items: prodColors,
+    },
+    {
+      id: 'usage',
+      label: 'Usage',
+      items: prodUsages,
+    },
+    {
+      id: 'tags',
+      label: 'Tags',
+      items: prodTags,
+    },
+  ]
 
   const [visibleProductCount, setVisibleProductCount] = useState(
     visibleProductDefalutCount,
   )
-  const [openFilter, setOpenFilter] = useState<string[]>(['Category'])
+  const [openFilter, setOpenFilter] = useState<string[]>(['category'])
   const [selectedFilters, setSelectedFilters] = useState<
     Record<string, string[]>
-  >({})
+  >(categoryName_query ? { category: [categoryName_query ?? ''] } : {})
 
-  const toggleFilter = (filterId: string, item: string) => {
+  const toggleFilter = (filterId: string, itemName: string) => {
     setVisibleProductCount(visibleProductDefalutCount)
     setSelectedFilters((prev) => {
       const current = prev[filterId] ?? []
 
-      const updated = current.includes(item)
-        ? current.filter((value) => value !== item)
-        : [...current, item]
+      const updated = current.includes(itemName)
+        ? current.filter((value) => value !== itemName)
+        : [...current, itemName]
 
       return {
         ...prev,
@@ -86,7 +122,8 @@ export default function ProductListSection() {
     <>
       <section className="container-wrapper flex">
         <div className="relative hidden h-fit w-60 bg-[#EFF9FE] md:block lg:w-70 2xl:w-80">
-          <div className="absolute right-full h-full w-dvw bg-[#EFF9FE] rtl:right-auto rtl:left-full" />
+          <div className="absolute bottom-full -z-10 h-full w-dvw bg-[#EFF9FE] ltr:right-0 rtl:left-0" />
+          <div className="absolute h-full w-dvw bg-[#EFF9FE] ltr:right-full rtl:left-full" />
           <aside className="pe-5 pt-5 pb-8">
             <h2 className="our-heading max-sm:text-2xl">Filter</h2>
             <div className="mt-4 space-y-2">
@@ -120,19 +157,19 @@ export default function ProductListSection() {
                     <div className="border-t border-black/15 py-3">
                       {filter.items.map((item) => (
                         <label
-                          key={item}
+                          key={item.id}
                           className="flex items-center gap-3 py-2 text-[13px]"
                         >
                           <input
                             type="checkbox"
                             checked={
-                              selectedFilters[filter.id]?.includes(item) ??
+                              selectedFilters[filter.id]?.includes(item.name) ??
                               false
                             }
-                            onChange={() => toggleFilter(filter.id, item)}
+                            onChange={() => toggleFilter(filter.id, item.name)}
                             className="accent-our-blue size-3.5"
                           />
-                          {item}
+                          {item.name}
                         </label>
                       ))}
                     </div>
@@ -197,19 +234,22 @@ export default function ProductListSection() {
                       <div className="border-t border-black/15 py-3">
                         {filter.items.map((item) => (
                           <label
-                            key={item}
+                            key={item.id}
                             className="flex items-center gap-3 py-2 text-[13px]"
                           >
                             <input
                               type="checkbox"
                               checked={
-                                selectedFilters[filter.id]?.includes(item) ??
-                                false
+                                selectedFilters[filter.id]?.includes(
+                                  item.name,
+                                ) ?? false
                               }
-                              onChange={() => toggleFilter(filter.id, item)}
+                              onChange={() =>
+                                toggleFilter(filter.id, item.name)
+                              }
                               className="accent-our-blue size-3.5"
                             />
-                            {item}
+                            {item.name}
                           </label>
                         ))}
                       </div>
@@ -239,7 +279,7 @@ export default function ProductListSection() {
                 onClick={() => setVisibleProductCount(filteredProducts.length)}
                 className="border-our-blue our-btn hover:bg-transparent"
               >
-                {t('loadMore')}
+                Load More
               </Button>
             </div>
           )}

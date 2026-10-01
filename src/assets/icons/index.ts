@@ -34,6 +34,8 @@ import QuoteIcon from './quote.icon.svg'
 import Quote_2Icon from './quote_2.icon.svg'
 import SearchIcon from './search.icon.svg'
 import SquareCheckIcon from './square-check.icon.svg'
+import Success_1Icon from './success_icon_1.png'
+import Success_2Icon from './success_icon_2.png'
 import TruckIcon from './truck.icon.svg'
 import VisionIcon from './vision.icon.svg'
 import WhatsAppIcon from './whatsapp.icon.svg'
@@ -78,6 +80,8 @@ export {
   QuoteIcon,
   SearchIcon,
   SquareCheckIcon,
+  Success_1Icon,
+  Success_2Icon,
   TruckIcon,
   VisionIcon,
   WhatsApp_2Icon,

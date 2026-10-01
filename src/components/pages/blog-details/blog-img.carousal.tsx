@@ -6,16 +6,16 @@ import type { LocaleType } from '@/i18n/types'
 import type { blogItemType } from '@/types/blog'
 import Autoplay from 'embla-carousel-autoplay'
 import useEmblaCarousel from 'embla-carousel-react'
-import { useLocale, useTranslations } from 'next-intl'
+import { useLocale } from 'next-intl'
 import Image from 'next/image'
 import { useCallback, useEffect, useState } from 'react'
 
-export default function BlogImgCarousal() {
+export default function BlogImgCarousal({
+  article,
+}: {
+  article: blogItemType
+}) {
   const locale = useLocale() as LocaleType
-
-  const t2 = useTranslations('Blogs')
-
-  const workItems = t2.raw('Items') as blogItemType[]
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
@@ -65,10 +65,10 @@ export default function BlogImgCarousal() {
   return (
     <div>
       {/* header */}
-      <div className="relative mt-10">
+      <div className="relative mt-10 bg-amber-400">
         <div className="overflow-hidden" ref={emblaRef}>
           <div className="-ms-4 flex">
-            {workItems[1].image.map((image, index) => {
+            {article.image.map((image, index) => {
               if (index > 0)
                 return (
                   <div
@@ -76,7 +76,12 @@ export default function BlogImgCarousal() {
                     className="min-w-0 shrink-0 grow-0 basis-full ps-4 md:basis-1/2"
                   >
                     <div className="relative h-70 overflow-hidden rounded-sm md:h-50 lg:h-70 xl:h-80 2xl:h-90">
-                      <Image src={image} alt="" fill className="object-cover" />
+                      <Image
+                        src={image}
+                        alt={`${article.title} Image ${index + 1}`}
+                        fill
+                        className="object-cover"
+                      />
                     </div>
                   </div>
                 )

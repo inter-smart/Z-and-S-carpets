@@ -261,3 +261,12 @@
   }
 }
 /* /Built for section */
+
+.spaced-dotted {
+  /* Horizontal border */
+  background-image: linear-gradient(to right, #812990 20%, transparent 20%);
+  background-size: 12px 3px; /* 20px total width = 2px dot + 18px gap */
+  background-repeat: repeat-x;
+  background-position: bottom;
+  height: 1.5px; /* Set height to dot height */
+}

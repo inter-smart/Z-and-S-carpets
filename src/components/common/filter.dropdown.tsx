@@ -26,7 +26,7 @@ export default function FilterDropdown({
   return (
     <DropdownMenu open={open} onOpenChange={setOpen}>
       <DropdownMenuTrigger className="flex w-fit flex-row items-center justify-between space-x-10 rounded-sm border border-blue-500 bg-white px-4 py-2 text-sm font-medium focus:ring-0 focus:outline-none">
-        <span className="first-letter:uppercase">
+        <span className="whitespace-nowrap first-letter:uppercase">
           {!value ? filterLabel : value}
         </span>
         <OurIcon

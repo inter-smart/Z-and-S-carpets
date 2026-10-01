@@ -184,7 +184,7 @@ export default function BannerSection() {
                       <div className="relative hidden aspect-square h-full items-center justify-center overflow-hidden rounded-md min-[300px]:flex">
                         <Image
                           src={card.image}
-                          alt="floor-image"
+                          alt={`${currentCategory.label} ${card.itemText}`}
                           fill
                           className="object-cover"
                         />

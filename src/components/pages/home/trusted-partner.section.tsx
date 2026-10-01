@@ -105,7 +105,7 @@ export default function TrustedPartnerSection() {
                     src={partner[0].image}
                     width={250}
                     height={200}
-                    alt="site-logo"
+                    alt={partner[0].name}
                     className="h-auto w-full"
                   />
                 </div>
@@ -117,7 +117,7 @@ export default function TrustedPartnerSection() {
                       src={partner[1].image}
                       width={250}
                       height={200}
-                      alt="site-logo"
+                      alt={partner[1].name}
                       className="h-auto w-full"
                     />
                   </div>

@@ -1,24 +1,19 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
-import { Dialog, DialogClose, DialogContent } from '@/components/ui/dialog'
 import { OurIcon } from '@/components/ui/icon'
-import { CloudCheckIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import { useState, type SubmitEvent } from 'react'
+import { type SubmitEvent } from 'react'
 
 export default function GetInTouchSection() {
   const t = useTranslations('ContactPage.getInTouch')
 
   const formField = t.raw('fields') as string[]
 
-  const [openSuccessDialog, setOpenSuccessDialog] = useState(false)
-
   const handleForm = (event: SubmitEvent<HTMLFormElement>) => {
     event.preventDefault()
 
     console.log('Form submitted.')
-    setOpenSuccessDialog(true)
   }
 
   return (
@@ -81,7 +76,7 @@ export default function GetInTouchSection() {
       </section>
 
       {/* Success Dialog */}
-      <Dialog open={openSuccessDialog} onOpenChange={setOpenSuccessDialog}>
+      {/* <Dialog open={openSuccessDialog} onOpenChange={setOpenSuccessDialog}>
         <DialogContent className="flex min-h-100 min-w-[35vw] flex-row items-center justify-center rounded-sm 2xl:min-w-125">
           <div className="flex flex-col items-center text-center text-black">
             <CloudCheckIcon className="text-our-blue" size={100} />
@@ -96,7 +91,7 @@ export default function GetInTouchSection() {
             </DialogClose>
           </div>
         </DialogContent>
-      </Dialog>
+      </Dialog> */}
     </>
   )
 }

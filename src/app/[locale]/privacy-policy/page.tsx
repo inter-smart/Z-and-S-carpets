@@ -22,6 +22,7 @@ export default function PrivacyPolicyPage() {
     <>
       <BreadcrumbBar
         values={[{ name: 'Privacy Policy', link: '/privacy-policy' }]}
+        className="mt-7"
       />
       <article className="container-wrapper pt-5 pb-10 lg:pt-5 lg:pb-20">
         <h1 className="our-heading">{t('title')}</h1>
@@ -46,7 +47,9 @@ export default function PrivacyPolicyPage() {
                       privacy: (chunks) => (
                         <Link
                           href="https://masscareagency.co.uk/privacy-policy"
-                          className="text-our-blue underline hover:no-underline"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-our-blue underline"
                         >
                           {chunks}
                         </Link>
