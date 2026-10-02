@@ -196,14 +196,14 @@ export default function ProductListSection() {
             />
             <SheetContent
               side="left"
-              className="inset-y-4! top-4! bottom-4! h-auto! w-[94%]! max-w-80! scrollbar-none overflow-y-scroll rounded-e-md bg-[#EFF9FE] pt-5 rtl:right-0! rtl:left-auto!"
+              className="inset-y-4! top-4! bottom-4! h-auto! w-[94%]! max-w-80! rounded-e-md bg-[#EFF9FE] pt-5 rtl:right-0! rtl:left-auto!"
             >
               <SheetHeader>
                 <SheetTitle>
                   <p className="our-heading text-6xl!">Filter</p>
                 </SheetTitle>
               </SheetHeader>
-              <div className="space-y-2 px-6 pb-6">
+              <div className="min-h-0 flex-1 scrollbar-none space-y-2 overflow-y-auto overscroll-none px-6 pb-6">
                 {filters.map((filter) => (
                   <div
                     key={filter.id}

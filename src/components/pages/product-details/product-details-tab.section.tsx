@@ -27,19 +27,24 @@ export default function ProductDetailsTabSection({
   return (
     <section className="container-wrapper mt-12 pb-15">
       {/* tabs */}
-      <div className="flex scrollbar-none justify-between gap-5 overflow-x-auto scroll-smooth border-y border-black/10">
+      {/* <div className="grid grid-cols-1 border-t border-black/10 min-[325px]:grid-cols-2 min-[425px]:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8"> */}
+      <div className="grid grid-cols-1 justify-between border-t border-black/10 min-[325px]:grid-cols-2 min-[425px]:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:flex xl:border-b">
         {tabs.map((tab, i) => (
-          <button
-            type="button"
+          <div
             key={i}
-            onClick={() => setActiveTab(tab)}
-            className={cn(
-              'ltr:font-manrope rtl:font-cairo w-fit shrink-0 py-4 text-sm focus:ring-0 focus:outline-none',
-              activeTab === tab && 'border-our-purple border-b-3 font-semibold',
-            )}
+            className="flex justify-center border-black/10 px-0 max-xl:border-b"
           >
-            {tab}
-          </button>
+            <button
+              type="button"
+              onClick={() => setActiveTab(tab)}
+              className={cn(
+                'ltr:font-manrope rtl:font-cairo w-fit border-b-3 border-transparent py-3 text-sm focus:ring-0 focus:outline-none',
+                activeTab === tab && 'border-our-purple font-semibold',
+              )}
+            >
+              {tab}
+            </button>
+          </div>
         ))}
       </div>
 

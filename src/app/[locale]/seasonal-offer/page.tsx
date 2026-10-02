@@ -18,7 +18,7 @@ export default function SeasonalOffer() {
           className="flex min-w-[35vw] rounded-sm p-1.5 min-[300px]:h-100 sm:min-w-150 md:min-w-180 lg:min-w-200"
         >
           <DialogClose className="absolute top-2 right-2 z-50 focus:ring-0 focus:outline-none">
-            <XIcon className="stroke-1" />
+            <XIcon className="size-4" />
           </DialogClose>
           <div className="relative grid h-full w-full grid-rows-2 text-black sm:grid-cols-[auto_200px] sm:grid-rows-none">
             <div className="absolute -top-20 left-8 z-20 h-35 w-35 rounded-full bg-white sm:-top-10 rtl:right-8">

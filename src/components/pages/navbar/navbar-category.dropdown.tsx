@@ -15,6 +15,7 @@ import { ChevronDownIcon, ChevronRight } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 import NavbarLangDropdown from './navbar-lang.dropdown'
 
 const vinylProducts = [
@@ -174,8 +175,29 @@ export default function NavbarCategoryDropdown() {
   const t = useTranslations('Navbar')
   const category = t.raw('category') as { title: string }[]
 
+  const [openMenu, setOpenMenu] = useState('')
+
+  useEffect(() => {
+    if (openMenu) {
+      document.documentElement.style.overflow = 'hidden'
+      document.documentElement.style.scrollbarGutter = 'stable'
+    } else {
+      document.documentElement.style.overflow = ''
+      document.documentElement.style.scrollbarGutter = ''
+    }
+
+    return () => {
+      document.documentElement.style.overflow = ''
+      document.documentElement.style.scrollbarGutter = ''
+    }
+  }, [openMenu])
+
   return (
-    <NavigationMenu className="max-w-none!">
+    <NavigationMenu
+      className="max-w-none!"
+      value={openMenu}
+      onValueChange={setOpenMenu}
+    >
       <NavigationMenuList className="flex w-full! items-center justify-between">
         {/* category */}
         <div
@@ -194,7 +216,7 @@ export default function NavbarCategoryDropdown() {
               <NavigationMenuTrigger className="navigation-menu-trigger-style-change h-fit! px-0! py-1.75! text-base font-normal">
                 {item.title}
               </NavigationMenuTrigger>
-              <NavigationMenuContent>
+              <NavigationMenuContent className="overflow-y-auto">
                 <DropdownContent category={item} />
               </NavigationMenuContent>
             </NavigationMenuItem>
