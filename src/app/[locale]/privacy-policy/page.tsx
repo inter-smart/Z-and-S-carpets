@@ -26,7 +26,7 @@ export default function PrivacyPolicyPage() {
       />
       <article className="container-wrapper pt-5 pb-10 lg:pt-5 lg:pb-20">
         <h1 className="our-heading">{t('title')}</h1>
-        <p className="our-text mt-3">{t('intro')}</p>
+        <p className="mt-3 text-lg">{t('intro')}</p>
         <div className="mt-8 space-y-4">
           {sections.map((section, sectionIndex) => (
             <section
@@ -35,12 +35,12 @@ export default function PrivacyPolicyPage() {
             >
               <h2
                 id={section.title.toLowerCase().replaceAll(' ', '-')}
-                className="our-heading text-xl"
+                className="our-heading text-4xl!"
               >
                 {section.title}
               </h2>
               {section.paragraphs.map((_, paragraphIndex) => (
-                <p key={paragraphIndex} className="our-text">
+                <p key={paragraphIndex} className="text-lg">
                   {t.rich(
                     `sections.${sectionIndex}.paragraphs.${paragraphIndex}`,
                     {
@@ -79,7 +79,7 @@ export default function PrivacyPolicyPage() {
                   {section.bullets.map((bullet, bulletIndex) => (
                     <li
                       key={bulletIndex}
-                      className="our-text flex items-start gap-2"
+                      className="flex items-start gap-2 text-lg"
                     >
                       <div className="pt-1.5">
                         <OurIcon

@@ -13,7 +13,7 @@ export default function IntroSection() {
         <h1 className="our-heading">{t('title')}</h1>
         <div className="text-[12px] leading-[1.55] text-[#252525] sm:text-[13px]">
           {paragraphs.map((paragraph) => (
-            <p key={paragraph} className="our-text mb-5 text-sm leading-6">
+            <p key={paragraph} className="mb-5 text-base">
               {paragraph}
             </p>
           ))}
@@ -22,7 +22,7 @@ export default function IntroSection() {
               <Link
                 key={category.id}
                 href={`/works?type=${category.id}`}
-                className="our-text pb-1 font-normal underline decoration-1 underline-offset-4 hover:text-[#037EDA]"
+                className="pb-1 text-lg font-normal underline decoration-1 underline-offset-4 hover:text-[#037EDA]"
               >
                 {category.label}
               </Link>

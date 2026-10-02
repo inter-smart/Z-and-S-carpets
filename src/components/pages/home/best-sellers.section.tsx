@@ -118,7 +118,7 @@ export default function BestSellersSection() {
                         </span>
                       </div>
 
-                      <div className="flex min-h-60 flex-col p-4">
+                      <div className="flex min-h-50 flex-col p-4">
                         <p className="text-sm tracking-wider">
                           {product.category}
                         </p>

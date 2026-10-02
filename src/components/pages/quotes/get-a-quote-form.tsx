@@ -49,7 +49,7 @@ export default function GetAQuoteForm() {
     <>
       <div className="z-20 my-15 w-200! rounded-md bg-white p-10 text-black sm:p-10 lg:p-12">
         <h1 className="our-heading">Get a Quote</h1>
-        <p className="mt-3 text-sm">
+        <p className="mt-3 text-base">
           Fill in the details and we will get back at you shortly.
         </p>
 
@@ -143,10 +143,7 @@ export default function GetAQuoteForm() {
             placeholder="Additional Notes"
             className="min-h-25 resize-y rounded-sm border border-black/20 px-5 py-3 text-sm placeholder:text-black sm:col-span-2"
           />
-          <Button
-            type="submit"
-            className="bg-our-purple hover:bg-our-purple our-btn mt-5 w-fit"
-          >
+          <Button type="submit" className="bg-our-purple our-btn mt-5 w-fit">
             Submit
           </Button>
         </form>
@@ -163,15 +160,15 @@ export default function GetAQuoteForm() {
                 className="size-full"
               />
             </div>
-            <span className="mt-7 text-xl font-medium">
+            <span className="mt-7 text-4xl font-medium">
               Thank You for Your Inquiry
             </span>
-            <span className="mt-2 text-sm leading-5 text-[#120D0D]">
+            <span className="mt-2 text-base leading-5 text-[#120D0D]">
               We&apos;ve received your request and will contact you soon with
               the details.
             </span>
             <DialogClose className="bg-our-purple mt-5 w-fit rounded-sm border p-2 px-10 text-white">
-              <span className="font-medium">Go Back</span>
+              <span className="text-sm font-medium">Go Back</span>
             </DialogClose>
           </div>
         </DialogContent>

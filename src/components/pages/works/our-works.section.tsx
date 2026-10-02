@@ -32,12 +32,12 @@ export default function OurWorksSection() {
 
   return (
     <section className="container-wrapper pt-8 pb-12 lg:pt-12 lg:pb-18">
-      <h2 id="projects-title" className="section-title text-center">
+      <h2 id="projects-title" className="our-heading text-center">
         {t('title')}
       </h2>
 
       <div className="mt-9 flex flex-wrap justify-center gap-3">
-        {workCategories.map((item) => (
+        {workCategories.map((item, i) => (
           <Button
             key={item.id}
             type="button"
@@ -53,10 +53,11 @@ export default function OurWorksSection() {
                 )
             }}
             className={cn(
-              'rounded-md border px-9 py-4.5 text-xs font-semibold transition-colors hover:border-[#0066B3] hover:text-[#0066B3]',
+              'hover:border-our-blue hover:text-our-blue our-btn font-semibold! uppercase transition-colors',
               category === item.id
-                ? 'border-[#0066B3]! text-[#0066B3]!'
+                ? 'border-our-blue! text-our-blue!'
                 : 'border-[#CDCDCD]!',
+              !category && i === 0 && 'border-our-blue! text-our-blue!',
             )}
           >
             {item.label}

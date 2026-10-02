@@ -9,8 +9,8 @@ export default function ProductsEmptySection() {
         </div>
       </div>
       <div className="mt-5 xl:ms-8 xl:mt-0">
-        <p className="text-xl font-medium">No Results Found</p>
-        <p className="mt-2 text-sm">
+        <p className="text-4xl font-medium">No Results Found</p>
+        <p className="mt-2 text-base">
           No products matched your search. Try adjusting your filters or
           keywords.
         </p>

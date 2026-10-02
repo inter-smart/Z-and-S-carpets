@@ -44,14 +44,14 @@ export default function DownloadsCardSection() {
                   <OurIcon name="file-open" className="text-our-green size-8" />
                 </div>
                 <div className="flex-1 space-y-1 md:my-auto lg:my-0">
-                  <p className="our-heading text-xl leading-7 font-medium">
+                  <p className="our-heading text-2xl leading-7 font-medium">
                     {card.title}
                   </p>
-                  <p className="text-sm">{card.description}</p>
+                  <p className="text-base">{card.description}</p>
                 </div>
               </div>
               <Button
-                className="our-btn bg-our-purple hover:bg-our-purple col-span-2 w-full px-8! sm:col-span-1 sm:my-auto sm:w-fit lg:col-span-2 lg:w-full xl:col-span-1"
+                className="our-btn bg-our-purple col-span-2 w-full px-8! sm:col-span-1 sm:my-auto sm:w-fit lg:col-span-2 lg:w-full xl:col-span-1"
                 onClick={() => setOpenDownloadFromDialog(true)}
               >
                 {t('downloadBtnLable')}
@@ -79,7 +79,7 @@ export default function DownloadsCardSection() {
             <span className="our-heading mt-5">
               {t('downloadFormDialog.title')}
             </span>
-            <span className="our-text mt-3 font-normal">
+            <span className="mt-3 text-base font-normal">
               {t('downloadFormDialog.description')}
             </span>
             <div className="mt-8 grid w-full grid-cols-1 gap-3 sm:grid-cols-2">
@@ -118,7 +118,7 @@ export default function DownloadsCardSection() {
               />
             </div>
             <Button
-              className="bg-our-purple our-btn hover:bg-our-purple ms-auto mt-10 w-fit rounded-sm border p-2 px-10 text-white"
+              className="bg-our-purple our-btn ms-auto mt-10 w-fit border text-white"
               type="submit"
             >
               <span className="font-medium">
@@ -140,13 +140,13 @@ export default function DownloadsCardSection() {
                 className="size-full"
               />
             </div>
-            <span className="mt-7 text-xl font-medium">
+            <span className="mt-7 text-4xl font-medium">
               {t('successDialog.title')}
             </span>
-            <span className="mt-2 text-sm leading-5 text-[#120D0D]">
+            <span className="mt-2 text-base leading-5 text-[#120D0D]">
               {t('successDialog.description')}
             </span>
-            <DialogClose className="bg-our-purple mt-5 w-fit rounded-sm border p-2 px-10 text-white">
+            <DialogClose className="bg-our-purple mt-5 w-fit rounded-sm border p-2 px-6 text-sm text-white">
               <span className="font-medium">{t('successDialog.btnLable')}</span>
             </DialogClose>
           </div>

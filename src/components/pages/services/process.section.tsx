@@ -16,12 +16,12 @@ export default function ProcessSection() {
       aria-labelledby="process-title"
     >
       <div className="container-wrapper">
-        <p className="font-cairo text-center text-[3.6rem] leading-14 font-bold tracking-widest text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.03)] sm:text-[5.5rem] sm:leading-20 lg:text-[6.5rem] lg:leading-none">
+        <p className="font-cairo text-center text-[4rem] leading-14 font-bold tracking-widest text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.03)] sm:text-[5rem] sm:leading-18">
           {t('eyebrow')}
         </p>
         <h2
           id="process-title"
-          className="section-title -mt-6 text-center sm:-mt-7 md:-mt-8 lg:-mt-11"
+          className="our-heading -mt-7 text-center sm:-mt-8"
         >
           {t('title')}
         </h2>
@@ -34,8 +34,8 @@ export default function ProcessSection() {
               <div>
                 <OurIcon name={item.icon} className="size-10" />
               </div>
-              <h3 className="mt-12 text-xl font-medium">{item.title}</h3>
-              <p className="our-text mt-3 leading-6 text-white/80">
+              <h3 className="mt-12 text-2xl font-medium">{item.title}</h3>
+              <p className="mt-3 text-lg leading-6 text-[#E3E3E3]">
                 {item.description}
               </p>
             </article>

@@ -92,8 +92,8 @@ export default function ProductDetailsTabSection({
                   className="object-cover"
                 />
                 <div className="absolute bottom-0 z-20 w-full px-5 pb-3 text-white">
-                  <h3 className="text-2xl">{photo.title}</h3>
-                  <p className="text-lg">{photo.description}</p>
+                  <h3 className="text-6xl">{photo.title}</h3>
+                  <p className="text-xl">{photo.description}</p>
                 </div>
               </div>
             ))}
@@ -104,7 +104,7 @@ export default function ProductDetailsTabSection({
       {/* tab - videos */}
       {activeTab === 'Videos' && (
         <section className="mt-9">
-          <h3 className="ltr:font-manrope rtl:font-cairo text-[15px] font-semibold">
+          <h3 className="ltr:font-manrope rtl:font-cairo text-base font-semibold">
             Videos
           </h3>
           <div className="mt-4 grid gap-3 lg:grid-cols-2 xl:gap-4">
@@ -125,8 +125,8 @@ export default function ProductDetailsTabSection({
                   <source src={video.src} type="video/mp4" />
                 </video>
                 <div className="absolute bottom-0 z-20 w-full px-5 pb-3 text-white">
-                  <h3 className="text-2xl">{video.title}</h3>
-                  <p className="text-lg">{video.description}</p>
+                  <h3 className="text-6xl">{video.title}</h3>
+                  <p className="text-xl">{video.description}</p>
                 </div>
               </div>
             ))}

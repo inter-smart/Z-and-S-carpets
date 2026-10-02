@@ -23,7 +23,7 @@ export default function GetInTouchSection() {
           className="mt-14 h-fit rounded-md bg-[#023260] px-8 py-18 text-white"
           onSubmit={handleForm}
         >
-          <h2 className="our-heading">{t('formTitle')}</h2>
+          <h2 className="our-heading text-8xl!">{t('formTitle')}</h2>
           <div className="mt-8 space-y-3">
             <input
               key={formField[0]}
@@ -60,15 +60,12 @@ export default function GetInTouchSection() {
             />
             <label className="flex h-30 cursor-pointer flex-col items-center justify-center rounded-sm border-2 border-dashed border-white/10 text-[10px] text-white/80 hover:border-white/20">
               <OurIcon name="cloud-upload" className="size-7 opacity-50" />
-              <span className="text-xs font-light">{t('upload')}</span>
+              <span className="text-sm font-light">{t('upload')}</span>
               <input type="file" className="sr-only" />
             </label>
           </div>
           <div className="mt-9 flex justify-end">
-            <Button
-              type="submit"
-              className="bg-our-purple hover:bg-our-purple our-btn"
-            >
+            <Button type="submit" className="bg-our-purple our-btn">
               {t('submit')}
             </Button>
           </div>

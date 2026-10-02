@@ -183,7 +183,7 @@ export default function BannerSection() {
                     className="flex w-full min-w-full shrink-0 items-end justify-start px-1 md:justify-end"
                   >
                     {/* WHOLE CARD */}
-                    <div className="flex h-22 w-full flex-row justify-between gap-2 rounded-md bg-white p-2 text-black sm:h-24 sm:gap-4 sm:p-3 md:h-28 lg:h-32 lg:w-100 lg:gap-4 xl:h-36 xl:gap-8">
+                    <div className="flex h-22 w-full flex-row justify-between gap-2 rounded-md bg-white p-2 text-black sm:h-24 sm:gap-4 sm:p-3 md:h-26 lg:h-28 lg:w-100 lg:gap-4 xl:h-32 xl:gap-8">
                       {/* image */}
                       <div className="relative hidden aspect-square h-full items-center justify-center overflow-hidden rounded-md min-[300px]:flex">
                         <Image
@@ -198,10 +198,11 @@ export default function BannerSection() {
                       <div className="relative flex flex-1 flex-col justify-center">
                         {/* content */}
                         <div className="flex w-full flex-col md:gap-2">
-                          <p className="text-xl font-bold sm:text-2xl md:text-4xl">
+                          {/* <p className="text-xl font-bold sm:text-2xl md:text-4xl"> */}
+                          <p className="text-6xl font-bold md:text-9xl">
                             {card.itemValue}
                           </p>
-                          <p className="text-xs font-medium sm:text-sm">
+                          <p className="text-base font-medium sm:text-sm">
                             {card.itemText}
                           </p>
                         </div>

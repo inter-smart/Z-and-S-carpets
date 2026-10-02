@@ -25,7 +25,7 @@ export default function NotFoundPage() {
           </h1>
         </div>
         <h2 className="our-heading text-center">{t('title')}</h2>
-        <p className="our-text text-center text-sm leading-5">
+        <p className="text-center text-base leading-5 text-[#120D0D]">
           {t('description')}
         </p>
         <div className="flex gap-2">
@@ -36,12 +36,12 @@ export default function NotFoundPage() {
           <Button
             nativeButton={false}
             render={<Link href={`/${locale}${t('buttons.contactUs.link')}`} />}
-            className="bg-our-purple our-btn hover:bg-our-purple px-10!"
+            className="bg-our-purple our-btn px-10!"
           >
             {t('buttons.contactUs.label')}
           </Button>
         </div>
-        <div className="our-text flex flex-col items-center gap-4">
+        <div className="flex flex-col items-center gap-4 text-base">
           <p>{t('social.title')}</p>
           <div className="flex gap-10">
             {social.map((logo, i) => (

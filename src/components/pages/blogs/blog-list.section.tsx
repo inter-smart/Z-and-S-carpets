@@ -119,10 +119,7 @@ export default function BlogListSection() {
       </div>
 
       <div className="mt-10 flex w-full justify-center">
-        <Button
-          variant={'outline'}
-          className="border-our-blue our-btn hover:bg-transparent"
-        >
+        <Button variant={'outline'} className="border-our-blue our-btn">
           {t('loadMore')}
         </Button>
       </div>

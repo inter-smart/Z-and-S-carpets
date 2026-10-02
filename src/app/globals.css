@@ -48,29 +48,19 @@
 }
 
 @theme {
-  /* --text-xs: 11px;
-  --text-sm: 13px;
-  --text-base: 15px;
-  --text-lg: 17px; */
-  /*  */
-  /* --text-xs: 10px;
-  --text-sm: 12px;
-  --text-base: 14px;
-  --text-lg: 16px; */
-  /*  */
-  --text-xs: 8px;
-  --text-sm: 10px;
-  --text-base: 12px;
-  --text-lg: 14px;
-  --text-xl: 16px;
-  --text-2xl: 18px;
-  --text-3xl: 20px;
-  --text-4xl: 22px;
-  --text-5xl: 24px;
-  --text-6xl: 26px;
-  --text-7xl: 28px;
-  --text-8xl: 30px;
-  --text-9xl: 32px;
+  --text-xs: 8px; /* ~ to 14px in figma */
+  --text-sm: 10px; /* ~ to 16px in figma */
+  --text-base: 12px; /* ~ to 18px in figma */
+  --text-lg: 14px; /* ~ to 20px in figma */
+  --text-xl: 16px; /* ~ to 22px in figma */
+  --text-2xl: 18px; /* ~ to 24px in figma */
+  --text-3xl: 20px; /* ~ to 26px in figma */
+  --text-4xl: 22px; /* ~ to 28px in figma */
+  --text-5xl: 24px; /* ~ to 30px in figma */
+  --text-6xl: 26px; /* ~ to 32px in figma */
+  --text-7xl: 28px; /* ~ to 34px in figma */
+  --text-8xl: 30px; /* ~ to 36px in figma */
+  --text-9xl: 32px; /* ~ to 38px in figma */
 }
 
 @theme inline {
