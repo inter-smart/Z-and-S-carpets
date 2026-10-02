@@ -18,65 +18,207 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import NavbarLangDropdown from './navbar-lang.dropdown'
 
-const vinylProducts = [
+interface VinylProduct {
+  id: string
+  name: string
+  products: {
+    name: string
+    image: string
+    badge?: string
+    href: string
+  }[]
+  href: string
+}
+
+const dummySubCategory: VinylProduct[] = [
   {
+    id: '0',
     name: 'Granite Vinyl',
     href: '#',
+    products: [
+      {
+        name: 'Landscaping Grass',
+        image: '/images/floor-img-35.webp',
+        badge: 'BEST SELLER',
+        href: '#',
+      },
+      {
+        name: 'Wood Pattern Vinyl',
+        image: '/images/floor-img-30.webp',
+        href: '#',
+      },
+    ],
   },
   {
+    id: '1',
     name: 'Wood Pattern Vinyl',
     href: '#',
+    products: [
+      {
+        name: 'Landscaping Grass',
+        image: '/images/floor-img-12.webp',
+        badge: 'BEST SELLER',
+        href: '#',
+      },
+      {
+        name: 'Wood Pattern Vinyl',
+        image: '/images/floor-img-15.webp',
+        href: '#',
+      },
+    ],
   },
   {
+    id: '2',
     name: 'Coin Vinyl Flooring',
     href: '#',
+    products: [
+      {
+        name: 'Landscaping Grass',
+        image: '/images/floor-img-23.webp',
+        href: '#',
+      },
+      {
+        name: 'Wood Pattern Vinyl',
+        image: '/images/floor-img-25.webp',
+        badge: 'BEST SELLER',
+        href: '#',
+      },
+    ],
   },
   {
+    id: '3',
     name: 'Linoleum Vinyl Flooring',
     href: '#',
+    products: [
+      {
+        name: 'Landscaping Grass',
+        image: '/images/floor-img-31.webp',
+        badge: 'BEST SELLER',
+        href: '#',
+      },
+      {
+        name: 'Wood Pattern Vinyl',
+        image: '/images/floor-img-38.webp',
+        href: '#',
+      },
+    ],
   },
   {
+    id: '4',
     name: 'Homogeneous Medical Vinyl Flooring',
     href: '#',
+    products: [
+      {
+        name: 'Landscaping Grass',
+        image: '/images/floor-img-46.webp',
+        href: '#',
+      },
+      {
+        name: 'Wood Pattern Vinyl',
+        image: '/images/floor-img-13.webp',
+        badge: 'BEST SELLER',
+        href: '#',
+      },
+    ],
   },
   {
+    id: '5',
     name: 'Sigma Medical Vinyl Flooring',
     href: '#',
+    products: [
+      {
+        name: 'Landscaping Grass',
+        image: '/images/floor-img-51.webp',
+        badge: 'BEST SELLER',
+        href: '#',
+      },
+      {
+        name: 'Wood Pattern Vinyl',
+        image: '/images/floor-img-11.webp',
+        href: '#',
+      },
+    ],
   },
   {
+    id: '6',
     name: 'Heterogeneous Vinyl Flooring',
     href: '#',
+    products: [
+      {
+        name: 'Landscaping Grass',
+        image: '/images/floor-img-37.webp',
+        badge: 'BEST SELLER',
+        href: '#',
+      },
+      {
+        name: 'Wood Pattern Vinyl',
+        image: '/images/floor-img-49.webp',
+        href: '#',
+      },
+    ],
   },
   {
+    id: '7',
     name: 'Plain Color Vinyl Flooring',
     href: '#',
+    products: [
+      {
+        name: 'Landscaping Grass',
+        image: '/images/floor-img-26.webp',
+        badge: 'BEST SELLER',
+        href: '#',
+      },
+      {
+        name: 'Wood Pattern Vinyl',
+        image: '/images/floor-img-28.webp',
+        href: '#',
+      },
+    ],
   },
   {
+    id: '8',
     name: 'Cresto Vinyl Flooring',
     href: '#',
+    products: [
+      {
+        name: 'Landscaping Grass',
+        image: '/images/floor-img-33.webp',
+        href: '#',
+      },
+      {
+        name: 'Wood Pattern Vinyl',
+        image: '/images/floor-img-37.webp',
+        badge: 'BEST SELLER',
+        href: '#',
+      },
+    ],
   },
   {
+    id: '9',
     name: 'Vinyl Flooring Accessories',
     href: '#',
-  },
-]
-
-const featuredProducts = [
-  {
-    name: 'Landscaping Grass',
-    image: '/images/floor-img-35.webp',
-    badge: 'BEST SELLER',
-    href: '#',
-  },
-  {
-    name: 'Wood Pattern Vinyl',
-    image: '/images/floor-img-30.webp',
-    href: '#',
+    products: [
+      {
+        name: 'Landscaping Grass',
+        image: '/images/floor-img-44.webp',
+        badge: 'BEST SELLER',
+        href: '#',
+      },
+      {
+        name: 'Wood Pattern Vinyl',
+        image: '/images/floor-img-37.webp',
+        href: '#',
+      },
+    ],
   },
 ]
 
 function DropdownContent({ category }: { category: { title: string } }) {
   const locale = useLocale() as LocaleType
+
+  const [selectedSubCategory, setSelectedSubCategory] = useState<VinylProduct>(
+    dummySubCategory[0],
+  )
 
   return (
     <div className="p-7">
@@ -87,7 +229,7 @@ function DropdownContent({ category }: { category: { title: string } }) {
         </h2>
 
         <Link
-          href={`/${locale}/category`}
+          href={`/${locale}/${selectedSubCategory.href}`}
           className="group text-our-purple flex items-start gap-2 text-sm font-medium"
         >
           <span>View All</span>
@@ -99,22 +241,29 @@ function DropdownContent({ category }: { category: { title: string } }) {
       </div>
 
       {/* Content */}
-      <div className="mt-2 grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1fr_1.5fr]">
+      <div className="mt-2 grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1fr_1.8fr]">
         {/* Product links */}
         <div className="lg:col-span-2">
-          <div className="grid gap-x-14 md:grid-cols-2">
-            {vinylProducts.map((product) => (
-              <Link
-                key={product.name}
-                href={product.href}
-                className="group hover:border-our-blue hover:text-our-blue flex items-center justify-between border-b-2 border-black/15 py-2 text-sm text-black transition-colors"
+          <div className="grid gap-x-8 md:grid-cols-2">
+            {dummySubCategory.map((product) => (
+              <button
+                key={product.id}
+                onClick={() => setSelectedSubCategory(product)}
+                // className="group hover:border-our-blue hover:text-our-blue flex items-center justify-between border-b-2 border-black/15 py-2 text-sm text-black transition-colors"
+                className={cn(
+                  'group hover:border-our-blue hover:text-our-blue flex items-center justify-between border-b-2 border-black/15 py-2 text-sm text-black transition-colors',
+                  product.id === selectedSubCategory.id && 'border-our-blue',
+                )}
               >
-                <span className="pe-2">{product.name}</span>
+                <span className="pe-2 whitespace-nowrap">{product.name}</span>
                 <ChevronRight
                   size={16}
-                  className="invisible shrink-0 stroke-1 group-hover:visible rtl:rotate-180"
+                  className={cn(
+                    'invisible shrink-0 stroke-1 rtl:rotate-180',
+                    product.id === selectedSubCategory.id && 'visible',
+                  )}
                 />
-              </Link>
+              </button>
             ))}
           </div>
 
@@ -137,10 +286,10 @@ function DropdownContent({ category }: { category: { title: string } }) {
 
         {/* Featured products */}
         <div className="hidden grid-cols-2 gap-3 md:grid">
-          {featuredProducts.map((product) => (
+          {selectedSubCategory.products.map((product) => (
             <Link
               key={product.name}
-              href={product.href}
+              href={`/${locale}/${product.href}`}
               className="group border-our-blue h-fit overflow-hidden rounded-md border"
             >
               <div className="relative h-35 overflow-hidden">
@@ -216,7 +365,7 @@ export default function NavbarCategoryDropdown() {
               <NavigationMenuTrigger className="navigation-menu-trigger-style-change h-fit! px-0! py-1.75! text-base font-normal">
                 {item.title}
               </NavigationMenuTrigger>
-              <NavigationMenuContent className="overflow-y-auto">
+              <NavigationMenuContent className="z-50 overflow-y-auto">
                 <DropdownContent category={item} />
               </NavigationMenuContent>
             </NavigationMenuItem>
