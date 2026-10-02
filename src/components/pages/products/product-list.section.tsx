@@ -125,7 +125,7 @@ export default function ProductListSection() {
           <div className="absolute bottom-full -z-10 h-full w-dvw bg-[#EFF9FE] ltr:right-0 rtl:left-0" />
           <div className="absolute h-full w-dvw bg-[#EFF9FE] ltr:right-full rtl:left-full" />
           <aside className="pe-5 pt-5 pb-8">
-            <h2 className="our-heading max-sm:text-2xl">Filter</h2>
+            <h2 className="our-heading text-6xl!">Filter</h2>
             <div className="mt-4 space-y-2">
               {filters.map((filter) => (
                 <div
@@ -142,7 +142,7 @@ export default function ProductListSection() {
                         : setOpenFilter((prev) => [...prev, filter.id])
                     }
                     aria-expanded={openFilter.includes(filter.id)}
-                    className="flex w-full items-center justify-between py-3 text-left text-[14px] focus:ring-0 focus:outline-none"
+                    className="flex w-full items-center justify-between py-3 text-left text-lg focus:ring-0 focus:outline-none"
                   >
                     <span>{filter.label}</span>
                     <span aria-hidden="true">
@@ -158,7 +158,7 @@ export default function ProductListSection() {
                       {filter.items.map((item) => (
                         <label
                           key={item.id}
-                          className="flex items-center gap-3 py-2 text-[13px]"
+                          className="flex items-center gap-3 py-2 text-base"
                         >
                           <input
                             type="checkbox"
@@ -200,7 +200,7 @@ export default function ProductListSection() {
             >
               <SheetHeader>
                 <SheetTitle>
-                  <p className="our-heading text-2xl">Filter</p>
+                  <p className="our-heading text-6xl!">Filter</p>
                 </SheetTitle>
               </SheetHeader>
               <div className="space-y-2 px-6 pb-6">
@@ -219,7 +219,7 @@ export default function ProductListSection() {
                           : setOpenFilter((prev) => [...prev, filter.id])
                       }
                       aria-expanded={openFilter.includes(filter.id)}
-                      className="flex w-full items-center justify-between py-3 text-left text-[14px] focus:ring-0 focus:outline-none"
+                      className="flex w-full items-center justify-between py-3 text-left text-lg focus:ring-0 focus:outline-none"
                     >
                       <span>{filter.label}</span>
                       <span aria-hidden="true">
@@ -235,7 +235,7 @@ export default function ProductListSection() {
                         {filter.items.map((item) => (
                           <label
                             key={item.id}
-                            className="flex items-center gap-3 py-2 text-[13px]"
+                            className="flex items-center gap-3 py-2 text-base"
                           >
                             <input
                               type="checkbox"

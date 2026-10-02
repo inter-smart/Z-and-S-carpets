@@ -96,9 +96,7 @@ export default function BuiltForSection() {
       >
         <div className="bg-primary/70 absolute inset-0" />
         <div className="relative z-10">
-          <h2 className="section-title text-primary-foreground text-center">
-            {t('title')}
-          </h2>
+          <h2 className="our-heading text-center text-white">{t('title')}</h2>
 
           <div className="mt-10 grid gap-5 lg:grid-cols-[160px_minmax(0,1fr)]">
             <div className="bg-primary/25 flex h-fit flex-wrap overflow-hidden rounded-md border border-white/10 backdrop-blur-lg lg:flex-col lg:gap-6 lg:overflow-visible lg:py-10">
@@ -119,8 +117,9 @@ export default function BuiltForSection() {
                       })
                     }}
                     className={cn(
-                      'flex w-1/2 cursor-pointer justify-center px-4 py-5 text-sm font-medium tracking-widest text-white transition-colors focus:ring-0 focus:outline-none sm:w-1/3 md:w-1/4 lg:w-full lg:min-w-0 lg:justify-start ltr:text-left rtl:text-right',
-                      active && 'bg-linear-to-t from-[#812990] to-[#812990]/0',
+                      'flex w-1/2 cursor-pointer justify-center px-4 py-5 text-base font-medium tracking-widest text-white transition-colors focus:ring-0 focus:outline-none sm:w-1/3 md:w-1/4 lg:w-full lg:min-w-0 lg:justify-start ltr:text-left rtl:text-right',
+                      active &&
+                        'from-our-purple to-our-purple/0 bg-linear-to-t',
                     )}
                     aria-pressed={active}
                   >
@@ -135,17 +134,17 @@ export default function BuiltForSection() {
                 {/* details */}
                 <div className="text-primary-foreground flex w-full flex-col justify-evenly gap-3 xl:w-50 xl:gap-0 2xl:w-60">
                   <div className="">
-                    <p className="ltr:font-nobile rtl:font-cairo hidden text-3xl font-semibold xl:block">
+                    <p className="ltr:font-nobile rtl:font-cairo hidden text-4xl font-semibold xl:block">
                       {category.name.charAt(0) +
                         category.name.slice(1).toLowerCase()}
                     </p>
-                    <p className="text-primary-foreground mt-4 text-sm leading-6 xl:pe-5">
+                    <p className="text-primary-foreground mt-4 text-base leading-6 xl:pe-5">
                       {category.description}
                     </p>
                   </div>
                   <Button
                     variant="outline"
-                    className="w-fit rounded-md border-white bg-transparent px-6 py-4.5 text-xs font-semibold text-white hover:bg-white hover:text-[#073b68]"
+                    className="our-btn w-fit border-white bg-transparent px-4! hover:bg-white/10 hover:text-white"
                   >
                     {category.cta}
                   </Button>
@@ -153,18 +152,18 @@ export default function BuiltForSection() {
 
                 {/* main image */}
                 <div className="flex-1">
-                  <p className="ltr:font-nobile rtl:font-cairo pb-3 text-3xl font-medium text-white xl:hidden">
+                  <p className="ltr:font-nobile rtl:font-cairo pb-3 text-4xl font-medium text-white xl:hidden">
                     {category.name.charAt(0) +
                       category.name.slice(1).toLowerCase()}
                   </p>
-                  <div className="relative h-(--main-image-height)">
+                  <div className="relative h-(--main-image-height) overflow-hidden rounded-md">
                     <Image
                       src={activeProductData.image}
                       alt={`${activeProductData.name} interior`}
                       fill
-                      className="overflow-hidden rounded-md object-cover object-bottom transition-transform duration-700 ease-out"
+                      className="object-cover object-bottom transition-transform duration-700 ease-out"
                     />
-                    <p className="font-cairo absolute inset-x-3 bottom-3 text-3xl font-bold tracking-wider text-transparent uppercase [-webkit-text-stroke:1px_white] sm:inset-x-6 sm:bottom-6 sm:text-4xl md:text-5xl lg:inset-x-3 lg:bottom-3 xl:inset-x-6 xl:bottom-6 2xl:inset-x-10 2xl:bottom-10">
+                    <p className="font-cairo absolute inset-x-3 bottom-3 text-6xl font-bold tracking-wider text-transparent uppercase [-webkit-text-stroke:1px_white] sm:inset-x-6 sm:bottom-6 sm:text-8xl lg:inset-x-3 lg:bottom-3 xl:inset-x-6 xl:bottom-6 2xl:inset-x-10 2xl:bottom-10">
                       {activeProductData.name.split(' ').map((word, i) => (
                         <span key={i}>
                           {word}
@@ -211,10 +210,7 @@ export default function BuiltForSection() {
                 <div className="w-1 flex-1 lg:w-full lg:flex-none">
                   <div
                     className={cn(
-                      'flex h-16 overflow-x-auto',
-                      'scrollbar-none scroll-smooth rounded',
-                      // 'lg:block lg:w-20 lg:flex-col lg:overflow-x-hidden lg:overflow-y-auto 2xl:w-30',
-                      'gap-2 lg:w-20 lg:flex-col lg:gap-3 lg:overflow-x-hidden lg:overflow-y-auto 2xl:w-30',
+                      'flex h-16 scrollbar-none gap-2 overflow-x-auto scroll-smooth rounded-xs lg:w-20 lg:flex-col lg:gap-3 lg:overflow-x-hidden lg:overflow-y-auto 2xl:w-30',
                       'lg:h-(--image-stack-height)',
                     )}
                     ref={productsRef}
@@ -225,14 +221,14 @@ export default function BuiltForSection() {
                         type="button"
                         onClick={() => setActiveProduct(index)}
                         className={cn(
-                          'relative h-16 w-28 shrink-0 cursor-pointer overflow-hidden rounded-sm transition-all focus:ring-0 focus:outline-none lg:h-12 lg:w-full 2xl:h-16',
+                          'relative h-16 w-28 shrink-0 cursor-pointer overflow-hidden rounded-xs transition-all focus:ring-0 focus:outline-none lg:h-12 lg:w-full 2xl:h-16',
                         )}
                         aria-label={`Select ${product.name}`}
                         aria-pressed={activeProduct === index}
                       >
                         <div
                           className={cn(
-                            'bg-primary/40 absolute inset-0 z-11 rounded-sm',
+                            'bg-primary/40 absolute inset-0 z-11 rounded-xs',
                             activeProduct === index
                               ? 'border border-white'
                               : 'border-transparent',

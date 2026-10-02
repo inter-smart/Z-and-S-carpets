@@ -18,7 +18,7 @@ interface CustomerReviewType {
 function ReviewCard({ review }: { review: CustomerReviewType }) {
   return (
     // <article className="group border-border bg-background flex min-h-64 w-[min(86vw,396px)] shrink-0 flex-col justify-between rounded-lg border p-7 hover:border-[#0066B3] sm:w-full">
-    <article className="group border-border bg-background flex h-full shrink-0 flex-col justify-between rounded-lg border p-7 hover:border-[#0066B3]">
+    <article className="group border-border bg-background flex h-full shrink-0 flex-col justify-between rounded-md border p-7 hover:border-[#0066B3]">
       <div>
         <div
           aria-hidden="true"
@@ -27,9 +27,7 @@ function ReviewCard({ review }: { review: CustomerReviewType }) {
           {/* &ldquo; */}
           <OurIcon name="quote" />
         </div>
-        <p className="text-foreground/80 mt-5 text-sm leading-6">
-          {review.quote}
-        </p>
+        <p className="mt-5 text-sm leading-5">{review.quote}</p>
       </div>
       <div className="mt-7 flex items-center gap-3">
         <img
@@ -38,7 +36,7 @@ function ReviewCard({ review }: { review: CustomerReviewType }) {
           className="size-14 rounded-full object-cover"
         />
         <div>
-          <p className="font-medium">{review.name}</p>
+          <p className="text-lg font-medium">{review.name}</p>
           <p className="text-muted-foreground text-sm">{review.role}</p>
         </div>
       </div>
@@ -118,7 +116,7 @@ export default function CustomerExpSection() {
     >
       {/* header */}
       <div className="container-wrapper flex flex-col items-start gap-3 pb-10 lg:flex-row lg:items-center lg:justify-between lg:gap-6">
-        <h2 id="customer-experiences-title" className="section-title">
+        <h2 id="customer-experiences-title" className="our-heading">
           {t('title')}
         </h2>
         <div
@@ -128,7 +126,7 @@ export default function CustomerExpSection() {
           {/* <Image src={GoogleIcon} alt="google icon" className="h-auto w-9" /> */}
           <OurIcon name="google" className="size-9" />
           <div>
-            <p className="text-muted-foreground text-xs">{t('rating')}</p>
+            <p className="text-muted-foreground text-sm">{t('rating')}</p>
             <p
               className="tracking-[0.22em] text-orange-500"
               aria-label="5 out of 5 stars"

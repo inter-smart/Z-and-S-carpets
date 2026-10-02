@@ -28,7 +28,7 @@ export default function TagsSection() {
         {moreTags.map((tag, index) => (
           <span
             key={`${tag}-${index}`}
-            className="rounded border border-[#dedede] px-3 py-1 text-[10px] text-[#333]"
+            className="rounded border border-[#CCCCCC] px-3 py-1 text-sm text-black"
           >
             {tag}
           </span>

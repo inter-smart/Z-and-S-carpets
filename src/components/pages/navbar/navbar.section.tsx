@@ -36,7 +36,7 @@ export default function Navbar() {
                 <Link
                   key={i}
                   href={`/${locale}${item.link}`}
-                  className="text-sm font-medium focus:ring-0 focus:outline-none"
+                  className="text-base font-medium focus:ring-0 focus:outline-none"
                 >
                   {item.text}
                 </Link>
@@ -63,7 +63,7 @@ export default function Navbar() {
                   <Link
                     key={i}
                     href={`/${locale}${item.link}`}
-                    className="text-sm font-medium focus:ring-0 focus:outline-none"
+                    className="text-base font-medium focus:ring-0 focus:outline-none"
                   >
                     {item.text}
                   </Link>
@@ -71,7 +71,7 @@ export default function Navbar() {
                 {/* Get a sample trigger btn */}
                 <button
                   onClick={() => setGetASampleOpen(true)}
-                  className="cursor-pointer text-sm font-medium focus:ring-0 focus:outline-none"
+                  className="cursor-pointer text-base font-medium focus:ring-0 focus:outline-none"
                 >
                   Get a sample
                 </button>

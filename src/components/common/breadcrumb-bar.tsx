@@ -28,7 +28,7 @@ export default function BreadcrumbBar({
       className={cn('container-wrapper flex min-h-12 items-center', className)}
     >
       <Breadcrumb>
-        <BreadcrumbList className="our-text! gap-1 sm:gap-3">
+        <BreadcrumbList className="gap-1 text-lg! sm:gap-3">
           <BreadcrumbItem>
             <BreadcrumbLink render={<Link href="/" />} className="text-black">
               Home

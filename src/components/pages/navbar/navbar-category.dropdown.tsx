@@ -80,19 +80,19 @@ function DropdownContent({ category }: { category: { title: string } }) {
   return (
     <div className="p-7">
       {/* Header */}
-      <div className="flex items-center justify-between">
-        <h2 className="ltr:font-nobile rtl:font-cairo text-lg font-medium text-black">
+      <div className="flex flex-col justify-between sm:flex-row sm:items-center">
+        <h2 className="ltr:font-nobile rtl:font-cairo text-2xl font-medium text-black">
           {category.title}
         </h2>
 
         <Link
           href={`/${locale}/category`}
-          className="group text-our-purple flex items-center gap-2 text-sm font-medium"
+          className="group text-our-purple flex items-start gap-2 text-sm font-medium"
         >
           <span>View All</span>
           <OurIcon
             name="arrow-right"
-            className="text-our-purple size-3.5 rtl:rotate-180"
+            className="text-our-purple size-3 rtl:rotate-180"
           />
         </Link>
       </div>
@@ -106,7 +106,7 @@ function DropdownContent({ category }: { category: { title: string } }) {
               <Link
                 key={product.name}
                 href={product.href}
-                className="group hover:border-our-blue hover:text-our-blue flex items-center justify-between border-b-2 border-black/15 py-2 text-sm font-light text-black transition-colors"
+                className="group hover:border-our-blue hover:text-our-blue flex items-center justify-between border-b-2 border-black/15 py-2 text-sm text-black transition-colors"
               >
                 <span className="pe-2">{product.name}</span>
                 <ChevronRight
@@ -129,20 +129,20 @@ function DropdownContent({ category }: { category: { title: string } }) {
             }
             className="our-btn bg-our-green hover:bg-our-green mt-7 w-fit px-3! text-xs! text-white"
           >
-            <OurIcon name="whatsapp" />
+            <OurIcon name="whatsapp" className="size-3" />
             <span>Chat on Whatsapp</span>
           </Button>
         </div>
 
         {/* Featured products */}
-        <div className="hidden grid-cols-2 gap-5 md:grid">
+        <div className="hidden grid-cols-2 gap-3 md:grid">
           {featuredProducts.map((product) => (
             <Link
               key={product.name}
               href={product.href}
               className="group border-our-blue h-fit overflow-hidden rounded-md border"
             >
-              <div className="relative h-40 overflow-hidden">
+              <div className="relative h-35 overflow-hidden">
                 <Image
                   src={product.image}
                   alt={product.name}
@@ -151,13 +151,13 @@ function DropdownContent({ category }: { category: { title: string } }) {
                 />
 
                 {product.badge && (
-                  <span className="absolute top-3 left-3 rounded bg-white px-2 py-0.5 text-[9px]">
+                  <span className="absolute top-2 left-2 rounded-xs bg-white px-1.5 py-0.5 text-xs">
                     {product.badge}
                   </span>
                 )}
               </div>
 
-              <div className="flex h-15 items-center px-4">
+              <div className="flex h-12 items-center px-4">
                 <h3 className="text-sm font-medium text-black">
                   {product.name}
                 </h3>
@@ -191,7 +191,7 @@ export default function NavbarCategoryDropdown() {
         >
           {category.map((item, i) => (
             <NavigationMenuItem key={i} className="hover:bg-transparent!">
-              <NavigationMenuTrigger className="navigation-menu-trigger-style-change h-fit! px-0! py-1.75! text-sm font-normal">
+              <NavigationMenuTrigger className="navigation-menu-trigger-style-change h-fit! px-0! py-1.75! text-base font-normal">
                 {item.title}
               </NavigationMenuTrigger>
               <NavigationMenuContent>
@@ -201,7 +201,7 @@ export default function NavbarCategoryDropdown() {
           ))}
         </div>
         {/* more category btn */}
-        <p className="flex cursor-pointer flex-row items-center space-x-0.5 py-2.25 text-sm sm:space-x-1.5">
+        <p className="flex cursor-pointer flex-row items-center space-x-0.5 py-2.25 text-base sm:space-x-1.5">
           <span className="first-letter:uppercase">
             {t('categoryMoreBtnLabel')}
           </span>

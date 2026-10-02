@@ -57,7 +57,7 @@ export default function FooterCarousel({ images }: { images: string[] }) {
   }
 
   return (
-    <div className="relative h-36 w-full overflow-hidden rounded-md sm:h-64">
+    <div className="relative h-36 w-full overflow-hidden rounded-md md:h-54">
       {images.map((image, index) => (
         <Image
           key={index}

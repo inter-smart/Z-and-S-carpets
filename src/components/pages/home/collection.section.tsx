@@ -71,12 +71,12 @@ export default function CollectionSection() {
     >
       {/* header */}
       <div className="sm:items-centers flex flex-col justify-between gap-3 sm:flex-row sm:gap-6">
-        <h2 id="collection-title" className="section-title">
+        <h2 id="collection-title" className="our-heading">
           {t('title')}
         </h2>
         <Button
           variant="outline"
-          className="inline-flex w-fit rounded-sm border-[#0066B3] px-5 py-4.5 text-xs font-semibold"
+          className="border-our-blue our-btn inline-flex w-fit px-4!"
           nativeButton={false}
           render={<Link href={`/${locale}/products`} />}
         >
@@ -85,7 +85,7 @@ export default function CollectionSection() {
       </div>
 
       <div className="relative mt-12">
-        <div className="overflow-hidden" ref={emblaRef}>
+        <div className="overflow-hidden rounded-md" ref={emblaRef}>
           <div className="-ms-3 flex">
             {collectionItems.map((item, i) => (
               <div
@@ -95,7 +95,7 @@ export default function CollectionSection() {
                   i % 2 === 0 ? 'lg:basis-[60%]' : 'lg:basis-[40%]',
                 )}
               >
-                <article className="group bg-muted relative flex min-h-80 min-w-0 shrink-0 grow-0 items-center justify-center overflow-hidden rounded-lg ps-3 sm:min-h-108">
+                <article className="group bg-muted relative flex min-h-80 min-w-0 shrink-0 grow-0 items-center justify-center overflow-hidden rounded-md ps-3 sm:min-h-108">
                   <Image
                     src={item.image}
                     alt={`${item.title} interior`}
@@ -103,21 +103,21 @@ export default function CollectionSection() {
                     fill
                     className="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="text-background absolute inset-x-8 bottom-7 flex items-center justify-between gap-4 rounded-sm bg-[#1F1A1A]/30 px-6 py-6 backdrop-blur-sm lg:max-xl:flex-col lg:max-xl:items-start lg:max-xl:gap-0">
-                    <h3 className="ltr:font-nobile rtl:font-cairo sm:text:xl text-lg font-medium">
+                  <div className="text-background absolute inset-x-8 bottom-7 flex items-center justify-between gap-4 rounded-sm border border-white/30 bg-[#1F1A1A]/30 px-6 py-6 backdrop-blur-sm lg:max-xl:flex-col lg:max-xl:items-start lg:max-xl:gap-0">
+                    <h3 className="ltr:font-nobile rtl:font-cairo sm:text:xl text-2xl font-medium">
                       {item.title}
                     </h3>
                     <Button
                       variant={'ghost'}
                       className={
-                        'flex items-center justify-between p-0 text-sm! font-medium hover:bg-transparent hover:text-white'
+                        'flex items-center justify-between gap-2 p-0 text-base! font-medium hover:bg-transparent hover:text-white'
                       }
                       nativeButton={false}
                       render={
                         <Link href={`${locale}/products/${item.title}`} />
                       }
                     >
-                      <span className="me-2 hidden sm:block">
+                      <span className="hidden sm:block">
                         {t('itemButtonLabel')}
                       </span>
                       {/* LTR */}

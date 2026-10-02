@@ -48,10 +48,29 @@
 }
 
 @theme {
-  --text-xs: 11px;
+  /* --text-xs: 11px;
   --text-sm: 13px;
   --text-base: 15px;
-  --text-lg: 17px;
+  --text-lg: 17px; */
+  /*  */
+  /* --text-xs: 10px;
+  --text-sm: 12px;
+  --text-base: 14px;
+  --text-lg: 16px; */
+  /*  */
+  --text-xs: 8px;
+  --text-sm: 10px;
+  --text-base: 12px;
+  --text-lg: 14px;
+  --text-xl: 16px;
+  --text-2xl: 18px;
+  --text-3xl: 20px;
+  --text-4xl: 22px;
+  --text-5xl: 24px;
+  --text-6xl: 26px;
+  --text-7xl: 28px;
+  --text-8xl: 30px;
+  --text-9xl: 32px;
 }
 
 @theme inline {
@@ -208,7 +227,8 @@
 }
 
 @utility our-heading {
-  @apply ltr:font-nobile rtl:font-cairo text-4xl leading-12 font-medium;
+  /* @apply ltr:font-nobile rtl:font-cairo text-4xl leading-12 font-medium; */
+  @apply ltr:font-nobile rtl:font-cairo text-9xl leading-10 font-medium;
 }
 @utility our-text {
   @apply ltr:font-inter rtl:font-cairo text-base leading-7 font-light;
@@ -217,7 +237,8 @@
   @apply pt-16 pb-16 lg:pt-22 lg:pb-22;
 }
 @utility our-btn {
-  @apply rounded-sm! px-12! py-4.5! text-sm! font-normal!;
+  /* @apply rounded-sm! px-12! py-4.5! text-sm! font-normal!; */
+  @apply rounded-sm! px-8! py-4! text-sm! font-normal! hover:opacity-90!;
 }
 
 @layer utilities {

@@ -87,7 +87,7 @@ export default function ProductDetailsSection({
         <p className="ltr:font-manrope rtl:font-cairo text-lg tracking-wider uppercase">
           {product.category}
         </p>
-        <h1 className="text-[26px] font-bold">{product.name}</h1>
+        <h1 className="text-6xl font-bold">{product.name}</h1>
 
         {/* tags */}
         {/* #TAG ROW SCROLL */}
@@ -143,11 +143,11 @@ export default function ProductDetailsSection({
         <p className="ltr:font-manrope rtl:font-cairo mt-4 text-base font-medium tracking-wider uppercase">
           Specifications
         </p>
-        <div className="mt-2 grid gap-2 sm:grid-cols-3">
+        <div className="mt-2 grid gap-2 sm:w-4/5 sm:grid-cols-3">
           {product.specifications.map((item, i) => (
             <span
               key={i}
-              className="rounded bg-[#979797]/10 px-2 py-3 text-center text-sm"
+              className="rounded bg-[#979797]/10 px-2 py-2.5 text-center text-sm"
             >
               {item}
             </span>
@@ -226,7 +226,7 @@ export default function ProductDetailsSection({
 
         {/* buttons */}
         <div className="mt-4 flex flex-wrap gap-2 border-t border-[#D2D2D2]/80 pt-6">
-          <div className="border-our-blue flex h-10 w-18 items-center rounded-sm border">
+          <div className="border-our-blue flex h-8 w-16 items-center rounded-sm border">
             <input
               aria-label="Quantity"
               type="number"
@@ -241,14 +241,14 @@ export default function ProductDetailsSection({
               )}
             />
 
-            <div className="me-1 flex w-5 flex-col overflow-hidden rounded bg-gray-100">
+            <div className="me-1 flex w-4 flex-col overflow-hidden rounded bg-gray-100">
               <button
                 type="button"
                 onClick={() => setQuantity((q) => q + 1)}
                 className="flex flex-1 items-center justify-center hover:bg-gray-200"
                 aria-label="Increase quantity"
               >
-                <ChevronUpIcon className="size-4" />
+                <ChevronUpIcon className="size-3" />
               </button>
 
               <button
@@ -257,34 +257,27 @@ export default function ProductDetailsSection({
                 className="flex flex-1 items-center justify-center hover:bg-gray-200"
                 aria-label="Decrease quantity"
               >
-                <ChevronDownIcon className="size-4" />
+                <ChevronDownIcon className="size-3" />
               </button>
             </div>
           </div>
-          <button
-            type="button"
-            className="rounded-sm bg-[#8b279c] px-4 py-2.5 text-sm font-medium text-white"
-          >
+          <Button type="button" className="our-btn bg-our-purple px-5!">
             Add to Quote
-          </button>
-          <button
-            type="button"
-            className="rounded-sm bg-[#72bf3d] px-4 py-2.5 text-sm font-medium text-white"
-          >
+          </Button>
+          <Button type="button" className="our-btn bg-our-green px-5!">
+            <OurIcon name="whatsapp" />
             Chat on WhatsApp
-          </button>
-          <button
-            type="button"
-            className="rounded-sm bg-[#0879be] px-4 py-2.5 text-sm font-medium text-white"
-          >
+          </Button>
+          <Button type="button" className="our-btn bg-our-blue px-5!">
             Get Sample
-          </button>
-          <button
+          </Button>
+          <Button
             type="button"
-            className="rounded-sm border border-[#CDCDCD] px-4 py-2.5 text-sm font-medium"
+            variant={'outline'}
+            className="our-btn border-[#CDCDCD] px-5! text-black"
           >
             Download Datasheet
-          </button>
+          </Button>
         </div>
       </div>
     </section>

@@ -114,7 +114,7 @@ export default function WorksSection() {
       aria-labelledby="projects-title"
     >
       <div className="container-wrapper">
-        <h2 id="projects-title" className="section-title text-center">
+        <h2 id="projects-title" className="our-heading text-center">
           {t('title')}
         </h2>
 
@@ -128,9 +128,9 @@ export default function WorksSection() {
                 setCategory(item.id)
               }}
               className={cn(
-                'rounded-md border px-9 py-4.5 text-xs font-semibold transition-colors hover:border-[#0066B3] hover:text-[#0066B3]',
+                'hover:border-our-blue hover:text-our-blue our-btn font-semibold! uppercase transition-colors',
                 category === item.id
-                  ? 'border-[#0066B3]! text-[#0066B3]!'
+                  ? 'border-our-blue! text-our-blue!'
                   : 'border-[#CDCDCD]!',
               )}
             >
@@ -141,7 +141,7 @@ export default function WorksSection() {
 
         {/* WorkItemCards */}
         <div className="relative mt-10">
-          <div className="overflow-hidden" ref={emblaRef}>
+          <div className="overflow-hidden rounded-md" ref={emblaRef}>
             <div className="-ms-4 flex">
               {columns.map((column, columnIndex) => (
                 <div

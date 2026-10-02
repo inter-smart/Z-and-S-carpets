@@ -5,7 +5,7 @@ import { OurIcon } from '@/components/ui/icon'
 import type { LocaleType } from '@/i18n/types'
 import Autoplay from 'embla-carousel-autoplay'
 import useEmblaCarousel from 'embla-carousel-react'
-import { ListFilter } from 'lucide-react'
+import { ListFilterIcon } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -74,11 +74,11 @@ export default function BestSellersSection() {
       <div className="container-wrapper">
         {/* header */}
         <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-start md:justify-between xl:items-center">
-          <h2 className="section-title">{t('title')}</h2>
+          <h2 className="our-heading">{t('title')}</h2>
 
           <div className="flex flex-col items-start gap-3 min-[350px]:flex-row">
-            <Button className="rounded-sm border-2! border-black bg-black px-5 py-4.5 text-[0.95rem] font-semibold tracking-widest text-white uppercase hover:bg-black/80">
-              <ListFilter
+            <Button className="our-btn bg-black px-3! text-lg! font-semibold tracking-widest text-white uppercase">
+              <ListFilterIcon
                 data-icon="inline-center"
                 className="me-1 h-5! w-5!"
               />
@@ -87,7 +87,7 @@ export default function BestSellersSection() {
 
             <Button
               variant="outline"
-              className="rounded-sm border-white/50 bg-transparent px-5 py-4.5 text-white hover:bg-transparent hover:text-white"
+              className="our-btn border-white/60 px-4! hover:bg-white/10 hover:text-white"
               nativeButton={false}
               render={<Link href={`/${locale}/products`} />}
             >
@@ -104,7 +104,7 @@ export default function BestSellersSection() {
                     key={index}
                     className="min-w-0 shrink-0 grow-0 basis-full ps-7 sm:basis-1/2 lg:basis-1/3"
                   >
-                    <article className="group overflow-hidden rounded-md border border-white/30 bg-[#073b68] text-white">
+                    <article className="group overflow-hidden rounded-md border border-white/25 bg-[#073b68] text-white hover:border-white">
                       <div className="relative aspect-[1.5] overflow-hidden">
                         <Image
                           src={product.image}
@@ -113,33 +113,33 @@ export default function BestSellersSection() {
                           className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
                         />
 
-                        <span className="bg-background text-foreground absolute top-3 right-3 rounded px-3 py-1 text-xs tracking-wide uppercase">
+                        <span className="bg-background text-foreground absolute top-3 right-3 rounded-xs px-1.5 py-0.5 text-xs tracking-wide uppercase">
                           {product.tagLabel}
                         </span>
                       </div>
 
                       <div className="flex min-h-60 flex-col p-4">
-                        <p className="text-xs tracking-wider">
+                        <p className="text-sm tracking-wider">
                           {product.category}
                         </p>
 
-                        <h3 className="mt-2 text-xl font-semibold">
+                        <h3 className="mt-2 text-2xl font-semibold">
                           {product.title}
                         </h3>
 
-                        <p className="mt-3 line-clamp-3 text-sm leading-5 font-light">
+                        <p className="mt-3 line-clamp-3 text-base leading-5 font-light">
                           {product.description}
                         </p>
 
                         <div className="mt-auto flex gap-3 pt-7">
                           <Button
                             variant="outline"
-                            className="min-w-0 flex-1 cursor-pointer rounded-sm border-white bg-transparent py-4.5 text-white hover:bg-white hover:text-[#073b68]"
+                            className="our-btn min-w-0 flex-1 cursor-pointer font-semibold hover:bg-white/10 hover:text-white"
                           >
                             {t('getSampleBtnLabel')}
                           </Button>
 
-                          <Button className="min-w-0 flex-1 cursor-pointer rounded-sm bg-[#812990] py-4.5 font-medium text-white hover:bg-[#812990]/85">
+                          <Button className="bg-our-purple our-btn min-w-0 flex-1 cursor-pointer py-4.5 font-semibold text-white">
                             {t('viewMoreBtnLabel')}
                           </Button>
                         </div>
