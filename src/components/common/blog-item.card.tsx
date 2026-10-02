@@ -19,20 +19,20 @@ export default function BlogItemCard({ article }: { article: blogItemType }) {
         />
       </div>
       <div className="flex flex-col p-2">
-        <p className="text-our-purple text-xs">
+        <p className="text-our-purple text-sm">
           • {article.date} | {article.author}
         </p>
-        <h2 className="mt-3 text-base font-semibold sm:line-clamp-3">
+        <h2 className="mt-3 text-xl font-semibold sm:line-clamp-3">
           {article.title}
         </h2>
-        <p className="mt-3 text-sm leading-6 font-normal sm:line-clamp-3 md:line-clamp-5 xl:line-clamp-3 2xl:line-clamp-none">
+        <p className="mt-3 text-base leading-5 font-normal sm:line-clamp-3 md:line-clamp-5 xl:line-clamp-3 2xl:line-clamp-none">
           {article.excerpt}
         </p>
         <Button
           variant={'outline'}
           nativeButton={false}
           render={<Link href={`/${locale}/blogs/${article.id}`} />}
-          className="our-btn border-our-blue hover:bg-our-blue mt-3 w-fit hover:text-white"
+          className="our-btn border-our-blue mt-3 w-fit"
         >
           Read More
         </Button>

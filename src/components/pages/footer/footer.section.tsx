@@ -62,14 +62,14 @@ export default function Footer() {
                 className="flex flex-col space-y-2"
                 onClick={() => toggleSection(t('footerLinks.quickLinks.title'))}
               >
-                <p className="cursor-pointer text-[1rem] font-bold tracking-widest uppercase sm:cursor-text">
+                <p className="cursor-pointer text-lg font-bold tracking-widest uppercase sm:cursor-text">
                   {t('footerLinks.quickLinks.title')}
                 </p>
-                <div className="h-0.75 w-12 bg-[#0066B3]"></div>
+                <div className="bg-our-blue h-0.75 w-12" />
               </div>
               <div
                 className={cn(
-                  'flex flex-col gap-4 overflow-hidden transition-all duration-300',
+                  'flex flex-col gap-4 overflow-hidden text-base transition-all duration-300',
                   openSection === t('footerLinks.quickLinks.title')
                     ? 'mt-7 max-h-100 opacity-100 sm:mt-0'
                     : 'max-h-0 opacity-0 sm:max-h-none sm:opacity-100',
@@ -87,14 +87,14 @@ export default function Footer() {
                 className="flex flex-col space-y-2"
                 onClick={() => toggleSection(t('footerLinks.services.title'))}
               >
-                <p className="cursor-pointer text-[1rem] font-bold tracking-widest uppercase sm:cursor-text">
+                <p className="cursor-pointer text-lg font-bold tracking-widest uppercase sm:cursor-text">
                   {t('footerLinks.services.title')}
                 </p>
-                <div className="h-0.75 w-12 bg-[#0066B3]"></div>
+                <div className="bg-our-blue h-0.75 w-12" />
               </div>
               <div
                 className={cn(
-                  'flex flex-col gap-4 overflow-hidden transition-all duration-300',
+                  'flex flex-col gap-4 overflow-hidden text-base transition-all duration-300',
                   openSection === t('footerLinks.services.title')
                     ? 'mt-7 max-h-100 opacity-100 sm:mt-0'
                     : 'max-h-0 opacity-0 sm:max-h-none sm:opacity-100',
@@ -112,10 +112,10 @@ export default function Footer() {
                 className="flex flex-col space-y-2"
                 onClick={() => toggleSection(t('footerLinks.products.title'))}
               >
-                <p className="cursor-pointer text-[1rem] font-bold tracking-widest uppercase sm:cursor-text">
+                <p className="cursor-pointer text-lg font-bold tracking-widest uppercase sm:cursor-text">
                   {t('footerLinks.products.title')}
                 </p>
-                <div className="h-0.75 w-12 bg-[#0066B3]"></div>
+                <div className="bg-our-blue h-0.75 w-12" />
               </div>
               <div
                 className={cn(
@@ -125,14 +125,14 @@ export default function Footer() {
                     : 'max-h-0 opacity-0 sm:max-h-none sm:opacity-100',
                 )}
               >
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-4 text-base">
                   {footerLinks_products_items[0].map((item) => (
                     <Link key={item.text} href={item.link}>
                       {item.text}
                     </Link>
                   ))}
                 </div>
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-4 text-base">
                   {footerLinks_products_items[1].map((item) => (
                     <Link key={item.text} href={item.link}>
                       {item.text}
@@ -144,8 +144,8 @@ export default function Footer() {
 
             {/* contacts */}
             <div className="mt-7 space-y-7 sm:col-span-2 sm:mt-0 md:col-span-1">
-              <Image src={SiteLogo} alt="Z&S Carpets" />
-              <div className="space-y-5">
+              <Image src={SiteLogo} alt="Z&S Carpets" className="h-20" />
+              <div className="space-y-5 text-base">
                 {contacts.map((item, i) => {
                   if (!item.link.length)
                     return (
@@ -185,7 +185,7 @@ export default function Footer() {
 
         {/* bottom */}
         <hr className="border-white/10" />
-        <div className="flex w-full flex-col items-center justify-between space-y-4 py-10 text-center font-light lg:flex-row lg:space-y-0">
+        <div className="flex w-full flex-col items-center justify-between space-y-4 py-10 text-center text-base font-light lg:flex-row lg:space-y-0">
           <p className="hidden lg:block">{t('copyright')}</p>
           <div className="flex flex-row space-x-3 sm:space-x-8 xl:space-x-10">
             {social.map((logo, i) => (
@@ -200,7 +200,7 @@ export default function Footer() {
             ))}
           </div>
           <p className="lg:hidden">{t('copyright')}</p>
-          <div className="flex items-center justify-between space-x-1 text-sm sm:flex-row sm:justify-center">
+          <div className="flex items-center justify-between space-x-1 sm:flex-row sm:justify-center">
             <p>{t('designedByLabel')}:</p>
             <div className="flex flex-row items-center space-x-px">
               <OurIcon name="intersmart" className="size-2.75" />

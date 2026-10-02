@@ -18,10 +18,8 @@ export default function WorkDetailsSection({ id }: { id: string }) {
         <dl className="grid grid-cols-1 gap-3 text-[9px] md:grid-cols-2 lg:grid-cols-3 lg:gap-10 2xl:gap-20">
           {work.details.metadata.map((item) => (
             <div key={item.label}>
-              <dt className="our-text font-medium">{item.label}</dt>
-              <dd className="text-our-blue mt-1 text-sm font-light">
-                {item.value}
-              </dd>
+              <dt className="text-xl font-medium">{item.label}</dt>
+              <dd className="text-our-blue mt-1 text-base">{item.value}</dd>
             </div>
           ))}
         </dl>
@@ -36,7 +34,7 @@ export default function WorkDetailsSection({ id }: { id: string }) {
         />
       </div>
 
-      <div className="our-text mt-7 space-y-5">
+      <div className="mt-7 space-y-5 text-lg">
         {work.details.paragraphs.map((paragraph) => (
           <p key={paragraph}>{paragraph}</p>
         ))}

@@ -8,7 +8,7 @@ const contacts = {
 
 export default function BottomSideBtns() {
   return (
-    <div className="fixed bottom-14 z-99 flex flex-col-reverse gap-1.25 ltr:right-2 ltr:sm:right-5 rtl:left-2 rtl:sm:left-5">
+    <div className="fixed bottom-14 z-40 flex flex-col-reverse gap-1.25 ltr:right-2 ltr:sm:right-5 rtl:left-2 rtl:sm:left-5">
       <a
         className="flex h-9.5 w-9.5 items-center justify-center rounded-sm bg-[#812990] p-2.5"
         href={`mailto:${contacts.mail}`}

@@ -28,7 +28,7 @@ export default function HistorySection() {
       className="container-wrapper pb-16 lg:pb-24"
       aria-labelledby="company-history"
     >
-      <h2 className="our-heading text-center text-3xl!">{t('title')}</h2>
+      <h2 className="our-heading text-center text-7xl!">{t('title')}</h2>
 
       {/* Timeline */}
       <div className="relative mt-2 flex items-center">
@@ -132,7 +132,7 @@ export default function HistorySection() {
                   {/* Year */}
                   <span
                     className={cn(
-                      'absolute top-16 text-sm whitespace-nowrap transition-colors',
+                      'absolute top-16 text-lg whitespace-nowrap transition-colors',
                       index === activeEvent ? 'hidden' : 'text-black',
                     )}
                   >
@@ -161,13 +161,13 @@ export default function HistorySection() {
         className="mx-auto w-full text-center sm:w-4/5 md:w-3/5"
         aria-live="polite"
       >
-        <p className="text-our-purple text-4xl leading-none font-bold">
+        <p className="text-our-purple text-9xl leading-none font-bold">
           {event.year}
         </p>
-        <h3 className="ltr:font-nobile rtl:font-cairo mt-4 text-2xl font-medium">
+        <h3 className="ltr:font-nobile rtl:font-cairo mt-4 text-5xl font-medium">
           {event.title}
         </h3>
-        <p className="our-text mt-3">{event.description}</p>
+        <p className="our-text mt-3 text-lg leading-6">{event.description}</p>
       </div>
     </section>
   )

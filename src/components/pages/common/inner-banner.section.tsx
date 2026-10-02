@@ -16,7 +16,7 @@ export default function InnerBannerSection({ pageName }: { pageName: string }) {
         <div className="container-wrapper flex h-full items-end justify-start pb-6 lg:pb-8 xl:pb-10">
           <div>
             <h1 className="our-heading">{t('title')}</h1>
-            <h1 className="our-text leading-5!">{t('description')}</h1>
+            <h1 className="text-lg font-normal">{t('description')}</h1>
           </div>
         </div>
       </div>

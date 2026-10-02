@@ -74,12 +74,12 @@ export function BlogDetailsSection({ id }: { id: string }) {
           height={580}
           className="mb-5 h-70 w-full rounded-sm object-cover md:float-right md:ms-10 md:h-60 md:w-3/7 xl:ms-20 xl:mb-10 xl:h-80 rtl:md:float-left"
         />
-        <p className="text-our-purple text-xs">
+        <p className="text-our-purple text-sm">
           • {article.date} | {article.author}
         </p>
 
         <div className="xl:w-110 2xl:w-130">
-          <h1 className="mt-3 text-xl font-semibold sm:text-2xl">
+          <h1 className="mt-3 text-5xl leading-7 font-semibold">
             {article.title}
           </h1>
         </div>
@@ -93,7 +93,7 @@ export function BlogDetailsSection({ id }: { id: string }) {
               {articleTags[0].map((tag, i) => (
                 <span
                   key={i}
-                  className="rounded border border-[#CCCCCC] px-2 py-1 text-xs whitespace-nowrap"
+                  className="rounded border border-[#CCCCCC] px-2 py-1 text-sm whitespace-nowrap"
                 >
                   {tag}
                 </span>
@@ -103,7 +103,7 @@ export function BlogDetailsSection({ id }: { id: string }) {
               {articleTags[1].map((tag, i) => (
                 <span
                   key={i}
-                  className="rounded border border-[#CCCCCC] px-2 py-1 text-xs whitespace-nowrap"
+                  className="rounded border border-[#CCCCCC] px-2 py-1 text-sm whitespace-nowrap"
                 >
                   {tag}
                 </span>
@@ -310,17 +310,17 @@ function Section({
 }) {
   return (
     <section className={cn(hasMarginTop && 'mt-9')}>
-      <h2 className="text-xl font-semibold sm:text-2xl">{title}</h2>
+      <h2 className="text-5xl leading-7 font-semibold">{title}</h2>
       {paragraphs &&
         paragraphs.map((paragraph, i) => (
-          <p key={i} className="mt-3 text-sm leading-6">
+          <p key={i} className="mt-3 text-base leading-5">
             {paragraph}
           </p>
         ))}
       {list && (
         <ul className="mt-4 space-y-3">
           {list.map((item, i) => (
-            <li key={i} className="flex gap-3 text-sm leading-normal">
+            <li key={i} className="flex gap-3 text-base leading-normal">
               <div>
                 <CircleCheckIcon
                   className="text-our-purple stroke-1"

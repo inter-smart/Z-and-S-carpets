@@ -36,7 +36,7 @@ export default function Navbar() {
                 <Link
                   key={i}
                   href={`/${locale}${item.link}`}
-                  className="font-medium focus:ring-0 focus:outline-none"
+                  className="text-base font-medium focus:ring-0 focus:outline-none"
                 >
                   {item.text}
                 </Link>
@@ -52,7 +52,7 @@ export default function Navbar() {
                 <Image
                   src={SiteLogo}
                   alt="Z&S Carpets"
-                  className="h-14 w-auto cursor-pointer md:h-16 xl:h-18"
+                  className="h-16 w-auto cursor-pointer"
                 />
               </Link>
             </div>
@@ -63,7 +63,7 @@ export default function Navbar() {
                   <Link
                     key={i}
                     href={`/${locale}${item.link}`}
-                    className="font-medium focus:ring-0 focus:outline-none"
+                    className="text-base font-medium focus:ring-0 focus:outline-none"
                   >
                     {item.text}
                   </Link>
@@ -71,75 +71,27 @@ export default function Navbar() {
                 {/* Get a sample trigger btn */}
                 <button
                   onClick={() => setGetASampleOpen(true)}
-                  className="cursor-pointer text-sm font-medium focus:ring-0 focus:outline-none"
+                  className="cursor-pointer text-base font-medium focus:ring-0 focus:outline-none"
                 >
                   Get a sample
                 </button>
               </div>
 
-              <div className="flex flex-row items-center space-x-3">
+              <div className="flex flex-row items-center space-x-2">
                 {/* writeTo btn */}
                 <Button
                   size="icon"
-                  className="h-9.5 w-9.5 translate-y-0! rounded-full bg-[#0066B3] hover:bg-[#0066B3]/90"
+                  className="size-8 translate-y-0! rounded-full bg-[#0066B3] hover:bg-[#0066B3]/90"
                 >
-                  <OurIcon name="file-pen" className="size-4.5" />
+                  <OurIcon name="file-pen" className="size-3.5" />
                 </Button>
                 {/* menu btn */}
-                {/* <Button
-                  variant="outline"
-                  className="ltr:font-manrope rtl:font-cairo flex translate-y-0! flex-row items-center justify-center space-x-2 rounded-sm border-[#0066B3] px-3 py-4.25 text-sm font-medium"
-                >
-                  <p className="hidden sm:block">{t('menuBtnLabel')}</p>
-                  <OurIcon name="menu" className="size-7" />
-                </Button> */}
                 <MobileNavSheet />
               </div>
             </div>
           </div>
         </nav>
-
         {/* category menu */}
-        {/*<div className="bg-[#0066B3] py-2.25 text-white">
-        <div className="container-wrapper flex w-full items-center justify-between">
-          /~ categories ~/
-          <div
-            className={cn(
-              'contents overflow-hidden',
-              'max-[299px]:[&>*:nth-last-child(-n+7)]:hidden',
-              'max-[449px]:[&>*:nth-last-child(-n+6)]:hidden',
-              'max-sm:[&>*:nth-last-child(-n+5)]:hidden',
-              'max-md:[&>*:nth-last-child(-n+4)]:hidden',
-              'max-lg:[&>*:nth-last-child(-n+3)]:hidden',
-              'max-xl:[&>*:nth-last-child(-n+2)]:hidden',
-            )}
-          >
-            /~ categories ~/
-            {category.map((item, i) => (
-              <p
-                key={i}
-                className="flex cursor-pointer flex-row items-center space-x-0.5 sm:space-x-1.5"
-              >
-                <span className="first-letter:uppercase">{item.title}</span>
-                <OurIcon name="chevron-down" className="size-2.5" />
-              </p>
-            ))}
-          </div>
-          /~ more category btn ~/
-          <p className="flex cursor-pointer flex-row items-center space-x-0.5 sm:space-x-1.5">
-            <span className="first-letter:uppercase">
-              {t('categoryMoreBtnLabel')}
-            </span>
-            <OurIcon name="chevron-down" className="size-2.5" />
-          </p>
-          /~ language change dropdown ~/
-          <NavbarLangDropdown />
-          /~ search ~/
-          <p className="cursor-pointer space-x-0.5 sm:space-x-1.5">
-            <OurIcon name="search" className="size-4" />
-          </p>
-        </div>
-      </div>*/}
         <div className="bg-our-blue">
           <div className="container-wrapper text-white">
             <NavbarCategoryDropdown />

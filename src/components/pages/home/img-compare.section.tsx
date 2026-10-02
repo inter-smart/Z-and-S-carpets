@@ -44,7 +44,7 @@ export default function ImgCompareSection() {
     <div className="container-wrapper relative mb-16 lg:mb-24">
       <div className="relative">
         {/* Slider */}
-        <div className="overflow-hidden">
+        <div className="overflow-hidden rounded-md">
           <div className="relative">
             {/* Current image stack */}
             <div

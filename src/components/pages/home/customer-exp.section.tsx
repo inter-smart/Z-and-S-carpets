@@ -18,7 +18,7 @@ interface CustomerReviewType {
 function ReviewCard({ review }: { review: CustomerReviewType }) {
   return (
     // <article className="group border-border bg-background flex min-h-64 w-[min(86vw,396px)] shrink-0 flex-col justify-between rounded-lg border p-7 hover:border-[#0066B3] sm:w-full">
-    <article className="group border-border bg-background flex h-full shrink-0 flex-col justify-between rounded-lg border p-7 hover:border-[#0066B3]">
+    <article className="group border-border bg-background flex h-full shrink-0 flex-col justify-between rounded-md border p-7 hover:border-[#0066B3]">
       <div>
         <div
           aria-hidden="true"
@@ -27,9 +27,7 @@ function ReviewCard({ review }: { review: CustomerReviewType }) {
           {/* &ldquo; */}
           <OurIcon name="quote" />
         </div>
-        <p className="text-foreground/80 mt-5 text-sm leading-6">
-          {review.quote}
-        </p>
+        <p className="mt-5 text-sm leading-5">{review.quote}</p>
       </div>
       <div className="mt-7 flex items-center gap-3">
         <img
@@ -38,7 +36,7 @@ function ReviewCard({ review }: { review: CustomerReviewType }) {
           className="size-14 rounded-full object-cover"
         />
         <div>
-          <p className="font-medium">{review.name}</p>
+          <p className="text-lg font-medium">{review.name}</p>
           <p className="text-muted-foreground text-sm">{review.role}</p>
         </div>
       </div>
@@ -118,7 +116,7 @@ export default function CustomerExpSection() {
     >
       {/* header */}
       <div className="container-wrapper flex flex-col items-start gap-3 pb-10 lg:flex-row lg:items-center lg:justify-between lg:gap-6">
-        <h2 id="customer-experiences-title" className="section-title">
+        <h2 id="customer-experiences-title" className="our-heading">
           {t('title')}
         </h2>
         <div
@@ -128,7 +126,7 @@ export default function CustomerExpSection() {
           {/* <Image src={GoogleIcon} alt="google icon" className="h-auto w-9" /> */}
           <OurIcon name="google" className="size-9" />
           <div>
-            <p className="text-muted-foreground text-xs">{t('rating')}</p>
+            <p className="text-muted-foreground text-sm">{t('rating')}</p>
             <p
               className="tracking-[0.22em] text-orange-500"
               aria-label="5 out of 5 stars"
@@ -166,9 +164,9 @@ export default function CustomerExpSection() {
         <div className="pointer-events-none absolute top-0 left-0 h-full w-full">
           <div className="container-wrapper relative h-full">
             <div className="relative h-full">
-              {/* w-5 sm:w-10 md:w-15 lg:w-20 */}
-              <div className="pointer-events-auto absolute top-0 right-full h-full w-5 bg-linear-to-r from-white to-white/0 sm:w-10 md:w-15 lg:w-20"></div>
-              <div className="pointer-events-auto absolute top-0 left-full h-full w-5 bg-linear-to-l from-white to-white/0 sm:w-10 md:w-15 lg:w-20"></div>
+              {/* w-5 sm:w-10 lg:w-15 2xl:w-20 */}
+              <div className="pointer-events-auto absolute top-0 right-full h-full w-5 bg-linear-to-r from-white to-white/0 sm:w-10 lg:w-15 2xl:w-20" />
+              <div className="pointer-events-auto absolute top-0 left-full h-full w-5 bg-linear-to-l from-white to-white/0 sm:w-10 lg:w-15 2xl:w-20" />
               {/* Desktop Previous */}
               <div className="absolute top-1/2 -left-8 hidden -translate-y-1/2 sm:block md:-left-10 rtl:-right-8 rtl:left-auto rtl:md:-right-10">
                 <Button

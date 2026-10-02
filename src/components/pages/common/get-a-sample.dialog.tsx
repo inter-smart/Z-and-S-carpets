@@ -53,8 +53,8 @@ export default function GetASampleDialog() {
           className="flex w-full flex-col items-start"
           onSubmit={handleForm}
         >
-          <span className="our-heading mt-5">Get a Sample</span>
-          <span className="our-text mt-1 font-normal">
+          <span className="our-heading mt-5 text-8xl!">Get a Sample</span>
+          <span className="mt-1 text-base font-normal">
             Request a sample before you choose.
           </span>
           <div className="mt-8 grid w-full grid-cols-1 gap-3">
@@ -131,7 +131,7 @@ export default function GetASampleDialog() {
             </Select>
           </div>
           <Button
-            className="bg-our-purple our-btn hover:bg-our-purple me-auto mt-10 w-fit rounded-sm border p-2 px-10 text-white"
+            className="bg-our-purple our-btn me-auto mt-10 w-fit"
             type="submit"
           >
             <span className="font-medium">Submit</span>

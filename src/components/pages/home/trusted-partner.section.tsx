@@ -56,12 +56,12 @@ export default function TrustedPartnerSection() {
     <div className="container-wrapper pb-16 lg:pb-22">
       {/* heading */}
       <div className="">
-        <h2 className="section-title">{t('title')}</h2>
+        <h2 className="our-heading">{t('title')}</h2>
       </div>
 
       {/* btns */}
       <div className="relative flex justify-end">
-        <div className="absolute flex gap-2 md:-top-5">
+        <div className="absolute flex md:-top-5">
           {/* prev btn */}
           <Button
             aria-label="Previous products"
@@ -70,8 +70,11 @@ export default function TrustedPartnerSection() {
             onClick={scrollPrev}
             className="text-our-blue hover:text-our-blue cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
           >
-            <OurIcon name="arrow-right" className="hidden size-4! rtl:block" />
-            <OurIcon name="arrow-left" className="hidden size-4! ltr:block" />
+            <OurIcon
+              name="arrow-right"
+              className="hidden size-3.5! rtl:block"
+            />
+            <OurIcon name="arrow-left" className="hidden size-3.5! ltr:block" />
           </Button>
 
           {/* next btn */}
@@ -82,8 +85,11 @@ export default function TrustedPartnerSection() {
             onClick={scrollNext}
             className="text-our-blue hover:text-our-blue cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
           >
-            <OurIcon name="arrow-left" className="hidden size-4! rtl:block" />
-            <OurIcon name="arrow-right" className="hidden size-4! ltr:block" />
+            <OurIcon name="arrow-left" className="hidden size-3.5! rtl:block" />
+            <OurIcon
+              name="arrow-right"
+              className="hidden size-3.5! ltr:block"
+            />
           </Button>
         </div>
       </div>
@@ -97,10 +103,11 @@ export default function TrustedPartnerSection() {
           {trustedPartnersPaired.map((partner, i) => (
             <div
               key={i}
-              className="flex h-72 min-w-0 shrink-0 grow-0 basis-1/2 cursor-grabbing flex-col justify-start border-[#0066B3]/40 min-[400px]:basis-1/3 lg:basis-1/5 xl:basis-1/7 ltr:border-r rtl:border-l"
+              className="flex min-w-0 shrink-0 grow-0 basis-1/2 cursor-grabbing flex-col justify-start border-[#0066B3]/40 min-[400px]:basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/7 ltr:border-r rtl:border-l"
             >
               <div className="flex h-1/2 w-full items-center justify-center border-b border-[#0066B3]/40">
-                <div className="h-auto w-30 xl:w-35">
+                {/* <div className="h-auto w-30 xl:w-35"> */}
+                <div className="flex h-30 w-auto items-center justify-center">
                   <Image
                     src={partner[0].image}
                     width={250}
@@ -112,7 +119,8 @@ export default function TrustedPartnerSection() {
               </div>
               {partner.length > 1 && (
                 <div className="flex h-1/2 w-full items-center justify-center border-[#0066B3]/40">
-                  <div className="h-auto w-30 xl:w-35">
+                  {/* <div className="h-auto w-30 xl:w-35"> */}
+                  <div className="flex h-30 w-auto items-center justify-center">
                     <Image
                       src={partner[1].image}
                       width={250}

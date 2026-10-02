@@ -28,7 +28,7 @@ export default function FAQSection({
           'flex flex-col sm:pe-8 lg:pe-12 xl:pe-18',
         )}
       >
-        <h2 className="section-title">{t('title')}</h2>
+        <h2 className="our-heading">{t('title')}</h2>
 
         <div className="mt-12">
           {faqs.map((faq, index) => {
@@ -38,7 +38,7 @@ export default function FAQSection({
               <div key={faq.question} className="border-border border-b">
                 <button
                   type="button"
-                  className="text-foreground hover:text-primary focus-visible:ring-ring flex w-full items-start justify-between gap-6 py-6 text-base font-medium transition-colors focus-visible:ring-2 focus-visible:ring-offset-4 focus-visible:outline-none ltr:text-left rtl:text-right"
+                  className="text-foreground hover:text-primary focus-visible:ring-ring flex w-full items-start justify-between gap-6 py-5 text-lg font-medium transition-colors focus:ring-0 focus:outline-none ltr:text-left rtl:text-right"
                   aria-expanded={isOpen}
                   aria-controls={`faq-answer-${index}`}
                   onClick={() => setOpenIndex(isOpen ? -1 : index)}
@@ -47,12 +47,12 @@ export default function FAQSection({
                   {isOpen ? (
                     <Minus
                       aria-hidden="true"
-                      className="size-4 shrink-0 text-[#812990]"
+                      className="text-our-purple size-4 shrink-0"
                     />
                   ) : (
                     <Plus
                       aria-hidden="true"
-                      className="size-4 shrink-0 text-[#812990]"
+                      className="text-our-purple size-4 shrink-0"
                     />
                   )}
                 </button>
@@ -62,7 +62,7 @@ export default function FAQSection({
                   className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out motion-reduce:transition-none ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
                 >
                   <div className="min-h-0 overflow-hidden">
-                    <p className="text-muted-foreground pe-8 pb-6 text-sm leading-6">
+                    <p className="pe-8 pb-5 text-base text-[#797979]">
                       {faq.answer}
                     </p>
                   </div>

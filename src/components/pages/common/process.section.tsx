@@ -34,12 +34,12 @@ export default function ProcessSections() {
       aria-labelledby="process-title"
     >
       <div className="container-wrapper">
-        <p className="font-cairo text-center text-[3.6rem] leading-14 font-bold tracking-widest text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.03)] sm:text-[5.5rem] sm:leading-20 lg:text-[6.5rem] lg:leading-none">
+        <p className="font-cairo text-center text-[4rem] leading-14 font-bold tracking-widest text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.03)] sm:text-[5rem] sm:leading-18">
           {t('eyebrow')}
         </p>
         <h2
           id="process-title"
-          className="section-title -mt-6 text-center sm:-mt-7 md:-mt-8 lg:-mt-11"
+          className="our-heading -mt-7 text-center sm:-mt-8"
         >
           {t('title')}
         </h2>
@@ -78,7 +78,7 @@ export default function ProcessSections() {
                   )}
                 </span>
 
-                <span className="mt-1.5 text-xs">
+                <span className="mt-1.5 text-sm">
                   {isPlaying ? 'Pause Video' : 'Watch Video'}
                 </span>
               </button>
@@ -94,7 +94,7 @@ export default function ProcessSections() {
                   type="button"
                   onClick={() => setActiveStep(i)}
                   className={cn(
-                    'flex flex-row items-start justify-start rounded border p-5 text-xl transition-colors focus:ring-0 focus:outline-none',
+                    'flex flex-row items-start justify-start rounded border p-5 text-2xl transition-colors focus:ring-0 focus:outline-none',
                     active
                       ? 'border-primary-foreground/85 bg-primary-foreground/10 font-medium'
                       : 'border-primary-foreground/15 bg-primary-foreground/5 hover:bg-primary-foreground/10 text-white/90',
@@ -116,7 +116,7 @@ export default function ProcessSections() {
                       )}
                     >
                       <span className="min-h-0 overflow-hidden">
-                        <span className="text-primary-foreground/90 block text-[1rem] leading-6 font-light">
+                        <span className="text-primary-foreground/90 block text-lg leading-5 font-light">
                           {step.description}
                         </span>
                       </span>

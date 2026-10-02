@@ -23,6 +23,7 @@ interface CategoryType {
 export default function BannerSection() {
   const locale = useLocale() as LocaleType
   const t = useTranslations('HomePage.BannerSection')
+  const mainTagline = t.raw('mainTag') as string[]
   const category = t.raw('category') as CategoryType[]
 
   const [currentCategory, setCurrentCategory] = useState(category[1])
@@ -113,14 +114,14 @@ export default function BannerSection() {
       {/* top layer */}
       <div className="absolute top-0 flex h-166 w-full flex-col justify-end from-black/80 to-black/0 text-white ltr:bg-linear-to-r rtl:bg-linear-to-l">
         {/* category */}
-        <div className="absolute -ms-5 flex h-full w-20 flex-col justify-end pb-30 sm:-ms-1 sm:pb-35">
-          <div className="flex flex-row items-center ltr:-rotate-90 rtl:rotate-90">
+        <div className="absolute flex h-full w-10 flex-col justify-end pb-30 sm:w-20 sm:pb-35">
+          <div className="flex flex-row items-center max-sm:-mb-5 ltr:-rotate-90 rtl:rotate-90">
             {category.map((item, i) => (
               <div key={item.id} className="flex items-center">
                 <p
                   className={cn(
-                    'cursor-default text-[1rem] font-light whitespace-nowrap underline decoration-1 underline-offset-4',
-                    currentCategory.id === item.id && 'text-[#037EDA]',
+                    'cursor-default text-lg whitespace-nowrap underline underline-offset-4',
+                    currentCategory.id === item.id && 'text-our-blue',
                   )}
                   onClick={() => handleCategoryChange(item)}
                 >
@@ -128,7 +129,7 @@ export default function BannerSection() {
                 </p>
 
                 {i < category.length - 1 && (
-                  <div className="mx-[1.6rem] h-4.5 w-[0.1px] bg-white/20" />
+                  <div className="mx-[1.6rem] h-4.5 w-[0.5px] bg-white/20" />
                 )}
               </div>
             ))}
@@ -137,18 +138,21 @@ export default function BannerSection() {
 
         {/* heading & slider */}
         <div className="container-wrapper">
-          <div className="flex h-full w-full flex-col justify-end gap-6 ps-8 pb-23 sm:ps-10 sm:pe-5 sm:pb-28 md:flex-row md:justify-between">
+          <div className="flex h-full w-full flex-col justify-end gap-6 ps-7.5 pb-23 sm:ps-5 sm:pe-5 sm:pb-28 md:flex-row md:justify-between">
             {/* heading */}
             <div className="flex w-full flex-col justify-end gap-1 md:w-1/2 md:gap-6 lg:w-3/5">
-              <h1 className="ltr:font-nobile rtl:font-cairo text-4xl leading-12 font-medium sm:text-[2.75rem] sm:leading-14">
-                {t('mainTag')}
+              {/* <h1 className="ltr:font-nobile rtl:font-cairo text-4xl leading-12 font-medium sm:text-[2.75rem] sm:leading-14"> */}
+              <h1 className="our-heading">
+                {mainTagline[0]}
+                <br />
+                {mainTagline[1]}
               </h1>
 
-              <h2 className="text-xl">{t('description')}</h2>
+              <h2 className="text-2xl font-medium">{t('description')}</h2>
 
               <Button
                 variant="outline"
-                className="ltr:font-manrope rtl:font-cairo mt-6 w-fit rounded-sm px-8 py-4.5 hover:bg-white/10 hover:text-white"
+                className="ltr:font-manrope rtl:font-cairo our-btn mt-6 w-fit px-5! hover:bg-white/10 hover:text-white"
               >
                 {t('btnLabel')}
               </Button>
@@ -179,7 +183,7 @@ export default function BannerSection() {
                     className="flex w-full min-w-full shrink-0 items-end justify-start px-1 md:justify-end"
                   >
                     {/* WHOLE CARD */}
-                    <div className="flex h-22 w-full flex-row justify-between gap-2 rounded-md bg-white p-2 text-black sm:h-24 sm:gap-4 sm:p-3 md:h-28 lg:h-32 lg:w-100 lg:gap-4 xl:h-36 xl:gap-8">
+                    <div className="flex h-22 w-full flex-row justify-between gap-2 rounded-md bg-white p-2 text-black sm:h-24 sm:gap-4 sm:p-3 md:h-26 lg:h-28 lg:w-100 lg:gap-4 xl:h-32 xl:gap-8">
                       {/* image */}
                       <div className="relative hidden aspect-square h-full items-center justify-center overflow-hidden rounded-md min-[300px]:flex">
                         <Image
@@ -194,10 +198,11 @@ export default function BannerSection() {
                       <div className="relative flex flex-1 flex-col justify-center">
                         {/* content */}
                         <div className="flex w-full flex-col md:gap-2">
-                          <p className="text-xl font-bold sm:text-2xl md:text-4xl">
+                          {/* <p className="text-xl font-bold sm:text-2xl md:text-4xl"> */}
+                          <p className="text-6xl font-bold md:text-9xl">
                             {card.itemValue}
                           </p>
-                          <p className="text-xs font-medium sm:text-sm">
+                          <p className="text-base font-medium sm:text-sm">
                             {card.itemText}
                           </p>
                         </div>

@@ -27,19 +27,24 @@ export default function ProductDetailsTabSection({
   return (
     <section className="container-wrapper mt-12 pb-15">
       {/* tabs */}
-      <div className="flex scrollbar-none justify-between gap-5 overflow-x-auto scroll-smooth border-y border-black/10">
+      {/* <div className="grid grid-cols-1 border-t border-black/10 min-[325px]:grid-cols-2 min-[425px]:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8"> */}
+      <div className="grid grid-cols-1 justify-between border-t border-black/10 min-[325px]:grid-cols-2 min-[425px]:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:flex xl:border-b">
         {tabs.map((tab, i) => (
-          <button
-            type="button"
+          <div
             key={i}
-            onClick={() => setActiveTab(tab)}
-            className={cn(
-              'ltr:font-manrope rtl:font-cairo w-fit shrink-0 py-4 text-sm focus:ring-0 focus:outline-none',
-              activeTab === tab && 'border-our-purple border-b-3 font-semibold',
-            )}
+            className="flex justify-center border-black/10 px-0 max-xl:border-b"
           >
-            {tab}
-          </button>
+            <button
+              type="button"
+              onClick={() => setActiveTab(tab)}
+              className={cn(
+                'ltr:font-manrope rtl:font-cairo w-fit border-b-3 border-transparent py-3 text-sm focus:ring-0 focus:outline-none',
+                activeTab === tab && 'border-our-purple font-semibold',
+              )}
+            >
+              {tab}
+            </button>
+          </div>
         ))}
       </div>
 
@@ -87,8 +92,8 @@ export default function ProductDetailsTabSection({
                   className="object-cover"
                 />
                 <div className="absolute bottom-0 z-20 w-full px-5 pb-3 text-white">
-                  <h3 className="text-2xl">{photo.title}</h3>
-                  <p className="text-lg">{photo.description}</p>
+                  <h3 className="text-6xl">{photo.title}</h3>
+                  <p className="text-xl">{photo.description}</p>
                 </div>
               </div>
             ))}
@@ -99,7 +104,7 @@ export default function ProductDetailsTabSection({
       {/* tab - videos */}
       {activeTab === 'Videos' && (
         <section className="mt-9">
-          <h3 className="ltr:font-manrope rtl:font-cairo text-[15px] font-semibold">
+          <h3 className="ltr:font-manrope rtl:font-cairo text-base font-semibold">
             Videos
           </h3>
           <div className="mt-4 grid gap-3 lg:grid-cols-2 xl:gap-4">
@@ -120,8 +125,8 @@ export default function ProductDetailsTabSection({
                   <source src={video.src} type="video/mp4" />
                 </video>
                 <div className="absolute bottom-0 z-20 w-full px-5 pb-3 text-white">
-                  <h3 className="text-2xl">{video.title}</h3>
-                  <p className="text-lg">{video.description}</p>
+                  <h3 className="text-6xl">{video.title}</h3>
+                  <p className="text-xl">{video.description}</p>
                 </div>
               </div>
             ))}

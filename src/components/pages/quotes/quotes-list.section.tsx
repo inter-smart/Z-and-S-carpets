@@ -35,28 +35,28 @@ export default function QuotesListSection() {
   return (
     <section className="container-wrapper pt-12 pb-8 lg:pt-20 lg:pb-15">
       <h1 className="our-heading">{t('title')}</h1>
-      <p className="mt-2 text-sm">{t('description')}</p>
+      <p className="mt-2 text-base">{t('description')}</p>
       {items.length ? (
         <div className="mt-12 grid gap-5 lg:grid-cols-[minmax(0,1fr)_300px] lg:items-start xl:grid-cols-[minmax(0,1fr)_380px]">
           <section aria-labelledby="selected-products-title">
             <div className="mb-3 flex flex-col justify-between gap-2 sm:flex-row sm:items-center sm:gap-5">
               <h2
                 id="selected-products-title"
-                className="text-xl font-semibold"
+                className="text-3xl font-semibold"
               >
                 Selected Products
               </h2>
               <div className="flex flex-1 items-center justify-between gap-6">
-                <span className="border-our-green rounded border px-3 py-1 text-sm">
+                <span className="border-our-green rounded border px-3 py-1 text-base">
                   {items.length} Items
                 </span>
                 <button
                   type="button"
                   onClick={() => setItems([])}
-                  className="flex items-center gap-1 hover:text-[#8b279c]"
+                  className="hover:text-our-purple flex items-center gap-1"
                 >
                   <TrashIcon size={18} className="stroke-1 text-[#FF0009]" />
-                  <span className="text-sm underline underline-offset-2">
+                  <span className="text-lg underline underline-offset-2">
                     Clear All
                   </span>
                 </button>
@@ -84,7 +84,7 @@ export default function QuotesListSection() {
                       >
                         {item.name}
                       </h3>
-                      <p className="mt-1 text-xs">
+                      <p className="mt-1 text-sm">
                         Colour : {item.color} <span className="mx-2">•</span>{' '}
                         Material : {item.material}
                       </p>
@@ -98,7 +98,7 @@ export default function QuotesListSection() {
                       >
                         -
                       </button>
-                      <span className="min-w-5.5 px-1 text-sm font-medium">
+                      <span className="min-w-5.5 px-1 text-base font-medium">
                         {item.quantity}
                       </span>
                       <button
@@ -128,10 +128,10 @@ export default function QuotesListSection() {
             </div>
             <Link
               href="/products"
-              className="group mt-5 flex w-fit items-center text-base text-[#007DC5] lg:mt-7 rtl:flex-row-reverse"
+              className="group mt-5 flex w-fit items-center gap-1 text-base text-[#007DC5] lg:mt-7 rtl:flex-row-reverse"
             >
-              <ChevronLeftIcon className="stroke-1" size={16} />
-              <span className="decoration-1 underline-offset-5 group-hover:underline">
+              <ChevronLeftIcon className=" " size={12} />
+              <span className="text-lg decoration-1 underline-offset-5 group-hover:underline">
                 Continue Shopping
               </span>
             </Link>
@@ -141,7 +141,7 @@ export default function QuotesListSection() {
               type="button"
               nativeButton={false}
               render={<Link href={'/quotes/form'} />}
-              className="bg-our-purple our-btn hover:bg-our-purple"
+              className="bg-our-purple our-btn"
             >
               Request A Quote
             </Button>

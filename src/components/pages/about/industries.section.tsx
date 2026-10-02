@@ -17,7 +17,7 @@ export default function IndustriesSection() {
           <h2 id="industries-title" className="our-heading">
             {t('title')}
           </h2>
-          <p className="our-text mt-5">{t('body')}</p>
+          <p className="mt-5 text-lg">{t('body')}</p>
           <div className="relative mt-10 h-64 w-full overflow-hidden rounded-md lg:h-48">
             <Image
               src={t('image')}
@@ -35,13 +35,11 @@ export default function IndustriesSection() {
               className="flex-col"
             >
               {index > 0 && <hr className="my-5 border" />}
-              <div className="flex items-center gap-5 text-lg font-semibold">
+              <div className="flex items-center gap-5 text-xl font-semibold">
                 <OurIcon name={item.icon} className="text-our-purple size-6" />
                 <h3 className="">{item.title}</h3>
               </div>
-              <p className="mt-3 text-[15px] leading-[1.45] text-[#636465]">
-                {item.description}
-              </p>
+              <p className="mt-3 text-lg text-[#636465]">{item.description}</p>
             </article>
           ))}
         </div>

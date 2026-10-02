@@ -48,10 +48,19 @@
 }
 
 @theme {
-  --text-xs: 11px;
-  --text-sm: 13px;
-  --text-base: 15px;
-  --text-lg: 17px;
+  --text-xs: 8px; /* ~ to 14px in figma */
+  --text-sm: 10px; /* ~ to 16px in figma */
+  --text-base: 12px; /* ~ to 18px in figma */
+  --text-lg: 14px; /* ~ to 20px in figma */
+  --text-xl: 16px; /* ~ to 22px in figma */
+  --text-2xl: 18px; /* ~ to 24px in figma */
+  --text-3xl: 20px; /* ~ to 26px in figma */
+  --text-4xl: 22px; /* ~ to 28px in figma */
+  --text-5xl: 24px; /* ~ to 30px in figma */
+  --text-6xl: 26px; /* ~ to 32px in figma */
+  --text-7xl: 28px; /* ~ to 34px in figma */
+  --text-8xl: 30px; /* ~ to 36px in figma */
+  --text-9xl: 32px; /* ~ to 38px in figma */
 }
 
 @theme inline {
@@ -194,7 +203,7 @@
 }
 
 @utility container-wrapper {
-  @apply container mx-auto px-5 sm:px-10 md:px-15 lg:px-20;
+  @apply container mx-auto px-5 sm:px-10 lg:px-15 2xl:px-20;
 }
 @utility container-wrapper-none {
   @apply mx-0! w-full! max-w-none! px-0!;
@@ -208,7 +217,8 @@
 }
 
 @utility our-heading {
-  @apply ltr:font-nobile rtl:font-cairo text-4xl leading-12 font-medium;
+  /* @apply ltr:font-nobile rtl:font-cairo text-4xl leading-12 font-medium; */
+  @apply ltr:font-nobile rtl:font-cairo text-9xl leading-10 font-medium;
 }
 @utility our-text {
   @apply ltr:font-inter rtl:font-cairo text-base leading-7 font-light;
@@ -217,7 +227,8 @@
   @apply pt-16 pb-16 lg:pt-22 lg:pb-22;
 }
 @utility our-btn {
-  @apply rounded-sm! px-12! py-4.5! text-sm! font-normal!;
+  /* @apply rounded-sm! px-12! py-4.5! text-sm! font-normal!; */
+  @apply rounded-sm! px-8! py-4! text-sm! font-normal! hover:opacity-90!;
 }
 
 @layer utilities {
@@ -268,5 +279,5 @@
   background-size: 12px 3px; /* 20px total width = 2px dot + 18px gap */
   background-repeat: repeat-x;
   background-position: bottom;
-  height: 1.5px; /* Set height to dot height */
+  height: 1.2px; /* Set height to dot height */
 }

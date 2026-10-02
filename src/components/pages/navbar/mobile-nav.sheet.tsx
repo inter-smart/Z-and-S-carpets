@@ -38,23 +38,23 @@ export default function MobileNavSheet() {
         render={
           <Button
             variant="outline"
-            className="ltr:font-manrope rtl:font-cairo flex flex-row items-center justify-center space-x-2 rounded-sm border-[#0066B3] px-3 py-4.25 text-sm font-medium hover:bg-transparent"
+            className="ltr:font-manrope rtl:font-cairo flex flex-row items-center justify-center rounded-sm border-[#0066B3] px-2.5 py-3.75 text-sm font-medium hover:bg-transparent"
           >
-            <p className="hidden sm:block">{t('menuBtnLabel')}</p>
-            <OurIcon name="menu" className="size-7" />
+            <p className="hidden text-base sm:block">{t('menuBtnLabel')}</p>
+            <OurIcon name="menu" className="size-5" />
           </Button>
         }
       />
       <SheetContent
         side="left"
-        className="inset-y-4! top-4! bottom-4! h-auto! w-[94%]! max-w-80! scrollbar-none overflow-y-scroll rounded-e-md bg-white pt-5 rtl:right-0! rtl:left-auto!"
+        className="inset-y-4! top-4! bottom-4! h-auto! w-[94%]! max-w-80! rounded-e-md bg-white pt-5 rtl:right-0! rtl:left-auto!"
       >
         <SheetHeader>
           <SheetTitle>
             <p className="our-heading text-lg uppercase">Menu</p>
           </SheetTitle>
         </SheetHeader>
-        <div className="mx-6 -mt-7 flex flex-col">
+        <div className="mx-6 -mt-7 flex min-h-0 flex-1 scrollbar-none flex-col overflow-y-auto pb-6">
           {[...navLinks[0], ...navLinks[1]].map((item, i) => (
             <div key={i} className="border-b-2 border-[#787878]/30 py-4">
               <Link

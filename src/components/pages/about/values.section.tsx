@@ -11,17 +11,17 @@ export default function ValuesSection() {
 
   return (
     <section className="bg-[#EFF9FE]" aria-labelledby="values-title">
-      <div className="container-wrapper our-section-gap grid items-center gap-15 lg:grid-cols-[1fr_1fr] lg:gap-20 xl:gap-25">
+      <div className="container-wrapper our-section-gap grid items-center gap-15 lg:gap-20 xl:grid-cols-[1.1fr_0.9fr] xl:gap-10">
         <div>
           <h2 id="values-title" className="our-heading">
             {t('title')}
           </h2>
-          <p className="our-text mt-4">{t('body')}</p>
-          <div className="mt-8 flex flex-col gap-4 min-[500px]:flex-row min-[500px]:max-md:flex-wrap lg:max-2xl:flex-wrap">
+          <p className="mt-4 text-lg">{t('body')}</p>
+          <div className="mt-8 flex flex-col gap-2 min-[500px]:flex-row min-[500px]:max-md:flex-wrap lg:max-2xl:flex-wrap">
             {values.map((value, index) => (
               <div
                 key={index}
-                className="group flex w-full cursor-default items-center justify-center rounded-md border border-[#D7D7D7] bg-white px-3 py-3 text-black transition-colors duration-300 hover:bg-[#0066B3] hover:text-white min-[500px]:max-md:w-50 lg:max-2xl:w-45"
+                className="group ltr:font-nobile rtl:font-cairo flex h-fit w-full cursor-default items-end justify-center rounded-md border border-[#D7D7D7] bg-white px-5 py-2 text-base font-medium text-black transition-colors duration-300 hover:bg-[#0066B3] hover:text-white sm:w-41"
               >
                 <OurIcon
                   name={value.icon}
@@ -32,7 +32,7 @@ export default function ValuesSection() {
             ))}
           </div>
         </div>
-        <div className="relative h-68 w-full overflow-hidden rounded-md">
+        <div className="relative h-60 w-full overflow-hidden rounded-md">
           <Image
             src={t('image')}
             alt="Warm wood flooring in a contemporary showroom"

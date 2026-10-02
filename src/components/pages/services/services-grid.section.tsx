@@ -20,16 +20,16 @@ const ServiceCard = ({
     key={service.number}
     className={cn('space-y-5 border-[#002C4D]/20 py-10', className)}
   >
-    <p className="text-our-blue/20 text-5xl leading-none font-bold">
+    <p className="text-our-blue/20 text-9xl leading-none font-bold">
       {service.number}
     </p>
-    <h3 className="our-heading text-xl">{service.title}</h3>
-    <p className="our-text text-sm leading-6">{service.description}</p>
+    <h3 className="our-heading text-3xl!">{service.title}</h3>
+    <p className="our-text text-base leading-5">{service.description}</p>
     <ul className="space-y-3">
       {service.features.map((feature) => (
         <li
           key={feature}
-          className="our-text flex items-center gap-3 text-sm leading-6"
+          className="our-text flex items-center gap-3 text-base leading-5"
         >
           <CircleCheckIcon size={16} className="text-our-blue stroke-1" />
           {feature}

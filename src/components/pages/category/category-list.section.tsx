@@ -54,13 +54,15 @@ export default function CategoryListSection() {
                 fill
                 className="h-full w-full rounded-md object-cover"
               />
-              <span className="absolute top-2 right-3 rounded-xs bg-white px-2 py-0.5 text-[0.5rem] font-medium text-black">
+              <span className="absolute top-2 right-3 rounded-xs bg-white px-1.5 py-0.5 text-xs font-medium text-black">
                 {item.badge}
               </span>
             </div>
             <div className="flex flex-1 flex-col justify-center gap-3 px-3 py-5 md:px-7 md:py-5 xl:px-12 xl:py-7">
-              <h2 className="text-2xl font-semibold">{item.name}</h2>
-              <p className="our-text">{item.description}</p>
+              <h2 className="ltr:font-nobile rtl:font-cairo text-5xl font-medium">
+                {item.name}
+              </h2>
+              <p className="text-base">{item.description}</p>
               <ul
                 className="flex flex-wrap gap-x-6 gap-y-1"
                 aria-label={`${item.name} features`}
@@ -68,7 +70,7 @@ export default function CategoryListSection() {
                 {item.features.map((feature) => (
                   <li
                     key={feature}
-                    className="our-text flex items-center gap-2 text-sm font-medium"
+                    className="flex items-center gap-2 text-base font-medium"
                   >
                     <CircleCheckIcon
                       fill="#4BAE4F"
@@ -84,7 +86,7 @@ export default function CategoryListSection() {
                 nativeButton={false}
                 // render={<Link href={`/products`} />}
                 render={<Link href={`/products?category=${item.id}`} />}
-                className="hover:bg-our-purple border-our-purple our-btn w-fit border bg-transparent text-black transition-colors hover:text-white"
+                className="border-our-purple our-btn hover:bg-our-purple w-fit border bg-transparent text-black transition-colors hover:text-white"
               >
                 {t('button')}
               </Button>
