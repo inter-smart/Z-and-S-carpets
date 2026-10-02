@@ -25,14 +25,14 @@ export default function IntroSection() {
           />
         </div>
         <div className="flex flex-col justify-start gap-4">
-          <p className="ltr:font-nobile rtl:font-cairo flex gap-2.5 font-medium text-[#812990]">
+          <p className="ltr:font-nobile rtl:font-cairo text-our-purple flex gap-2.5 text-lg font-medium">
             &#9632;
             <span>{t('intro.eyebrow')}</span>
           </p>
-          <h1 id="about-title" className="our-heading">
+          <h1 id="about-title" className="our-heading text-7xl!">
             {t('intro.title')}
           </h1>
-          <p className="our-text">{t('intro.body')}</p>
+          <p className="text-lg">{t('intro.body')}</p>
         </div>
       </section>
 
@@ -43,15 +43,15 @@ export default function IntroSection() {
         aria-labelledby="quality-title"
       >
         <div className="flex h-full flex-col justify-start gap-4">
-          <h2 id="quality-title" className="our-heading text-3xl!">
+          <h2 id="quality-title" className="our-heading text-7xl!">
             {t('quality.title')}
           </h2>
-          <p className="our-text">{t('quality.body')}</p>
+          <p className="text-lg">{t('quality.body')}</p>
           <div className="mt-4 flex flex-col gap-2 min-[450px]:flex-row">
-            <Button className="our-btn border-black bg-white text-black hover:bg-white">
+            <Button variant={'outline'} className="our-btn border-black">
               {t('actions.contact')}
             </Button>
-            <Button className="bg-our-purple our-btn hover:bg-our-purple">
+            <Button className="bg-our-purple our-btn">
               {t('actions.quote')}
             </Button>
           </div>
@@ -63,12 +63,8 @@ export default function IntroSection() {
               className="flex items-center border-r border-b border-white/15 p-6 last:border-b-0 nth-[2n]:border-r-0 nth-last-[-n+2]:border-b-0 min-[400px]:p-9"
             >
               <div className="">
-                <p className="text-md font-semibold min-[400px]:text-xl sm:text-2xl">
-                  {stat.value}
-                </p>
-                <p className="mt-1 text-sm min-[400px]:text-base sm:text-lg">
-                  {stat.label}
-                </p>
+                <p className="text-5xl font-semibold">{stat.value}</p>
+                <p className="mt-1 text-xl">{stat.label}</p>
               </div>
             </div>
           ))}
@@ -81,12 +77,12 @@ export default function IntroSection() {
         aria-label="Our mission and vision"
       >
         <article className="border-our-blue bg-our-blue/10 rounded-md border p-10">
-          <h2 className="our-heading text-3xl!">{t('mission.title')}</h2>
-          <p className="our-text">{t('mission.body')}</p>
+          <h2 className="our-heading text-7xl!">{t('mission.title')}</h2>
+          <p className="text-lg">{t('mission.body')}</p>
         </article>
         <article className="border-our-purple bg-our-purple/10 rounded-md border p-10">
-          <h2 className="our-heading text-3xl!">{t('vision.title')}</h2>
-          <p className="our-text">{t('vision.body')}</p>
+          <h2 className="our-heading text-7xl!">{t('vision.title')}</h2>
+          <p className="text-lg">{t('vision.body')}</p>
         </article>
       </section>
     </section>
