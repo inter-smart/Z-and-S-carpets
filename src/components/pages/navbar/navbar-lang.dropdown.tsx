@@ -29,7 +29,7 @@ export default function NavbarLangDropdown() {
   return (
     <DropdownMenu open={open} onOpenChange={setOpen}>
       <DropdownMenuTrigger className="py-2.25 focus:ring-0 focus:outline-none">
-        <p className="flex cursor-pointer flex-row items-center space-x-0.5 sm:space-x-1.5">
+        <p className="flex cursor-pointer flex-row items-center space-x-0.5 text-sm sm:space-x-1.5">
           <span className="first-letter:uppercase">{locale}</span>
           <ChevronDownIcon
             size={12}
@@ -41,7 +41,7 @@ export default function NavbarLangDropdown() {
         </p>
       </DropdownMenuTrigger>
       <DropdownMenuContent
-        sideOffset={7.5}
+        sideOffset={6}
         className="min-w-20! rounded-md! **:rounded-md!"
       >
         <Link

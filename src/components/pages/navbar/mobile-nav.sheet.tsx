@@ -38,10 +38,10 @@ export default function MobileNavSheet() {
         render={
           <Button
             variant="outline"
-            className="ltr:font-manrope rtl:font-cairo flex flex-row items-center justify-center space-x-2 rounded-sm border-[#0066B3] px-3 py-4.25 text-sm font-medium hover:bg-transparent"
+            className="ltr:font-manrope rtl:font-cairo flex flex-row items-center justify-center rounded-sm border-[#0066B3] px-2.5 py-3.75 text-sm font-medium hover:bg-transparent"
           >
-            <p className="hidden sm:block">{t('menuBtnLabel')}</p>
-            <OurIcon name="menu" className="size-7" />
+            <p className="hidden text-sm sm:block">{t('menuBtnLabel')}</p>
+            <OurIcon name="menu" className="size-5" />
           </Button>
         }
       />

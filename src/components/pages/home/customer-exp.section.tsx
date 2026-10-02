@@ -166,9 +166,9 @@ export default function CustomerExpSection() {
         <div className="pointer-events-none absolute top-0 left-0 h-full w-full">
           <div className="container-wrapper relative h-full">
             <div className="relative h-full">
-              {/* w-5 sm:w-10 md:w-15 lg:w-20 */}
-              <div className="pointer-events-auto absolute top-0 right-full h-full w-5 bg-linear-to-r from-white to-white/0 sm:w-10 md:w-15 lg:w-20"></div>
-              <div className="pointer-events-auto absolute top-0 left-full h-full w-5 bg-linear-to-l from-white to-white/0 sm:w-10 md:w-15 lg:w-20"></div>
+              {/* w-5 sm:w-10 lg:w-15 2xl:w-20 */}
+              <div className="pointer-events-auto absolute top-0 right-full h-full w-5 bg-linear-to-r from-white to-white/0 sm:w-10 lg:w-15 2xl:w-20" />
+              <div className="pointer-events-auto absolute top-0 left-full h-full w-5 bg-linear-to-l from-white to-white/0 sm:w-10 lg:w-15 2xl:w-20" />
               {/* Desktop Previous */}
               <div className="absolute top-1/2 -left-8 hidden -translate-y-1/2 sm:block md:-left-10 rtl:-right-8 rtl:left-auto rtl:md:-right-10">
                 <Button

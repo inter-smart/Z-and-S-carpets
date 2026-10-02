@@ -191,7 +191,7 @@ export default function NavbarCategoryDropdown() {
         >
           {category.map((item, i) => (
             <NavigationMenuItem key={i} className="hover:bg-transparent!">
-              <NavigationMenuTrigger className="navigation-menu-trigger-style-change p-0 text-sm font-normal">
+              <NavigationMenuTrigger className="navigation-menu-trigger-style-change h-fit! px-0! py-1.75! text-sm font-normal">
                 {item.title}
               </NavigationMenuTrigger>
               <NavigationMenuContent>
@@ -201,7 +201,7 @@ export default function NavbarCategoryDropdown() {
           ))}
         </div>
         {/* more category btn */}
-        <p className="flex cursor-pointer flex-row items-center space-x-0.5 py-2.25 sm:space-x-1.5">
+        <p className="flex cursor-pointer flex-row items-center space-x-0.5 py-2.25 text-sm sm:space-x-1.5">
           <span className="first-letter:uppercase">
             {t('categoryMoreBtnLabel')}
           </span>

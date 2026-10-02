@@ -113,8 +113,8 @@ export default function BannerSection() {
       {/* top layer */}
       <div className="absolute top-0 flex h-166 w-full flex-col justify-end from-black/80 to-black/0 text-white ltr:bg-linear-to-r rtl:bg-linear-to-l">
         {/* category */}
-        <div className="absolute -ms-5 flex h-full w-20 flex-col justify-end pb-30 sm:-ms-1 sm:pb-35">
-          <div className="flex flex-row items-center ltr:-rotate-90 rtl:rotate-90">
+        <div className="absolute flex h-full w-10 flex-col justify-end pb-30 sm:w-20 sm:pb-35">
+          <div className="flex flex-row items-center max-sm:-mb-5 ltr:-rotate-90 rtl:rotate-90">
             {category.map((item, i) => (
               <div key={item.id} className="flex items-center">
                 <p

@@ -73,7 +73,7 @@ export default async function RootLayout({
         <NextIntlClientProvider messages={messages}>
           <GetASampleProvider>
             <Navbar />
-            <main className="mt-27 md:mt-29 xl:mt-31">{children}</main>
+            <main className="mt-29">{children}</main>
             <Footer />
             <BottomSideBtns />
           </GetASampleProvider>
