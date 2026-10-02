@@ -24,7 +24,7 @@ export default function TagsSection() {
 
   return (
     <section className="container-wrapper pb-20">
-      <div className="flex max-h-23 flex-wrap content-start gap-2 overflow-hidden">
+      <div className="flex max-h-46 flex-wrap content-start gap-2 overflow-hidden sm:max-h-30">
         {moreTags.map((tag, index) => (
           <span
             key={`${tag}-${index}`}

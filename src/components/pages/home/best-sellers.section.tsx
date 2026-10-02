@@ -104,8 +104,8 @@ export default function BestSellersSection() {
                     key={index}
                     className="min-w-0 shrink-0 grow-0 basis-full ps-7 sm:basis-1/2 lg:basis-1/3"
                   >
-                    <article className="group overflow-hidden rounded-md border border-white/25 bg-[#073b68] text-white hover:border-white">
-                      <div className="relative aspect-[1.5] overflow-hidden">
+                    <article className="group h-full overflow-hidden rounded-md border border-white/25 bg-[#073b68] text-white hover:border-white">
+                      <div className="relative aspect-[1.8] overflow-hidden">
                         <Image
                           src={product.image}
                           alt={product.title}
