@@ -3,6 +3,7 @@
 import { Button } from '@/components/ui/button'
 import { OurIcon } from '@/components/ui/icon'
 import type { LocaleType } from '@/i18n/types'
+import type { HomeData } from '@/types/home'
 import { cn } from 'cn'
 import Autoplay from 'embla-carousel-autoplay'
 import useEmblaCarousel from 'embla-carousel-react'
@@ -11,14 +12,26 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useCallback, useEffect, useState } from 'react'
 
-export default function CollectionSection() {
+interface CollectionSectionProps {
+  discover: HomeData['discover_section']
+}
+
+export default function CollectionSection({
+  discover,
+}: CollectionSectionProps) {
   const locale = useLocale() as LocaleType
 
   const t = useTranslations('HomePage.CollectionSection')
-  const collectionItems = t.raw('items') as {
-    title: string
-    image: string
-  }[]
+  const pick = (en?: string, ar?: string) =>
+    locale === 'ar' ? ar || en || '' : en || ''
+
+  const collectionItems = discover?.list.map((item) => ({
+    id: item.id,
+    title: pick(item.title, item.title_ar),
+    image: item.media.path,
+    alt: pick(item.media.alt, item.media.alt_ar),
+    link: item.link,
+  }))
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
@@ -72,7 +85,7 @@ export default function CollectionSection() {
       {/* header */}
       <div className="sm:items-centers flex flex-col justify-between gap-3 sm:flex-row sm:gap-6">
         <h2 id="collection-title" className="our-heading">
-          {t('title')}
+          {pick(discover.title, discover.title_ar)}
         </h2>
         <Button
           variant="outline"
@@ -89,20 +102,22 @@ export default function CollectionSection() {
           <div className="-ms-3 flex">
             {collectionItems.map((item, i) => (
               <div
-                key={i}
+                key={item.id}
                 className={cn(
                   'min-w-0 shrink-0 grow-0 basis-full ps-3',
                   i % 2 === 0 ? 'lg:basis-[60%]' : 'lg:basis-[40%]',
                 )}
               >
                 <article className="group bg-muted relative flex min-h-80 min-w-0 shrink-0 grow-0 items-center justify-center overflow-hidden rounded-md ps-3 sm:min-h-108">
-                  <Image
-                    src={item.image}
-                    alt={`${item.title} interior`}
-                    priority
-                    fill
-                    className="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
+                  {item.image && (
+                    <Image
+                      src={item.image}
+                      alt={item.alt || `${item.title} interior`}
+                      priority
+                      fill
+                      className="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  )}
                   <div className="text-background absolute inset-x-8 bottom-7 flex items-center justify-between gap-4 rounded-sm border border-white/30 bg-[#1F1A1A]/30 px-6 py-6 backdrop-blur-sm lg:max-xl:flex-col lg:max-xl:items-start lg:max-xl:gap-0">
                     <h3 className="ltr:font-nobile rtl:font-cairo sm:text:xl text-2xl font-medium">
                       {item.title}
@@ -113,9 +128,7 @@ export default function CollectionSection() {
                         'flex items-center justify-between gap-2 p-0 text-base! font-medium hover:bg-transparent hover:text-white'
                       }
                       nativeButton={false}
-                      render={
-                        <Link href={`${locale}/products/${item.title}`} />
-                      }
+                      render={<Link href={`/${locale}/${item.link}`} />}
                     >
                       <span className="hidden sm:block">
                         {t('itemButtonLabel')}

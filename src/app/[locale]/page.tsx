@@ -66,7 +66,9 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
           milestones={milestones_section}
         />
       )}
-      <CollectionSection />
+      {discover_section?.is_visible && (
+        <CollectionSection discover={discover_section} />
+      )}
       <BestSellersSection />
       <BuiltForSection />
       <WorksSection />

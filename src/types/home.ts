@@ -28,7 +28,12 @@ export type HomeData = {
   }
   discover_section: Visible &
     Titled & {
-      list: (Titled & { id: number; slug: string; media: HomeMedia })[]
+      list: (Titled & {
+        id: number
+        slug: string
+        link: string
+        media: HomeMedia
+      })[]
     }
   industries_section: Visible & {
     list: (Titled &
