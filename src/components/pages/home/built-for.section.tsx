@@ -2,31 +2,47 @@
 
 import { Button } from '@/components/ui/button'
 import { OurIcon } from '@/components/ui/icon'
+import type { LocaleType } from '@/i18n/types'
+import type { HomeData } from '@/types/home'
 import { cn } from 'cn'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 
-export default function BuiltForSection() {
+// The category stack shows its scroll arrows only when it has more than this many items
+const STACK_ARROWS_MIN_ITEMS = 5
+
+interface BuiltForSectionProps {
+  industries: HomeData['industries_section']
+}
+
+export default function BuiltForSection({ industries }: BuiltForSectionProps) {
+  const locale = useLocale() as LocaleType
   const t = useTranslations('HomePage.BuiltForSection')
+  const pick = (en?: string, ar?: string) =>
+    locale === 'ar' ? ar || en || '' : en || ''
   const [activeCategory, setActiveCategory] = useState(0)
   const [activeProduct, setActiveProduct] = useState(0)
   const productsRef = useRef<HTMLDivElement>(null)
 
-  const categories = t.raw('categories') as {
-    name: string
-    description: string
-    cta: string
-    feature: boolean
-    image: string
-    products: {
-      name: string
-      image: string
-    }[]
-  }[]
+  // left: industries, middle: the active industry (+ selected category image), right: its categories
+  const categories = industries.list.map((item) => ({
+    id: item.id,
+    name: pick(item.title, item.title_ar),
+    description: pick(item.description, item.description_ar),
+    link: item.link,
+    products: item.categories.map((cat) => ({
+      id: cat.id,
+      name: pick(cat.title, cat.title_ar),
+      image: cat.media.path,
+      alt: pick(cat.media.alt, cat.media.alt_ar),
+    })),
+  }))
 
   const category = categories[activeCategory]
-  const activeProductData = category.products[activeProduct]
+  const activeProductData = category.products[activeProduct] as
+    (typeof category.products)[number] | undefined
 
   const scrollProducts = (direction: 'up' | 'down') => {
     productsRef.current?.scrollBy({
@@ -39,6 +55,10 @@ export default function BuiltForSection() {
   const [imgStackScrollIsAtStart, setImgStackScrollIsAtStart] = useState(true)
   const [imgStackScrollIsAtEnd, setImgStackScrollIsAtEnd] = useState(false)
   const [isImgStackScrollable, setIsImgStackScrollable] = useState(false)
+
+  // arrows only make sense when there are more categories than fit comfortably
+  const showStackArrows =
+    isImgStackScrollable && category.products.length > STACK_ARROWS_MIN_ITEMS
 
   const getNormalizedScrollLeft = (el: HTMLDivElement) => {
     const { scrollLeft } = el
@@ -104,7 +124,7 @@ export default function BuiltForSection() {
                 const active = activeCategory === index
                 return (
                   <button
-                    key={item.name}
+                    key={item.id}
                     type="button"
                     onClick={() => {
                       setActiveCategory(index)
@@ -123,7 +143,7 @@ export default function BuiltForSection() {
                     )}
                     aria-pressed={active}
                   >
-                    {item.name}
+                    {item.name.toUpperCase()}
                   </button>
                 )
               })}
@@ -138,15 +158,22 @@ export default function BuiltForSection() {
                       {category.name.charAt(0) +
                         category.name.slice(1).toLowerCase()}
                     </p>
-                    <p className="text-primary-foreground mt-4 text-base leading-6 xl:pe-5">
-                      {category.description}
-                    </p>
+                    <div
+                      className="text-primary-foreground mt-4 text-base leading-6 xl:pe-5"
+                      dangerouslySetInnerHTML={{ __html: category.description }}
+                    />
                   </div>
                   <Button
                     variant="outline"
                     className="our-btn w-fit border-white bg-transparent px-4! hover:bg-white/10 hover:text-white"
+                    {...(category.link
+                      ? {
+                          nativeButton: false,
+                          render: <Link href={category.link} />,
+                        }
+                      : {})}
                   >
-                    {category.cta}
+                    {t('ctaLabel')}
                   </Button>
                 </div>
 
@@ -157,19 +184,26 @@ export default function BuiltForSection() {
                       category.name.slice(1).toLowerCase()}
                   </p>
                   <div className="relative h-(--main-image-height) overflow-hidden rounded-md">
-                    <Image
-                      src={activeProductData.image}
-                      alt={`${activeProductData.name} interior`}
-                      fill
-                      className="object-cover object-bottom transition-transform duration-700 ease-out"
-                    />
+                    {activeProductData?.image && (
+                      <Image
+                        src={activeProductData.image}
+                        alt={
+                          activeProductData.alt ||
+                          `${activeProductData.name} interior`
+                        }
+                        fill
+                        className="object-cover object-bottom transition-transform duration-700 ease-out"
+                      />
+                    )}
                     <p className="font-cairo absolute inset-x-3 bottom-3 text-6xl font-bold tracking-wider text-transparent uppercase [-webkit-text-stroke:1px_white] sm:inset-x-6 sm:bottom-6 sm:text-8xl lg:inset-x-3 lg:bottom-3 xl:inset-x-6 xl:bottom-6 2xl:inset-x-10 2xl:bottom-10">
-                      {activeProductData.name.split(' ').map((word, i) => (
-                        <span key={i}>
-                          {word}
-                          <br />
-                        </span>
-                      ))}
+                      {(activeProductData?.name ?? '')
+                        .split(' ')
+                        .map((word, i) => (
+                          <span key={i}>
+                            {word}
+                            <br />
+                          </span>
+                        ))}
                     </p>
                   </div>
                 </div>
@@ -181,7 +215,7 @@ export default function BuiltForSection() {
                 <div
                   className={cn(
                     'flex flex-col items-center justify-center lg:h-(--image-stack-button-height) lg:justify-start',
-                    !isImgStackScrollable && 'hidden lg:invisible lg:flex',
+                    !showStackArrows && 'hidden lg:invisible lg:flex',
                   )}
                 >
                   <Button
@@ -217,7 +251,7 @@ export default function BuiltForSection() {
                   >
                     {category.products.map((product, index) => (
                       <button
-                        key={product.name + index}
+                        key={product.id}
                         type="button"
                         onClick={() => setActiveProduct(index)}
                         className={cn(
@@ -234,12 +268,14 @@ export default function BuiltForSection() {
                               : 'border-transparent',
                           )}
                         />
-                        <Image
-                          src={product.image}
-                          alt={product.name}
-                          fill
-                          className="size-full object-cover object-bottom"
-                        />
+                        {product.image && (
+                          <Image
+                            src={product.image}
+                            alt={product.alt || product.name}
+                            fill
+                            className="size-full object-cover object-bottom"
+                          />
+                        )}
                         <span className="text-primary-foreground absolute inset-x-1 bottom-1 z-12 truncate text-xs font-medium">
                           {product.name}
                         </span>
@@ -252,7 +288,7 @@ export default function BuiltForSection() {
                 <div
                   className={cn(
                     'flex flex-col items-center justify-center lg:h-(--image-stack-button-height) lg:justify-end',
-                    !isImgStackScrollable && 'hidden lg:invisible lg:flex',
+                    !showStackArrows && 'hidden lg:invisible lg:flex',
                   )}
                 >
                   <Button

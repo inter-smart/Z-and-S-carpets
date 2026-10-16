@@ -5,6 +5,7 @@ import { OurIcon } from '@/components/ui/icon'
 import type { LocaleType } from '@/i18n/types'
 import AutoScroll from 'embla-carousel-auto-scroll'
 import useEmblaCarousel from 'embla-carousel-react'
+import type { HomeData } from '@/types/home'
 import { useLocale, useTranslations } from 'next-intl'
 import { useCallback } from 'react'
 
@@ -12,7 +13,7 @@ interface CustomerReviewType {
   quote: string
   name: string
   role: string
-  avatar: string
+  avatar: string | null
 }
 
 function ReviewCard({ review }: { review: CustomerReviewType }) {
@@ -30,11 +31,13 @@ function ReviewCard({ review }: { review: CustomerReviewType }) {
         <p className="mt-5 text-sm leading-5">{review.quote}</p>
       </div>
       <div className="mt-7 flex items-center gap-3">
-        <img
-          src={review.avatar}
-          alt={`${review.name}, ${review.role}`}
-          className="size-14 rounded-full object-cover"
-        />
+        {review.avatar && (
+          <img
+            src={review.avatar}
+            alt={`${review.name}, ${review.role}`}
+            className="size-14 rounded-full object-cover"
+          />
+        )}
         <div>
           <p className="text-lg font-medium">{review.name}</p>
           <p className="text-muted-foreground text-sm">{review.role}</p>
@@ -44,11 +47,30 @@ function ReviewCard({ review }: { review: CustomerReviewType }) {
   )
 }
 
-export default function CustomerExpSection() {
+// The prev/next buttons only show when there are more reviews than this
+const BUTTONS_MIN_REVIEWS = 4
+
+interface CustomerExpSectionProps {
+  testimonials: HomeData['testimonials_section']
+}
+
+export default function CustomerExpSection({
+  testimonials,
+}: CustomerExpSectionProps) {
   const locale = useLocale() as LocaleType
 
   const t = useTranslations('HomePage.CustomerExpSection')
-  const reviews = t.raw('reviews') as CustomerReviewType[]
+  const pick = (en?: string, ar?: string) =>
+    locale === 'ar' ? ar || en || '' : en || ''
+
+  const showButtons = testimonials.list.length > BUTTONS_MIN_REVIEWS
+
+  const reviews: CustomerReviewType[] = testimonials.list.map((item) => ({
+    quote: pick(item.message, item.message_ar),
+    name: pick(item.name, item.name_ar),
+    role: pick(item.designation, item.designation_ar),
+    avatar: item.profile.path,
+  }))
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
@@ -117,7 +139,7 @@ export default function CustomerExpSection() {
       {/* header */}
       <div className="container-wrapper flex flex-col items-start gap-3 pb-10 lg:flex-row lg:items-center lg:justify-between lg:gap-6">
         <h2 id="customer-experiences-title" className="our-heading">
-          {t('title')}
+          {pick(testimonials.title, testimonials.title_ar)}
         </h2>
         <div
           className="flex shrink-0 items-center gap-3"
@@ -167,74 +189,86 @@ export default function CustomerExpSection() {
               {/* w-5 sm:w-10 lg:w-15 2xl:w-20 */}
               <div className="pointer-events-auto absolute top-0 right-full h-full w-5 bg-linear-to-r from-white to-white/0 sm:w-10 lg:w-15 2xl:w-20" />
               <div className="pointer-events-auto absolute top-0 left-full h-full w-5 bg-linear-to-l from-white to-white/0 sm:w-10 lg:w-15 2xl:w-20" />
-              {/* Desktop Previous */}
-              <div className="absolute top-1/2 -left-8 hidden -translate-y-1/2 sm:block md:-left-10 rtl:-right-8 rtl:left-auto rtl:md:-right-10">
-                <Button
-                  type="button"
-                  variant="ghost"
-                  aria-label="Previous collection"
-                  onClick={scrollPrev}
-                  className="text-our-purple hover:text-our-purple pointer-events-auto cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
-                >
-                  {/* LTR */}
-                  <OurIcon name="arrow-left" className="ltr:block rtl:hidden" />
-                  {/* RTL */}
-                  <OurIcon
-                    name="arrow-right"
-                    className="ltr:hidden rtl:block"
-                  />
-                </Button>
-              </div>
-              {/* Desktop Next */}
-              <div className="absolute top-1/2 -right-8 hidden -translate-y-1/2 sm:block md:-right-10 rtl:right-auto rtl:-left-8 rtl:md:-left-10">
-                <Button
-                  type="button"
-                  variant="ghost"
-                  aria-label="Next collection"
-                  onClick={scrollNext}
-                  className="text-our-purple hover:text-our-purple pointer-events-auto cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
-                >
-                  {/* LTR */}
-                  <OurIcon
-                    name="arrow-right"
-                    className="ltr:block rtl:hidden"
-                  />
-                  {/* RTL */}
-                  <OurIcon name="arrow-left" className="ltr:hidden rtl:block" />
-                </Button>
-              </div>
+              {showButtons && (
+                <>
+                  {/* Desktop Previous */}
+                  <div className="absolute top-1/2 -left-8 hidden -translate-y-1/2 sm:block md:-left-10 rtl:-right-8 rtl:left-auto rtl:md:-right-10">
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      aria-label="Previous collection"
+                      onClick={scrollPrev}
+                      className="text-our-purple hover:text-our-purple pointer-events-auto cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
+                    >
+                      {/* LTR */}
+                      <OurIcon
+                        name="arrow-left"
+                        className="ltr:block rtl:hidden"
+                      />
+                      {/* RTL */}
+                      <OurIcon
+                        name="arrow-right"
+                        className="ltr:hidden rtl:block"
+                      />
+                    </Button>
+                  </div>
+                  {/* Desktop Next */}
+                  <div className="absolute top-1/2 -right-8 hidden -translate-y-1/2 sm:block md:-right-10 rtl:right-auto rtl:-left-8 rtl:md:-left-10">
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      aria-label="Next collection"
+                      onClick={scrollNext}
+                      className="text-our-purple hover:text-our-purple pointer-events-auto cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
+                    >
+                      {/* LTR */}
+                      <OurIcon
+                        name="arrow-right"
+                        className="ltr:block rtl:hidden"
+                      />
+                      {/* RTL */}
+                      <OurIcon
+                        name="arrow-left"
+                        className="ltr:hidden rtl:block"
+                      />
+                    </Button>
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </div>
       </div>
 
       {/* btn - mobile */}
-      <div className="mt-2 flex justify-center gap-2 sm:hidden">
-        <Button
-          aria-label="Previous products"
-          variant="ghost"
-          size="icon"
-          onClick={scrollPrev}
-          className="text-our-purple hover:text-our-purple cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
-        >
-          {/* LTR */}
-          <OurIcon name="arrow-left" className="ltr:block rtl:hidden" />
-          {/* RTL */}
-          <OurIcon name="arrow-right" className="ltr:hidden rtl:block" />
-        </Button>
-        <Button
-          aria-label="Next products"
-          variant="ghost"
-          size="icon"
-          onClick={scrollNext}
-          className="text-our-purple hover:text-our-purple cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
-        >
-          {/* LTR */}
-          <OurIcon name="arrow-left" className="ltr:hidden rtl:block" />
-          {/* RTL */}
-          <OurIcon name="arrow-right" className="ltr:block rtl:hidden" />
-        </Button>
-      </div>
+      {showButtons && (
+        <div className="mt-2 flex justify-center gap-2 sm:hidden">
+          <Button
+            aria-label="Previous products"
+            variant="ghost"
+            size="icon"
+            onClick={scrollPrev}
+            className="text-our-purple hover:text-our-purple cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
+          >
+            {/* LTR */}
+            <OurIcon name="arrow-left" className="ltr:block rtl:hidden" />
+            {/* RTL */}
+            <OurIcon name="arrow-right" className="ltr:hidden rtl:block" />
+          </Button>
+          <Button
+            aria-label="Next products"
+            variant="ghost"
+            size="icon"
+            onClick={scrollNext}
+            className="text-our-purple hover:text-our-purple cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
+          >
+            {/* LTR */}
+            <OurIcon name="arrow-left" className="ltr:hidden rtl:block" />
+            {/* RTL */}
+            <OurIcon name="arrow-right" className="ltr:block rtl:hidden" />
+          </Button>
+        </div>
+      )}
     </section>
   )
 }

@@ -1,4 +1,5 @@
 import { sendError, sendSuccess, type ApiResult } from './api'
+import { apiCacheOptions } from './cache'
 import { apiClient } from './client'
 
 export const getHomeData = {
@@ -9,7 +10,10 @@ export const getHomeData = {
   // locale)` in `./metaApi`.
   getCmsData: async <T = unknown>(): Promise<ApiResult<T>> => {
     try {
-      const { data } = await apiClient<{ data: T }>('/api/frontend/home')
+      const { data } = await apiClient<{ data: T }>(
+        '/api/frontend/home',
+        apiCacheOptions(['home']),
+      )
       return sendSuccess(data)
     } catch (error) {
       return sendError(error)

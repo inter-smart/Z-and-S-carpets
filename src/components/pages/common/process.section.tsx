@@ -1,20 +1,49 @@
 'use client'
 
+import type { LocaleType } from '@/i18n/types'
+import type { HomeData } from '@/types/home'
 import { cn } from 'cn'
 import { Pause, Play } from 'lucide-react'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
+import Image from 'next/image'
 import { useRef, useState } from 'react'
 
-export default function ProcessSections() {
+interface ProcessSectionsProps {
+  // When omitted (e.g. the About page) the translated content is used
+  data?: HomeData['how_it_works_section']
+}
+
+export default function ProcessSections({ data }: ProcessSectionsProps) {
+  const locale = useLocale() as LocaleType
   const [activeStep, setActiveStep] = useState(0)
   const videoRef = useRef<HTMLVideoElement>(null)
   const [isPlaying, setIsPlaying] = useState(false)
 
   const t = useTranslations('Common.ProcessSection')
-  const processSteps = t.raw('steps') as {
-    title: string
-    description: string
-  }[]
+  const pick = (en?: string, ar?: string) =>
+    locale === 'ar' ? ar || en || '' : en || ''
+
+  const processSteps = data
+    ? data.list.map((item) => ({
+        title: pick(item.title, item.title_ar),
+        description: pick(item.description, item.description_ar),
+      }))
+    : (t.raw('steps') as {
+        title: string
+        description: string
+      }[])
+  const sectionTitle = data ? pick(data.title, data.title_ar) : t('title')
+  // faint text behind the heading; falls back to the translation when none is set
+  const eyebrow =
+    (data && pick(data.bg_title, data.bg_title_ar)) || t('eyebrow')
+
+  // Left-hand media: image or video from the API; the translated default video when none is set
+  const apiMedia = data?.media.path ? data.media : null
+  const isImage = apiMedia?.type === 'image'
+  const videoSrc = apiMedia?.path ?? '/videos/floor-video-3.mp4'
+  const videoPoster = apiMedia
+    ? (data?.thumbnail.path ?? undefined)
+    : '/images/video-poster-3.webp'
 
   const handleToggle = async () => {
     const video = videoRef.current
@@ -35,54 +64,71 @@ export default function ProcessSections() {
     >
       <div className="container-wrapper">
         <p className="font-cairo text-center text-[4rem] leading-14 font-bold tracking-widest text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.03)] sm:text-[5rem] sm:leading-18">
-          {t('eyebrow')}
+          {eyebrow}
         </p>
         <h2
           id="process-title"
           className="our-heading -mt-7 text-center sm:-mt-8"
         >
-          {t('title')}
+          {sectionTitle}
         </h2>
         <div className="mt-12 grid gap-8 lg:grid-cols-[1fr_1.2fr]">
           <div className="group relative min-h-72 overflow-hidden rounded-md">
-            <video
-              ref={videoRef}
-              className="h-full w-full object-cover"
-              playsInline
-              muted
-              loop
-              onPlay={() => setIsPlaying(true)}
-              onPause={() => setIsPlaying(false)}
-              poster="/images/video-poster-3.webp"
-            >
-              <source src="/videos/floor-video-3.mp4" type="video/mp4" />
-            </video>
-
-            <div
-              className={cn(
-                'bg-foreground/20 absolute inset-0 grid place-items-center transition-opacity',
-                isPlaying ? 'opacity-0 group-hover:opacity-100' : 'opacity-100',
-              )}
-            >
-              <button
-                type="button"
-                aria-label={isPlaying ? 'Pause video' : 'Play video'}
-                onClick={handleToggle}
-                className="grid cursor-pointer place-items-center text-sm focus:ring-0 focus:outline-none"
+            {isImage && apiMedia?.path ? (
+              <Image
+                src={apiMedia.path}
+                alt={pick(apiMedia.alt, apiMedia.alt_ar) || sectionTitle}
+                fill
+                className="object-cover"
+              />
+            ) : (
+              <video
+                ref={videoRef}
+                className="h-full w-full object-cover"
+                playsInline
+                muted
+                loop
+                onPlay={() => setIsPlaying(true)}
+                onPause={() => setIsPlaying(false)}
+                poster={videoPoster}
               >
-                <span className="bg-background grid size-7 place-items-center rounded-full text-[#0066B3]">
-                  {isPlaying ? (
-                    <Pause className="size-3 fill-current stroke-1" />
-                  ) : (
-                    <Play className="size-3 fill-current stroke-1" />
-                  )}
-                </span>
+                <source
+                  src={videoSrc}
+                  {...(apiMedia ? {} : { type: 'video/mp4' })}
+                />
+              </video>
+            )}
 
-                <span className="mt-1.5 text-sm">
-                  {isPlaying ? 'Pause Video' : 'Watch Video'}
-                </span>
-              </button>
-            </div>
+            {/* play / pause overlay is for video only */}
+            {!isImage && (
+              <div
+                className={cn(
+                  'bg-foreground/20 absolute inset-0 grid place-items-center transition-opacity',
+                  isPlaying
+                    ? 'opacity-0 group-hover:opacity-100'
+                    : 'opacity-100',
+                )}
+              >
+                <button
+                  type="button"
+                  aria-label={isPlaying ? 'Pause video' : 'Play video'}
+                  onClick={handleToggle}
+                  className="grid cursor-pointer place-items-center text-sm focus:ring-0 focus:outline-none"
+                >
+                  <span className="bg-background grid size-7 place-items-center rounded-full text-[#0066B3]">
+                    {isPlaying ? (
+                      <Pause className="size-3 fill-current stroke-1" />
+                    ) : (
+                      <Play className="size-3 fill-current stroke-1" />
+                    )}
+                  </span>
+
+                  <span className="mt-1.5 text-sm">
+                    {isPlaying ? 'Pause Video' : 'Watch Video'}
+                  </span>
+                </button>
+              </div>
+            )}
           </div>
 
           <div className="flex flex-col gap-2">

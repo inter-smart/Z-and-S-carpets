@@ -3,6 +3,7 @@
 import { Button } from '@/components/ui/button'
 import { OurIcon } from '@/components/ui/icon'
 import type { LocaleType } from '@/i18n/types'
+import type { HomeData } from '@/types/home'
 import Autoplay from 'embla-carousel-autoplay'
 import useEmblaCarousel from 'embla-carousel-react'
 import { ListFilterIcon } from 'lucide-react'
@@ -11,18 +12,31 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useCallback, useEffect, useState } from 'react'
 
-export default function BestSellersSection() {
+interface BestSellersSectionProps {
+  residential: HomeData['residential_section']
+}
+
+export default function BestSellersSection({
+  residential,
+}: BestSellersSectionProps) {
   const locale = useLocale() as LocaleType
 
   const t = useTranslations('HomePage.BestSellerSection')
+  const pick = (en?: string, ar?: string) =>
+    locale === 'ar' ? ar || en || '' : en || ''
 
-  const products = t.raw('products') as {
-    category: string
-    title: string
-    description: string
-    tagLabel: string
-    image: string
-  }[]
+  const products = residential.list.map((item) => ({
+    id: item.id,
+    slug: item.slug,
+    category: item.category
+      ? pick(item.category.title, item.category.title_ar)
+      : '',
+    title: pick(item.title, item.title_ar),
+    description: pick(item.short_description, item.short_description_ar),
+    tagLabel: item.badge ? pick(item.badge.title, item.badge.title_ar) : '',
+    image: item.media.path,
+    alt: pick(item.media.alt, item.media.alt_ar),
+  }))
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
@@ -74,7 +88,9 @@ export default function BestSellersSection() {
       <div className="container-wrapper">
         {/* header */}
         <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-start md:justify-between xl:items-center">
-          <h2 className="our-heading">{t('title')}</h2>
+          <h2 className="our-heading">
+            {pick(residential.title, residential.title_ar)}
+          </h2>
 
           <div className="flex flex-col items-start gap-3 min-[350px]:flex-row">
             <Button className="our-btn bg-black px-3! text-lg! font-semibold tracking-widest text-white uppercase">
@@ -98,24 +114,28 @@ export default function BestSellersSection() {
         <div className="relative mt-12">
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="-ms-7 flex">
-              {products.map((product, index) => {
+              {products.map((product) => {
                 return (
                   <div
-                    key={index}
+                    key={product.id}
                     className="min-w-0 shrink-0 grow-0 basis-full ps-7 sm:basis-1/2 lg:basis-1/3"
                   >
                     <article className="group h-full overflow-hidden rounded-md border border-white/25 bg-[#073b68] text-white hover:border-white">
                       <div className="relative aspect-[1.8] overflow-hidden">
-                        <Image
-                          src={product.image}
-                          alt={product.title}
-                          fill
-                          className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
+                        {product.image && (
+                          <Image
+                            src={product.image}
+                            alt={product.alt || product.title}
+                            fill
+                            className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          />
+                        )}
 
-                        <span className="bg-background text-foreground absolute top-3 right-3 rounded-xs px-1.5 py-0.5 text-xs tracking-wide uppercase">
-                          {product.tagLabel}
-                        </span>
+                        {product.tagLabel && (
+                          <span className="bg-background text-foreground absolute top-3 right-3 rounded-xs px-1.5 py-0.5 text-xs tracking-wide uppercase">
+                            {product.tagLabel}
+                          </span>
+                        )}
                       </div>
 
                       <div className="flex min-h-50 flex-col p-4">
@@ -139,7 +159,15 @@ export default function BestSellersSection() {
                             {t('getSampleBtnLabel')}
                           </Button>
 
-                          <Button className="bg-our-purple our-btn min-w-0 flex-1 cursor-pointer py-4.5 font-semibold text-white">
+                          <Button
+                            className="bg-our-purple our-btn min-w-0 flex-1 cursor-pointer py-4.5 font-semibold text-white"
+                            nativeButton={false}
+                            render={
+                              <Link
+                                href={`/${locale}/products/${product.slug}`}
+                              />
+                            }
+                          >
                             {t('viewMoreBtnLabel')}
                           </Button>
                         </div>

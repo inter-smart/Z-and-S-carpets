@@ -7,11 +7,20 @@ import { ChevronsLeftRightIcon } from 'lucide-react'
 import { useLocale } from 'next-intl'
 import Image, { type StaticImageData } from 'next/image'
 
+export type CompareImage = {
+  src: string | StaticImageData
+  alt: string
+}
+
+// Both slot images get an opaque background so a transparent image (e.g. a logo) never shows the other image through it
+// Remote (API) images have no intrinsic size at build time; this matches the 1.4 ratio of the photos
+const REMOTE_IMAGE_SIZE = { width: 1400, height: 1000 }
+
 export default function ImgCompareSlider({
   images,
   className,
 }: {
-  images: StaticImageData[]
+  images: CompareImage[]
   className?: string
 }) {
   const locale = useLocale() as LocaleType
@@ -31,15 +40,17 @@ export default function ImgCompareSlider({
     >
       <Image
         slot={locale === 'ar' ? 'second' : 'first'}
-        src={images[0]}
-        alt="Floor after"
-        className="block w-full"
+        src={images[0].src}
+        alt={images[0].alt}
+        {...(typeof images[0].src === 'string' ? REMOTE_IMAGE_SIZE : {})}
+        className="block w-full bg-white"
       />
       <Image
         slot={locale === 'ar' ? 'first' : 'second'}
-        src={images[1]}
-        alt="Floor before"
-        className="block w-full"
+        src={images[1].src}
+        alt={images[1].alt}
+        {...(typeof images[1].src === 'string' ? REMOTE_IMAGE_SIZE : {})}
+        className="block w-full bg-white"
       />
       <div
         slot="handle"

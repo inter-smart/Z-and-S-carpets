@@ -69,26 +69,47 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
       {discover_section?.is_visible && (
         <CollectionSection discover={discover_section} />
       )}
-      <BestSellersSection />
-      <BuiltForSection />
+      {residential_section?.is_visible && (
+        <BestSellersSection residential={residential_section} />
+      )}
+      {industries_section?.is_visible && (
+        <BuiltForSection industries={industries_section} />
+      )}
       <WorksSection />
-      <ChooseUsSection />
-      <ImgCompareSection />
-      <ProcessSections />
-      <CustomerExpSection />
-      <TrustedPartnerSection />
-      <section className="relative">
-        {/* right-side background */}
-        <div className="pointer-events-none absolute inset-y-0 hidden bg-[#EFF9FE] lg:block ltr:right-0 ltr:left-1/2 rtl:right-1/2 rtl:left-0" />
-        {/* actual content */}
-        <div className="lg:container-wrapper relative grid grid-cols-1 lg:grid-cols-2">
-          <FAQSection
-            container={false}
-            className="container-wrapper lg:container-wrapper-none"
-          />
-          <PremiumSolutionsSection />
-        </div>
-      </section>
+      {features_section?.is_visible && (
+        <ChooseUsSection features={features_section} side={side_section} />
+      )}
+      {side_images_section?.is_visible && (
+        <ImgCompareSection sideImages={side_images_section} />
+      )}
+      {how_it_works_section?.is_visible && (
+        <ProcessSections data={how_it_works_section} />
+      )}
+      {testimonials_section?.is_visible && (
+        <CustomerExpSection testimonials={testimonials_section} />
+      )}
+      {(brands_section?.is_visible || cta_section?.is_visible) && (
+        <TrustedPartnerSection brands={brands_section} cta={cta_section} />
+      )}
+      {(faqs_section?.is_visible || premium_section?.is_visible) && (
+        <section className="relative">
+          {/* right-side background */}
+          <div className="pointer-events-none absolute inset-y-0 hidden bg-[#EFF9FE] lg:block ltr:right-0 ltr:left-1/2 rtl:right-1/2 rtl:left-0" />
+          {/* actual content */}
+          <div className="lg:container-wrapper relative grid grid-cols-1 lg:grid-cols-2">
+            {faqs_section?.is_visible && (
+              <FAQSection
+                data={faqs_section}
+                container={false}
+                className="container-wrapper lg:container-wrapper-none"
+              />
+            )}
+            {premium_section?.is_visible && (
+              <PremiumSolutionsSection premium={premium_section} />
+            )}
+          </div>
+        </section>
+      )}
     </>
   )
 }

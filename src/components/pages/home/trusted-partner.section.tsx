@@ -4,9 +4,10 @@ import LookingForwardCard from '@/components/common/looking-forward.card'
 import { Button } from '@/components/ui/button'
 import { OurIcon } from '@/components/ui/icon'
 import type { LocaleType } from '@/i18n/types'
+import type { HomeData } from '@/types/home'
 import Autoplay from 'embla-carousel-autoplay'
 import useEmblaCarousel from 'embla-carousel-react'
-import { useLocale, useTranslations } from 'next-intl'
+import { useLocale } from 'next-intl'
 import Image from 'next/image'
 import { useCallback } from 'react'
 
@@ -23,11 +24,32 @@ function chunkPairs(arr: PartnerType[]) {
   return result
 }
 
-export default function TrustedPartnerSection() {
-  const locale = useLocale() as LocaleType
+interface TrustedPartnerSectionProps {
+  brands?: HomeData['brands_section']
+  cta?: HomeData['cta_section']
+}
 
-  const t = useTranslations('HomePage.TrustedPartnersSection')
-  const trustedPartners = t.raw('partners') as PartnerType[]
+export default function TrustedPartnerSection({
+  brands,
+  cta,
+}: TrustedPartnerSectionProps) {
+  const locale = useLocale() as LocaleType
+  const pick = (en?: string, ar?: string) =>
+    locale === 'ar' ? ar || en || '' : en || ''
+
+  const showBrands = !!brands?.is_visible
+  const showCta = !!cta?.is_visible
+
+  const trustedPartners: PartnerType[] = (brands?.list ?? []).flatMap((item) =>
+    item.media.path
+      ? [
+          {
+            name: pick(item.media.alt, item.media.alt_ar),
+            image: item.media.path,
+          },
+        ]
+      : [],
+  )
   const trustedPartnersPaired = chunkPairs(trustedPartners)
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
@@ -54,88 +76,100 @@ export default function TrustedPartnerSection() {
 
   return (
     <div className="container-wrapper pb-16 lg:pb-22">
-      {/* heading */}
-      <div className="">
-        <h2 className="our-heading">{t('title')}</h2>
-      </div>
+      {showBrands && (
+        <>
+          {/* heading */}
+          <div className="">
+            <h2 className="our-heading">
+              {pick(brands?.title, brands?.title_ar)}
+            </h2>
+          </div>
 
-      {/* btns */}
-      <div className="relative flex justify-end">
-        <div className="absolute flex md:-top-5">
-          {/* prev btn */}
-          <Button
-            aria-label="Previous products"
-            variant="ghost"
-            size="icon"
-            onClick={scrollPrev}
-            className="text-our-blue hover:text-our-blue cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
-          >
-            <OurIcon
-              name="arrow-right"
-              className="hidden size-3.5! rtl:block"
-            />
-            <OurIcon name="arrow-left" className="hidden size-3.5! ltr:block" />
-          </Button>
+          {/* btns */}
+          <div className="relative flex justify-end">
+            <div className="absolute flex md:-top-5">
+              {/* prev btn */}
+              <Button
+                aria-label="Previous products"
+                variant="ghost"
+                size="icon"
+                onClick={scrollPrev}
+                className="text-our-blue hover:text-our-blue cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
+              >
+                <OurIcon
+                  name="arrow-right"
+                  className="hidden size-3.5! rtl:block"
+                />
+                <OurIcon
+                  name="arrow-left"
+                  className="hidden size-3.5! ltr:block"
+                />
+              </Button>
 
-          {/* next btn */}
-          <Button
-            aria-label="Next products"
-            variant="ghost"
-            size="icon"
-            onClick={scrollNext}
-            className="text-our-blue hover:text-our-blue cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
-          >
-            <OurIcon name="arrow-left" className="hidden size-3.5! rtl:block" />
-            <OurIcon
-              name="arrow-right"
-              className="hidden size-3.5! ltr:block"
-            />
-          </Button>
-        </div>
-      </div>
-
-      {/* main content */}
-      <div
-        className="mt-8 overflow-hidden rounded-md border border-[#0066B3]/40 bg-[#EFF9FE]/40"
-        ref={emblaRef}
-      >
-        <div className="flex">
-          {trustedPartnersPaired.map((partner, i) => (
-            <div
-              key={i}
-              className="flex min-w-0 shrink-0 grow-0 basis-1/2 cursor-grabbing flex-col justify-start border-[#0066B3]/40 min-[400px]:basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/7 ltr:border-r rtl:border-l"
-            >
-              <div className="flex h-1/2 w-full items-center justify-center border-b border-[#0066B3]/40">
-                {/* <div className="h-auto w-30 xl:w-35"> */}
-                <div className="flex h-30 w-auto items-center justify-center">
-                  <Image
-                    src={partner[0].image}
-                    width={250}
-                    height={200}
-                    alt={partner[0].name}
-                    className="h-auto w-full"
-                  />
-                </div>
-              </div>
-              {partner.length > 1 && (
-                <div className="flex h-1/2 w-full items-center justify-center border-[#0066B3]/40">
-                  {/* <div className="h-auto w-30 xl:w-35"> */}
-                  <div className="flex h-30 w-auto items-center justify-center">
-                    <Image
-                      src={partner[1].image}
-                      width={250}
-                      height={200}
-                      alt={partner[1].name}
-                      className="h-auto w-full"
-                    />
-                  </div>
-                </div>
-              )}
+              {/* next btn */}
+              <Button
+                aria-label="Next products"
+                variant="ghost"
+                size="icon"
+                onClick={scrollNext}
+                className="text-our-blue hover:text-our-blue cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
+              >
+                <OurIcon
+                  name="arrow-left"
+                  className="hidden size-3.5! rtl:block"
+                />
+                <OurIcon
+                  name="arrow-right"
+                  className="hidden size-3.5! ltr:block"
+                />
+              </Button>
             </div>
-          ))}
-        </div>
-      </div>
-      <LookingForwardCard />
+          </div>
+
+          {/* main content */}
+          <div
+            className="mt-8 overflow-hidden rounded-md border border-[#0066B3]/40 bg-[#EFF9FE]/40"
+            ref={emblaRef}
+          >
+            <div className="flex">
+              {trustedPartnersPaired.map((partner, i) => (
+                <div
+                  key={i}
+                  className="flex min-w-0 shrink-0 grow-0 basis-1/2 cursor-grabbing flex-col justify-start border-[#0066B3]/40 min-[400px]:basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/7 ltr:border-r rtl:border-l"
+                >
+                  <div className="flex h-1/2 w-full items-center justify-center border-b border-[#0066B3]/40">
+                    {/* <div className="h-auto w-30 xl:w-35"> */}
+                    <div className="flex h-30 w-auto items-center justify-center">
+                      <Image
+                        src={partner[0].image}
+                        width={250}
+                        height={200}
+                        alt={partner[0].name}
+                        className="h-auto w-full"
+                      />
+                    </div>
+                  </div>
+                  {partner.length > 1 && (
+                    <div className="flex h-1/2 w-full items-center justify-center border-[#0066B3]/40">
+                      {/* <div className="h-auto w-30 xl:w-35"> */}
+                      <div className="flex h-30 w-auto items-center justify-center">
+                        <Image
+                          src={partner[1].image}
+                          width={250}
+                          height={200}
+                          alt={partner[1].name}
+                          className="h-auto w-full"
+                        />
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </>
+      )}
+      {showCta && <LookingForwardCard data={cta} />}
     </div>
   )
 }

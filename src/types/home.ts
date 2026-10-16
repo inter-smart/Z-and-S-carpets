@@ -81,7 +81,13 @@ export type HomeData = {
       button: { text: string; text_ar: string; link: string }
     }
   how_it_works_section: Visible &
-    Titled & { list: (Titled & Described & { id: number })[] }
+    Titled & {
+      bg_title: string
+      bg_title_ar: string
+      media: HomeMedia & { type: string }
+      thumbnail: HomeMedia
+      list: (Titled & Described & { id: number })[]
+    }
   residential_section: Visible &
     Titled & {
       list: (Titled & {
@@ -92,6 +98,7 @@ export type HomeData = {
         price: string | null
         media: HomeMedia
         badge: (Titled & { id: number; slug: string }) | null
+        category: (Titled & { id: number; slug: string }) | null
       })[]
     }
   cta_section: Visible & Titled & Described & { media: HomeMedia }

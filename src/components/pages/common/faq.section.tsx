@@ -1,19 +1,34 @@
 'use client'
 
+import type { LocaleType } from '@/i18n/types'
+import type { HomeData } from '@/types/home'
 import { cn } from 'cn'
 import { Minus, Plus } from 'lucide-react'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { useState } from 'react'
 
 export default function FAQSection({
   className,
   container = true,
+  data,
 }: {
   className?: string
   container?: boolean
+  // When omitted (product pages) the translated FAQs are used
+  data?: HomeData['faqs_section']
 }) {
+  const locale = useLocale() as LocaleType
   const t = useTranslations('Common.FAQSection')
-  const faqs = t.raw('faqs') as { question: string; answer: string }[]
+  const pick = (en?: string, ar?: string) =>
+    locale === 'ar' ? ar || en || '' : en || ''
+
+  const faqs = data
+    ? data.list.map((item) => ({
+        question: pick(item.question, item.question_ar),
+        answer: pick(item.answer, item.answer_ar),
+      }))
+    : (t.raw('faqs') as { question: string; answer: string }[])
+  const sectionTitle = data ? pick(data.title, data.title_ar) : t('title')
 
   const [openIndex, setOpenIndex] = useState(0)
 
@@ -28,7 +43,7 @@ export default function FAQSection({
           'flex flex-col sm:pe-8 lg:pe-12 xl:pe-18',
         )}
       >
-        <h2 className="our-heading">{t('title')}</h2>
+        <h2 className="our-heading">{sectionTitle}</h2>
 
         <div className="mt-12">
           {faqs.map((faq, index) => {
