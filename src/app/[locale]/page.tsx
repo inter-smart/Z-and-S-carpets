@@ -10,10 +10,56 @@ import ImgCompareSection from '@/components/pages/home/img-compare.section'
 import PremiumSolutionsSection from '@/components/pages/home/premium-solutions.section'
 import TrustedPartnerSection from '@/components/pages/home/trusted-partner.section'
 import WorksSection from '@/components/pages/home/works.section'
+import DynamicMeta from '@/components/common/dynamic-meta'
+import { getHomeData } from '@/lib/api/home'
+import { getMetaData } from '@/lib/api/metaApi'
+import { parseMetaTags, sanitizeMetadata } from '@/lib/metaHelper'
+import type { LocaleType } from '@/i18n/types'
+import type { HomeData } from '@/types/home'
+import type { Metadata } from 'next'
 
-export default function HomePage() {
+export async function generateMetadata({
+  params,
+}: PageProps<'/[locale]'>): Promise<Metadata> {
+  const { locale } = await params
+  return getMetaData('home', locale as LocaleType)
+}
+
+export default async function HomePage({ params }: PageProps<'/[locale]'>) {
+  const { locale } = await params
+  const { data } = await getHomeData.getCmsData<HomeData>()
+
+  // Both languages come back in one fetch (same convention as every other
+  // section below) — pick the one for the current locale here.
+  const otherMetaHtml =
+    locale === 'ar'
+      ? (data?.other_meta_ar ?? data?.other_meta)
+      : data?.other_meta
+  const { scripts: structuredData, inlineScripts: lineScripts } =
+    sanitizeMetadata(parseMetaTags(otherMetaHtml))
+
+  // Home CMS payload, destructured for upcoming section integration.
+  // Each section carries `is_visible`; render a section only when it is true.
+  const {
+    banner_section,
+    milestones_section,
+    discover_section,
+    industries_section,
+    testimonials_section,
+    brands_section,
+    faqs_section,
+    side_images_section,
+    premium_section,
+    features_section,
+    side_section,
+    how_it_works_section,
+    residential_section,
+    cta_section,
+  } = data ?? ({} as Partial<HomeData>)
+
   return (
     <>
+      <DynamicMeta structuredData={structuredData} lineScripts={lineScripts} />
       <BannerSection />
       <CollectionSection />
       <BestSellersSection />
