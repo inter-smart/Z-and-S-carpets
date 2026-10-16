@@ -10,12 +10,15 @@ export type HomeData = {
   banner_section: Visible & {
     list: (Titled &
       Described & {
+        id: number
         media: HomeMedia & { type: string }
         thumbnail: HomeMedia
+        industry: Titled & { id: number; slug: string; link: string }
       })[]
   }
   milestones_section: Visible & {
     list: {
+      id: number
       value: string
       value_ar: string
       label: string

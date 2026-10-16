@@ -60,7 +60,12 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
   return (
     <>
       <DynamicMeta structuredData={structuredData} lineScripts={lineScripts} />
-      <BannerSection />
+      {banner_section?.is_visible && (
+        <BannerSection
+          banners={banner_section.list}
+          milestones={milestones_section}
+        />
+      )}
       <CollectionSection />
       <BestSellersSection />
       <BuiltForSection />
