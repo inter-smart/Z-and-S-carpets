@@ -1029,7 +1029,9 @@
         "title": "أرضيات LVT"
       }
     ],
-    "categoryMoreBtnLabel": "المزيد"
+    "categoryMoreBtnLabel": "المزيد",
+    "viewAllLabel": "عرض الكل",
+    "chatOnWhatsappLabel": "تواصل عبر واتساب"
   },
   "Footer": {
     "images": [

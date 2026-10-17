@@ -6,6 +6,7 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { useGetASample } from '@/context/get-a-sample.context'
 import type { LocaleType } from '@/i18n/types'
+import { localizedHref } from '@/lib/site-settings'
 import { cn } from 'cn'
 import { ChevronRightIcon } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
@@ -18,11 +19,16 @@ interface NavbarNavLinksType {
   link: string
 }
 
-export default function MobileNavSheet() {
+export default function MobileNavSheet({
+  links,
+}: {
+  // flat page links from the site settings; the translated links are the fallback
+  links?: NavbarNavLinksType[]
+}) {
   const locale = useLocale() as LocaleType
   const t = useTranslations('Navbar')
 
-  const navLinks = t.raw('navLinks') as NavbarNavLinksType[][]
+  const navLinks = links ?? (t.raw('navLinks') as NavbarNavLinksType[][]).flat()
 
   const [open, setOpen] = useState(false)
   const [activeTab, setActiveTab] = useState('menu')
@@ -144,10 +150,10 @@ export default function MobileNavSheet() {
                 'transition-opacity duration-300 ease-in-out data-ending-style:opacity-0 data-starting-style:opacity-0',
               )}
             >
-              {[...navLinks[0], ...navLinks[1]].map((item, i) => (
+              {navLinks.map((item, i) => (
                 <Link
                   key={i}
-                  href={`/${locale}${item.link}`}
+                  href={localizedHref(locale, item.link)}
                   onClick={() => setOpen(false)}
                   className="ltr:font-nobile rtl:font-cairo border-b-2 border-[#787878]/30 py-3 text-sm font-normal tracking-wider uppercase focus:ring-0 focus:outline-none"
                 >

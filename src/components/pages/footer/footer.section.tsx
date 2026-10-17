@@ -2,8 +2,11 @@
 
 import { SiteLogo } from '@/assets/logos'
 import { OurIcon, type OurIconName } from '@/components/ui/icon'
+import type { LocaleType } from '@/i18n/types'
+import { localizedHref } from '@/lib/site-settings'
+import type { SiteSettingsData } from '@/types/site-settings'
 import { cn } from 'cn'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
@@ -13,6 +16,15 @@ interface ContactsItemType {
   label: string
   link: string
   icon: OurIconName
+  // the address comes from a rich-text field (sanitized inline HTML)
+  html?: boolean
+}
+
+interface SocialItemType {
+  link: string
+  icon?: OurIconName
+  image?: string
+  alt?: string
 }
 
 interface FooterLinksItemsType {
@@ -20,7 +32,13 @@ interface FooterLinksItemsType {
   link: string
 }
 
-export default function Footer() {
+export default function Footer({
+  footer,
+}: {
+  // From the site settings; the translated content is the fallback when it is missing
+  footer?: SiteSettingsData['footer']
+}) {
+  const locale = useLocale() as LocaleType
   const t = useTranslations('Footer')
 
   const [openSection, setOpenSection] = useState<string | null>(null)
@@ -29,23 +47,86 @@ export default function Footer() {
     setOpenSection((prev) => (prev === section ? null : section))
   }
 
-  const footerLinks_quickLinks_items = t.raw(
-    'footerLinks.quickLinks.items',
-  ) as FooterLinksItemsType[]
-  const footerLinks_services_items = t.raw(
-    'footerLinks.services.items',
-  ) as FooterLinksItemsType[]
-  const footerLinks_products_items = t.raw(
-    'footerLinks.products.items',
-  ) as FooterLinksItemsType[][]
+  const half = (list: FooterLinksItemsType[]) => Math.ceil(list.length / 2)
 
-  const contacts = t.raw('contacts') as ContactsItemType[]
+  const footerLinks_quickLinks_items: FooterLinksItemsType[] = footer
+    ? footer.pages.map((page) => ({
+        text: page.title,
+        link: localizedHref(locale, page.link),
+      }))
+    : (t.raw('footerLinks.quickLinks.items') as FooterLinksItemsType[])
 
-  const social = t.raw('social') as {
-    link: string
-    icon: OurIconName
-  }[]
-  const images = t.raw('images') as string[]
+  const footerLinks_services_items: FooterLinksItemsType[] = footer
+    ? footer.services.map((service) => ({
+        text: service.title,
+        link: `/${locale}/services`,
+      }))
+    : (t.raw('footerLinks.services.items') as FooterLinksItemsType[])
+
+  // products are laid out in two columns
+  const apiProducts: FooterLinksItemsType[] | null = footer
+    ? footer.products.map((product) => ({
+        text: product.title,
+        link: `/${locale}/products/${product.slug}`,
+      }))
+    : null
+  const footerLinks_products_items: FooterLinksItemsType[][] = apiProducts
+    ? [
+        apiProducts.slice(0, half(apiProducts)),
+        apiProducts.slice(half(apiProducts)),
+      ]
+    : (t.raw('footerLinks.products.items') as FooterLinksItemsType[][])
+
+  // address, email, phone and WhatsApp from the site settings (empty ones are skipped)
+  const apiContacts: ContactsItemType[] = []
+  if (footer?.address)
+    apiContacts.push({
+      label: footer.address,
+      link: '',
+      icon: 'location',
+      html: true,
+    })
+  if (footer?.email)
+    apiContacts.push({
+      label: footer.email,
+      link: `mailto:${footer.email}`,
+      icon: 'mail_2',
+    })
+  if (footer?.phone)
+    apiContacts.push({
+      label: footer.phone,
+      link: `tel:${footer.phone.replaceAll(' ', '')}`,
+      icon: 'phone_2',
+    })
+  if (footer?.whatsapp_number)
+    apiContacts.push({
+      label: footer.whatsapp_number,
+      link: `https://wa.me/${footer.whatsapp_number.replace(/[^\d]/g, '')}`,
+      icon: 'whatsapp_2',
+    })
+  const contacts = footer
+    ? apiContacts
+    : (t.raw('contacts') as ContactsItemType[])
+
+  const social: SocialItemType[] = footer
+    ? footer.social_media.flatMap((item) =>
+        item.link && item.media.media_path
+          ? [
+              {
+                link: item.link,
+                image: item.media.media_path,
+                alt: item.media.media_alt,
+              },
+            ]
+          : [],
+      )
+    : (t.raw('social') as SocialItemType[])
+
+  const images: string[] = footer
+    ? footer.footer_media.flatMap((item) =>
+        item.media.media_path ? [item.media.media_path] : [],
+      )
+    : (t.raw('images') as string[])
 
   return (
     <footer className="w-full bg-[#101010] pt-12 text-sm text-white lg:pt-20">
@@ -53,7 +134,7 @@ export default function Footer() {
         {/* top */}
         <div className="pb-10">
           {/* images carousel */}
-          <FooterCarousel images={images} />
+          {images.length > 0 && <FooterCarousel images={images} />}
 
           {/* links */}
           <div className="mt-18 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-10 lg:grid-cols-5">
@@ -144,7 +225,17 @@ export default function Footer() {
 
             {/* contacts */}
             <div className="mt-7 space-y-7 sm:col-span-2 sm:mt-0 md:col-span-1">
-              <Image src={SiteLogo} alt="Z&S Carpets" className="h-20" />
+              {footer?.logo.path ? (
+                <Image
+                  src={footer.logo.path}
+                  alt={footer.logo.alt || 'Z&S Carpets'}
+                  width={200}
+                  height={80}
+                  className="h-20 w-auto"
+                />
+              ) : (
+                <Image src={SiteLogo} alt="Z&S Carpets" className="h-20" />
+              )}
               <div className="space-y-5 text-base">
                 {contacts.map((item, i) => {
                   if (!item.link.length)
@@ -159,7 +250,11 @@ export default function Footer() {
                             className="text-our-blue size-3.5"
                           />
                         </div>
-                        <p>{item.label}</p>
+                        {item.html ? (
+                          <p dangerouslySetInnerHTML={{ __html: item.label }} />
+                        ) : (
+                          <p>{item.label}</p>
+                        )}
                       </div>
                     )
                   return (
@@ -195,7 +290,21 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <OurIcon name={logo.icon} className="size-4 text-white" />
+                {logo.image ? (
+                  // <img> SVGs can't inherit CSS `color`, so `currentColor` fills render black;
+                  // brightness-0 + invert forces any uploaded icon to white on the dark footer
+                  <Image
+                    src={logo.image}
+                    alt={logo.alt || ''}
+                    width={16}
+                    height={16}
+                    className="size-4 object-contain brightness-0 invert"
+                  />
+                ) : (
+                  logo.icon && (
+                    <OurIcon name={logo.icon} className="size-4 text-white" />
+                  )
+                )}
               </Link>
             ))}
           </div>

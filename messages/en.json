@@ -1020,7 +1020,9 @@
         "title": "Lvt Flooring"
       }
     ],
-    "categoryMoreBtnLabel": "More"
+    "categoryMoreBtnLabel": "More",
+    "viewAllLabel": "View All",
+    "chatOnWhatsappLabel": "Chat on Whatsapp"
   },
   "Footer": {
     "images": [

@@ -1,12 +1,71 @@
 import { OurIcon } from '@/components/ui/icon'
+import type { LocaleType } from '@/i18n/types'
+import { toContactLink } from '@/lib/site-settings'
+import type { SiteSettingsData } from '@/types/site-settings'
+import { useLocale } from 'next-intl'
+import Image from 'next/image'
 
-const contacts = {
+const defaultContacts = {
   mail: 'info@zandscarpets.com',
   whatsapp: '+971 XX XXX XXXX',
   phone: '+971 5270 044 20',
 }
 
-export default function BottomSideBtns() {
+export default function BottomSideBtns({
+  buttons,
+  email,
+  phone,
+  whatsapp,
+}: {
+  // floating buttons added in the admin; when there are none, the three default buttons
+  // (built from the contact values below, or the constants above) are shown
+  buttons?: SiteSettingsData['floating_buttons']
+  email?: string
+  phone?: string
+  whatsapp?: string
+}) {
+  const locale = useLocale() as LocaleType
+
+  const contacts = {
+    mail: email || defaultContacts.mail,
+    whatsapp: whatsapp || defaultContacts.whatsapp,
+    phone: phone || defaultContacts.phone,
+  }
+
+  const apiButtons = (buttons ?? []).filter(
+    (item) => item.icon.path && item.link,
+  )
+
+  if (apiButtons.length > 0) {
+    return (
+      <div className="fixed bottom-14 z-40 flex flex-col-reverse gap-1.25 ltr:right-2 ltr:sm:right-5 rtl:left-2 rtl:sm:left-5">
+        {apiButtons.map((item, index) => {
+          const { href, external, color } = toContactLink(locale, item.link)
+          return (
+            <a
+              key={index}
+              className={`flex h-9.5 w-9.5 items-center justify-center rounded-sm p-2.5 ${color}`}
+              href={href}
+              aria-label={item.icon.alt || href}
+              {...(external
+                ? { target: '_blank', rel: 'noopener noreferrer' }
+                : {})}
+            >
+              {/* uploaded glyphs are single-colour; shown white like the default buttons */}
+              <Image
+                src={item.icon.path as string}
+                alt=""
+                width={20}
+                height={20}
+                className="size-5 object-contain brightness-0 invert"
+              />
+            </a>
+          )
+        })}
+      </div>
+    )
+  }
+
   return (
     <div className="fixed bottom-14 z-40 flex flex-col-reverse gap-1.25 ltr:right-2 ltr:sm:right-5 rtl:left-2 rtl:sm:left-5">
       <a

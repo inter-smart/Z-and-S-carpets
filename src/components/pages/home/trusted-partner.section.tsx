@@ -9,7 +9,7 @@ import Autoplay from 'embla-carousel-autoplay'
 import useEmblaCarousel from 'embla-carousel-react'
 import { useLocale } from 'next-intl'
 import Image from 'next/image'
-import { useCallback } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 interface PartnerType {
   name: string
@@ -66,6 +66,28 @@ export default function TrustedPartnerSection({
     ],
   )
 
+  // The arrows only show when the carousel can actually scroll. The number of visible slides
+  // changes with the breakpoint, so this is re-evaluated on reInit/resize instead of counting items.
+  const [canScroll, setCanScroll] = useState(false)
+
+  useEffect(() => {
+    if (!emblaApi) return
+
+    const update = () =>
+      setCanScroll(emblaApi.canScrollPrev() || emblaApi.canScrollNext())
+
+    update()
+    emblaApi.on('reInit', update)
+    emblaApi.on('resize', update)
+    emblaApi.on('select', update)
+
+    return () => {
+      emblaApi.off('reInit', update)
+      emblaApi.off('resize', update)
+      emblaApi.off('select', update)
+    }
+  }, [emblaApi])
+
   const scrollPrev = useCallback(() => {
     emblaApi?.scrollPrev()
   }, [emblaApi])
@@ -85,46 +107,48 @@ export default function TrustedPartnerSection({
             </h2>
           </div>
 
-          {/* btns */}
-          <div className="relative flex justify-end">
-            <div className="absolute flex md:-top-5">
-              {/* prev btn */}
-              <Button
-                aria-label="Previous products"
-                variant="ghost"
-                size="icon"
-                onClick={scrollPrev}
-                className="text-our-blue hover:text-our-blue cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
-              >
-                <OurIcon
-                  name="arrow-right"
-                  className="hidden size-3.5! rtl:block"
-                />
-                <OurIcon
-                  name="arrow-left"
-                  className="hidden size-3.5! ltr:block"
-                />
-              </Button>
+          {/* btns (only when there is something to scroll) */}
+          {canScroll && (
+            <div className="relative flex justify-end">
+              <div className="absolute flex md:-top-5">
+                {/* prev btn */}
+                <Button
+                  aria-label="Previous products"
+                  variant="ghost"
+                  size="icon"
+                  onClick={scrollPrev}
+                  className="text-our-blue hover:text-our-blue cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
+                >
+                  <OurIcon
+                    name="arrow-right"
+                    className="hidden size-3.5! rtl:block"
+                  />
+                  <OurIcon
+                    name="arrow-left"
+                    className="hidden size-3.5! ltr:block"
+                  />
+                </Button>
 
-              {/* next btn */}
-              <Button
-                aria-label="Next products"
-                variant="ghost"
-                size="icon"
-                onClick={scrollNext}
-                className="text-our-blue hover:text-our-blue cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
-              >
-                <OurIcon
-                  name="arrow-left"
-                  className="hidden size-3.5! rtl:block"
-                />
-                <OurIcon
-                  name="arrow-right"
-                  className="hidden size-3.5! ltr:block"
-                />
-              </Button>
+                {/* next btn */}
+                <Button
+                  aria-label="Next products"
+                  variant="ghost"
+                  size="icon"
+                  onClick={scrollNext}
+                  className="text-our-blue hover:text-our-blue cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
+                >
+                  <OurIcon
+                    name="arrow-left"
+                    className="hidden size-3.5! rtl:block"
+                  />
+                  <OurIcon
+                    name="arrow-right"
+                    className="hidden size-3.5! ltr:block"
+                  />
+                </Button>
+              </div>
             </div>
-          </div>
+          )}
 
           {/* main content */}
           <div

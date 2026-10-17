@@ -5,6 +5,8 @@ import { Button } from '@/components/ui/button'
 import { OurIcon } from '@/components/ui/icon'
 import { useGetASample } from '@/context/get-a-sample.context'
 import type { LocaleType } from '@/i18n/types'
+import { localizedHref, toNavLinks } from '@/lib/site-settings'
+import type { SiteSettingsData } from '@/types/site-settings'
 import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -17,11 +19,24 @@ interface NavbarNavLinksType {
   link: string
 }
 
-export default function Navbar() {
+interface NavbarProps {
+  // From the site settings; the translated content is the fallback when it is missing
+  nav?: SiteSettingsData['nav']
+  whatsapp?: string
+}
+
+export default function Navbar({ nav, whatsapp }: NavbarProps) {
   const locale = useLocale() as LocaleType
   const t = useTranslations('Navbar')
 
-  const navLinks = t.raw('navLinks') as NavbarNavLinksType[][]
+  // API pages are split around the logo: first half on the left, the rest on the right
+  const apiLinks = nav?.pages.length ? toNavLinks(nav.pages) : null
+  const navLinks: NavbarNavLinksType[][] = apiLinks
+    ? [
+        apiLinks.slice(0, Math.ceil(apiLinks.length / 2)),
+        apiLinks.slice(Math.ceil(apiLinks.length / 2)),
+      ]
+    : (t.raw('navLinks') as NavbarNavLinksType[][])
 
   const { setOpen: setGetASampleOpen } = useGetASample()
 
@@ -35,7 +50,7 @@ export default function Navbar() {
               {navLinks[0].map((item, i) => (
                 <Link
                   key={i}
-                  href={`/${locale}${item.link}`}
+                  href={localizedHref(locale, item.link)}
                   className="text-base font-medium focus:ring-0 focus:outline-none"
                 >
                   {item.text}
@@ -49,11 +64,22 @@ export default function Navbar() {
                 href={`/${locale}`}
                 className="focus:ring-0 focus:outline-none"
               >
-                <Image
-                  src={SiteLogo}
-                  alt="Z&S Carpets"
-                  className="h-16 w-auto cursor-pointer"
-                />
+                {nav?.logo.path ? (
+                  <Image
+                    src={nav.logo.path}
+                    alt={nav.logo.alt || 'Z&S Carpets'}
+                    width={200}
+                    height={64}
+                    priority
+                    className="h-16 w-auto cursor-pointer"
+                  />
+                ) : (
+                  <Image
+                    src={SiteLogo}
+                    alt="Z&S Carpets"
+                    className="h-16 w-auto cursor-pointer"
+                  />
+                )}
               </Link>
             </div>
 
@@ -62,7 +88,7 @@ export default function Navbar() {
                 {navLinks[1].map((item, i) => (
                   <Link
                     key={i}
-                    href={`/${locale}${item.link}`}
+                    href={localizedHref(locale, item.link)}
                     className="text-base font-medium focus:ring-0 focus:outline-none"
                   >
                     {item.text}
@@ -86,7 +112,7 @@ export default function Navbar() {
                   <OurIcon name="file-pen" className="size-3.5" />
                 </Button>
                 {/* menu btn */}
-                <MobileNavSheet />
+                <MobileNavSheet links={apiLinks ?? undefined} />
               </div>
             </div>
           </div>
@@ -94,7 +120,10 @@ export default function Navbar() {
         {/* category menu */}
         <div className="bg-our-blue">
           <div className="container-wrapper text-white">
-            <NavbarCategoryDropdown />
+            <NavbarCategoryDropdown
+              categories={nav?.categories}
+              whatsapp={whatsapp}
+            />
           </div>
         </div>
       </header>
