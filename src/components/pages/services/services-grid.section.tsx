@@ -1,12 +1,12 @@
+import type { LocaleType } from '@/i18n/types'
+import type { ServicesData } from '@/types/services'
 import { cn } from 'cn'
-import { CircleCheckIcon } from 'lucide-react'
-import { useTranslations } from 'next-intl'
+import { useLocale } from 'next-intl'
 
 interface ServiceType {
   number: string
   title: string
   description: string
-  features: string[]
 }
 
 const ServiceCard = ({
@@ -16,61 +16,73 @@ const ServiceCard = ({
   service: ServiceType
   className?: string
 }) => (
-  <article
-    key={service.number}
-    className={cn('space-y-5 border-[#002C4D]/20 py-10', className)}
-  >
+  <article className={cn('space-y-5 border-[#002C4D]/20 py-10', className)}>
     <p className="text-our-blue/20 text-9xl leading-none font-bold">
       {service.number}
     </p>
-    <h3 className="our-heading text-3xl!">{service.title}</h3>
-    <p className="our-text text-base leading-5">{service.description}</p>
-    <ul className="space-y-3">
-      {service.features.map((feature) => (
-        <li
-          key={feature}
-          className="our-text flex items-center gap-3 text-base leading-5"
-        >
-          <CircleCheckIcon size={16} className="text-our-blue stroke-1" />
-          {feature}
-        </li>
-      ))}
-    </ul>
+    <h3
+      className="our-heading text-3xl!"
+      dangerouslySetInnerHTML={{ __html: service.title }}
+    />
+    {/* the description is rich text; its bullet points show as check icons */}
+    <div
+      className="our-text check-list text-base leading-5"
+      dangerouslySetInnerHTML={{ __html: service.description }}
+    />
   </article>
 )
 
-export default function ServicesGridSection() {
-  const t = useTranslations('ServicesPage.ServicesSection')
+// Two columns on desktop: a divider between the columns and above every row after the first.
+const cardClasses = (index: number, total: number) => {
+  const row = Math.floor(index / 2)
+  const isLeft = index % 2 === 0
+  const isFirstRow = row === 0
+  const isLastRow = row === Math.ceil(total / 2) - 1
 
-  const service = t.raw('service') as ServiceType[]
+  return cn(
+    index > 0 && 'border-t',
+    isFirstRow && 'md:border-t-0',
+    isLeft ? 'md:border-e md:ps-6 md:pe-12' : 'md:ps-12 md:pe-6',
+    isFirstRow ? 'md:pt-6' : 'md:pt-12',
+    isLastRow ? 'md:pb-6' : 'md:pb-12',
+  )
+}
+
+interface ServicesGridSectionProps {
+  data: ServicesData['service_section']
+}
+
+export default function ServicesGridSection({
+  data,
+}: ServicesGridSectionProps) {
+  const locale = useLocale() as LocaleType
+  const pick = (en?: string, ar?: string) =>
+    locale === 'ar' ? ar || en || '' : en || ''
+
+  const services: ServiceType[] = data.list.map((item, index) => ({
+    number: String(index + 1).padStart(2, '0'),
+    title: pick(item.title, item.title_ar),
+    description: pick(item.description, item.description_ar),
+  }))
 
   return (
     <section
       className="container-wrapper py-16 lg:py-20"
       aria-labelledby="services-title"
     >
-      <h2 id="services-title" className="our-heading text-center">
-        {t('title.lineOne')},
-        <br />
-        {t('title.lineTwo')}
-      </h2>
+      <h2
+        id="services-title"
+        className="our-heading text-center"
+        dangerouslySetInnerHTML={{ __html: pick(data.title, data.title_ar) }}
+      />
       <div className="mt-10 grid md:grid-cols-2">
-        <ServiceCard
-          service={service[0]}
-          className="md:border-e md:ps-6 md:pe-12 md:pt-6 md:pb-12"
-        />
-        <ServiceCard
-          service={service[1]}
-          className="border-t md:border-none md:ps-12 md:pe-6 md:pt-6 md:pb-12"
-        />
-        <ServiceCard
-          service={service[2]}
-          className="border-t md:border-e md:ps-6 md:pe-12 md:pt-12 md:pb-6"
-        />
-        <ServiceCard
-          service={service[3]}
-          className="border-t md:ps-12 md:pe-6 md:pt-12 md:pb-6"
-        />
+        {services.map((service, index) => (
+          <ServiceCard
+            key={data.list[index].id}
+            service={service}
+            className={cardClasses(index, services.length)}
+          />
+        ))}
       </div>
     </section>
   )

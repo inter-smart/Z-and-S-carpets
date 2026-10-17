@@ -1,9 +1,24 @@
 import { sendError, sendSuccess, type ApiResult } from './api'
+import { apiCacheOptions } from './cache'
 import { apiClient } from './client'
 
 // Backed by the server's "projects" module (completed-work portfolio),
 // mapped here to the storefront's /works pages.
 export const getWorksData = {
+  // Page-level content (banner + page scripts), both languages in one response.
+  // Cached like the other CMS pages; the project list below is not.
+  getPageData: async <T = unknown>(): Promise<ApiResult<T>> => {
+    try {
+      const { data } = await apiClient<{ data: T }>(
+        '/api/frontend/projects/page',
+        apiCacheOptions(['works-page']),
+      )
+      return sendSuccess(data)
+    } catch (error) {
+      return sendError(error)
+    }
+  },
+
   // Paginated list of active projects, optionally filtered by industry slug.
   // Both languages come back in one response. Not cached: every call goes to the API.
   getWorkList: async <T = unknown>(

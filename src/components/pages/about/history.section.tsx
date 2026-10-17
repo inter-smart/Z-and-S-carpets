@@ -28,6 +28,9 @@ export default function HistorySection({ data }: HistorySectionProps) {
 
   const event = events[activeEvent] ?? events[0]
 
+  // arrows only make sense when there is another event to move to
+  const hasMultiple = events.length > 1
+
   const moveTimeline = (direction: -1 | 1) => {
     setActiveEvent(
       (current) => (current + direction + events.length) % events.length,
@@ -46,15 +49,17 @@ export default function HistorySection({ data }: HistorySectionProps) {
       {/* Timeline */}
       <div className="relative mt-2 flex items-center">
         {/* Previous button */}
-        <button
-          type="button"
-          onClick={() => moveTimeline(-1)}
-          aria-label="Previous history event"
-          className="relative z-10 flex size-15 shrink-0 items-center justify-center rounded-full bg-[#F2EAF4] text-lg transition-transform hover:scale-105 focus:ring-2 focus:ring-[#8b2b9d] focus:outline-none"
-        >
-          <OurIcon name="arrow-left" className="rtl:hidden" />
-          <OurIcon name="arrow-right" className="ltr:hidden" />
-        </button>
+        {hasMultiple && (
+          <button
+            type="button"
+            onClick={() => moveTimeline(-1)}
+            aria-label="Previous history event"
+            className="relative z-10 flex size-15 shrink-0 items-center justify-center rounded-full bg-[#F2EAF4] text-lg transition-transform hover:scale-105 focus:ring-2 focus:ring-[#8b2b9d] focus:outline-none"
+          >
+            <OurIcon name="arrow-left" className="rtl:hidden" />
+            <OurIcon name="arrow-right" className="ltr:hidden" />
+          </button>
+        )}
 
         {/* Timeline viewport */}
         <div className="relative min-w-0 flex-1">
@@ -158,15 +163,17 @@ export default function HistorySection({ data }: HistorySectionProps) {
         </div>
 
         {/* Next button */}
-        <button
-          type="button"
-          onClick={() => moveTimeline(1)}
-          aria-label="Next history event"
-          className="relative flex size-15 shrink-0 items-center justify-center rounded-full bg-[#F2EAF4] text-lg transition-transform hover:scale-105 focus:ring-2 focus:ring-[#8b2b9d] focus:outline-none"
-        >
-          <OurIcon name="arrow-right" className="rtl:hidden" />
-          <OurIcon name="arrow-left" className="ltr:hidden" />
-        </button>
+        {hasMultiple && (
+          <button
+            type="button"
+            onClick={() => moveTimeline(1)}
+            aria-label="Next history event"
+            className="relative flex size-15 shrink-0 items-center justify-center rounded-full bg-[#F2EAF4] text-lg transition-transform hover:scale-105 focus:ring-2 focus:ring-[#8b2b9d] focus:outline-none"
+          >
+            <OurIcon name="arrow-right" className="rtl:hidden" />
+            <OurIcon name="arrow-left" className="ltr:hidden" />
+          </button>
+        )}
       </div>
 
       {/* Details */}

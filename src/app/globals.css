@@ -281,3 +281,26 @@
   background-position: bottom;
   height: 1.2px; /* Set height to dot height */
 }
+
+/* Admin rich text: bullet points shown with a check-circle icon (service descriptions) */
+.check-list ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 1.25rem;
+}
+.check-list ul > li {
+  position: relative;
+  margin-top: 0.75rem;
+  padding-inline-start: 1.75rem;
+}
+.check-list ul > li::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0.2em;
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--color-our-blue);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m9 12 2 2 4-4'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m9 12 2 2 4-4'/%3E%3C/svg%3E") center / contain no-repeat;
+}

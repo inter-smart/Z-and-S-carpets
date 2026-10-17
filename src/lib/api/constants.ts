@@ -158,3 +158,6 @@ export const defaultMeta: Record<string, Record<LocaleType, PageMeta>> = {
 }
 
 export const DefaultOgImage = '/logo.png'
+
+// the works page's meta row is saved under the page name `our-work`
+defaultMeta['our-work'] = defaultMeta.works

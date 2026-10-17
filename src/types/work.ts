@@ -61,3 +61,17 @@ export interface WorkListData {
   projects: WorkProject[]
   pagination: WorkPagination
 }
+
+// /api/frontend/projects/page — banner and page scripts (same conventions as the about API)
+export type WorksPageData = {
+  other_meta: string | null
+  other_meta_ar: string | null
+  banner_section: {
+    is_visible: boolean
+    title: string
+    title_ar: string
+    sub_title: string
+    sub_title_ar: string
+    media: { path: string | null; alt: string; alt_ar: string }
+  }
+}
