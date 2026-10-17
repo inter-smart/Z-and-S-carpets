@@ -10,6 +10,7 @@ import ImgCompareSection from '@/components/pages/home/img-compare.section'
 import PremiumSolutionsSection from '@/components/pages/home/premium-solutions.section'
 import TrustedPartnerSection from '@/components/pages/home/trusted-partner.section'
 import WorksSection from '@/components/pages/home/works.section'
+import WorksSkeleton from '@/components/pages/home/works-skeleton'
 import DynamicMeta from '@/components/common/dynamic-meta'
 import { getHomeData } from '@/lib/api/home'
 import { getMetaData } from '@/lib/api/metaApi'
@@ -17,6 +18,7 @@ import { parseMetaTags, sanitizeMetadata } from '@/lib/metaHelper'
 import type { LocaleType } from '@/i18n/types'
 import type { HomeData } from '@/types/home'
 import type { Metadata } from 'next'
+import { Suspense } from 'react'
 
 export async function generateMetadata({
   params,
@@ -50,6 +52,7 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
     faqs_section,
     side_images_section,
     premium_section,
+    works_section,
     features_section,
     side_section,
     how_it_works_section,
@@ -75,7 +78,9 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
       {industries_section?.is_visible && (
         <BuiltForSection industries={industries_section} />
       )}
-      <WorksSection />
+      <Suspense fallback={<WorksSkeleton />}>
+        <WorksSection title={works_section} />
+      </Suspense>
       {features_section?.is_visible && (
         <ChooseUsSection features={features_section} side={side_section} />
       )}

@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { OurIcon } from '@/components/ui/icon'
 import type { LocaleType } from '@/i18n/types'
-import type { WorkItemType } from '@/types/work'
+import type { WorkCardItem } from '@/types/work'
 import { cn } from 'cn'
 import { useLocale } from 'next-intl'
 import Image from 'next/image'
@@ -10,20 +10,28 @@ import Link from 'next/link'
 export default function WorkItemCard({
   project,
   hasViewProductsBtn = false,
+  priority = false,
+  sizes,
 }: {
-  project: WorkItemType
+  project: WorkCardItem
   hasViewProductsBtn?: boolean
+  priority?: boolean
+  sizes?: string
 }) {
   const locale = useLocale() as LocaleType
 
   return (
     <article className="group relative h-full overflow-hidden rounded-md">
-      <Image
-        src={project.image}
-        alt={project.title}
-        fill
-        className="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover:scale-105"
-      />
+      {project.image && (
+        <Image
+          src={project.image}
+          alt={project.title}
+          fill
+          priority={priority}
+          sizes={sizes}
+          className="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+      )}
       <div className="text-background absolute inset-x-3 bottom-3 flex flex-col items-start justify-between rounded-sm border border-white/30 bg-[#1F1A1A]/30 p-3 backdrop-blur-sm sm:p-5 xl:flex-row xl:items-center">
         <div>
           <h3 className="text-3xl font-bold">{project.title}</h3>

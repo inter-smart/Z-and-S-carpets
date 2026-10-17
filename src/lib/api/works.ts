@@ -5,6 +5,7 @@ import { apiClient } from './client'
 // mapped here to the storefront's /works pages.
 export const getWorksData = {
   // Paginated list of active projects, optionally filtered by industry slug.
+  // Both languages come back in one response. Not cached: every call goes to the API.
   getWorkList: async <T = unknown>(
     params: Record<string, string> = {},
   ): Promise<ApiResult<T>> => {
@@ -12,6 +13,7 @@ export const getWorksData = {
       const query = new URLSearchParams(params).toString()
       const { data } = await apiClient<{ data: T }>(
         `/api/frontend/projects${query ? `?${query}` : ''}`,
+        { cache: 'no-store' },
       )
       return sendSuccess(data)
     } catch (error) {
@@ -21,10 +23,14 @@ export const getWorksData = {
 
   // Active industries that have at least one active project — used to build
   // the filter list on the works listing page.
-  getWorkFilters: async <T = unknown>(): Promise<ApiResult<T>> => {
+  getWorkFilters: async <T = unknown>(
+    params: Record<string, string> = {},
+  ): Promise<ApiResult<T>> => {
     try {
+      const query = new URLSearchParams(params).toString()
       const { data } = await apiClient<{ data: T }>(
-        '/api/frontend/projects/filters',
+        `/api/frontend/projects/filters${query ? `?${query}` : ''}`,
+        { cache: 'no-store' },
       )
       return sendSuccess(data)
     } catch (error) {

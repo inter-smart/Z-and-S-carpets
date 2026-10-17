@@ -116,7 +116,9 @@ export default function BuiltForSection({ industries }: BuiltForSectionProps) {
       >
         <div className="bg-primary/70 absolute inset-0" />
         <div className="relative z-10">
-          <h2 className="our-heading text-center text-white">{t('title')}</h2>
+          <h2 className="our-heading text-center text-white">
+            {pick(industries.title, industries.title_ar) || t('title')}
+          </h2>
 
           <div className="mt-10 grid gap-5 lg:grid-cols-[160px_minmax(0,1fr)]">
             <div className="bg-primary/25 flex h-fit flex-wrap overflow-hidden rounded-md border border-white/10 backdrop-blur-lg lg:flex-col lg:gap-6 lg:overflow-visible lg:py-10">

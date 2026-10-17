@@ -1,5 +1,7 @@
 {
   "Works": {
+    "noProjectsFound": "No projects found",
+    "viewProjectLabel": "View Project",
     "Categories": [
       {
         "id": "all",

@@ -1,21 +1,32 @@
 'use client'
 
-import { OurIcon, type OurIconName } from '@/components/ui/icon'
+import { OurIcon } from '@/components/ui/icon'
+import type { LocaleType } from '@/i18n/types'
+import type { AboutData } from '@/types/about'
 import { cn } from 'cn'
-import { useTranslations } from 'next-intl'
+import { useLocale } from 'next-intl'
 import { useState, type CSSProperties } from 'react'
 
-export default function HistorySection() {
-  const t = useTranslations('AboutPage.HistorySection')
-  const events = t.raw('events') as {
-    year: string
-    title: OurIconName
-    description: string
-  }[]
+interface HistorySectionProps {
+  data: AboutData['history_section']
+}
 
-  const [activeEvent, setActiveEvent] = useState(1)
+export default function HistorySection({ data }: HistorySectionProps) {
+  const locale = useLocale() as LocaleType
+  const pick = (en?: string, ar?: string) =>
+    locale === 'ar' ? ar || en || '' : en || ''
 
-  const event = events[activeEvent]
+  const events = data.list.map((item) => ({
+    id: item.id,
+    year: item.year,
+    title: pick(item.title, item.title_ar),
+    description: pick(item.description, item.description_ar),
+  }))
+
+  // start on the second event when there is one (the timeline shows the active one in the middle)
+  const [activeEvent, setActiveEvent] = useState(Math.min(1, events.length - 1))
+
+  const event = events[activeEvent] ?? events[0]
 
   const moveTimeline = (direction: -1 | 1) => {
     setActiveEvent(
@@ -28,7 +39,9 @@ export default function HistorySection() {
       className="container-wrapper pb-16 lg:pb-24"
       aria-labelledby="company-history"
     >
-      <h2 className="our-heading text-center text-7xl!">{t('title')}</h2>
+      <h2 className="our-heading text-center text-7xl!">
+        {pick(data.title, data.title_ar)}
+      </h2>
 
       {/* Timeline */}
       <div className="relative mt-2 flex items-center">
@@ -92,7 +105,7 @@ export default function HistorySection() {
             >
               {events.map((item, index) => (
                 <button
-                  key={index}
+                  key={item.id}
                   type="button"
                   onClick={() => setActiveEvent(index)}
                   aria-label={`View ${item.year}`}
@@ -167,7 +180,10 @@ export default function HistorySection() {
         <h3 className="ltr:font-nobile rtl:font-cairo mt-4 text-5xl font-medium">
           {event.title}
         </h3>
-        <p className="our-text mt-3 text-lg leading-6">{event.description}</p>
+        <div
+          className="our-text mt-3 text-lg leading-6"
+          dangerouslySetInnerHTML={{ __html: event.description }}
+        />
       </div>
     </section>
   )

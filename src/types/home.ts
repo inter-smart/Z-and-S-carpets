@@ -35,15 +35,20 @@ export type HomeData = {
         media: HomeMedia
       })[]
     }
-  industries_section: Visible & {
-    list: (Titled &
-      Described & {
-        id: number
-        slug: string
-        link: string
-        categories: (Titled & { id: number; slug: string; media: HomeMedia })[]
-      })[]
-  }
+  industries_section: Visible &
+    Titled & {
+      list: (Titled &
+        Described & {
+          id: number
+          slug: string
+          link: string
+          categories: (Titled & {
+            id: number
+            slug: string
+            media: HomeMedia
+          })[]
+        })[]
+    }
   testimonials_section: Visible &
     Titled & {
       list: {
@@ -73,6 +78,7 @@ export type HomeData = {
     list: { id: number; before: HomeMedia; after: HomeMedia }[]
   }
   premium_section: Visible & Titled & Described
+  works_section: Visible & Titled
   features_section: Visible &
     Titled & { list: (Titled & Described & { id: number })[] }
   side_section: Visible &
