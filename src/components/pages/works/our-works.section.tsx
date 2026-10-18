@@ -20,6 +20,8 @@ interface OurWorksSectionProps {
   activeIndustry: string
   initialProjects: WorkProject[]
   initialHasMore: boolean
+  // heading from the CMS (both languages); the translation is the fallback
+  title?: { title: string; title_ar: string }
 }
 
 export default function OurWorksSection({
@@ -27,6 +29,7 @@ export default function OurWorksSection({
   activeIndustry,
   initialProjects,
   initialHasMore,
+  title,
 }: OurWorksSectionProps) {
   const locale = useLocale() as LocaleType
 
@@ -84,7 +87,8 @@ export default function OurWorksSection({
   return (
     <section className="container-wrapper pt-8 pb-12 lg:pt-12 lg:pb-18">
       <h2 id="projects-title" className="our-heading text-center">
-        {t('title')}
+        {(title && pickLocalized(locale, title.title, title.title_ar)) ||
+          t('title')}
       </h2>
 
       {industries.length > 0 && (

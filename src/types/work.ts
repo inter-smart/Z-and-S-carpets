@@ -66,6 +66,7 @@ export interface WorkListData {
 export type WorksPageData = {
   other_meta: string | null
   other_meta_ar: string | null
+  works_section: { title: string; title_ar: string }
   banner_section: {
     is_visible: boolean
     title: string

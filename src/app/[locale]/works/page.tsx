@@ -64,6 +64,7 @@ export default async function WorksPage({
       <OurWorksSection
         key={industry || 'all'}
         industries={filters.success ? filters.data.industries : []}
+        title={pageData?.works_section}
         activeIndustry={industry}
         initialProjects={list.success ? list.data.projects : []}
         initialHasMore={list.success ? list.data.pagination.hasMore : false}

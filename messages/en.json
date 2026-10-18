@@ -816,7 +816,6 @@
           "Dubai"
         ]
       },
-
       {
         "id": "carpets-heritage",
         "date": "August 02, 2025",
@@ -1509,7 +1508,6 @@
     },
     "WorksSection": {
       "title": "Explore Our Work",
-
       "viewAllProjectsBtnLabel": "View All Projects"
     },
     "CustomerExpSection": {
@@ -1802,12 +1800,31 @@
       "fields": ["Name", "Email", "Phone", "Requirement"],
       "upload": "File upload",
       "submit": "Send",
+      "errors": {
+        "alreadySubmitted": "We have already received an enquiry from this email. Our team will get back to you soon.",
+        "generic": "Something went wrong while sending your message. Please try again."
+      },
       "successDialog": {
         "icon": "",
         "title": "Thank you for contacting us",
         "description": "We will get back to you as soon as possible.",
         "btnLable": "Go Back"
-      }
+      },
+      "validation": {
+        "nameRequired": "Name is required",
+        "nameMin": "Name must be at least 4 characters",
+        "nameMax": "Name must be at most 100 characters",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Enter a valid email address",
+        "phoneRequired": "Phone number is required",
+        "phoneInvalid": "Enter a valid phone number (7-20 digits; + - ( ) and spaces allowed)",
+        "requirementsRequired": "Requirements are required",
+        "requirementsMax": "Requirements must be at most 2000 characters",
+        "fileTooLarge": "The file is too large. The maximum size is 5MB",
+        "fileInvalid": "Only PDF, DOC or DOCX files are allowed"
+      },
+      "removeFile": "Remove file",
+      "uploadHint": "PDF, DOC or DOCX, up to 5MB"
     }
   },
   "NotFoundPage": {
@@ -2045,7 +2062,9 @@
       "button": "View Products",
       "loadMore": "Load More",
       "filterLabel": "Filter",
-      "filterValues": ["Best Seller", "Latest"]
+      "all": "All",
+      "noCategories": "No categories found.",
+      "loadError": "Could not load categories. Please try again."
     }
   },
   "BlogsPage": {
