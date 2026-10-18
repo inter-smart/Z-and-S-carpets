@@ -1,191 +1,150 @@
 import BreadcrumbBar from '@/components/common/breadcrumb-bar'
+import DynamicMeta from '@/components/common/dynamic-meta'
 import FAQSection from '@/components/pages/common/faq.section'
 import InnerBannerSection from '@/components/pages/common/inner-banner.section'
 import ProductDetailsTabSection from '@/components/pages/product-details/product-details-tab.section'
 import ProductDetailsSection from '@/components/pages/product-details/product-details.section'
 import TagsSection from '@/components/pages/product-details/tags.section'
 import RelatedProductsSection from '@/components/pages/products/related-products.section'
-import type { ProductDetailsType } from '@/types/product'
+import type { LocaleType } from '@/i18n/types'
+import { getDetailMetaData } from '@/lib/api/metaApi'
+import { PRODUCT_NOT_FOUND, getProductsData } from '@/lib/api/products'
+import { getSiteSettingsData } from '@/lib/api/siteSettings'
+import {
+  buildAttrsParam,
+  parseAttrsParam,
+  pickLocalized,
+} from '@/lib/product-detail'
+import type {
+  ProductDetailData,
+  ProductRelatedData,
+} from '@/types/product-detail'
+import type { SiteSettingsData } from '@/types/site-settings'
 import type { Metadata } from 'next'
+import { getTranslations } from 'next-intl/server'
+import { notFound } from 'next/navigation'
 
-export const metadata: Metadata = {
-  title: 'Product Details | Z&S Carpets',
-  description: 'Explore product details.',
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || ''
+
+async function loadProduct(slug: string, attrs: string) {
+  const result = await getProductsData.getDetail<ProductDetailData>(slug, attrs)
+  if (result.success) return result.data
+  // an unknown / inactive product is a 404; other failures (API down) surface as an error
+  if (result.error === PRODUCT_NOT_FOUND) return null
+  throw new Error(result.error)
 }
 
-const dummyProductDetails: ProductDetailsType = {
-  name: 'Wood Pattern Vinyl',
-  category: 'Vinyl Flooring',
-  description:
-    'Self adhesive Wood Pattern Vinyl - 1.5mm is a quick and simple solution to redecorate a space with professional-looking results. Wood effect vinyl floor planks mimic the appearance of real hardwood at a fraction of the price. It is well-liked throughout the world, including in the United States, East Asia, and other regions.',
-  image: '/images/floor-img-52.webp',
-  tags: [
-    'Wooden Pattern',
-    'PVC sheet mat',
-    'Vinyl',
-    'Synthetic floor',
-    'Waterproof',
-    'Anti-slip',
-    //
-    'Wooden Pattern',
-    'PVC sheet mat',
-    'Vinyl',
-    'Synthetic floor',
-    'Waterproof',
-    'Anti-slip',
-  ],
-  specifications: [
-    'Waterproof',
-    'Easy to Maintain',
-    'Easy installation',
-    'Extreme Durability',
-    'Moisture Resistant',
-    'Anti-Slip',
-  ],
-  sizes: ['S - 90 cm', 'M - 120cm', 'L - 150 cm', 'XL - 180 cm'],
-  colors: [
+export async function generateMetadata({
+  params,
+}: PageProps<'/[locale]/products/[id]'>): Promise<Metadata> {
+  // the folder keeps its old `[id]` name; the value is the product's slug
+  const { locale, id: slug } = await params
+  const lang = locale as LocaleType
+  const data = await loadProduct(slug, '')
+  if (!data) return {}
+  const { product } = data
+
+  // the SEO row written in the admin wins; the product's own title / text are the fallback
+  return getDetailMetaData(
+    { productId: product.id },
+    lang,
+    `${SITE_URL}/${locale}/products/${slug}`,
+    product.media.path,
     {
-      label: '267-7',
-      image: '/images/prod-color-1.png',
+      title: pickLocalized(lang, product.title, product.title_ar),
+      description: pickLocalized(
+        lang,
+        product.short_description,
+        product.short_description_ar,
+      ),
     },
-    {
-      label: '267-7',
-      image: '/images/prod-color-2.png',
-    },
-    {
-      label: '267-7',
-      image: '/images/prod-color-3.png',
-    },
-    {
-      label: '551223',
-      image: '/images/prod-color-4.png',
-    },
-    {
-      label: '555202',
-      image: '/images/prod-color-5.png',
-    },
-    {
-      label: '555204',
-      image: '/images/prod-color-6.png',
-    },
-    //
-    {
-      label: '267-7',
-      image: '/images/prod-color-1.png',
-    },
-    {
-      label: '267-7',
-      image: '/images/prod-color-2.png',
-    },
-    {
-      label: '267-7',
-      image: '/images/prod-color-3.png',
-    },
-    {
-      label: '551223',
-      image: '/images/prod-color-4.png',
-    },
-    {
-      label: '555202',
-      image: '/images/prod-color-5.png',
-    },
-    {
-      label: '555204',
-      image: '/images/prod-color-6.png',
-    },
-  ],
-  detailedDesc: {
-    desc: 'Our Wood Pattern Vinyl flooring offers a perfect blend of aesthetic appeal and functional performance. Designed for high-traffic residential and light commercial environments, it features a 0.5mm wear layer that protects against scratches and scuffs.',
-    bullets: [
-      'Eco-friendly virgin vinyl material.',
-      'Heat-resistant and moisture-proof backing.',
-      'Low VOC emissions for better indoor air quality.',
-      'Realistic wood embossing textures.',
-    ],
-  },
-  detailPhotos: [
-    {
-      title: 'Experience realistic',
-      description: 'Wood aesthetics with durable vinyl',
-      image: '/images/prod-details-img-1.webp',
-    },
-    {
-      title: 'Experience realistic',
-      description: 'Wood aesthetics with durable vinyl',
-      image: '/images/prod-details-img-2.webp',
-    },
-    {
-      title: 'Experience realistic',
-      description: 'Wood aesthetics with durable vinyl',
-      image: '/images/prod-details-img-3.webp',
-    },
-    {
-      title: 'Experience realistic',
-      description: 'Wood aesthetics with durable vinyl performance.',
-      image: '/images/prod-details-img-4.webp',
-    },
-    {
-      title: 'Crafted to deliver',
-      description: 'Timeless wood elegance with modern durability.',
-      image: '/images/prod-details-img-5.webp',
-    },
-  ],
-  detailVideos: [
-    {
-      title: 'Crafted to deliver',
-      description: 'Timeless wood elegance with modern durability.',
-      src: '/videos/floor-video-2.mp4',
-      poster: '/images/video-poster-2.webp',
-    },
-    {
-      title: 'Experience realistic',
-      description: 'Wood aesthetics with durable vinyl performance.',
-      src: '/videos/floor-video-4.mp4',
-      poster: '/images/video-poster-4.webp',
-    },
-    {
-      title: 'Crafted to deliver',
-      description: 'Timeless wood elegance with modern durability.',
-      src: '/videos/floor-video-5.mp4',
-      poster: '/images/video-poster-5.webp',
-    },
-    {
-      title: 'Wood Pattern Vinyl',
-      description: 'Watch how natural wood-inspired flooring transforms',
-      src: '/videos/floor-video-6.mp4',
-      poster: '/images/video-poster-6.webp',
-    },
-  ],
+  )
 }
 
 export default async function ProductDetailsPage({
   params,
-}: {
-  params: Promise<{ id: string }>
-}) {
-  const { id } = await params
+  searchParams,
+}: PageProps<'/[locale]/products/[id]'>) {
+  // the folder keeps its old `[id]` name; the value is the product's slug
+  const { locale, id: slug } = await params
+  const lang = locale as LocaleType
+  const query = await searchParams
+  const attrs = buildAttrsParam(parseAttrsParam(query.attrs))
+
+  const [data, related, settings, t] = await Promise.all([
+    loadProduct(slug, attrs),
+    getProductsData.getRelated<ProductRelatedData>(slug, 8),
+    getSiteSettingsData.getCmsData<SiteSettingsData>(locale),
+    getTranslations({ locale, namespace: 'ProductDetailsPage.Details' }),
+  ])
+  if (!data) notFound()
+
+  const { product } = data
+  const name = pickLocalized(lang, product.title, product.title_ar)
+  const productUrl = `${SITE_URL}/${locale}/products/${slug}`
+  const category = product.categories.at(-1)
+  const selected = data.variants.find(
+    (variant) => variant.id === data.selected_variant_id,
+  )
+
+  const productSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name,
+    description: pickLocalized(
+      lang,
+      product.short_description,
+      product.short_description_ar,
+    ),
+    image: selected?.media.path || product.media.path || undefined,
+    sku: selected?.sku || undefined,
+    category: category
+      ? pickLocalized(lang, category.title, category.title_ar)
+      : undefined,
+    url: productUrl,
+  }
 
   return (
     <>
+      <DynamicMeta structuredData={[productSchema]} />
       <InnerBannerSection pageName="ProductDetailsPage" />
       <BreadcrumbBar
         values={[
-          {
-            name: 'Products',
-            link: '/products',
-          },
-          {
-            name: 'Product Details',
-            link: `/products/${id}`,
-            currentPage: true,
-          },
+          { name: t('products'), link: '/products' },
+          ...(category
+            ? [
+                {
+                  name: pickLocalized(lang, category.title, category.title_ar),
+                  link: `/products?category=${category.slug}`,
+                },
+              ]
+            : []),
+          { name, link: `/products/${slug}`, currentPage: true },
         ]}
+        className="mt-2"
       />
-      <ProductDetailsSection product={dummyProductDetails} />
-      <ProductDetailsTabSection product={dummyProductDetails} />
-      <RelatedProductsSection className="bg-[#EFF9FE]" />
-      <FAQSection />
-      <TagsSection />
+      <ProductDetailsSection
+        data={data}
+        whatsapp={settings.success ? settings.data.footer.whatsapp_number : ''}
+        productUrl={productUrl}
+      />
+      <ProductDetailsTabSection
+        fields={data.details}
+        description={{
+          html: product.description,
+          html_ar: product.description_ar,
+        }}
+      />
+      {related.success && related.data.products.length > 0 && (
+        <RelatedProductsSection
+          className="bg-[#EFF9FE]"
+          products={related.data.products}
+        />
+      )}
+      {data.faqs_section.list.length > 0 && (
+        <FAQSection data={data.faqs_section} />
+      )}
+      <TagsSection tags={product.tags} locale={lang} />
     </>
   )
 }

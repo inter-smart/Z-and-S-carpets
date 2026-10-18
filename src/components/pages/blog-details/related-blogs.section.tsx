@@ -4,19 +4,26 @@ import BlogItemCard from '@/components/common/blog-item.card'
 import { Button } from '@/components/ui/button'
 import { OurIcon } from '@/components/ui/icon'
 import type { LocaleType } from '@/i18n/types'
-import type { blogItemType } from '@/types/blog'
+import { pickLocalized } from '@/lib/blogs'
+import type { BlogCard } from '@/types/blog'
 import Autoplay from 'embla-carousel-autoplay'
 import useEmblaCarousel from 'embla-carousel-react'
 import { useLocale, useTranslations } from 'next-intl'
 import { useCallback, useEffect, useState } from 'react'
 
-export default function RelatedBlogsSection() {
+interface RelatedBlogsSectionProps {
+  blogs: BlogCard[]
+  // heading from the CMS; the translation is the fallback
+  heading?: { title: string; title_ar: string }
+}
+
+export default function RelatedBlogsSection({
+  blogs,
+  heading,
+}: RelatedBlogsSectionProps) {
   const locale = useLocale() as LocaleType
 
   const t = useTranslations('BlogsPage.RelatedBlogsSection')
-  const t2 = useTranslations('Blogs')
-
-  const workItems = t2.raw('Items') as blogItemType[]
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
@@ -68,15 +75,19 @@ export default function RelatedBlogsSection() {
       <div className="container-wrapper">
         {/* header */}
         <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between md:gap-6 xl:items-center">
-          <h2 className="our-heading">{t('title')}</h2>
+          <h2 className="our-heading">
+            {(heading &&
+              pickLocalized(locale, heading.title, heading.title_ar)) ||
+              t('title')}
+          </h2>
         </div>
         <div className="relative mt-10">
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="-ms-4 flex">
-              {workItems.map((blog, index) => {
+              {blogs.map((blog) => {
                 return (
                   <div
-                    key={index}
+                    key={blog.slug}
                     className="min-w-0 shrink-0 grow-0 basis-full ps-4 md:basis-1/2"
                   >
                     <BlogItemCard article={blog} />

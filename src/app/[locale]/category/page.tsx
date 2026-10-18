@@ -5,7 +5,11 @@ import InnerBannerSection from '@/components/pages/common/inner-banner.section'
 import type { LocaleType } from '@/i18n/types'
 import { getCategoriesData } from '@/lib/api/categories'
 import { getMetaData } from '@/lib/api/metaApi'
-import { CATEGORIES_PAGE_LIMIT } from '@/lib/categories'
+import {
+  CATEGORIES_PAGE_LIMIT,
+  sanitizeBadge,
+  sanitizePage,
+} from '@/lib/categories'
 import { parseMetaTags, sanitizeMetadata } from '@/lib/metaHelper'
 import type { CategoriesPageData, CategoryListData } from '@/types/category'
 import type { Metadata } from 'next'
@@ -19,15 +23,23 @@ export async function generateMetadata({
 
 export default async function CategoryPage({
   params,
+  searchParams,
 }: PageProps<'/[locale]/category'>) {
   const { locale } = await params
+  const query = await searchParams
+
+  // ?badge=<slug>&page=<n>: the filter and how many pages are shown (Load More) live in the URL
+  const badge = sanitizeBadge(query.badge)
+  const pages = sanitizePage(query.page)
 
   // page content and the first page of categories are independent: fetch them in parallel
   const [page, list] = await Promise.all([
     getCategoriesData.getPageData<CategoriesPageData>(),
+    // the first `pages` pages in one request
     getCategoriesData.getList<CategoryListData>({
       page: '1',
-      limit: String(CATEGORIES_PAGE_LIMIT),
+      limit: String(CATEGORIES_PAGE_LIMIT * pages),
+      ...(badge && { badge }),
     }),
   ])
 
@@ -50,7 +62,12 @@ export default async function CategoryPage({
         data={banner?.is_visible ? banner : undefined}
       />
       <BreadcrumbBar values={[{ name: 'Category', link: '/category' }]} />
+      {/* keyed by the filter so the loaded pages reset when it changes */}
       <CategoryListSection
+        key={badge || 'all'}
+        activeBadge={badge}
+        initialPage={pages}
+        heading={pageData?.list_section}
         filters={pageData?.filters ?? []}
         initialCategories={list.success ? list.data.categories : []}
         initialHasMore={list.success ? list.data.pagination.hasMore : false}

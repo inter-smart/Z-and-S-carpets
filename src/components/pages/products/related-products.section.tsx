@@ -4,7 +4,8 @@ import ProductItemCard from '@/components/common/product-item.card'
 import { Button } from '@/components/ui/button'
 import { OurIcon } from '@/components/ui/icon'
 import type { LocaleType } from '@/i18n/types'
-import type { ProductItemType } from '@/types/product'
+import { toProductCard } from '@/lib/products'
+import type { ProductListItem } from '@/types/product-list'
 import Autoplay from 'embla-carousel-autoplay'
 import useEmblaCarousel from 'embla-carousel-react'
 import { useLocale, useTranslations } from 'next-intl'
@@ -12,14 +13,15 @@ import { useCallback, useEffect, useState } from 'react'
 
 export default function RelatedProductsSection({
   className,
+  products,
 }: {
   className?: string
+  products: ProductListItem[]
 }) {
   const locale = useLocale() as LocaleType
+  const t = useTranslations('ProductDetailsPage.Details')
 
-  const t2 = useTranslations('Products')
-
-  const workItems = t2.raw('Items') as ProductItemType[]
+  const workItems = products.map((item) => toProductCard(item, locale))
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
@@ -71,7 +73,7 @@ export default function RelatedProductsSection({
       <div className="container-wrapper py-12 lg:py-20">
         {/* header */}
         <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between md:gap-6 xl:items-center">
-          <h2 className="our-heading">Related Products</h2>
+          <h2 className="our-heading">{t('relatedProducts')}</h2>
         </div>
         <div className="relative mt-10">
           <div className="overflow-hidden py-1" ref={emblaRef}>

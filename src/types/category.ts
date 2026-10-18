@@ -15,6 +15,8 @@ export type CategoriesPageData = {
     sub_title_ar: string
     media: HomeMedia
   }
+  // heading above the list (empty when not set: the translation is the fallback)
+  list_section: Titled
   filters: CategoryBadge[]
 }
 

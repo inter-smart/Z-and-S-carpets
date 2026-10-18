@@ -146,13 +146,39 @@ export async function getDetailMetaData(
   locale: LocaleType,
   currentUrl: string,
   image?: string | null,
+  // the entity's own title / description, used when the admin has not written SEO data for it
+  fallback?: { title: string; description: string },
 ): Promise<Metadata> {
-  const pageMeta = fallbackPageMeta[locale]
+  const pageMeta: PageMeta = fallback
+    ? { ...fallbackPageMeta[locale], ...fallback }
+    : fallbackPageMeta[locale]
   const ogImage = image || DefaultOgImage
+
+  // generic fallback, but with the entity's own image and URL
+  const entityFallback = (): Metadata => ({
+    ...buildFallbackMetadata(pageMeta, locale),
+    openGraph: {
+      title: pageMeta.title,
+      description: pageMeta.description,
+      images: [{ url: ogImage, width: 1200, height: 630, alt: pageMeta.title }],
+      type: 'website',
+      url: currentUrl,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: pageMeta.title,
+      description: pageMeta.description,
+      images: [ogImage],
+    },
+    alternates: { canonical: currentUrl },
+  })
 
   try {
     const meta = await fetchMetaData(targetToParams(target), locale)
-    if (!meta) return buildFallbackMetadata(pageMeta, locale)
+    if (!meta)
+      return fallback
+        ? entityFallback()
+        : buildFallbackMetadata(pageMeta, locale)
 
     const { other } = parseOtherMeta(meta.other_meta)
     const title = meta.meta_title || pageMeta.title
@@ -180,6 +206,6 @@ export async function getDetailMetaData(
       other,
     }
   } catch {
-    return buildFallbackMetadata(pageMeta, locale)
+    return fallback ? entityFallback() : buildFallbackMetadata(pageMeta, locale)
   }
 }

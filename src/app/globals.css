@@ -304,3 +304,36 @@
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m9 12 2 2 4-4'/%3E%3C/svg%3E") center / contain no-repeat;
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m9 12 2 2 4-4'/%3E%3C/svg%3E") center / contain no-repeat;
 }
+
+/* Blog article body (rich text written in the admin) */
+.blog-body-start > :first-child {
+  margin-top: 0;
+}
+.blog-body h2 {
+  @apply mt-9 text-5xl leading-7 font-semibold;
+}
+.blog-body h3 {
+  @apply mt-6 text-3xl leading-7 font-semibold;
+}
+.blog-body h4 {
+  @apply mt-5 text-xl font-semibold;
+}
+.blog-body p {
+  @apply mt-3 text-base leading-5;
+}
+.blog-body a {
+  @apply text-our-blue underline;
+}
+.blog-body ul li,
+.blog-body ol li {
+  @apply text-base leading-normal;
+}
+.blog-body ol {
+  @apply mt-4 list-decimal space-y-3 ps-6;
+}
+.blog-body blockquote {
+  @apply border-our-purple mt-4 border-s-4 ps-4 italic;
+}
+.blog-body img {
+  @apply mt-4 h-auto max-w-full rounded-sm;
+}

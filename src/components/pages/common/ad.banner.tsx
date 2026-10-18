@@ -1,68 +1,67 @@
-import { Button } from '@/components/ui/button'
+import type { LocaleType } from '@/i18n/types'
+import type { BlogAd } from '@/types/blog'
+import { useLocale, useTranslations } from 'next-intl'
+import Image from 'next/image'
+import Link from 'next/link'
 
-export function AdBanner1() {
-  return (
-    <div className="my-5 flex h-100 justify-end bg-[url('/images/floor-img-28.webp')] bg-cover bg-center lg:my-10">
-      <div className="bg-our-purple me-3 flex h-full flex-col justify-between px-5 py-10 text-white sm:me-5 sm:p-10">
-        <div className="font-bold">
-          <p className="text-3xl">UP TO</p>
-          <p className="flex flex-row space-x-1">
-            <span className="text-[72px] leading-none">45</span>
-            <span className="pt-1 text-9xl">
-              %
-              <br />
-              OFF
-            </span>
-          </p>
-        </div>
-        <div className="mt-5">
-          <p className="text-lg font-semibold tracking-widest">
-            PREMIUM QUALITY
-          </p>
-          <strong className="mt-1 block text-9xl leading-none tracking-wider">
-            VINYL
-            <br />
-            FLOORING
-          </strong>
-        </div>
-        <p className="text-lg">LIMITED TIME ONLY</p>
-        <Button variant={'outline'} className="our-btn mt-3 w-fit border-white">
-          Shop Now
-        </Button>
-      </div>
+// An ad banner from the Ads Banner master: the image (the offer text is part of the picture) that
+// leads to the banner's link. Site paths get the visitor's language; full URLs open as they are.
+export default function AdBanner({ ad }: { ad: BlogAd }) {
+  const locale = useLocale() as LocaleType
+  const t = useTranslations('BlogsPage.BlogListSection')
+
+  if (!ad.media.path) return null
+
+  const alt =
+    (locale === 'ar' ? ad.media.alt_ar || ad.media.alt : ad.media.alt) ||
+    'Advertisement'
+
+  const link = ad.link.trim()
+  const buttonText =
+    (locale === 'ar' ? ad.button_text_ar || ad.button_text : ad.button_text) ||
+    t('shopNow')
+
+  const image = (
+    <div className="relative h-60 w-full overflow-hidden sm:h-80 lg:h-100">
+      <Image
+        src={ad.media.path}
+        alt={alt}
+        fill
+        sizes="(max-width: 1280px) 100vw, 1200px"
+        className="object-cover"
+      />
+      {link && (
+        <span className="our-btn bg-our-purple absolute start-4 bottom-4 w-fit px-5 py-2 text-white sm:start-8 sm:bottom-8">
+          {buttonText}
+        </span>
+      )}
     </div>
   )
-}
 
-export function AdBanner2() {
+  if (!link) return <div className="my-5 lg:my-10">{image}</div>
+
+  const external = /^https?:\/\//i.test(link)
+  const href =
+    external || /^\/(en|ar)(\/|$)/.test(link) || !link.startsWith('/')
+      ? link
+      : `/${locale}${link}`
+
   return (
-    <div className="my-5 flex h-100 items-end bg-[url('/images/floor-img-15.webp')] bg-cover bg-center p-4 lg:my-10">
-      <div className="border border-white/70 bg-white/10 p-3 text-white backdrop-blur-xl sm:p-5">
-        <div className="grid grid-cols-1 sm:grid-cols-[auto_1fr]">
-          <div className="font-bold">
-            <p className="text-3xl">UP TO</p>
-            <p className="flex flex-row space-x-1">
-              <span className="text-[72px] leading-none">45</span>
-              <span className="pt-1 text-9xl">
-                %
-                <br />
-                OFF
-              </span>
-            </p>
-          </div>
-          <div className="mt-3 border-t pt-3 sm:ms-5 sm:mt-auto sm:border-s sm:border-t-0 sm:ps-5">
-            <p className="text-lg font-semibold tracking-widest">
-              PREMIUM QUALITY
-            </p>
-            <strong className="mt-1 block text-9xl leading-none tracking-wider">
-              VINYL
-              <br />
-              FLOORING
-            </strong>
-          </div>
-          <Button className="bg-our-purple our-btn mt-3 w-fit">Shop Now</Button>
-        </div>
-      </div>
+    <div className="my-5 lg:my-10">
+      {external || ad.new_tab ? (
+        <a
+          href={href}
+          target={ad.new_tab ? '_blank' : undefined}
+          rel="noopener noreferrer"
+          className="block"
+        >
+          {image}
+        </a>
+      ) : (
+        <Link href={href} className="block">
+          {image}
+        </Link>
+      )}
     </div>
   )
 }

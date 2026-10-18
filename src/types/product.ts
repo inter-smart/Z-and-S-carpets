@@ -8,9 +8,12 @@ export interface ProductCategoryType {
 }
 
 export interface ProductItemType {
+  // set for products from the API (the detail link uses it instead of the name)
+  slug?: string
   name: string
   description: string
   image: string
+  imageAlt?: string
   badge?: string
   category: string
   material: string

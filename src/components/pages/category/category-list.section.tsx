@@ -12,73 +12,92 @@ import { CircleCheckIcon, Loader2Icon } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRef, useState } from 'react'
+import { usePathname, useRouter } from 'next/navigation'
+import { useState, useTransition } from 'react'
 
 interface CategoryListSectionProps {
   // badges the active categories use, for the filter
   filters: CategoryBadge[]
-  // first page of the unfiltered list (loaded on the server)
+  // selected badge slug (from ?badge=), empty for all
+  activeBadge: string
+  // how many pages the first load already contains (from ?page=)
+  initialPage: number
+  // the first `initialPage` pages of the list (loaded on the server)
   initialCategories: CategoryItem[]
   initialHasMore: boolean
+  // heading from the CMS; the translation is the fallback
+  heading?: { title: string; title_ar: string }
 }
 
 export default function CategoryListSection({
   filters,
+  activeBadge,
+  initialPage,
   initialCategories,
   initialHasMore,
+  heading,
 }: CategoryListSectionProps) {
   const locale = useLocale() as LocaleType
   const t = useTranslations('CategoryPage.CategoryListSection')
   const pick = (en?: string, ar?: string) =>
     locale === 'ar' ? ar || en || '' : en || ''
 
-  const [selectedBadge, setSelectedBadge] = useState<null | string>(null)
+  const pathname = usePathname()
+  const router = useRouter()
+  const [isFiltering, startTransition] = useTransition()
+
   const [categories, setCategories] = useState(initialCategories)
-  const [page, setPage] = useState(1)
+  const [page, setPage] = useState(initialPage)
   const [hasMore, setHasMore] = useState(initialHasMore)
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoadingMore, setIsLoadingMore] = useState(false)
   const [loadError, setLoadError] = useState(false)
 
-  // only the latest request may update the list (filter clicks can overlap)
-  const requestId = useRef(0)
+  // The filter is a link: the server renders the new list (and a refresh / shared link / back
+  // button gives the same view). Loading more keeps the page count in the URL without a new render.
+  const changeBadge = (badge: null | string) => {
+    if ((badge ?? '') === activeBadge) return
+    startTransition(() => {
+      router.push(badge ? `${pathname}?badge=${badge}` : pathname, {
+        scroll: false,
+      })
+    })
+  }
 
-  const fetchPage = async (badge: null | string, nextPage: number) => {
-    const id = ++requestId.current
-    setIsLoading(true)
+  const loadMore = async () => {
+    if (isLoadingMore) return
+    const nextPage = page + 1
+    setIsLoadingMore(true)
     setLoadError(false)
 
     try {
       const query = new URLSearchParams({ page: String(nextPage) })
-      if (badge) query.set('badge', badge)
+      if (activeBadge) query.set('badge', activeBadge)
       const res = await fetch(`/api/categories?${query}`)
       if (!res.ok) throw new Error('Request failed')
       const data = (await res.json()) as CategoryListData
-      if (id !== requestId.current) return
 
-      setCategories((current) =>
-        nextPage === 1 ? data.categories : [...current, ...data.categories],
-      )
+      setCategories((current) => [...current, ...data.categories])
       setPage(nextPage)
       setHasMore(data.pagination.hasMore)
-    } catch {
-      if (id === requestId.current) setLoadError(true)
-    } finally {
-      if (id === requestId.current) setIsLoading(false)
-    }
-  }
 
-  const changeBadge = (badge: null | string) => {
-    if (badge === selectedBadge) return
-    setSelectedBadge(badge)
-    // back to "all": the server-rendered first page is still what the API returns
-    fetchPage(badge, 1)
+      // remember how far the visitor went (?page=N) without re-rendering the page
+      const url = new URL(window.location.href)
+      url.searchParams.set('page', String(nextPage))
+      window.history.replaceState(null, '', url)
+    } catch {
+      setLoadError(true)
+    } finally {
+      setIsLoadingMore(false)
+    }
   }
 
   return (
     <section className="container-wrapper pt-5 pb-10 lg:pt-10 lg:pb-20">
       {/* header */}
       <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between md:gap-6 xl:items-center">
-        <h2 className="our-heading">{t('title')}</h2>
+        <h2 className="our-heading">
+          {(heading && pick(heading.title, heading.title_ar)) || t('title')}
+        </h2>
         {filters.length > 0 && (
           <FilterDropdown
             filterLabel={t('filterLabel')}
@@ -87,7 +106,7 @@ export default function CategoryListSection({
               value: item.slug,
               label: pick(item.title, item.title_ar),
             }))}
-            value={selectedBadge}
+            value={activeBadge || null}
             onValueChange={changeBadge}
           />
         )}
@@ -96,7 +115,7 @@ export default function CategoryListSection({
       <div
         className="mt-10 space-y-3 lg:mt-15 lg:space-y-5"
         aria-label="Flooring categories"
-        aria-busy={isLoading}
+        aria-busy={isFiltering || isLoadingMore}
       >
         {categories.map((item) => {
           const title = pick(item.title, item.title_ar)
@@ -169,11 +188,11 @@ export default function CategoryListSection({
         })}
       </div>
 
-      {!isLoading && !loadError && categories.length === 0 && (
+      {!isFiltering && !loadError && categories.length === 0 && (
         <p className="mt-10 text-center text-lg">{t('noCategories')}</p>
       )}
 
-      {isLoading && categories.length === 0 && (
+      {isFiltering && (
         <div className="mt-10 flex justify-center" role="status">
           <Loader2Icon className="text-our-blue size-8 animate-spin" />
         </div>
@@ -189,11 +208,11 @@ export default function CategoryListSection({
         <div className="mt-12 flex w-full justify-center lg:mt-20">
           <Button
             variant={'outline'}
-            disabled={isLoading}
-            onClick={() => fetchPage(selectedBadge, page + 1)}
+            disabled={isLoadingMore}
+            onClick={loadMore}
             className="border-our-blue our-btn hover:bg-transparent"
           >
-            {isLoading && <Loader2Icon className="animate-spin" />}
+            {isLoadingMore && <Loader2Icon className="animate-spin" />}
             {t('loadMore')}
           </Button>
         </div>

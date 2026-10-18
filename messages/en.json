@@ -752,129 +752,14 @@
         "usage": "Gym",
         "tags": ["Wooden", "Waterproof", "Anti-slip"]
       }
-    ]
-  },
-  "Blogs": {
-    "Items": [
-      {
-        "id": "outdoor-flooring-dubai",
-        "date": "November 10, 2025",
-        "author": "Romine",
-        "title": "Outdoor Flooring in Dubai: What Works Best for Heat, Sand & Heavy Footfall?",
-        "image": [
-          "/images/floor-img-42.webp",
-          "/images/floor-img-50.webp",
-          "/images/floor-img-31.webp",
-          "/images/floor-img-1.webp"
-        ],
-        "excerpt": "Find the ideal outdoor flooring for Dubai's heat, sand, and footfall. Z&S Carpets provides top-quality materials...",
-        "tags": [
-          "Laminate Flooring",
-          "Scratch Resistance",
-          "Wear Layer",
-          "Flooring Guide",
-          "Dubai",
-          "Interior Design",
-          "Home Improvement",
-          "Flooring Tips",
-          "Interior Design",
-          "Maintenance",
-          "Flooring Guide",
-          "Wear Layer",
-          "Home Improvement",
-          "Dubai"
-        ]
-      },
-      {
-        "id": "laminate-scratch-resistance",
-        "date": "October 16, 2025",
-        "author": "Milda",
-        "title": "Laminate Flooring Scratch Resistance: A Connoisseur's Guide to Lasting Elegance",
-        "image": [
-          "/images/floor-img-51.webp",
-          "/images/floor-img-47.webp",
-          "/images/floor-img-50.webp",
-          "/images/floor-img-42.webp",
-          "/images/floor-img-31.webp",
-          "/images/floor-img-45.webp"
-        ],
-        "excerpt": "Discover the ultimate guide to laminate flooring scratch resistance. Learn about AC5 ratings and wear layers to protect your luxury UAE home from desert sand.",
-        "tags": [
-          "Laminate Flooring",
-          "Scratch Resistance",
-          "Wear Layer",
-          "Flooring Guide",
-          "Dubai",
-          "Interior Design",
-          "Home Improvement",
-          "Flooring Tips",
-          "Interior Design",
-          "Maintenance",
-          "Flooring Guide",
-          "Wear Layer",
-          "Home Improvement",
-          "Dubai"
-        ]
-      },
-      {
-        "id": "carpets-heritage",
-        "date": "August 02, 2025",
-        "author": "Romine",
-        "title": "The Connoisseur's Guide to Exquisite Carpets: From Heritage to Modern Artistry",
-        "image": [
-          "/images/floor-img-49.webp",
-          "/images/floor-img-31.webp",
-          "/images/floor-img-42.webp",
-          "/images/floor-img-52.webp"
-        ],
-        "excerpt": "Find the ideal outdoor flooring for Dubai's heat, sand, and footfall. Z&S Carpets provides top-quality materials...",
-        "tags": [
-          "Laminate Flooring",
-          "Scratch Resistance",
-          "Wear Layer",
-          "Flooring Guide",
-          "Dubai",
-          "Interior Design",
-          "Home Improvement",
-          "Flooring Tips",
-          "Interior Design",
-          "Maintenance",
-          "Flooring Guide",
-          "Wear Layer",
-          "Home Improvement",
-          "Dubai"
-        ]
-      },
-      {
-        "id": "flooring-suppliers",
-        "date": "March 28, 2025",
-        "author": "Romine",
-        "title": "How to Choose the Right Flooring Supplier in Dubai for Large-Scale Projects",
-        "image": [
-          "/images/floor-img-48.webp",
-          "/images/floor-img-42.webp",
-          "/images/floor-img-46.webp",
-          "/images/floor-img-31.webp"
-        ],
-        "excerpt": "Find the ideal outdoor flooring for Dubai's heat, sand, and footfall. Z&S Carpets provides top-quality materials...",
-        "tags": [
-          "Laminate Flooring",
-          "Scratch Resistance",
-          "Wear Layer",
-          "Flooring Guide",
-          "Dubai",
-          "Interior Design",
-          "Home Improvement",
-          "Flooring Tips",
-          "Interior Design",
-          "Maintenance",
-          "Flooring Guide",
-          "Wear Layer",
-          "Home Improvement",
-          "Dubai"
-        ]
-      }
-    ]
+    ],
+    "loadMore": "Load More",
+    "loadError": "Could not load more products. Please try again.",
+    "filterTitle": "Filter",
+    "categoryFilter": "Category",
+    "usageFilter": "Usage",
+    "tagsFilter": "Tags",
+    "clearFilters": "Clear all filters"
   },
   "Common": {
     "ProcessSection": {
@@ -962,6 +847,10 @@
         "description": "Delivering reliable solutions with exceptional quality and customer satisfaction.",
         "btnLabel": "Find your Perfect Carpet"
       }
+    },
+    "ProductCard": {
+      "viewDetails": "View Details",
+      "addToQuote": "Add to Quote"
     }
   },
   "Navbar": {
@@ -2074,28 +1963,26 @@
       "image": "/images/floor-img-35.webp"
     },
     "BlogListSection": {
+      "shopNow": "Shop Now",
       "title": "Latest Updates & Insights",
       "loadMore": "Load More",
       "filters": {
         "category": {
-          "label": "Category",
-          "values": ["Laminate Flooring", "Carpet Flooring", "Artificial Grass"]
+          "label": "Category"
         },
         "blogs": {
-          "label": "Blogs",
-          "values": ["Latest", "Old"]
+          "label": "Blogs"
         },
         "tags": {
-          "label": "Tags",
-          "values": [
-            "Laminate Flooring",
-            "Scratch Resistance",
-            "Flooring Guide",
-            "Dubai",
-            "Maintanance"
-          ]
+          "label": "Tags"
         }
-      }
+      },
+      "readMore": "Read More",
+      "all": "All",
+      "latest": "Latest",
+      "oldest": "Oldest",
+      "noPosts": "No blog posts found.",
+      "loadError": "Could not load more posts. Please try again."
     },
     "RelatedBlogsSection": {
       "title": "Related Blogs"
@@ -2133,6 +2020,24 @@
     }
   },
   "ProductDetailsPage": {
+    "Details": {
+      "products": "Products",
+      "descriptionTab": "Product Description",
+      "specifications": "Specifications",
+      "features": "Key Features",
+      "quantity": "Quantity",
+      "increaseQuantity": "Increase quantity",
+      "decreaseQuantity": "Decrease quantity",
+      "scrollLeft": "Scroll left",
+      "scrollRight": "Scroll right",
+      "addToQuote": "Add to Quote",
+      "chatOnWhatsapp": "Chat on WhatsApp",
+      "getSample": "Get Sample",
+      "downloadDatasheet": "Download Datasheet",
+      "relatedProducts": "Related Products",
+      "whatsappMessage": "Hello, I'm interested in {product}{options}. Quantity: {quantity}.\n{url}",
+      "noVideoSupport": "Your browser does not support the video tag."
+    },
     "BannerSection": {
       "title": "Products",
       "description": "Reach out for expert support and assistance.",

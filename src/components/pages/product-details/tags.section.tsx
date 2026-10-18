@@ -1,36 +1,26 @@
-const tags = [
-  'Hand Knotted Rugs',
-  'Hand Tufted Rugs',
-  'Handwoven Rugs',
-  'Flatweave & Dhurries',
-  'Shaggy Rugs',
-  'Modern Rugs',
-  'Contemporary Rugs',
-  'Traditional & Persian Rugs',
-  'Abstract Rugs',
-  'Geometric Rugs',
-  'Wool Rugs',
-  'Living Room Rugs',
-  'Bedroom Rugs',
-  'Round Rugs',
-  'Custom Rugs',
-  'Outdoor Rugs',
-  'Luxury Collection',
-  'New Arrivals',
-]
+import type { LocaleType } from '@/i18n/types'
+import { pickLocalized } from '@/lib/product-detail'
+import type { ProductLabel } from '@/types/product-detail'
 
-export default function TagsSection() {
-  const moreTags = [...tags, ...tags, ...tags]
+// The product's own tags
+export default function TagsSection({
+  tags,
+  locale,
+}: {
+  tags: ProductLabel[]
+  locale: LocaleType
+}) {
+  if (!tags.length) return null
 
   return (
     <section className="container-wrapper pb-20">
-      <div className="flex max-h-46 flex-wrap content-start gap-2 overflow-hidden sm:max-h-30">
-        {moreTags.map((tag, index) => (
+      <div className="flex flex-wrap content-start gap-2">
+        {tags.map((tag) => (
           <span
-            key={`${tag}-${index}`}
+            key={tag.slug}
             className="rounded border border-[#CCCCCC] px-3 py-1 text-sm text-black"
           >
-            {tag}
+            {pickLocalized(locale, tag.title, tag.title_ar)}
           </span>
         ))}
       </div>
