@@ -21,7 +21,6 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
   ChevronUpIcon,
-  CircleCheck,
 } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
@@ -60,10 +59,13 @@ export default function ProductDetailsSection({
   data,
   whatsapp,
   productUrl,
+  descriptionHtml,
 }: {
   data: ProductDetailData
   whatsapp?: string
   productUrl: string
+  // already localized and sanitised by the API
+  descriptionHtml: string
 }) {
   const locale = useLocale() as LocaleType
   const t = useTranslations('ProductDetailsPage.Details')
@@ -126,7 +128,7 @@ export default function ProductDetailsSection({
   return (
     <section className="container-wrapper space-y-8 pt-8 lg:pt-12 xl:grid xl:grid-cols-[0.95fr_1.05fr] xl:gap-10 xl:space-y-0 2xl:gap-12">
       {/* main image: the selected variant's, else the product's */}
-      <div className="relative h-80 overflow-hidden rounded-md bg-[#F4F4F4] min-[400px]:h-120 xl:h-auto">
+      <div className="relative h-80 overflow-hidden rounded-md bg-[#F4F4F4] min-[400px]:h-120 xl:sticky xl:top-24 xl:aspect-square xl:h-auto xl:self-start">
         {heroPath && (
           <Image
             key={heroPath}
@@ -157,16 +159,16 @@ export default function ProductDetailsSection({
         )}
         <h1 className="text-6xl font-bold">{name}</h1>
 
-        {/* tags */}
-        {product.tags.length > 0 && (
+        {/* key features: the small swiper under the name */}
+        {product.features.length > 0 && (
           <div className="relative mt-2 xl:w-fit">
             <div className="border-our-purple/60 border-y xl:w-130 2xl:w-160">
               <div
                 ref={tagRef}
                 className="mx-6 flex scrollbar-none gap-3 overflow-x-auto scroll-smooth py-2"
               >
-                {product.tags.map((tag, i) => (
-                  <p key={tag.slug} className="z-30 shrink-0 text-xs">
+                {product.features.map((feature, i) => (
+                  <p key={feature.slug} className="z-30 shrink-0 text-xs">
                     <span
                       className={cn(
                         'text-our-purple me-3',
@@ -176,7 +178,7 @@ export default function ProductDetailsSection({
                       •
                     </span>
                     <span>
-                      {pickLocalized(locale, tag.title, tag.title_ar)}
+                      {pickLocalized(locale, feature.title, feature.title_ar)}
                     </span>
                   </p>
                 ))}
@@ -207,15 +209,12 @@ export default function ProductDetailsSection({
           </div>
         )}
 
-        {/* short description */}
-        {product.short_description && (
-          <p className="mt-5 text-sm">
-            {pickLocalized(
-              locale,
-              product.short_description,
-              product.short_description_ar,
-            )}
-          </p>
+        {/* description */}
+        {descriptionHtml && (
+          <div
+            className="blog-body blog-body-start check-list mt-5 text-sm"
+            dangerouslySetInnerHTML={{ __html: descriptionHtml }}
+          />
         )}
 
         {/* specifications */}
@@ -234,28 +233,6 @@ export default function ProductDetailsSection({
                 </span>
               ))}
             </div>
-          </>
-        )}
-
-        {/* features */}
-        {product.features.length > 0 && (
-          <>
-            <p className="ltr:font-manrope rtl:font-cairo mt-5 text-base font-medium tracking-wider uppercase">
-              {t('features')}
-            </p>
-            <ul className="mt-2 grid gap-2 text-sm sm:grid-cols-2">
-              {product.features.map((item) => (
-                <li key={item.slug} className="flex items-center gap-2">
-                  <CircleCheck
-                    size={16}
-                    className="text-our-blue shrink-0 stroke-1"
-                  />
-                  <span>
-                    {pickLocalized(locale, item.title, item.title_ar)}
-                  </span>
-                </li>
-              ))}
-            </ul>
           </>
         )}
 

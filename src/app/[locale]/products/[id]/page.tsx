@@ -24,6 +24,9 @@ import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 
+const escapeHtml = (value: string) =>
+  value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || ''
 
 async function loadProduct(slug: string, attrs: string) {
@@ -87,6 +90,19 @@ export default async function ProductDetailsPage({
     (variant) => variant.id === data.selected_variant_id,
   )
 
+  // The description under the product name always belongs to the product (its own text, else the
+  // short text) and never changes with the selected variant. The "Product Description" detail
+  // field is shown as a tab like every other detail field.
+  const descriptionHtml =
+    pickLocalized(lang, product.description, product.description_ar) ||
+    pickLocalized(
+      lang,
+      product.short_description &&
+        `<p>${escapeHtml(product.short_description)}</p>`,
+      product.short_description_ar &&
+        `<p>${escapeHtml(product.short_description_ar)}</p>`,
+    )
+
   const productSchema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -127,14 +143,9 @@ export default async function ProductDetailsPage({
         data={data}
         whatsapp={settings.success ? settings.data.footer.whatsapp_number : ''}
         productUrl={productUrl}
+        descriptionHtml={descriptionHtml}
       />
-      <ProductDetailsTabSection
-        fields={data.details}
-        description={{
-          html: product.description,
-          html_ar: product.description_ar,
-        }}
-      />
+      <ProductDetailsTabSection fields={data.details} />
       {related.success && related.data.products.length > 0 && (
         <RelatedProductsSection
           className="bg-[#EFF9FE]"

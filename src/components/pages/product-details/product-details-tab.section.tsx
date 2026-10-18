@@ -19,14 +19,11 @@ type Tab = {
 }
 
 // Tabs come from the detail fields resolved for the selected variant (hidden / empty ones are
-// already dropped by the API). The product description is the first tab, from the product itself
-// when no "Product Description" field has content.
+// already dropped by the API); nothing is rendered when the product has none.
 export default function ProductDetailsTabSection({
   fields,
-  description,
 }: {
   fields: ProductDetailField[]
-  description: { html: string; html_ar: string }
 }) {
   const locale = useLocale() as LocaleType
   const t = useTranslations('ProductDetailsPage.Details')
@@ -38,26 +35,6 @@ export default function ProductDetailsTabSection({
     type: field.type,
     items: field.items,
   }))
-  const hasDescriptionField = fields.some(
-    (field) => field.slug === 'product-description',
-  )
-  if (!hasDescriptionField && (description.html || description.html_ar)) {
-    tabs.unshift({
-      slug: 'product-description',
-      name: t('descriptionTab'),
-      type: 'rich_text',
-      items: [
-        {
-          id: 0,
-          sort_order: 0,
-          text_content: description.html,
-          text_content_ar: description.html_ar,
-          media: null,
-        },
-      ],
-    })
-  }
-
   if (!tabs.length) return null
 
   // the chosen tab may disappear when another variant is picked: fall back to the first one
