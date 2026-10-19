@@ -1,5 +1,6 @@
 'use client'
 
+import { useGetASample } from '@/context/get-a-sample.context'
 import { Button } from '@/components/ui/button'
 import { OurIcon } from '@/components/ui/icon'
 import type { LocaleType } from '@/i18n/types'
@@ -22,12 +23,14 @@ export default function BestSellersSection({
   const locale = useLocale() as LocaleType
 
   const t = useTranslations('HomePage.BestSellerSection')
+  const { openGetASample } = useGetASample()
   const pick = (en?: string, ar?: string) =>
     locale === 'ar' ? ar || en || '' : en || ''
 
   const products = residential.list.map((item) => ({
     id: item.id,
     slug: item.slug,
+    categorySlug: item.category?.slug,
     category: item.category
       ? pick(item.category.title, item.category.title_ar)
       : '',
@@ -154,6 +157,13 @@ export default function BestSellersSection({
                         <div className="mt-auto flex gap-3 pt-7">
                           <Button
                             variant="outline"
+                            type="button"
+                            onClick={() =>
+                              openGetASample({
+                                category: product.categorySlug,
+                                product: product.slug,
+                              })
+                            }
                             className="our-btn min-w-0 flex-1 cursor-pointer font-semibold hover:bg-white/10 hover:text-white"
                           >
                             {t('getSampleBtnLabel')}

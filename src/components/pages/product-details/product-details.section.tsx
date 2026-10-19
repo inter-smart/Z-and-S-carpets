@@ -9,7 +9,6 @@ import {
   buildWhatsappLink,
   isCombinationAvailable,
   pickLocalized,
-  pickVariant,
 } from '@/lib/product-detail'
 import type {
   ProductDetailAttribute,
@@ -60,8 +59,11 @@ export default function ProductDetailsSection({
   whatsapp,
   productUrl,
   descriptionHtml,
+  chosen,
 }: {
   data: ProductDetailData
+  // the attribute values picked so far (from the URL); nothing is picked on the first visit
+  chosen: Record<string, string>
   whatsapp?: string
   productUrl: string
   // already localized and sanitised by the API
@@ -70,18 +72,18 @@ export default function ProductDetailsSection({
   const locale = useLocale() as LocaleType
   const t = useTranslations('ProductDetailsPage.Details')
   const tCard = useTranslations('Common.ProductCard')
-  const { setOpen: openGetASample } = useGetASample()
+  const { openGetASample } = useGetASample()
   const router = useRouter()
   const pathname = usePathname()
   const [isPending, startTransition] = useTransition()
 
   const [quantity, setQuantity] = useState(1)
+  const [notice, setNotice] = useState('')
   const [tagRef, tagsScrollable, scrollTags] = useScrollRow()
 
   const { product, attributes, variants } = data
   const selected =
     variants.find((variant) => variant.id === data.selected_variant_id) ?? null
-  const chosen = selected?.values ?? {}
 
   const name = pickLocalized(locale, product.title, product.title_ar)
   const heroPath = selected?.media.path || product.media.path
@@ -89,13 +91,35 @@ export default function ProductDetailsSection({
   const heroAlt = pickLocalized(locale, heroMedia.alt, heroMedia.alt_ar) || name
   const category = product.categories.at(-1)
 
-  // Picking a value: the closest existing variant is used, and the URL always holds the full
-  // combination of that variant (so a reload or a shared link shows the same thing)
-  const choose = (attribute: string, option: string) => {
-    const target = pickVariant(variants, { ...chosen, [attribute]: option })
-    if (!target) return
+  // Picking a value keeps the other chosen values that still exist together with it and clears
+  // the ones that don't (so nothing is switched silently); picking the chosen value again clears
+  // it. The URL holds only what is chosen, so a reload or a shared link shows the same thing.
+  const choose = (attribute: ProductDetailAttribute, option: string) => {
+    const next: Record<string, string> = {}
+    const cleared: string[] = []
+    if (chosen[attribute.slug] !== option) next[attribute.slug] = option
+    for (const other of attributes) {
+      const value = chosen[other.slug]
+      if (other.slug === attribute.slug || !value) continue
+      const exists = variants.some((variant) =>
+        Object.entries({ ...next, [other.slug]: value }).every(
+          ([slug, picked]) => variant.values[slug] === picked,
+        ),
+      )
+      if (exists) next[other.slug] = value
+      else cleared.push(pickLocalized(locale, other.title, other.title_ar))
+    }
+    setNotice(
+      cleared.length
+        ? t('selectionReset', {
+            option: optionLabel(attribute, option),
+            attributes: cleared.join(', '),
+          })
+        : '',
+    )
+    const query = buildAttrsParam(next)
     startTransition(() => {
-      router.push(`${pathname}?attrs=${buildAttrsParam(target.values)}`, {
+      router.push(query ? `${pathname}?attrs=${query}` : pathname, {
         scroll: false,
       })
     })
@@ -245,10 +269,16 @@ export default function ProductDetailsSection({
             isAvailable={(option) =>
               isCombinationAvailable(variants, chosen, attribute.slug, option)
             }
-            onChoose={(option) => choose(attribute.slug, option)}
+            onChoose={(option) => choose(attribute, option)}
             scrollLabels={{ left: t('scrollLeft'), right: t('scrollRight') }}
+            unavailableLabel={t('unavailableOption')}
           />
         ))}
+        {notice && (
+          <p role="status" className="text-our-purple mt-3 text-sm">
+            {notice}
+          </p>
+        )}
 
         {/* buttons */}
         <div className="mt-4 flex flex-wrap gap-2 border-t border-[#D2D2D2]/80 pt-6">
@@ -307,7 +337,12 @@ export default function ProductDetailsSection({
           )}
           <Button
             type="button"
-            onClick={() => openGetASample(true)}
+            onClick={() =>
+              openGetASample({
+                category: category?.slug,
+                product: product.slug,
+              })
+            }
             className="our-btn bg-our-blue px-5!"
           >
             {t('getSample')}
@@ -342,12 +377,14 @@ function AttributeGroup({
   isAvailable,
   onChoose,
   scrollLabels,
+  unavailableLabel,
 }: {
   attribute: ProductDetailAttribute
   selectedValue?: string
   isAvailable: (option: string) => boolean
   onChoose: (option: string) => void
   scrollLabels: { left: string; right: string }
+  unavailableLabel: string
 }) {
   const locale = useLocale() as LocaleType
   const [rowRef, rowScrollable, scrollRow] = useScrollRow()
@@ -378,6 +415,11 @@ function AttributeGroup({
                   <button
                     type="button"
                     aria-pressed={active}
+                    title={
+                      !isAvailable(item.slug) && !active
+                        ? unavailableLabel
+                        : undefined
+                    }
                     onClick={() => onChoose(item.slug)}
                     style={
                       !item.media.path && item.color_code
@@ -387,7 +429,9 @@ function AttributeGroup({
                     className={cn(
                       'relative size-13 cursor-pointer overflow-hidden rounded-full border border-black/10 2xl:size-14.5',
                       active && 'ring-our-purple ring-2 ring-offset-2',
-                      !isAvailable(item.slug) && !active && 'opacity-40',
+                      !isAvailable(item.slug) &&
+                        !active &&
+                        'border-dashed border-black/40 opacity-40',
                     )}
                   >
                     <span className="sr-only">{label}</span>
@@ -440,11 +484,18 @@ function AttributeGroup({
                 type="button"
                 key={item.slug}
                 aria-pressed={active}
+                title={
+                  !isAvailable(item.slug) && !active
+                    ? unavailableLabel
+                    : undefined
+                }
                 onClick={() => onChoose(item.slug)}
                 className={cn(
                   'border-our-blue cursor-pointer rounded border px-4 py-2 text-sm focus:ring-0 focus:outline-none',
                   active && 'bg-our-blue text-white',
-                  !isAvailable(item.slug) && !active && 'opacity-40',
+                  !isAvailable(item.slug) &&
+                    !active &&
+                    'border-dashed opacity-50',
                 )}
               >
                 {pickLocalized(locale, item.value, item.value_ar)}

@@ -72,7 +72,8 @@ export default async function ProductDetailsPage({
   const { locale, id: slug } = await params
   const lang = locale as LocaleType
   const query = await searchParams
-  const attrs = buildAttrsParam(parseAttrsParam(query.attrs))
+  const chosen = parseAttrsParam(query.attrs)
+  const attrs = buildAttrsParam(chosen)
 
   const [data, related, settings, t] = await Promise.all([
     loadProduct(slug, attrs),
@@ -144,6 +145,7 @@ export default async function ProductDetailsPage({
         whatsapp={settings.success ? settings.data.footer.whatsapp_number : ''}
         productUrl={productUrl}
         descriptionHtml={descriptionHtml}
+        chosen={chosen}
       />
       <ProductDetailsTabSection fields={data.details} />
       {related.success && related.data.products.length > 0 && (

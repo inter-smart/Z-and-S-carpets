@@ -851,6 +851,37 @@
     "ProductCard": {
       "viewDetails": "View Details",
       "addToQuote": "Add to Quote"
+    },
+    "GetASample": {
+      "title": "Get a Sample",
+      "subtitle": "Request a sample before you choose.",
+      "fields": ["Name", "Phone Number", "Email", "Company Name"],
+      "categoryPlaceholder": "Product Category",
+      "productPlaceholder": "Product",
+      "productFirst": "Select a category first",
+      "loadingOptions": "Loading...",
+      "submit": "Submit",
+      "close": "Close",
+      "errors": {
+        "generic": "Something went wrong while sending your request. Please try again."
+      },
+      "successDialog": {
+        "title": "Sample Request Received",
+        "description": "Thank you! Our team will contact you shortly about your sample.",
+        "btnLable": "Go Back"
+      },
+      "validation": {
+        "nameRequired": "Name is required",
+        "nameMin": "Name must be at least 4 characters",
+        "nameMax": "Name must be at most 100 characters",
+        "phoneRequired": "Phone number is required",
+        "phoneInvalid": "Enter a valid phone number (7-20 digits; + - ( ) and spaces allowed)",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Enter a valid email address",
+        "companyMax": "Company name must be at most 100 characters",
+        "categoryRequired": "Select a product category",
+        "productRequired": "Select a product"
+      }
     }
   },
   "Navbar": {
@@ -1554,12 +1585,30 @@
         "body": "Looking for a way to update your habitat? The flooring could be the best solution. Flooring is becoming increasingly popular for good reasons like it is versatile, long-lasting, and inexpensive! This adaptable material may be utilised in a variety of ways to create an appearance that is distinctive to your home, workspace, or anywhere. We have emerged as a homeowner-favourite firm since we entered the flooring market in 2010. We offer bespoke modern flooring designs that you prefer because of our modern quarries, advanced technology, and dependable craftsmen. We also offer a comprehensive range of flooring solutions with installation services in a variety of forms, sizes, finishes, and edges to meet your design and aesthetic requirements. Every product we sell is of high quality, long-lasting, and resistant to weather and misuse. You can be confident that the natural stone kind you select will age gracefully over time without requiring you to invest much time, effort, or money in its upkeep. We will look at some of the most creative flooring designs that will astound you. We have the appropriate solution for you whether you want to upgrade your kitchen, bathroom, or workspace. So do not put it off any longer; start browsing your ideas with us and get inspired, let’s transform ideas into flooring works."
       },
       "stats": [
-        { "value": "1500+", "label": "Products" },
-        { "value": "100 Acre", "label": "Factory" },
-        { "value": "UAE", "label": "No 1 Store" },
-        { "value": "Millions", "label": "Sq.m stock" },
-        { "value": "40+", "label": "Warehouses" },
-        { "value": "16+ Years", "label": "Experience" }
+        {
+          "value": "1500+",
+          "label": "Products"
+        },
+        {
+          "value": "100 Acre",
+          "label": "Factory"
+        },
+        {
+          "value": "UAE",
+          "label": "No 1 Store"
+        },
+        {
+          "value": "Millions",
+          "label": "Sq.m stock"
+        },
+        {
+          "value": "40+",
+          "label": "Warehouses"
+        },
+        {
+          "value": "16+ Years",
+          "label": "Experience"
+        }
       ],
       "mission": {
         "title": "Our Mission",
@@ -1599,9 +1648,18 @@
       "body": "Our core values are built on quality, customer focus, and innovation. We are committed to delivering reliable solutions, creating meaningful customer experiences, and continuously improving through modern ideas and forward-thinking approaches.",
       "image": "/images/floor-img-15.webp",
       "items": [
-        { "label": "Quality", "icon": "award" },
-        { "label": "Customer Focus", "icon": "people-focus" },
-        { "label": "Innovation", "icon": "innovation" }
+        {
+          "label": "Quality",
+          "icon": "award"
+        },
+        {
+          "label": "Customer Focus",
+          "icon": "people-focus"
+        },
+        {
+          "label": "Innovation",
+          "icon": "innovation"
+        }
       ]
     },
     "IndustriesSection": {
@@ -2036,7 +2094,9 @@
       "downloadDatasheet": "Download Datasheet",
       "relatedProducts": "Related Products",
       "whatsappMessage": "Hello, I'm interested in {product}{options}. Quantity: {quantity}.\n{url}",
-      "noVideoSupport": "Your browser does not support the video tag."
+      "noVideoSupport": "Your browser does not support the video tag.",
+      "unavailableOption": "Not available with your current selection",
+      "selectionReset": "{option} isn't available with your other choices, so {attributes} was cleared."
     },
     "BannerSection": {
       "title": "Products",
