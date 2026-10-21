@@ -1,100 +1,47 @@
 import BreadcrumbBar from '@/components/common/breadcrumb-bar'
-import { OurIcon } from '@/components/ui/icon'
+import type { LocaleType } from '@/i18n/types'
+import { getMetaData } from '@/lib/api/metaApi'
+import { getPrivacyPolicyData } from '@/lib/api/privacyPolicy'
 import type { Metadata } from 'next'
-import { useTranslations } from 'next-intl'
-import Link from 'next/link'
+import { getTranslations } from 'next-intl/server'
 
-export const metadata: Metadata = {
-  title: 'Privacy Policy | Z&S Carpets',
-  description:
-    'Read the Z&S Carpets privacy policy and terms for handling information.',
+type PrivacyPolicyData = {
+  title: string
+  content: string
 }
 
-export default function PrivacyPolicyPage() {
-  const t = useTranslations('PrivacyPolicyPage')
-  const sections = t.raw('sections') as {
-    title: string
-    paragraphs: string[]
-    bullets: string[]
-  }[]
+export async function generateMetadata({
+  params,
+}: PageProps<'/[locale]/privacy-policy'>): Promise<Metadata> {
+  const { locale } = await params
+  return getMetaData('privacy-policy', locale as LocaleType)
+}
+
+export default async function PrivacyPolicyPage({
+  params,
+}: PageProps<'/[locale]/privacy-policy'>) {
+  const { locale } = await params
+  const lang = locale as LocaleType
+
+  const [result, t] = await Promise.all([
+    getPrivacyPolicyData.getCmsData<PrivacyPolicyData>(lang),
+    getTranslations({ locale, namespace: 'PrivacyPolicyPage' }),
+  ])
+
+  const data = result.success ? result.data : undefined
+  const title = data?.title || t('title')
 
   return (
     <>
-      <BreadcrumbBar
-        values={[{ name: 'Privacy Policy', link: '/privacy-policy' }]}
-        className="mt-7"
-      />
+      <BreadcrumbBar values={[{ name: title, link: '/privacy-policy' }]} className="mt-7" />
       <article className="container-wrapper pt-5 pb-10 lg:pt-5 lg:pb-20">
-        <h1 className="our-heading">{t('title')}</h1>
-        <p className="mt-3 text-lg">{t('intro')}</p>
-        <div className="mt-8 space-y-4">
-          {sections.map((section, sectionIndex) => (
-            <section
-              key={sectionIndex}
-              aria-labelledby={section.title.toLowerCase().replaceAll(' ', '-')}
-            >
-              <h2
-                id={section.title.toLowerCase().replaceAll(' ', '-')}
-                className="our-heading text-4xl!"
-              >
-                {section.title}
-              </h2>
-              {section.paragraphs.map((_, paragraphIndex) => (
-                <p key={paragraphIndex} className="text-lg">
-                  {t.rich(
-                    `sections.${sectionIndex}.paragraphs.${paragraphIndex}`,
-                    {
-                      privacy: (chunks) => (
-                        <Link
-                          href="https://masscareagency.co.uk/privacy-policy"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-our-blue underline"
-                        >
-                          {chunks}
-                        </Link>
-                      ),
-                      // terms: (chunks) => (
-                      //   <Link
-                      //     href="/terms-and-conditions"
-                      //     className="text-our-blue underline hover:no-underline"
-                      //   >
-                      //     {chunks}
-                      //   </Link>
-                      // ),
-                      // contact: (chunks) => (
-                      //   <Link
-                      //     href="/contact"
-                      //     className="text-our-blue underline hover:no-underline"
-                      //   >
-                      //     {chunks}
-                      //   </Link>
-                      // ),
-                    },
-                  )}
-                </p>
-              ))}
-              {section.bullets && (
-                <ul className="mt-4 space-y-2">
-                  {section.bullets.map((bullet, bulletIndex) => (
-                    <li
-                      key={bulletIndex}
-                      className="flex items-start gap-2 text-lg"
-                    >
-                      <div className="pt-1.5">
-                        <OurIcon
-                          name="square-check"
-                          className="text-our-blue size-3.5"
-                        />
-                      </div>
-                      <span>{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </section>
-          ))}
-        </div>
+        <h1 className="our-heading">{title}</h1>
+        {data?.content && (
+          <div
+            className="blog-body blog-body-start rich-bullets mt-8 text-lg"
+            dangerouslySetInnerHTML={{ __html: data.content }}
+          />
+        )}
       </article>
     </>
   )

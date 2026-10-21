@@ -305,6 +305,42 @@
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m9 12 2 2 4-4'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
+/* A single `<ul>` marked icon-style by the admin editor's "icon bullet list" button: other
+   lists in the same content stay plain/native. Scoped to the class so it works regardless
+   of which typography wrapper (.blog-body, .rich-bullets, ...) the content sits in. */
+ul.icon-bullet-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1.25rem;
+}
+ul.icon-bullet-list > li {
+  position: relative;
+  margin-top: 0.75rem;
+  padding-inline-start: 1.75rem;
+}
+ul.icon-bullet-list > li::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0.2em;
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--color-our-blue);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m9 12 2 2 4-4'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m9 12 2 2 4-4'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* Plain (non icon-style) rich text bullets: Tailwind's preflight resets list-style to none,
+   so give `.rich-bullets` content a native disc marker when the admin didn't choose icon-style. */
+.rich-bullets ul:not(.icon-bullet-list) {
+  list-style: disc;
+  padding-inline-start: 1.5rem;
+}
+.rich-bullets ol {
+  list-style: decimal;
+  padding-inline-start: 1.5rem;
+}
+
 /* Blog article body (rich text written in the admin) */
 .blog-body-start > :first-child {
   margin-top: 0;
