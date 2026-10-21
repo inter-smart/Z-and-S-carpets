@@ -8,8 +8,9 @@ import {
 } from '@/components/ui/dropdown-menu'
 import type { LocaleType } from '@/i18n/types'
 import { cn } from 'cn'
-import { ChevronDownIcon, Loader2Icon } from 'lucide-react'
+import { ChevronDownIcon } from 'lucide-react'
 import { useLocale } from 'next-intl'
+import Image from 'next/image'
 import { usePathname, useRouter } from 'next/navigation'
 import { useState, useTransition } from 'react'
 import { createPortal } from 'react-dom'
@@ -45,9 +46,16 @@ export default function NavbarLangDropdown() {
           <div
             role="status"
             aria-label="Switching language"
-            className="fixed inset-0 z-[1000] flex items-center justify-center bg-white/60 backdrop-blur-[1px]"
+            className="fixed inset-0 z-1000 flex items-center justify-center bg-white/60 backdrop-blur-[1px]"
           >
-            <Loader2Icon className="text-our-blue size-10 animate-spin" />
+            <Image
+              src="/site-logo-email.png"
+              alt="Z&S Carpets"
+              width={214}
+              height={90}
+              priority
+              className="h-auto w-36 animate-pulse"
+            />
           </div>,
           document.body,
         )}
