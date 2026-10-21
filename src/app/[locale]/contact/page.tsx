@@ -9,6 +9,7 @@ import { getMetaData } from '@/lib/api/metaApi'
 import { parseMetaTags, sanitizeMetadata } from '@/lib/metaHelper'
 import type { ContactData } from '@/types/contact'
 import type { Metadata } from 'next'
+import { getTranslations } from 'next-intl/server'
 
 // shown until the admin saves a map in the Contact CMS
 const FALLBACK_MAP_URL =
@@ -25,7 +26,10 @@ export default async function ContactUsPage({
   params,
 }: PageProps<'/[locale]/contact'>) {
   const { locale } = await params
-  const { data } = await getContactData.getCmsData<ContactData>()
+  const [{ data }, t] = await Promise.all([
+    getContactData.getCmsData<ContactData>(),
+    getTranslations({ locale, namespace: 'ContactPage' }),
+  ])
 
   // Both languages come back in one fetch — pick the JSON-LD / extra scripts for this locale
   const otherMetaHtml =
@@ -51,7 +55,9 @@ export default async function ContactUsPage({
         pageName="ContactPage"
         data={banner_section?.is_visible ? banner_section : undefined}
       />
-      <BreadcrumbBar values={[{ name: 'Contact Us', link: '/contact' }]} />
+      <BreadcrumbBar
+        values={[{ name: t('BannerSection.title'), link: '/contact' }]}
+      />
 
       <div className="container-wrapper grid pt-5 pb-10 lg:grid-cols-[1fr_0.95fr] lg:gap-12 lg:pt-12 lg:pb-20 xl:gap-24">
         <ContactDetailsSection

@@ -9,6 +9,7 @@ import { parseMetaTags, sanitizeMetadata } from '@/lib/metaHelper'
 import { WORKS_PAGE_LIMIT, sanitizeIndustry } from '@/lib/works'
 import type { WorkFiltersData, WorkListData, WorksPageData } from '@/types/work'
 import type { Metadata } from 'next'
+import { getTranslations } from 'next-intl/server'
 
 export async function generateMetadata({
   params,
@@ -31,7 +32,7 @@ export default async function WorksPage({
   )
 
   // filters and the first page are independent, so fetch them in parallel (both cached)
-  const [page, filters, list] = await Promise.all([
+  const [page, filters, list, t] = await Promise.all([
     getWorksData.getPageData<WorksPageData>(),
     getWorksData.getWorkFilters<WorkFiltersData>(),
     getWorksData.getWorkList<WorkListData>({
@@ -39,6 +40,7 @@ export default async function WorksPage({
       limit: String(WORKS_PAGE_LIMIT),
       ...(industry && { industry }),
     }),
+    getTranslations({ locale, namespace: 'WorksPage' }),
   ])
 
   // Both languages come back in one fetch — pick the JSON-LD / extra scripts for this locale
@@ -59,7 +61,9 @@ export default async function WorksPage({
         pageName="WorksPage"
         data={banner?.is_visible ? banner : undefined}
       />
-      <BreadcrumbBar values={[{ name: 'Our Work', link: '/works' }]} />
+      <BreadcrumbBar
+        values={[{ name: t('BannerSection.title'), link: '/works' }]}
+      />
       {/* keyed by industry so the loaded pages reset when the filter changes */}
       <OurWorksSection
         key={industry || 'all'}

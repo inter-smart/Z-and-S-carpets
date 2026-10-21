@@ -19,6 +19,7 @@ import type {
   ProductsPageData,
 } from '@/types/product-list'
 import type { Metadata } from 'next'
+import { getTranslations } from 'next-intl/server'
 
 export async function generateMetadata({
   params,
@@ -43,7 +44,7 @@ export default async function ProductsPage({
 
   // page content, filter options and the first page of products are independent: fetch them in
   // parallel
-  const [page, filters, list] = await Promise.all([
+  const [page, filters, list, t] = await Promise.all([
     getProductsData.getPageData<ProductsPageData>(),
     // sub-categories are only loaded for the open categories, attribute values follow the results
     getProductsData.getFilters<ProductFiltersData>(
@@ -55,6 +56,7 @@ export default async function ProductsPage({
       limit: String(PRODUCTS_PAGE_LIMIT * pages),
       ...Object.fromEntries(filterQuery),
     }),
+    getTranslations({ locale, namespace: 'ProductsPage' }),
   ])
 
   // Both languages come back in one fetch — pick the JSON-LD / extra scripts for this locale
@@ -78,7 +80,7 @@ export default async function ProductsPage({
       <BreadcrumbBar
         values={[
           {
-            name: 'Products',
+            name: t('BannerSection.title'),
             link: '/products',
           },
         ]}

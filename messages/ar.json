@@ -762,6 +762,7 @@
     "clearFilters": "مسح كل عوامل التصفية"
   },
   "Common": {
+    "breadcrumbHome": "الرئيسية",
     "ProcessSection": {
       "eyebrow": "عمليتنا",
       "title": "كيف نعمل",
@@ -1990,6 +1991,9 @@
     }
   },
   "WorksPage": {
+    "Breadcrumb": {
+      "details": "تفاصيل العمل"
+    },
     "BannerSection": {
       "title": "أعمالنا",
       "description": "اكتشف مشاريعنا التي نُفذت بجودة وابتكار وتميز.",
@@ -2021,6 +2025,9 @@
     }
   },
   "BlogsPage": {
+    "Breadcrumb": {
+      "title": "المدونات"
+    },
     "BannerSection": {
       "title": "رؤى وخبرات متخصصة",
       "description": "تواصل معنا للحصول على الدعم والمساعدة من خبرائنا.",

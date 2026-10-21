@@ -21,8 +21,8 @@ export default async function WorksSection({
     }),
   ])
 
-  // API down: render no section at all. An empty list still renders (with a "no projects" message).
-  if (!list.success) return null
+  // API down, or no projects flagged for the home page at all: render nothing.
+  if (!list.success || list.data.projects.length === 0) return null
 
   return (
     <WorksHomeClient

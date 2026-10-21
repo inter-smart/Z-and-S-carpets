@@ -8,6 +8,7 @@ import {
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb'
 import { cn } from 'cn'
+import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
@@ -18,6 +19,7 @@ export default function BreadcrumbBar({
   values: { name: string; link: string; currentPage?: boolean }[]
   className?: string
 }) {
+  const t = useTranslations('Common')
   const pathname = usePathname()
 
   const pathnameSplits = pathname.split('/')
@@ -30,7 +32,7 @@ export default function BreadcrumbBar({
           <BreadcrumbList className="gap-1 text-lg! sm:gap-3">
             <BreadcrumbItem>
               <BreadcrumbLink render={<Link href="/" />} className="text-black">
-                Home
+                {t('breadcrumbHome')}
               </BreadcrumbLink>
             </BreadcrumbItem>
             {values.map((value) => (

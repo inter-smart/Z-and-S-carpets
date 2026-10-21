@@ -14,6 +14,7 @@ import { getMetaData } from '@/lib/api/metaApi'
 import { parseMetaTags, sanitizeMetadata } from '@/lib/metaHelper'
 import type { AboutData } from '@/types/about'
 import type { Metadata } from 'next'
+import { getTranslations } from 'next-intl/server'
 
 export async function generateMetadata({
   params,
@@ -26,7 +27,10 @@ export default async function AboutUsPage({
   params,
 }: PageProps<'/[locale]/about'>) {
   const { locale } = await params
-  const { data } = await getAboutData.getCmsData<AboutData>()
+  const [{ data }, t] = await Promise.all([
+    getAboutData.getCmsData<AboutData>(),
+    getTranslations({ locale, namespace: 'AboutPage' }),
+  ])
 
   // Both languages come back in one fetch — pick the JSON-LD / extra scripts for this locale
   const otherMetaHtml =
@@ -57,7 +61,9 @@ export default async function AboutUsPage({
         pageName="AboutPage"
         data={banner_section?.is_visible ? banner_section : undefined}
       />
-      <BreadcrumbBar values={[{ name: 'About Us', link: '/about' }]} />
+      <BreadcrumbBar
+        values={[{ name: t('BannerSection.title'), link: '/about' }]}
+      />
       {introduction_section?.is_visible && (
         <IntroSection data={introduction_section} />
       )}

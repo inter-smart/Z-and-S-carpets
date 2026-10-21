@@ -15,6 +15,7 @@ import {
 import { parseMetaTags, sanitizeMetadata } from '@/lib/metaHelper'
 import type { BlogListData, BlogsPageData } from '@/types/blog'
 import type { Metadata } from 'next'
+import { getTranslations } from 'next-intl/server'
 
 export async function generateMetadata({
   params,
@@ -39,7 +40,7 @@ export default async function BlogsPage({
   const pages = sanitizePage(query.page)
 
   // page content and the first page of posts are independent: fetch them in parallel
-  const [page, list] = await Promise.all([
+  const [page, list, t] = await Promise.all([
     getBlogsData.getPageData<BlogsPageData>(),
     // the first `pages` pages in one request
     getBlogsData.getList<BlogListData>({
@@ -47,6 +48,7 @@ export default async function BlogsPage({
       limit: String(BLOGS_PAGE_LIMIT * pages),
       ...Object.fromEntries(filterQuery),
     }),
+    getTranslations({ locale, namespace: 'BlogsPage' }),
   ])
 
   // Both languages come back in one fetch — pick the JSON-LD / extra scripts for this locale
@@ -67,7 +69,9 @@ export default async function BlogsPage({
         pageName="BlogsPage"
         data={banner?.is_visible ? banner : undefined}
       />
-      <BreadcrumbBar values={[{ name: 'Blogs', link: '/blogs' }]} />
+      <BreadcrumbBar
+        values={[{ name: t('Breadcrumb.title'), link: '/blogs' }]}
+      />
       <BlogListSection
         heading={pageData?.list_section}
         categories={pageData?.filters.categories ?? []}

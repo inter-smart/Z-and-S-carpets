@@ -762,6 +762,7 @@
     "clearFilters": "Clear all filters"
   },
   "Common": {
+    "breadcrumbHome": "Home",
     "ProcessSection": {
       "eyebrow": "OUR PROCESS",
       "title": "How it Works",
@@ -1987,6 +1988,9 @@
     }
   },
   "WorksPage": {
+    "Breadcrumb": {
+      "details": "Work Details"
+    },
     "BannerSection": {
       "title": "Our Work",
       "description": "Discover our projects crafted with quality, innovation, and excellence.",
@@ -2018,6 +2022,9 @@
     }
   },
   "BlogsPage": {
+    "Breadcrumb": {
+      "title": "Blogs"
+    },
     "BannerSection": {
       "title": "Expert Insights",
       "description": "Reach out for expert support and assistance.",

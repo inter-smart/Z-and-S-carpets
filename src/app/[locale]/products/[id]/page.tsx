@@ -134,14 +134,6 @@ export default async function ProductDetailsPage({
       <BreadcrumbBar
         values={[
           { name: t('products'), link: '/products' },
-          ...(category
-            ? [
-                {
-                  name: pickLocalized(lang, category.title, category.title_ar),
-                  link: `/products?category=${category.slug}`,
-                },
-              ]
-            : []),
           { name, link: `/products/${slug}`, currentPage: true },
         ]}
         className="mt-2"

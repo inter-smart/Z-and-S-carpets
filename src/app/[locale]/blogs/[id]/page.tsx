@@ -17,6 +17,7 @@ import type {
   BlogsPageData,
 } from '@/types/blog'
 import type { Metadata } from 'next'
+import { getTranslations } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || ''
@@ -61,10 +62,11 @@ export default async function BlogDetailsPage({
   const { locale, id: slug } = await params
   const lang = locale as LocaleType
 
-  const [post, page, related] = await Promise.all([
+  const [post, page, related, t] = await Promise.all([
     loadPost(slug),
     getBlogsData.getPageData<BlogsPageData>(),
     getBlogsData.getRelated<BlogRelatedData>(slug, 6),
+    getTranslations({ locale, namespace: 'BlogsPage' }),
   ])
   if (!post) notFound()
 
@@ -104,7 +106,7 @@ export default async function BlogDetailsPage({
       <DynamicMeta structuredData={[articleSchema]} />
       <BreadcrumbBar
         values={[
-          { name: 'Blogs', link: `/blogs` },
+          { name: t('Breadcrumb.title'), link: `/blogs` },
           { name: title, link: `/blogs/${slug}`, currentPage: true },
         ]}
         className="mt-2"

@@ -13,6 +13,7 @@ import {
 import { parseMetaTags, sanitizeMetadata } from '@/lib/metaHelper'
 import type { CategoriesPageData, CategoryListData } from '@/types/category'
 import type { Metadata } from 'next'
+import { getTranslations } from 'next-intl/server'
 
 export async function generateMetadata({
   params,
@@ -33,7 +34,7 @@ export default async function CategoryPage({
   const pages = sanitizePage(query.page)
 
   // page content and the first page of categories are independent: fetch them in parallel
-  const [page, list] = await Promise.all([
+  const [page, list, t] = await Promise.all([
     getCategoriesData.getPageData<CategoriesPageData>(),
     // the first `pages` pages in one request
     getCategoriesData.getList<CategoryListData>({
@@ -41,6 +42,7 @@ export default async function CategoryPage({
       limit: String(CATEGORIES_PAGE_LIMIT * pages),
       ...(badge && { badge }),
     }),
+    getTranslations({ locale, namespace: 'CategoryPage' }),
   ])
 
   // Both languages come back in one fetch — pick the JSON-LD / extra scripts for this locale
@@ -61,7 +63,9 @@ export default async function CategoryPage({
         pageName="CategoryPage"
         data={banner?.is_visible ? banner : undefined}
       />
-      <BreadcrumbBar values={[{ name: 'Category', link: '/category' }]} />
+      <BreadcrumbBar
+        values={[{ name: t('BannerSection.title'), link: '/category' }]}
+      />
       {/* keyed by the filter so the loaded pages reset when it changes */}
       <CategoryListSection
         key={badge || 'all'}
