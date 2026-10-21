@@ -2096,7 +2096,8 @@
       "whatsappMessage": "Hello, I'm interested in {product}{options}. Quantity: {quantity}.\n{url}",
       "noVideoSupport": "Your browser does not support the video tag.",
       "unavailableOption": "Not available with your current selection",
-      "selectionReset": "{option} isn't available with your other choices, so {attributes} was cleared."
+      "selectionReset": "{option} isn't available with your other choices, so {attributes} was cleared.",
+      "chooseOptionsPrompt": "Please choose {attributes} to continue."
     },
     "BannerSection": {
       "title": "Products",

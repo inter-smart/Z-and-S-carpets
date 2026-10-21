@@ -6,6 +6,7 @@ import ProductDetailsTabSection from '@/components/pages/product-details/product
 import ProductDetailsSection from '@/components/pages/product-details/product-details.section'
 import TagsSection from '@/components/pages/product-details/tags.section'
 import RelatedProductsSection from '@/components/pages/products/related-products.section'
+import { ProductVariantProvider } from '@/context/product-variant.context'
 import type { LocaleType } from '@/i18n/types'
 import { getDetailMetaData } from '@/lib/api/metaApi'
 import { PRODUCT_NOT_FOUND, getProductsData } from '@/lib/api/products'
@@ -39,17 +40,22 @@ async function loadProduct(slug: string, attrs: string) {
 
 export async function generateMetadata({
   params,
+  searchParams,
 }: PageProps<'/[locale]/products/[id]'>): Promise<Metadata> {
   // the folder keeps its old `[id]` name; the value is the product's slug
   const { locale, id: slug } = await params
   const lang = locale as LocaleType
-  const data = await loadProduct(slug, '')
+  const query = await searchParams
+  const attrs = buildAttrsParam(parseAttrsParam(query.attrs))
+  const data = await loadProduct(slug, attrs)
   if (!data) return {}
   const { product } = data
+  const selectedId = data.selected_variant_id
 
-  // the SEO row written in the admin wins; the product's own title / text are the fallback
+  // the selected variant's own SEO row wins when the admin wrote one, else the product's, else
+  // its own title / text
   return getDetailMetaData(
-    { productId: product.id },
+    selectedId ? [{ variantId: selectedId }, { productId: product.id }] : { productId: product.id },
     lang,
     `${SITE_URL}/${locale}/products/${slug}`,
     product.media.path,
@@ -140,14 +146,22 @@ export default async function ProductDetailsPage({
         ]}
         className="mt-2"
       />
-      <ProductDetailsSection
-        data={data}
-        whatsapp={settings.success ? settings.data.footer.whatsapp_number : ''}
-        productUrl={productUrl}
-        descriptionHtml={descriptionHtml}
-        chosen={chosen}
-      />
-      <ProductDetailsTabSection fields={data.details} />
+      <ProductVariantProvider
+        slug={slug}
+        attributes={data.attributes}
+        variants={data.variants}
+        initialChosen={chosen}
+        initialSelectedVariantId={data.selected_variant_id}
+        initialDetails={data.details}
+      >
+        <ProductDetailsSection
+          data={data}
+          whatsapp={settings.success ? settings.data.footer.whatsapp_number : ''}
+          productUrl={productUrl}
+          descriptionHtml={descriptionHtml}
+        />
+        <ProductDetailsTabSection />
+      </ProductVariantProvider>
       {related.success && related.data.products.length > 0 && (
         <RelatedProductsSection
           className="bg-[#EFF9FE]"

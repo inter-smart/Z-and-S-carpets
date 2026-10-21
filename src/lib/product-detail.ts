@@ -28,25 +28,43 @@ export const buildAttrsParam = (chosen: Record<string, string>) =>
     .map(([attribute, option]) => `${attribute}:${option}`)
     .join(',')
 
-// The variant sharing the most chosen values (the first one wins a tie / no choice). Same rule as
-// the API, so a combination that does not exist lands on the closest variant.
-export function pickVariant(
+// Auto-fills attributes that have no real alternative given what's already chosen: if exactly one
+// value of an unpicked attribute still appears on a variant matching the current choices, that
+// value is picked too. Runs until nothing more can be resolved this way (picking one attribute can
+// narrow another the same way, e.g. Colour -> Size -> Material). Never guesses between two or more
+// still-possible values. Mirrors `narrowChosen` in the server's ProductsService.js exactly, so the
+// swatches a visitor sees selected client-side always agree with what the server would resolve —
+// this is what makes it safe to compute every click locally instead of asking the server.
+export function narrowChosen(
   variants: ProductDetailVariant[],
-  chosen: Record<string, string>,
+  attributeSlugs: string[],
+  initialChosen: Record<string, string>,
 ) {
-  let best: ProductDetailVariant | null = variants[0] ?? null
-  let bestScore = -1
-  for (const variant of variants) {
-    const score = Object.entries(chosen).filter(
-      ([attribute, option]) => variant.values[attribute] === option,
-    ).length
-    if (score > bestScore) {
-      best = variant
-      bestScore = score
+  const chosen = { ...initialChosen }
+  const matches = (variant: ProductDetailVariant) =>
+    Object.entries(chosen).every(([slug, value]) => variant.values[slug] === value)
+
+  let changed = true
+  while (changed) {
+    changed = false
+    for (const slug of attributeSlugs) {
+      if (chosen[slug]) continue
+      const possible = new Set(
+        variants.filter(matches).map((variant) => variant.values[slug]).filter(Boolean),
+      )
+      if (possible.size === 1) {
+        chosen[slug] = [...possible][0]
+        changed = true
+      }
     }
   }
-  return best
+  return chosen
 }
+
+// "Color, Material and Size" / "اللون والخامة والمقاس" — locale-aware, used for both the
+// selection-cleared notice and the "please choose ..." prompt
+export const formatList = (items: string[], locale: LocaleType) =>
+  new Intl.ListFormat(locale, { style: 'long', type: 'conjunction' }).format(items)
 
 // Whether `option` of `attribute` exists in a variant that also has the other chosen values
 export const isCombinationAvailable = (

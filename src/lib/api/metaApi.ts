@@ -73,6 +73,7 @@ async function fetchMetaData(
     {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
+      cache: 'no-store',
     },
   )
 
@@ -138,11 +139,26 @@ function targetToParams(target: MetaDetailTarget): Record<string, string> {
   return { blog_id: String(target.blogId) }
 }
 
-// For slug-based detail pages (product, product variant, blog post, ...).
+// Tries each target in order (e.g. the selected variant's own SEO row first, then the product's)
+// and returns the first one that has a row written in the admin; null when none do.
+async function resolveMetaRow(
+  targets: MetaDetailTarget | MetaDetailTarget[],
+  locale: LocaleType,
+): Promise<BackendMetaDataPayload | null> {
+  for (const target of Array.isArray(targets) ? targets : [targets]) {
+    const meta = await fetchMetaData(targetToParams(target), locale)
+    if (meta) return meta
+  }
+  return null
+}
+
+// For slug-based detail pages (product, product variant, blog post, ...). `target` can be a
+// single entity, or several in priority order (e.g. `[{variantId}, {productId}]`: the selected
+// variant's own SEO row wins when the admin wrote one, else the product's).
 // `image` is the entity's own image (not returned by the meta endpoint itself),
 // pass it in from the page's own data fetch so OG/Twitter images reflect the entity.
 export async function getDetailMetaData(
-  target: MetaDetailTarget,
+  target: MetaDetailTarget | MetaDetailTarget[],
   locale: LocaleType,
   currentUrl: string,
   image?: string | null,
@@ -174,7 +190,7 @@ export async function getDetailMetaData(
   })
 
   try {
-    const meta = await fetchMetaData(targetToParams(target), locale)
+    const meta = await resolveMetaRow(target, locale)
     if (!meta)
       return fallback
         ? entityFallback()
@@ -207,5 +223,24 @@ export async function getDetailMetaData(
     }
   } catch {
     return fallback ? entityFallback() : buildFallbackMetadata(pageMeta, locale)
+  }
+}
+
+// Plain-string flavour of the above, for updating `document.title` client-side when the visitor
+// switches variants without a page navigation (no OG/canonical — those stay as the initial SSR
+// values; a crawler always sees the SSR version for the URL it actually requested).
+export async function getDetailMetaStrings(
+  target: MetaDetailTarget | MetaDetailTarget[],
+  locale: LocaleType,
+  fallback: { title: string; description: string },
+): Promise<{ title: string; description: string }> {
+  try {
+    const meta = await resolveMetaRow(target, locale)
+    return {
+      title: meta?.meta_title || fallback.title,
+      description: meta?.meta_description || fallback.description,
+    }
+  } catch {
+    return fallback
   }
 }

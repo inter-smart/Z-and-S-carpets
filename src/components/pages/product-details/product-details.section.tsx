@@ -2,18 +2,11 @@
 
 import { Button } from '@/components/ui/button'
 import { OurIcon } from '@/components/ui/icon'
+import { useProductVariant } from '@/context/product-variant.context'
 import { useGetASample } from '@/context/get-a-sample.context'
 import type { LocaleType } from '@/i18n/types'
-import {
-  buildAttrsParam,
-  buildWhatsappLink,
-  isCombinationAvailable,
-  pickLocalized,
-} from '@/lib/product-detail'
-import type {
-  ProductDetailAttribute,
-  ProductDetailData,
-} from '@/types/product-detail'
+import { buildWhatsappLink, pickLocalized } from '@/lib/product-detail'
+import type { ProductDetailAttribute, ProductDetailData } from '@/types/product-detail'
 import { cn } from 'cn'
 import {
   ChevronDownIcon,
@@ -23,8 +16,7 @@ import {
 } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
-import { usePathname, useRouter } from 'next/navigation'
-import { useEffect, useRef, useState, useTransition } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 // Horizontal row that scrolls with arrow buttons (arrows are enabled only when it overflows)
 function useScrollRow() {
@@ -59,11 +51,8 @@ export default function ProductDetailsSection({
   whatsapp,
   productUrl,
   descriptionHtml,
-  chosen,
 }: {
   data: ProductDetailData
-  // the attribute values picked so far (from the URL); nothing is picked on the first visit
-  chosen: Record<string, string>
   whatsapp?: string
   productUrl: string
   // already localized and sanitised by the API
@@ -73,57 +62,24 @@ export default function ProductDetailsSection({
   const t = useTranslations('ProductDetailsPage.Details')
   const tCard = useTranslations('Common.ProductCard')
   const { openGetASample } = useGetASample()
-  const router = useRouter()
-  const pathname = usePathname()
-  const [isPending, startTransition] = useTransition()
+  const { attributes, chosen, selectedVariant, choose, isAvailable, notice, guidance } =
+    useProductVariant()
+  // what just happened wins while it's fresh (it explains a conflict); otherwise, if the
+  // combination still isn't fully resolved, say what's left to pick
+  const message = notice || guidance
 
   const [quantity, setQuantity] = useState(1)
-  const [notice, setNotice] = useState('')
   const [tagRef, tagsScrollable, scrollTags] = useScrollRow()
 
-  const { product, attributes, variants } = data
-  const selected =
-    variants.find((variant) => variant.id === data.selected_variant_id) ?? null
+  const { product } = data
 
   const name = pickLocalized(locale, product.title, product.title_ar)
-  const heroPath = selected?.media.path || product.media.path
-  const heroMedia = selected?.media.path ? selected.media : product.media
+  // the resolved variant's image/sku are already in `variants` (loaded up front), so this
+  // switches the moment a combination resolves — it never waits on the tab-content fetch
+  const heroPath = selectedVariant?.media.path || product.media.path
+  const heroMedia = selectedVariant?.media.path ? selectedVariant.media : product.media
   const heroAlt = pickLocalized(locale, heroMedia.alt, heroMedia.alt_ar) || name
   const category = product.categories.at(-1)
-
-  // Picking a value keeps the other chosen values that still exist together with it and clears
-  // the ones that don't (so nothing is switched silently); picking the chosen value again clears
-  // it. The URL holds only what is chosen, so a reload or a shared link shows the same thing.
-  const choose = (attribute: ProductDetailAttribute, option: string) => {
-    const next: Record<string, string> = {}
-    const cleared: string[] = []
-    if (chosen[attribute.slug] !== option) next[attribute.slug] = option
-    for (const other of attributes) {
-      const value = chosen[other.slug]
-      if (other.slug === attribute.slug || !value) continue
-      const exists = variants.some((variant) =>
-        Object.entries({ ...next, [other.slug]: value }).every(
-          ([slug, picked]) => variant.values[slug] === picked,
-        ),
-      )
-      if (exists) next[other.slug] = value
-      else cleared.push(pickLocalized(locale, other.title, other.title_ar))
-    }
-    setNotice(
-      cleared.length
-        ? t('selectionReset', {
-            option: optionLabel(attribute, option),
-            attributes: cleared.join(', '),
-          })
-        : '',
-    )
-    const query = buildAttrsParam(next)
-    startTransition(() => {
-      router.push(query ? `${pathname}?attrs=${query}` : pathname, {
-        scroll: false,
-      })
-    })
-  }
 
   const optionLabel = (attribute: ProductDetailAttribute, slug: string) => {
     const option = attribute.values.find((item) => item.slug === slug)
@@ -137,9 +93,7 @@ export default function ProductDetailsSection({
           product: name,
           options: attributes.length
             ? ` (${attributes
-                .map((attribute) =>
-                  optionLabel(attribute, chosen[attribute.slug]),
-                )
+                .map((attribute) => optionLabel(attribute, chosen[attribute.slug]))
                 .filter(Boolean)
                 .join(', ')})`
             : '',
@@ -161,10 +115,7 @@ export default function ProductDetailsSection({
             fill
             priority
             sizes="(max-width: 1280px) 100vw, 50vw"
-            className={cn(
-              'w-full object-cover transition-opacity',
-              isPending && 'opacity-70',
-            )}
+            className="w-full object-cover"
           />
         )}
         {product.badge && (
@@ -175,7 +126,7 @@ export default function ProductDetailsSection({
       </div>
 
       {/* details */}
-      <div className={cn('pt-1 transition-opacity', isPending && 'opacity-70')}>
+      <div className="pt-1">
         {category && (
           <p className="ltr:font-manrope rtl:font-cairo text-lg tracking-wider uppercase">
             {pickLocalized(locale, category.title, category.title_ar)}
@@ -266,17 +217,21 @@ export default function ProductDetailsSection({
             key={attribute.slug}
             attribute={attribute}
             selectedValue={chosen[attribute.slug]}
-            isAvailable={(option) =>
-              isCombinationAvailable(variants, chosen, attribute.slug, option)
-            }
+            isAvailable={(option) => isAvailable(attribute.slug, option)}
             onChoose={(option) => choose(attribute, option)}
             scrollLabels={{ left: t('scrollLeft'), right: t('scrollRight') }}
             unavailableLabel={t('unavailableOption')}
           />
         ))}
-        {notice && (
-          <p role="status" className="text-our-purple mt-3 text-sm">
-            {notice}
+        {message && (
+          <p
+            role="status"
+            className={cn(
+              'mt-3 text-sm',
+              notice ? 'text-our-purple' : 'text-[#777]',
+            )}
+          >
+            {message}
           </p>
         )}
 

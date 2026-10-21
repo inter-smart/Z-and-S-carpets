@@ -2099,7 +2099,8 @@
       "whatsappMessage": "مرحباً، أنا مهتم بـ {product}{options}. الكمية: {quantity}.\n{url}",
       "noVideoSupport": "متصفحك لا يدعم تشغيل الفيديو.",
       "unavailableOption": "غير متاح مع اختيارك الحالي",
-      "selectionReset": "{option} غير متاح مع اختياراتك الأخرى، لذلك تم مسح {attributes}."
+      "selectionReset": "{option} غير متاح مع اختياراتك الأخرى، لذلك تم مسح {attributes}.",
+      "chooseOptionsPrompt": "يرجى اختيار {attributes} للمتابعة."
     },
     "BannerSection": {
       "title": "Products",

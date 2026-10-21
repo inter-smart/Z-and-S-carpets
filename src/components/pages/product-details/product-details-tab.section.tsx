@@ -1,15 +1,14 @@
 'use client'
 
+import { useProductVariant } from '@/context/product-variant.context'
 import type { LocaleType } from '@/i18n/types'
 import { pickLocalized } from '@/lib/product-detail'
-import type {
-  ProductDetailField,
-  ProductDetailItem,
-} from '@/types/product-detail'
+import type { ProductDetailField, ProductDetailItem } from '@/types/product-detail'
 import { cn } from 'cn'
+import { Pause, Play } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 
 type Tab = {
   slug: string
@@ -19,22 +18,34 @@ type Tab = {
 }
 
 // Tabs come from the detail fields resolved for the selected variant (hidden / empty ones are
-// already dropped by the API); nothing is rendered when the product has none.
-export default function ProductDetailsTabSection({
-  fields,
-}: {
-  fields: ProductDetailField[]
-}) {
+// already dropped by the API); nothing is rendered when the product has none. Switching variant
+// is the one interaction on this page that needs the server (the admin's authored content isn't
+// preloaded for every variant), so this is the only part with its own loading state.
+export default function ProductDetailsTabSection() {
   const locale = useLocale() as LocaleType
   const t = useTranslations('ProductDetailsPage.Details')
+  const { details, loadingDetails } = useProductVariant()
   const [activeSlug, setActiveSlug] = useState('')
 
-  const tabs: Tab[] = fields.map((field) => ({
+  const tabs: Tab[] = details.map((field) => ({
     slug: field.slug,
     name: pickLocalized(locale, field.name, field.name_ar),
     type: field.type,
     items: field.items,
   }))
+
+  if (loadingDetails) {
+    return (
+      <section className="container-wrapper mt-12 pb-15">
+        <div className="h-10 animate-pulse rounded bg-[#F4F4F4]" />
+        <div className="mt-9 space-y-3">
+          <div className="h-4 w-1/3 animate-pulse rounded bg-[#F4F4F4]" />
+          <div className="h-4 w-full animate-pulse rounded bg-[#F4F4F4]" />
+          <div className="h-4 w-5/6 animate-pulse rounded bg-[#F4F4F4]" />
+        </div>
+      </section>
+    )
+  }
   if (!tabs.length) return null
 
   // the chosen tab may disappear when another variant is picked: fall back to the first one
@@ -42,23 +53,21 @@ export default function ProductDetailsTabSection({
 
   return (
     <section className="container-wrapper mt-12 pb-15">
-      <div className="grid grid-cols-1 justify-between border-t border-black/10 min-[325px]:grid-cols-2 min-[425px]:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:flex xl:border-b">
+      {/* a horizontal scroll row: works the same whether there are 2 tabs or a dozen, on every
+          screen size, instead of wrapping into a grid that can leave a lone tab stretched out */}
+      <div className="scrollbar-none flex gap-1 overflow-x-auto border-t border-b border-black/10 sm:gap-2">
         {tabs.map((tab) => (
-          <div
+          <button
             key={tab.slug}
-            className="flex justify-center border-black/10 px-0 max-xl:border-b"
+            type="button"
+            onClick={() => setActiveSlug(tab.slug)}
+            className={cn(
+              'ltr:font-manrope rtl:font-cairo shrink-0 border-b-3 border-transparent px-3 py-3 text-sm whitespace-nowrap focus:ring-0 focus:outline-none sm:px-4',
+              active.slug === tab.slug && 'border-our-purple font-semibold',
+            )}
           >
-            <button
-              type="button"
-              onClick={() => setActiveSlug(tab.slug)}
-              className={cn(
-                'ltr:font-manrope rtl:font-cairo w-fit border-b-3 border-transparent py-3 text-sm focus:ring-0 focus:outline-none',
-                active.slug === tab.slug && 'border-our-purple font-semibold',
-              )}
-            >
-              {tab.name}
-            </button>
-          </div>
+            {tab.name}
+          </button>
         ))}
       </div>
 
@@ -131,43 +140,115 @@ export default function ProductDetailsTabSection({
         )}
 
         {active.type === 'video' && (
-          <div className="mt-4 grid gap-3 lg:grid-cols-2 xl:gap-4">
-            {active.items.map((item) => {
+          <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-6 xl:gap-4">
+            {active.items.map((item, i) => {
               const media = item.media
               if (!media?.url) return null
-              const title = pickLocalized(locale, media.title, media.title_ar)
-              const text = pickLocalized(
-                locale,
-                media.description,
-                media.description_ar,
-              )
               return (
-                <figure key={item.id}>
-                  <video
-                    className="h-60 w-full bg-black object-cover sm:h-80 lg:h-70 2xl:h-80"
-                    controls
-                    playsInline
-                    preload="metadata"
-                    poster={media.thumbnail_url ?? undefined}
-                  >
-                    <source
-                      src={media.url}
-                      type={media.mime_type ?? 'video/mp4'}
-                    />
-                    {t('noVideoSupport')}
-                  </video>
-                  {(title || text) && (
-                    <figcaption className="mt-2 text-sm">
-                      {title && <strong className="block">{title}</strong>}
-                      {text}
-                    </figcaption>
+                <VideoCard
+                  key={item.id}
+                  url={media.url}
+                  mimeType={media.mime_type}
+                  poster={media.thumbnail_url}
+                  title={pickLocalized(locale, media.title, media.title_ar)}
+                  text={pickLocalized(
+                    locale,
+                    media.description,
+                    media.description_ar,
                   )}
-                </figure>
+                  noSupportMessage={t('noVideoSupport')}
+                  className={cn(
+                    i === 2 ? 'sm:col-span-2' : 'sm:col-span-1',
+                    i < 3 ? 'lg:col-span-2' : 'lg:col-span-3',
+                  )}
+                />
               )
             })}
           </div>
         )}
       </section>
     </section>
+  )
+}
+
+// Same card style as the Detailed Photos tab, but a video: native controls are hidden and a
+// centred play / pause button is shown instead (same pattern as the process section's video).
+function VideoCard({
+  url,
+  mimeType,
+  poster,
+  title,
+  text,
+  noSupportMessage,
+  className,
+}: {
+  url: string
+  mimeType: string | null
+  poster: string | null
+  title: string
+  text: string
+  noSupportMessage: string
+  className?: string
+}) {
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const [isPlaying, setIsPlaying] = useState(false)
+
+  const handleToggle = async () => {
+    const video = videoRef.current
+    if (!video) return
+    if (video.paused) await video.play()
+    else video.pause()
+  }
+
+  return (
+    <div
+      className={cn(
+        'group relative h-60 overflow-hidden xl:h-70 2xl:h-80',
+        className,
+      )}
+    >
+      <video
+        ref={videoRef}
+        className="h-full w-full object-cover"
+        playsInline
+        preload="metadata"
+        poster={poster ?? undefined}
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
+        onClick={handleToggle}
+      >
+        <source src={url} type={mimeType ?? 'video/mp4'} />
+        {noSupportMessage}
+      </video>
+
+      <div
+        className={cn(
+          'bg-foreground/20 absolute inset-0 z-10 grid place-items-center transition-opacity',
+          isPlaying ? 'opacity-0 group-hover:opacity-100' : 'opacity-100',
+        )}
+      >
+        <button
+          type="button"
+          aria-label={isPlaying ? 'Pause video' : 'Play video'}
+          onClick={handleToggle}
+          className="grid cursor-pointer place-items-center text-sm focus:ring-0 focus:outline-none"
+        >
+          <span className="bg-background grid size-7 place-items-center rounded-full text-[#0066B3]">
+            {isPlaying ? (
+              <Pause className="size-3 fill-current stroke-1" />
+            ) : (
+              <Play className="size-3 fill-current stroke-1" />
+            )}
+          </span>
+        </button>
+      </div>
+
+      {(title || text) && (
+        <div className="pointer-events-none absolute bottom-0 z-20 w-full px-5 pb-3 text-white">
+          {title && <h3 className="text-3xl">{title}</h3>}
+          {text && <p className="text-lg">{text}</p>}
+        </div>
+      )}
+    </div>
   )
 }

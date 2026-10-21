@@ -13,7 +13,7 @@ export default function TagsSection({
   if (!tags.length) return null
 
   return (
-    <section className="container-wrapper pb-20">
+    <section className="container-wrapper pt-8 pb-20 lg:pt-10">
       <div className="flex flex-wrap content-start gap-2">
         {tags.map((tag) => (
           <span
