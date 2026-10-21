@@ -29,14 +29,14 @@ export default function Navbar({ nav, whatsapp }: NavbarProps) {
   const locale = useLocale() as LocaleType
   const t = useTranslations('Navbar')
 
-  // API pages are split around the logo: first half on the left, the rest on the right
+  // Nav links are split around the logo: the first 4 go left, everything else goes right
+  const LEFT_LINKS_COUNT = 4
   const apiLinks = nav?.pages.length ? toNavLinks(nav.pages) : null
-  const navLinks: NavbarNavLinksType[][] = apiLinks
-    ? [
-        apiLinks.slice(0, Math.ceil(apiLinks.length / 2)),
-        apiLinks.slice(Math.ceil(apiLinks.length / 2)),
-      ]
-    : (t.raw('navLinks') as NavbarNavLinksType[][])
+  const flatLinks = apiLinks ?? (t.raw('navLinks') as NavbarNavLinksType[][]).flat()
+  const navLinks: NavbarNavLinksType[][] = [
+    flatLinks.slice(0, LEFT_LINKS_COUNT),
+    flatLinks.slice(LEFT_LINKS_COUNT),
+  ]
 
   const { setOpen: setGetASampleOpen } = useGetASample()
 

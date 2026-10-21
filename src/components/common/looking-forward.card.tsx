@@ -18,8 +18,13 @@ export default function LookingForwardCard({
   const pick = (en?: string, ar?: string) =>
     locale === 'ar' ? ar || en || '' : en || ''
 
+  const href = `/${locale}/contact`
+
   return (
-    <article className="bg-our-purple mt-12 grid grid-cols-1 overflow-hidden rounded text-white sm:grid-cols-[1.5fr_0.5fr] lg:mt-20 lg:grid-cols-[1.55fr_0.45fr]">
+    <Link
+      href={href}
+      className="bg-our-purple mt-12 grid grid-cols-1 overflow-hidden rounded text-white sm:grid-cols-[1.5fr_0.5fr] lg:mt-20 lg:grid-cols-[1.55fr_0.45fr]"
+    >
       <div className="relative flex flex-col justify-center gap-1 px-8 py-12 sm:px-10 lg:px-12">
         {data ? (
           // sanitized inline rich text from the API (line breaks, bold/italic/underline, colour)
@@ -47,16 +52,15 @@ export default function LookingForwardCard({
         )}
         <Button
           type="button"
-          className="bg-our-blue our-btn pointer-events-auto mt-5 w-fit"
-          nativeButton={false}
-          render={<Link href={`/${locale}/contact`} />}
+          className="bg-our-blue our-btn mt-5 w-fit"
+          render={<span />}
         >
           {t('btnLabel')}
         </Button>
         <Image
           src={VectorPart1}
           alt="vector part"
-          className="absolute top-0 z-10 hidden h-full object-contain sm:block ltr:-right-20 rtl:-left-20 rtl:scale-x-[-1]"
+          className="pointer-events-none absolute top-0 z-10 hidden h-full object-contain sm:block ltr:-right-20 rtl:-left-20 rtl:scale-x-[-1]"
         />
       </div>
       <div className="relative hidden sm:block">
@@ -70,6 +74,6 @@ export default function LookingForwardCard({
           className="h-full w-full object-cover"
         />
       </div>
-    </article>
+    </Link>
   )
 }

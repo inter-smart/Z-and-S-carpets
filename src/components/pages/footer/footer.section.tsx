@@ -138,90 +138,98 @@ export default function Footer({
 
           {/* links */}
           <div className="mt-18 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-10 lg:grid-cols-5">
-            <div className="sm:space-y-7">
-              <div
-                className="flex flex-col space-y-2"
-                onClick={() => toggleSection(t('footerLinks.quickLinks.title'))}
-              >
-                <p className="cursor-pointer text-lg font-bold tracking-widest uppercase sm:cursor-text">
-                  {t('footerLinks.quickLinks.title')}
-                </p>
-                <div className="bg-our-blue h-0.75 w-12" />
-              </div>
-              <div
-                className={cn(
-                  'flex flex-col gap-4 overflow-hidden text-base transition-all duration-300',
-                  openSection === t('footerLinks.quickLinks.title')
-                    ? 'mt-7 max-h-100 opacity-100 sm:mt-0'
-                    : 'max-h-0 opacity-0 sm:max-h-none sm:opacity-100',
-                )}
-              >
-                {footerLinks_quickLinks_items.map((item) => (
-                  <Link key={item.text} href={item.link}>
-                    {item.text}
-                  </Link>
-                ))}
-              </div>
-            </div>
-            <div className="sm:space-y-7">
-              <div
-                className="flex flex-col space-y-2"
-                onClick={() => toggleSection(t('footerLinks.services.title'))}
-              >
-                <p className="cursor-pointer text-lg font-bold tracking-widest uppercase sm:cursor-text">
-                  {t('footerLinks.services.title')}
-                </p>
-                <div className="bg-our-blue h-0.75 w-12" />
-              </div>
-              <div
-                className={cn(
-                  'flex flex-col gap-4 overflow-hidden text-base transition-all duration-300',
-                  openSection === t('footerLinks.services.title')
-                    ? 'mt-7 max-h-100 opacity-100 sm:mt-0'
-                    : 'max-h-0 opacity-0 sm:max-h-none sm:opacity-100',
-                )}
-              >
-                {footerLinks_services_items.map((item) => (
-                  <Link key={item.text} href={item.link}>
-                    {item.text}
-                  </Link>
-                ))}
-              </div>
-            </div>
-            <div className="sm:col-span-2 sm:space-y-7 md:col-span-1 lg:col-span-2">
-              <div
-                className="flex flex-col space-y-2"
-                onClick={() => toggleSection(t('footerLinks.products.title'))}
-              >
-                <p className="cursor-pointer text-lg font-bold tracking-widest uppercase sm:cursor-text">
-                  {t('footerLinks.products.title')}
-                </p>
-                <div className="bg-our-blue h-0.75 w-12" />
-              </div>
-              <div
-                className={cn(
-                  'flex flex-col space-y-4 space-x-10 overflow-hidden transition-all duration-300 sm:flex sm:flex-row',
-                  openSection === t('footerLinks.products.title')
-                    ? 'mt-7 max-h-150 opacity-100 sm:mt-0'
-                    : 'max-h-0 opacity-0 sm:max-h-none sm:opacity-100',
-                )}
-              >
-                <div className="flex flex-col gap-4 text-base">
-                  {footerLinks_products_items[0].map((item) => (
-                    <Link key={item.text} href={item.link}>
-                      {item.text}
-                    </Link>
-                  ))}
+            {footerLinks_quickLinks_items.length > 0 && (
+              <div className="sm:space-y-7">
+                <div
+                  className="flex flex-col space-y-2"
+                  onClick={() =>
+                    toggleSection(t('footerLinks.quickLinks.title'))
+                  }
+                >
+                  <p className="cursor-pointer text-lg font-bold tracking-widest uppercase sm:cursor-text">
+                    {t('footerLinks.quickLinks.title')}
+                  </p>
+                  <div className="bg-our-blue h-0.75 w-12" />
                 </div>
-                <div className="flex flex-col gap-4 text-base">
-                  {footerLinks_products_items[1].map((item) => (
+                <div
+                  className={cn(
+                    'flex flex-col gap-4 overflow-hidden text-base transition-all duration-300',
+                    openSection === t('footerLinks.quickLinks.title')
+                      ? 'mt-7 max-h-100 opacity-100 sm:mt-0'
+                      : 'max-h-0 opacity-0 sm:max-h-none sm:opacity-100',
+                  )}
+                >
+                  {footerLinks_quickLinks_items.map((item) => (
                     <Link key={item.text} href={item.link}>
                       {item.text}
                     </Link>
                   ))}
                 </div>
               </div>
-            </div>
+            )}
+            {footerLinks_services_items.length > 0 && (
+              <div className="sm:space-y-7">
+                <div
+                  className="flex flex-col space-y-2"
+                  onClick={() => toggleSection(t('footerLinks.services.title'))}
+                >
+                  <p className="cursor-pointer text-lg font-bold tracking-widest uppercase sm:cursor-text">
+                    {t('footerLinks.services.title')}
+                  </p>
+                  <div className="bg-our-blue h-0.75 w-12" />
+                </div>
+                <div
+                  className={cn(
+                    'flex flex-col gap-4 overflow-hidden text-base transition-all duration-300',
+                    openSection === t('footerLinks.services.title')
+                      ? 'mt-7 max-h-100 opacity-100 sm:mt-0'
+                      : 'max-h-0 opacity-0 sm:max-h-none sm:opacity-100',
+                  )}
+                >
+                  {footerLinks_services_items.map((item) => (
+                    <Link key={item.text} href={item.link}>
+                      {item.text}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+            {footerLinks_products_items.flat().length > 0 && (
+              <div className="sm:col-span-2 sm:space-y-7 md:col-span-1 lg:col-span-2">
+                <div
+                  className="flex flex-col space-y-2"
+                  onClick={() => toggleSection(t('footerLinks.products.title'))}
+                >
+                  <p className="cursor-pointer text-lg font-bold tracking-widest uppercase sm:cursor-text">
+                    {t('footerLinks.products.title')}
+                  </p>
+                  <div className="bg-our-blue h-0.75 w-12" />
+                </div>
+                <div
+                  className={cn(
+                    'flex flex-col space-y-4 space-x-10 overflow-hidden transition-all duration-300 sm:flex sm:flex-row',
+                    openSection === t('footerLinks.products.title')
+                      ? 'mt-7 max-h-150 opacity-100 sm:mt-0'
+                      : 'max-h-0 opacity-0 sm:max-h-none sm:opacity-100',
+                  )}
+                >
+                  <div className="flex flex-col gap-4 text-base">
+                    {footerLinks_products_items[0].map((item) => (
+                      <Link key={item.text} href={item.link}>
+                        {item.text}
+                      </Link>
+                    ))}
+                  </div>
+                  <div className="flex flex-col gap-4 text-base">
+                    {footerLinks_products_items[1].map((item) => (
+                      <Link key={item.text} href={item.link}>
+                        {item.text}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
 
             {/* contacts */}
             <div className="mt-7 space-y-7 sm:col-span-2 sm:mt-0 md:col-span-1">

@@ -3,6 +3,7 @@ import type { LocaleType } from '@/i18n/types'
 import type { AboutData } from '@/types/about'
 import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
+import Link from 'next/link'
 
 interface IntroSectionProps {
   data: AboutData['introduction_section']
@@ -19,6 +20,16 @@ export default function IntroSection({ data }: IntroSectionProps) {
     value: pick(item.value, item.value_ar),
     label: pick(item.label, item.label_ar),
   }))
+
+  // relative links get the locale prefix, external ones are kept as is
+  const trustButton = data.trust_button
+    ? {
+        label: pick(data.trust_button.text, data.trust_button.text_ar),
+        href: data.trust_button.link.startsWith('/')
+          ? `/${locale}${data.trust_button.link}`
+          : data.trust_button.link,
+      }
+    : null
 
   return (
     <section className="container-wrapper flex flex-col gap-10 pt-8 pb-12 lg:gap-18 lg:pt-16 lg:pb-20">
@@ -74,8 +85,14 @@ export default function IntroSection({ data }: IntroSectionProps) {
             }}
           />
           <div className="mt-4 flex flex-col gap-2 min-[450px]:flex-row">
-            <Button variant={'outline'} className="our-btn border-black">
-              {t('actions.contact')}
+            <Button
+              variant={'outline'}
+              className="our-btn border-black"
+              {...(trustButton
+                ? { nativeButton: false, render: <Link href={trustButton.href} /> }
+                : {})}
+            >
+              {trustButton ? trustButton.label : t('actions.contact')}
             </Button>
             <Button className="bg-our-purple our-btn">
               {t('actions.quote')}

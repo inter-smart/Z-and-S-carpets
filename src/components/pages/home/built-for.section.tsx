@@ -31,7 +31,16 @@ export default function BuiltForSection({ industries }: BuiltForSectionProps) {
     id: item.id,
     name: pick(item.title, item.title_ar),
     description: pick(item.description, item.description_ar),
-    link: item.link,
+    // already resolved server-side: null unless a CMS link is configured AND this
+    // industry has at least one category to filter by
+    button: item.button
+      ? {
+          label: pick(item.button.text, item.button.text_ar),
+          href: item.button.link.startsWith('/')
+            ? `/${locale}${item.button.link}`
+            : item.button.link,
+        }
+      : null,
     products: item.categories.map((cat) => ({
       id: cat.id,
       name: pick(cat.title, cat.title_ar),
@@ -165,18 +174,16 @@ export default function BuiltForSection({ industries }: BuiltForSectionProps) {
                       dangerouslySetInnerHTML={{ __html: category.description }}
                     />
                   </div>
-                  <Button
-                    variant="outline"
-                    className="our-btn w-fit border-white bg-transparent px-4! hover:bg-white/10 hover:text-white"
-                    {...(category.link
-                      ? {
-                          nativeButton: false,
-                          render: <Link href={category.link} />,
-                        }
-                      : {})}
-                  >
-                    {t('ctaLabel')}
-                  </Button>
+                  {category.button && (
+                    <Button
+                      variant="outline"
+                      className="our-btn w-fit border-white bg-transparent px-4! hover:bg-white/10 hover:text-white"
+                      nativeButton={false}
+                      render={<Link href={category.button.href} />}
+                    >
+                      {category.button.label}
+                    </Button>
+                  )}
                 </div>
 
                 {/* main image */}

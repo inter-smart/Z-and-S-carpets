@@ -42,6 +42,7 @@ export type HomeData = {
           id: number
           slug: string
           link: string
+          button: { text: string; text_ar: string; link: string } | null
           categories: (Titled & {
             id: number
             slug: string

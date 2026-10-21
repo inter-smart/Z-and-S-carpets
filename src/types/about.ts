@@ -22,6 +22,7 @@ export type AboutData = {
       trust_title_ar: string
       trust_description: string
       trust_description_ar: string
+      trust_button: { text: string; text_ar: string; link: string } | null
       media: HomeMedia
       mission: Titled & Described
       vision: Titled & Described
