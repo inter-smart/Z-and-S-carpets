@@ -887,6 +887,7 @@
   },
   "Navbar": {
     "menuBtnLabel": "Menu",
+    "quoteCart": "View quote cart",
     "navLinks": [
       [
         {
@@ -2063,26 +2064,49 @@
   "QuotesPage": {
     "title": "Your Quote Request",
     "description": "Review your selected products and submit your enquiry.",
-    "products": [
-      {
-        "name": "Landscaping Grass",
-        "image": "/images/floor-img-35.webp",
-        "color": "Grey",
-        "material": "Wood"
+    "selectedProducts": "Selected Products",
+    "itemsCount": "{count} Items",
+    "clearAll": "Clear All",
+    "continueShopping": "Continue Shopping",
+    "requestQuote": "Request A Quote",
+    "emptyTitle": "No Products Added Yet",
+    "emptyDescription": "Your quote list is currently empty. Add products to continue with your inquiry.",
+    "Form": {
+      "title": "Get a Quote",
+      "subtitle": "Fill in the details and we will get back at you shortly.",
+      "namePlaceholder": "Name",
+      "emailPlaceholder": "Email",
+      "phonePlaceholder": "Phone",
+      "companyPlaceholder": "Company",
+      "categoryPlaceholder": "Product Category",
+      "productPlaceholder": "Product",
+      "productFirst": "Select a category first",
+      "notesPlaceholder": "Additional Notes",
+      "loadingOptions": "Loading...",
+      "submit": "Submit",
+      "errors": {
+        "generic": "Something went wrong while sending your request. Please try again."
       },
-      {
-        "name": "Acadia Tiles",
-        "image": "/images/floor-img-30.webp",
-        "color": "Grey",
-        "material": "Wood"
+      "successDialog": {
+        "title": "Thank You for Your Inquiry",
+        "description": "We've received your request and will contact you soon with the details.",
+        "reference": "Reference ID",
+        "btnLable": "Go Back"
       },
-      {
-        "name": "Carpet Tiles Pixel Block",
-        "image": "/images/floor-img-41.webp",
-        "color": "Grey",
-        "material": "Wood"
+      "validation": {
+        "nameRequired": "Name is required",
+        "nameMin": "Name must be at least 4 characters",
+        "nameMax": "Name must be at most 100 characters",
+        "phoneRequired": "Phone number is required",
+        "phoneInvalid": "Enter a valid phone number (7-20 digits; + - ( ) and spaces allowed)",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Enter a valid email address",
+        "companyMax": "Company name must be at most 100 characters",
+        "categoryRequired": "Select a product category",
+        "productRequired": "Select a product",
+        "messageMax": "Message must be at most 2000 characters"
       }
-    ]
+    }
   },
   "ProductsPage": {
     "BannerSection": {

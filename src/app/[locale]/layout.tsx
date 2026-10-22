@@ -6,6 +6,7 @@ import SeasonalOfferDialog from '@/components/pages/common/seasonal-offer.dialog
 import Footer from '@/components/pages/footer/footer.section'
 import Navbar from '@/components/pages/navbar/navbar.section'
 import { GetASampleProvider } from '@/context/get-a-sample.context'
+import { QuoteCartProvider } from '@/context/quote-cart.context'
 import { SeasonalOfferProvider } from '@/context/seasonal-offer.context'
 import { getSeasonalOfferData } from '@/lib/api/seasonal-offer'
 import { getSiteSettingsData } from '@/lib/api/siteSettings'
@@ -87,26 +88,28 @@ export default async function RootLayout({
     >
       <body className="flex min-h-full flex-col">
         <NextIntlClientProvider messages={messages}>
-          <GetASampleProvider>
-            <SeasonalOfferProvider
-              data={seasonalOffer.success ? seasonalOffer.data : undefined}
-            >
-              <Navbar nav={nav} whatsapp={footer?.whatsapp_number} />
-              <main className="mt-28">{children}</main>
-              <Footer footer={footer} />
-              <BottomSideBtns
-                buttons={
-                  siteSettings.success
-                    ? siteSettings.data.floating_buttons
-                    : undefined
-                }
-                email={footer?.email}
-                phone={footer?.phone}
-                whatsapp={footer?.whatsapp_number}
-              />
-              <SeasonalOfferDialog />
-            </SeasonalOfferProvider>
-          </GetASampleProvider>
+          <QuoteCartProvider>
+            <GetASampleProvider>
+              <SeasonalOfferProvider
+                data={seasonalOffer.success ? seasonalOffer.data : undefined}
+              >
+                <Navbar nav={nav} whatsapp={footer?.whatsapp_number} />
+                <main className="mt-28">{children}</main>
+                <Footer footer={footer} />
+                <BottomSideBtns
+                  buttons={
+                    siteSettings.success
+                      ? siteSettings.data.floating_buttons
+                      : undefined
+                  }
+                  email={footer?.email}
+                  phone={footer?.phone}
+                  whatsapp={footer?.whatsapp_number}
+                />
+                <SeasonalOfferDialog />
+              </SeasonalOfferProvider>
+            </GetASampleProvider>
+          </QuoteCartProvider>
         </NextIntlClientProvider>
       </body>
     </html>

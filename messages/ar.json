@@ -887,6 +887,7 @@
   },
   "Navbar": {
     "menuBtnLabel": "القائمة",
+    "quoteCart": "عرض قائمة عرض السعر",
     "navLinks": [
       [
         {
@@ -2066,26 +2067,49 @@
   "QuotesPage": {
     "title": "طلب عرض السعر الخاص بك",
     "description": "راجع المنتجات التي اخترتها وأرسل استفسارك.",
-    "products": [
-      {
-        "name": "عشب تنسيق الحدائق",
-        "image": "/images/floor-img-35.webp",
-        "color": "رمادي",
-        "material": "خشب"
+    "selectedProducts": "المنتجات المحددة",
+    "itemsCount": "{count} عناصر",
+    "clearAll": "مسح الكل",
+    "continueShopping": "متابعة التسوق",
+    "requestQuote": "طلب عرض سعر",
+    "emptyTitle": "لم تتم إضافة أي منتجات بعد",
+    "emptyDescription": "قائمة عرض السعر الخاصة بك فارغة حاليًا. أضف منتجات لمتابعة استفسارك.",
+    "Form": {
+      "title": "طلب عرض سعر",
+      "subtitle": "املأ التفاصيل وسنتواصل معك قريبًا.",
+      "namePlaceholder": "الاسم",
+      "emailPlaceholder": "البريد الإلكتروني",
+      "phonePlaceholder": "الهاتف",
+      "companyPlaceholder": "الشركة",
+      "categoryPlaceholder": "فئة المنتج",
+      "productPlaceholder": "المنتج",
+      "productFirst": "اختر فئة أولاً",
+      "notesPlaceholder": "ملاحظات إضافية",
+      "loadingOptions": "جارٍ التحميل...",
+      "submit": "إرسال",
+      "errors": {
+        "generic": "حدث خطأ ما أثناء إرسال طلبك. يرجى المحاولة مرة أخرى."
       },
-      {
-        "name": "بلاط أكاديا",
-        "image": "/images/floor-img-30.webp",
-        "color": "رمادي",
-        "material": "خشب"
+      "successDialog": {
+        "title": "شكرًا لاستفسارك",
+        "description": "لقد استلمنا طلبك وسنتواصل معك قريبًا بالتفاصيل.",
+        "reference": "رقم المرجع",
+        "btnLable": "رجوع"
       },
-      {
-        "name": "بلاطات السجاد بيكسل بلوك",
-        "image": "/images/floor-img-41.webp",
-        "color": "رمادي",
-        "material": "خشب"
+      "validation": {
+        "nameRequired": "الاسم مطلوب",
+        "nameMin": "يجب أن يتكون الاسم من 4 أحرف على الأقل",
+        "nameMax": "يجب ألا يزيد الاسم عن 100 حرف",
+        "phoneRequired": "رقم الهاتف مطلوب",
+        "phoneInvalid": "أدخل رقم هاتف صحيحًا (من 7 إلى 20 رقمًا، ويُسمح بالرموز + - ( ) والمسافات)",
+        "emailRequired": "البريد الإلكتروني مطلوب",
+        "emailInvalid": "أدخل بريدًا إلكترونيًا صحيحًا",
+        "companyMax": "يجب ألا يزيد اسم الشركة عن 100 حرف",
+        "categoryRequired": "اختر فئة المنتج",
+        "productRequired": "اختر منتجًا",
+        "messageMax": "يجب ألا تزيد الرسالة عن 2000 حرف"
       }
-    ]
+    }
   },
   "ProductsPage": {
     "BannerSection": {

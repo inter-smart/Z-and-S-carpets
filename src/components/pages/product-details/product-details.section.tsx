@@ -4,9 +4,13 @@ import { Button } from '@/components/ui/button'
 import { OurIcon } from '@/components/ui/icon'
 import { useProductVariant } from '@/context/product-variant.context'
 import { useGetASample } from '@/context/get-a-sample.context'
+import { useQuoteCart } from '@/context/quote-cart.context'
 import type { LocaleType } from '@/i18n/types'
 import { buildWhatsappLink, pickLocalized } from '@/lib/product-detail'
-import type { ProductDetailAttribute, ProductDetailData } from '@/types/product-detail'
+import type {
+  ProductDetailAttribute,
+  ProductDetailData,
+} from '@/types/product-detail'
 import { cn } from 'cn'
 import {
   ChevronDownIcon,
@@ -62,8 +66,16 @@ export default function ProductDetailsSection({
   const t = useTranslations('ProductDetailsPage.Details')
   const tCard = useTranslations('Common.ProductCard')
   const { openGetASample } = useGetASample()
-  const { attributes, chosen, selectedVariant, choose, isAvailable, notice, guidance } =
-    useProductVariant()
+  const { addItem } = useQuoteCart()
+  const {
+    attributes,
+    chosen,
+    selectedVariant,
+    choose,
+    isAvailable,
+    notice,
+    guidance,
+  } = useProductVariant()
   // what just happened wins while it's fresh (it explains a conflict); otherwise, if the
   // combination still isn't fully resolved, say what's left to pick
   const message = notice || guidance
@@ -77,9 +89,26 @@ export default function ProductDetailsSection({
   // the resolved variant's image/sku are already in `variants` (loaded up front), so this
   // switches the moment a combination resolves — it never waits on the tab-content fetch
   const heroPath = selectedVariant?.media.path || product.media.path
-  const heroMedia = selectedVariant?.media.path ? selectedVariant.media : product.media
+  const heroMedia = selectedVariant?.media.path
+    ? selectedVariant.media
+    : product.media
   const heroAlt = pickLocalized(locale, heroMedia.alt, heroMedia.alt_ar) || name
   const category = product.categories.at(-1)
+
+  const handleAddToQuote = () => {
+    addItem({
+      productId: product.id,
+      productSlug: product.slug,
+      productTitle: product.title,
+      productTitleAr: product.title_ar,
+      variantId: selectedVariant?.id ?? null,
+      variantLabel: selectedVariant?.label ?? null,
+      variantLabelAr: selectedVariant?.label_ar ?? null,
+      variantSku: selectedVariant?.sku ?? null,
+      media: heroPath || null,
+      quantity,
+    })
+  }
 
   const optionLabel = (attribute: ProductDetailAttribute, slug: string) => {
     const option = attribute.values.find((item) => item.slug === slug)
@@ -93,7 +122,9 @@ export default function ProductDetailsSection({
           product: name,
           options: attributes.length
             ? ` (${attributes
-                .map((attribute) => optionLabel(attribute, chosen[attribute.slug]))
+                .map((attribute) =>
+                  optionLabel(attribute, chosen[attribute.slug]),
+                )
                 .filter(Boolean)
                 .join(', ')})`
             : '',
@@ -272,7 +303,11 @@ export default function ProductDetailsSection({
               </button>
             </div>
           </div>
-          <Button type="button" className="our-btn bg-our-purple px-5!">
+          <Button
+            type="button"
+            onClick={handleAddToQuote}
+            className="our-btn bg-our-purple px-5!"
+          >
             {tCard('addToQuote')}
           </Button>
           {whatsappLink && (

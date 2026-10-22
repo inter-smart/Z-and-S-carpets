@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button'
+import { useQuoteCart } from '@/context/quote-cart.context'
 import type { ProductItemType } from '@/types/product'
 import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
@@ -11,6 +12,23 @@ export default function ProductItemCard({
 }) {
   const locale = useLocale()
   const t = useTranslations('Common.ProductCard')
+  const { addItem } = useQuoteCart()
+
+  const handleAddToQuote = () => {
+    if (!product.id || !product.slug) return
+    addItem({
+      productId: product.id,
+      productSlug: product.slug,
+      productTitle: product.name,
+      productTitleAr: product.name,
+      variantId: null,
+      variantLabel: null,
+      variantLabelAr: null,
+      variantSku: null,
+      media: product.image || null,
+      quantity: 1,
+    })
+  }
 
   return (
     <article className="flex h-full flex-col">
@@ -54,6 +72,8 @@ export default function ProductItemCard({
           </Button>
           <Button
             type="button"
+            onClick={handleAddToQuote}
+            disabled={!product.id}
             className="bg-our-purple our-btn flex-1 rounded! px-0! py-3! text-xs! font-semibold!"
           >
             {t('addToQuote')}

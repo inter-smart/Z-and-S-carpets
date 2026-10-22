@@ -83,6 +83,7 @@ export function toProductCard(
 
   return {
     slug: item.slug,
+    id: item.id,
     name,
     description: pick(locale, item.description, item.description_ar),
     image: item.media.path ?? '',

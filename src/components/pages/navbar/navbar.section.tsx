@@ -4,6 +4,7 @@ import { SiteLogo } from '@/assets/logos'
 import { Button } from '@/components/ui/button'
 import { OurIcon } from '@/components/ui/icon'
 import { useGetASample } from '@/context/get-a-sample.context'
+import { useQuoteCart } from '@/context/quote-cart.context'
 import type { LocaleType } from '@/i18n/types'
 import { localizedHref, toNavLinks } from '@/lib/site-settings'
 import type { SiteSettingsData } from '@/types/site-settings'
@@ -32,13 +33,15 @@ export default function Navbar({ nav, whatsapp }: NavbarProps) {
   // Nav links are split around the logo: the first 4 go left, everything else goes right
   const LEFT_LINKS_COUNT = 4
   const apiLinks = nav?.pages.length ? toNavLinks(nav.pages) : null
-  const flatLinks = apiLinks ?? (t.raw('navLinks') as NavbarNavLinksType[][]).flat()
+  const flatLinks =
+    apiLinks ?? (t.raw('navLinks') as NavbarNavLinksType[][]).flat()
   const navLinks: NavbarNavLinksType[][] = [
     flatLinks.slice(0, LEFT_LINKS_COUNT),
     flatLinks.slice(LEFT_LINKS_COUNT),
   ]
 
   const { setOpen: setGetASampleOpen } = useGetASample()
+  const { count: quoteCartCount } = useQuoteCart()
 
   return (
     <>
@@ -106,11 +109,26 @@ export default function Navbar({ nav, whatsapp }: NavbarProps) {
 
               <div className="flex flex-row items-center space-x-2">
                 {/* writeTo btn */}
-                <Button
+                {/* <Button
                   size="icon"
                   className="size-8 translate-y-0! rounded-full bg-[#0066B3] hover:bg-[#0066B3]/90"
                 >
                   <OurIcon name="file-pen" className="size-3.5" />
+                </Button> */}
+                {/* quote cart btn */}
+                <Button
+                  size="icon"
+                  nativeButton={false}
+                  render={<Link href={localizedHref(locale, '/quotes')} />}
+                  aria-label={t('quoteCart')}
+                  className="relative size-8 translate-y-0! rounded-full bg-[#0066B3] hover:bg-[#0066B3]/90"
+                >
+                  <OurIcon name="file-pen" className="size-3.5" />
+                  {quoteCartCount > 0 && (
+                    <span className="absolute -top-1.5 -right-1.5 flex size-4.5 items-center justify-center rounded-full bg-[#FF0009] text-[10px] font-semibold text-white">
+                      {quoteCartCount > 99 ? '99+' : quoteCartCount}
+                    </span>
+                  )}
                 </Button>
                 {/* menu btn */}
                 <MobileNavSheet links={apiLinks ?? undefined} />

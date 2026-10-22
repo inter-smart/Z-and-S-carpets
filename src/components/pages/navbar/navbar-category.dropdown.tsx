@@ -537,48 +537,45 @@ export default function NavbarCategoryDropdown({
       onValueChange={setOpenMenu}
     >
       <NavigationMenuList className="flex w-full! items-center justify-between">
-        {/* categories: take the remaining space so the lang switch and search icon stay put */}
-        <div className="flex min-w-0 flex-1 items-center">
-          <div
-            className={cn(
-              'contents overflow-hidden',
-              'max-[299px]:[&>*:nth-last-child(-n+7)]:hidden',
-              'max-[449px]:[&>*:nth-last-child(-n+6)]:hidden',
-              'max-sm:[&>*:nth-last-child(-n+5)]:hidden',
-              'max-md:[&>*:nth-last-child(-n+4)]:hidden',
-              'max-lg:[&>*:nth-last-child(-n+3)]:hidden',
-              'max-xl:[&>*:nth-last-child(-n+2)]:hidden',
-            )}
-          >
-            {category.map((item, i) => (
-              <NavigationMenuItem
-                key={item.id ?? i}
-                className="hover:bg-transparent!"
-              >
-                <NavigationMenuTrigger className="navigation-menu-trigger-style-change h-fit! px-0! py-1.75! text-base font-normal">
-                  {item.title}
-                </NavigationMenuTrigger>
-                <NavigationMenuContent className="z-50 overflow-y-auto">
-                  <DropdownContent category={item} whatsapp={whatsapp} />
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-            ))}
-          </div>
-          {/* more category btn: lists the categories the bar hides at the current width */}
-          {category.length > 0 && (
-            <MoreCategories
-              categories={category}
-              label={t('categoryMoreBtnLabel')}
-            />
+        {/* category */}
+        <div
+          className={cn(
+            'contents overflow-hidden',
+            'max-[299px]:[&>*:nth-last-child(-n+7)]:hidden',
+            'max-[449px]:[&>*:nth-last-child(-n+6)]:hidden',
+            'max-sm:[&>*:nth-last-child(-n+5)]:hidden',
+            'max-md:[&>*:nth-last-child(-n+4)]:hidden',
+            'max-lg:[&>*:nth-last-child(-n+3)]:hidden',
+            'max-xl:[&>*:nth-last-child(-n+2)]:hidden',
           )}
+        >
+          {category.map((item, i) => (
+            <NavigationMenuItem
+              key={item.id ?? i}
+              className="hover:bg-transparent!"
+            >
+              <NavigationMenuTrigger className="navigation-menu-trigger-style-change h-fit! px-0! py-1.75! text-base font-normal">
+                {item.title}
+              </NavigationMenuTrigger>
+              <NavigationMenuContent className="z-50 overflow-y-auto">
+                <DropdownContent category={item} whatsapp={whatsapp} />
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+          ))}
         </div>
-        {/* language switch + search: fixed at the right regardless of category count */}
-        <div className="flex shrink-0 items-center space-x-3 sm:space-x-4">
-          <NavbarLangDropdown />
-          <p className="cursor-pointer space-x-0.5 sm:space-x-1.5">
-            <OurIcon name="search" className="size-4" />
-          </p>
-        </div>
+        {/* more category btn: lists the categories the bar hides at the current width */}
+        {category.length > 0 && (
+          <MoreCategories
+            categories={category}
+            label={t('categoryMoreBtnLabel')}
+          />
+        )}
+        {/* language change dropdown */}
+        <NavbarLangDropdown />
+        {/* search */}
+        <p className="cursor-pointer space-x-0.5 sm:space-x-1.5">
+          <OurIcon name="search" className="size-4" />
+        </p>
       </NavigationMenuList>
     </NavigationMenu>
   )
