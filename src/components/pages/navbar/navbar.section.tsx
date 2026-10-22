@@ -71,7 +71,8 @@ export default function Navbar({ nav, whatsapp }: NavbarProps) {
                     width={200}
                     height={64}
                     priority
-                    className="h-16 w-auto cursor-pointer"
+                    style={{ width: 'auto', height: '100%' }}
+                    className="h-16 cursor-pointer"
                   />
                 ) : (
                   <Image

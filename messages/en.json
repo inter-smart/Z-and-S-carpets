@@ -1987,6 +1987,10 @@
       }
     }
   },
+  "SeasonalOfferPage": {
+    "showOfferLabel": "Show Offer",
+    "noOffer": "No seasonal offer is active right now."
+  },
   "WorksPage": {
     "Breadcrumb": {
       "details": "Work Details"

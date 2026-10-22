@@ -121,7 +121,7 @@ export default function BuiltForSection({ industries }: BuiltForSectionProps) {
     <section className="bg-background container-wrapper py-16 lg:py-24">
       <div
         className="relative mx-auto overflow-hidden rounded-md bg-cover bg-bottom px-4 pt-18 pb-12 sm:px-8 lg:px-12"
-        style={{ backgroundImage: `url(${t('bgImage')})` }}
+        style={{ backgroundImage: `url(${industries.background.path || t('bgImage')})` }}
       >
         <div className="bg-primary/70 absolute inset-0" />
         <div className="relative z-10">
@@ -201,6 +201,7 @@ export default function BuiltForSection({ industries }: BuiltForSectionProps) {
                           `${activeProductData.name} interior`
                         }
                         fill
+                        sizes="(max-width: 1024px) 100vw, 60vw"
                         className="object-cover object-bottom transition-transform duration-700 ease-out"
                       />
                     )}
@@ -282,6 +283,7 @@ export default function BuiltForSection({ industries }: BuiltForSectionProps) {
                             src={product.image}
                             alt={product.alt || product.name}
                             fill
+                            sizes="112px"
                             className="size-full object-cover object-bottom"
                           />
                         )}

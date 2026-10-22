@@ -2,10 +2,14 @@ import type { Metadata } from 'next'
 
 import '@/app/globals.css'
 import BottomSideBtns from '@/components/common/bottom-side-btns'
+import SeasonalOfferDialog from '@/components/pages/common/seasonal-offer.dialog'
 import Footer from '@/components/pages/footer/footer.section'
 import Navbar from '@/components/pages/navbar/navbar.section'
 import { GetASampleProvider } from '@/context/get-a-sample.context'
+import { SeasonalOfferProvider } from '@/context/seasonal-offer.context'
+import { getSeasonalOfferData } from '@/lib/api/seasonal-offer'
 import { getSiteSettingsData } from '@/lib/api/siteSettings'
+import type { SeasonalOfferData } from '@/types/seasonal-offer'
 import type { SiteSettingsData } from '@/types/site-settings'
 import { cn } from '@/lib/utils'
 import { NextIntlClientProvider } from 'next-intl'
@@ -34,6 +38,9 @@ const cairo = Cairo({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+  ),
   title: 'Z&S Carpets',
   description: 'Trusted Flooring Specialists in UAE & GCC',
   keywords:
@@ -58,9 +65,10 @@ export default async function RootLayout({
   const { locale } = await params
   const direction = locale === 'ar' ? 'rtl' : 'ltr'
   // one cached request for the nav, footer and bottom buttons; the static content is the fallback
-  const [messages, siteSettings] = await Promise.all([
+  const [messages, siteSettings, seasonalOffer] = await Promise.all([
     getMessages(),
     getSiteSettingsData.getCmsData<SiteSettingsData>(locale),
+    getSeasonalOfferData.getCmsData<SeasonalOfferData>(),
   ])
   const nav = siteSettings.success ? siteSettings.data.nav : undefined
   const footer = siteSettings.success ? siteSettings.data.footer : undefined
@@ -80,19 +88,24 @@ export default async function RootLayout({
       <body className="flex min-h-full flex-col">
         <NextIntlClientProvider messages={messages}>
           <GetASampleProvider>
-            <Navbar nav={nav} whatsapp={footer?.whatsapp_number} />
-            <main className="mt-28">{children}</main>
-            <Footer footer={footer} />
-            <BottomSideBtns
-              buttons={
-                siteSettings.success
-                  ? siteSettings.data.floating_buttons
-                  : undefined
-              }
-              email={footer?.email}
-              phone={footer?.phone}
-              whatsapp={footer?.whatsapp_number}
-            />
+            <SeasonalOfferProvider
+              data={seasonalOffer.success ? seasonalOffer.data : undefined}
+            >
+              <Navbar nav={nav} whatsapp={footer?.whatsapp_number} />
+              <main className="mt-28">{children}</main>
+              <Footer footer={footer} />
+              <BottomSideBtns
+                buttons={
+                  siteSettings.success
+                    ? siteSettings.data.floating_buttons
+                    : undefined
+                }
+                email={footer?.email}
+                phone={footer?.phone}
+                whatsapp={footer?.whatsapp_number}
+              />
+              <SeasonalOfferDialog />
+            </SeasonalOfferProvider>
           </GetASampleProvider>
         </NextIntlClientProvider>
       </body>

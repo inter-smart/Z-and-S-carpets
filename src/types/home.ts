@@ -37,6 +37,7 @@ export type HomeData = {
     }
   industries_section: Visible &
     Titled & {
+      background: HomeMedia
       list: (Titled &
         Described & {
           id: number

@@ -53,6 +53,7 @@ export default function LookingForwardCard({
         <Button
           type="button"
           className="bg-our-blue our-btn mt-5 w-fit"
+          nativeButton={false}
           render={<span />}
         >
           {t('btnLabel')}
