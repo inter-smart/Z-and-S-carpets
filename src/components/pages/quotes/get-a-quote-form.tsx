@@ -27,9 +27,9 @@ import { useEffect, useMemo, useState } from 'react'
 import { Controller, useForm, useWatch } from 'react-hook-form'
 
 const inputClass =
-  'h-12 w-full rounded-sm border border-black/20 px-5 text-sm placeholder:text-black'
+  'h-12 w-full rounded-sm border border-black/20 px-5 text-sm text-black placeholder:text-black/40'
 const triggerClass =
-  'h-12! w-full rounded-sm border-black/20 bg-transparent px-5 text-sm data-placeholder:text-black'
+  'h-12! w-full rounded-sm border-black/20 bg-transparent px-5 text-sm data-placeholder:text-black/40'
 const invalidClass = 'border-red-400 focus:border-red-400'
 
 const FieldError = ({ message }: { message?: string }) =>
@@ -330,7 +330,7 @@ export default function GetAQuoteForm() {
               aria-invalid={!!errors.message}
               placeholder={t('notesPlaceholder')}
               className={cn(
-                'min-h-25 w-full resize-y rounded-sm border border-black/20 px-5 py-3 text-sm placeholder:text-black',
+                'min-h-25 w-full resize-y rounded-sm border border-black/20 px-5 py-3 text-sm text-black placeholder:text-black/40',
                 errors.message && invalidClass,
               )}
             />

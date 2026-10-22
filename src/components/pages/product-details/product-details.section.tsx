@@ -3,6 +3,7 @@
 import { Button } from '@/components/ui/button'
 import { OurIcon } from '@/components/ui/icon'
 import { useProductVariant } from '@/context/product-variant.context'
+import { useDownloadRequest } from '@/context/download-request.context'
 import { useGetASample } from '@/context/get-a-sample.context'
 import { useQuoteCart } from '@/context/quote-cart.context'
 import type { LocaleType } from '@/i18n/types'
@@ -66,6 +67,7 @@ export default function ProductDetailsSection({
   const t = useTranslations('ProductDetailsPage.Details')
   const tCard = useTranslations('Common.ProductCard')
   const { openGetASample } = useGetASample()
+  const { openDownloadRequest } = useDownloadRequest()
   const { addItem } = useQuoteCart()
   const {
     attributes,
@@ -337,22 +339,16 @@ export default function ProductDetailsSection({
           >
             {t('getSample')}
           </Button>
-          {product.data_sheet && (
-            <Button
-              variant={'outline'}
-              render={
-                <a
-                  href={product.data_sheet.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  download
-                />
-              }
-              className="our-btn border-[#CDCDCD] px-5! text-black"
-            >
-              {t('downloadDatasheet')}
-            </Button>
-          )}
+          <Button
+            type="button"
+            variant={'outline'}
+            onClick={() =>
+              openDownloadRequest({ kind: 'product', product: product.slug })
+            }
+            className="our-btn border-[#CDCDCD] px-5! text-black"
+          >
+            {t('downloadDatasheet')}
+          </Button>
         </div>
       </div>
     </section>

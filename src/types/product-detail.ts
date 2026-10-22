@@ -71,7 +71,6 @@ export type ProductDetailData = {
     description_ar: string
     media: HomeMedia
     badge: ProductLabel | null
-    data_sheet: { url: string; filename: string } | null
     categories: ProductLabel[]
     features: ProductLabel[]
     tags: ProductLabel[]

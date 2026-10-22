@@ -29,7 +29,7 @@ import { useMemo, useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 const inputClass =
-  'h-12 w-full rounded-sm border border-black/20 px-5 text-sm placeholder:text-black'
+  'h-12 w-full rounded-sm border border-black/20 px-5 text-sm text-black placeholder:text-black/40'
 const invalidClass = 'border-red-400 focus:border-red-400'
 
 const emptyValues: QuoteCartFormValues = {
@@ -157,7 +157,7 @@ function QuoteCartForm({
           return (
             <div
               key={item.lineId}
-              className="flex items-center gap-3 rounded-sm border border-black/10 p-2"
+              className="flex items-center gap-3 rounded-sm border border-black/10 p-3"
             >
               <div className="relative size-12 shrink-0 overflow-hidden rounded bg-[#F4F4F4]">
                 {item.media && (
@@ -181,7 +181,7 @@ function QuoteCartForm({
         })}
       </div>
 
-      <div className="mt-6 grid w-full grid-cols-1 gap-3 sm:grid-cols-2">
+      <div className="mt-6 grid w-full grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
           <input
             {...register('name')}
@@ -237,8 +237,8 @@ function QuoteCartForm({
             aria-invalid={!!errors.message}
             placeholder={t('notesPlaceholder')}
             className={cn(
-              'min-h-16 resize-y',
               inputClass,
+              'h-auto min-h-16 resize-y py-3',
               errors.message && invalidClass,
             )}
           />

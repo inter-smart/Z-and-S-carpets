@@ -11,6 +11,7 @@ import type { SiteSettingsData } from '@/types/site-settings'
 import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
+import DownloadRequestDialog from '../common/download-request.dialog'
 import GetASampleDialog from '../common/get-a-sample.dialog'
 import MobileNavSheet from './mobile-nav.sheet'
 import NavbarCategoryDropdown from './navbar-category.dropdown'
@@ -148,6 +149,8 @@ export default function Navbar({ nav, whatsapp }: NavbarProps) {
       </header>
       {/* Get a sample dialog component */}
       <GetASampleDialog />
+      {/* Download request dialog component */}
+      <DownloadRequestDialog />
     </>
   )
 }
