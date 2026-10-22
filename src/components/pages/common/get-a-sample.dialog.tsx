@@ -1,5 +1,6 @@
 'use client'
 
+import RecaptchaScript from '@/components/common/recaptcha-script'
 import { Button } from '@/components/ui/button'
 import {
   Dialog,
@@ -21,6 +22,7 @@ import {
   type GetASamplePreset,
 } from '@/context/get-a-sample.context'
 import type { LocaleType } from '@/i18n/types'
+import { getRecaptchaToken, RECAPTCHA_ACTIONS } from '@/lib/recaptcha'
 import { pickLocalized } from '@/lib/product-detail'
 import { createSampleSchema, type SampleFormValues } from '@/lib/schemas/sample'
 import type { SampleOptionsData } from '@/types/sample-request'
@@ -132,10 +134,11 @@ function SampleForm({
     setSubmitError('')
 
     try {
+      const recaptchaToken = await getRecaptchaToken(RECAPTCHA_ACTIONS.sample)
       const res = await fetch(`/api/sample-request?lang=${locale}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(values),
+        body: JSON.stringify({ ...values, recaptcha_token: recaptchaToken }),
       })
 
       if (res.ok) {
@@ -145,6 +148,8 @@ function SampleForm({
 
       // the server answers in the same language: show its messages next to the right field
       const result = (await res.json().catch(() => ({}))) as {
+        error_code?: string
+        message?: string
         errors?: { field: string; message: string }[]
       }
       const fieldErrors = (result.errors ?? []).filter((item) =>
@@ -155,7 +160,14 @@ function SampleForm({
           message: item.message,
         }),
       )
-      if (fieldErrors.length === 0) setSubmitError(t('errors.generic'))
+      // reCAPTCHA failures come back without a form field: show the server's (localized) message
+      const recaptchaError =
+        result.error_code === 'RECAPTCHA_FAILED'
+          ? result.message
+          : result.errors?.find((item) => item.field === 'recaptcha_token')
+              ?.message
+      if (fieldErrors.length === 0)
+        setSubmitError(recaptchaError || t('errors.generic'))
     } catch {
       setSubmitError(t('errors.generic'))
     }
@@ -380,35 +392,40 @@ export default function GetASampleDialog() {
   }, [open, options])
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
-      {submitted ? (
-        <DialogContent className="flex min-h-100 min-w-[35vw] flex-row items-center justify-center rounded-sm 2xl:min-w-125">
-          <div className="flex flex-col items-center text-center text-black">
-            <CloudCheckIcon className="text-our-blue" size={100} />
-            <DialogTitle className="mt-5 text-2xl font-medium">
-              {t('successDialog.title')}
-            </DialogTitle>
-            <DialogDescription className="our-text font-normal">
-              {t('successDialog.description')}
-            </DialogDescription>
-            <DialogClose className="bg-our-purple mt-5 w-fit rounded-sm border p-2 px-10 text-white">
-              <span className="font-medium">{t('successDialog.btnLable')}</span>
-            </DialogClose>
-          </div>
-        </DialogContent>
-      ) : (
-        <DialogContent
-          showCloseButton={false}
-          className="flex min-h-100 flex-row items-center justify-center rounded-sm bg-[#023260] p-5 text-white sm:min-w-120 md:p-10 lg:p-12"
-        >
-          <SampleForm
-            options={options}
-            optionsLoading={!options}
-            preset={preset}
-            onSuccess={() => setSubmitted(true)}
-          />
-        </DialogContent>
-      )}
-    </Dialog>
+    <>
+      <RecaptchaScript />
+      <Dialog open={open} onOpenChange={setOpen}>
+        {submitted ? (
+          <DialogContent className="flex min-h-100 min-w-[35vw] flex-row items-center justify-center rounded-sm 2xl:min-w-125">
+            <div className="flex flex-col items-center text-center text-black">
+              <CloudCheckIcon className="text-our-blue" size={100} />
+              <DialogTitle className="mt-5 text-2xl font-medium">
+                {t('successDialog.title')}
+              </DialogTitle>
+              <DialogDescription className="our-text font-normal">
+                {t('successDialog.description')}
+              </DialogDescription>
+              <DialogClose className="bg-our-purple mt-5 w-fit rounded-sm border p-2 px-10 text-white">
+                <span className="font-medium">
+                  {t('successDialog.btnLable')}
+                </span>
+              </DialogClose>
+            </div>
+          </DialogContent>
+        ) : (
+          <DialogContent
+            showCloseButton={false}
+            className="flex min-h-100 flex-row items-center justify-center rounded-sm bg-[#023260] p-5 text-white sm:min-w-120 md:p-10 lg:p-12"
+          >
+            <SampleForm
+              options={options}
+              optionsLoading={!options}
+              preset={preset}
+              onSuccess={() => setSubmitted(true)}
+            />
+          </DialogContent>
+        )}
+      </Dialog>
+    </>
   )
 }

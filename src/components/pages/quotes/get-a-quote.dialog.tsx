@@ -1,6 +1,7 @@
 'use client'
 
 import { Success_1Icon } from '@/assets/icons'
+import RecaptchaScript from '@/components/common/recaptcha-script'
 import { Button } from '@/components/ui/button'
 import {
   Dialog,
@@ -13,7 +14,7 @@ import { useQuoteCart } from '@/context/quote-cart.context'
 import type { LocaleType } from '@/i18n/types'
 import { submitQuoteRequest } from '@/lib/api/quotes'
 import { pickLocalized } from '@/lib/product-detail'
-import { getRecaptchaToken, RECAPTCHA_SITE_KEY } from '@/lib/recaptcha'
+import { getRecaptchaToken, RECAPTCHA_ACTIONS } from '@/lib/recaptcha'
 import {
   createQuoteCartSchema,
   type QuoteCartFormValues,
@@ -24,7 +25,6 @@ import { cn } from 'cn'
 import { Loader2Icon } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
-import Script from 'next/script'
 import { useMemo, useState } from 'react'
 import { useForm } from 'react-hook-form'
 
@@ -85,7 +85,7 @@ function QuoteCartForm({
     }
 
     try {
-      const recaptchaToken = await getRecaptchaToken()
+      const recaptchaToken = await getRecaptchaToken(RECAPTCHA_ACTIONS.quote)
       const payload: QuoteRequestSubmitPayload = {
         name: values.name,
         email: values.email,
@@ -284,12 +284,7 @@ export default function GetAQuoteDialog({
 
   return (
     <>
-      {RECAPTCHA_SITE_KEY && (
-        <Script
-          src={`https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`}
-          strategy="lazyOnload"
-        />
-      )}
+      <RecaptchaScript />
 
       <Dialog open={open} onOpenChange={handleOpenChange}>
         {success ? (

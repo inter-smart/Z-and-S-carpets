@@ -1,6 +1,7 @@
 'use client'
 
 import { Success_2Icon } from '@/assets/icons'
+import RecaptchaScript from '@/components/common/recaptcha-script'
 import { Button } from '@/components/ui/button'
 import {
   Dialog,
@@ -14,6 +15,7 @@ import {
   type DownloadRequestSubject,
 } from '@/context/download-request.context'
 import type { LocaleType } from '@/i18n/types'
+import { getRecaptchaToken, RECAPTCHA_ACTIONS } from '@/lib/recaptcha'
 import {
   createDownloadRequestSchema,
   type DownloadRequestFormValues,
@@ -82,11 +84,13 @@ function DownloadRequestForm({
     setSubmitError('')
 
     try {
+      const recaptchaToken = await getRecaptchaToken(RECAPTCHA_ACTIONS.download)
       const res = await fetch(`/api/download-request?lang=${locale}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...values,
+          recaptcha_token: recaptchaToken,
           ...(subject.kind === 'download'
             ? { download_id: subject.download.id }
             : { product: subject.product }),
@@ -100,6 +104,8 @@ function DownloadRequestForm({
 
       // the server answers in the same language: show its messages next to the right field
       const result = (await res.json().catch(() => ({}))) as {
+        error_code?: string
+        message?: string
         errors?: { field: string; message: string }[]
       }
       const fieldErrors = (result.errors ?? []).filter((item) =>
@@ -110,7 +116,14 @@ function DownloadRequestForm({
           message: item.message,
         }),
       )
-      if (fieldErrors.length === 0) setSubmitError(t('errors.generic'))
+      // reCAPTCHA failures come back without a form field: show the server's (localized) message
+      const recaptchaError =
+        result.error_code === 'RECAPTCHA_FAILED'
+          ? result.message
+          : result.errors?.find((item) => item.field === 'recaptcha_token')
+              ?.message
+      if (fieldErrors.length === 0)
+        setSubmitError(recaptchaError || t('errors.generic'))
     } catch {
       setSubmitError(t('errors.generic'))
     }
@@ -223,11 +236,16 @@ export default function DownloadRequestDialog() {
 
   return (
     <>
+      <RecaptchaScript />
       <Dialog open={open && !submitted} onOpenChange={setOpen}>
         <DialogContent className="flex min-h-100 min-w-[90vw] flex-row items-center justify-center rounded-sm bg-[#023260] p-5 text-white md:min-w-[70vw] md:p-10 lg:min-w-[60vw] lg:p-15 xl:min-w-[50vw] 2xl:min-w-180">
           {subject && (
             <DownloadRequestForm
-              key={subject.kind === 'download' ? subject.download.id : subject.product}
+              key={
+                subject.kind === 'download'
+                  ? subject.download.id
+                  : subject.product
+              }
               subject={subject}
               onSuccess={() => setSubmitted(true)}
             />

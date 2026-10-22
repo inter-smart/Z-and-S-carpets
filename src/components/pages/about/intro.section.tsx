@@ -94,7 +94,11 @@ export default function IntroSection({ data }: IntroSectionProps) {
             >
               {trustButton ? trustButton.label : t('actions.contact')}
             </Button>
-            <Button className="bg-our-purple our-btn">
+            <Button
+              className="bg-our-purple our-btn"
+              nativeButton={false}
+              render={<Link href={`/${locale}/quotes/form`} />}
+            >
               {t('actions.quote')}
             </Button>
           </div>

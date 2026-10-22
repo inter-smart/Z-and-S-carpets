@@ -1,6 +1,7 @@
 'use client'
 
 import { Success_1Icon } from '@/assets/icons'
+import RecaptchaScript from '@/components/common/recaptcha-script'
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogClose, DialogContent } from '@/components/ui/dialog'
 import {
@@ -14,7 +15,7 @@ import {
 import type { LocaleType } from '@/i18n/types'
 import { submitQuoteRequest } from '@/lib/api/quotes'
 import { pickLocalized } from '@/lib/product-detail'
-import { getRecaptchaToken, RECAPTCHA_SITE_KEY } from '@/lib/recaptcha'
+import { getRecaptchaToken, RECAPTCHA_ACTIONS } from '@/lib/recaptcha'
 import { createQuoteSchema, type QuoteFormValues } from '@/lib/schemas/quote'
 import type { QuoteOptionsData, QuoteRequestSubmitPayload } from '@/types/quote'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -22,7 +23,6 @@ import { cn } from 'cn'
 import { Loader2Icon } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
-import Script from 'next/script'
 import { useEffect, useMemo, useState } from 'react'
 import { Controller, useForm, useWatch } from 'react-hook-form'
 
@@ -128,7 +128,7 @@ export default function GetAQuoteForm() {
     }
 
     try {
-      const recaptchaToken = await getRecaptchaToken()
+      const recaptchaToken = await getRecaptchaToken(RECAPTCHA_ACTIONS.quote)
       const payload: QuoteRequestSubmitPayload = {
         name: values.name,
         email: values.email,
@@ -172,12 +172,7 @@ export default function GetAQuoteForm() {
 
   return (
     <>
-      {RECAPTCHA_SITE_KEY && (
-        <Script
-          src={`https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`}
-          strategy="lazyOnload"
-        />
-      )}
+      <RecaptchaScript />
 
       <div className="z-20 my-15 w-200! max-w-full rounded-md bg-white p-10 text-black sm:p-10 lg:p-12">
         <h1 className="our-heading">{t('title')}</h1>

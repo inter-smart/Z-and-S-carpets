@@ -1,5 +1,6 @@
 'use client'
 
+import RecaptchaScript from '@/components/common/recaptcha-script'
 import { Button } from '@/components/ui/button'
 import {
   Dialog,
@@ -10,6 +11,7 @@ import {
 } from '@/components/ui/dialog'
 import { OurIcon } from '@/components/ui/icon'
 import type { LocaleType } from '@/i18n/types'
+import { getRecaptchaToken, RECAPTCHA_ACTIONS } from '@/lib/recaptcha'
 import {
   CONTACT_FILE_ACCEPT,
   createContactSchema,
@@ -82,12 +84,15 @@ export default function GetInTouchSection({ title }: GetInTouchSectionProps) {
   const onSubmit = async (values: ContactFormValues) => {
     setSubmitError('')
 
+    const recaptchaToken = await getRecaptchaToken(RECAPTCHA_ACTIONS.contact)
+
     const body = new FormData()
     body.append('name', values.name)
     body.append('email', values.email)
     body.append('phone', values.phone)
     body.append('requirements', values.requirements)
     if (values.file) body.append('file', values.file)
+    body.append('recaptcha_token', recaptchaToken)
 
     try {
       const res = await fetch(`/api/contact-enquiry?lang=${locale}`, {
@@ -119,12 +124,19 @@ export default function GetInTouchSection({ title }: GetInTouchSectionProps) {
         }),
       )
 
+      // reCAPTCHA failures come back without a form field: show the server's (localized) message
+      const recaptchaError =
+        result.error_code === 'RECAPTCHA_FAILED'
+          ? result.message
+          : result.errors?.find((item) => item.field === 'recaptcha_token')
+              ?.message
+
       if (result.error_code === 'ALREADY_SUBMITTED') {
         setError('email', {
           message: result.message || t('errors.alreadySubmitted'),
         })
       } else if (fieldErrors.length === 0) {
-        setSubmitError(t('errors.generic'))
+        setSubmitError(recaptchaError || t('errors.generic'))
       }
     } catch {
       setSubmitError(t('errors.generic'))
@@ -133,6 +145,7 @@ export default function GetInTouchSection({ title }: GetInTouchSectionProps) {
 
   return (
     <>
+      <RecaptchaScript />
       <section>
         <form
           noValidate
