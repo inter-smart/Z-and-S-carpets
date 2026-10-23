@@ -82,12 +82,12 @@ export default function RelatedProjectsSection({
         {/* header */}
         <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between md:gap-6 xl:items-center">
           <h2 className="our-heading">{t('title')}</h2>
-          <FilterDropdown
+          {/* <FilterDropdown
             filterLabel={t('filterLabel')}
             filterValues={[null, ...filterValues]}
             value={selectedFilter}
             onValueChange={setSelectedFilter}
-          />
+          /> */}
         </div>
         <div className="relative mt-10">
           <div className="overflow-hidden" ref={emblaRef}>

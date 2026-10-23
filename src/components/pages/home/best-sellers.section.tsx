@@ -99,13 +99,13 @@ export default function BestSellersSection({
           </h2>
 
           <div className="flex flex-col items-start gap-3 min-[350px]:flex-row">
-            <Button className="our-btn bg-black px-3! text-lg! font-semibold tracking-widest text-white uppercase">
+            {/* <Button className="our-btn bg-black px-3! text-lg! font-semibold tracking-widest text-white uppercase">
               <ListFilterIcon
                 data-icon="inline-center"
                 className="me-1 h-5! w-5!"
               />
               {t('filterLabel')}
-            </Button>
+            </Button> */}
 
             <Button
               variant="outline"
