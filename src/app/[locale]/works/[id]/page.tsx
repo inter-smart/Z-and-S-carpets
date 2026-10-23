@@ -7,7 +7,7 @@ import type { LocaleType } from '@/i18n/types'
 import { getDetailMetaData } from '@/lib/api/metaApi'
 import { PROJECT_NOT_FOUND, getWorksData } from '@/lib/api/works'
 import { pickLocalized } from '@/lib/works'
-import type { WorkDetailData, WorkRelatedData } from '@/types/work'
+import type { WorkDetailData } from '@/types/work'
 import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import { notFound } from 'next/navigation'
@@ -55,9 +55,8 @@ export default async function WorkDetailsPage({
   const { locale, id: slug } = await params
   const lang = locale as LocaleType
 
-  const [project, related, t] = await Promise.all([
+  const [project, t] = await Promise.all([
     loadProject(slug),
-    getWorksData.getRelated<WorkRelatedData>(slug, 6),
     getTranslations({ locale, namespace: 'WorksPage' }),
   ])
   if (!project) notFound()
@@ -88,8 +87,8 @@ export default async function WorkDetailsPage({
         ]}
       />
       <WorkDetailsSection project={project} />
-      {related.success && related.data.projects.length > 0 && (
-        <RelatedProjectsSection projects={related.data.projects} />
+      {project.related_projects.length > 0 && (
+        <RelatedProjectsSection projects={project.related_projects} />
       )}
     </>
   )

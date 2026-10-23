@@ -41,6 +41,9 @@ export default function BestSellersSection({
     alt: pick(item.media.alt, item.media.alt_ar),
   }))
 
+  // Arrows only make sense when there is more than one page of cards
+  const showArrows = products.length > 3
+
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       align: 'start',
@@ -191,69 +194,75 @@ export default function BestSellersSection({
 
           {/* btns */}
           {/* Desktop Previous */}
-          <div className="absolute top-1/2 -left-10 hidden -translate-y-1/2 lg:block rtl:-right-10 rtl:left-auto">
+          {showArrows && (
+            <div className="absolute top-1/2 -left-10 hidden -translate-y-1/2 lg:block rtl:-right-10 rtl:left-auto">
+              <Button
+                type="button"
+                variant="ghost"
+                aria-label="Previous collection"
+                onClick={scrollPrev}
+                disabled={!canPrev}
+                className="cursor-pointer text-white hover:bg-transparent hover:text-white focus-visible:border-transparent! focus-visible:ring-0!"
+              >
+                {/* LTR */}
+                <OurIcon name="arrow-left" className="ltr:block rtl:hidden" />
+                {/* RTL */}
+                <OurIcon name="arrow-right" className="ltr:hidden rtl:block" />
+              </Button>
+            </div>
+          )}
+
+          {/* Desktop Next */}
+          {showArrows && (
+            <div className="absolute top-1/2 -right-10 hidden -translate-y-1/2 lg:block rtl:right-auto rtl:-left-10">
+              <Button
+                type="button"
+                variant="ghost"
+                aria-label="Next collection"
+                onClick={scrollNext}
+                disabled={!canNext}
+                className="cursor-pointer text-white hover:bg-transparent hover:text-white focus-visible:border-transparent! focus-visible:ring-0!"
+              >
+                {/* LTR */}
+                <OurIcon name="arrow-right" className="ltr:block rtl:hidden" />
+                {/* RTL */}
+                <OurIcon name="arrow-left" className="ltr:hidden rtl:block" />
+              </Button>
+            </div>
+          )}
+        </div>
+
+        {/* btn mobile */}
+        {showArrows && (
+          <div className="mt-2 flex justify-center gap-2 lg:hidden">
             <Button
-              type="button"
+              aria-label="Previous products"
               variant="ghost"
-              aria-label="Previous collection"
+              size="icon"
               onClick={scrollPrev}
               disabled={!canPrev}
               className="cursor-pointer text-white hover:bg-transparent hover:text-white focus-visible:border-transparent! focus-visible:ring-0!"
             >
               {/* LTR */}
-              <OurIcon name="arrow-left" className="ltr:block rtl:hidden" />
+              <OurIcon name="arrow-left" className="hidden ltr:block" />
               {/* RTL */}
-              <OurIcon name="arrow-right" className="ltr:hidden rtl:block" />
+              <OurIcon name="arrow-right" className="hidden rtl:block" />
             </Button>
-          </div>
-
-          {/* Desktop Next */}
-          <div className="absolute top-1/2 -right-10 hidden -translate-y-1/2 lg:block rtl:right-auto rtl:-left-10">
             <Button
-              type="button"
+              aria-label="Next products"
               variant="ghost"
-              aria-label="Next collection"
+              size="icon"
               onClick={scrollNext}
               disabled={!canNext}
               className="cursor-pointer text-white hover:bg-transparent hover:text-white focus-visible:border-transparent! focus-visible:ring-0!"
             >
               {/* LTR */}
-              <OurIcon name="arrow-right" className="ltr:block rtl:hidden" />
+              <OurIcon name="arrow-right" className="hidden ltr:block" />
               {/* RTL */}
-              <OurIcon name="arrow-left" className="ltr:hidden rtl:block" />
+              <OurIcon name="arrow-left" className="hidden rtl:block" />
             </Button>
           </div>
-        </div>
-
-        {/* btn mobile */}
-        <div className="mt-2 flex justify-center gap-2 lg:hidden">
-          <Button
-            aria-label="Previous products"
-            variant="ghost"
-            size="icon"
-            onClick={scrollPrev}
-            disabled={!canPrev}
-            className="cursor-pointer text-white hover:bg-transparent hover:text-white focus-visible:border-transparent! focus-visible:ring-0!"
-          >
-            {/* LTR */}
-            <OurIcon name="arrow-left" className="hidden ltr:block" />
-            {/* RTL */}
-            <OurIcon name="arrow-right" className="hidden rtl:block" />
-          </Button>
-          <Button
-            aria-label="Next products"
-            variant="ghost"
-            size="icon"
-            onClick={scrollNext}
-            disabled={!canNext}
-            className="cursor-pointer text-white hover:bg-transparent hover:text-white focus-visible:border-transparent! focus-visible:ring-0!"
-          >
-            {/* LTR */}
-            <OurIcon name="arrow-right" className="hidden ltr:block" />
-            {/* RTL */}
-            <OurIcon name="arrow-left" className="hidden rtl:block" />
-          </Button>
-        </div>
+        )}
       </div>
     </section>
   )

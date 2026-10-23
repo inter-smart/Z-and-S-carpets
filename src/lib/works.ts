@@ -22,6 +22,7 @@ export function toWorkCard(
     location: pick(locale, project.location, project.location_ar),
     btnLabel,
     image: project.thumbnail_url,
+    categorySlug: project.category?.slug ?? null,
   }
 }
 

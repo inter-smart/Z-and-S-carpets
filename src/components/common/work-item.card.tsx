@@ -39,11 +39,20 @@ export default function WorkItemCard({
         </div>
 
         <div className="flex flex-col gap-0 text-sm min-[350px]:flex-row min-[350px]:gap-2">
-          <div className={cn('contents', !hasViewProductsBtn && 'hidden')}>
+          <div
+            className={cn(
+              'contents',
+              (!hasViewProductsBtn || !project.categorySlug) && 'hidden',
+            )}
+          >
             <Button
               variant="ghost"
               nativeButton={false}
-              render={<Link href={`/projects`} />}
+              render={
+                <Link
+                  href={`/${locale}/products?category=${encodeURIComponent(project.categorySlug ?? '')}`}
+                />
+              }
               className="p-0! text-lg font-light whitespace-nowrap underline decoration-1 underline-offset-8 hover:bg-transparent hover:text-white focus-visible:border-transparent! focus-visible:ring-0!"
             >
               <span>View Products</span>

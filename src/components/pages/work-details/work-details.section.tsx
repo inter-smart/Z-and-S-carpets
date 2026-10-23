@@ -1,3 +1,4 @@
+import GalleryVideoCard from '@/components/pages/work-details/gallery-video-card'
 import type { LocaleType } from '@/i18n/types'
 import { formatProjectDate, pickLocalized } from '@/lib/works'
 import type { WorkDetailData } from '@/types/work'
@@ -34,8 +35,6 @@ export default function WorkDetailsSection({
     material && { label: t('materialLabel'), value: material },
   ].filter((item): item is { label: string; value: string } => Boolean(item))
 
-  const paragraphs = description.split(/\n+/).filter(Boolean)
-
   return (
     <main className="container-wrapper pt-12 pb-20">
       <header className="flex flex-col gap-6 xl:flex-row xl:items-start xl:justify-between">
@@ -63,12 +62,11 @@ export default function WorkDetailsSection({
         </div>
       )}
 
-      {paragraphs.length > 0 && (
-        <div className="mt-7 space-y-5 text-lg">
-          {paragraphs.map((paragraph, index) => (
-            <p key={index}>{paragraph}</p>
-          ))}
-        </div>
+      {description && (
+        <div
+          className="mt-7 space-y-5 text-lg"
+          dangerouslySetInnerHTML={{ __html: description }}
+        />
       )}
 
       {project.gallery.length > 0 && (
@@ -76,8 +74,20 @@ export default function WorkDetailsSection({
           className="mt-15 grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3"
           aria-label={`${title} gallery`}
         >
-          {project.gallery.map((item, index) =>
-            item.path ? (
+          {project.gallery.map((item, index) => {
+            if (!item.path) return null
+
+            if (item.type === 'video') {
+              return (
+                <GalleryVideoCard
+                  key={`${item.path}-${index}`}
+                  src={item.path}
+                  poster={item.thumbnail}
+                />
+              )
+            }
+
+            return (
               <div
                 key={`${item.path}-${index}`}
                 className="relative h-50 overflow-hidden rounded-md sm:h-40 md:h-50 lg:h-60"
@@ -89,8 +99,8 @@ export default function WorkDetailsSection({
                   className="object-cover"
                 />
               </div>
-            ) : null,
-          )}
+            )
+          })}
         </section>
       )}
     </main>

@@ -25,6 +25,8 @@ export interface WorkCardItem {
   location: string
   btnLabel: string
   image: string | null
+  // product category slug the "View Products" link filters by; null hides the link
+  categorySlug: string | null
 }
 
 // --- /api/frontend/projects ---
@@ -85,11 +87,7 @@ export interface WorkDetailData {
   industry: { slug: string; title: string; title_ar: string } | null
   category: { slug: string; title: string; title_ar: string } | null
   gallery: WorkGalleryItem[]
-}
-
-// /api/frontend/projects/:slug/related
-export interface WorkRelatedData {
-  projects: WorkProject[]
+  related_projects: WorkProject[]
 }
 
 // /api/frontend/projects/page — banner and page scripts (same conventions as the about API)

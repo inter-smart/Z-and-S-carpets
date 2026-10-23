@@ -8,27 +8,11 @@ export const PROJECT_NOT_FOUND = 'Project not found'
 // Backed by the server's "projects" module (completed-work portfolio),
 // mapped here to the storefront's /works pages.
 export const getWorksData = {
-  // One active project: info, gallery, industry/category. Both languages in one response.
+  // One active project: info, gallery, industry/category, related projects. Both languages in one response.
   getDetail: async <T = unknown>(slug: string): Promise<ApiResult<T>> => {
     try {
       const { data } = await apiClient<{ data: T }>(
         `/api/frontend/projects/${encodeURIComponent(slug)}`,
-        { cache: 'no-store' },
-      )
-      return sendSuccess(data)
-    } catch (error) {
-      return sendError(error)
-    }
-  },
-
-  // Related projects for the "related projects" carousel. Both languages in one response.
-  getRelated: async <T = unknown>(
-    slug: string,
-    limit = 6,
-  ): Promise<ApiResult<T>> => {
-    try {
-      const { data } = await apiClient<{ data: T }>(
-        `/api/frontend/projects/${encodeURIComponent(slug)}/related?limit=${limit}`,
         { cache: 'no-store' },
       )
       return sendSuccess(data)

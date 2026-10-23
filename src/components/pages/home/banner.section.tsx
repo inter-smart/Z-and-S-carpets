@@ -7,6 +7,7 @@ import { cn } from 'cn'
 import { ArrowLeftIcon, ArrowRightIcon } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 // Banner title/description arrive as sanitized inline HTML from the API
@@ -199,6 +200,8 @@ export default function BannerSection({
               <Button
                 variant="outline"
                 className="ltr:font-manrope rtl:font-cairo our-btn mt-6 w-fit px-5! hover:bg-white/10 hover:text-white"
+                nativeButton={false}
+                render={<Link href={`/${locale}/quotes/form`} />}
               >
                 {t('btnLabel')}
               </Button>
@@ -259,31 +262,35 @@ export default function BannerSection({
                             </p>
                           </div>
                           {/* arrows */}
-                          <div className="absolute top-0 flex flex-row justify-end ltr:right-0 rtl:left-0">
-                            {/* Previous */}
-                            <button
-                              type="button"
-                              aria-label="Previous card"
-                              onClick={() => setSlide((current) => current - 1)}
-                              disabled={count <= 1}
-                              className="cursor-pointer border border-gray-200 p-0.5 disabled:cursor-default sm:p-1 ltr:rounded-l-sm rtl:rounded-r-sm"
-                            >
-                              <ArrowLeftIcon className="hidden size-2.75 stroke-1 sm:size-3 ltr:block" />
-                              <ArrowRightIcon className="hidden size-2.75 stroke-1 sm:size-3 rtl:block" />
-                            </button>
+                          {count > 1 && (
+                            <div className="absolute top-0 flex flex-row justify-end ltr:right-0 rtl:left-0">
+                              {/* Previous */}
+                              <button
+                                type="button"
+                                aria-label="Previous card"
+                                onClick={() =>
+                                  setSlide((current) => current - 1)
+                                }
+                                className="cursor-pointer border border-gray-200 p-0.5 sm:p-1 ltr:rounded-l-sm rtl:rounded-r-sm"
+                              >
+                                <ArrowLeftIcon className="hidden size-2.75 stroke-1 sm:size-3 ltr:block" />
+                                <ArrowRightIcon className="hidden size-2.75 stroke-1 sm:size-3 rtl:block" />
+                              </button>
 
-                            {/* Next */}
-                            <button
-                              type="button"
-                              aria-label="Next card"
-                              onClick={() => setSlide((current) => current + 1)}
-                              disabled={count <= 1}
-                              className="cursor-pointer border-y border-gray-200 p-0.5 disabled:cursor-default sm:p-1 ltr:rounded-r-sm ltr:border-r rtl:rounded-l-sm rtl:border-l"
-                            >
-                              <ArrowLeftIcon className="hidden size-2.75 stroke-1 sm:size-3 rtl:block" />
-                              <ArrowRightIcon className="hidden size-2.75 stroke-1 sm:size-3 ltr:block" />
-                            </button>
-                          </div>
+                              {/* Next */}
+                              <button
+                                type="button"
+                                aria-label="Next card"
+                                onClick={() =>
+                                  setSlide((current) => current + 1)
+                                }
+                                className="cursor-pointer border-y border-gray-200 p-0.5 sm:p-1 ltr:rounded-r-sm ltr:border-r rtl:rounded-l-sm rtl:border-l"
+                              >
+                                <ArrowLeftIcon className="hidden size-2.75 stroke-1 sm:size-3 rtl:block" />
+                                <ArrowRightIcon className="hidden size-2.75 stroke-1 sm:size-3 ltr:block" />
+                              </button>
+                            </div>
+                          )}
                         </div>
                       </div>
                     </div>
