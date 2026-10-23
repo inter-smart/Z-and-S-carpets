@@ -2,19 +2,42 @@ import GoBackBtn from '@/components/common/go-back.btn'
 import { Button } from '@/components/ui/button'
 import { OurIcon, type OurIconName } from '@/components/ui/icon'
 import type { LocaleType } from '@/i18n/types'
+import type { SiteSettingsData } from '@/types/site-settings'
 import { useLocale, useTranslations } from 'next-intl'
+import Image from 'next/image'
 import Link from 'next/link'
 
-export default function NotFoundPage() {
+type SocialItem = {
+  link: string
+  icon?: OurIconName
+  image?: string
+  alt?: string
+}
+
+export default function NotFoundPage({
+  footer,
+}: {
+  // From the site settings; the translated content is the fallback when it is missing
+  footer?: SiteSettingsData['footer']
+}) {
   const locale = useLocale() as LocaleType
 
   const t = useTranslations('NotFoundPage')
   const t2 = useTranslations('Footer')
 
-  const social = t2.raw('social') as {
-    link: string
-    icon: OurIconName
-  }[]
+  const social: SocialItem[] = footer
+    ? footer.social_media.flatMap((item) =>
+        item.link && item.media.media_path
+          ? [
+              {
+                link: item.link,
+                image: item.media.media_path,
+                alt: item.media.media_alt,
+              },
+            ]
+          : [],
+      )
+    : (t2.raw('social') as SocialItem[])
 
   return (
     <div className="flex justify-center px-5 pt-16 pb-24">
@@ -45,8 +68,25 @@ export default function NotFoundPage() {
           <p>{t('social.title')}</p>
           <div className="flex gap-10">
             {social.map((logo, i) => (
-              <Link key={i} href={logo.link}>
-                <OurIcon name={logo.icon} className="size-4 text-black" />
+              <Link
+                key={i}
+                href={logo.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {logo.image ? (
+                  <Image
+                    src={logo.image}
+                    alt={logo.alt || ''}
+                    width={16}
+                    height={16}
+                    className="size-4 object-contain"
+                  />
+                ) : (
+                  logo.icon && (
+                    <OurIcon name={logo.icon} className="size-4 text-black" />
+                  )
+                )}
               </Link>
             ))}
           </div>

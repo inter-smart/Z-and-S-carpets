@@ -2005,6 +2005,11 @@
       "title": "Explore Our Work",
       "loadMoreBtnLable": "Load More"
     },
+    "Details": {
+      "locationLabel": "Location",
+      "dateLabel": "Date Of Completion",
+      "materialLabel": "Using Material"
+    },
     "RelatedProjectsSection": {
       "title": "Related Projects",
       "filterLabel": "Filter"

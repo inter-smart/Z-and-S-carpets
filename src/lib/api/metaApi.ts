@@ -132,10 +132,12 @@ export type MetaDetailTarget =
   | { productId: number | string }
   | { variantId: number | string }
   | { blogId: number | string }
+  | { projectId: number | string }
 
 function targetToParams(target: MetaDetailTarget): Record<string, string> {
   if ('productId' in target) return { product_id: String(target.productId) }
   if ('variantId' in target) return { variant_id: String(target.variantId) }
+  if ('projectId' in target) return { project_id: String(target.projectId) }
   return { blog_id: String(target.blogId) }
 }
 

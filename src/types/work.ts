@@ -62,6 +62,36 @@ export interface WorkListData {
   pagination: WorkPagination
 }
 
+// /api/frontend/projects/:slug
+export interface WorkGalleryItem {
+  type: 'image' | 'video'
+  path: string | null
+  thumbnail: string | null
+}
+
+export interface WorkDetailData {
+  id: number
+  slug: string
+  title: string
+  title_ar: string
+  location: string
+  location_ar: string
+  date_of_completion: string | null
+  material_type: string
+  material_type_ar: string
+  description: string
+  description_ar: string
+  media: { path: string | null; alt: string; alt_ar: string }
+  industry: { slug: string; title: string; title_ar: string } | null
+  category: { slug: string; title: string; title_ar: string } | null
+  gallery: WorkGalleryItem[]
+}
+
+// /api/frontend/projects/:slug/related
+export interface WorkRelatedData {
+  projects: WorkProject[]
+}
+
 // /api/frontend/projects/page — banner and page scripts (same conventions as the about API)
 export type WorksPageData = {
   other_meta: string | null

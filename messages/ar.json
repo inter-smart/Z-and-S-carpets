@@ -2008,6 +2008,11 @@
       "title": "استكشف أعمالنا",
       "loadMoreBtnLable": "عرض المزيد"
     },
+    "Details": {
+      "locationLabel": "الموقع",
+      "dateLabel": "تاريخ الإنجاز",
+      "materialLabel": "المادة المستخدمة"
+    },
     "RelatedProjectsSection": {
       "title": "المشاريع ذات الصلة",
       "filterLabel": "تصفية"

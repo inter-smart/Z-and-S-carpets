@@ -5,7 +5,8 @@ import WorkItemCard from '@/components/common/work-item.card'
 import { Button } from '@/components/ui/button'
 import { OurIcon } from '@/components/ui/icon'
 import type { LocaleType } from '@/i18n/types'
-import type { WorkItemType } from '@/types/work'
+import { toWorkCard } from '@/lib/works'
+import type { WorkProject } from '@/types/work'
 import Autoplay from 'embla-carousel-autoplay'
 import useEmblaCarousel from 'embla-carousel-react'
 import { useLocale, useTranslations } from 'next-intl'
@@ -13,13 +14,15 @@ import { useCallback, useEffect, useState } from 'react'
 
 const filterValues = ['One', 'Two', 'Three']
 
-export default function RelatedProjectsSection() {
+export default function RelatedProjectsSection({
+  projects,
+}: {
+  projects: WorkProject[]
+}) {
   const locale = useLocale() as LocaleType
 
   const t = useTranslations('WorksPage.RelatedProjectsSection')
   const t2 = useTranslations('Works')
-
-  const workItems = t2.raw('Items') as WorkItemType[]
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
@@ -84,13 +87,20 @@ export default function RelatedProjectsSection() {
         <div className="relative mt-10">
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="-ms-4 flex">
-              {workItems.map((product, index) => {
+              {projects.map((project) => {
                 return (
                   <div
-                    key={index}
+                    key={project.slug}
                     className="h-60 min-w-0 shrink-0 grow-0 basis-full ps-4 md:basis-1/2 2xl:h-80"
                   >
-                    <WorkItemCard project={product} hasViewProductsBtn />
+                    <WorkItemCard
+                      project={toWorkCard(
+                        project,
+                        locale,
+                        t2('viewProjectLabel'),
+                      )}
+                      hasViewProductsBtn
+                    />
                   </div>
                 )
               })}

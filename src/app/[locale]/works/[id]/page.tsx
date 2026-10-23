@@ -1,43 +1,96 @@
 import BreadcrumbBar from '@/components/common/breadcrumb-bar'
+import DynamicMeta from '@/components/common/dynamic-meta'
 import InnerBannerSection from '@/components/pages/common/inner-banner.section'
 import RelatedProjectsSection from '@/components/pages/work-details/related-projects.section'
 import WorkDetailsSection from '@/components/pages/work-details/work-details.section'
-import type { WorkItemType } from '@/types/work'
+import type { LocaleType } from '@/i18n/types'
+import { getDetailMetaData } from '@/lib/api/metaApi'
+import { PROJECT_NOT_FOUND, getWorksData } from '@/lib/api/works'
+import { pickLocalized } from '@/lib/works'
+import type { WorkDetailData, WorkRelatedData } from '@/types/work'
 import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
+import { notFound } from 'next/navigation'
 
-export const metadata: Metadata = {
-  title: `Work Details | Z&S Carpets`,
-  description: 'A Z&S Carpets project.',
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || ''
+
+async function loadProject(slug: string) {
+  const result = await getWorksData.getDetail<WorkDetailData>(slug)
+  if (result.success) return result.data
+  // an unknown / inactive project is a 404; other failures (API down) surface as an error
+  if (result.error === PROJECT_NOT_FOUND) return null
+  throw new Error(result.error)
+}
+
+export async function generateMetadata({
+  params,
+}: PageProps<'/[locale]/works/[id]'>): Promise<Metadata> {
+  // the folder keeps its old `[id]` name; the value is the project's slug
+  const { locale, id: slug } = await params
+  const lang = locale as LocaleType
+  const project = await loadProject(slug)
+  if (!project) return {}
+
+  // the project's own SEO row wins when the admin wrote one, else its own title / description
+  return getDetailMetaData(
+    { projectId: project.id },
+    lang,
+    `${SITE_URL}/${locale}/works/${slug}`,
+    project.media.path,
+    {
+      title: pickLocalized(lang, project.title, project.title_ar),
+      description: pickLocalized(
+        lang,
+        project.description,
+        project.description_ar,
+      ),
+    },
+  )
 }
 
 export default async function WorkDetailsPage({
   params,
 }: PageProps<'/[locale]/works/[id]'>) {
-  const { locale, id } = await params
+  // the folder keeps its old `[id]` name; the value is the project's slug
+  const { locale, id: slug } = await params
+  const lang = locale as LocaleType
 
-  const [t, tw] = await Promise.all([
+  const [project, related, t] = await Promise.all([
+    loadProject(slug),
+    getWorksData.getRelated<WorkRelatedData>(slug, 6),
     getTranslations({ locale, namespace: 'WorksPage' }),
-    getTranslations({ locale, namespace: 'Works' }),
   ])
-  const workItems = tw.raw('Items') as WorkItemType[]
-  const work = workItems.find((item) => item.id === id)
+  if (!project) notFound()
+
+  const title = pickLocalized(lang, project.title, project.title_ar)
+
+  const projectSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CreativeWork',
+    name: title,
+    description: pickLocalized(
+      lang,
+      project.description,
+      project.description_ar,
+    ),
+    image: project.media.path ? [project.media.path] : undefined,
+    url: `${SITE_URL}/${lang}/works/${slug}`,
+  }
 
   return (
     <>
+      <DynamicMeta structuredData={[projectSchema]} />
       <InnerBannerSection pageName="WorksPage" />
       <BreadcrumbBar
         values={[
           { name: t('BannerSection.title'), link: '/works' },
-          {
-            name: work?.title ?? t('Breadcrumb.details'),
-            link: `/works/${id}`,
-            currentPage: true,
-          },
+          { name: title, link: `/works/${slug}`, currentPage: true },
         ]}
       />
-      <WorkDetailsSection id={id} />
-      <RelatedProjectsSection />
+      <WorkDetailsSection project={project} />
+      {related.success && related.data.projects.length > 0 && (
+        <RelatedProjectsSection projects={related.data.projects} />
+      )}
     </>
   )
 }

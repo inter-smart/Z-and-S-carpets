@@ -25,6 +25,19 @@ export function toWorkCard(
   }
 }
 
+// Completion date as the detail page shows it ("November 10, 2025" / "10 نوفمبر 2025"), in UTC so
+// the server and the browser render the same day
+export function formatProjectDate(iso: string, locale: LocaleType) {
+  const date = new Date(iso)
+  if (Number.isNaN(date.getTime())) return ''
+  return new Intl.DateTimeFormat(locale === 'ar' ? 'ar-u-nu-latn' : 'en-US', {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
+  }).format(date)
+}
+
 // Industry slug from a query value (rejects anything that isn't a plain slug)
 export function sanitizeIndustry(value: string | string[] | undefined) {
   const raw = Array.isArray(value) ? value[0] : value
