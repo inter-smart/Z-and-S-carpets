@@ -9,6 +9,7 @@ import { toWorkCard } from '@/lib/works'
 import type { WorkProject } from '@/types/work'
 import Autoplay from 'embla-carousel-autoplay'
 import useEmblaCarousel from 'embla-carousel-react'
+import { cn } from 'cn'
 import { useLocale, useTranslations } from 'next-intl'
 import { useCallback, useEffect, useState } from 'react'
 
@@ -41,6 +42,10 @@ export default function RelatedProjectsSection({
   // #Prev/Next
   const [canPrev, setCanPrev] = useState(false)
   const [canNext, setCanNext] = useState(false)
+
+  // Arrows only matter when the cards overflow the viewport: 1 card per view on mobile,
+  // 2 from md up. Embla recomputes this on resize ('reInit'), so it covers every breakpoint.
+  const hasOverflow = canPrev || canNext
 
   const scrollPrev = useCallback(() => {
     emblaApi?.scrollPrev()
@@ -109,7 +114,12 @@ export default function RelatedProjectsSection({
 
           {/* btns */}
           {/* Desktop Previous */}
-          <div className="absolute top-1/2 -left-10 hidden -translate-y-1/2 lg:block rtl:-right-10 rtl:left-auto">
+          <div
+            className={cn(
+              'absolute top-1/2 -left-10 hidden -translate-y-1/2 lg:block rtl:-right-10 rtl:left-auto',
+              !hasOverflow && 'lg:hidden',
+            )}
+          >
             <Button
               type="button"
               variant="ghost"
@@ -126,7 +136,12 @@ export default function RelatedProjectsSection({
           </div>
 
           {/* Desktop Next */}
-          <div className="absolute top-1/2 -right-10 hidden -translate-y-1/2 lg:block rtl:right-auto rtl:-left-10">
+          <div
+            className={cn(
+              'absolute top-1/2 -right-10 hidden -translate-y-1/2 lg:block rtl:right-auto rtl:-left-10',
+              !hasOverflow && 'lg:hidden',
+            )}
+          >
             <Button
               type="button"
               variant="ghost"
@@ -144,7 +159,12 @@ export default function RelatedProjectsSection({
         </div>
 
         {/* btn mobile */}
-        <div className="mt-2 flex justify-center gap-2 lg:hidden">
+        <div
+          className={cn(
+            'mt-2 flex justify-center gap-2 lg:hidden',
+            !hasOverflow && 'hidden',
+          )}
+        >
           <Button
             aria-label="Previous products"
             variant="ghost"
