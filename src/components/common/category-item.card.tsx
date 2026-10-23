@@ -1,6 +1,6 @@
+import SafeImage from '@/components/common/safe-image'
 import { Button } from '@/components/ui/button'
 import type { ProductItemType } from '@/types/product'
-import Image from 'next/image'
 
 export default function CategoryItemCard({
   product,
@@ -10,7 +10,7 @@ export default function CategoryItemCard({
   return (
     <article>
       <div className="relative h-45 overflow-hidden rounded-t-sm min-[450px]:h-70 sm:h-45 md:max-lg:h-35">
-        <Image
+        <SafeImage
           src={product.image}
           alt={product.name}
           fill

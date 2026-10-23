@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button'
 import type { LocaleType } from '@/i18n/types'
 import type { HomeData } from '@/types/home'
 import { useLocale, useTranslations } from 'next-intl'
+import SafeImage from '@/components/common/safe-image'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -65,8 +66,8 @@ export default function LookingForwardCard({
         />
       </div>
       <div className="relative hidden sm:block">
-        <Image
-          src={data?.media.path ?? t('image')}
+        <SafeImage
+          src={data?.media.path || t('image')}
           fill
           alt={
             (data && pick(data.media.alt, data.media.alt_ar)) ||

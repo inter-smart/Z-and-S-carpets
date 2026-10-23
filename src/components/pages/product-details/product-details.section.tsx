@@ -20,7 +20,7 @@ import {
   ChevronUpIcon,
 } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
-import Image from 'next/image'
+import SafeImage from '@/components/common/safe-image'
 import { useEffect, useRef, useState } from 'react'
 
 // Horizontal row that scrolls with arrow buttons (arrows are enabled only when it overflows)
@@ -140,17 +140,15 @@ export default function ProductDetailsSection({
     <section className="container-wrapper space-y-8 pt-8 lg:pt-12 xl:grid xl:grid-cols-[0.95fr_1.05fr] xl:gap-10 xl:space-y-0 2xl:gap-12">
       {/* main image: the selected variant's, else the product's */}
       <div className="relative h-80 overflow-hidden rounded-md bg-[#F4F4F4] min-[400px]:h-120 xl:sticky xl:top-24 xl:aspect-square xl:h-auto xl:self-start">
-        {heroPath && (
-          <Image
-            key={heroPath}
-            src={heroPath}
-            alt={heroAlt}
-            fill
-            priority
-            sizes="(max-width: 1280px) 100vw, 50vw"
-            className="w-full object-cover"
-          />
-        )}
+        <SafeImage
+          key={heroPath}
+          src={heroPath}
+          alt={heroAlt}
+          fill
+          priority
+          sizes="(max-width: 1280px) 100vw, 50vw"
+          className="w-full object-cover"
+        />
         {product.badge && (
           <span className="absolute top-3 right-3 rounded-xs bg-white px-2 py-0.5 text-xs">
             {pickLocalized(locale, product.badge.title, product.badge.title_ar)}
@@ -421,15 +419,13 @@ function AttributeGroup({
                     )}
                   >
                     <span className="sr-only">{label}</span>
-                    {item.media.path && (
-                      <Image
-                        src={item.media.path}
-                        alt={label}
-                        fill
-                        sizes="60px"
-                        className="object-cover"
-                      />
-                    )}
+                    <SafeImage
+                      src={item.media.path}
+                      alt={label}
+                      fill
+                      sizes="60px"
+                      className="object-cover"
+                    />
                   </button>
                   <p className="ltr:font-manrope rtl:font-cairo text-sm tracking-wider">
                     {label}

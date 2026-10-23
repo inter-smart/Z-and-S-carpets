@@ -1,9 +1,9 @@
+import SafeImage from '@/components/common/safe-image'
 import { Button } from '@/components/ui/button'
 import type { LocaleType } from '@/i18n/types'
 import { formatBlogDate, pickLocalized } from '@/lib/blogs'
 import type { BlogCard } from '@/types/blog'
 import { useLocale, useTranslations } from 'next-intl'
-import Image from 'next/image'
 import Link from 'next/link'
 
 export default function BlogItemCard({ article }: { article: BlogCard }) {
@@ -17,18 +17,16 @@ export default function BlogItemCard({ article }: { article: BlogCard }) {
   return (
     <article className="grid grid-cols-1 gap-3 overflow-hidden rounded-md border border-[#BABABA] p-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
       <div className="relative aspect-square w-full overflow-hidden rounded-sm bg-[#F4F4F4] min-[400px]:max-sm:h-75 sm:order-last lg:order-first xl:order-last">
-        {article.media.path && (
-          <Image
-            src={article.media.path}
-            alt={
-              pickLocalized(locale, article.media.alt, article.media.alt_ar) ||
-              title
-            }
-            fill
-            sizes="(max-width: 640px) 100vw, 400px"
-            className="object-cover"
-          />
-        )}
+        <SafeImage
+          src={article.media.path}
+          alt={
+            pickLocalized(locale, article.media.alt, article.media.alt_ar) ||
+            title
+          }
+          fill
+          sizes="(max-width: 640px) 100vw, 400px"
+          className="object-cover"
+        />
       </div>
       <div className="flex flex-col p-2">
         <p className="text-our-purple text-sm">

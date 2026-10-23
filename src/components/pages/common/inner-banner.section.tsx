@@ -26,7 +26,7 @@ export default function InnerBannerSection({
     <div
       className="relative h-54 w-full text-white lg:h-64 xl:h-74"
       style={{
-        backgroundImage: `url(${data?.media.path ?? t('image')})`,
+        backgroundImage: `url(${data?.media.path || t('image')})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}

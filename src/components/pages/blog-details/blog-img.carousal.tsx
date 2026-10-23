@@ -8,7 +8,7 @@ import type { HomeMedia } from '@/types/home'
 import Autoplay from 'embla-carousel-autoplay'
 import useEmblaCarousel from 'embla-carousel-react'
 import { useLocale } from 'next-intl'
-import Image from 'next/image'
+import SafeImage from '@/components/common/safe-image'
 import { useCallback, useEffect, useState } from 'react'
 
 export default function BlogImgCarousal({
@@ -77,18 +77,16 @@ export default function BlogImgCarousal({
                 className="min-w-0 shrink-0 grow-0 basis-full ps-4 md:basis-1/2"
               >
                 <div className="relative h-70 overflow-hidden rounded-sm md:h-50 lg:h-70 xl:h-80 2xl:h-90">
-                  {image.path && (
-                    <Image
-                      src={image.path}
-                      alt={
-                        pickLocalized(locale, image.alt, image.alt_ar) ||
-                        `${title} ${index + 1}`
-                      }
-                      fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover"
-                    />
-                  )}
+                  <SafeImage
+                    src={image.path}
+                    alt={
+                      pickLocalized(locale, image.alt, image.alt_ar) ||
+                      `${title} ${index + 1}`
+                    }
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover"
+                  />
                 </div>
               </div>
             ))}

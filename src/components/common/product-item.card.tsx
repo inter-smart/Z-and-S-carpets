@@ -1,8 +1,8 @@
+import SafeImage from '@/components/common/safe-image'
 import { Button } from '@/components/ui/button'
 import { useQuoteCart } from '@/context/quote-cart.context'
 import type { ProductItemType } from '@/types/product'
 import { useLocale, useTranslations } from 'next-intl'
-import Image from 'next/image'
 import Link from 'next/link'
 
 export default function ProductItemCard({
@@ -33,14 +33,12 @@ export default function ProductItemCard({
   return (
     <article className="flex h-full flex-col">
       <div className="relative h-45 shrink-0 overflow-hidden rounded-t-sm bg-[#F4F4F4] min-[450px]:h-70 sm:h-45 md:max-lg:h-35">
-        {product.image && (
-          <Image
-            src={product.image}
-            alt={product.imageAlt || product.name}
-            fill
-            className="h-full w-full object-cover"
-          />
-        )}
+        <SafeImage
+          src={product.image}
+          alt={product.imageAlt || product.name}
+          fill
+          className="h-full w-full object-cover"
+        />
         {product.badge && (
           <span className="absolute top-2 right-2 rounded-xs bg-white px-2 py-0.5 text-xs">
             {product.badge}

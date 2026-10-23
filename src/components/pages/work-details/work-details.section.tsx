@@ -3,7 +3,7 @@ import type { LocaleType } from '@/i18n/types'
 import { formatProjectDate, pickLocalized } from '@/lib/works'
 import type { WorkDetailData } from '@/types/work'
 import { useLocale, useTranslations } from 'next-intl'
-import Image from 'next/image'
+import SafeImage from '@/components/common/safe-image'
 
 export default function WorkDetailsSection({
   project,
@@ -51,16 +51,14 @@ export default function WorkDetailsSection({
         )}
       </header>
 
-      {project.media.path && (
-        <div className="relative mt-15 mb-15 h-50 w-full overflow-hidden rounded-md sm:h-75 xl:h-100 2xl:h-120">
-          <Image
-            src={project.media.path}
-            alt={title}
-            fill
-            className="object-cover"
-          />
-        </div>
-      )}
+      <div className="relative mt-15 mb-15 h-50 w-full overflow-hidden rounded-md sm:h-75 xl:h-100 2xl:h-120">
+        <SafeImage
+          src={project.media.path}
+          alt={title}
+          fill
+          className="object-cover"
+        />
+      </div>
 
       {description && (
         <div
@@ -92,7 +90,7 @@ export default function WorkDetailsSection({
                 key={`${item.path}-${index}`}
                 className="relative h-50 overflow-hidden rounded-md sm:h-40 md:h-50 lg:h-60"
               >
-                <Image
+                <SafeImage
                   src={item.path}
                   alt={`${title} ${index + 1}`}
                   fill
