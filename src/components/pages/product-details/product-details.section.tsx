@@ -18,6 +18,7 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
   ChevronUpIcon,
+  XIcon,
 } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import SafeImage from '@/components/common/safe-image'
@@ -77,6 +78,8 @@ export default function ProductDetailsSection({
     isAvailable,
     notice,
     guidance,
+    hasSelection,
+    clear,
   } = useProductVariant()
   // what just happened wins while it's fresh (it explains a conflict); otherwise, if the
   // combination still isn't fully resolved, say what's left to pick
@@ -254,16 +257,32 @@ export default function ProductDetailsSection({
             unavailableLabel={t('unavailableOption')}
           />
         ))}
-        {message && (
-          <p
-            role="status"
-            className={cn(
-              'mt-3 text-sm',
-              notice ? 'text-our-purple' : 'text-[#777]',
+        {(message || hasSelection) && (
+          <div className="mt-3 flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
+            {message ? (
+              <p
+                role="status"
+                className={cn(
+                  'text-sm',
+                  notice ? 'text-our-purple' : 'text-[#777]',
+                )}
+              >
+                {message}
+              </p>
+            ) : (
+              <span />
             )}
-          >
-            {message}
-          </p>
+            {hasSelection && (
+              <button
+                type="button"
+                onClick={clear}
+                className="text-our-purple ltr:font-manrope rtl:font-cairo inline-flex cursor-pointer items-center gap-1 text-sm tracking-wider hover:underline focus:ring-0 focus:outline-none"
+              >
+                <XIcon className="size-3.5" />
+                {t('clearSelection')}
+              </button>
+            )}
+          </div>
         )}
 
         {/* buttons */}

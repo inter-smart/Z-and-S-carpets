@@ -2143,7 +2143,11 @@
       "noVideoSupport": "متصفحك لا يدعم تشغيل الفيديو.",
       "unavailableOption": "غير متاح مع اختيارك الحالي",
       "selectionReset": "{option} غير متاح مع اختياراتك الأخرى، لذلك تم مسح {attributes}.",
-      "chooseOptionsPrompt": "يرجى اختيار {attributes} للمتابعة."
+      "chooseOptionsPrompt": "يرجى اختيار {attributes} للمتابعة.",
+      "clearSelection": "مسح الاختيارات",
+      "loadingDetails": "جارٍ تحميل تفاصيل المنتج…",
+      "detailsError": "تعذّر تحميل تفاصيل هذا الخيار.",
+      "retry": "حاول مرة أخرى"
     },
     "BannerSection": {
       "title": "Products",

@@ -40,6 +40,8 @@ export default function RelatedProductsSection({
   // #Prev/Next
   const [canPrev, setCanPrev] = useState(false)
   const [canNext, setCanNext] = useState(false)
+  // buttons only when the items overflow the visible slides (1 / 2 / 3 / 4 per view by breakpoint)
+  const [hasOverflow, setHasOverflow] = useState(false)
 
   const scrollPrev = useCallback(() => {
     emblaApi?.scrollPrev()
@@ -55,6 +57,7 @@ export default function RelatedProductsSection({
     const updateButtons = () => {
       setCanPrev(emblaApi.canScrollPrev())
       setCanNext(emblaApi.canScrollNext())
+      setHasOverflow(emblaApi.scrollSnapList().length > 1)
     }
 
     updateButtons()
@@ -93,69 +96,75 @@ export default function RelatedProductsSection({
 
           {/* btns */}
           {/* Desktop Previous */}
-          <div className="absolute top-1/2 -left-10 hidden -translate-y-1/2 lg:block rtl:-right-10 rtl:left-auto">
+          {hasOverflow && (
+            <div className="absolute top-1/2 -left-10 hidden -translate-y-1/2 lg:block rtl:-right-10 rtl:left-auto">
+              <Button
+                type="button"
+                variant="ghost"
+                aria-label="Previous collection"
+                onClick={scrollPrev}
+                disabled={!canPrev}
+                className="text-our-purple hover:text-our-purple cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
+              >
+                {/* LTR */}
+                <OurIcon name="arrow-left" className="ltr:block rtl:hidden" />
+                {/* RTL */}
+                <OurIcon name="arrow-right" className="ltr:hidden rtl:block" />
+              </Button>
+            </div>
+          )}
+
+          {/* Desktop Next */}
+          {hasOverflow && (
+            <div className="absolute top-1/2 -right-10 hidden -translate-y-1/2 lg:block rtl:right-auto rtl:-left-10">
+              <Button
+                type="button"
+                variant="ghost"
+                aria-label="Next collection"
+                onClick={scrollNext}
+                disabled={!canNext}
+                className="text-our-purple hover:text-our-purple cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
+              >
+                {/* LTR */}
+                <OurIcon name="arrow-right" className="ltr:block rtl:hidden" />
+                {/* RTL */}
+                <OurIcon name="arrow-left" className="ltr:hidden rtl:block" />
+              </Button>
+            </div>
+          )}
+        </div>
+
+        {/* btn mobile */}
+        {hasOverflow && (
+          <div className="mt-2 flex justify-center gap-2 lg:hidden">
             <Button
-              type="button"
+              aria-label="Previous products"
               variant="ghost"
-              aria-label="Previous collection"
+              size="icon"
               onClick={scrollPrev}
               disabled={!canPrev}
               className="text-our-purple hover:text-our-purple cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
             >
               {/* LTR */}
-              <OurIcon name="arrow-left" className="ltr:block rtl:hidden" />
+              <OurIcon name="arrow-left" className="hidden ltr:block" />
               {/* RTL */}
-              <OurIcon name="arrow-right" className="ltr:hidden rtl:block" />
+              <OurIcon name="arrow-right" className="hidden rtl:block" />
             </Button>
-          </div>
-
-          {/* Desktop Next */}
-          <div className="absolute top-1/2 -right-10 hidden -translate-y-1/2 lg:block rtl:right-auto rtl:-left-10">
             <Button
-              type="button"
+              aria-label="Next products"
               variant="ghost"
-              aria-label="Next collection"
+              size="icon"
               onClick={scrollNext}
               disabled={!canNext}
               className="text-our-purple hover:text-our-purple cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
             >
               {/* LTR */}
-              <OurIcon name="arrow-right" className="ltr:block rtl:hidden" />
+              <OurIcon name="arrow-right" className="hidden ltr:block" />
               {/* RTL */}
-              <OurIcon name="arrow-left" className="ltr:hidden rtl:block" />
+              <OurIcon name="arrow-left" className="hidden rtl:block" />
             </Button>
           </div>
-        </div>
-
-        {/* btn mobile */}
-        <div className="mt-2 flex justify-center gap-2 lg:hidden">
-          <Button
-            aria-label="Previous products"
-            variant="ghost"
-            size="icon"
-            onClick={scrollPrev}
-            disabled={!canPrev}
-            className="text-our-purple hover:text-our-purple cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
-          >
-            {/* LTR */}
-            <OurIcon name="arrow-left" className="hidden ltr:block" />
-            {/* RTL */}
-            <OurIcon name="arrow-right" className="hidden rtl:block" />
-          </Button>
-          <Button
-            aria-label="Next products"
-            variant="ghost"
-            size="icon"
-            onClick={scrollNext}
-            disabled={!canNext}
-            className="text-our-purple hover:text-our-purple cursor-pointer hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
-          >
-            {/* LTR */}
-            <OurIcon name="arrow-right" className="hidden ltr:block" />
-            {/* RTL */}
-            <OurIcon name="arrow-left" className="hidden rtl:block" />
-          </Button>
-        </div>
+        )}
       </div>
     </section>
   )
