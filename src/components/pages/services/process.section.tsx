@@ -43,7 +43,7 @@ export default function ProcessSection({ data }: ProcessSectionProps) {
                   alt={pick(item.media.alt, item.media.alt_ar) || title}
                   width={40}
                   height={40}
-                  className="size-10 object-contain"
+                  className="size-10 object-contain brightness-0 invert"
                 />
               )}
               <h3 className="mt-12 text-2xl font-medium">
