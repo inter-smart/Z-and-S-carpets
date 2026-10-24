@@ -12,7 +12,7 @@ import { ChevronRightIcon } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { useState } from 'react'
-import { dummyProdCategoryData } from './dummyProdCategory.data'
+import type { NavCategory } from './navbar-category.dropdown'
 
 interface NavbarNavLinksType {
   text: string
@@ -21,14 +21,41 @@ interface NavbarNavLinksType {
 
 export default function MobileNavSheet({
   links,
+  categories,
 }: {
   // flat page links from the site settings; the translated links are the fallback
   links?: NavbarNavLinksType[]
+  // site-settings categories; the translated list is the fallback (same as the category bar)
+  categories?: NavCategory[]
 }) {
   const locale = useLocale() as LocaleType
   const t = useTranslations('Navbar')
 
   const navLinks = links ?? (t.raw('navLinks') as NavbarNavLinksType[][]).flat()
+
+  const categoryList =
+    categories ?? (t.raw('category') as { id?: number; title: string }[])
+  const hrefFor = (item: NavCategory) =>
+    item.slug
+      ? `/${locale}/products?category=${item.slug}`
+      : `/${locale}/products`
+
+  const renderProducts = (products: NavCategory['products'] = []) =>
+    products.map((product) => (
+      <Link
+        key={product.id}
+        href={`/${locale}/products/${product.slug}`}
+        onClick={() => setOpen(false)}
+        className="flex items-center justify-between border-t border-black/10 bg-white py-2.5 ps-8 pe-4 text-xs normal-case transition-colors hover:bg-gray-100"
+      >
+        <span>{product.title}</span>
+        {product.badge && (
+          <span className="rounded-xs bg-gray-100 px-1.5 py-0.5 text-[10px] uppercase">
+            {product.badge}
+          </span>
+        )}
+      </Link>
+    ))
 
   const [open, setOpen] = useState(false)
   const [activeTab, setActiveTab] = useState('menu')
@@ -70,8 +97,8 @@ export default function MobileNavSheet({
         >
           {/* Tabs */}
           <TabsList className="w-full shrink-0 rounded-md *:rounded-sm *:text-sm *:font-normal *:tracking-wider *:uppercase">
-            <TabsTrigger value="menu">Menu</TabsTrigger>
-            <TabsTrigger value="quick_info">Quick Info</TabsTrigger>
+            <TabsTrigger value="menu">{t('menuBtnLabel')}</TabsTrigger>
+            <TabsTrigger value="quick_info">{t('quickInfoLabel')}</TabsTrigger>
           </TabsList>
 
           <div className="absolute inset-0 top-15">
@@ -84,61 +111,86 @@ export default function MobileNavSheet({
                 'transition-opacity duration-300 ease-in-out data-ending-style:opacity-0 data-starting-style:opacity-0',
               )}
             >
-              {dummyProdCategoryData.map((category, i) => (
-                <div
-                  key={category.id}
-                  className="border-b-2 border-[#787878]/30"
-                >
-                  {/* Category button */}
-                  <button
-                    type="button"
-                    onClick={() =>
-                      setOpenFilter((prev) =>
-                        prev === category.id ? null : category.id,
-                      )
-                    }
-                    aria-expanded={openCategory === category.id}
-                    className={cn(
-                      'flex w-full cursor-pointer items-center justify-between py-3 text-left text-sm font-normal tracking-wider uppercase focus:ring-0 focus:outline-none',
-                      i === 0 && 'pt-0',
-                    )}
-                  >
-                    <span>{category.name}</span>
-                    <ChevronRightIcon
-                      size={15}
-                      className={cn(
-                        'stroke-1 transition-transform duration-300',
-                        openCategory === category.id ? 'rotate-90' : 'rotate-0',
-                      )}
-                    />
-                  </button>
+              {categoryList.map((category, i) => {
+                const key = String(category.id ?? i)
+                const children = (category as NavCategory).children ?? []
+                const ownProducts = (category as NavCategory).products ?? []
+                const expandable = children.length > 0 || ownProducts.length > 0
+                const rowClass = cn(
+                  'flex w-full items-center justify-between py-3 text-start text-sm font-normal tracking-wider uppercase focus:ring-0 focus:outline-none',
+                  i === 0 && 'pt-0',
+                )
+                return (
+                  <div key={key} className="border-b-2 border-[#787878]/30">
+                    {!expandable ? (
+                      <Link
+                        href={hrefFor(category as NavCategory)}
+                        onClick={() => setOpen(false)}
+                        className={rowClass}
+                      >
+                        <span>{category.title}</span>
+                      </Link>
+                    ) : (
+                      <>
+                        {/* Category button */}
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setOpenFilter((prev) => (prev === key ? null : key))
+                          }
+                          aria-expanded={openCategory === key}
+                          className={cn(rowClass, 'cursor-pointer')}
+                        >
+                          <span>{category.title}</span>
+                          <ChevronRightIcon
+                            size={15}
+                            className={cn(
+                              'stroke-1 transition-transform duration-300 rtl:-scale-x-100',
+                              openCategory === key ? 'rotate-90' : 'rotate-0',
+                            )}
+                          />
+                        </button>
 
-                  {/* Subcategories */}
-                  <div
-                    className={cn(
-                      'grid font-normal tracking-wider uppercase transition-[grid-template-rows] duration-300 ease-in-out',
-                      openCategory === category.id
-                        ? 'grid-rows-[1fr]'
-                        : 'grid-rows-[0fr]',
+                        {/* Subcategories */}
+                        <div
+                          className={cn(
+                            'grid font-normal tracking-wider uppercase transition-[grid-template-rows] duration-300 ease-in-out',
+                            openCategory === key
+                              ? 'grid-rows-[1fr]'
+                              : 'grid-rows-[0fr]',
+                          )}
+                        >
+                          <div className="min-h-0 overflow-hidden">
+                            <div className="flex flex-col bg-gray-50">
+                              <Link
+                                href={hrefFor(category as NavCategory)}
+                                onClick={() => setOpen(false)}
+                                className="border-t border-black/15 px-4 py-3 text-sm transition-colors hover:bg-gray-100"
+                              >
+                                {t('viewAllLabel')}
+                              </Link>
+                              {children.map((child, j) => (
+                                <div key={child.id ?? j}>
+                                  <Link
+                                    href={hrefFor(child)}
+                                    onClick={() => setOpen(false)}
+                                    className="block border-t border-black/15 px-4 py-3 text-sm transition-colors hover:bg-gray-100"
+                                  >
+                                    {child.title}
+                                  </Link>
+                                  {renderProducts(child.products)}
+                                </div>
+                              ))}
+                              {children.length === 0 &&
+                                renderProducts(ownProducts)}
+                            </div>
+                          </div>
+                        </div>
+                      </>
                     )}
-                  >
-                    <div className="min-h-0 overflow-hidden">
-                      <div className="flex flex-col bg-gray-50">
-                        {category.subCategory.map((subCategory) => (
-                          <Link
-                            key={subCategory.id}
-                            href={subCategory.href}
-                            onClick={() => setOpen(false)}
-                            className="border-t border-black/15 px-4 py-3 text-sm transition-colors hover:bg-gray-100"
-                          >
-                            {subCategory.name}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
                   </div>
-                </div>
-              ))}
+                )
+              })}
             </TabsContent>
 
             {/* QUICK INFO TAB */}
@@ -166,7 +218,7 @@ export default function MobileNavSheet({
                   onClick={handleGetASample}
                   className="ltr:font-nobile rtl:font-cairo cursor-pointer text-sm font-normal tracking-wider uppercase focus:ring-0 focus:outline-none"
                 >
-                  Get a sample
+                  {t('getASampleLabel')}
                 </button>
               </div>
             </TabsContent>

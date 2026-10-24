@@ -226,7 +226,7 @@ interface NavProduct {
   image: { path: string | null; alt: string }
 }
 
-interface NavCategory {
+export interface NavCategory {
   id?: number
   slug?: string
   title: string

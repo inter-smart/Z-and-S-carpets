@@ -104,7 +104,7 @@ export default function Navbar({ nav, whatsapp }: NavbarProps) {
                   onClick={() => setGetASampleOpen(true)}
                   className="cursor-pointer text-base font-medium focus:ring-0 focus:outline-none"
                 >
-                  Get a sample
+                  {t('getASampleLabel')}
                 </button>
               </div>
 
@@ -132,7 +132,10 @@ export default function Navbar({ nav, whatsapp }: NavbarProps) {
                   )}
                 </Button>
                 {/* menu btn */}
-                <MobileNavSheet links={apiLinks ?? undefined} />
+                <MobileNavSheet
+                  links={apiLinks ?? undefined}
+                  categories={nav?.categories}
+                />
               </div>
             </div>
           </div>

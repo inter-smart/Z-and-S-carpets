@@ -887,6 +887,8 @@
   },
   "Navbar": {
     "menuBtnLabel": "Menu",
+    "getASampleLabel": "Get a sample",
+    "quickInfoLabel": "Quick Info",
     "quoteCart": "View quote cart",
     "navLinks": [
       [
