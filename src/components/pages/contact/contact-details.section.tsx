@@ -90,12 +90,21 @@ export default function ContactDetailsSection({
 
   const renderIcon = (icon: DetailCard['icon'], className: string) =>
     icon.path ? (
-      <Image
-        src={icon.path}
-        alt={icon.alt}
-        width={40}
-        height={40}
-        className={className}
+      // CMS icons are <img>s, which ignore text color, so tint them via a mask
+      <span
+        role="img"
+        aria-label={icon.alt}
+        className={`${className} bg-our-purple inline-block`}
+        style={{
+          maskImage: `url(${icon.path})`,
+          WebkitMaskImage: `url(${icon.path})`,
+          maskSize: 'contain',
+          WebkitMaskSize: 'contain',
+          maskRepeat: 'no-repeat',
+          WebkitMaskRepeat: 'no-repeat',
+          maskPosition: 'center',
+          WebkitMaskPosition: 'center',
+        }}
       />
     ) : (
       <OurIcon name={icon.fallback} className={className} />
