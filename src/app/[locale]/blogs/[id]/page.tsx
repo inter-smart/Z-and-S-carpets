@@ -117,7 +117,7 @@ export default async function BlogDetailsPage({
           { name: t('Breadcrumb.title'), link: `/blogs` },
           { name: title, link: `/blogs/${slug}`, currentPage: true },
         ]}
-        className="mt-2"
+        className="mt-7"
       />
       <BlogDetailsSection
         article={post}
