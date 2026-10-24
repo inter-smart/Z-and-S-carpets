@@ -8,13 +8,12 @@ import { pickLocalized } from '@/lib/blogs'
 import type { BlogCard } from '@/types/blog'
 import Autoplay from 'embla-carousel-autoplay'
 import useEmblaCarousel from 'embla-carousel-react'
-import { useLocale, useTranslations } from 'next-intl'
+import { useLocale } from 'next-intl'
 import { useCallback, useEffect, useState } from 'react'
 
 interface RelatedBlogsSectionProps {
   blogs: BlogCard[]
-  // heading from the CMS; the translation is the fallback
-  heading?: { title: string; title_ar: string }
+  heading: { title: string; title_ar: string }
 }
 
 export default function RelatedBlogsSection({
@@ -22,8 +21,6 @@ export default function RelatedBlogsSection({
   heading,
 }: RelatedBlogsSectionProps) {
   const locale = useLocale() as LocaleType
-
-  const t = useTranslations('BlogsPage.RelatedBlogsSection')
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
@@ -76,9 +73,7 @@ export default function RelatedBlogsSection({
         {/* header */}
         <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between md:gap-6 xl:items-center">
           <h2 className="our-heading">
-            {(heading &&
-              pickLocalized(locale, heading.title, heading.title_ar)) ||
-              t('title')}
+            {pickLocalized(locale, heading.title, heading.title_ar)}
           </h2>
         </div>
         <div className="relative mt-10">

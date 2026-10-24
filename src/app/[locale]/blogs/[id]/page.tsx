@@ -73,6 +73,14 @@ export default async function BlogDetailsPage({
   const pageData = page.success ? page.data : undefined
   const title = pickLocalized(lang, post.title, post.title_ar)
 
+  // the related section renders only with a CMS heading (no translation fallback)
+  const relatedTitle = pageData?.list_section.related_title
+  const relatedTitleAr = pageData?.list_section.related_title_ar
+  const relatedHeading =
+    relatedTitle && relatedTitleAr
+      ? { title: relatedTitle, title_ar: relatedTitleAr }
+      : undefined
+
   // the Arabic page shows the English body until an Arabic one is written
   const content = localizeInternalLinks(
     pickLocalized(lang, post.content, post.content_ar),
@@ -121,17 +129,10 @@ export default async function BlogDetailsPage({
           <AdBanner ad={pageData.ads[0]} />
         </div>
       )}
-      {related.success && related.data.blogs.length > 0 && (
+      {related.success && related.data.blogs.length > 0 && relatedHeading && (
         <RelatedBlogsSection
           blogs={related.data.blogs}
-          heading={
-            pageData
-              ? {
-                  title: pageData.list_section.related_title,
-                  title_ar: pageData.list_section.related_title_ar,
-                }
-              : undefined
-          }
+          heading={relatedHeading}
         />
       )}
     </>
