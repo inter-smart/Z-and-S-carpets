@@ -22,8 +22,8 @@ export default function SeasonalOfferContent({
       <DialogClose className="absolute top-2 right-2 z-50 focus:ring-0 focus:outline-none">
         <XIcon className="size-4" />
       </DialogClose>
-      <div className="relative h-full w-full text-black">
-        <div className="relative h-full w-full overflow-hidden rounded-sm">
+      <div className="relative h-full text-black">
+        <div className="relative h-full overflow-hidden rounded-sm">
           <DialogClose
             nativeButton={false}
             render={
@@ -40,9 +40,10 @@ export default function SeasonalOfferContent({
             <Image
               src={media.path}
               alt={buttonText}
-              fill
-              sizes="(max-width: 640px) 90vw, 500px"
-              className="z-10 object-cover"
+              width={0}
+              height={0}
+              sizes="(max-width: 640px) 90vw, 800px"
+              className="z-10 h-full w-auto max-w-full object-contain"
             />
           )}
 

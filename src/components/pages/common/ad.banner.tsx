@@ -31,7 +31,7 @@ export default function AdBanner({ ad }: { ad: BlogAd }) {
         className="object-cover"
       />
       {link && (
-        <span className="our-btn bg-our-purple absolute start-4 bottom-4 w-fit px-5 py-2 text-white sm:start-8 sm:bottom-8">
+        <span className="our-btn hover:bg-input/50 hover:text-foreground absolute bottom-[10%] left-[79.5%] inline-flex h-7 w-fit items-center justify-center rounded-md border border-white bg-transparent text-xs font-medium whitespace-nowrap text-white transition-all">
           {buttonText}
         </span>
       )}

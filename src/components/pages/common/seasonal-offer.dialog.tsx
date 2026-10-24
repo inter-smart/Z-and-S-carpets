@@ -32,7 +32,7 @@ export default function SeasonalOfferDialog() {
     >
       <DialogContent
         showCloseButton={false}
-        className="flex h-100 min-w-[35vw] rounded-sm p-1.5 sm:min-w-150 md:min-w-180 lg:min-w-200"
+        className="flex h-100 w-auto rounded-sm p-1.5 sm:max-w-[calc(100%-2rem)]"
       >
         <SeasonalOfferContent
           media={data.media}
