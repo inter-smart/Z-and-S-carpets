@@ -2,7 +2,9 @@
 
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
-import SeasonalOfferContent from './seasonal-offer-content'
+import SeasonalOfferContent, {
+  SeasonalOfferPreload,
+} from './seasonal-offer-content'
 
 export default function SeasonalOfferPageDialog({
   triggerLabel,
@@ -20,26 +22,35 @@ export default function SeasonalOfferPageDialog({
   buttonHref: string
 }) {
   return (
-    <Dialog
-      onOpenChange={(next, eventDetails) => {
-        if (!next && eventDetails.reason !== 'close-press') {
-          eventDetails.cancel()
-        }
-      }}
-    >
-      <DialogTrigger render={<Button variant="outline">{triggerLabel}</Button>} />
-      <DialogContent
-        showCloseButton={false}
-        className="flex h-100 min-w-[35vw] rounded-sm p-1.5 sm:min-w-150 md:min-w-180 lg:min-w-200"
+    <>
+      <SeasonalOfferPreload
+        media={media}
+        mobileMedia={mobileMedia}
+        badge={badge}
+      />
+      <Dialog
+        onOpenChange={(next, eventDetails) => {
+          if (!next && eventDetails.reason !== 'close-press') {
+            eventDetails.cancel()
+          }
+        }}
       >
-        <SeasonalOfferContent
-          media={media}
-          mobileMedia={mobileMedia}
-          badge={badge}
-          buttonText={buttonText}
-          buttonHref={buttonHref}
+        <DialogTrigger
+          render={<Button variant="outline">{triggerLabel}</Button>}
         />
-      </DialogContent>
-    </Dialog>
+        <DialogContent
+          showCloseButton={false}
+          className="flex h-100 min-w-[35vw] rounded-sm p-1.5 sm:min-w-150 md:min-w-180 lg:min-w-200"
+        >
+          <SeasonalOfferContent
+            media={media}
+            mobileMedia={mobileMedia}
+            badge={badge}
+            buttonText={buttonText}
+            buttonHref={buttonHref}
+          />
+        </DialogContent>
+      </Dialog>
+    </>
   )
 }

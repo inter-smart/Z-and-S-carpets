@@ -399,6 +399,7 @@ function DropdownContent({
                     src={card.image}
                     alt={card.alt}
                     fill
+                    sizes="200px"
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                 )}

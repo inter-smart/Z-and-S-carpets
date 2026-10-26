@@ -1,8 +1,11 @@
+'use client'
+
 import { Button } from '@/components/ui/button'
 import { DialogClose } from '@/components/ui/dialog'
 import { XIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useSyncExternalStore } from 'react'
 
 export interface SeasonalOfferContentData {
   media: { path: string | null }
@@ -88,5 +91,49 @@ export default function SeasonalOfferContent({
         )}
       </div>
     </>
+  )
+}
+
+// The dialog body only mounts on open, so its images would start downloading (and being optimized)
+// at that moment. This warms the browser cache with the exact variant the dialog will request.
+export function SeasonalOfferPreload({
+  media,
+  mobileMedia,
+  badge,
+}: Pick<SeasonalOfferContentData, 'media' | 'mobileMedia' | 'badge'>) {
+  // null on the server / first render so nothing is fetched before we know the viewport
+  const mobile = useSyncExternalStore(
+    () => () => {},
+    () => window.matchMedia('(max-width: 639px)').matches,
+    () => null,
+  )
+
+  if (mobile === null) return null
+
+  const main = mobile && mobileMedia?.path ? mobileMedia.path : media.path
+
+  return (
+    <div hidden aria-hidden="true">
+      {main && (
+        <Image
+          src={main}
+          alt=""
+          fill
+          loading="eager"
+          fetchPriority="low"
+          sizes={mobile ? '90vw' : '(max-width: 640px) 90vw, 800px'}
+        />
+      )}
+      {badge.path && (
+        <Image
+          src={badge.path}
+          alt=""
+          fill
+          loading="eager"
+          fetchPriority="low"
+          sizes="132px"
+        />
+      )}
+    </div>
   )
 }

@@ -119,8 +119,9 @@ export default function CollectionSection({
                     <Image
                       src={item.image}
                       alt={item.alt || `${item.title} interior`}
-                      priority
                       fill
+                      sizes="(max-width: 1024px) 100vw, 60vw"
+                      priority={i < 2}
                       className="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   )}

@@ -7,6 +7,7 @@ import AutoScroll from 'embla-carousel-auto-scroll'
 import useEmblaCarousel from 'embla-carousel-react'
 import type { HomeData } from '@/types/home'
 import { useLocale, useTranslations } from 'next-intl'
+import Image from 'next/image'
 import { useCallback } from 'react'
 
 interface CustomerReviewType {
@@ -32,9 +33,11 @@ function ReviewCard({ review }: { review: CustomerReviewType }) {
       </div>
       <div className="mt-7 flex items-center gap-3">
         {review.avatar && (
-          <img
+          <Image
             src={review.avatar}
             alt={`${review.name}, ${review.role}`}
+            width={56}
+            height={56}
             className="size-14 rounded-full object-cover"
           />
         )}

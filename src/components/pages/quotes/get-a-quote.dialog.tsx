@@ -165,6 +165,7 @@ function QuoteCartForm({
                     src={item.media}
                     alt={name}
                     fill
+                    sizes="48px"
                     className="object-cover"
                   />
                 )}

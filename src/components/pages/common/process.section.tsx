@@ -79,6 +79,7 @@ export default function ProcessSections({ data }: ProcessSectionsProps) {
                 src={apiMedia.path}
                 alt={pick(apiMedia.alt, apiMedia.alt_ar) || sectionTitle}
                 fill
+                sizes="(max-width: 1024px) 100vw, 55vw"
                 className="object-cover"
               />
             ) : (
@@ -88,6 +89,7 @@ export default function ProcessSections({ data }: ProcessSectionsProps) {
                 playsInline
                 muted
                 loop
+                preload="metadata"
                 onPlay={() => setIsPlaying(true)}
                 onPause={() => setIsPlaying(false)}
                 poster={videoPoster}

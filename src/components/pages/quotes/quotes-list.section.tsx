@@ -71,6 +71,7 @@ export default function QuotesListSection() {
                           src={item.media}
                           alt={name}
                           fill
+                          sizes="104px"
                           className="object-cover"
                         />
                       )}

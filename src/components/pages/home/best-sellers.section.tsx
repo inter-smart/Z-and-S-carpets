@@ -133,6 +133,7 @@ export default function BestSellersSection({
                             src={product.image}
                             alt={product.alt || product.title}
                             fill
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                             className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
                           />
                         )}

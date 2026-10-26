@@ -148,6 +148,7 @@ export default function BannerSection({
             alt={stripTags(currentCategory.title)}
             fill
             priority
+            sizes="100vw"
             className="object-cover"
           />
         </div>
@@ -244,6 +245,7 @@ export default function BannerSection({
                                 `${currentCategory.label} ${card.itemText}`
                               }
                               fill
+                              sizes="128px"
                               className="object-cover"
                             />
                           )}

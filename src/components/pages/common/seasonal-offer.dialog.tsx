@@ -4,7 +4,9 @@ import { Dialog, DialogContent } from '@/components/ui/dialog'
 import { useSeasonalOffer } from '@/context/seasonal-offer.context'
 import type { LocaleType } from '@/i18n/types'
 import { useLocale } from 'next-intl'
-import SeasonalOfferContent from './seasonal-offer-content'
+import SeasonalOfferContent, {
+  SeasonalOfferPreload,
+} from './seasonal-offer-content'
 
 export default function SeasonalOfferDialog() {
   const locale = useLocale() as LocaleType
@@ -19,29 +21,38 @@ export default function SeasonalOfferDialog() {
     : data.button_link
 
   return (
-    <Dialog
-      open={open}
-      onOpenChange={(next, eventDetails) => {
-        if (next) return
-        if (eventDetails.reason !== 'close-press') {
-          eventDetails.cancel()
-          return
-        }
-        close()
-      }}
-    >
-      <DialogContent
-        showCloseButton={false}
-        className="flex h-100 min-w-[35vw] rounded-sm p-1.5 sm:min-w-150 md:min-w-180 lg:min-w-200"
-      >
-        <SeasonalOfferContent
+    <>
+      {!open && (
+        <SeasonalOfferPreload
           media={data.media}
           mobileMedia={data.mobile_media}
           badge={data.badge}
-          buttonText={pick(data.button_text, data.button_text_ar)}
-          buttonHref={buttonHref}
         />
-      </DialogContent>
-    </Dialog>
+      )}
+      <Dialog
+        open={open}
+        onOpenChange={(next, eventDetails) => {
+          if (next) return
+          if (eventDetails.reason !== 'close-press') {
+            eventDetails.cancel()
+            return
+          }
+          close()
+        }}
+      >
+        <DialogContent
+          showCloseButton={false}
+          className="flex h-100 min-w-[35vw] rounded-sm p-1.5 sm:min-w-150 md:min-w-180 lg:min-w-200"
+        >
+          <SeasonalOfferContent
+            media={data.media}
+            mobileMedia={data.mobile_media}
+            badge={data.badge}
+            buttonText={pick(data.button_text, data.button_text_ar)}
+            buttonHref={buttonHref}
+          />
+        </DialogContent>
+      </Dialog>
+    </>
   )
 }

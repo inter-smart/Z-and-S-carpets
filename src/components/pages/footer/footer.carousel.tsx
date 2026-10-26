@@ -64,7 +64,7 @@ export default function FooterCarousel({ images }: { images: string[] }) {
           src={image}
           alt={`Elegant Flooring ${index + 1}`}
           fill
-          // priority={index === 0}
+          sizes="(max-width: 768px) 100vw, 50vw"
           className={cn(
             'object-cover object-bottom transition-opacity duration-1500',
             index === current ? 'opacity-100' : 'opacity-0',

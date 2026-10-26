@@ -59,6 +59,7 @@ export default function ManagementSection({ data }: ManagementSectionProps) {
                     src={leader.image}
                     alt={`${leader.name}, ${leader.role}, ${leader.company}`}
                     fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                     className="object-contain object-center min-[500px]:object-right rtl:min-[500px]:object-left"
                   />
                 )}

@@ -5,6 +5,9 @@ const apiUrl = process.env.API_URL || process.env.NEXT_PUBLIC_API_BASE_URL
 
 const nextConfig: NextConfig = {
   images: {
+    formats: ['image/avif', 'image/webp'],
+    // API uploads rarely change under the same URL, so avoid re-optimizing every minute
+    minimumCacheTTL: 60 * 60 * 24,
     // The local API (localhost) is a private address, which the image optimizer blocks by default
     dangerouslyAllowLocalIP: process.env.NODE_ENV !== 'production',
     // API-served uploads (home banners, milestones, ...)

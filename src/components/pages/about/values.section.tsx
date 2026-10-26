@@ -61,6 +61,7 @@ export default function ValuesSection({ data }: ValuesSectionProps) {
                 pick(data.title, data.title_ar)
               }
               fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className=""
             />
           )}
