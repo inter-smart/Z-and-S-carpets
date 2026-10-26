@@ -28,7 +28,7 @@ import { useLocale, useTranslations } from 'next-intl'
 import { usePathname, useRouter } from 'next/navigation'
 import { useMemo, useState, useTransition, type ReactNode } from 'react'
 import ProductsEmptySection from './products-empty.section'
-import RelatedCategoriesSection from './related-categories.section'
+// import RelatedCategoriesSection from './related-categories.section'
 
 type FilterCategory = ProductFiltersData['categories'][number]
 
@@ -434,12 +434,9 @@ export default function ProductListSection({
       </section>
 
       <div>
-        {products.length ? (
-          faqs?.is_visible && (
-            <FAQSection className="bg-[#EFF9FE]" data={faqs} />
-          )
-        ) : (
-          <RelatedCategoriesSection />
+        {/* Related categories (<RelatedCategoriesSection />) are disabled for empty results until the section is reworked */}
+        {products.length > 0 && faqs?.is_visible && (
+          <FAQSection className="bg-[#EFF9FE]" data={faqs} />
         )}
       </div>
     </>

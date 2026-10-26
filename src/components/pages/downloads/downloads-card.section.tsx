@@ -5,17 +5,64 @@ import { OurIcon } from '@/components/ui/icon'
 import { useDownloadRequest } from '@/context/download-request.context'
 import type { LocaleType } from '@/i18n/types'
 import { pickLocalized } from '@/lib/product-detail'
-import type { DownloadItem } from '@/types/download'
+import { DOWNLOADS_PAGE_LIMIT } from '@/lib/api/downloads'
+import type { DownloadItem, DownloadsPageData } from '@/types/download'
 import { useLocale, useTranslations } from 'next-intl'
+import { useState } from 'react'
 
 export default function DownloadsCardSection({
-  downloads,
+  initialDownloads,
+  initialPage,
+  initialHasMore,
 }: {
-  downloads: DownloadItem[]
+  initialDownloads: DownloadItem[]
+  // how many pages the first load already contains (from ?page=)
+  initialPage: number
+  initialHasMore: boolean
 }) {
   const locale = useLocale() as LocaleType
   const t = useTranslations('DownloadsPage.CardSection')
   const { openDownloadRequest } = useDownloadRequest()
+
+  // first page comes from the server; further pages are appended from the /api/downloads route
+  const [downloads, setDownloads] = useState(initialDownloads)
+  const [page, setPage] = useState(initialPage)
+  const [hasMore, setHasMore] = useState(initialHasMore)
+  const [isLoadingMore, setIsLoadingMore] = useState(false)
+  const [loadError, setLoadError] = useState(false)
+
+  const loadMore = async () => {
+    if (isLoadingMore) return
+    const nextPage = page + 1
+    setIsLoadingMore(true)
+    setLoadError(false)
+
+    try {
+      const query = new URLSearchParams({
+        page: String(nextPage),
+        limit: String(DOWNLOADS_PAGE_LIMIT),
+      })
+      const response = await fetch(`/api/downloads?${query}`)
+      if (!response.ok) throw new Error('Failed to load downloads')
+      const data = (await response.json()) as DownloadsPageData
+
+      setDownloads((current) => {
+        const known = new Set(current.map((item) => item.id))
+        return [...current, ...data.downloads.filter((d) => !known.has(d.id))]
+      })
+      setPage(nextPage)
+      setHasMore(data.pagination.hasMore)
+
+      // keep the loaded page count in the URL so a refresh / shared link shows the same list
+      const url = new URL(window.location.href)
+      url.searchParams.set('page', String(nextPage))
+      window.history.replaceState(null, '', url)
+    } catch {
+      setLoadError(true)
+    } finally {
+      setIsLoadingMore(false)
+    }
+  }
 
   if (!downloads.length) {
     return (
@@ -63,6 +110,24 @@ export default function DownloadsCardSection({
           </div>
         ))}
       </div>
+
+      {hasMore && (
+        <div className="mt-12 flex w-full justify-center">
+          <Button
+            variant="outline"
+            className="our-btn border-our-blue"
+            onClick={loadMore}
+            disabled={isLoadingMore}
+          >
+            {t('loadMoreBtnLable')}
+          </Button>
+        </div>
+      )}
+      {loadError && (
+        <p className="mt-3 text-center text-sm text-red-600">
+          {t('loadMoreError')}
+        </p>
+      )}
     </section>
   )
 }

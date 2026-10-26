@@ -11,6 +11,14 @@ export type DownloadItem = {
   file: { url: string | null; filename: string; size_bytes: number | null }
 }
 
+export type DownloadsPagination = {
+  page: number
+  limit: number
+  totalCount: number
+  totalPages: number
+  hasMore: boolean
+}
+
 // /api/frontend/downloads
 export type DownloadsPageData = {
   other_meta: string | null
@@ -23,4 +31,5 @@ export type DownloadsPageData = {
     media: HomeMedia
   } & Visible
   downloads: DownloadItem[]
+  pagination: DownloadsPagination
 }

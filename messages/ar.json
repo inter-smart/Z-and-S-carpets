@@ -1925,6 +1925,8 @@
     "CardSection": {
       "downloadBtnLable": "تنزيل",
       "noItems": "لا توجد ملفات متاحة للتحميل حاليًا.",
+      "loadMoreBtnLable": "عرض المزيد",
+      "loadMoreError": "تعذّر تحميل المزيد من الملفات. يرجى المحاولة مرة أخرى.",
       "downloadFormDialog": {
         "title": "تنزيل الكتيب",
         "description": "اطّلع على الكتيب للحصول على نظرة شاملة ومفصلة على مجموعاتنا.",

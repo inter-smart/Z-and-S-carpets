@@ -3,7 +3,11 @@ import DynamicMeta from '@/components/common/dynamic-meta'
 import InnerBannerSection from '@/components/pages/common/inner-banner.section'
 import DownloadsCardSection from '@/components/pages/downloads/downloads-card.section'
 import type { LocaleType } from '@/i18n/types'
-import { getDownloadsData } from '@/lib/api/downloads'
+import {
+  DOWNLOADS_PAGE_LIMIT,
+  getDownloadsData,
+  sanitizeDownloadsPage,
+} from '@/lib/api/downloads'
 import { getMetaData } from '@/lib/api/metaApi'
 import { parseMetaTags, sanitizeMetadata } from '@/lib/metaHelper'
 import type { DownloadsPageData } from '@/types/download'
@@ -19,12 +23,18 @@ export async function generateMetadata({
 
 export default async function DownloadsPage({
   params,
+  searchParams,
 }: PageProps<'/[locale]/downloads'>) {
   const { locale } = await params
+  // ?page=<n>: how many pages are shown (Load More), loaded together on the server
+  const pages = sanitizeDownloadsPage((await searchParams).page)
   const lang = locale as LocaleType
 
   const [page, t] = await Promise.all([
-    getDownloadsData.getPageData<DownloadsPageData>(),
+    getDownloadsData.getPageData<DownloadsPageData>({
+      page: '1',
+      limit: String(DOWNLOADS_PAGE_LIMIT * pages),
+    }),
     getTranslations({ locale, namespace: 'DownloadsPage' }),
   ])
 
@@ -48,7 +58,11 @@ export default async function DownloadsPage({
       <BreadcrumbBar
         values={[{ name: t('BannerSection.title'), link: '/downloads' }]}
       />
-      <DownloadsCardSection downloads={pageData?.downloads ?? []} />
+      <DownloadsCardSection
+        initialDownloads={pageData?.downloads ?? []}
+        initialPage={pages}
+        initialHasMore={pageData?.pagination?.hasMore ?? false}
+      />
     </>
   )
 }

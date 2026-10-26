@@ -1922,6 +1922,8 @@
     "CardSection": {
       "downloadBtnLable": "Download",
       "noItems": "No downloads are available right now.",
+      "loadMoreBtnLable": "Load More",
+      "loadMoreError": "Couldn't load more downloads. Please try again.",
       "downloadFormDialog": {
         "title": "Download Brochure",
         "description": "Access our brochure for a detailed overview of our collections.",
