@@ -36,6 +36,7 @@ export default function SeasonalOfferDialog() {
       >
         <SeasonalOfferContent
           media={data.media}
+          mobileMedia={data.mobile_media}
           badge={data.badge}
           buttonText={pick(data.button_text, data.button_text_ar)}
           buttonHref={buttonHref}

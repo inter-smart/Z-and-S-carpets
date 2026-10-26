@@ -7,12 +7,14 @@ import SeasonalOfferContent from './seasonal-offer-content'
 export default function SeasonalOfferPageDialog({
   triggerLabel,
   media,
+  mobileMedia,
   badge,
   buttonText,
   buttonHref,
 }: {
   triggerLabel: string
   media: { path: string | null }
+  mobileMedia?: { path: string | null }
   badge: { path: string | null }
   buttonText: string
   buttonHref: string
@@ -32,6 +34,7 @@ export default function SeasonalOfferPageDialog({
       >
         <SeasonalOfferContent
           media={media}
+          mobileMedia={mobileMedia}
           badge={badge}
           buttonText={buttonText}
           buttonHref={buttonHref}

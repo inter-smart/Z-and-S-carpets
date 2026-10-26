@@ -6,6 +6,7 @@ import Link from 'next/link'
 
 export interface SeasonalOfferContentData {
   media: { path: string | null }
+  mobileMedia?: { path: string | null }
   badge: { path: string | null }
   buttonText: string
   buttonHref: string
@@ -13,6 +14,7 @@ export interface SeasonalOfferContentData {
 
 export default function SeasonalOfferContent({
   media,
+  mobileMedia,
   badge,
   buttonText,
   buttonHref,
@@ -42,7 +44,16 @@ export default function SeasonalOfferContent({
               alt={buttonText}
               fill
               sizes="(max-width: 640px) 90vw, 800px"
-              className="z-10 object-cover"
+              className={`z-10 object-cover ${mobileMedia?.path ? 'max-sm:hidden' : ''}`}
+            />
+          )}
+          {mobileMedia?.path && (
+            <Image
+              src={mobileMedia.path}
+              alt={buttonText}
+              fill
+              sizes="90vw"
+              className="z-10 object-cover sm:hidden"
             />
           )}
 

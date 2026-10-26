@@ -35,6 +35,7 @@ export default async function SeasonalOffer({
       <SeasonalOfferPageDialog
         triggerLabel={t('showOfferLabel')}
         media={data.media}
+        mobileMedia={data.mobile_media}
         badge={data.badge}
         buttonText={pick(data.button_text, data.button_text_ar)}
         buttonHref={buttonHref}
