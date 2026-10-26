@@ -22,8 +22,8 @@ export default function SeasonalOfferContent({
       <DialogClose className="absolute top-2 right-2 z-50 focus:ring-0 focus:outline-none">
         <XIcon className="size-4" />
       </DialogClose>
-      <div className="relative h-full text-black">
-        <div className="relative h-full overflow-hidden rounded-sm">
+      <div className="relative h-full w-full text-black">
+        <div className="relative h-full w-full overflow-hidden rounded-sm">
           <DialogClose
             nativeButton={false}
             render={
@@ -40,10 +40,9 @@ export default function SeasonalOfferContent({
             <Image
               src={media.path}
               alt={buttonText}
-              width={0}
-              height={0}
+              fill
               sizes="(max-width: 640px) 90vw, 800px"
-              className="z-10 h-full w-auto max-w-full object-contain"
+              className="z-10 object-cover"
             />
           )}
 
@@ -64,8 +63,8 @@ export default function SeasonalOfferContent({
         </div>
 
         {badge.path && (
-          <div className="absolute -top-6 left-8 z-30 h-28 w-28 rounded-full bg-white p-1.5 sm:-top-8 sm:h-33 sm:w-33 rtl:right-8 rtl:left-auto">
-            <div className="relative h-full w-full overflow-hidden rounded-full">
+          <div className="absolute -top-20 left-8 z-30 h-35 w-35 rounded-full bg-white sm:-top-10 rtl:right-8 rtl:left-auto">
+            <div className="bg-our-green relative ms-auto h-33 w-33 overflow-hidden rounded-full">
               <Image
                 src={badge.path}
                 alt=""
