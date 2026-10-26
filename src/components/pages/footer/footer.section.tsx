@@ -47,6 +47,11 @@ export default function Footer({
     setOpenSection((prev) => (prev === section ? null : section))
   }
 
+  // below `sm` the headings toggle the accordion, so don't navigate there
+  const keepAccordionOnMobile = (e: React.MouseEvent) => {
+    if (window.matchMedia('(max-width: 639px)').matches) e.preventDefault()
+  }
+
   const half = (list: FooterLinksItemsType[]) => Math.ceil(list.length / 2)
 
   const footerLinks_quickLinks_items: FooterLinksItemsType[] = footer
@@ -173,9 +178,13 @@ export default function Footer({
                   className="flex flex-col space-y-2"
                   onClick={() => toggleSection(t('footerLinks.services.title'))}
                 >
-                  <p className="cursor-pointer text-lg font-bold tracking-widest uppercase sm:cursor-text">
+                  <Link
+                    href={`/${locale}/services`}
+                    onClick={keepAccordionOnMobile}
+                    className="cursor-pointer text-lg font-bold tracking-widest uppercase"
+                  >
                     {t('footerLinks.services.title')}
-                  </p>
+                  </Link>
                   <div className="bg-our-blue h-0.75 w-12" />
                 </div>
                 <div
@@ -200,9 +209,13 @@ export default function Footer({
                   className="flex flex-col space-y-2"
                   onClick={() => toggleSection(t('footerLinks.products.title'))}
                 >
-                  <p className="cursor-pointer text-lg font-bold tracking-widest uppercase sm:cursor-text">
+                  <Link
+                    href={`/${locale}/products`}
+                    onClick={keepAccordionOnMobile}
+                    className="cursor-pointer text-lg font-bold tracking-widest uppercase"
+                  >
                     {t('footerLinks.products.title')}
-                  </p>
+                  </Link>
                   <div className="bg-our-blue h-0.75 w-12" />
                 </div>
                 <div
