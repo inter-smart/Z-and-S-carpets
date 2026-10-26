@@ -1,40 +1,37 @@
 'use client'
 
+import {
+  MAX_QUANTITY,
+  QUOTE_CART_KEY,
+  isStoredCartExpired,
+  itemsEqual,
+  readStoredExpiry,
+  readStoredItems,
+  writeStoredItems,
+} from '@/lib/quote-cart-storage'
 import type { QuoteCartItem } from '@/types/quote'
+import { useTranslations } from 'next-intl'
 import {
   createContext,
   useCallback,
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
   type ReactNode,
 } from 'react'
+import { toast } from 'sonner'
 
-const QUOTE_CART_KEY = 'quote-cart-items'
-const MAX_QUANTITY = 999
+const EXPIRED_TOAST_ID = 'quote-cart-expired'
 
 const dedupeKey = (productId: number, variantId: number | null) =>
   `${productId}:${variantId ?? 'none'}`
 
-const readStoredItems = (): QuoteCartItem[] => {
-  try {
-    const raw = localStorage.getItem(QUOTE_CART_KEY)
-    if (!raw) return []
-    const parsed = JSON.parse(raw)
-    return Array.isArray(parsed) ? parsed : []
-  } catch {
-    return []
-  }
-}
-
-const writeStoredItems = (items: QuoteCartItem[]) => {
-  try {
-    localStorage.setItem(QUOTE_CART_KEY, JSON.stringify(items))
-  } catch {
-    // localStorage unavailable (private mode, etc.) - the cart just won't persist
-  }
-}
+// setTimeout stores its delay as a signed 32-bit int; larger values fire at once.
+const MAX_TIMEOUT_MS = 2 ** 31 - 1
+// Small buffer so the timer never fires just before the stored expiry.
+const EXPIRY_GRACE_MS = 100
 
 type QuoteCartContextType = {
   items: QuoteCartItem[]
@@ -50,6 +47,8 @@ const QuoteCartContext = createContext<QuoteCartContextType | null>(null)
 export function QuoteCartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<QuoteCartItem[]>([])
   const [hydrated, setHydrated] = useState(false)
+  const itemsRef = useRef<QuoteCartItem[]>([])
+  const t = useTranslations('QuotesPage')
 
   // localStorage isn't available during SSR; load once on mount, after the
   // server-rendered (empty) markup has already hydrated.
@@ -60,9 +59,63 @@ export function QuoteCartProvider({ children }: { children: ReactNode }) {
   }, [])
 
   useEffect(() => {
+    itemsRef.current = items
+  }, [items])
+
+  useEffect(() => {
     if (!hydrated) return
     writeStoredItems(items)
   }, [items, hydrated])
+
+  // Re-read storage and adopt it if it differs (expired, or changed by another
+  // tab). Keeps the same array when nothing changed, so there is no re-render.
+  const syncFromStorage = useCallback(() => {
+    // Checked before reading, because reading removes an expired cart.
+    const expired = isStoredCartExpired()
+    const stored = readStoredItems()
+
+    if (expired && itemsRef.current.length > 0) {
+      toast.info(t('expiredNotice'), { id: EXPIRED_TOAST_ID })
+    }
+    setItems((current) => (itemsEqual(current, stored) ? current : stored))
+  }, [t])
+
+  // Expire the cart while the page stays mounted. Declared after the write
+  // effect so storage already holds the fresh expiry when this runs.
+  useEffect(() => {
+    if (!hydrated || items.length === 0) return
+    const expiresAt = readStoredExpiry()
+    if (expiresAt === null) return
+
+    const delay = Math.min(
+      Math.max(0, expiresAt - Date.now()) + EXPIRY_GRACE_MS,
+      MAX_TIMEOUT_MS,
+    )
+    const timer = setTimeout(syncFromStorage, delay)
+    return () => clearTimeout(timer)
+  }, [items, hydrated, syncFromStorage])
+
+  // Timers are throttled in background tabs, so also re-check when the tab
+  // becomes visible/focused, and follow changes made in other tabs.
+  useEffect(() => {
+    if (!hydrated) return
+
+    const onStorage = (event: StorageEvent) => {
+      if (event.key === null || event.key === QUOTE_CART_KEY) syncFromStorage()
+    }
+    const onVisibility = () => {
+      if (document.visibilityState === 'visible') syncFromStorage()
+    }
+
+    window.addEventListener('storage', onStorage)
+    window.addEventListener('focus', syncFromStorage)
+    document.addEventListener('visibilitychange', onVisibility)
+    return () => {
+      window.removeEventListener('storage', onStorage)
+      window.removeEventListener('focus', syncFromStorage)
+      document.removeEventListener('visibilitychange', onVisibility)
+    }
+  }, [hydrated, syncFromStorage])
 
   const addItem = useCallback((item: Omit<QuoteCartItem, 'lineId'>) => {
     setItems((current) => {

@@ -38,6 +38,8 @@ interface ProductListSectionProps {
   // selected filters (from ?category= and ?attrs=)
   activeCategories: string[]
   activeAttrs: Record<string, string[]>
+  // selected tag slugs (from ?tag=)
+  activeTags: string[]
   // how many pages the first load already contains (from ?page=)
   initialPage: number
   // the first `initialPage` pages of the list (loaded on the server)
@@ -85,13 +87,10 @@ function CheckboxRow({
   label,
   checked,
   onChange,
-  count,
 }: {
   label: string
   checked: boolean
   onChange: () => void
-  // number of products the option matches (attribute values only)
-  count?: number
 }) {
   return (
     <label className="flex items-center gap-3 py-2 text-base">
@@ -101,10 +100,7 @@ function CheckboxRow({
         onChange={onChange}
         className="accent-our-blue size-3.5"
       />
-      <span className={count === 0 ? 'text-black/50' : undefined}>{label}</span>
-      {count !== undefined && (
-        <span className="ms-auto text-sm text-black/50">{count}</span>
-      )}
+      <span>{label}</span>
     </label>
   )
 }
@@ -113,6 +109,7 @@ export default function ProductListSection({
   filters,
   activeCategories,
   activeAttrs,
+  activeTags,
   initialPage,
   initialProducts,
   initialHasMore,
@@ -136,7 +133,11 @@ export default function ProductListSection({
   // A new filter selection brings a freshly rendered list from the server: start from it again
   // (dropping the pages loaded with Load More). The component itself stays mounted, so the
   // open / closed state of the filter groups is kept.
-  const filterKey = buildFilterQuery(activeCategories, activeAttrs).toString()
+  const filterKey = buildFilterQuery(
+    activeCategories,
+    activeAttrs,
+    activeTags,
+  ).toString()
   const [loadedFilterKey, setLoadedFilterKey] = useState(filterKey)
   if (loadedFilterKey !== filterKey) {
     setLoadedFilterKey(filterKey)
@@ -151,27 +152,11 @@ export default function ProductListSection({
     [items, locale],
   )
 
-  // Usage and Tags are still static (translation lists, not applied to the results yet)
-  const staticFilters = [
-    {
-      id: 'usage',
-      label: t2('usageFilter'),
-      items: t2.raw('Usages') as { id: string; name: string }[],
-    },
-    {
-      id: 'tags',
-      label: t2('tagsFilter'),
-      items: t2.raw('Tags') as { id: string; name: string }[],
-    },
-  ]
-  const [staticSelected, setStaticSelected] = useState<
-    Record<string, string[]>
-  >({})
-
-  // Category is open at first, plus the attribute groups that already have a chosen value
+  // Category is open at first, plus the groups that already have a chosen value
   const [openFilter, setOpenFilter] = useState<string[]>([
     'category',
     ...Object.keys(activeAttrs).map((slug) => `attr-${slug}`),
+    ...(activeTags.length ? ['tags'] : []),
   ])
   const toggleOpen = (id: string) =>
     setOpenFilter((prev) =>
@@ -208,9 +193,10 @@ export default function ProductListSection({
   const applyFilters = (
     categories: string[],
     attrs: Record<string, string[]>,
+    tags: string[],
   ) => {
     // keep the commas / colons readable in the address bar
-    const query = buildFilterQuery(categories, attrs)
+    const query = buildFilterQuery(categories, attrs, tags)
       .toString()
       .replace(/%2C/gi, ',')
       .replace(/%3A/gi, ':')
@@ -225,8 +211,17 @@ export default function ProductListSection({
     const next = new Set(activeCategories)
     if (next.has(slug)) next.delete(slug)
     else next.add(slug)
-    applyFilters([...next], activeAttrs)
+    applyFilters([...next], activeAttrs, activeTags)
   }
+
+  const toggleTag = (slug: string) =>
+    applyFilters(
+      activeCategories,
+      activeAttrs,
+      activeTags.includes(slug)
+        ? activeTags.filter((item) => item !== slug)
+        : [...activeTags, slug],
+    )
 
   const toggleAttribute = (attribute: string, value: string) => {
     const current = activeAttrs[attribute] ?? []
@@ -235,11 +230,13 @@ export default function ProductListSection({
       : [...current, value]
     const next = { ...activeAttrs, [attribute]: updated }
     if (!updated.length) delete next[attribute]
-    applyFilters(activeCategories, next)
+    applyFilters(activeCategories, next, activeTags)
   }
 
   const hasActiveFilters =
-    activeCategories.length > 0 || Object.keys(activeAttrs).length > 0
+    activeCategories.length > 0 ||
+    Object.keys(activeAttrs).length > 0 ||
+    activeTags.length > 0
 
   // Load More: the next page comes from the API; the URL remembers how far the visitor went
   const loadMore = async () => {
@@ -249,7 +246,7 @@ export default function ProductListSection({
     setLoadError(false)
 
     try {
-      const query = buildFilterQuery(activeCategories, activeAttrs)
+      const query = buildFilterQuery(activeCategories, activeAttrs, activeTags)
       query.set('page', String(nextPage))
       const res = await fetch(`/api/products?${query}`)
       if (!res.ok) throw new Error('Request failed')
@@ -318,7 +315,6 @@ export default function ProductListSection({
             <CheckboxRow
               key={value.slug}
               label={pick(value.value, value.value_ar)}
-              count={value.count}
               checked={
                 activeAttrs[attribute.slug]?.includes(value.slug) ?? false
               }
@@ -327,40 +323,29 @@ export default function ProductListSection({
           ))}
         </FilterGroup>
       ))}
-      {staticFilters.map((filter) => (
+      {!!filters?.tags?.length && (
         <FilterGroup
-          key={filter.id}
-          label={filter.label}
-          open={openFilter.includes(filter.id)}
-          onToggle={() => toggleOpen(filter.id)}
+          label={t2('tagsFilter')}
+          open={openFilter.includes('tags')}
+          onToggle={() => toggleOpen('tags')}
         >
-          {filter.items.map((item) => (
+          {filters.tags.map((tag) => (
             <CheckboxRow
-              key={item.id}
-              label={item.name}
-              checked={staticSelected[filter.id]?.includes(item.name) ?? false}
-              onChange={() =>
-                setStaticSelected((prev) => {
-                  const current = prev[filter.id] ?? []
-                  return {
-                    ...prev,
-                    [filter.id]: current.includes(item.name)
-                      ? current.filter((value) => value !== item.name)
-                      : [...current, item.name],
-                  }
-                })
-              }
+              key={tag.slug}
+              label={pick(tag.title, tag.title_ar)}
+              checked={activeTags.includes(tag.slug)}
+              onChange={() => toggleTag(tag.slug)}
             />
           ))}
         </FilterGroup>
-      ))}
+      )}
     </div>
   )
 
   const clearButton = hasActiveFilters && (
     <button
       type="button"
-      onClick={() => applyFilters([], {})}
+      onClick={() => applyFilters([], {}, [])}
       className="text-our-blue mt-3 text-sm underline underline-offset-4"
     >
       {t2('clearFilters')}

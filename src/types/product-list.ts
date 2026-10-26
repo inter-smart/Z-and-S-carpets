@@ -44,10 +44,11 @@ export type ProductFiltersData = {
   // flat list; the tree is built from `parent_slug` (null for top level). Sub-categories are only
   // included under categories that are open (selected, or holding a selected sub-category).
   categories: (Titled & { slug: string; parent_slug: string | null })[]
-  // attributes (Size, Color...) with the values of the current result set and how many products
-  // each value matches (0 for a chosen value that matches nothing any more)
+  // attributes (Size, Color...) with the values of the current result set
   attributes: (Titled & {
     slug: string
-    values: { slug: string; value: string; value_ar: string; count: number }[]
+    values: { slug: string; value: string; value_ar: string }[]
   })[]
+  // tag labels flagged "show in filter"
+  tags: (Titled & { slug: string })[]
 }

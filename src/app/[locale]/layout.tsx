@@ -5,6 +5,7 @@ import BottomSideBtns from '@/components/common/bottom-side-btns'
 import SeasonalOfferDialog from '@/components/pages/common/seasonal-offer.dialog'
 import Footer from '@/components/pages/footer/footer.section'
 import Navbar from '@/components/pages/navbar/navbar.section'
+import { Toaster } from '@/components/ui/sonner'
 import { DownloadRequestProvider } from '@/context/download-request.context'
 import { GetASampleProvider } from '@/context/get-a-sample.context'
 import { QuoteCartProvider } from '@/context/quote-cart.context'
@@ -113,6 +114,7 @@ export default async function RootLayout({
               </DownloadRequestProvider>
             </GetASampleProvider>
           </QuoteCartProvider>
+          <Toaster />
         </NextIntlClientProvider>
       </body>
     </html>

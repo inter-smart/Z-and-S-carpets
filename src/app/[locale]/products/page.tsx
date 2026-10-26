@@ -39,7 +39,8 @@ export default async function ProductsPage({
   // shown (Load More) live in the URL
   const categories = parseCategories(query.category)
   const attrs = parseAttrs(query.attrs)
-  const filterQuery = buildFilterQuery(categories, attrs)
+  const tags = parseCategories(query.tag)
+  const filterQuery = buildFilterQuery(categories, attrs, tags)
   const pages = sanitizePage(query.page)
 
   // page content, filter options and the first page of products are independent: fetch them in
@@ -90,6 +91,7 @@ export default async function ProductsPage({
         filters={filters.success ? filters.data : null}
         activeCategories={categories}
         activeAttrs={attrs}
+        activeTags={tags}
         initialPage={pages}
         initialProducts={list.success ? list.data.products : []}
         initialHasMore={list.success ? list.data.pagination.hasMore : false}

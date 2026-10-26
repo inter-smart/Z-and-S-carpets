@@ -20,6 +20,7 @@ export async function GET(request: NextRequest) {
   const filters = buildFilterQuery(
     parseCategories(searchParams.get('category') ?? undefined),
     parseAttrs(searchParams.get('attrs') ?? undefined),
+    parseCategories(searchParams.get('tag') ?? undefined),
   )
 
   const result = await getProductsData.getList<ProductListData>({

@@ -54,11 +54,13 @@ export function serializeAttrs(attrs: Record<string, string[]>) {
 export function buildFilterQuery(
   categories: string[],
   attrs: Record<string, string[]>,
+  tags: string[] = [],
 ) {
   const query = new URLSearchParams()
   if (categories.length) query.set('category', categories.join(','))
   const serialized = serializeAttrs(attrs)
   if (serialized) query.set('attrs', serialized)
+  if (tags.length) query.set('tag', tags.join(','))
   return query
 }
 

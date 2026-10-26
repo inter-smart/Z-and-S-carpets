@@ -606,46 +606,6 @@
         "name": "Yellow"
       }
     ],
-    "Usages": [
-      {
-        "id": "deck",
-        "name": "Deck"
-      },
-      {
-        "id": "gym",
-        "name": "Gym"
-      },
-      {
-        "id": "floor",
-        "name": "Floor"
-      },
-      {
-        "id": "grass",
-        "name": "Grass"
-      }
-    ],
-    "Tags": [
-      {
-        "id": "vinyl",
-        "name": "Vinyl"
-      },
-      {
-        "id": "wooden",
-        "name": "Wooden"
-      },
-      {
-        "id": "waterproof",
-        "name": "Waterproof"
-      },
-      {
-        "id": "anti-slip",
-        "name": "Anti-slip"
-      },
-      {
-        "id": "artificial",
-        "name": "Artificial"
-      }
-    ],
     "Items": [
       {
         "name": "Landscaping Grass",
@@ -757,7 +717,6 @@
     "loadError": "Could not load more products. Please try again.",
     "filterTitle": "Filter",
     "categoryFilter": "Category",
-    "usageFilter": "Usage",
     "tagsFilter": "Tags",
     "clearFilters": "Clear all filters"
   },
@@ -2078,6 +2037,7 @@
     "requestQuote": "Request A Quote",
     "emptyTitle": "No Products Added Yet",
     "emptyDescription": "Your quote list is currently empty. Add products to continue with your inquiry.",
+    "expiredNotice": "Your quote list has expired and was cleared. Please add your products again.",
     "Form": {
       "title": "Get a Quote",
       "subtitle": "Fill in the details and we will get back at you shortly.",
