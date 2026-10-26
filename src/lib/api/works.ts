@@ -13,7 +13,7 @@ export const getWorksData = {
     try {
       const { data } = await apiClient<{ data: T }>(
         `/api/frontend/projects/${encodeURIComponent(slug)}`,
-        { cache: 'no-store' },
+        apiCacheOptions(['works']),
       )
       return sendSuccess(data)
     } catch (error) {
@@ -22,7 +22,7 @@ export const getWorksData = {
   },
 
   // Page-level content (banner + page scripts), both languages in one response.
-  // Cached like the other CMS pages; the project list below is not.
+  // Cached like the other CMS pages.
   getPageData: async <T = unknown>(): Promise<ApiResult<T>> => {
     try {
       const { data } = await apiClient<{ data: T }>(
@@ -36,7 +36,7 @@ export const getWorksData = {
   },
 
   // Paginated list of active projects, optionally filtered by industry slug.
-  // Both languages come back in one response. Not cached: every call goes to the API.
+  // Both languages come back in one response.
   getWorkList: async <T = unknown>(
     params: Record<string, string> = {},
   ): Promise<ApiResult<T>> => {
@@ -44,7 +44,7 @@ export const getWorksData = {
       const query = new URLSearchParams(params).toString()
       const { data } = await apiClient<{ data: T }>(
         `/api/frontend/projects${query ? `?${query}` : ''}`,
-        { cache: 'no-store' },
+        apiCacheOptions(['works']),
       )
       return sendSuccess(data)
     } catch (error) {
@@ -61,7 +61,7 @@ export const getWorksData = {
       const query = new URLSearchParams(params).toString()
       const { data } = await apiClient<{ data: T }>(
         `/api/frontend/projects/filters${query ? `?${query}` : ''}`,
-        { cache: 'no-store' },
+        apiCacheOptions(['works']),
       )
       return sendSuccess(data)
     } catch (error) {

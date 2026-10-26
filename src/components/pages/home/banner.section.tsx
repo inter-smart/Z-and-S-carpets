@@ -66,6 +66,25 @@ export default function BannerSection({
 
   const [currentCategory, setCurrentCategory] = useState(category[0])
 
+  // Hero video is deferred until the window has loaded so it can't compete with LCP/JS
+  const [videoReady, setVideoReady] = useState(false)
+  useEffect(() => {
+    const start = () => setTimeout(() => setVideoReady(true), 300)
+    if (document.readyState === 'complete') {
+      const timer = start()
+      return () => clearTimeout(timer)
+    }
+    let timer: ReturnType<typeof setTimeout>
+    const onLoad = () => {
+      timer = start()
+    }
+    window.addEventListener('load', onLoad, { once: true })
+    return () => {
+      window.removeEventListener('load', onLoad)
+      clearTimeout(timer)
+    }
+  }, [])
+
   const count = cards.length
 
   // Create clones before and after the real cards
@@ -129,17 +148,34 @@ export default function BannerSection({
     <section className="relative">
       {/* video */}
       {currentCategory.mediaType === 'video' ? (
-        <video
-          key={currentCategory.id}
-          className="h-166 w-full object-cover"
-          playsInline
-          autoPlay
-          muted
-          loop
-          poster={currentCategory.mediaPoster}
-        >
-          <source src={currentCategory.mediaPath} type="video/mp4" />
-        </video>
+        <div className="relative h-166 w-full">
+          {/* the poster is the LCP element: an optimised, prioritised image instead of waiting on the MP4 */}
+          {currentCategory.mediaPoster && (
+            <Image
+              key={`poster-${currentCategory.id}`}
+              src={currentCategory.mediaPoster}
+              alt={stripTags(currentCategory.title)}
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+            />
+          )}
+          {/* the video itself only starts downloading once the page has finished loading */}
+          {(videoReady || !currentCategory.mediaPoster) && (
+            <video
+              key={currentCategory.id}
+              className="absolute inset-0 h-full w-full object-cover"
+              playsInline
+              autoPlay
+              muted
+              loop
+              preload="auto"
+            >
+              <source src={currentCategory.mediaPath} type="video/mp4" />
+            </video>
+          )}
+        </div>
       ) : (
         <div className="relative h-166 w-full">
           <Image

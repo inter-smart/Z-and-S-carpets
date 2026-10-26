@@ -393,7 +393,7 @@ export default function GetASampleDialog() {
 
   return (
     <>
-      <RecaptchaScript />
+      {open && <RecaptchaScript />}
       <Dialog open={open} onOpenChange={setOpen}>
         {submitted ? (
           <DialogContent className="flex min-h-100 min-w-[35vw] flex-row items-center justify-center rounded-sm 2xl:min-w-125">

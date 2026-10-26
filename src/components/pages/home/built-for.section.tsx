@@ -120,9 +120,15 @@ export default function BuiltForSection({ industries }: BuiltForSectionProps) {
   return (
     <section className="bg-background container-wrapper py-16 lg:py-24">
       <div
-        className="relative mx-auto overflow-hidden rounded-md bg-cover bg-bottom px-4 pt-18 pb-12 sm:px-8 lg:px-12"
-        style={{ backgroundImage: `url(${industries.background.path || t('bgImage')})` }}
+        className="relative mx-auto overflow-hidden rounded-md px-4 pt-18 pb-12 sm:px-8 lg:px-12"
       >
+        <Image
+          src={industries.background.path || t('bgImage')}
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover object-bottom"
+        />
         <div className="bg-primary/70 absolute inset-0" />
         <div className="relative z-10">
           <h2 className="our-heading text-center text-white">

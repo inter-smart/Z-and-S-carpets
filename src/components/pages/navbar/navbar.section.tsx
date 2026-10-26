@@ -3,6 +3,7 @@
 import { SiteLogo } from '@/assets/logos'
 import { Button } from '@/components/ui/button'
 import { OurIcon } from '@/components/ui/icon'
+import { useDownloadRequest } from '@/context/download-request.context'
 import { useGetASample } from '@/context/get-a-sample.context'
 import { useQuoteCart } from '@/context/quote-cart.context'
 import type { LocaleType } from '@/i18n/types'
@@ -10,12 +11,18 @@ import { localizedHref, toNavLinks } from '@/lib/site-settings'
 import type { SiteSettingsData } from '@/types/site-settings'
 import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import { useEffect, useRef } from 'react'
-import DownloadRequestDialog from '../common/download-request.dialog'
-import GetASampleDialog from '../common/get-a-sample.dialog'
+import { useEffect, useRef, useState } from 'react'
 import MobileNavSheet from './mobile-nav.sheet'
 import NavbarCategoryDropdown from './navbar-category.dropdown'
+
+// Both dialogs pull in the lead forms (react-hook-form, zod, reCAPTCHA), so their
+// code is only fetched the first time one of them is opened
+const GetASampleDialog = dynamic(() => import('../common/get-a-sample.dialog'))
+const DownloadRequestDialog = dynamic(
+  () => import('../common/download-request.dialog'),
+)
 
 interface NavbarNavLinksType {
   text: string
@@ -31,6 +38,14 @@ interface NavbarProps {
 export default function Navbar({ nav, whatsapp }: NavbarProps) {
   const locale = useLocale() as LocaleType
   const t = useTranslations('Navbar')
+
+  // Stays mounted after the first open so the close animation and state survive
+  const { open: sampleOpen } = useGetASample()
+  const { open: downloadOpen } = useDownloadRequest()
+  const [sampleMounted, setSampleMounted] = useState(false)
+  const [downloadMounted, setDownloadMounted] = useState(false)
+  if (sampleOpen && !sampleMounted) setSampleMounted(true)
+  if (downloadOpen && !downloadMounted) setDownloadMounted(true)
 
   // Publish the fixed header's height so layouts can compensate for it (see BannerHiddenSpacer)
   const headerRef = useRef<HTMLElement>(null)
@@ -171,9 +186,9 @@ export default function Navbar({ nav, whatsapp }: NavbarProps) {
         </div>
       </header>
       {/* Get a sample dialog component */}
-      <GetASampleDialog />
+      {sampleMounted && <GetASampleDialog />}
       {/* Download request dialog component */}
-      <DownloadRequestDialog />
+      {downloadMounted && <DownloadRequestDialog />}
     </>
   )
 }

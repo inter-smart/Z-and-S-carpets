@@ -1,5 +1,6 @@
 import type { LocaleType } from '@/i18n/types'
 import { useLocale, useTranslations } from 'next-intl'
+import Image from 'next/image'
 
 interface InnerBannerSectionProps {
   pageName: string
@@ -23,14 +24,16 @@ export default function InnerBannerSection({
     locale === 'ar' ? ar || en || '' : en || ''
 
   return (
-    <div
-      className="relative h-54 w-full text-white lg:h-64 xl:h-74"
-      style={{
-        backgroundImage: `url(${data?.media.path || t('image')})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
-    >
+    <div className="relative h-54 w-full text-white lg:h-64 xl:h-74">
+      {/* a real <img> (not a CSS background) so the browser discovers and prioritises it as the LCP element */}
+      <Image
+        src={data?.media.path || t('image')}
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-center"
+      />
       <div className="absolute top-0 h-full w-full from-black/80 to-black/0 ltr:bg-linear-to-r rtl:bg-linear-to-l">
         <div className="container-wrapper flex h-full items-end justify-start pb-6 lg:pb-8 xl:pb-10">
           <div>
