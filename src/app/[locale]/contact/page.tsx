@@ -1,5 +1,6 @@
 import BreadcrumbBar from '@/components/common/breadcrumb-bar'
 import DynamicMeta from '@/components/common/dynamic-meta'
+import BannerHiddenSpacer from '@/components/pages/common/banner-hidden-spacer'
 import InnerBannerSection from '@/components/pages/common/inner-banner.section'
 import ContactDetailsSection from '@/components/pages/contact/contact-details.section'
 import GetInTouchSection from '@/components/pages/contact/get-in-touch.section'
@@ -48,42 +49,70 @@ export default async function ContactUsPage({
     map_section,
   } = data ?? ({} as Partial<ContactData>)
 
+  // Sections an admin switched off are not rendered at all
+  const isOff = (section?: { is_enabled?: boolean }) =>
+    section?.is_enabled === false
+  const showDetails = !isOff(contact_detail_section)
+  const showSocial = !isOff(social_section)
+  const showForm = !isOff(form_section)
+  const showLeftColumn = showDetails || showSocial
+
   return (
     <>
       <DynamicMeta structuredData={structuredData} lineScripts={lineScripts} />
-      <InnerBannerSection
-        pageName="ContactPage"
-        data={banner_section?.is_visible ? banner_section : undefined}
-      />
+      {!isOff(banner_section) ? (
+        <InnerBannerSection
+          pageName="ContactPage"
+          data={banner_section?.is_visible ? banner_section : undefined}
+        />
+      ) : (
+        <BannerHiddenSpacer />
+      )}
       <BreadcrumbBar
         values={[{ name: t('BannerSection.title'), link: '/contact' }]}
       />
 
-      <div className="container-wrapper grid pt-5 pb-10 lg:grid-cols-[1fr_0.95fr] lg:gap-12 lg:pt-12 lg:pb-20 xl:gap-24">
-        <ContactDetailsSection
-          details={
-            contact_detail_section?.is_visible
-              ? contact_detail_section
-              : undefined
-          }
-          social={social_section?.is_visible ? social_section : undefined}
-        />
-        <GetInTouchSection
-          title={form_section?.is_visible ? form_section : undefined}
-        />
-      </div>
+      {(showLeftColumn || showForm) && (
+        <div
+          className={`container-wrapper grid pt-5 pb-10 lg:pt-12 lg:pb-20 ${
+            showLeftColumn && showForm
+              ? 'lg:grid-cols-[1fr_0.95fr] lg:gap-12 xl:gap-24'
+              : ''
+          }`}
+        >
+          {showLeftColumn && (
+            <ContactDetailsSection
+              details={
+                contact_detail_section?.is_visible
+                  ? contact_detail_section
+                  : undefined
+              }
+              social={social_section?.is_visible ? social_section : undefined}
+              showDetails={showDetails}
+              showSocial={showSocial}
+            />
+          )}
+          {showForm && (
+            <GetInTouchSection
+              title={form_section?.is_visible ? form_section : undefined}
+            />
+          )}
+        </div>
+      )}
 
       {/* map section */}
-      <div className="h-80 w-full overflow-hidden sm:h-100">
-        <iframe
-          src={map_section?.is_visible ? map_section.url : FALLBACK_MAP_URL}
-          title="Z&S Carpets location"
-          className="h-full w-full border-0"
-          loading="lazy"
-          allowFullScreen
-          referrerPolicy="strict-origin-when-cross-origin"
-        />
-      </div>
+      {!isOff(map_section) && (
+        <div className="h-80 w-full overflow-hidden sm:h-100">
+          <iframe
+            src={map_section?.is_visible ? map_section.url : FALLBACK_MAP_URL}
+            title="Z&S Carpets location"
+            className="h-full w-full border-0"
+            loading="lazy"
+            allowFullScreen
+            referrerPolicy="strict-origin-when-cross-origin"
+          />
+        </div>
+      )}
     </>
   )
 }

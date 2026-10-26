@@ -10,6 +10,8 @@ export type ProductsPageData = {
   other_meta_ar: string | null
   banner_section: Titled & {
     is_visible: boolean
+    // false = hidden by an admin (don't render at all)
+    is_enabled?: boolean
     sub_title: string
     sub_title_ar: string
     media: HomeMedia

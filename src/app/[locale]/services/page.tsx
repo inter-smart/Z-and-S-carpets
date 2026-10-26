@@ -1,5 +1,6 @@
 import BreadcrumbBar from '@/components/common/breadcrumb-bar'
 import DynamicMeta from '@/components/common/dynamic-meta'
+import BannerHiddenSpacer from '@/components/pages/common/banner-hidden-spacer'
 import InnerBannerSection from '@/components/pages/common/inner-banner.section'
 import IntroSection from '@/components/pages/services/intro.section'
 import ProcessSection from '@/components/pages/services/process.section'
@@ -48,10 +49,14 @@ export default async function ServicesPage({
     <>
       <DynamicMeta structuredData={structuredData} lineScripts={lineScripts} />
       {/* the banner falls back to its translated content when the API has none */}
-      <InnerBannerSection
-        pageName="ServicesPage"
-        data={banner_section?.is_visible ? banner_section : undefined}
-      />
+      {banner_section?.is_enabled !== false ? (
+        <InnerBannerSection
+          pageName="ServicesPage"
+          data={banner_section?.is_visible ? banner_section : undefined}
+        />
+      ) : (
+        <BannerHiddenSpacer />
+      )}
       <BreadcrumbBar
         values={[{ name: t('BannerSection.title'), link: '/services' }]}
         className="bg-[#EFF9FE]"

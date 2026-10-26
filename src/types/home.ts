@@ -1,6 +1,7 @@
 export type HomeMedia = { path: string | null; alt: string; alt_ar: string }
 
-type Visible = { is_visible: boolean }
+// `is_enabled: false` = hidden by an admin (don't render at all)
+type Visible = { is_visible: boolean; is_enabled?: boolean }
 type Titled = { title: string; title_ar: string }
 type Described = { description: string; description_ar: string }
 

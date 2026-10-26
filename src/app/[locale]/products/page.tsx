@@ -1,5 +1,6 @@
 import BreadcrumbBar from '@/components/common/breadcrumb-bar'
 import DynamicMeta from '@/components/common/dynamic-meta'
+import BannerHiddenSpacer from '@/components/pages/common/banner-hidden-spacer'
 import InnerBannerSection from '@/components/pages/common/inner-banner.section'
 import ProductListSection from '@/components/pages/products/product-list.section'
 import type { LocaleType } from '@/i18n/types'
@@ -74,10 +75,14 @@ export default async function ProductsPage({
     <>
       <DynamicMeta structuredData={structuredData} lineScripts={lineScripts} />
       {/* the banner falls back to its translated content when the API has none */}
-      <InnerBannerSection
-        pageName="ProductsPage"
-        data={banner?.is_visible ? banner : undefined}
-      />
+      {banner?.is_enabled !== false ? (
+        <InnerBannerSection
+          pageName="ProductsPage"
+          data={banner?.is_visible ? banner : undefined}
+        />
+      ) : (
+        <BannerHiddenSpacer />
+      )}
       <BreadcrumbBar
         values={[
           {

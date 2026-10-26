@@ -11,6 +11,7 @@ import type { SiteSettingsData } from '@/types/site-settings'
 import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useEffect, useRef } from 'react'
 import DownloadRequestDialog from '../common/download-request.dialog'
 import GetASampleDialog from '../common/get-a-sample.dialog'
 import MobileNavSheet from './mobile-nav.sheet'
@@ -31,6 +32,22 @@ export default function Navbar({ nav, whatsapp }: NavbarProps) {
   const locale = useLocale() as LocaleType
   const t = useTranslations('Navbar')
 
+  // Publish the fixed header's height so layouts can compensate for it (see BannerHiddenSpacer)
+  const headerRef = useRef<HTMLElement>(null)
+  useEffect(() => {
+    const header = headerRef.current
+    if (!header) return
+    const publish = () =>
+      document.documentElement.style.setProperty(
+        '--header-h',
+        `${header.offsetHeight}px`,
+      )
+    publish()
+    const observer = new ResizeObserver(publish)
+    observer.observe(header)
+    return () => observer.disconnect()
+  }, [])
+
   // Nav links are split around the logo: the first 4 go left, everything else goes right
   const LEFT_LINKS_COUNT = 4
   const apiLinks = nav?.pages.length ? toNavLinks(nav.pages) : null
@@ -46,7 +63,10 @@ export default function Navbar({ nav, whatsapp }: NavbarProps) {
 
   return (
     <>
-      <header className="fixed top-0 z-50 w-full text-sm shadow-md">
+      <header
+        ref={headerRef}
+        className="fixed top-0 z-50 w-full text-sm shadow-md"
+      >
         {/* navigation */}
         <nav className="bg-white py-2">
           <div className="container-wrapper flex flex-row items-center justify-between">

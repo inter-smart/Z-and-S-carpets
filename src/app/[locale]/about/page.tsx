@@ -6,6 +6,7 @@ import IntroSection from '@/components/pages/about/intro.section'
 import ManagementSection from '@/components/pages/about/management.section'
 import ValuesSection from '@/components/pages/about/values.section'
 import ChooseUsSection from '@/components/pages/common/choose-us.section'
+import BannerHiddenSpacer from '@/components/pages/common/banner-hidden-spacer'
 import InnerBannerSection from '@/components/pages/common/inner-banner.section'
 import ProcessSections from '@/components/pages/common/process.section'
 import type { LocaleType } from '@/i18n/types'
@@ -57,10 +58,14 @@ export default async function AboutUsPage({
     <>
       <DynamicMeta structuredData={structuredData} lineScripts={lineScripts} />
       {/* the banner falls back to its translated content when the API has none */}
-      <InnerBannerSection
-        pageName="AboutPage"
-        data={banner_section?.is_visible ? banner_section : undefined}
-      />
+      {banner_section?.is_enabled !== false ? (
+        <InnerBannerSection
+          pageName="AboutPage"
+          data={banner_section?.is_visible ? banner_section : undefined}
+        />
+      ) : (
+        <BannerHiddenSpacer />
+      )}
       <BreadcrumbBar
         values={[{ name: t('BannerSection.title'), link: '/about' }]}
       />

@@ -1,6 +1,8 @@
 import type { HomeMedia } from './home'
 
-type Visible = { is_visible: boolean }
+// `is_enabled: false` = hidden by an admin (don't render at all); absent/true = shown.
+// `is_visible` only says whether the section has CMS content (else the translated fallback is used).
+type Visible = { is_visible: boolean; is_enabled?: boolean }
 type Titled = { title: string; title_ar: string }
 
 // /api/frontend/contact — same conventions as the home / about APIs (both languages per field,

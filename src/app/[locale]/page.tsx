@@ -1,3 +1,4 @@
+import BannerHiddenSpacer from '@/components/pages/common/banner-hidden-spacer'
 import ChooseUsSection from '@/components/pages/common/choose-us.section'
 import FAQSection from '@/components/pages/common/faq.section'
 import ProcessSections from '@/components/pages/common/process.section'
@@ -63,6 +64,7 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
   return (
     <>
       <DynamicMeta structuredData={structuredData} lineScripts={lineScripts} />
+      {banner_section?.is_enabled === false && <BannerHiddenSpacer />}
       {banner_section?.is_visible && (
         <BannerSection
           banners={banner_section.list}
@@ -78,9 +80,12 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
       {industries_section?.is_visible && (
         <BuiltForSection industries={industries_section} />
       )}
-      <Suspense fallback={<WorksSkeleton />}>
-        <WorksSection title={works_section} />
-      </Suspense>
+      {/* always rendered otherwise (translated title fallback), so check the admin flag */}
+      {works_section?.is_enabled !== false && (
+        <Suspense fallback={<WorksSkeleton />}>
+          <WorksSection title={works_section} />
+        </Suspense>
+      )}
       {features_section?.is_visible && (
         <ChooseUsSection features={features_section} side={side_section} />
       )}
