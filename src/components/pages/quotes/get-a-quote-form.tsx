@@ -79,6 +79,7 @@ export default function GetAQuoteForm() {
   })
 
   const [submitError, setSubmitError] = useState('')
+  const [formKey, setFormKey] = useState(0)
 
   const category = useWatch({ control, name: 'category' })
 
@@ -151,6 +152,8 @@ export default function GetAQuoteForm() {
       if (response.ok) {
         setSuccess({ referenceCode: response.result.referenceCode })
         reset(emptyValues)
+        setSubmitError('')
+        setFormKey((key) => key + 1)
         return
       }
 
@@ -179,6 +182,7 @@ export default function GetAQuoteForm() {
         <p className="mt-3 text-base">{t('subtitle')}</p>
 
         <form
+          key={formKey}
           noValidate
           onSubmit={handleSubmit(onSubmit)}
           className="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-2"
