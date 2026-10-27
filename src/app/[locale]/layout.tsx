@@ -48,6 +48,8 @@ export const metadata: Metadata = {
   ),
   title: 'Z&S Carpets',
   description: 'Trusted Flooring Specialists in UAE & GCC',
+  applicationName: 'Z&S Carpets',
+  openGraph: { siteName: 'Z&S Carpets' },
   keywords:
     'Flooring, Artificial Grass, Vinyl Flooring, Deck Flooring, Spc Flooring, Laminate Flooring, Carpet Flooring, Lvt Flooring',
   robots: {

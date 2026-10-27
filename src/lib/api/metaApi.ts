@@ -21,6 +21,21 @@ type BackendEnvelope<T> = {
   message?: string
 }
 
+// canonical + hreflang for every locale, derived from a localized URL (`<site>/<locale>/<path>`)
+function localizedAlternates(url: string) {
+  const match = url.match(/^(.*?)\/(en|ar)(\/.*)?$/)
+  if (!match) return { canonical: url }
+  const [, origin, , path = ''] = match
+  return {
+    canonical: url,
+    languages: {
+      en: `${origin}/en${path}`,
+      ar: `${origin}/ar${path}`,
+      'x-default': `${origin}/en${path}`,
+    },
+  }
+}
+
 const fallbackPageMeta: Record<LocaleType, PageMeta> = {
   en: {
     title: 'Z&S Carpets',
@@ -57,9 +72,7 @@ function buildFallbackMetadata(
       title: pageMeta.title,
       description: pageMeta.description,
     },
-    alternates: {
-      canonical: canonicalUrl,
-    },
+    alternates: localizedAlternates(canonicalUrl),
   }
 }
 
@@ -84,7 +97,7 @@ async function fetchMetaData(
 }
 
 // For static/listing pages (home, about, contact, services, category, blogs
-// listing, works listing, downloads, quotes, seasonal-offer, privacy-policy, ...).
+// listing, works listing, downloads, quotes, privacy-policy, ...).
 // `pageKey` must match the `page_name` the admin panel saved the meta row under,
 // and should also exist as a key in `defaultMeta` for the fallback.
 export async function getMetaData(
@@ -119,9 +132,7 @@ export async function getMetaData(
         title,
         description,
       },
-      alternates: {
-        canonical: canonicalUrl,
-      },
+      alternates: localizedAlternates(canonicalUrl),
       other,
     }
   } catch {
@@ -189,7 +200,7 @@ export async function getDetailMetaData(
       description: pageMeta.description,
       images: [ogImage],
     },
-    alternates: { canonical: currentUrl },
+    alternates: localizedAlternates(currentUrl),
   })
 
   try {
@@ -219,9 +230,7 @@ export async function getDetailMetaData(
         description,
         images: [ogImage],
       },
-      alternates: {
-        canonical: currentUrl,
-      },
+      alternates: localizedAlternates(currentUrl),
       other,
     }
   } catch {

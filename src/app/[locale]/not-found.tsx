@@ -2,15 +2,17 @@ import type { LocaleType } from '@/i18n/types'
 import { getSiteSettingsData } from '@/lib/api/siteSettings'
 import type { SiteSettingsData } from '@/types/site-settings'
 import type { Metadata } from 'next'
-import { getLocale } from 'next-intl/server'
+import { getLocale, getTranslations } from 'next-intl/server'
 import NotFoundPage from './not-found-page'
 
-export const metadata: Metadata = {
-  title: 'Page not Found | Z&S Carpets',
-  description:
-    "Sorry, we couldn't find the page you're looking for. It might have been moved, deleted, or you entered the wrong URL.",
-  // a 404 has nothing worth indexing, but still let crawlers follow its links
-  robots: { index: false, follow: true },
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations('NotFoundPage')
+  return {
+    title: `${t('title')} | Z&S Carpets`,
+    description: t('description'),
+    // a 404 has nothing worth indexing, but still let crawlers follow its links
+    robots: { index: false, follow: true },
+  }
 }
 
 export default async function NotFound() {

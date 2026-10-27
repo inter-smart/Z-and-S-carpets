@@ -1956,10 +1956,6 @@
       }
     }
   },
-  "SeasonalOfferPage": {
-    "showOfferLabel": "عرض العرض",
-    "noOffer": "لا يوجد عرض موسمي نشط حاليًا."
-  },
   "WorksPage": {
     "Breadcrumb": {
       "details": "تفاصيل العمل"

@@ -131,18 +131,6 @@ export const defaultMeta: Record<string, Record<LocaleType, PageMeta>> = {
       keywords: 'طلب عرض سعر',
     },
   },
-  'seasonal-offer': {
-    en: {
-      title: 'Seasonal Offers | Z&S Carpets',
-      description: 'Check out the latest seasonal offers from Z&S Carpets.',
-      keywords: 'Z&S Carpets offers, seasonal offer',
-    },
-    ar: {
-      title: 'العروض الموسمية | زد اند إس للسجاد',
-      description: 'تعرف على أحدث العروض الموسمية من زد اند إس للسجاد.',
-      keywords: 'العروض الموسمية',
-    },
-  },
   'privacy-policy': {
     en: {
       title: 'Privacy Policy | Z&S Carpets',
@@ -157,7 +145,7 @@ export const defaultMeta: Record<string, Record<LocaleType, PageMeta>> = {
   },
 }
 
-export const DefaultOgImage = '/logo.png'
+export const DefaultOgImage = '/web-app-manifest-512x512.png'
 
 // the works page's meta row is saved under the page name `our-work`
 defaultMeta['our-work'] = defaultMeta.works

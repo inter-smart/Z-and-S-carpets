@@ -44,7 +44,7 @@ export async function generateMetadata({
   params,
 }: PageProps<'/[locale]'>): Promise<Metadata> {
   const { locale } = await params
-  return getMetaData('home', locale as LocaleType)
+  return getMetaData('home', locale as LocaleType, '')
 }
 
 export default async function HomePage({ params }: PageProps<'/[locale]'>) {

@@ -1,8 +1,13 @@
 import GetAQuoteForm from '@/components/pages/quotes/get-a-quote-form'
+import type { LocaleType } from '@/i18n/types'
+import { getMetaData } from '@/lib/api/metaApi'
+import type { Metadata } from 'next'
 
-export const metadata = {
-  title: 'Get a Quote',
-  description: 'Request a flooring quote from Z&S Carpets.',
+export async function generateMetadata({
+  params,
+}: PageProps<'/[locale]/quotes/form'>): Promise<Metadata> {
+  const { locale } = await params
+  return getMetaData('quotes', locale as LocaleType, 'quotes/form')
 }
 
 export default function QuoteFormPage() {
