@@ -80,6 +80,15 @@ export type ProductDetailData = {
   variants: ProductDetailVariant[]
   selected_variant_id: number | null
   details: ProductDetailField[]
+  // the product's own banner; null = the page keeps its static one
+  banner_section:
+    | (Titled & {
+        is_visible: boolean
+        sub_title: string
+        sub_title_ar: string
+        media: HomeMedia
+      })
+    | null
   faqs_section: HomeData['faqs_section']
 }
 

@@ -89,7 +89,7 @@ export default async function ProductDetailsPage({
   ])
   if (!data) notFound()
 
-  const { product } = data
+  const { product, banner_section: banner } = data
   const name = pickLocalized(lang, product.title, product.title_ar)
   const productUrl = `${SITE_URL}/${locale}/products/${slug}`
   const category = product.categories.at(-1)
@@ -130,7 +130,10 @@ export default async function ProductDetailsPage({
   return (
     <>
       <DynamicMeta structuredData={[productSchema]} />
-      <InnerBannerSection pageName="ProductDetailsPage" />
+      <InnerBannerSection
+        pageName="ProductDetailsPage"
+        data={banner?.is_visible ? banner : undefined}
+      />
       <BreadcrumbBar
         values={[
           { name: t('products'), link: '/products' },
