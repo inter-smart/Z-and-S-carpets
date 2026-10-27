@@ -1,15 +1,7 @@
 import BannerHiddenSpacer from '@/components/pages/common/banner-hidden-spacer'
 import ChooseUsSection from '@/components/pages/common/choose-us.section'
-import FAQSection from '@/components/pages/common/faq.section'
-import ProcessSections from '@/components/pages/common/process.section'
 import BannerSection from '@/components/pages/home/banner.section'
-import BestSellersSection from '@/components/pages/home/best-sellers.section'
-import BuiltForSection from '@/components/pages/home/built-for.section'
-import CollectionSection from '@/components/pages/home/collection.section'
-import CustomerExpSection from '@/components/pages/home/customer-exp.section'
-import ImgCompareSection from '@/components/pages/home/img-compare.section'
 import PremiumSolutionsSection from '@/components/pages/home/premium-solutions.section'
-import TrustedPartnerSection from '@/components/pages/home/trusted-partner.section'
 import WorksSection from '@/components/pages/home/works.section'
 import WorksSkeleton from '@/components/pages/home/works-skeleton'
 import DynamicMeta from '@/components/common/dynamic-meta'
@@ -19,7 +11,34 @@ import { parseMetaTags, sanitizeMetadata } from '@/lib/metaHelper'
 import type { LocaleType } from '@/i18n/types'
 import type { HomeData } from '@/types/home'
 import type { Metadata } from 'next'
+import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
+
+// Everything below the hero is split into its own chunk. These are still server-rendered
+// (SEO/first paint unchanged), but React hydrates each one separately instead of in a
+// single long task that delays the hero from painting.
+const FAQSection = dynamic(() => import('@/components/pages/common/faq.section'))
+const ProcessSections = dynamic(
+  () => import('@/components/pages/common/process.section'),
+)
+const BestSellersSection = dynamic(
+  () => import('@/components/pages/home/best-sellers.section'),
+)
+const BuiltForSection = dynamic(
+  () => import('@/components/pages/home/built-for.section'),
+)
+const CollectionSection = dynamic(
+  () => import('@/components/pages/home/collection.section'),
+)
+const CustomerExpSection = dynamic(
+  () => import('@/components/pages/home/customer-exp.section'),
+)
+const ImgCompareSection = dynamic(
+  () => import('@/components/pages/home/img-compare.section'),
+)
+const TrustedPartnerSection = dynamic(
+  () => import('@/components/pages/home/trusted-partner.section'),
+)
 
 export async function generateMetadata({
   params,

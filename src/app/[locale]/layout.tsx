@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 
 import '@/app/globals.css'
 import BottomSideBtns from '@/components/common/bottom-side-btns'
-import SeasonalOfferDialog from '@/components/pages/common/seasonal-offer.dialog'
 import Footer from '@/components/pages/footer/footer.section'
 import Navbar from '@/components/pages/navbar/navbar.section'
 import { Toaster } from '@/components/ui/sonner'
@@ -17,7 +16,8 @@ import type { SiteSettingsData } from '@/types/site-settings'
 import { cn } from '@/lib/utils'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
-import { Cairo, Inter, Manrope, Nobile } from 'next/font/google'
+import { Cairo, Inter, Nobile } from 'next/font/google'
+import dynamic from 'next/dynamic'
 
 const inter = Inter({
   variable: '--font-inter',
@@ -30,10 +30,10 @@ const nobile = Nobile({
   weight: ['400', '500', '700'],
 })
 
-const manrope = Manrope({
-  variable: '--font-manrope',
-  subsets: ['latin'],
-})
+// Only needed by visitors who actually get an offer, so keep it out of the shared bundle
+const SeasonalOfferDialog = dynamic(
+  () => import('@/components/pages/common/seasonal-offer.dialog'),
+)
 
 const cairo = Cairo({
   variable: '--font-cairo',
@@ -83,7 +83,6 @@ export default async function RootLayout({
       className={cn(
         inter.variable,
         nobile.variable,
-        manrope.variable,
         cairo.variable,
         'ltr:font-inter rtl:font-cairo h-full font-sans antialiased',
       )}
@@ -109,7 +108,9 @@ export default async function RootLayout({
                     phone={footer?.phone}
                     whatsapp={footer?.whatsapp_number}
                   />
-                  <SeasonalOfferDialog />
+                  {seasonalOffer.success && seasonalOffer.data?.is_visible && (
+                    <SeasonalOfferDialog />
+                  )}
                 </SeasonalOfferProvider>
               </DownloadRequestProvider>
             </GetASampleProvider>
