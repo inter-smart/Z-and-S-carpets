@@ -11,8 +11,11 @@ export default function FooterCarousel({ images }: { images: string[] }) {
 
   const timerRef = useRef<NodeJS.Timeout | null>(null)
   const manualPauseRef = useRef(false)
+  const hasMultiple = images.length > 1
 
   useEffect(() => {
+    // Nothing to rotate with a single image.
+    if (!hasMultiple) return
     // Don't start the normal 1.5-second timer
     // while we're in the 3-second manual pause.
     if (manualPauseRef.current) return
@@ -24,7 +27,7 @@ export default function FooterCarousel({ images }: { images: string[] }) {
         clearTimeout(timerRef.current)
       }
     }
-  }, [current, images.length])
+  }, [current, images.length, hasMultiple])
 
   const handleNext = () => {
     if (timerRef.current) {
@@ -72,29 +75,33 @@ export default function FooterCarousel({ images }: { images: string[] }) {
         />
       ))}
 
-      {/* Previous */}
-      <div className="absolute top-1/2 left-1 z-10 -translate-y-1/2">
-        <Button
-          type="button"
-          onClick={handlePrevious}
-          aria-label="Previous button"
-          className="cursor-pointer rounded-none bg-black/40 px-2 py-3.5 text-white"
-        >
-          <OurIcon name="arrow-left" className="size-3.5" />
-        </Button>
-      </div>
+      {hasMultiple && (
+        <>
+          {/* Previous */}
+          <div className="absolute top-1/2 left-1 z-10 -translate-y-1/2">
+            <Button
+              type="button"
+              onClick={handlePrevious}
+              aria-label="Previous button"
+              className="cursor-pointer rounded-none bg-black/40 px-2 py-3.5 text-white"
+            >
+              <OurIcon name="arrow-left" className="size-3.5" />
+            </Button>
+          </div>
 
-      {/* Next */}
-      <div className="absolute top-1/2 right-1 z-10 -translate-y-1/2">
-        <Button
-          type="button"
-          onClick={handleNext}
-          aria-label="Next button"
-          className="cursor-pointer rounded-none bg-black/40 px-2 py-3.5 text-white"
-        >
-          <OurIcon name="arrow-right" className="size-3.5" />
-        </Button>
-      </div>
+          {/* Next */}
+          <div className="absolute top-1/2 right-1 z-10 -translate-y-1/2">
+            <Button
+              type="button"
+              onClick={handleNext}
+              aria-label="Next button"
+              className="cursor-pointer rounded-none bg-black/40 px-2 py-3.5 text-white"
+            >
+              <OurIcon name="arrow-right" className="size-3.5" />
+            </Button>
+          </div>
+        </>
+      )}
     </div>
   )
 }

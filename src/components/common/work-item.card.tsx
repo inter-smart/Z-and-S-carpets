@@ -4,7 +4,7 @@ import { OurIcon } from '@/components/ui/icon'
 import type { LocaleType } from '@/i18n/types'
 import type { WorkCardItem } from '@/types/work'
 import { cn } from 'cn'
-import { useLocale } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
 
 export default function WorkItemCard({
@@ -19,6 +19,7 @@ export default function WorkItemCard({
   sizes?: string
 }) {
   const locale = useLocale() as LocaleType
+  const t = useTranslations('Works')
 
   return (
     <article className="group relative h-full overflow-hidden rounded-md">
@@ -53,7 +54,7 @@ export default function WorkItemCard({
               }
               className="p-0! text-lg font-light whitespace-nowrap underline decoration-1 underline-offset-8 hover:bg-transparent hover:text-white focus-visible:border-transparent! focus-visible:ring-0!"
             >
-              <span>View Products</span>
+              <span>{t('viewProductsLabel')}</span>
             </Button>
             <span className="mt-auto hidden opacity-40 min-[350px]:block">
               |

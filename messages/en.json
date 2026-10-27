@@ -2,6 +2,7 @@
   "Works": {
     "noProjectsFound": "No projects found",
     "viewProjectLabel": "View Project",
+    "viewProductsLabel": "View Products",
     "Categories": [
       {
         "id": "all",
@@ -1527,7 +1528,8 @@
         "Z&S Carpets & Flooring Is One Of The UAE's Most Trusted Flooring Specialists, Offering An Extensive Range Of Carpets, Artificial Grass, Vinyl Flooring, Engineered Wooden Flooring, Outdoor Decking And Decorative Rugs. With Over 15 Years Of Experience Serving Dubai, Abu Dhabi, Sharjah, And Across The GCC, We Bring Premium-Quality Flooring To Residential Villas, Corporate Offices, Hotels, Retail Outlets And Outdoor Spaces.",
         "Our Team Of Flooring Consultants, Project Managers And Installation Technicians Are Committed To Delivering A Seamless Experience — From Product Selection And Sample Delivery To Site Measurement, Installation And Aftercare. Whether You're Refurbishing A Single Room Or Outfitting An Entire Development, Z&S Has The Expertise, Range And Resources To Deliver Exceptional Results."
       ],
-      "buttonLabel": "See More"
+      "buttonLabel": "See More",
+      "buttonLessLabel": "See Less"
     }
   },
   "AboutPage": {
