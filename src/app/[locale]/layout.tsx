@@ -8,6 +8,7 @@ import { Toaster } from '@/components/ui/sonner'
 import { DownloadRequestProvider } from '@/context/download-request.context'
 import { GetASampleProvider } from '@/context/get-a-sample.context'
 import { QuoteCartProvider } from '@/context/quote-cart.context'
+import { SearchProvider } from '@/context/search.context'
 import { SeasonalOfferProvider } from '@/context/seasonal-offer.context'
 import { getSeasonalOfferData } from '@/lib/api/seasonal-offer'
 import { getSiteSettingsData } from '@/lib/api/siteSettings'
@@ -102,6 +103,7 @@ export default async function RootLayout({
           <QuoteCartProvider>
             <GetASampleProvider>
               <DownloadRequestProvider>
+                <SearchProvider>
                 <SeasonalOfferProvider
                   data={seasonalOffer.success ? seasonalOffer.data : undefined}
                 >
@@ -122,6 +124,7 @@ export default async function RootLayout({
                     <SeasonalOfferDialog />
                   )}
                 </SeasonalOfferProvider>
+                </SearchProvider>
               </DownloadRequestProvider>
             </GetASampleProvider>
           </QuoteCartProvider>

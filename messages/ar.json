@@ -850,6 +850,7 @@
     "getASampleLabel": "احصل على عينة",
     "quickInfoLabel": "معلومات سريعة",
     "quoteCart": "عرض قائمة عرض السعر",
+    "searchLabel": "بحث",
     "navLinks": [
       [
         {
@@ -2116,5 +2117,20 @@
       "description": "تواصل معنا للحصول على الدعم والمساعدة من خبرائنا.",
       "image": "/images/floor-img-12.webp"
     }
+  },
+  "Search": {
+    "label": "بحث",
+    "placeholder": "ابحث عن المنتجات والفئات والمقالات…",
+    "clear": "مسح البحث",
+    "close": "إغلاق البحث",
+    "minChars": "اكتب حرفين على الأقل للبحث",
+    "searching": "جارٍ البحث…",
+    "error": "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
+    "noResults": "لا توجد نتائج لـ “{query}”",
+    "noResultsHint": "تحقق من الإملاء أو جرّب كلمة أعم.",
+    "products": "المنتجات",
+    "categories": "الفئات",
+    "blogs": "المقالات",
+    "browseCategories": "تصفح الفئات"
   }
 }

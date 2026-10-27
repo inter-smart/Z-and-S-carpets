@@ -6,6 +6,7 @@ import { OurIcon } from '@/components/ui/icon'
 import { useDownloadRequest } from '@/context/download-request.context'
 import { useGetASample } from '@/context/get-a-sample.context'
 import { useQuoteCart } from '@/context/quote-cart.context'
+import { useSearch } from '@/context/search.context'
 import type { LocaleType } from '@/i18n/types'
 import { localizedHref, toNavLinks } from '@/lib/site-settings'
 import type { SiteSettingsData } from '@/types/site-settings'
@@ -23,6 +24,8 @@ const GetASampleDialog = dynamic(() => import('../common/get-a-sample.dialog'))
 const DownloadRequestDialog = dynamic(
   () => import('../common/download-request.dialog'),
 )
+// The search panel (and its fetching) is only loaded the first time the icon is clicked
+const SearchOverlay = dynamic(() => import('./search-overlay'))
 
 interface NavbarNavLinksType {
   text: string
@@ -46,6 +49,9 @@ export default function Navbar({ nav, whatsapp }: NavbarProps) {
   const [downloadMounted, setDownloadMounted] = useState(false)
   if (sampleOpen && !sampleMounted) setSampleMounted(true)
   if (downloadOpen && !downloadMounted) setDownloadMounted(true)
+  const { open: searchOpen } = useSearch()
+  const [searchMounted, setSearchMounted] = useState(false)
+  if (searchOpen && !searchMounted) setSearchMounted(true)
 
   // Publish the fixed header's height so layouts can compensate for it (see BannerHiddenSpacer)
   const headerRef = useRef<HTMLElement>(null)
@@ -189,6 +195,8 @@ export default function Navbar({ nav, whatsapp }: NavbarProps) {
       {sampleMounted && <GetASampleDialog />}
       {/* Download request dialog component */}
       {downloadMounted && <DownloadRequestDialog />}
+      {/* Search overlay */}
+      {searchMounted && <SearchOverlay categories={nav?.categories} />}
     </>
   )
 }

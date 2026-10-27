@@ -14,10 +14,11 @@
     "ProductDetailsPage.Details",
     "Products",
     "QuotesPage",
+    "Search",
     "Works.Categories",
     "Works.noProjectsFound",
-    "Works.viewProjectLabel",
     "Works.viewProductsLabel",
+    "Works.viewProjectLabel",
     "WorksPage.Details",
     "WorksPage.OurWorks",
     "WorksPage.RelatedProjectsSection"

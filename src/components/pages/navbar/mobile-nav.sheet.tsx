@@ -5,6 +5,7 @@ import { OurIcon } from '@/components/ui/icon'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { useGetASample } from '@/context/get-a-sample.context'
+import { useSearch } from '@/context/search.context'
 import type { LocaleType } from '@/i18n/types'
 import { localizedHref } from '@/lib/site-settings'
 import { cn } from 'cn'
@@ -62,6 +63,12 @@ export default function MobileNavSheet({
   const [openCategory, setOpenFilter] = useState<string | null>(null)
 
   const { setOpen: setGetASampleOpen } = useGetASample()
+  const { setOpen: setSearchOpen } = useSearch()
+
+  const handleSearch = () => {
+    setOpen(false)
+    setSearchOpen(true)
+  }
 
   const handleGetASample = () => {
     setOpen(false)
@@ -111,6 +118,14 @@ export default function MobileNavSheet({
                 'transition-opacity duration-300 ease-in-out data-ending-style:opacity-0 data-starting-style:opacity-0',
               )}
             >
+              <button
+                type="button"
+                onClick={handleSearch}
+                className="mb-3 flex w-full items-center gap-2 rounded-md border border-black/15 px-3 py-2.5 text-start text-sm text-black/60 focus:ring-0 focus:outline-none"
+              >
+                <OurIcon name="search" className="size-4" />
+                {t('searchLabel')}
+              </button>
               {categoryList.map((category, i) => {
                 const key = String(category.id ?? i)
                 const children = (category as NavCategory).children ?? []

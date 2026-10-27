@@ -850,6 +850,7 @@
     "getASampleLabel": "Get a sample",
     "quickInfoLabel": "Quick Info",
     "quoteCart": "View quote cart",
+    "searchLabel": "Search",
     "navLinks": [
       [
         {
@@ -2113,5 +2114,20 @@
       "description": "Reach out for expert support and assistance.",
       "image": "/images/floor-img-12.webp"
     }
+  },
+  "Search": {
+    "label": "Search",
+    "placeholder": "Search products, categories, blogs…",
+    "clear": "Clear search",
+    "close": "Close search",
+    "minChars": "Type at least 2 characters to search",
+    "searching": "Searching…",
+    "error": "Something went wrong. Please try again.",
+    "noResults": "No results for “{query}”",
+    "noResultsHint": "Check the spelling or try a more general term.",
+    "products": "Products",
+    "categories": "Categories",
+    "blogs": "Blog posts",
+    "browseCategories": "Browse categories"
   }
 }

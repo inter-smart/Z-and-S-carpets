@@ -14,6 +14,7 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import { useSearch } from '@/context/search.context'
 import type { LocaleType } from '@/i18n/types'
 import { cn } from 'cn'
 import { ChevronDownIcon, ChevronRight } from 'lucide-react'
@@ -511,6 +512,7 @@ export default function NavbarCategoryDropdown({
   categories?: NavCategory[]
 }) {
   const t = useTranslations('Navbar')
+  const { setOpen: setSearchOpen } = useSearch()
   const category =
     categories ?? (t.raw('category') as { id?: number; title: string }[])
 
@@ -574,9 +576,15 @@ export default function NavbarCategoryDropdown({
         {/* language change dropdown */}
         <NavbarLangDropdown />
         {/* search */}
-        <p className="cursor-pointer space-x-0.5 sm:space-x-1.5">
+        <button
+          type="button"
+          onClick={() => setSearchOpen(true)}
+          aria-label={t('searchLabel')}
+          aria-haspopup="dialog"
+          className="cursor-pointer p-1 focus:ring-0 focus:outline-none"
+        >
           <OurIcon name="search" className="size-4" />
-        </p>
+        </button>
       </NavigationMenuList>
     </NavigationMenu>
   )
