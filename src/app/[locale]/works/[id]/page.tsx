@@ -22,6 +22,11 @@ async function loadProject(slug: string) {
   throw new Error(result.error)
 }
 
+// No post/project is prerendered at build; each is generated on first visit, then cached and refreshed (ISR)
+export function generateStaticParams() {
+  return []
+}
+
 export async function generateMetadata({
   params,
 }: PageProps<'/[locale]/works/[id]'>): Promise<Metadata> {

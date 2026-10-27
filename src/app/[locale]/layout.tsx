@@ -13,6 +13,7 @@ import { getSeasonalOfferData } from '@/lib/api/seasonal-offer'
 import { getSiteSettingsData } from '@/lib/api/siteSettings'
 import type { SeasonalOfferData } from '@/types/seasonal-offer'
 import type { SiteSettingsData } from '@/types/site-settings'
+import { routing } from '@/i18n/routing'
 import { cn } from '@/lib/utils'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
@@ -59,6 +60,12 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+}
+
+// Prerender every locale; pages that don't read searchParams/cookies are then served as ISR
+// (HTML cached and refreshed in the background, see REVALIDATE_SECONDS in lib/api/cache.ts)
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }))
 }
 
 export default async function RootLayout({
