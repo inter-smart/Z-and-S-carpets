@@ -13,6 +13,7 @@ import { getSeasonalOfferData } from '@/lib/api/seasonal-offer'
 import { getSiteSettingsData } from '@/lib/api/siteSettings'
 import type { SeasonalOfferData } from '@/types/seasonal-offer'
 import type { SiteSettingsData } from '@/types/site-settings'
+import { pickClientMessages } from '@/i18n/client-messages'
 import { routing } from '@/i18n/routing'
 import { cn } from '@/lib/utils'
 import { NextIntlClientProvider } from 'next-intl'
@@ -95,7 +96,7 @@ export default async function RootLayout({
       )}
     >
       <body className="flex min-h-full flex-col">
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider messages={pickClientMessages(messages)}>
           <QuoteCartProvider>
             <GetASampleProvider>
               <DownloadRequestProvider>

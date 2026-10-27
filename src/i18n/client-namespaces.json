@@ -1,0 +1,24 @@
+{
+  "namespaces": [
+    "AboutPage.IntroSection",
+    "BlogsPage.BlogListSection",
+    "CategoryPage.CategoryListSection",
+    "Common",
+    "ContactPage.contactDetails",
+    "ContactPage.getInTouch",
+    "DownloadsPage.CardSection",
+    "Footer",
+    "HomePage",
+    "Navbar",
+    "NotFoundPage",
+    "ProductDetailsPage.Details",
+    "Products",
+    "QuotesPage",
+    "Works.Categories",
+    "Works.noProjectsFound",
+    "Works.viewProjectLabel",
+    "WorksPage.Details",
+    "WorksPage.OurWorks",
+    "WorksPage.RelatedProjectsSection"
+  ]
+}
