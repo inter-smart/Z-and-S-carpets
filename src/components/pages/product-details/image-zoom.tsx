@@ -2,12 +2,13 @@
 
 import SafeImage from '@/components/common/safe-image'
 import { Button } from '@/components/ui/button'
+import { OurIcon } from '@/components/ui/icon'
 import type { LocaleType } from '@/i18n/types'
 import { pickLocalized } from '@/lib/product-detail'
 import type { HomeMedia } from '@/types/home'
 import { cn } from 'cn'
 import useEmblaCarousel from 'embla-carousel-react'
-import { ChevronLeftIcon, ChevronRightIcon, ExpandIcon } from 'lucide-react'
+import { ExpandIcon } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import { useCallback, useEffect, useState, type ReactNode } from 'react'
 import ImageZoomDialog from './image-zoom.dialog'
@@ -15,7 +16,7 @@ import ImageZoomDialog from './image-zoom.dialog'
 const HOVER_SCALE = 2.5
 
 const controlClass =
-  'absolute size-9 rounded-full bg-black/25 text-white backdrop-blur-sm hover:bg-black/50 hover:text-white'
+  'absolute size-9 rounded-full bg-white/70 text-our-purple backdrop-blur-sm hover:bg-white hover:text-our-purple'
 
 // Product image slider. On mouse devices hovering a slide magnifies it in place (the point under
 // the cursor stays put); clicking a slide or the expand icon opens the viewer dialog on that
@@ -119,10 +120,8 @@ export default function ImageZoom({
             className={cn(controlClass, 'start-3 top-1/2 -translate-y-1/2')}
             onClick={scrollPrev}
           >
-            <ChevronLeftIcon
-              className="size-5 rtl:rotate-180"
-              strokeWidth={1.5}
-            />
+            <OurIcon name="arrow-left" className="ltr:block rtl:hidden" />
+            <OurIcon name="arrow-right" className="ltr:hidden rtl:block" />
           </Button>
           <Button
             type="button"
@@ -132,10 +131,8 @@ export default function ImageZoom({
             className={cn(controlClass, 'end-3 top-1/2 -translate-y-1/2')}
             onClick={scrollNext}
           >
-            <ChevronRightIcon
-              className="size-5 rtl:rotate-180"
-              strokeWidth={1.5}
-            />
+            <OurIcon name="arrow-right" className="ltr:block rtl:hidden" />
+            <OurIcon name="arrow-left" className="ltr:hidden rtl:block" />
           </Button>
 
           <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">

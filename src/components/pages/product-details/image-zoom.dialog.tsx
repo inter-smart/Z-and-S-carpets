@@ -2,6 +2,7 @@
 
 import SafeImage from '@/components/common/safe-image'
 import { Button } from '@/components/ui/button'
+import { OurIcon } from '@/components/ui/icon'
 import {
   Dialog,
   DialogClose,
@@ -11,7 +12,7 @@ import {
 import type { LocaleType } from '@/i18n/types'
 import { pickLocalized } from '@/lib/product-detail'
 import type { HomeMedia } from '@/types/home'
-import { ChevronLeftIcon, ChevronRightIcon, XIcon } from 'lucide-react'
+import { XIcon } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import { useRef, useState } from 'react'
 
@@ -103,23 +104,25 @@ export default function ImageZoomDialog({
           <>
             <Button
               type="button"
-              variant="secondary"
+              variant="ghost"
               size="icon"
               aria-label={t('previousImage')}
-              className="absolute start-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white shadow sm:start-3"
+              className="text-our-purple hover:text-our-purple absolute start-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/70 hover:bg-white sm:start-3"
               onClick={() => go(-1)}
             >
-              <ChevronLeftIcon className="size-5 rtl:rotate-180" />
+              <OurIcon name="arrow-left" className="ltr:block rtl:hidden" />
+              <OurIcon name="arrow-right" className="ltr:hidden rtl:block" />
             </Button>
             <Button
               type="button"
-              variant="secondary"
+              variant="ghost"
               size="icon"
               aria-label={t('nextImage')}
-              className="absolute end-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white shadow sm:end-3"
+              className="text-our-purple hover:text-our-purple absolute end-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/70 hover:bg-white sm:end-3"
               onClick={() => go(1)}
             >
-              <ChevronRightIcon className="size-5 rtl:rotate-180" />
+              <OurIcon name="arrow-right" className="ltr:block rtl:hidden" />
+              <OurIcon name="arrow-left" className="ltr:hidden rtl:block" />
             </Button>
           </>
         )}
