@@ -23,6 +23,7 @@ import {
 import { useLocale, useTranslations } from 'next-intl'
 import SafeImage from '@/components/common/safe-image'
 import { useEffect, useRef, useState } from 'react'
+import ImageZoom from './image-zoom'
 
 // Horizontal row that scrolls with arrow buttons (arrows are enabled only when it overflows)
 function useScrollRow() {
@@ -93,11 +94,14 @@ export default function ProductDetailsSection({
   const name = pickLocalized(locale, product.title, product.title_ar)
   // the resolved variant's image/sku are already in `variants` (loaded up front), so this
   // switches the moment a combination resolves — it never waits on the tab-content fetch
-  const heroPath = selectedVariant?.media.path || product.media.path
-  const heroMedia = selectedVariant?.media.path
-    ? selectedVariant.media
-    : product.media
-  const heroAlt = pickLocalized(locale, heroMedia.alt, heroMedia.alt_ar) || name
+  const images = (
+    selectedVariant?.images?.length
+      ? selectedVariant.images
+      : product.images?.length
+        ? product.images
+        : [product.media]
+  ).filter((image) => image.path)
+  const heroPath = images[0]?.path ?? null
   const category = product.categories.at(-1)
 
   const handleAddToQuote = () => {
@@ -143,20 +147,21 @@ export default function ProductDetailsSection({
     <section className="container-wrapper space-y-8 pt-8 lg:pt-12 xl:grid xl:grid-cols-[0.95fr_1.05fr] xl:gap-10 xl:space-y-0 2xl:gap-12">
       {/* main image: the selected variant's, else the product's */}
       <div className="relative h-80 overflow-hidden rounded-md bg-[#F4F4F4] min-[400px]:h-120 xl:sticky xl:top-24 xl:aspect-square xl:h-auto xl:self-start">
-        <SafeImage
-          key={heroPath}
-          src={heroPath}
-          alt={heroAlt}
-          fill
-          priority
-          sizes="(max-width: 1280px) 100vw, 50vw"
-          className="w-full object-cover"
-        />
-        {product.badge && (
-          <span className="absolute top-3 right-3 rounded-xs bg-white px-2 py-0.5 text-xs">
-            {pickLocalized(locale, product.badge.title, product.badge.title_ar)}
-          </span>
-        )}
+        <ImageZoom
+          key={images.map((image) => image.path).join('|')}
+          images={images}
+          fallbackAlt={name}
+        >
+          {product.badge && (
+            <span className="pointer-events-none absolute top-3 right-3 rounded-xs bg-white px-2 py-0.5 text-xs">
+              {pickLocalized(
+                locale,
+                product.badge.title,
+                product.badge.title_ar,
+              )}
+            </span>
+          )}
+        </ImageZoom>
       </div>
 
       {/* details */}

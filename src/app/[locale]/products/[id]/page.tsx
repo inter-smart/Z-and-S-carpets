@@ -167,6 +167,11 @@ export default async function ProductDetailsPage({
         <FAQSection data={data.faqs_section} />
       )}
       <TagsSection tags={product.tags} locale={lang} />
+      {/* nothing below the details (no tabs, related, FAQs or tags): keep the footer from touching them */}
+      {!data.details.length &&
+        !(related.success && related.data.products.length > 0) &&
+        !data.faqs_section.list.length &&
+        !product.tags.length && <div className="h-16 lg:h-20" aria-hidden />}
     </>
   )
 }

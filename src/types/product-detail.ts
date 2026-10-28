@@ -56,6 +56,8 @@ export type ProductDetailVariant = {
   label: string
   label_ar: string
   media: HomeMedia
+  // carousel images, already resolved by the API (the variant's own, else the product's)
+  images: HomeMedia[]
   // attribute slug -> value slug
   values: Record<string, string>
 }
@@ -70,6 +72,8 @@ export type ProductDetailData = {
     description: string
     description_ar: string
     media: HomeMedia
+    // carousel images: the product image first, then its gallery
+    images: HomeMedia[]
     badge: ProductLabel | null
     categories: ProductLabel[]
     features: ProductLabel[]
