@@ -371,5 +371,5 @@ ul.icon-bullet-list > li::before {
   @apply border-our-purple mt-4 border-s-4 ps-4 italic;
 }
 .blog-body img {
-  @apply mt-4 h-auto max-w-full rounded-sm;
+  @apply mt-4 block h-auto max-w-full rounded-sm;
 }
