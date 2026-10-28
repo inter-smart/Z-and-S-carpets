@@ -723,6 +723,11 @@
   },
   "Common": {
     "breadcrumbHome": "Home",
+    "Video": {
+      "play": "Play video",
+      "pause": "Pause video",
+      "unavailable": "Video unavailable"
+    },
     "ProcessSection": {
       "eyebrow": "OUR PROCESS",
       "title": "How it Works",

@@ -723,6 +723,11 @@
   },
   "Common": {
     "breadcrumbHome": "الرئيسية",
+    "Video": {
+      "play": "تشغيل الفيديو",
+      "pause": "إيقاف الفيديو مؤقتًا",
+      "unavailable": "الفيديو غير متاح"
+    },
     "ProcessSection": {
       "eyebrow": "عمليتنا",
       "title": "كيف نعمل",

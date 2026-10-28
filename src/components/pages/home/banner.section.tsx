@@ -9,6 +9,8 @@ import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import { useVideoPlayback } from '@/hooks/use-video-playback'
+import { getVideoMimeType } from '@/lib/video'
 
 // Banner title/description arrive as sanitized inline HTML from the API
 const stripTags = (html: string) => html.replace(/<[^>]*>/g, ' ').trim()
@@ -65,6 +67,10 @@ export default function BannerSection({
     : []
 
   const [currentCategory, setCurrentCategory] = useState(category[0])
+
+  const [failedVideoIds, setFailedVideoIds] = useState<string[]>([])
+  // the other tabs' videos only start buffering once the visible one can play, so they don't compete for bandwidth
+  const [warmOthers, setWarmOthers] = useState(false)
 
   // Hero video is deferred until the window has loaded so it can't compete with LCP/JS
   const [videoReady, setVideoReady] = useState(false)
@@ -162,19 +168,26 @@ export default function BannerSection({
             />
           )}
           {/* the video itself only starts downloading once the page has finished loading */}
-          {(videoReady || !currentCategory.mediaPoster) && (
-            <video
-              key={currentCategory.id}
-              className="absolute inset-0 h-full w-full object-cover"
-              playsInline
-              autoPlay
-              muted
-              loop
-              preload="auto"
-            >
-              <source src={currentCategory.mediaPath} type="video/mp4" />
-            </video>
-          )}
+          {/* every video tab stays mounted (hidden) so switching tabs shows an already-buffered video */}
+          {(videoReady || !currentCategory.mediaPoster) &&
+            category.map(
+              (item) =>
+                item.mediaType === 'video' &&
+                !!item.mediaPath &&
+                !failedVideoIds.includes(item.id) && (
+                  <HeroVideo
+                    key={item.id}
+                    src={item.mediaPath}
+                    poster={item.mediaPoster}
+                    active={item.id === currentCategory.id}
+                    buffer={item.id === currentCategory.id || warmOthers}
+                    onReady={() => setWarmOthers(true)}
+                    onError={() =>
+                      setFailedVideoIds((ids) => [...ids, item.id])
+                    }
+                  />
+                ),
+            )}
         </div>
       ) : (
         <div className="relative h-166 w-full">
@@ -340,5 +353,67 @@ export default function BannerSection({
         </div>
       </div>
     </section>
+  )
+}
+
+function HeroVideo({
+  src,
+  poster,
+  active,
+  buffer,
+  onReady,
+  onError,
+}: {
+  src: string
+  poster?: string
+  active: boolean
+  buffer: boolean
+  onReady: () => void
+  onError: () => void
+}) {
+  const { videoRef, setRef, handlers } = useVideoPlayback({ muted: true })
+
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
+    if (active) {
+      video.play().catch(() => {})
+      // Safari blocks autoplay in some modes; retry on the first interaction
+      const retry = () => video.paused && video.play().catch(() => {})
+      window.addEventListener('touchstart', retry, { once: true })
+      window.addEventListener('click', retry, { once: true })
+      return () => {
+        window.removeEventListener('touchstart', retry)
+        window.removeEventListener('click', retry)
+      }
+    }
+    video.pause()
+    video.currentTime = 0
+  }, [active, videoRef])
+
+  return (
+    <video
+      ref={setRef}
+      className={cn(
+        'absolute inset-0 h-full w-full object-cover transition-opacity duration-300',
+        active ? 'opacity-100' : 'pointer-events-none opacity-0',
+      )}
+      aria-hidden={!active}
+      playsInline
+      muted
+      loop
+      preload={buffer ? 'auto' : 'none'}
+      poster={poster}
+      {...handlers}
+      onLoadedData={() => {
+        if (active) {
+          videoRef.current?.play().catch(() => {})
+          onReady()
+        }
+      }}
+      onError={onError}
+    >
+      <source src={src} type={getVideoMimeType(src)} />
+    </video>
   )
 }

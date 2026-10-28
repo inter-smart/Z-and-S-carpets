@@ -258,9 +258,12 @@ const MAX_CARDS = 2
 function DropdownContent({
   category,
   whatsapp,
+  onNavigate,
 }: {
   category: NavCategory
   whatsapp?: string
+  // closes the menu; the panel otherwise stays open after a link is followed
+  onNavigate: () => void
 }) {
   const locale = useLocale() as LocaleType
   const t = useTranslations('Navbar')
@@ -326,6 +329,7 @@ function DropdownContent({
 
         <Link
           href={viewAllHref}
+          onClick={onNavigate}
           className="group text-our-purple flex items-start gap-2 text-sm font-medium"
         >
           <span>{t('viewAllLabel')}</span>
@@ -392,6 +396,7 @@ function DropdownContent({
             <Link
               key={card.key}
               href={card.href}
+              onClick={onNavigate}
               className="group border-our-blue h-fit overflow-hidden rounded-md border"
             >
               <div className="relative h-35 overflow-hidden">
@@ -561,7 +566,11 @@ export default function NavbarCategoryDropdown({
                 {item.title}
               </NavigationMenuTrigger>
               <NavigationMenuContent className="z-50 overflow-y-auto">
-                <DropdownContent category={item} whatsapp={whatsapp} />
+                <DropdownContent
+                  category={item}
+                  whatsapp={whatsapp}
+                  onNavigate={() => setOpenMenu('')}
+                />
               </NavigationMenuContent>
             </NavigationMenuItem>
           ))}

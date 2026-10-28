@@ -11,7 +11,9 @@ import { cn } from 'cn'
 import { Pause, Play } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
-import { useRef, useState } from 'react'
+import { useState } from 'react'
+import { useVideoPlayback } from '@/hooks/use-video-playback'
+import { getVideoMimeType, withFirstFrameFragment } from '@/lib/video'
 
 type Tab = {
   slug: string
@@ -230,15 +232,8 @@ function VideoCard({
   noSupportMessage: string
   className?: string
 }) {
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const [isPlaying, setIsPlaying] = useState(false)
-
-  const handleToggle = async () => {
-    const video = videoRef.current
-    if (!video) return
-    if (video.paused) await video.play()
-    else video.pause()
-  }
+  const tv = useTranslations('Common.Video')
+  const { setRef, isPlaying, hasError, toggle, handlers } = useVideoPlayback()
 
   return (
     <div
@@ -248,29 +243,37 @@ function VideoCard({
       )}
     >
       <video
-        ref={videoRef}
+        ref={setRef}
         className="h-full w-full object-cover"
         playsInline
         preload="metadata"
         poster={poster ?? undefined}
-        onPlay={() => setIsPlaying(true)}
-        onPause={() => setIsPlaying(false)}
-        onClick={handleToggle}
+        onClick={toggle}
+        {...handlers}
       >
-        <source src={url} type={mimeType ?? 'video/mp4'} />
+        <source
+          src={withFirstFrameFragment(url, !!poster)}
+          type={getVideoMimeType(url, mimeType)}
+        />
         {noSupportMessage}
       </video>
 
+      {hasError && (
+        <div className="bg-foreground/60 absolute inset-0 z-10 grid place-items-center px-2 text-center text-sm text-white">
+          {tv('unavailable')}
+        </div>
+      )}
       <div
         className={cn(
+          hasError && 'hidden',
           'bg-foreground/20 absolute inset-0 z-10 grid place-items-center transition-opacity',
           isPlaying ? 'opacity-0 group-hover:opacity-100' : 'opacity-100',
         )}
       >
         <button
           type="button"
-          aria-label={isPlaying ? 'Pause video' : 'Play video'}
-          onClick={handleToggle}
+          aria-label={isPlaying ? tv('pause') : tv('play')}
+          onClick={toggle}
           className="grid cursor-pointer place-items-center text-sm focus:ring-0 focus:outline-none"
         >
           <span className="bg-background grid size-7 place-items-center rounded-full text-[#0066B3]">

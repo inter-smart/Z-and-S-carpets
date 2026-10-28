@@ -6,7 +6,9 @@ import { cn } from 'cn'
 import { Pause, Play } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
-import { useRef, useState } from 'react'
+import { useState } from 'react'
+import { useVideoPlayback } from '@/hooks/use-video-playback'
+import { getVideoMimeType, withFirstFrameFragment } from '@/lib/video'
 
 interface ProcessSectionsProps {
   // When omitted (e.g. the About page) the translated content is used
@@ -16,8 +18,10 @@ interface ProcessSectionsProps {
 export default function ProcessSections({ data }: ProcessSectionsProps) {
   const locale = useLocale() as LocaleType
   const [activeStep, setActiveStep] = useState(0)
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const [isPlaying, setIsPlaying] = useState(false)
+  const { setRef, isPlaying, hasError, toggle, handlers } = useVideoPlayback({
+    muted: true,
+  })
+  const tv = useTranslations('Common.Video')
 
   const t = useTranslations('Common.ProcessSection')
   const pick = (en?: string, ar?: string) =>
@@ -44,18 +48,6 @@ export default function ProcessSections({ data }: ProcessSectionsProps) {
   const videoPoster = apiMedia
     ? (data?.thumbnail.path ?? undefined)
     : '/images/video-poster-3.webp'
-
-  const handleToggle = async () => {
-    const video = videoRef.current
-
-    if (!video) return
-
-    if (video.paused) {
-      await video.play()
-    } else {
-      video.pause()
-    }
-  }
 
   return (
     <section
@@ -84,25 +76,29 @@ export default function ProcessSections({ data }: ProcessSectionsProps) {
               />
             ) : (
               <video
-                ref={videoRef}
+                ref={setRef}
                 className="h-full w-full object-cover"
                 playsInline
                 muted
                 loop
                 preload="metadata"
-                onPlay={() => setIsPlaying(true)}
-                onPause={() => setIsPlaying(false)}
                 poster={videoPoster}
+                {...handlers}
               >
                 <source
-                  src={videoSrc}
-                  {...(apiMedia ? {} : { type: 'video/mp4' })}
+                  src={withFirstFrameFragment(videoSrc, !!videoPoster)}
+                  type={getVideoMimeType(videoSrc)}
                 />
               </video>
             )}
 
             {/* play / pause overlay is for video only */}
-            {!isImage && (
+            {!isImage && hasError && (
+              <div className="bg-foreground/60 absolute inset-0 grid place-items-center px-2 text-center text-sm">
+                {tv('unavailable')}
+              </div>
+            )}
+            {!isImage && !hasError && (
               <div
                 className={cn(
                   'bg-foreground/20 absolute inset-0 grid place-items-center transition-opacity',
@@ -113,8 +109,8 @@ export default function ProcessSections({ data }: ProcessSectionsProps) {
               >
                 <button
                   type="button"
-                  aria-label={isPlaying ? 'Pause video' : 'Play video'}
-                  onClick={handleToggle}
+                  aria-label={isPlaying ? tv('pause') : tv('play')}
+                  onClick={toggle}
                   className="grid cursor-pointer place-items-center text-sm focus:ring-0 focus:outline-none"
                 >
                   <span className="bg-background grid size-7 place-items-center rounded-full text-[#0066B3]">
@@ -126,7 +122,7 @@ export default function ProcessSections({ data }: ProcessSectionsProps) {
                   </span>
 
                   <span className="mt-1.5 text-sm">
-                    {isPlaying ? 'Pause Video' : 'Watch Video'}
+                    {isPlaying ? tv('pause') : tv('play')}
                   </span>
                 </button>
               </div>

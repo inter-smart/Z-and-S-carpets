@@ -23,6 +23,7 @@ import {
 import { useLocale, useTranslations } from 'next-intl'
 import SafeImage from '@/components/common/safe-image'
 import { useEffect, useRef, useState } from 'react'
+import { useRouter } from 'next/navigation'
 import ImageZoom from './image-zoom'
 
 // Horizontal row that scrolls with arrow buttons (arrows are enabled only when it overflows)
@@ -71,6 +72,7 @@ export default function ProductDetailsSection({
   const { openGetASample } = useGetASample()
   const { openDownloadRequest } = useDownloadRequest()
   const { addItem } = useQuoteCart()
+  const router = useRouter()
   const {
     attributes,
     chosen,
@@ -117,6 +119,7 @@ export default function ProductDetailsSection({
       media: heroPath || null,
       quantity,
     })
+    router.push(`/${locale}/quotes`)
   }
 
   const optionLabel = (attribute: ProductDetailAttribute, slug: string) => {
