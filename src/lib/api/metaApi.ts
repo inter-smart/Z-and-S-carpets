@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { LocaleType } from '@/i18n/types'
 import { parseOtherMeta } from '@/lib/metaHelper'
-import { REVALIDATE_SECONDS } from './cache'
 import { defaultMeta, DefaultOgImage, PageMeta } from './constants'
 
 const SERVER_API_URL =
@@ -87,7 +86,8 @@ async function fetchMetaData(
     {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
-      next: { revalidate: REVALIDATE_SECONDS, tags: ['meta-data'] },
+      // caching disabled for QA; was: next: { revalidate: REVALIDATE_SECONDS, tags: ['meta-data'] }
+      cache: 'no-store',
     },
   )
 

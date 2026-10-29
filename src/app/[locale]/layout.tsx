@@ -67,7 +67,7 @@ export const metadata: Metadata = {
 }
 
 // Prerender every locale; pages that don't read searchParams/cookies are then served as ISR
-// (HTML cached and refreshed in the background, see REVALIDATE_SECONDS in lib/api/cache.ts)
+// (API caching is currently disabled for QA, see lib/api/cache.ts)
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }))
 }

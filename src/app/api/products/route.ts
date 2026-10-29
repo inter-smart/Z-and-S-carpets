@@ -9,7 +9,7 @@ import type { ProductListData } from '@/types/product-list'
 import { NextResponse, type NextRequest } from 'next/server'
 
 // Thin proxy for the browser ("load more"): keeps the backend URL and CORS out of the
-// browser. Responses are cached like the other CMS reads (see lib/api/cache.ts).
+// browser. Caching is currently disabled (see lib/api/cache.ts).
 export async function GET(request: NextRequest) {
   const { searchParams } = request.nextUrl
 

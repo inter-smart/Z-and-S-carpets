@@ -1,9 +1,9 @@
-// Backend responses are cached by Next's data cache and refreshed in the
-// background after `REVALIDATE_SECONDS`, so a render doesn't wait on the API
-// every time. Admin edits show up within that window; `tags` allow targeted
-// `revalidateTag()` later.
+// Backend response caching is currently DISABLED (QA testing) so admin edits show up
+// immediately. To re-enable, return `{ next: { revalidate: REVALIDATE_SECONDS, tags } }`
+// below and restore the `next` option in `metaApi.ts`.
 export const REVALIDATE_SECONDS = 60
 
-export function apiCacheOptions(tags: string[] = []) {
-  return { next: { revalidate: REVALIDATE_SECONDS, tags } }
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export function apiCacheOptions(_tags: string[] = []) {
+  return { cache: 'no-store' as const }
 }

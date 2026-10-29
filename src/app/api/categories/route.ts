@@ -4,7 +4,7 @@ import type { CategoryListData } from '@/types/category'
 import { NextResponse, type NextRequest } from 'next/server'
 
 // Thin proxy for the browser (badge filter, "load more"): keeps the backend URL and CORS
-// out of the browser. Responses are cached like the other CMS reads (see lib/api/cache.ts).
+// out of the browser. Caching is currently disabled (see lib/api/cache.ts).
 export async function GET(request: NextRequest) {
   const { searchParams } = request.nextUrl
 
