@@ -22,6 +22,10 @@ async function loadProject(slug: string) {
   throw new Error(result.error)
 }
 
+// API caching is disabled (cache: 'no-store', see lib/api/cache.ts), which can't be used in a
+// statically generated (ISR) route in prod. Render on demand until caching is re-enabled.
+export const dynamic = 'force-dynamic'
+
 // No post/project is prerendered at build; each is generated on first visit, then cached and refreshed (ISR)
 export function generateStaticParams() {
   return []
