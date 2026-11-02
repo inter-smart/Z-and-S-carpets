@@ -16,6 +16,7 @@ export default function LookingForwardCard({
   const locale = useLocale() as LocaleType
 
   const t = useTranslations('HomePage.LookingForwardCard')
+  const tAlt = useTranslations('Common.ImageAlt')
   const pick = (en?: string, ar?: string) =>
     locale === 'ar' ? ar || en || '' : en || ''
 
@@ -61,7 +62,7 @@ export default function LookingForwardCard({
         </Button>
         <Image
           src={VectorPart1}
-          alt="vector part"
+          alt=""
           className="pointer-events-none absolute top-0 z-10 hidden h-full object-contain sm:block ltr:-right-20 rtl:-left-20 rtl:scale-x-[-1]"
         />
       </div>
@@ -71,7 +72,7 @@ export default function LookingForwardCard({
           fill
           alt={
             (data && pick(data.media.alt, data.media.alt_ar)) ||
-            'Elegant flooring interior'
+            tAlt('flooring')
           }
           className="h-full w-full object-cover"
         />

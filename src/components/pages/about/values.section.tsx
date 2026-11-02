@@ -39,12 +39,19 @@ export default function ValuesSection({ data }: ValuesSectionProps) {
                 className="group ltr:font-nobile rtl:font-cairo flex h-fit w-full cursor-default items-end justify-center rounded-md border border-[#D7D7D7] bg-white px-5 py-2 text-base font-medium text-black transition-colors duration-300 hover:bg-[#0066B3] hover:text-white sm:w-41"
               >
                 {value.icon && (
-                  <Image
-                    src={value.icon}
-                    alt={value.alt}
-                    width={24}
-                    height={24}
-                    className="size-6 object-contain pe-1"
+                  <span
+                    aria-hidden="true"
+                    className="bg-our-purple me-1 inline-block size-6 shrink-0 transition-colors duration-300 group-hover:bg-white"
+                    style={{
+                      maskImage: `url("${value.icon}")`,
+                      WebkitMaskImage: `url("${value.icon}")`,
+                      maskSize: 'contain',
+                      WebkitMaskSize: 'contain',
+                      maskRepeat: 'no-repeat',
+                      WebkitMaskRepeat: 'no-repeat',
+                      maskPosition: 'center',
+                      WebkitMaskPosition: 'center',
+                    }}
                   />
                 )}
                 {value.label}

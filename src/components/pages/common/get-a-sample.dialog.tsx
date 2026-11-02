@@ -189,6 +189,7 @@ function SampleForm({
         <div>
           <input
             {...register('name')}
+            maxLength={100}
             autoComplete="name"
             aria-label={formField[0]}
             aria-invalid={!!errors.name}
@@ -229,6 +230,7 @@ function SampleForm({
         <div>
           <input
             {...register('company_name')}
+            maxLength={100}
             autoComplete="organization"
             aria-label={formField[3]}
             aria-invalid={!!errors.company_name}

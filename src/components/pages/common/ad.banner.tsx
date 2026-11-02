@@ -9,13 +9,15 @@ import Link from 'next/link'
 export default function AdBanner({ ad }: { ad: BlogAd }) {
   const locale = useLocale() as LocaleType
   const t = useTranslations('BlogsPage.BlogListSection')
+  const tAlt = useTranslations('Common.ImageAlt')
 
   if (!ad.media.path) return null
 
   const alt =
     (locale === 'ar' ? ad.media.alt_ar || ad.media.alt : ad.media.alt) ||
-    'Advertisement'
+    tAlt('advertisement')
 
+  const mobilePath = ad.mobile_media?.path || null
   const link = ad.link.trim()
   const buttonText =
     (locale === 'ar' ? ad.button_text_ar || ad.button_text : ad.button_text) ||
@@ -23,15 +25,28 @@ export default function AdBanner({ ad }: { ad: BlogAd }) {
 
   const image = (
     <div className="relative h-60 w-full overflow-hidden sm:h-80 lg:h-100">
+      {mobilePath && (
+        <Image
+          src={mobilePath}
+          alt={alt}
+          fill
+          sizes="100vw"
+          className="object-cover sm:hidden"
+        />
+      )}
       <Image
         src={ad.media.path}
         alt={alt}
         fill
         sizes="(max-width: 1280px) 100vw, 1200px"
-        className="object-cover"
+        className={mobilePath ? 'hidden object-cover sm:block' : 'object-cover'}
       />
       {link && (
-        <span className="our-btn hover:bg-input/50 hover:text-foreground absolute bottom-[10%] left-[79.5%] inline-flex h-7 w-fit items-center justify-center rounded-md border border-white bg-transparent text-xs font-medium whitespace-nowrap text-white transition-all">
+        <span
+          className={`our-btn hover:bg-input/50 hover:text-foreground absolute bottom-[10%] ${
+            mobilePath ? 'right-4 sm:right-auto sm:left-[79.5%]' : 'left-[79.5%]'
+          } inline-flex h-7 w-fit items-center justify-center rounded-md border border-white bg-transparent text-xs font-medium whitespace-nowrap text-white transition-all`}
+        >
           {buttonText}
         </span>
       )}

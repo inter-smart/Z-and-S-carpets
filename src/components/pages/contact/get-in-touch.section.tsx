@@ -157,6 +157,7 @@ export default function GetInTouchSection({ title }: GetInTouchSectionProps) {
             <div>
               <input
                 {...register('name')}
+                maxLength={100}
                 autoComplete="name"
                 aria-label={formField[0]}
                 aria-invalid={!!errors.name}
@@ -206,6 +207,7 @@ export default function GetInTouchSection({ title }: GetInTouchSectionProps) {
             <div>
               <textarea
                 {...register('requirements')}
+                maxLength={2000}
                 rows={3}
                 aria-label={formField[3]}
                 aria-invalid={!!errors.requirements}

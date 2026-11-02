@@ -77,7 +77,7 @@ export default function NotFoundPage({
                 {logo.image ? (
                   <Image
                     src={logo.image}
-                    alt={logo.alt || ''}
+                    alt={logo.alt || 'Z&S Carpets'}
                     width={16}
                     height={16}
                     className="size-4 object-contain"

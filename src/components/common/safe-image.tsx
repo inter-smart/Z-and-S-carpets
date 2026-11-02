@@ -6,10 +6,10 @@ import { useState } from 'react'
 
 type SafeImageProps = Omit<ImageProps, 'src' | 'alt'> & {
   src?: string | null
-  alt?: string
+  alt: string
 }
 
-export default function SafeImage({ src, alt = '', ...props }: SafeImageProps) {
+export default function SafeImage({ src, alt, ...props }: SafeImageProps) {
   const [failedSrc, setFailedSrc] = useState<string | null>(null)
   const resolved = resolveImageSrc(src)
   const finalSrc = failedSrc === resolved ? PLACEHOLDER_IMAGE : resolved

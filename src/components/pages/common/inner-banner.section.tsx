@@ -10,7 +10,7 @@ interface InnerBannerSectionProps {
     title_ar: string
     sub_title: string
     sub_title_ar: string
-    media: { path: string | null }
+    media: { path: string | null; alt?: string; alt_ar?: string }
   }
 }
 
@@ -28,7 +28,7 @@ export default function InnerBannerSection({
       {/* a real <img> (not a CSS background) so the browser discovers and prioritises it as the LCP element */}
       <Image
         src={data?.media.path || t('image')}
-        alt=""
+        alt={pick(data?.media.alt, data?.media.alt_ar)}
         fill
         priority
         sizes="100vw"

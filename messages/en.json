@@ -722,6 +722,17 @@
     "clearFilters": "Clear all filters"
   },
   "Common": {
+    "ImageAlt": {
+      "flooring": "Elegant flooring interior",
+      "carousel": "Elegant flooring {n}",
+      "floorAfter": "Floor after",
+      "floorBefore": "Floor before",
+      "advertisement": "Advertisement",
+      "interior": "{title} interior",
+      "partner": "Partner logo",
+      "social": "Social media link",
+      "offer": "Seasonal offer"
+    },
     "breadcrumbHome": "Home",
     "Video": {
       "play": "Play video",
@@ -838,12 +849,14 @@
       },
       "validation": {
         "nameRequired": "Name is required",
-        "nameMin": "Name must be at least 4 characters",
+        "nameInvalid": "Name can only contain letters, spaces, apostrophes, hyphens and periods",
+        "nameMin": "Name must be at least 2 characters",
         "nameMax": "Name must be at most 100 characters",
         "phoneRequired": "Phone number is required",
         "phoneInvalid": "Enter a valid phone number (7-20 digits; + - ( ) and spaces allowed)",
         "emailRequired": "Email is required",
         "emailInvalid": "Enter a valid email address",
+        "companyInvalid": "Company name contains invalid characters",
         "companyMax": "Company name must be at most 100 characters",
         "categoryRequired": "Select a product category",
         "productRequired": "Select a product"
@@ -1730,13 +1743,16 @@
       },
       "validation": {
         "nameRequired": "Name is required",
-        "nameMin": "Name must be at least 4 characters",
+        "nameInvalid": "Name can only contain letters, spaces, apostrophes, hyphens and periods",
+        "nameMin": "Name must be at least 2 characters",
         "nameMax": "Name must be at most 100 characters",
         "emailRequired": "Email is required",
         "emailInvalid": "Enter a valid email address",
         "phoneRequired": "Phone number is required",
         "phoneInvalid": "Enter a valid phone number (7-20 digits; + - ( ) and spaces allowed)",
         "requirementsRequired": "Requirements are required",
+        "requirementsMin": "Requirements must be at least 2 characters",
+        "requirementsInvalid": "Requirements contain invalid characters or code-like text",
         "requirementsMax": "Requirements must be at most 2000 characters",
         "fileTooLarge": "The file is too large. The maximum size is 5MB",
         "fileInvalid": "Only PDF, DOC or DOCX files are allowed"
@@ -1939,12 +1955,14 @@
         "submit": "Submit",
         "validation": {
           "nameRequired": "Name is required",
-          "nameMin": "Name must be at least 4 characters",
+          "nameInvalid": "Name can only contain letters, spaces, apostrophes, hyphens and periods",
+          "nameMin": "Name must be at least 2 characters",
           "nameMax": "Name must be at most 100 characters",
           "phoneRequired": "Phone number is required",
           "phoneInvalid": "Enter a valid phone number (7-20 digits; + - ( ) and spaces allowed)",
           "emailRequired": "Email is required",
           "emailInvalid": "Enter a valid email address",
+          "companyInvalid": "Company name contains invalid characters",
           "companyMax": "Company name must be at most 100 characters"
         },
         "errors": {
@@ -2068,15 +2086,18 @@
       },
       "validation": {
         "nameRequired": "Name is required",
-        "nameMin": "Name must be at least 4 characters",
+        "nameInvalid": "Name can only contain letters, spaces, apostrophes, hyphens and periods",
+        "nameMin": "Name must be at least 2 characters",
         "nameMax": "Name must be at most 100 characters",
         "phoneRequired": "Phone number is required",
         "phoneInvalid": "Enter a valid phone number (7-20 digits; + - ( ) and spaces allowed)",
         "emailRequired": "Email is required",
         "emailInvalid": "Enter a valid email address",
+        "companyInvalid": "Company name contains invalid characters",
         "companyMax": "Company name must be at most 100 characters",
         "categoryRequired": "Select a product category",
         "productRequired": "Select a product",
+        "messageInvalid": "Message contains invalid characters or code-like text",
         "messageMax": "Message must be at most 2000 characters"
       }
     }

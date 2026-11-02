@@ -190,6 +190,7 @@ export default function GetAQuoteForm() {
           <div>
             <input
               {...register('name')}
+              maxLength={100}
               autoComplete="name"
               aria-label={t('namePlaceholder')}
               aria-invalid={!!errors.name}
@@ -227,6 +228,7 @@ export default function GetAQuoteForm() {
           <div>
             <input
               {...register('company_name')}
+              maxLength={100}
               autoComplete="organization"
               aria-label={t('companyPlaceholder')}
               aria-invalid={!!errors.company_name}
@@ -325,6 +327,7 @@ export default function GetAQuoteForm() {
           <div className="sm:col-span-2">
             <textarea
               {...register('message')}
+              maxLength={2000}
               aria-label={t('notesPlaceholder')}
               aria-invalid={!!errors.message}
               placeholder={t('notesPlaceholder')}
@@ -362,7 +365,7 @@ export default function GetAQuoteForm() {
             <div className="h-25">
               <Image
                 src={Success_1Icon}
-                alt="Inquiry Success"
+                alt=""
                 className="size-full"
               />
             </div>

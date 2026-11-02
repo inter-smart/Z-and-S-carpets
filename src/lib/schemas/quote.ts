@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { companyField, messageField, nameField } from './text-rules'
 
 // Same limits as the server (quoteRequestRequest.js) and the other lead forms.
 const PHONE_PATTERN = /^[0-9\s\-()+]{7,20}$/
@@ -8,12 +9,7 @@ const PHONE_PATTERN = /^[0-9\s\-()+]{7,20}$/
 // `QuotesPage.Form.validation.<key>` translation.
 function contactFields(t: (key: string) => string) {
   return {
-    name: z
-      .string()
-      .trim()
-      .min(1, t('nameRequired'))
-      .min(4, t('nameMin'))
-      .max(100, t('nameMax')),
+    name: nameField(t),
     phone: z
       .string()
       .trim()
@@ -24,8 +20,8 @@ function contactFields(t: (key: string) => string) {
       .trim()
       .min(1, t('emailRequired'))
       .email(t('emailInvalid')),
-    company_name: z.string().trim().max(100, t('companyMax')),
-    message: z.string().trim().max(2000, t('messageMax')).optional(),
+    company_name: companyField(t),
+    message: messageField(t),
   }
 }
 

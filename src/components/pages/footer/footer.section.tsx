@@ -40,6 +40,7 @@ export default function Footer({
 }) {
   const locale = useLocale() as LocaleType
   const t = useTranslations('Footer')
+  const tAlt = useTranslations('Common.ImageAlt')
 
   const [openSection, setOpenSection] = useState<string | null>(null)
 
@@ -246,17 +247,19 @@ export default function Footer({
 
             {/* contacts */}
             <div className="mt-7 space-y-7 sm:col-span-2 sm:mt-0 md:col-span-1">
-              {footer?.logo.path ? (
-                <Image
-                  src={footer.logo.path}
-                  alt={footer.logo.alt || 'Z&S Carpets'}
-                  width={200}
-                  height={80}
-                  className="h-20 w-auto"
-                />
-              ) : (
-                <Image src={SiteLogo} alt="Z&S Carpets" className="h-20" />
-              )}
+              <Link href={`/${locale}`} className="inline-block">
+                {footer?.logo.path ? (
+                  <Image
+                    src={footer.logo.path}
+                    alt={footer.logo.alt || 'Z&S Carpets'}
+                    width={200}
+                    height={80}
+                    className="h-20 w-auto"
+                  />
+                ) : (
+                  <Image src={SiteLogo} alt="Z&S Carpets" className="h-20" />
+                )}
+              </Link>
               <div className="space-y-5 text-base">
                 {contacts.map((item, i) => {
                   if (!item.link.length)
@@ -282,6 +285,10 @@ export default function Footer({
                     <a
                       key={i}
                       href={item.link.replaceAll(' ', '')}
+                      {...(item.link.startsWith('http') && {
+                        target: '_blank',
+                        rel: 'noopener noreferrer',
+                      })}
                       className="flex flex-row items-start space-x-2"
                     >
                       <div className="mt-0.5">
@@ -316,7 +323,7 @@ export default function Footer({
                   // brightness-0 + invert forces any uploaded icon to white on the dark footer
                   <Image
                     src={logo.image}
-                    alt={logo.alt || ''}
+                    alt={logo.alt || tAlt('social')}
                     width={16}
                     height={16}
                     className="size-4 object-contain brightness-0 invert"

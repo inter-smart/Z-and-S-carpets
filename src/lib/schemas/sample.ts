@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { companyField, nameField } from './text-rules'
 
 // Same limits as the server (sampleRequestRequest.js) and the contact form
 const PHONE_PATTERN = /^[0-9\s\-()+]{7,20}$/
@@ -7,12 +8,7 @@ const PHONE_PATTERN = /^[0-9\s\-()+]{7,20}$/
 // messages follow the active locale (en / ar).
 export function createSampleSchema(t: (key: string) => string) {
   return z.object({
-    name: z
-      .string()
-      .trim()
-      .min(1, t('nameRequired'))
-      .min(4, t('nameMin'))
-      .max(100, t('nameMax')),
+    name: nameField(t),
     phone: z
       .string()
       .trim()
@@ -23,7 +19,7 @@ export function createSampleSchema(t: (key: string) => string) {
       .trim()
       .min(1, t('emailRequired'))
       .email(t('emailInvalid')),
-    company_name: z.string().trim().max(100, t('companyMax')),
+    company_name: companyField(t),
     category: z.string().min(1, t('categoryRequired')),
     product: z.string().min(1, t('productRequired')),
   })

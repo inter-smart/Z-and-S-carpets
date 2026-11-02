@@ -38,6 +38,7 @@ export default function ContactDetailsSection({
   const locale = useLocale() as LocaleType
   const t = useTranslations('ContactPage.contactDetails')
   const t2 = useTranslations('Footer')
+  const tAlt = useTranslations('Common.ImageAlt')
   const pick = (en?: string, ar?: string) =>
     locale === 'ar' ? ar || en || '' : en || ''
 
@@ -186,7 +187,7 @@ export default function ContactDetailsSection({
                 {logo.path ? (
                   <Image
                     src={logo.path}
-                    alt={logo.alt}
+                    alt={logo.alt || tAlt('social')}
                     width={18}
                     height={18}
                     className="size-4.5 object-contain"

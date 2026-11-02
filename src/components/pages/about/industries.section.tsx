@@ -60,7 +60,7 @@ export default function IndustriesSection({ data }: IndustriesSectionProps) {
                 {item.icon && (
                   <Image
                     src={item.icon}
-                    alt={item.alt}
+                    alt=""
                     width={24}
                     height={24}
                     className="size-6 object-contain"

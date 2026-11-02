@@ -3,13 +3,14 @@
 import { Button } from '@/components/ui/button'
 import { DialogClose } from '@/components/ui/dialog'
 import { XIcon } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useSyncExternalStore } from 'react'
 
 export interface SeasonalOfferContentData {
-  media: { path: string | null }
-  mobileMedia?: { path: string | null }
+  media: { path: string | null; alt?: string }
+  mobileMedia?: { path: string | null; alt?: string }
   badge: { path: string | null }
   buttonText: string
   buttonHref: string
@@ -22,6 +23,7 @@ export default function SeasonalOfferContent({
   buttonText,
   buttonHref,
 }: SeasonalOfferContentData) {
+  const t = useTranslations('Common.ImageAlt')
   return (
     <>
       <DialogClose className="absolute top-2 right-2 z-50 focus:ring-0 focus:outline-none">
@@ -44,7 +46,7 @@ export default function SeasonalOfferContent({
           {media.path && (
             <Image
               src={media.path}
-              alt={buttonText}
+              alt={media.alt || t('offer')}
               fill
               sizes="(max-width: 640px) 90vw, 800px"
               className={`z-10 object-cover ${mobileMedia?.path ? 'max-sm:hidden' : ''}`}
@@ -53,7 +55,7 @@ export default function SeasonalOfferContent({
           {mobileMedia?.path && (
             <Image
               src={mobileMedia.path}
-              alt={buttonText}
+              alt={mobileMedia.alt || media.alt || t('offer')}
               fill
               sizes="90vw"
               className="z-10 object-cover sm:hidden"

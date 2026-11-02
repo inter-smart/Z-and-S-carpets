@@ -20,6 +20,7 @@ interface BuiltForSectionProps {
 export default function BuiltForSection({ industries }: BuiltForSectionProps) {
   const locale = useLocale() as LocaleType
   const t = useTranslations('HomePage.BuiltForSection')
+  const tAlt = useTranslations('Common.ImageAlt')
   const pick = (en?: string, ar?: string) =>
     locale === 'ar' ? ar || en || '' : en || ''
   const [activeCategory, setActiveCategory] = useState(0)
@@ -204,7 +205,7 @@ export default function BuiltForSection({ industries }: BuiltForSectionProps) {
                         src={activeProductData.image}
                         alt={
                           activeProductData.alt ||
-                          `${activeProductData.name} interior`
+                          tAlt('interior', { title: activeProductData.name })
                         }
                         fill
                         sizes="(max-width: 1024px) 100vw, 60vw"

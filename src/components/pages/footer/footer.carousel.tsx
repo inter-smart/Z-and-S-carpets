@@ -3,10 +3,12 @@
 import { Button } from '@/components/ui/button'
 import { OurIcon } from '@/components/ui/icon'
 import { cn } from 'cn'
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 
 export default function FooterCarousel({ images }: { images: string[] }) {
+  const t = useTranslations('Common.ImageAlt')
   const [current, setCurrent] = useState(0)
 
   const timerRef = useRef<NodeJS.Timeout | null>(null)
@@ -65,7 +67,7 @@ export default function FooterCarousel({ images }: { images: string[] }) {
         <Image
           key={index}
           src={image}
-          alt={`Elegant Flooring ${index + 1}`}
+          alt={t('carousel', { n: index + 1 })}
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
           className={cn(

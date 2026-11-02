@@ -25,6 +25,7 @@ export default function CollectionSection({
   const locale = useLocale() as LocaleType
 
   const t = useTranslations('HomePage.CollectionSection')
+  const tAlt = useTranslations('Common.ImageAlt')
   const pick = (en?: string, ar?: string) =>
     locale === 'ar' ? ar || en || '' : en || ''
 
@@ -118,7 +119,7 @@ export default function CollectionSection({
                   {item.image && (
                     <Image
                       src={item.image}
-                      alt={item.alt || `${item.title} interior`}
+                      alt={item.alt || tAlt('interior', { title: item.title })}
                       fill
                       sizes="(max-width: 1024px) 100vw, 60vw"
                       priority={i < 2}

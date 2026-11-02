@@ -1,7 +1,7 @@
 import type { LocaleType } from '@/i18n/types'
 
 // Number of posts the list shows / loads per page
-export const BLOGS_PAGE_LIMIT = 6
+export const BLOGS_PAGE_LIMIT = 8
 
 // `?page=N` in the URL means "show the first N pages" (the Load More state); capped so the
 // first request stays within the API's limit (120 items)

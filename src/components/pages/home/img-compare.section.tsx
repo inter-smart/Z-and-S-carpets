@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button'
 import { OurIcon } from '@/components/ui/icon'
 import type { LocaleType } from '@/i18n/types'
 import type { HomeData } from '@/types/home'
-import { useLocale } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { useState } from 'react'
 
 interface ImgCompareSectionProps {
@@ -18,6 +18,7 @@ export default function ImgCompareSection({
   sideImages,
 }: ImgCompareSectionProps) {
   const locale = useLocale() as LocaleType
+  const t = useTranslations('Common.ImageAlt')
   const pick = (en?: string, ar?: string) =>
     locale === 'ar' ? ar || en || '' : en || ''
 
@@ -28,11 +29,11 @@ export default function ImgCompareSection({
           [
             {
               src: item.after.path,
-              alt: pick(item.after.alt, item.after.alt_ar) || 'Floor after',
+              alt: pick(item.after.alt, item.after.alt_ar) || t('floorAfter'),
             },
             {
               src: item.before.path,
-              alt: pick(item.before.alt, item.before.alt_ar) || 'Floor before',
+              alt: pick(item.before.alt, item.before.alt_ar) || t('floorBefore'),
             },
           ],
         ]

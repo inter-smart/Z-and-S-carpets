@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { nameField, requirementsField } from './text-rules'
 
 // Same limits as the server (contactEnquiryRequest.js + the upload middleware)
 export const CONTACT_FILE_MAX_BYTES = 5 * 1024 * 1024
@@ -10,12 +11,7 @@ const PHONE_PATTERN = /^[0-9\s\-()+]{7,20}$/
 // follow the active locale (en / ar).
 export function createContactSchema(t: (key: string) => string) {
   return z.object({
-    name: z
-      .string()
-      .trim()
-      .min(1, t('nameRequired'))
-      .min(4, t('nameMin'))
-      .max(100, t('nameMax')),
+    name: nameField(t),
     email: z
       .string()
       .trim()
@@ -26,11 +22,7 @@ export function createContactSchema(t: (key: string) => string) {
       .trim()
       .min(1, t('phoneRequired'))
       .regex(PHONE_PATTERN, t('phoneInvalid')),
-    requirements: z
-      .string()
-      .trim()
-      .min(1, t('requirementsRequired'))
-      .max(2000, t('requirementsMax')),
+    requirements: requirementsField(t),
     // optional attachment: PDF / DOC / DOCX, up to 5MB
     file: z
       .custom<File | null>()

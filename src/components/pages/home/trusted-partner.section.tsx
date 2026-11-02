@@ -7,7 +7,7 @@ import type { LocaleType } from '@/i18n/types'
 import type { HomeData } from '@/types/home'
 import Autoplay from 'embla-carousel-autoplay'
 import useEmblaCarousel from 'embla-carousel-react'
-import { useLocale } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useCallback, useEffect, useState } from 'react'
 
@@ -34,6 +34,7 @@ export default function TrustedPartnerSection({
   cta,
 }: TrustedPartnerSectionProps) {
   const locale = useLocale() as LocaleType
+  const tAlt = useTranslations('Common.ImageAlt')
   const pick = (en?: string, ar?: string) =>
     locale === 'ar' ? ar || en || '' : en || ''
 
@@ -168,7 +169,7 @@ export default function TrustedPartnerSection({
                         src={partner[0].image}
                         width={250}
                         height={200}
-                        alt={partner[0].name}
+                        alt={partner[0].name || tAlt('partner')}
                         className="h-auto w-full"
                       />
                     </div>
@@ -181,7 +182,7 @@ export default function TrustedPartnerSection({
                           src={partner[1].image}
                           width={250}
                           height={200}
-                          alt={partner[1].name}
+                          alt={partner[1].name || tAlt('partner')}
                           className="h-auto w-full"
                         />
                       </div>

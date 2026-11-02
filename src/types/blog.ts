@@ -19,6 +19,7 @@ export type BlogOption = Titled & { slug: string }
 export type BlogAd = {
   id: number
   media: HomeMedia
+  mobile_media: HomeMedia | null
   link: string
   new_tab: boolean
   button_text: string

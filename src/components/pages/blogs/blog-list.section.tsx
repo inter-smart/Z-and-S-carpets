@@ -10,7 +10,10 @@ import type { BlogAd, BlogCard, BlogListData, BlogOption } from '@/types/blog'
 import { Loader2Icon } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import { usePathname, useRouter } from 'next/navigation'
-import { useState, useTransition } from 'react'
+import { Fragment, useState, useTransition } from 'react'
+
+// Posts between two ad banners
+const AD_EVERY = 4
 
 interface BlogListSectionProps {
   // heading from the CMS; the translation is the fallback
@@ -121,9 +124,12 @@ export default function BlogListSection({
 
   const sortOptions = [{ value: 'oldest', label: t('oldest') }]
 
-  const firstGroup = blogs.slice(0, 4)
-  const secondGroup = blogs.slice(4, 8)
-  const thirdGroup = blogs.slice(8)
+  // An ad banner follows every AD_EVERY posts, taking the ads in turn (and starting again from
+  // the first when they run out), so posts added with Load More get banners too.
+  const groups = Array.from(
+    { length: Math.ceil(blogs.length / AD_EVERY) },
+    (_, i) => blogs.slice(i * AD_EVERY, (i + 1) * AD_EVERY),
+  )
 
   return (
     <div className="container-wrapper pt-5 pb-10 lg:pt-10 lg:pb-20">
@@ -180,31 +186,18 @@ export default function BlogListSection({
           <p className="mt-16 text-center text-lg">{t('noPosts')}</p>
         ) : (
           <>
-            <div className="mt-10 grid gap-4 lg:grid-cols-2">
-              {firstGroup.map((article) => (
-                <BlogItemCard key={article.slug} article={article} />
-              ))}
-            </div>
-
-            {ads[0] && <AdBanner ad={ads[0]} />}
-
-            {secondGroup.length > 0 && (
-              <div className="grid gap-4 md:grid-cols-2">
-                {secondGroup.map((article) => (
-                  <BlogItemCard key={article.slug} article={article} />
-                ))}
-              </div>
-            )}
-
-            {secondGroup.length > 0 && ads[1] && <AdBanner ad={ads[1]} />}
-
-            {thirdGroup.length > 0 && (
-              <div className="grid gap-4 md:grid-cols-2">
-                {thirdGroup.map((article) => (
-                  <BlogItemCard key={article.slug} article={article} />
-                ))}
-              </div>
-            )}
+            {groups.map((group, index) => (
+              <Fragment key={group[0].slug}>
+                <div
+                  className={`grid gap-4 md:grid-cols-2 ${index === 0 ? 'mt-10' : ''}`}
+                >
+                  {group.map((article) => (
+                    <BlogItemCard key={article.slug} article={article} />
+                  ))}
+                </div>
+                {ads.length > 0 && <AdBanner ad={ads[index % ads.length]} />}
+              </Fragment>
+            ))}
           </>
         )}
       </div>

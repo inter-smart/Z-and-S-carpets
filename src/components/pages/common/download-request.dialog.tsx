@@ -145,6 +145,7 @@ function DownloadRequestForm({
         <div>
           <input
             {...register('name')}
+            maxLength={100}
             autoComplete="name"
             aria-label={formField[0]}
             aria-invalid={!!errors.name}
@@ -191,6 +192,7 @@ function DownloadRequestForm({
         <div>
           <input
             {...register('company_name')}
+            maxLength={100}
             autoComplete="organization"
             aria-label={formField[3]}
             aria-invalid={!!errors.company_name}
@@ -263,7 +265,7 @@ export default function DownloadRequestDialog() {
             <div className="h-25">
               <Image
                 src={Success_2Icon}
-                alt="Request Success"
+                alt=""
                 className="size-full"
               />
             </div>
