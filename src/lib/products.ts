@@ -94,6 +94,7 @@ export function toProductCard(
       ? pick(locale, item.badge.title, item.badge.title_ar)
       : undefined,
     category: pick(locale, item.category.title, item.category.title_ar),
+    hasVariants: Boolean(item.has_variants),
     material: '',
     color: '',
     usage: '',

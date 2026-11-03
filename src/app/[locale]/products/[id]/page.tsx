@@ -31,7 +31,11 @@ const escapeHtml = (value: string) =>
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || ''
 
 async function loadProduct(slug: string, attrs: string) {
-  const result = await getProductsData.getDetail<ProductDetailData>(slug, attrs)
+  const result = await getProductsData.getDetail<ProductDetailData>(
+    slug,
+    attrs,
+    true,
+  )
   if (result.success) return result.data
   // an unknown / inactive product is a 404; other failures (API down) surface as an error
   if (result.error === PRODUCT_NOT_FOUND) return null
@@ -78,8 +82,7 @@ export default async function ProductDetailsPage({
   const { locale, id: slug } = await params
   const lang = locale as LocaleType
   const query = await searchParams
-  const chosen = parseAttrsParam(query.attrs)
-  const attrs = buildAttrsParam(chosen)
+  const attrs = buildAttrsParam(parseAttrsParam(query.attrs))
 
   const [data, related, settings, t] = await Promise.all([
     loadProduct(slug, attrs),
@@ -96,6 +99,8 @@ export default async function ProductDetailsPage({
   const selected = data.variants.find(
     (variant) => variant.id === data.selected_variant_id,
   )
+  // the swatches start on the variant the server selected (the default one when the URL had none)
+  const chosen = selected?.values ?? parseAttrsParam(query.attrs)
 
   // The description under the product name always belongs to the product (its own text, else the
   // short text) and never changes with the selected variant. The "Product Description" detail

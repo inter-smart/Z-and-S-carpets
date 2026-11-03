@@ -10,6 +10,8 @@ import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useCallback } from 'react'
 
+const AVATAR_PLACEHOLDER = '/images/avatar-placeholder.svg'
+
 interface CustomerReviewType {
   quote: string
   name: string
@@ -32,15 +34,13 @@ function ReviewCard({ review }: { review: CustomerReviewType }) {
         <p className="mt-5 text-sm leading-5">{review.quote}</p>
       </div>
       <div className="mt-7 flex items-center gap-3">
-        {review.avatar && (
-          <Image
-            src={review.avatar}
-            alt={`${review.name}, ${review.role}`}
-            width={56}
-            height={56}
-            className="size-14 rounded-full object-cover"
-          />
-        )}
+        <Image
+          src={review.avatar || AVATAR_PLACEHOLDER}
+          alt={`${review.name}, ${review.role}`}
+          width={56}
+          height={56}
+          className="size-14 rounded-full object-cover"
+        />
         <div>
           <p className="text-lg font-medium">{review.name}</p>
           <p className="text-muted-foreground text-sm">{review.role}</p>

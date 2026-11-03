@@ -169,7 +169,7 @@ export function QuoteCartProvider({ children }: { children: ReactNode }) {
   const clear = useCallback(() => setItems([]), [])
 
   const count = useMemo(
-    () => items.reduce((total, item) => total + item.quantity, 0),
+    () => new Set(items.map((item) => item.productId)).size,
     [items],
   )
 

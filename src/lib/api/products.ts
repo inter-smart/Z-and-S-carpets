@@ -38,11 +38,12 @@ export const getProductsData = {
 
   // One product: info, attributes, variants, the selected variant's tab content and FAQs.
   // `attrs` (`size:small,color:oak`) picks the variant.
-  getDetail: <T = unknown>(slug: string, attrs = '') =>
-    request<T>(
-      `/api/frontend/products/${encodeURIComponent(slug)}`,
-      attrs ? { attrs } : {},
-    ),
+  // `defaultVariant` opens on the first valid variant when `attrs` doesn't resolve one.
+  getDetail: <T = unknown>(slug: string, attrs = '', defaultVariant = false) =>
+    request<T>(`/api/frontend/products/${encodeURIComponent(slug)}`, {
+      ...(attrs ? { attrs } : {}),
+      ...(defaultVariant ? { default_variant: '1' } : {}),
+    }),
 
   getRelated: <T = unknown>(slug: string, limit = 8) =>
     request<T>(`/api/frontend/products/${encodeURIComponent(slug)}/related`, {

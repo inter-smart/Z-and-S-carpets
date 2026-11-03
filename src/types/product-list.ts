@@ -26,6 +26,7 @@ export type ProductListItem = Titled & {
   description_ar: string
   media: HomeMedia
   badge: (Titled & { slug: string }) | null
+  has_variants?: boolean
   category: Titled & { slug: string }
 }
 

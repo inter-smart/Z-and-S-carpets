@@ -106,7 +106,11 @@ export default function ProductDetailsSection({
   const heroPath = images[0]?.path ?? null
   const category = product.categories.at(-1)
 
+  // a product with variants can only be quoted once a variant is fully chosen
+  const needsVariant = data.variants.length > 0 && !selectedVariant
+
   const handleAddToQuote = () => {
+    if (needsVariant) return
     addItem({
       productId: product.id,
       productSlug: product.slug,
@@ -333,7 +337,8 @@ export default function ProductDetailsSection({
           <Button
             type="button"
             onClick={handleAddToQuote}
-            className="our-btn bg-our-purple px-5!"
+            disabled={needsVariant}
+            className="our-btn bg-our-purple cursor-pointer px-5! disabled:cursor-not-allowed"
           >
             {tCard('addToQuote')}
           </Button>

@@ -17,6 +17,7 @@ export interface ProductItemType {
   image: string
   imageAlt?: string
   badge?: string
+  hasVariants?: boolean
   category: string
   material: string
   color: string

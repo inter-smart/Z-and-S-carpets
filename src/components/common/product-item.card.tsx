@@ -4,6 +4,7 @@ import { useQuoteCart } from '@/context/quote-cart.context'
 import type { ProductItemType } from '@/types/product'
 import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 export default function ProductItemCard({
   product,
@@ -12,10 +13,16 @@ export default function ProductItemCard({
 }) {
   const locale = useLocale()
   const t = useTranslations('Common.ProductCard')
+  const router = useRouter()
   const { addItem } = useQuoteCart()
 
   const handleAddToQuote = () => {
     if (!product.id || !product.slug) return
+    // variants need a choice first, so send the visitor to the detail page
+    if (product.hasVariants) {
+      router.push(`/${locale}/products/${product.slug}`)
+      return
+    }
     addItem({
       productId: product.id,
       productSlug: product.slug,
@@ -28,6 +35,7 @@ export default function ProductItemCard({
       media: product.image || null,
       quantity: 1,
     })
+    router.push(`/${locale}/quotes`)
   }
 
   return (
@@ -58,7 +66,7 @@ export default function ProductItemCard({
           <Button
             type="button"
             variant={'outline'}
-            className="our-btn flex-1 rounded! border-black px-0! py-3! text-xs! font-semibold!"
+            className="our-btn flex-1 cursor-pointer rounded! border-black px-0! py-3! text-xs! font-semibold!"
             nativeButton={false}
             render={
               <Link
@@ -72,7 +80,7 @@ export default function ProductItemCard({
             type="button"
             onClick={handleAddToQuote}
             disabled={!product.id}
-            className="bg-our-purple our-btn flex-1 rounded! px-0! py-3! text-xs! font-semibold!"
+            className="bg-our-purple our-btn flex-1 cursor-pointer rounded! disabled:cursor-not-allowed px-0! py-3! text-xs! font-semibold!"
           >
             {t('addToQuote')}
           </Button>

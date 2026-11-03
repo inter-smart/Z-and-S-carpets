@@ -9,7 +9,7 @@ import Autoplay from 'embla-carousel-autoplay'
 import useEmblaCarousel from 'embla-carousel-react'
 import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState, type CSSProperties } from 'react'
 
 interface PartnerType {
   name: string
@@ -152,46 +152,66 @@ export default function TrustedPartnerSection({
           )}
 
           {/* main content */}
-          <div
-            className="mt-8 overflow-hidden rounded-md border border-[#0066B3]/40 bg-[#EFF9FE]/40"
-            ref={emblaRef}
-          >
-            <div className="flex">
-              {trustedPartnersPaired.map((partner, i) => (
-                <div
-                  key={i}
-                  className="flex min-w-0 shrink-0 grow-0 basis-1/2 cursor-grabbing flex-col justify-start border-[#0066B3]/40 min-[400px]:basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/7 ltr:border-r rtl:border-l"
-                >
-                  <div className="flex h-1/2 w-full items-center justify-center border-b border-[#0066B3]/40">
-                    {/* <div className="h-auto w-30 xl:w-35"> */}
-                    <div className="flex h-30 w-auto items-center justify-center">
-                      <Image
-                        src={partner[0].image}
-                        width={250}
-                        height={200}
-                        alt={partner[0].name || tAlt('partner')}
-                        className="h-auto w-full"
-                      />
-                    </div>
-                  </div>
-                  {partner.length > 1 && (
-                    <div className="flex h-1/2 w-full items-center justify-center border-[#0066B3]/40">
-                      {/* <div className="h-auto w-30 xl:w-35"> */}
-                      <div className="flex h-30 w-auto items-center justify-center">
-                        <Image
-                          src={partner[1].image}
-                          width={250}
-                          height={200}
-                          alt={partner[1].name || tAlt('partner')}
-                          className="h-auto w-full"
-                        />
+          {/* --cap = columns visible per breakpoint (2 logos stacked per column, so 7 cols = 14 logos
+              at xl). The box is cols/cap of the width, so it hugs few logos with no blank space and
+              only spans the full width (and scrolls) once the columns fill it. */}
+          {trustedPartnersPaired.length > 0 && (
+            <div
+              className="mt-8 [--cap:2] min-[400px]:[--cap:3] md:[--cap:4] lg:[--cap:5] xl:[--cap:7]"
+              style={
+                { '--cols': trustedPartnersPaired.length } as CSSProperties
+              }
+            >
+              <div
+                className="w-[min(100%,calc(var(--cols)*100%/var(--cap)))] overflow-hidden rounded-md border border-[#0066B3]/40 bg-[#EFF9FE]/40"
+                ref={emblaRef}
+              >
+                {/* negative end margin hides the last column's divider behind the box border */}
+                <div className="flex ltr:-mr-px rtl:-ml-px">
+                  {trustedPartnersPaired.map((partner, i) => (
+                    <div
+                      key={i}
+                      className="flex min-w-0 shrink-0 grow-0 basis-[calc(100%/min(var(--cols),var(--cap)))] cursor-grabbing flex-col justify-start border-[#0066B3]/40 ltr:border-r rtl:border-l"
+                    >
+                      {/* an odd last logo takes the whole column (no empty half-cell, no divider) */}
+                      <div
+                        className={
+                          partner.length > 1
+                            ? 'flex h-1/2 w-full items-center justify-center border-b border-[#0066B3]/40'
+                            : 'flex w-full flex-1 items-center justify-center'
+                        }
+                      >
+                        {/* <div className="h-auto w-30 xl:w-35"> */}
+                        <div className="flex h-30 w-auto items-center justify-center">
+                          <Image
+                            src={partner[0].image}
+                            width={250}
+                            height={200}
+                            alt={partner[0].name || tAlt('partner')}
+                            className="h-auto w-full"
+                          />
+                        </div>
                       </div>
+                      {partner.length > 1 && (
+                        <div className="flex h-1/2 w-full items-center justify-center border-[#0066B3]/40">
+                          {/* <div className="h-auto w-30 xl:w-35"> */}
+                          <div className="flex h-30 w-auto items-center justify-center">
+                            <Image
+                              src={partner[1].image}
+                              width={250}
+                              height={200}
+                              alt={partner[1].name || tAlt('partner')}
+                              className="h-auto w-full"
+                            />
+                          </div>
+                        </div>
+                      )}
                     </div>
-                  )}
+                  ))}
                 </div>
-              ))}
+              </div>
             </div>
-          </div>
+          )}
         </>
       )}
       {showCta && <LookingForwardCard data={cta} />}

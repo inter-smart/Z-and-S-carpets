@@ -48,7 +48,7 @@ export default function IndustriesSection({ data }: IndustriesSectionProps) {
             )}
           </div>
         </div>
-        <div className="flex flex-col justify-between gap-0 py-2 pe-5">
+        <div className="flex flex-col justify-center gap-0 py-2 pe-5">
           {industries.map((item, index) => (
             <article
               key={item.id}
