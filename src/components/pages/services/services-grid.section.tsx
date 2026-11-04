@@ -42,6 +42,9 @@ const cardClasses = (index: number, total: number) => {
   return cn(
     index > 0 && 'border-t',
     isFirstRow && 'md:border-t-0',
+    // odd count: the right card above the lone last card closes the row with a bottom border
+    total % 2 === 1 && index === total - 2 && 'md:border-b',
+    // left cards always carry the vertical divider, even when the last row has no right card
     isLeft ? 'md:border-e md:ps-6 md:pe-12' : 'md:ps-12 md:pe-6',
     isFirstRow ? 'md:pt-6' : 'md:pt-12',
     isLastRow ? 'md:pb-6' : 'md:pb-12',

@@ -132,7 +132,7 @@ function QuoteCartForm({
   return (
     <form
       noValidate
-      className="flex w-full flex-col items-start"
+      className="my-auto flex w-full flex-col items-start"
       onSubmit={handleSubmit(onSubmit)}
     >
       <DialogTitle className="our-heading mt-5 text-6xl!">
@@ -320,7 +320,7 @@ export default function GetAQuoteDialog({
             </div>
           </DialogContent>
         ) : (
-          <DialogContent className="flex flex-row items-center justify-center rounded-sm bg-white p-5 text-black sm:min-w-150 md:p-10 lg:min-w-180 lg:p-12">
+          <DialogContent className="flex max-h-[calc(100dvh-2rem)] flex-row items-start justify-center overflow-y-auto overscroll-contain rounded-sm bg-white p-5 text-black sm:min-w-150 md:p-10 lg:min-w-180 lg:p-12">
             <QuoteCartForm
               onSuccess={(referenceCode) => {
                 clear()

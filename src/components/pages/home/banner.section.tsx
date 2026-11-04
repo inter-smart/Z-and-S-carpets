@@ -4,11 +4,16 @@ import { Button } from '@/components/ui/button'
 import type { LocaleType } from '@/i18n/types'
 import type { HomeData } from '@/types/home'
 import { cn } from 'cn'
-import { ArrowLeftIcon, ArrowRightIcon } from 'lucide-react'
+import {
+  ArrowLeftIcon,
+  ArrowRightIcon,
+  ChevronDownIcon,
+  ChevronUpIcon,
+} from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { useVideoPlayback } from '@/hooks/use-video-playback'
 import { getVideoMimeType } from '@/lib/video'
 
@@ -117,6 +122,46 @@ export default function BannerSection({
   // banner content swaps and the slider keeps its position and keeps running
   const handleCategoryChange = (item: CategoryType) => {
     setCurrentCategory(item)
+    tabRefs.current[item.id]?.scrollIntoView({
+      block: 'nearest',
+      behavior: 'smooth',
+    })
+  }
+
+  // Industry rail overflow (more tabs than fit the hero height)
+  const tabsRef = useRef<HTMLDivElement>(null)
+  const tabRefs = useRef<Record<string, HTMLParagraphElement | null>>({})
+  // arrows only appear when there are more than this many industries
+  const showTabArrows = category.length > 5
+  const isRtl = locale === 'ar'
+  // plain top-to-bottom DOM order (no flex-col-reverse, whose scrollTop is negative and breaks the end detection)
+  const displayedTabs = isRtl ? category : [...category].reverse()
+  const [canScrollStart, setCanScrollStart] = useState(false)
+  const [canScrollEnd, setCanScrollEnd] = useState(false)
+
+  const updateTabsOverflow = useCallback(() => {
+    const el = tabsRef.current
+    if (!el) return
+    setCanScrollStart(el.scrollTop > 1)
+    setCanScrollEnd(el.scrollTop + el.clientHeight < el.scrollHeight - 1)
+  }, [])
+
+  useEffect(() => {
+    const el = tabsRef.current
+    if (!el) return
+    // LTR lists the tabs bottom-to-top, so start scrolled to the bottom (first tab visible)
+    if (!isRtl) el.scrollTop = el.scrollHeight
+    updateTabsOverflow()
+    const observer = new ResizeObserver(updateTabsOverflow)
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [updateTabsOverflow, category.length, isRtl])
+
+  const scrollTabs = (direction: 'start' | 'end') => {
+    tabsRef.current?.scrollBy({
+      top: direction === 'start' ? -160 : 160,
+      behavior: 'smooth',
+    })
   }
 
   // Handle infinite-loop repositioning
@@ -207,25 +252,62 @@ export default function BannerSection({
       <div className="absolute top-0 flex h-166 w-full flex-col justify-end from-black/80 to-black/0 text-white ltr:bg-linear-to-r rtl:bg-linear-to-l">
         {/* category */}
         <div className="absolute h-full w-10 sm:w-20">
-          {/* tabs stay centred on the hero's vertical middle and grow outwards (read bottom to top) */}
-          <div className="absolute top-1/2 left-1/2 flex w-max -translate-x-1/2 -translate-y-1/2 flex-row items-center ltr:-rotate-90 rtl:rotate-90">
-            {category.map((item, i) => (
-              <div key={item.id} className="flex items-center">
-                <p
-                  className={cn(
-                    'cursor-default text-lg whitespace-nowrap underline underline-offset-4',
-                    currentCategory.id === item.id && 'text-our-blue',
-                  )}
-                  onClick={() => handleCategoryChange(item)}
-                >
-                  {item.label}
-                </p>
+          {/* tabs stay centred on the hero's vertical middle; when they exceed the hero height the rail scrolls with arrows */}
+          <div className="absolute top-1/2 left-1/2 flex max-h-[calc(100%-6rem)] -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1">
+            {showTabArrows && (
+              <button
+                type="button"
+                aria-label="Previous industries"
+                disabled={!canScrollStart}
+                onClick={() => scrollTabs('start')}
+                className="cursor-pointer rounded-full p-0.5 text-white/80 hover:text-white disabled:cursor-default disabled:opacity-30 disabled:hover:text-white/80"
+              >
+                <ChevronUpIcon className="size-4" />
+              </button>
+            )}
 
-                {i < category.length - 1 && (
-                  <div className="mx-[1.6rem] h-4.5 w-[0.5px] bg-white/20" />
-                )}
-              </div>
-            ))}
+            <div
+              ref={tabsRef}
+              onScroll={updateTabsOverflow}
+              className="flex min-h-0 scrollbar-none flex-col items-center overflow-y-auto [&::-webkit-scrollbar]:hidden"
+            >
+              {/* first tab at the bottom in LTR (reads bottom to top), at the top in RTL */}
+              {displayedTabs.map((item) => (
+                <div
+                  key={item.id}
+                  className="flex shrink-0 items-center ltr:flex-col-reverse rtl:flex-col"
+                >
+                  <p
+                    ref={(el) => {
+                      tabRefs.current[item.id] = el
+                    }}
+                    className={cn(
+                      'cursor-default text-lg whitespace-nowrap underline underline-offset-4 [writing-mode:vertical-rl] ltr:rotate-180',
+                      currentCategory.id === item.id && 'text-our-blue',
+                    )}
+                    onClick={() => handleCategoryChange(item)}
+                  >
+                    {item.label}
+                  </p>
+
+                  {item.id !== category[category.length - 1].id && (
+                    <div className="my-[1.6rem] h-[0.5px] w-4.5 bg-white/20" />
+                  )}
+                </div>
+              ))}
+            </div>
+
+            {showTabArrows && (
+              <button
+                type="button"
+                aria-label="Next industries"
+                disabled={!canScrollEnd}
+                onClick={() => scrollTabs('end')}
+                className="cursor-pointer rounded-full p-0.5 text-white/80 hover:text-white disabled:cursor-default disabled:opacity-30 disabled:hover:text-white/80"
+              >
+                <ChevronDownIcon className="size-4" />
+              </button>
+            )}
           </div>
         </div>
 

@@ -168,10 +168,8 @@ export function QuoteCartProvider({ children }: { children: ReactNode }) {
 
   const clear = useCallback(() => setItems([]), [])
 
-  const count = useMemo(
-    () => new Set(items.map((item) => item.productId)).size,
-    [items],
-  )
+  // One line per product (or per product + variant); quantity never counts.
+  const count = items.length
 
   const value = useMemo(
     () => ({ items, count, addItem, removeItem, updateQuantity, clear }),

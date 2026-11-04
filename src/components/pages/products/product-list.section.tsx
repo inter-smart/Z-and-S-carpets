@@ -355,10 +355,10 @@ export default function ProductListSection({
   return (
     <>
       <section className="container-wrapper flex">
-        <div className="relative hidden h-fit w-60 bg-[#EFF9FE] md:block lg:w-70 2xl:w-80">
+        <div className="relative hidden w-60 bg-[#EFF9FE] md:block lg:w-70 2xl:w-80">
           <div className="absolute bottom-full -z-10 h-full w-dvw bg-[#EFF9FE] ltr:right-0 rtl:left-0" />
           <div className="absolute h-full w-dvw bg-[#EFF9FE] ltr:right-full rtl:left-full" />
-          <aside className="pe-5 pt-5 pb-8">
+          <aside className="sticky top-[calc(var(--header-h,0px)+1rem)] max-h-[calc(100dvh-var(--header-h,0px)-2rem)] scrollbar-none overflow-y-auto overscroll-contain pe-5 pt-5 pb-8">
             <h2 className="our-heading text-6xl!">{t2('filterTitle')}</h2>
             <div className="mt-4">{filterGroups}</div>
             {clearButton}
@@ -435,7 +435,7 @@ export default function ProductListSection({
 
       <div>
         {/* Related categories (<RelatedCategoriesSection />) are disabled for empty results until the section is reworked */}
-        {products.length > 0 && faqs?.is_visible && (
+        {faqs?.is_visible && (
           <FAQSection className="bg-[#EFF9FE]" data={faqs} />
         )}
       </div>

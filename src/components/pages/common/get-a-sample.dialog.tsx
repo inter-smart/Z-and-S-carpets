@@ -176,7 +176,7 @@ function SampleForm({
   return (
     <form
       noValidate
-      className="flex w-full flex-col items-start"
+      className="my-auto flex w-full flex-col items-start"
       onSubmit={handleSubmit(onSubmit)}
     >
       <DialogTitle className="our-heading mt-5 text-8xl!">
@@ -417,7 +417,7 @@ export default function GetASampleDialog() {
         ) : (
           <DialogContent
             showCloseButton={false}
-            className="flex min-h-100 flex-row items-center justify-center rounded-sm bg-[#023260] p-5 text-white sm:min-w-120 md:p-10 lg:p-12"
+            className="flex max-h-[calc(100dvh-2rem)] min-h-100 flex-row items-start justify-center overflow-y-auto overscroll-contain rounded-sm bg-[#023260] p-5 text-white sm:min-w-120 md:p-10 lg:p-12"
           >
             <SampleForm
               options={options}

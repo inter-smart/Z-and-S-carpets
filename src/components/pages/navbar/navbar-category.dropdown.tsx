@@ -320,7 +320,9 @@ function DropdownContent({
   const viewAllHref = hasSubCategories ? selected.viewAllHref : categoryHref
 
   return (
-    <div className="p-7">
+    // Fixed width/min-height so every category panel is the same size, regardless of how many
+    // sub-categories or product cards it has (the popup otherwise sizes itself to the content).
+    <div className="min-h-90 w-[min(64rem,calc(100vw-2rem))] p-7">
       {/* Header */}
       <div className="flex flex-col justify-between sm:flex-row sm:items-center">
         <h2 className="ltr:font-nobile rtl:font-cairo text-2xl font-medium text-black">

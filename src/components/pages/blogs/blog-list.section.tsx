@@ -124,8 +124,8 @@ export default function BlogListSection({
 
   const sortOptions = [{ value: 'oldest', label: t('oldest') }]
 
-  // An ad banner follows every AD_EVERY posts, taking the ads in turn (and starting again from
-  // the first when they run out), so posts added with Load More get banners too.
+  // An ad banner follows every full AD_EVERY posts (4, 8, 12...), taking the ads in turn (and
+  // starting again from the first when they run out), so posts added with Load More get banners too.
   const groups = Array.from(
     { length: Math.ceil(blogs.length / AD_EVERY) },
     (_, i) => blogs.slice(i * AD_EVERY, (i + 1) * AD_EVERY),
@@ -195,7 +195,10 @@ export default function BlogListSection({
                     <BlogItemCard key={article.slug} article={article} />
                   ))}
                 </div>
-                {ads.length > 0 && <AdBanner ad={ads[index % ads.length]} />}
+                {/* only after a full group (4, 8, 12... posts), never after a partial last one */}
+                {ads.length > 0 && group.length === AD_EVERY && (
+                  <AdBanner ad={ads[index % ads.length]} />
+                )}
               </Fragment>
             ))}
           </>

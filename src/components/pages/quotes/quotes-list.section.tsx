@@ -15,7 +15,7 @@ import QuotesEmptySection from './quotes-empty.section'
 export default function QuotesListSection() {
   const t = useTranslations('QuotesPage')
   const locale = useLocale() as LocaleType
-  const { items, updateQuantity, removeItem, clear } = useQuoteCart()
+  const { items, count, updateQuantity, removeItem, clear } = useQuoteCart()
   const [quoteDialogOpen, setQuoteDialogOpen] = useState(false)
 
   return (
@@ -34,7 +34,7 @@ export default function QuotesListSection() {
               </h2>
               <div className="flex flex-1 items-center justify-between gap-6">
                 <span className="border-our-green rounded border px-3 py-1 text-base">
-                  {t('itemsCount', { count: items.length })}
+                  {t('itemsCount', { count })}
                 </span>
                 <button
                   type="button"

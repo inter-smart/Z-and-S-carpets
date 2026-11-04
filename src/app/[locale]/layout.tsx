@@ -116,9 +116,6 @@ export default async function RootLayout({
                         ? siteSettings.data.floating_buttons
                         : undefined
                     }
-                    email={footer?.email}
-                    phone={footer?.phone}
-                    whatsapp={footer?.whatsapp_number}
                   />
                   {seasonalOffer.success && seasonalOffer.data?.is_visible && (
                     <SeasonalOfferDialog />
