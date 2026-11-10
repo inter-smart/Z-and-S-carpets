@@ -186,7 +186,10 @@ export default function ProductDetailsSection({
             <div className="border-our-purple/60 border-y xl:w-130 2xl:w-160">
               <div
                 ref={tagRef}
-                className="mx-6 flex scrollbar-none gap-3 overflow-x-auto scroll-smooth py-2"
+                className={cn(
+                  'flex scrollbar-none gap-3 overflow-x-auto scroll-smooth py-2',
+                  tagsScrollable && 'mx-6',
+                )}
               >
                 {product.features.map((feature, i) => (
                   <p key={feature.slug} className="z-30 shrink-0 text-xs">
@@ -204,28 +207,30 @@ export default function ProductDetailsSection({
                   </p>
                 ))}
               </div>
-              <div className="absolute top-0 left-0 h-full bg-linear-to-r from-white to-white/5 pr-15">
-                <Button
-                  aria-label={t('scrollLeft')}
-                  variant="ghost"
-                  disabled={!tagsScrollable}
-                  onClick={() => scrollTags('left')}
-                  className="text-our-purple hover:text-our-purple flex h-full cursor-pointer p-0! hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
-                >
-                  <ChevronLeftIcon className="rtl:rotate-180" />
-                </Button>
-              </div>
-              <div className="absolute top-0 right-0 h-full bg-linear-to-l from-white to-white/5 pl-15">
-                <Button
-                  aria-label={t('scrollRight')}
-                  variant="ghost"
-                  disabled={!tagsScrollable}
-                  onClick={() => scrollTags('right')}
-                  className="text-our-purple hover:text-our-purple flex h-full cursor-pointer p-0! hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
-                >
-                  <ChevronRightIcon className="rtl:rotate-180" />
-                </Button>
-              </div>
+              {tagsScrollable && (
+                <>
+                  <div className="absolute top-0 left-0 h-full bg-linear-to-r from-white to-white/5 pr-15">
+                    <Button
+                      aria-label={t('scrollLeft')}
+                      variant="ghost"
+                      onClick={() => scrollTags('left')}
+                      className="text-our-purple hover:text-our-purple flex h-full cursor-pointer p-0! hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
+                    >
+                      <ChevronLeftIcon className="rtl:rotate-180" />
+                    </Button>
+                  </div>
+                  <div className="absolute top-0 right-0 h-full bg-linear-to-l from-white to-white/5 pl-15">
+                    <Button
+                      aria-label={t('scrollRight')}
+                      variant="ghost"
+                      onClick={() => scrollTags('right')}
+                      className="text-our-purple hover:text-our-purple flex h-full cursor-pointer p-0! hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
+                    >
+                      <ChevronRightIcon className="rtl:rotate-180" />
+                    </Button>
+                  </div>
+                </>
+              )}
             </div>
           </div>
         )}
@@ -418,7 +423,10 @@ function AttributeGroup({
         <div className="relative mt-2 xl:w-130 2xl:w-160">
           <div
             ref={rowRef}
-            className="mx-10 flex scrollbar-none gap-3 overflow-x-auto scroll-smooth p-1 md:gap-6"
+            className={cn(
+              'flex scrollbar-none gap-3 overflow-x-auto scroll-smooth p-1 md:gap-6',
+              rowScrollable && 'mx-10',
+            )}
           >
             {attribute.values.map((item) => {
               const label = pickLocalized(locale, item.value, item.value_ar)
@@ -466,28 +474,30 @@ function AttributeGroup({
               )
             })}
           </div>
-          <div className="absolute top-0 left-0 h-full w-fit pt-4">
-            <Button
-              aria-label={scrollLabels.left}
-              variant="ghost"
-              disabled={!rowScrollable}
-              onClick={() => scrollRow('left')}
-              className="flex cursor-pointer p-0! hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
-            >
-              <OurIcon name="arrow-left" />
-            </Button>
-          </div>
-          <div className="absolute top-0 right-0 h-full pt-4">
-            <Button
-              aria-label={scrollLabels.right}
-              variant="ghost"
-              disabled={!rowScrollable}
-              onClick={() => scrollRow('right')}
-              className="flex cursor-pointer p-0! hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
-            >
-              <OurIcon name="arrow-right" />
-            </Button>
-          </div>
+          {rowScrollable && (
+            <>
+              <div className="absolute top-0 left-0 h-full w-fit pt-4">
+                <Button
+                  aria-label={scrollLabels.left}
+                  variant="ghost"
+                  onClick={() => scrollRow('left')}
+                  className="flex cursor-pointer p-0! hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
+                >
+                  <OurIcon name="arrow-left" />
+                </Button>
+              </div>
+              <div className="absolute top-0 right-0 h-full pt-4">
+                <Button
+                  aria-label={scrollLabels.right}
+                  variant="ghost"
+                  onClick={() => scrollRow('right')}
+                  className="flex cursor-pointer p-0! hover:bg-transparent focus-visible:border-transparent! focus-visible:ring-0!"
+                >
+                  <OurIcon name="arrow-right" />
+                </Button>
+              </div>
+            </>
+          )}
         </div>
       ) : (
         <div className="mt-2 flex flex-wrap gap-2">

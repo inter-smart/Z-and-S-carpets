@@ -117,7 +117,7 @@ export default function ImageZoom({
             variant="ghost"
             size="icon"
             aria-label={t('previousImage')}
-            className={cn(controlClass, 'start-3 top-1/2 -translate-y-1/2')}
+            className={cn(controlClass, 'start-3 top-[calc(50%-1.125rem)]')}
             onClick={scrollPrev}
           >
             <OurIcon name="arrow-left" className="ltr:block rtl:hidden" />
@@ -128,7 +128,7 @@ export default function ImageZoom({
             variant="ghost"
             size="icon"
             aria-label={t('nextImage')}
-            className={cn(controlClass, 'end-3 top-1/2 -translate-y-1/2')}
+            className={cn(controlClass, 'end-3 top-[calc(50%-1.125rem)]')}
             onClick={scrollNext}
           >
             <OurIcon name="arrow-right" className="ltr:block rtl:hidden" />
