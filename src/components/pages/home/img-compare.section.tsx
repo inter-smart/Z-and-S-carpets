@@ -33,7 +33,8 @@ export default function ImgCompareSection({
             },
             {
               src: item.before.path,
-              alt: pick(item.before.alt, item.before.alt_ar) || t('floorBefore'),
+              alt:
+                pick(item.before.alt, item.before.alt_ar) || t('floorBefore'),
             },
           ],
         ]
@@ -74,7 +75,7 @@ export default function ImgCompareSection({
   const hasMultipleGroups = imgGroups.length > 1
 
   return (
-    <div className="container-wrapper relative mb-16 lg:mb-24">
+    <div className="container-wrapper section-plain relative py-16 lg:py-24">
       <div className="relative">
         {/* Slider */}
         <div className="overflow-hidden rounded-md">

@@ -69,25 +69,29 @@ export default async function AboutUsPage({
       <BreadcrumbBar
         values={[{ name: t('BannerSection.title'), link: '/about' }]}
       />
-      {introduction_section?.is_visible && (
-        <IntroSection data={introduction_section} />
-      )}
-      {history_section?.is_visible && <HistorySection data={history_section} />}
-      {messages_section?.is_visible && (
-        <ManagementSection data={messages_section} />
-      )}
-      {how_it_works_section?.is_visible && (
-        <ProcessSections data={how_it_works_section} />
-      )}
-      {core_value_section?.is_visible && (
-        <ValuesSection data={core_value_section} />
-      )}
-      {features_section?.is_visible && (
-        <ChooseUsSection features={features_section} side={side_section} />
-      )}
-      {industry_section?.is_visible && (
-        <IndustriesSection data={industry_section} />
-      )}
+      <div className="page-sections">
+        {introduction_section?.is_visible && (
+          <IntroSection data={introduction_section} />
+        )}
+        {history_section?.is_visible && (
+          <HistorySection data={history_section} />
+        )}
+        {messages_section?.is_visible && (
+          <ManagementSection data={messages_section} />
+        )}
+        {how_it_works_section?.is_visible && (
+          <ProcessSections data={how_it_works_section} />
+        )}
+        {core_value_section?.is_visible && (
+          <ValuesSection data={core_value_section} />
+        )}
+        {features_section?.is_visible && (
+          <ChooseUsSection features={features_section} side={side_section} />
+        )}
+        {industry_section?.is_visible && (
+          <IndustriesSection data={industry_section} />
+        )}
+      </div>
     </>
   )
 }

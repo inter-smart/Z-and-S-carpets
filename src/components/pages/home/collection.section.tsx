@@ -86,7 +86,7 @@ export default function CollectionSection({
 
   return (
     <section
-      className="container-wrapper py-16 lg:py-24"
+      className="container-wrapper section-plain py-16 lg:py-24"
       aria-labelledby="collection-title"
     >
       {/* header */}

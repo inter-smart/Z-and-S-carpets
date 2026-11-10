@@ -98,7 +98,7 @@ export default function TrustedPartnerSection({
   }, [emblaApi])
 
   return (
-    <div className="container-wrapper pb-16 lg:pb-22">
+    <div className="container-wrapper section-plain py-16 lg:py-22">
       {showBrands && (
         <>
           {/* heading */}

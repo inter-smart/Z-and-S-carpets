@@ -61,15 +61,17 @@ export default async function ServicesPage({
         values={[{ name: t('BannerSection.title'), link: '/services' }]}
         className="bg-[#EFF9FE]"
       />
-      {introduction_section?.is_visible && (
-        <IntroSection data={introduction_section} />
-      )}
-      {service_section?.is_visible && (
-        <ServicesGridSection data={service_section} />
-      )}
-      {process_steps_section?.is_visible && (
-        <ProcessSection data={process_steps_section} />
-      )}
+      <div className="page-sections">
+        {introduction_section?.is_visible && (
+          <IntroSection data={introduction_section} />
+        )}
+        {service_section?.is_visible && (
+          <ServicesGridSection data={service_section} />
+        )}
+        {process_steps_section?.is_visible && (
+          <ProcessSection data={process_steps_section} />
+        )}
+      </div>
     </>
   )
 }

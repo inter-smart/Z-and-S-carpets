@@ -70,7 +70,7 @@ export default function ServicesGridSection({
 
   return (
     <section
-      className="container-wrapper py-16 lg:py-20"
+      className="container-wrapper section-plain py-16 lg:py-20"
       aria-labelledby="services-title"
     >
       <h2

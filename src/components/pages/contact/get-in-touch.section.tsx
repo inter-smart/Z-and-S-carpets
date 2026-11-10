@@ -32,6 +32,8 @@ const invalidClass = 'border-red-300/70 focus:border-red-300'
 interface GetInTouchSectionProps {
   // form heading from the CMS; the translation is the fallback
   title?: ContactData['form_section']
+  /** push the form down to sit beside / below the details column; off when it stands alone */
+  offsetTop?: boolean
 }
 
 const FieldError = ({ id, message }: { id: string; message?: string }) =>
@@ -41,7 +43,10 @@ const FieldError = ({ id, message }: { id: string; message?: string }) =>
     </p>
   ) : null
 
-export default function GetInTouchSection({ title }: GetInTouchSectionProps) {
+export default function GetInTouchSection({
+  title,
+  offsetTop = true,
+}: GetInTouchSectionProps) {
   const locale = useLocale() as LocaleType
   const t = useTranslations('ContactPage.getInTouch')
 
@@ -149,7 +154,10 @@ export default function GetInTouchSection({ title }: GetInTouchSectionProps) {
       <section>
         <form
           noValidate
-          className="mt-14 h-fit rounded-md bg-[#023260] px-8 py-18 text-white"
+          className={cn(
+            'h-fit rounded-md bg-[#023260] px-8 py-18 text-white',
+            offsetTop && 'mt-14',
+          )}
           onSubmit={handleSubmit(onSubmit)}
         >
           <h2 className="our-heading text-8xl!">{formTitle}</h2>

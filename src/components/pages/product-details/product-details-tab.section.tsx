@@ -8,10 +8,11 @@ import type {
   ProductDetailItem,
 } from '@/types/product-detail'
 import { cn } from 'cn'
-import { Pause, Play } from 'lucide-react'
+import useEmblaCarousel from 'embla-carousel-react'
+import { ChevronLeft, ChevronRight, Pause, Play } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useVideoPlayback } from '@/hooks/use-video-playback'
 import { getVideoMimeType, withFirstFrameFragment } from '@/lib/video'
 
@@ -32,6 +33,33 @@ export default function ProductDetailsTabSection() {
   const { details, loadingDetails, detailsError, retryDetails } =
     useProductVariant()
   const [activeSlug, setActiveSlug] = useState('')
+
+  // the tab row is a drag / swipe carousel with prev / next arrows, so every tab is reachable
+  // even when there are too many to fit (mouse users have no scrollbar here)
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    dragFree: true,
+    containScroll: 'trimSnaps',
+    direction: locale === 'ar' ? 'rtl' : 'ltr',
+  })
+  const [canPrev, setCanPrev] = useState(false)
+  const [canNext, setCanNext] = useState(false)
+  const updateArrows = useCallback(() => {
+    if (!emblaApi) return
+    setCanPrev(emblaApi.canScrollPrev())
+    setCanNext(emblaApi.canScrollNext())
+  }, [emblaApi])
+  useEffect(() => {
+    if (!emblaApi) return
+    updateArrows()
+    emblaApi.on('select', updateArrows)
+    emblaApi.on('scroll', updateArrows)
+    emblaApi.on('reInit', updateArrows)
+    return () => {
+      emblaApi.off('select', updateArrows)
+      emblaApi.off('scroll', updateArrows)
+      emblaApi.off('reInit', updateArrows)
+    }
+  }, [emblaApi, updateArrows])
 
   const tabs: Tab[] = details.map((field) => ({
     slug: field.slug,
@@ -91,20 +119,45 @@ export default function ProductDetailsTabSection() {
           when there are too many for the screen */}
       {active && (
         <>
-          <div className="flex scrollbar-none gap-1 overflow-x-auto border-t border-b border-black/10 sm:gap-2">
-            {tabs.map((tab) => (
+          <div className="relative border-t border-b border-black/10">
+            <div ref={emblaRef} className="overflow-hidden">
+              <div className="flex">
+                {tabs.map((tab) => (
+                  <button
+                    key={tab.slug}
+                    type="button"
+                    onClick={() => setActiveSlug(tab.slug)}
+                    className={cn(
+                      'ltr:font-manrope rtl:font-cairo min-w-0 shrink-0 grow border-b-3 border-transparent px-3 py-3 text-center text-sm whitespace-nowrap focus:ring-0 focus:outline-none sm:px-4',
+                      active.slug === tab.slug &&
+                        'border-our-purple font-semibold',
+                    )}
+                  >
+                    {tab.name}
+                  </button>
+                ))}
+              </div>
+            </div>
+            {canPrev && (
               <button
-                key={tab.slug}
                 type="button"
-                onClick={() => setActiveSlug(tab.slug)}
-                className={cn(
-                  'ltr:font-manrope rtl:font-cairo shrink-0 grow border-b-3 border-transparent px-3 py-3 text-center text-sm whitespace-nowrap focus:ring-0 focus:outline-none sm:px-4',
-                  active.slug === tab.slug && 'border-our-purple font-semibold',
-                )}
+                aria-label="Previous tabs"
+                onClick={() => emblaApi?.scrollPrev()}
+                className="absolute inset-y-0 start-0 z-10 grid w-9 cursor-pointer place-items-center bg-linear-to-r from-white via-white/90 to-transparent focus:ring-0 focus:outline-none rtl:bg-linear-to-l"
               >
-                {tab.name}
+                <ChevronLeft className="size-5 rtl:rotate-180" />
               </button>
-            ))}
+            )}
+            {canNext && (
+              <button
+                type="button"
+                aria-label="Next tabs"
+                onClick={() => emblaApi?.scrollNext()}
+                className="absolute inset-y-0 end-0 z-10 grid w-9 cursor-pointer place-items-center bg-linear-to-l from-white via-white/90 to-transparent focus:ring-0 focus:outline-none rtl:bg-linear-to-r"
+              >
+                <ChevronRight className="size-5 rtl:rotate-180" />
+              </button>
+            )}
           </div>
 
           <section className="mt-9">

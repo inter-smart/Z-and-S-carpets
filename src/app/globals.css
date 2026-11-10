@@ -226,6 +226,13 @@
 @utility our-section-gap {
   @apply pt-16 pb-16 lg:pt-22 lg:pb-22;
 }
+/* Spacing between toggleable page sections: plain (untinted) sections carry symmetric
+   padding; when two sit next to each other (the section between them is hidden by an admin)
+   only one gap is kept. Wrap the section list in `.page-sections` and mark plain sections
+   with `.section-plain`. */
+.page-sections > .section-plain + .section-plain {
+  padding-top: 0;
+}
 @utility our-btn {
   /* @apply rounded-sm! px-12! py-4.5! text-sm! font-normal!; */
   @apply rounded-sm! px-8! py-4! text-sm! font-normal! hover:opacity-90!;

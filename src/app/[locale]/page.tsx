@@ -17,7 +17,9 @@ import { Suspense } from 'react'
 // Everything below the hero is split into its own chunk. These are still server-rendered
 // (SEO/first paint unchanged), but React hydrates each one separately instead of in a
 // single long task that delays the hero from painting.
-const FAQSection = dynamic(() => import('@/components/pages/common/faq.section'))
+const FAQSection = dynamic(
+  () => import('@/components/pages/common/faq.section'),
+)
 const ProcessSections = dynamic(
   () => import('@/components/pages/common/process.section'),
 )
@@ -90,55 +92,57 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
           milestones={milestones_section}
         />
       )}
-      {discover_section?.is_visible && (
-        <CollectionSection discover={discover_section} />
-      )}
-      {residential_section?.is_visible && (
-        <BestSellersSection residential={residential_section} />
-      )}
-      {industries_section?.is_visible && (
-        <BuiltForSection industries={industries_section} />
-      )}
-      {/* always rendered otherwise (translated title fallback), so check the admin flag */}
-      {works_section?.is_enabled !== false && (
-        <Suspense fallback={<WorksSkeleton />}>
-          <WorksSection title={works_section} />
-        </Suspense>
-      )}
-      {features_section?.is_visible && (
-        <ChooseUsSection features={features_section} side={side_section} />
-      )}
-      {side_images_section?.is_visible && (
-        <ImgCompareSection sideImages={side_images_section} />
-      )}
-      {how_it_works_section?.is_visible && (
-        <ProcessSections data={how_it_works_section} />
-      )}
-      {testimonials_section?.is_visible && (
-        <CustomerExpSection testimonials={testimonials_section} />
-      )}
-      {(brands_section?.is_visible || cta_section?.is_visible) && (
-        <TrustedPartnerSection brands={brands_section} cta={cta_section} />
-      )}
-      {(faqs_section?.is_visible || premium_section?.is_visible) && (
-        <section className="relative">
-          {/* right-side background */}
-          <div className="pointer-events-none absolute inset-y-0 hidden bg-[#EFF9FE] lg:block ltr:right-0 ltr:left-1/2 rtl:right-1/2 rtl:left-0" />
-          {/* actual content */}
-          <div className="lg:container-wrapper relative grid grid-cols-1 lg:grid-cols-2">
-            {faqs_section?.is_visible && (
-              <FAQSection
-                data={faqs_section}
-                container={false}
-                className="container-wrapper lg:container-wrapper-none"
-              />
-            )}
-            {premium_section?.is_visible && (
-              <PremiumSolutionsSection premium={premium_section} />
-            )}
-          </div>
-        </section>
-      )}
+      <div className="page-sections">
+        {discover_section?.is_visible && (
+          <CollectionSection discover={discover_section} />
+        )}
+        {residential_section?.is_visible && (
+          <BestSellersSection residential={residential_section} />
+        )}
+        {industries_section?.is_visible && (
+          <BuiltForSection industries={industries_section} />
+        )}
+        {/* always rendered otherwise (translated title fallback), so check the admin flag */}
+        {works_section?.is_enabled !== false && (
+          <Suspense fallback={<WorksSkeleton />}>
+            <WorksSection title={works_section} />
+          </Suspense>
+        )}
+        {features_section?.is_visible && (
+          <ChooseUsSection features={features_section} side={side_section} />
+        )}
+        {side_images_section?.is_visible && (
+          <ImgCompareSection sideImages={side_images_section} />
+        )}
+        {how_it_works_section?.is_visible && (
+          <ProcessSections data={how_it_works_section} />
+        )}
+        {testimonials_section?.is_visible && (
+          <CustomerExpSection testimonials={testimonials_section} />
+        )}
+        {(brands_section?.is_visible || cta_section?.is_visible) && (
+          <TrustedPartnerSection brands={brands_section} cta={cta_section} />
+        )}
+        {(faqs_section?.is_visible || premium_section?.is_visible) && (
+          <section className="relative">
+            {/* right-side background */}
+            <div className="pointer-events-none absolute inset-y-0 hidden bg-[#EFF9FE] lg:block ltr:right-0 ltr:left-1/2 rtl:right-1/2 rtl:left-0" />
+            {/* actual content */}
+            <div className="lg:container-wrapper relative grid grid-cols-1 lg:grid-cols-2">
+              {faqs_section?.is_visible && (
+                <FAQSection
+                  data={faqs_section}
+                  container={false}
+                  className="container-wrapper lg:container-wrapper-none"
+                />
+              )}
+              {premium_section?.is_visible && (
+                <PremiumSolutionsSection premium={premium_section} />
+              )}
+            </div>
+          </section>
+        )}
+      </div>
     </>
   )
 }

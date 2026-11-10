@@ -56,6 +56,7 @@ export default async function ContactUsPage({
   const showSocial = !isOff(social_section)
   const showForm = !isOff(form_section)
   const showLeftColumn = showDetails || showSocial
+  const hasContentGrid = showLeftColumn || showForm
 
   return (
     <>
@@ -72,11 +73,14 @@ export default async function ContactUsPage({
         values={[{ name: t('BannerSection.title'), link: '/contact' }]}
       />
 
-      {(showLeftColumn || showForm) && (
+      {hasContentGrid && (
         <div
           className={`container-wrapper grid pt-5 pb-10 lg:pt-12 lg:pb-20 ${
             showLeftColumn && showForm
-              ? 'lg:grid-cols-[1fr_0.95fr] lg:gap-12 xl:gap-24'
+              ? `lg:grid-cols-[1fr_0.95fr] lg:gap-12 xl:gap-24 ${
+                  // no details heading above the social card: the form's own top offset is dropped, so space the stacked layout here
+                  showDetails ? '' : 'gap-y-8'
+                }`
               : ''
           }`}
         >
@@ -95,6 +99,7 @@ export default async function ContactUsPage({
           {showForm && (
             <GetInTouchSection
               title={form_section?.is_visible ? form_section : undefined}
+              offsetTop={showDetails}
             />
           )}
         </div>
@@ -102,7 +107,11 @@ export default async function ContactUsPage({
 
       {/* map section */}
       {!isOff(map_section) && (
-        <div className="h-80 w-full overflow-hidden sm:h-100">
+        <div
+          className={`h-80 w-full overflow-hidden sm:h-100 ${
+            hasContentGrid ? '' : 'mt-5 lg:mt-12'
+          }`}
+        >
           <iframe
             src={map_section?.is_visible ? map_section.url : FALLBACK_MAP_URL}
             title="Z&S Carpets location"

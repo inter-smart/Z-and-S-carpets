@@ -110,7 +110,7 @@ export default function ChooseUsSection({
       }
 
   return (
-    <section className="container-wrapper py-16 lg:py-24">
+    <section className="container-wrapper section-plain py-16 lg:py-24">
       {/* title */}
       <div className="mx-auto">
         <h2 className="our-heading text-center">{title}</h2>

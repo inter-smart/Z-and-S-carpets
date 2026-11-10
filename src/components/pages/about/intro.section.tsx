@@ -32,7 +32,7 @@ export default function IntroSection({ data }: IntroSectionProps) {
     : null
 
   return (
-    <section className="container-wrapper flex flex-col gap-10 pt-8 pb-12 lg:gap-18 lg:pt-16 lg:pb-20">
+    <section className="container-wrapper section-plain flex flex-col gap-10 pt-8 pb-12 lg:gap-18 lg:pt-16 lg:pb-20">
       <section
         className="grid items-start gap-10 lg:grid-cols-[1fr_1.35fr] lg:gap-15"
         aria-labelledby="about-title"
@@ -89,7 +89,10 @@ export default function IntroSection({ data }: IntroSectionProps) {
               variant={'outline'}
               className="our-btn border-black"
               {...(trustButton
-                ? { nativeButton: false, render: <Link href={trustButton.href} /> }
+                ? {
+                    nativeButton: false,
+                    render: <Link href={trustButton.href} />,
+                  }
                 : {})}
             >
               {trustButton ? trustButton.label : t('actions.contact')}

@@ -136,7 +136,7 @@ export default function CustomerExpSection({
 
   return (
     <section
-      className="py-16 sm:py-24"
+      className="section-plain py-16 sm:py-24"
       aria-labelledby="customer-experiences-title"
     >
       {/* header */}

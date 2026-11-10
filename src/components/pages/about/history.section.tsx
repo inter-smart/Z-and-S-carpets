@@ -39,7 +39,7 @@ export default function HistorySection({ data }: HistorySectionProps) {
 
   return (
     <section
-      className="container-wrapper pb-16 lg:pb-24"
+      className="container-wrapper section-plain our-section-gap"
       aria-labelledby="company-history"
     >
       <h2 className="our-heading text-center text-7xl!">

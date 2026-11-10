@@ -171,7 +171,9 @@ export default function ContactDetailsSection({
         </>
       )}
       {showSocial && (
-        <div className="mt-3 flex flex-col items-start gap-2 rounded-sm border border-[#dedede] px-5 py-6 min-[450px]:flex-row min-[450px]:items-center min-[450px]:gap-7">
+        <div
+          className={`${showDetails ? 'mt-3' : ''} flex flex-col items-start gap-2 rounded-sm border border-[#dedede] px-5 py-6 min-[450px]:flex-row min-[450px]:items-center min-[450px]:gap-7`}
+        >
           <span className="text-2xl">{socialTitle || t('socialTitle')}</span>
           <div
             className="flex items-center gap-7"
