@@ -1,5 +1,7 @@
 'use client'
 
+import { Fragment } from 'react'
+
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -36,7 +38,7 @@ export default function BreadcrumbBar({
               </BreadcrumbLink>
             </BreadcrumbItem>
             {values.map((value) => (
-              <div key={value.link} className="flex gap-1 sm:gap-3">
+              <Fragment key={value.link}>
                 <BreadcrumbSeparator className="text-black">
                   /
                 </BreadcrumbSeparator>
@@ -52,7 +54,7 @@ export default function BreadcrumbBar({
                     {value.name}
                   </BreadcrumbLink>
                 </BreadcrumbItem>
-              </div>
+              </Fragment>
             ))}
           </BreadcrumbList>
         </Breadcrumb>

@@ -1,24 +1,14 @@
 'use client'
 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
 import type { LocaleType } from '@/i18n/types'
-import { cn } from 'cn'
-import { ChevronDownIcon } from 'lucide-react'
 import { useLocale } from 'next-intl'
 import Image from 'next/image'
 import { usePathname, useRouter } from 'next/navigation'
-import { useState, useTransition } from 'react'
+import { useTransition } from 'react'
 import { createPortal } from 'react-dom'
 
 export default function NavbarLangDropdown() {
   const locale = useLocale() as LocaleType
-
-  const [open, setOpen] = useState(false)
 
   const pathname = usePathname()
   const router = useRouter()
@@ -59,37 +49,15 @@ export default function NavbarLangDropdown() {
           </div>,
           document.body,
         )}
-      <DropdownMenu open={open} onOpenChange={setOpen}>
-        <DropdownMenuTrigger className="py-2.25 focus:ring-0 focus:outline-none">
-          <p className="flex cursor-pointer flex-row items-center space-x-0.5 text-base sm:space-x-1.5">
-            <span className="first-letter:uppercase">{locale}</span>
-            <ChevronDownIcon
-              size={12}
-              className={cn(
-                'transition-transform duration-300',
-                open ? 'rotate-180' : 'rotate-0',
-              )}
-            />
-          </p>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent
-          sideOffset={6}
-          className="min-w-20! rounded-md! text-2xl **:rounded-sm! **:text-sm"
-        >
-          <DropdownMenuItem
-            disabled={isPending}
-            onClick={() => switchLocale('en')}
-          >
-            English
-          </DropdownMenuItem>
-          <DropdownMenuItem
-            disabled={isPending}
-            onClick={() => switchLocale('ar')}
-          >
-            العربية
-          </DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
+      <button
+        type="button"
+        disabled={isPending}
+        onClick={() => switchLocale(locale === 'en' ? 'ar' : 'en')}
+        aria-label={locale === 'en' ? 'التبديل إلى العربية' : 'Switch to English'}
+        className="cursor-pointer py-2.25 text-base first-letter:uppercase focus:ring-0 focus:outline-none"
+      >
+        {locale}
+      </button>
     </>
   )
 }

@@ -548,54 +548,62 @@ export default function NavbarCategoryDropdown({
     >
       <NavigationMenuList className="flex w-full! items-center justify-between">
         {/* category */}
-        <div
-          className={cn(
-            'contents overflow-hidden',
-            'max-[299px]:[&>*:nth-last-child(-n+7)]:hidden',
-            'max-[449px]:[&>*:nth-last-child(-n+6)]:hidden',
-            'max-sm:[&>*:nth-last-child(-n+5)]:hidden',
-            'max-md:[&>*:nth-last-child(-n+4)]:hidden',
-            'max-lg:[&>*:nth-last-child(-n+3)]:hidden',
-            'max-xl:[&>*:nth-last-child(-n+2)]:hidden',
-          )}
-        >
-          {category.map((item, i) => (
-            <NavigationMenuItem
-              key={item.id ?? i}
-              className="hover:bg-transparent!"
-            >
-              <NavigationMenuTrigger className="navigation-menu-trigger-style-change h-fit! px-0! py-1.75! text-base font-normal">
-                {item.title}
-              </NavigationMenuTrigger>
-              <NavigationMenuContent className="z-50 overflow-y-auto">
-                <DropdownContent
-                  category={item}
-                  whatsapp={whatsapp}
-                  onNavigate={() => setOpenMenu('')}
-                />
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-          ))}
-        </div>
+        <li className="contents">
+          <ul
+            className={cn(
+              'contents overflow-hidden',
+              'max-[299px]:[&>*:nth-last-child(-n+7)]:hidden',
+              'max-[449px]:[&>*:nth-last-child(-n+6)]:hidden',
+              'max-sm:[&>*:nth-last-child(-n+5)]:hidden',
+              'max-md:[&>*:nth-last-child(-n+4)]:hidden',
+              'max-lg:[&>*:nth-last-child(-n+3)]:hidden',
+              'max-xl:[&>*:nth-last-child(-n+2)]:hidden',
+            )}
+          >
+            {category.map((item, i) => (
+              <NavigationMenuItem
+                key={item.id ?? i}
+                className="hover:bg-transparent!"
+              >
+                <NavigationMenuTrigger className="navigation-menu-trigger-style-change h-fit! px-0! py-1.75! text-base font-normal">
+                  {item.title}
+                </NavigationMenuTrigger>
+                <NavigationMenuContent className="z-50 overflow-y-auto">
+                  <DropdownContent
+                    category={item}
+                    whatsapp={whatsapp}
+                    onNavigate={() => setOpenMenu('')}
+                  />
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+            ))}
+          </ul>
+        </li>
         {/* more category btn: lists the categories the bar hides at the current width */}
         {category.length > 0 && (
-          <MoreCategories
-            categories={category}
-            label={t('categoryMoreBtnLabel')}
-          />
+          <li className="contents">
+            <MoreCategories
+              categories={category}
+              label={t('categoryMoreBtnLabel')}
+            />
+          </li>
         )}
         {/* language change dropdown */}
-        <NavbarLangDropdown />
+        <li className="contents">
+          <NavbarLangDropdown />
+        </li>
         {/* search */}
-        <button
-          type="button"
-          onClick={() => setSearchOpen(true)}
-          aria-label={t('searchLabel')}
-          aria-haspopup="dialog"
-          className="cursor-pointer p-1 focus:ring-0 focus:outline-none"
-        >
-          <OurIcon name="search" className="size-4" />
-        </button>
+        <li className="contents">
+          <button
+            type="button"
+            onClick={() => setSearchOpen(true)}
+            aria-label={t('searchLabel')}
+            aria-haspopup="dialog"
+            className="cursor-pointer p-1 focus:ring-0 focus:outline-none"
+          >
+            <OurIcon name="search" className="size-4" />
+          </button>
+        </li>
       </NavigationMenuList>
     </NavigationMenu>
   )

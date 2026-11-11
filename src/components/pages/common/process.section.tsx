@@ -147,7 +147,7 @@ export default function ProcessSections({ data }: ProcessSectionsProps) {
                   aria-controls={`process-step-${i}`}
                 >
                   <span className="">0{i + 1}</span>
-                  <div className="flex flex-col items-start gap-2 ps-6">
+                  <span className="flex flex-col items-start gap-2 ps-6">
                     <span className="text-start">{step.title}</span>
                     <span
                       id={`process-step-${i}`}
@@ -165,7 +165,7 @@ export default function ProcessSections({ data }: ProcessSectionsProps) {
                         </span>
                       </span>
                     </span>
-                  </div>
+                  </span>
                 </button>
               )
             })}

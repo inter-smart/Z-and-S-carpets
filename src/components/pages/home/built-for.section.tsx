@@ -275,7 +275,8 @@ export default function BuiltForSection({ industries }: BuiltForSectionProps) {
                         aria-label={`Select ${product.name}`}
                         aria-pressed={activeProduct === index}
                       >
-                        <div
+                        <span
+                          aria-hidden="true"
                           className={cn(
                             'bg-primary/40 absolute inset-0 z-11 rounded-xs',
                             activeProduct === index
