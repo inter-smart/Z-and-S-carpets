@@ -32,7 +32,7 @@ export const getProductsData = {
     request<T>('/api/frontend/products/filters', params),
 
   // Paginated product list, filtered by `category` (comma separated slugs: the products of
-  // exactly those categories) and `attrs` (`color:oak,size:2m`).
+  // those categories and all their sub-categories) and `attrs` (`color:oak,size:2m`).
   getList: <T = unknown>(params: Record<string, string> = {}) =>
     request<T>('/api/frontend/products', params),
 
