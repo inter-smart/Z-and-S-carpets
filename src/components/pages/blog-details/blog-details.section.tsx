@@ -72,8 +72,8 @@ export function BlogDetailsSection({
   const articleTags = splitByCharLength(tags)
 
   return (
-    <section className="container-wrapper pt-10">
-      <article className="rounded-md border border-[#BABABA] px-5 py-7 lg:px-8 lg:py-10">
+    <section className="container-wrapper pt-10 pb-10 lg:pb-15">
+      <article className="flow-root rounded-md border border-[#BABABA] px-5 py-7 lg:px-8 lg:py-10">
         {article.media.path && (
           <Image
             src={article.media.path}

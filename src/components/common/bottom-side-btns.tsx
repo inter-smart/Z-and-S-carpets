@@ -36,7 +36,7 @@ export default function BottomSideBtns({
             {/* uploaded glyphs are single-colour; shown white */}
             <Image
               src={item.icon.path as string}
-              alt=""
+              alt={item.icon.alt || href}
               width={20}
               height={20}
               className="size-5 object-contain brightness-0 invert"

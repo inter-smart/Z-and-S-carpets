@@ -62,7 +62,7 @@ export default function LookingForwardCard({
         </Button>
         <Image
           src={VectorPart1}
-          alt=""
+          alt={tAlt('flooring')}
           className="pointer-events-none absolute top-0 z-10 hidden h-full object-contain sm:block ltr:-right-20 rtl:-left-20 rtl:scale-x-[-1]"
         />
       </div>

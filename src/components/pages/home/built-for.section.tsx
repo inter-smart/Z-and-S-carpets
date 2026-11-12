@@ -123,7 +123,7 @@ export default function BuiltForSection({ industries }: BuiltForSectionProps) {
       <div className="relative mx-auto overflow-hidden rounded-md px-4 pt-18 pb-12 sm:px-8 lg:px-12">
         <Image
           src={industries.background.path || t('bgImage')}
-          alt=""
+          alt={tAlt('flooring')}
           fill
           sizes="100vw"
           className="object-cover object-bottom"

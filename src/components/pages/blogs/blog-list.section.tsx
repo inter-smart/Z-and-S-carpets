@@ -126,6 +126,8 @@ export default function BlogListSection({
 
   // An ad banner follows every full AD_EVERY posts (4, 8, 12...), taking the ads in turn (and
   // starting again from the first when they run out), so posts added with Load More get banners too.
+  // (an ad without an image renders nothing, so it doesn't count)
+  const usableAds = ads.filter((ad) => ad.media.path)
   const groups = Array.from(
     { length: Math.ceil(blogs.length / AD_EVERY) },
     (_, i) => blogs.slice(i * AD_EVERY, (i + 1) * AD_EVERY),
@@ -189,15 +191,22 @@ export default function BlogListSection({
             {groups.map((group, index) => (
               <Fragment key={group[0].slug}>
                 <div
-                  className={`grid gap-4 md:grid-cols-2 ${index === 0 ? 'mt-10' : ''}`}
+                  className={`grid gap-4 md:grid-cols-2 ${
+                    index === 0
+                      ? 'mt-10'
+                      : // no banner between the groups -> keep the grid gap
+                        usableAds.length === 0
+                        ? 'mt-4'
+                        : ''
+                  }`}
                 >
                   {group.map((article) => (
                     <BlogItemCard key={article.slug} article={article} />
                   ))}
                 </div>
                 {/* only after a full group (4, 8, 12... posts), never after a partial last one */}
-                {ads.length > 0 && group.length === AD_EVERY && (
-                  <AdBanner ad={ads[index % ads.length]} />
+                {usableAds.length > 0 && group.length === AD_EVERY && (
+                  <AdBanner ad={usableAds[index % usableAds.length]} />
                 )}
               </Fragment>
             ))}

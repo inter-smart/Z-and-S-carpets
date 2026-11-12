@@ -83,7 +83,7 @@ export default function SeasonalOfferContent({
             <div className="bg-our-green relative ms-auto h-33 w-33 overflow-hidden rounded-full">
               <Image
                 src={badge.path}
-                alt=""
+                alt={t('offer')}
                 fill
                 sizes="132px"
                 className="object-cover"
@@ -103,6 +103,7 @@ export function SeasonalOfferPreload({
   mobileMedia,
   badge,
 }: Pick<SeasonalOfferContentData, 'media' | 'mobileMedia' | 'badge'>) {
+  const t = useTranslations('Common.ImageAlt')
   // null on the server / first render so nothing is fetched before we know the viewport
   const mobile = useSyncExternalStore(
     () => () => {},
@@ -119,7 +120,7 @@ export function SeasonalOfferPreload({
       {main && (
         <Image
           src={main}
-          alt=""
+          alt={(mobile && mobileMedia?.alt) || media.alt || t('offer')}
           fill
           loading="eager"
           fetchPriority="low"
@@ -129,7 +130,7 @@ export function SeasonalOfferPreload({
       {badge.path && (
         <Image
           src={badge.path}
-          alt=""
+          alt={t('offer')}
           fill
           loading="eager"
           fetchPriority="low"

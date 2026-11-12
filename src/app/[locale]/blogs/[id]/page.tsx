@@ -3,6 +3,7 @@ import DynamicMeta from '@/components/common/dynamic-meta'
 import { BlogDetailsSection } from '@/components/pages/blog-details/blog-details.section'
 import RelatedBlogsSection from '@/components/pages/blog-details/related-blogs.section'
 import AdBanner from '@/components/pages/common/ad.banner'
+import BannerHiddenSpacer from '@/components/pages/common/banner-hidden-spacer'
 import type { LocaleType } from '@/i18n/types'
 import { BLOG_NOT_FOUND, getBlogsData } from '@/lib/api/blogs'
 import { getDetailMetaData } from '@/lib/api/metaApi'
@@ -121,12 +122,12 @@ export default async function BlogDetailsPage({
   return (
     <>
       <DynamicMeta structuredData={[articleSchema]} />
+      <BannerHiddenSpacer />
       <BreadcrumbBar
         values={[
           { name: t('Breadcrumb.title'), link: `/blogs` },
           { name: title, link: `/blogs/${slug}`, currentPage: true },
         ]}
-        className="mt-7"
       />
       <BlogDetailsSection
         article={post}
