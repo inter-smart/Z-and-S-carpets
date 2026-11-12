@@ -1,5 +1,6 @@
 import { OurIcon } from '@/components/ui/icon'
 import { useTranslations } from 'next-intl'
+import Link from 'next/link'
 
 export default function QuotesEmptySection() {
   const t = useTranslations('QuotesPage')
@@ -11,6 +12,9 @@ export default function QuotesEmptySection() {
       </div>
       <p className="mt-7 text-4xl font-medium">{t('emptyTitle')}</p>
       <p className="mt-2 text-base">{t('emptyDescription')}</p>
+      <Link href="/products" className="bg-our-purple our-btn mt-6 inline-flex items-center text-white">
+        {t('viewProducts')}
+      </Link>
     </div>
   )
 }

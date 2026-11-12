@@ -443,6 +443,9 @@ const SHOW_IN_MORE_WHEN_HIDDEN = [
   'max-[299px]:flex',
 ]
 
+// At most this many categories are shown in the bar; the rest always go under "More".
+const MAX_BAR_CATEGORIES = 7
+
 function MoreCategories({
   categories,
   label,
@@ -450,6 +453,8 @@ function MoreCategories({
   categories: NavCategory[]
   label: string
 }) {
+  const barCount = Math.min(categories.length, MAX_BAR_CATEGORIES)
+  const hasOverflow = categories.length > MAX_BAR_CATEGORIES
   const locale = useLocale() as LocaleType
   const [open, setOpen] = useState(false)
 
@@ -460,8 +465,13 @@ function MoreCategories({
 
   return (
     <DropdownMenu open={open} onOpenChange={setOpen}>
-      {/* nothing is hidden from the bar from xl up, so "More" is only needed below it */}
-      <DropdownMenuTrigger className="py-2.25 focus:ring-0 focus:outline-none xl:hidden">
+      {/* without overflow nothing is hidden from the bar from xl up, so "More" is only needed below it */}
+      <DropdownMenuTrigger
+        className={cn(
+          'py-2.25 focus:ring-0 focus:outline-none',
+          !hasOverflow && 'xl:hidden',
+        )}
+      >
         <span className="flex cursor-pointer flex-row items-center space-x-0.5 text-base sm:space-x-1.5">
           <span className="first-letter:uppercase">{label}</span>
           <ChevronDownIcon
@@ -479,11 +489,20 @@ function MoreCategories({
         className="min-w-44! rounded-md! p-1"
       >
         {categories.map((item, i) => {
-          const fromEnd = categories.length - i - 1
-          const showWhen = SHOW_IN_MORE_WHEN_HIDDEN[fromEnd]
+          // beyond the bar's limit: always listed here
+          const overflow = i >= MAX_BAR_CATEGORIES
+          const showWhen = overflow
+            ? 'flex'
+            : SHOW_IN_MORE_WHEN_HIDDEN[barCount - i - 1]
           if (!showWhen) return null
           return (
-            <div key={item.id ?? i} className={cn('hidden flex-col', showWhen)}>
+            <div
+              key={item.id ?? i}
+              className={cn(
+                overflow ? 'flex flex-col' : 'hidden flex-col',
+                !overflow && showWhen,
+              )}
+            >
               <Link
                 href={hrefFor(item)}
                 onClick={() => setOpen(false)}
@@ -560,7 +579,7 @@ export default function NavbarCategoryDropdown({
               'max-xl:[&>*:nth-last-child(-n+2)]:hidden',
             )}
           >
-            {category.map((item, i) => (
+            {category.slice(0, MAX_BAR_CATEGORIES).map((item, i) => (
               <NavigationMenuItem
                 key={item.id ?? i}
                 className="hover:bg-transparent!"
